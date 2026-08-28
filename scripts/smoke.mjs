@@ -95,9 +95,24 @@ const selectWorldChapterBlock=worldUi.slice(worldUi.indexOf('function selectWorl
 const selectWorldStageBlock=worldUi.slice(worldUi.indexOf('function selectWorldStage('),worldUi.indexOf('function renderStageList('));
 const renderStageListBlock=worldUi.slice(worldUi.indexOf('function renderStageList()'));
 const startBattleBlock=engineCode.slice(engineCode.indexOf('function startBattle()'),engineCode.indexOf('function mapEnemyIds('));
+const pickChestBlock=engineCode.slice(engineCode.indexOf('function pickChest('),engineCode.indexOf('function forceLevel('));
+const v34RunFeatureBlock=[
+ engineCode.slice(engineCode.indexOf('function v34TimedRewardTimes('),engineCode.indexOf('function v34InitRunFeatures(')),
+ engineCode.slice(engineCode.indexOf('function v34InitRunFeatures('),engineCode.indexOf('function v34ObjectiveCurrent(')),
+ engineCode.slice(engineCode.indexOf('function v34ObjectiveCurrent('),engineCode.indexOf('function v34ObjectiveProjection(')),
+ engineCode.slice(engineCode.indexOf('function v34ObjectiveProjection('),engineCode.indexOf('function v34UpdateObjectives(')),
+ engineCode.slice(engineCode.indexOf('function v34UpdateObjectives('),engineCode.indexOf('function v34TimedRewardProjection(')),
+ engineCode.slice(engineCode.indexOf('function v34TimedRewardProjection('),engineCode.indexOf('function v34UpdateTimedRewards(')),
+ engineCode.slice(engineCode.indexOf('function v34UpdateTimedRewards('),engineCode.indexOf('function claimTimedReward(')),
+ engineCode.slice(engineCode.indexOf('function claimTimedReward('),engineCode.indexOf('function v34RenderCombatLoop('))
+].join('\n');
+const v34RenderCombatLoopBlock=engineCode.slice(engineCode.indexOf('function v34RenderCombatLoop('),engineCode.indexOf('function tryDodge('));
 const renderHeroHallBlock=heroUiCode.slice(heroUiCode.indexOf('function renderHeroHall()'),heroUiCode.indexOf('function focusHero('));
 const focusHeroBlock=heroUiCode.slice(heroUiCode.indexOf('function focusHero('),heroUiCode.indexOf('function confirmHeroSelection('));
-const confirmHeroBlock=heroUiCode.slice(heroUiCode.indexOf('function confirmHeroSelection('),heroUiCode.indexOf('function selectHero('));
+const heroPreviewBlock=heroUiCode.slice(heroUiCode.indexOf('function v34HeroSelectionPreview('),heroUiCode.indexOf('function renderHeroes('));
+const confirmHeroBlock=heroUiCode.slice(heroUiCode.indexOf('function confirmHeroSelection('),heroUiCode.indexOf('function v34BuildNames('));
+const cancelHeroBlock=heroUiCode.slice(heroUiCode.indexOf('function v34CancelHeroSelection('),heroUiCode.indexOf('function applyHeroSelection('));
+const applyHeroBlock=heroUiCode.slice(heroUiCode.indexOf('function applyHeroSelection('),heroUiCode.indexOf('function selectHero('));
 const selectHeroBlock=heroUiCode.slice(heroUiCode.indexOf('function selectHero('));
 const focusLoadoutBayBlock=loadoutUiCode.slice(loadoutUiCode.indexOf('function focusLoadoutBay('),loadoutUiCode.indexOf('function equipGear('));
 const renderBuildBlock=buildUiCode.slice(buildUiCode.indexOf('function renderBuild()'),buildUiCode.indexOf('function renderBuildSlots('));
@@ -139,6 +154,77 @@ if(!assetPipeline?.ok)fail.push('first-playable asset pipeline failed: '+(assetP
  if(!firstBossEngagementChecks.every(name=>assetPipeline?.checks?.[name]))fail.push('V3.3.8 first Boss engagement guards are incomplete');
  const playableLoopChecks=['playableWorldCamera','floatingJoystick','tacticalMinimapMarkup','tacticalMinimapProjection','tacticalMinimapReadOnly','heroPreviewNonDestructive','heroExplicitConfirmation','objectivesProjection','objectivesReadOnly','timedRewardsProjection','timedRewardsIdempotent','informativeChoices','loopResultSummary','noV34Wrappers'];
  if(!playableLoopChecks.every(name=>assetPipeline?.checks?.[name]))fail.push('V3.4.0 playable combat loop guards are incomplete');
+try{
+ const rewardSandbox={
+  run:{active:true,time:0,paused:false,v29:{id:'story',rule:{duration:360,storyContract:{bosses:['B001']},storyEncounter:{chestAt:[90,210,300]}}},drops:[],kills:0,v25:{used:0}},
+  save:{mode:'story'},hints:[],showCalls:0,
+  v34RenderCombatLoop(){},
+  document:{getElementById(){return null}}
+ };
+ rewardSandbox.hint=message=>rewardSandbox.hints.push(message);
+ rewardSandbox.showChest=()=>{rewardSandbox.showCalls++;rewardSandbox.run.paused=true;rewardSandbox.run.v34ChestOpen=true;return true};
+ const rewardContext=vm.createContext(rewardSandbox);vm.runInContext(v34RunFeatureBlock,rewardContext);
+ if(vm.runInContext('v34InitRunFeatures()',rewardContext)!==true||vm.runInContext('v34InitRunFeatures()',rewardContext)!==false||rewardSandbox.run.objectives.length!==3||rewardSandbox.run.timedRewards.length!==3)fail.push('V3.4 run objectives or timed rewards do not initialize exactly once');
+ const objectiveBefore=JSON.stringify(rewardSandbox.run),objectiveProjection=vm.runInContext('v34ObjectiveProjection()',rewardContext),rewardProjection=vm.runInContext('v34TimedRewardProjection()',rewardContext);
+ if(JSON.stringify(rewardSandbox.run)!==objectiveBefore||objectiveProjection.length!==3||rewardProjection.map(item=>item.state).join(',')!=='locked,locked,locked')fail.push('V3.4 objective or timed-reward projection mutates run state or misreports locked state');
+ rewardSandbox.run.drops.push({source:'normal'});vm.runInContext('v34UpdateObjectives()',rewardContext);
+ if(rewardSandbox.run.objectives[0].current!==0)fail.push('V3.4 Boss objective counts a non-Boss drop');
+ rewardSandbox.run.drops.push({source:'boss'});rewardSandbox.run.kills=60;rewardSandbox.run.v25.used=1;vm.runInContext('v34UpdateObjectives()',rewardContext);
+ if(rewardSandbox.run.objectives.some(objective=>!objective.complete))fail.push('V3.4 objectives do not consume Boss-drop, kill and existing interaction state deterministically');
+ rewardSandbox.run.time=90;
+ if(vm.runInContext('v34UpdateTimedRewards()',rewardContext)!==true||vm.runInContext('v34UpdateTimedRewards()',rewardContext)!==false||vm.runInContext("v34TimedRewardProjection()[0].state",rewardContext)!=='ready')fail.push('V3.4 timed reward does not transition from locked to ready exactly once');
+ rewardSandbox.run.v26BossLootShown=true;
+ if(vm.runInContext('claimTimedReward(0)',rewardContext)!==false||rewardSandbox.showCalls!==0)fail.push('V3.4 timed reward can open while Boss Loot has priority');
+ rewardSandbox.run.v26BossLootShown=false;
+ if(vm.runInContext('claimTimedReward(0)',rewardContext)!==true||vm.runInContext('claimTimedReward(0)',rewardContext)!==false||rewardSandbox.showCalls!==1)fail.push('V3.4 timed reward can be claimed more than once by rapid input');
+
+ const pickSandbox={
+  run:{v34ActiveReward:0,v34ChestOpen:true,v34ChestResolving:false,timedRewards:[{opened:true,claimed:false}],skills:{A001:1},passives:{},evolved:{},fused:{},drops:[],paused:true},
+  document:{querySelectorAll(){return[{disabled:false}]}},validOptions(){return[{id:'A001',kind:'active'}]},hint(){},log(){},skillName(id){return id},makeGearDrop(){return{id:'EQ',name:'test'}},v32CloseLayer(){},renderRunSide(){},v34RenderCombatLoop(){}
+ };
+ const pickContext=vm.createContext(pickSandbox);vm.runInContext(pickChestBlock,pickContext);
+ if(vm.runInContext("pickChest({type:'upgrade',id:null})",pickContext)!==true||vm.runInContext("pickChest({type:'upgrade',id:null})",pickContext)!==false||pickSandbox.run.skills.A001!==2||pickSandbox.run.timedRewards[0].claimed!==true)fail.push('V3.4 reward selection can apply more than once after its chest session closes');
+
+ const objectiveList={writes:0,_html:'',dataset:{},get innerHTML(){return this._html},set innerHTML(value){this._html=value;this.writes++}};
+ const rewardTrack={writes:0,button:null,_html:'',dataset:{},get innerHTML(){return this._html.replaceAll(' disabled aria-disabled',' disabled="" aria-disabled')},set innerHTML(value){this._html=value;this.writes++;this.button={write:this.writes}}};
+ const renderSandbox={run:{time:0,objectives:[{id:'primary',kind:'kills',label:'test',current:0,target:1,complete:false}],timedRewards:[{id:'reward-1',at:90,opened:false,claimed:false}]},fmt:value=>String(value),document:{getElementById(id){return id==='combatObjectiveList'?objectiveList:id==='timedRewardTrack'?rewardTrack:null}}};
+ const renderContext=vm.createContext(renderSandbox);vm.runInContext(v34RunFeatureBlock+'\n'+v34RenderCombatLoopBlock,renderContext);
+ vm.runInContext('v34RenderCombatLoop()',renderContext);const stableButton=rewardTrack.button;vm.runInContext('v34RenderCombatLoop()',renderContext);
+ if(objectiveList.writes!==1)fail.push('V3.4 objective render rebuilds unchanged HUD DOM every frame');
+ if(rewardTrack.writes!==1||rewardTrack.button!==stableButton)fail.push('V3.4 timed-reward render replaces an unchanged ready-button DOM node');
+ renderSandbox.run.objectives[0].current=1;renderSandbox.run.objectives[0].complete=true;renderSandbox.run.time=90;vm.runInContext('v34RenderCombatLoop()',renderContext);
+ if(objectiveList.writes!==2)fail.push('V3.4 objective render does not refresh when objective state changes');
+ if(rewardTrack.writes!==2||rewardTrack.button===stableButton)fail.push('V3.4 timed-reward render does not refresh when reward state changes');
+}catch(error){fail.push('V3.4 objective or timed-reward runtime test throws: '+error.message)}
+
+try{
+ const heroElements=new Map(),heroElement=id=>{if(!heroElements.has(id))heroElements.set(id,{textContent:'',disabled:false,classList:{contains(){return false},toggle(){}},querySelector(){return{textContent:''}},setAttribute(){}});return heroElements.get(id)};
+ const heroSandbox={
+  WW:{config:{hero:{H001:{name:'关羽',unlock:0,presets:[['赤焰',['A011'],['P026']]]},H002:{name:'赵云',unlock:40,presets:[['雷霆',['A021'],['P017']]]}}}},
+  save:{hero:'H001',gold:100,build:{active:['OLD_A'],passive:['OLD_P']},heroes:{H001:{unlocked:true,level:1},H002:{unlocked:true,level:1}}},
+  opened:0,closed:0,persisted:0,briefingReturns:0,lastGo:null,
+  document:{activeElement:null,getElementById:heroElement,querySelectorAll(){return[{disabled:false}]},querySelector(){return null},addEventListener(){}},
+  skillName(id){return id},toast(){},V29_BRIEFING_EDITORS:{heroes:'briefingEditHero'}
+ };
+ heroSandbox.v32OpenLayer=()=>heroSandbox.opened++;
+ heroSandbox.v32CloseLayer=()=>heroSandbox.closed++;
+ heroSandbox.persist=()=>heroSandbox.persisted++;
+ heroSandbox.go=id=>heroSandbox.lastGo=id;
+ heroSandbox.v29ReturnToBriefing=()=>heroSandbox.briefingReturns++;
+ const heroContext=vm.createContext(heroSandbox);vm.runInContext(heroUiCode,heroContext);vm.runInContext("heroHallFocusId='H002'",heroContext);
+ const previewSave=JSON.stringify(heroSandbox.save);vm.runInContext('confirmHeroSelection()',heroContext);
+ if(JSON.stringify(heroSandbox.save)!==previewSave||heroSandbox.persisted!==0||heroSandbox.opened!==1||vm.runInContext('v34PendingHeroId',heroContext)!=='H002')fail.push('V3.4 hero confirmation mutates the active hero or build before final choice');
+ vm.runInContext('v34CancelHeroSelection()',heroContext);
+ if(JSON.stringify(heroSandbox.save)!==previewSave||vm.runInContext('v34PendingHeroId',heroContext)!==null)fail.push('V3.4 hero confirmation cancel does not preserve the prior hero and build');
+ vm.runInContext("v34PendingHeroId='H002'",heroContext);
+ if(vm.runInContext("applyHeroSelection('keep')",heroContext)!==true||heroSandbox.save.hero!=='H002'||heroSandbox.save.build.active.join(',')!=='OLD_A'||heroSandbox.save.build.passive.join(',')!=='OLD_P'||heroSandbox.persisted!==1||heroSandbox.lastGo!=='loadout')fail.push('V3.4 keep-build confirmation changes the build or misses final persistence');
+ vm.runInContext("save.hero='H001';save.build.active=['OLD_A'];save.build.passive=['OLD_P'];v34PendingHeroId='H002'",heroContext);
+ if(vm.runInContext("applyHeroSelection('recommended')",heroContext)!==true||heroSandbox.save.build.active.join(',')!=='A021'||heroSandbox.save.build.passive.join(',')!=='P017')fail.push('V3.4 recommended-build confirmation does not apply the selected hero preset');
+ vm.runInContext("save.hero='H001';save.gold=100;save.heroes.H002.unlocked=false;save.build.active=['OLD_A'];save.build.passive=['OLD_P'];heroHallFocusId='H002'",heroContext);const lockedPreview=JSON.stringify(heroSandbox.save);vm.runInContext('confirmHeroSelection()',heroContext);
+ if(JSON.stringify(heroSandbox.save)!==lockedPreview)fail.push('V3.4 locked-hero preview charges or unlocks before final confirmation');
+ vm.runInContext("v29BriefingContext={editor:'heroes'}",heroContext);
+ if(vm.runInContext("applyHeroSelection('keep')",heroContext)!==true||heroSandbox.save.gold!==60||heroSandbox.save.heroes.H002.unlocked!==true||heroSandbox.briefingReturns!==1)fail.push('V3.4 final hero confirmation does not own unlock payment or briefing return');
+}catch(error){fail.push('V3.4 hero confirmation runtime test throws: '+error.message)}
 if(!shell)fail.push('missing assets/js/ui/ui-shell.js');
 for(const key of ['primary','secondary','flowOnly','views','sync'])if(!new RegExp(`\\b${key}\\b`).test(shellCode))fail.push(`WW.ui.shell is missing ${key}`);
 for(const name of ['go','startBattle','finishRun','renderResult','updateRun','drawRun'])if(new RegExp(`\\b${name}\\s*=`).test(shellCode))fail.push(`ui-shell reassigns core function ${name}`);
@@ -172,7 +258,7 @@ for(const legacy of removedConfigAliases)if(new RegExp(`\\b${legacy}\\b`).test(c
 for(const key of ['hero','skill','evolution','boss','stage','gear','rune','pet'])if(!gameData.includes(`window.WW.config.${key}=`))fail.push(`missing formal WW.config.${key} assignment`);
 if(!gameModes.includes('window.WW.config.mode='))fail.push('missing formal WW.config.mode assignment');
 if((gameData.match(/WW\.config\.evolution/g)||[]).length!==3)fail.push('game data evolution consumers do not use the formal path twice');
-for(const [source,count] of [[buildUiCode,1],[engineCode,2],[artCinematicsCode,5]]){
+for(const [source,count] of [[buildUiCode,1],[engineCode,3],[artCinematicsCode,5]]){
  if(/\bEVOS\b/.test(source))fail.push('a scoped evolution consumer still reads the legacy alias');
  if((source.match(/WW\.config\.evolution/g)||[]).length!==count)fail.push('a scoped evolution consumer has an unexpected formal-path count');
 }
@@ -185,7 +271,7 @@ for(const [source,count] of [[saveSlotsCode,2],[qualityPresentationCode,2],[artC
  if((source.match(/WW\.config\.hero/g)||[]).length!==count)fail.push('a scoped hero presentation/save consumer has an unexpected formal-path count');
 }
 if((gameData.match(/WW\.config\.hero/g)||[]).length!==3)fail.push('game data Hero consumers do not use the formal path twice');
-for(const [source,count] of [[engineCode,9],[metaGrowthCode,4],[stabilityCode,2]]){
+for(const [source,count] of [[engineCode,10],[metaGrowthCode,4],[stabilityCode,2]]){
  if(/\bHEROES\b/.test(source))fail.push('a remaining Hero consumer still reads the legacy alias');
  if((source.match(/WW\.config\.hero/g)||[]).length!==count)fail.push('a remaining Hero consumer has an unexpected formal-path count');
 }
@@ -518,7 +604,7 @@ try{
 if(!director.includes('function v19WavePlan(){ return v19StoryEncounter()?.waves||V19_WAVES; }')||!director.includes('(encounter?.elite||1)')||!director.includes('baseBurst*(encounter?.horde||1)'))fail.push('Director does not consume Story waves, elite pressure, and horde pressure');
 if(!director.includes('if(!v19StoryEncounter()){')||!director.includes("if(!encounter&&w.type==='boss'"))fail.push('legacy event, chest, or Boss milestones are not isolated away from Story encounters');
 if(!engine.includes("const profile=run?.v29?.id==='story'?run.v29.rule?.storyEncounter:null")||!engine.includes('profile?.eventPool?.length')||!engine.includes('hazard.type===\'fireline\'')||!engine.includes("hazard.type==='fog'")||!engine.includes("hazard.type==='blast'"))fail.push('enemy, event, or three hazard runtime consumers are missing');
-if(!gameModes.includes('encounterEvidence:evidence')||!gameModes.includes('v29FirstCampaignMilestone(encounter.eventAt,run.events,showEvent)')||!gameModes.includes('v29FirstCampaignMilestone(encounter.chestAt,run.chests,showChest)')||!gameModes.includes('lastResult.encounterEvidence=JSON.parse(JSON.stringify(run.v29.encounterEvidence))'))fail.push('encounter scheduling or executed-result evidence is incomplete');
+if(!gameModes.includes('encounterEvidence:evidence')||!gameModes.includes('v29FirstCampaignMilestone(encounter.eventAt,run.events,showEvent)')||!engine.includes('Array.isArray(rule?.storyEncounter?.chestAt)?rule.storyEncounter.chestAt.filter')||/v29FirstCampaignMilestone\([^\n;]*chestAt[^\n;]*showChest/.test(gameModesCode)||!gameModes.includes('lastResult.encounterEvidence=JSON.parse(JSON.stringify(run.v29.encounterEvidence))'))fail.push('encounter event scheduling, active timed rewards or executed-result evidence is incomplete');
 if(!worldUi.includes("selectedEncounter.name+' · '+selectedEncounter.hazard.name")||!bossInteractions.includes("encounter.name+' · '+encounter.hazard.name")||!gameModes.includes('<span>实际节奏</span>')||!gameModes.includes('<span>场地机制</span>')||!director.includes("log('怪潮升级 → '+w.name)"))fail.push('map, route preview, battle log, or result evidence is detached from encounter identity');
 storySandbox.save.chapters.ST001.stars={'ST001-01':3,'ST001-02':3,'ST001-03':2,'ST001-04':0,'NOT-A-STAGE':3};
 if(storySandbox.chapterStars('ST001')!==8)fail.push('chapter stars include unknown save keys');
@@ -630,7 +716,7 @@ if(!heroesBlock.includes('data-hero-hall')||!heroesBlock.includes('id="heroHallT
 if((heroesBlock.match(/data-hero-confirm/g)||[]).length!==1||!heroesBlock.includes('onclick="confirmHeroSelection()"')||/startBattle\s*\(/.test(heroesBlock))fail.push('hero hall does not expose exactly one selection confirmation or can start battle directly');
 if(!renderHeroHallBlock.includes("d=document.createElement('button');d.type='button'")||!renderHeroHallBlock.includes("d.dataset.heroId=id")||!renderHeroHallBlock.includes("d.setAttribute('aria-pressed',String(heroHallFocusId===id))")||!renderHeroHallBlock.includes("d.onclick=()=>focusHero(id)")||!renderHeroHallBlock.includes("save.hero===id")||!renderHeroHallBlock.includes("!s.unlocked"))fail.push('hero roster is not made of native preview controls with synchronized focused, current-save and locked states');
 if(!focusHeroBlock.includes("document.activeElement?.classList.contains('heroRosterEntry')")||!focusHeroBlock.includes('heroHallFocusId=id;renderHeroHall()')||!focusHeroBlock.includes("document.querySelector('#heroGrid .heroRosterEntry[aria-pressed=\"true\"]')?.focus({preventScroll:true})")||/\bsave\.|\bpersist\s*\(|\bselectHero\s*\(/.test(focusHeroBlock))fail.push('hero preview changes save state or fails to restore roster focus after synchronous rerender');
-if(!confirmHeroBlock.includes('selectHero(heroHallFocusId)')||/startBattle\s*\(/.test(confirmHeroBlock)||!selectHeroBlock.includes('save.hero=id')||!selectHeroBlock.includes('save.build.active=[...h.presets[0][1]]')||!selectHeroBlock.includes('save.build.passive=[...h.presets[0][2]]')||!selectHeroBlock.includes('persist()')||!selectHeroBlock.includes("go('loadout')"))fail.push('hero confirmation no longer delegates to the established selection, preset, persistence and loadout path');
+if(!heroPreviewBlock.includes('recommendedPreset:')||/\bsave\.|\bpersist\s*\(|localStorage/.test(heroPreviewBlock)||!confirmHeroBlock.includes('v34PendingHeroId=preview.heroId')||!confirmHeroBlock.includes("v32OpenLayer('heroConfirmOverlay')")||/\bsave(?:\.[\w$]+)+\s*(?:[+\-*/]?=|\+\+|--)|\bpersist\s*\(/.test(confirmHeroBlock)||!cancelHeroBlock.includes('v34PendingHeroId=null')||!applyHeroBlock.includes("choice!=='keep'&&choice!=='recommended'")||!applyHeroBlock.includes('save.gold-=price;heroSave.unlocked=true')||!applyHeroBlock.includes('save.hero=id')||!applyHeroBlock.includes("if(choice==='recommended')")||!applyHeroBlock.includes('save.build.active=[...preview.recommendedPreset.active]')||!applyHeroBlock.includes('save.build.passive=[...preview.recommendedPreset.passive]')||!applyHeroBlock.includes('persist()')||!applyHeroBlock.includes('v29ReturnToBriefing()')||!applyHeroBlock.includes("go('loadout')")||!selectHeroBlock.includes('confirmHeroSelection()')||/startBattle\s*\(/.test(confirmHeroBlock+applyHeroBlock))fail.push('hero confirmation does not preserve preview, explicit build choice, final purchase, persistence and briefing return authority');
 if(!heroUiCode.includes("document.addEventListener('ui:view-change'")||!heroUiCode.includes("event.detail?.id==='heroes'")||!heroUiCode.includes('renderHeroHall()'))fail.push('hero hall does not reclaim its scene after ordered legacy presentation scripts load');
 if(!css.includes('V3.3.5 SCENE HERO HALL')||!css.includes('body[data-shell-view="heroes"] .app{display:block')||!css.includes('.heroHall{position:relative;min-height:100dvh;height:100dvh')||!css.includes('.heroHallScene{display:grid;grid-template-columns:190px minmax(0,1fr) 320px')||!css.includes('.heroHallCommand{position:relative'))fail.push('desktop hero hall does not keep identity, roster and selection action in one viewport scene');
 if(!css.includes('#heroes .heroGrid{display:flex;overflow-x:auto;overflow-y:hidden')||!css.includes('.heroRosterEntry{flex:0 0 92px;min-width:92px;min-height:74px')||!css.includes('.heroHallCommand{position:fixed;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:calc(72px + env(safe-area-inset-bottom))')||!css.includes('padding-bottom:calc(154px + env(safe-area-inset-bottom))'))fail.push('phone hero hall lacks a safe-area fixed action, horizontal roster rail or readable touch targets');
@@ -679,6 +765,8 @@ if(!css.includes('body[data-shell-view="result"]{overflow-x:hidden;overflow-y:au
 if(!css.includes('.startScreen{place-items:start center;overflow-x:hidden;overflow-y:auto')||!css.includes('.startInner{width:min(100%,560px);grid-template-columns:minmax(0,1fr)')||!css.includes('.menuBtn{min-width:44px;min-height:56px')||!css.includes('.modalBox{width:100%;max-height:100%')||!css.includes('.closeX{flex:0 0 44px;width:44px;height:44px'))fail.push('phone entry and modal shells are not safe-area scrollable with touch-sized controls');
 if(!css.includes('.saveCard .actions,.storyIntroCard .actions,.recoveryBox .actions{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}')||!css.includes('.saveCard .btn,.storyIntroCard .btn,.recoveryBox .btn{width:100%;min-width:44px;min-height:44px')||!css.includes('.settingRow{min-height:44px')||!css.includes('.toggle{flex:0 0 44px;width:44px;height:44px')||!css.includes('.audioMeter input{min-width:44px;min-height:44px'))fail.push('phone save, settings, story or recovery actions are below 44px');
 if(!css.includes('.overlay,.lootChoiceOverlay{place-items:start center;overflow-x:hidden;overflow-y:auto')||!css.includes('.choiceGrid,.eventGrid,.gearChoiceGrid{grid-template-columns:minmax(0,1fr)}')||!css.includes('.choice,.eventCard,.gearChoiceCard{min-width:44px;min-height:44px')||!css.includes('.pausePanel .btn{width:100%;min-width:44px;min-height:44px'))fail.push('phone battle overlays are not scrollable single-column touch layouts');
+if(!css.includes('.mobileControls{z-index:9}')||!css.includes('.mobileMoveZone{position:absolute;left:0;top:0;bottom:0;z-index:9;'))fail.push('floating joystick control plane can cover blocking battle overlays on phone');
+if(!css.includes('.combatLoopHud{position:absolute;left:14px;top:118px;z-index:8;'))fail.push('combat objective or timed reward HUD can cover blocking battle overlays');
 if(!css.includes('.choiceGrid{display:grid;grid-template-columns:repeat(3,1fr)')||!css.includes('.eventGrid{display:grid;grid-template-columns:repeat(3,1fr)')||!css.includes('.gearChoiceGrid{display:grid;grid-template-columns:repeat(3,1fr)')||!css.includes('.startInner{position:relative;z-index:2;width:min(980px,92vw);display:grid;grid-template-columns:1.1fr .9fr'))fail.push('desktop choice or Start grid baseline changed');
 if(!navigationBlock.includes("b.setAttribute('aria-current','page')")||!navigationBlock.includes("navMore.classList.toggle('active',overflowActive)")||!navigationBlock.includes("setMobileNavOpen(false)")||!navigationBlock.includes("e.key==='Escape'")||!navigationBlock.includes('e.stopImmediatePropagation()')||!navigationBlock.includes("growth:'长期成长'")||!navigationBlock.includes("modes:'游戏模式'"))fail.push('navigation state, title, overflow and Escape synchronization guards are missing');
 const switchTags=[...html.matchAll(/<button\s+type="button"\s+class="toggle(?:\s+on)?"\s+id="[^"]+"\s+role="switch"\s+aria-label="[^"]+"\s+aria-checked="(?:true|false)"/g)];
@@ -696,7 +784,7 @@ const briefingBindingIds=['briefingTitle','briefingStageCode','briefingStageName
 if(!briefingBlock.includes('data-expedition-briefing')||!briefingBindingIds.every(id=>briefingBlock.includes(`id="${id}"`))||!['heroes','loadout','build'].every(page=>briefingBlock.includes(`v29OpenBriefingEditor('${page}')`)))fail.push('expedition briefing lacks its semantic page, live save bindings or three preparation entries');
 if(!briefingStatusBlock.includes('const blockers=[]')||!briefingStatusBlock.includes('v29Unlocked(save.mode)')||!briefingStatusBlock.includes('storyStageUnlocked(save.selectedStage)')||!briefingStatusBlock.includes('if(!active.length)')||!briefingStatusBlock.includes('if(!passive.length)')||!briefingStatusBlock.includes("active.filter(id=>!WW.config.skill?.[id]||String(id).startsWith('P'))")||!briefingStatusBlock.includes("passive.filter(id=>!WW.config.skill?.[id]||!String(id).startsWith('P'))")||!briefingStatusBlock.includes('Object.entries(slotLabels)')||!briefingStatusBlock.includes('if(!runes.length)')||!briefingStatusBlock.includes('WW.config.pet?.[save.pet]')||!briefingStatusBlock.includes('ready:blockers.length===0'))fail.push('briefing readiness does not re-derive valid non-empty builds and all blocking gameplay configuration from the active save');
 if(!briefingRenderBlock.includes("action.className='briefingFix'")||!briefingRenderBlock.includes('action.onclick=()=>v29OpenBriefingFix(blocker.target)')||!briefingFixBlock.includes('V29_BRIEFING_EDITORS[target]')||!briefingFixBlock.includes("target!=='modes'&&target!=='world'")||!briefingFixBlock.includes('v29ClearBriefingContext();go(target)'))fail.push('briefing blockers do not expose direct semantic repair actions for preparation and route problems');
-if(!briefingHeroActionBlock.includes('save.hero===id')||!briefingHeroActionBlock.includes('heroSave.unlocked')||!briefingHeroActionBlock.includes('gold>=price')||!briefingHeroActionBlock.includes('button.disabled=disabled')||!briefingCompleteHeroBlock.includes('Number(save.gold||0)<Number(hero.unlock||0)')||!briefingCompleteHeroBlock.includes("if(save.hero!==id||!heroSave.unlocked){selectHero(id)")||briefingCompleteHeroBlock.includes('selectHero(id);v29ReturnToBriefing()'))fail.push('briefing hero appointment lacks live locked, affordability, current-hero preservation or selection feedback');
+if(!briefingHeroActionBlock.includes('save.hero===id')||!briefingHeroActionBlock.includes('heroSave.unlocked')||!briefingHeroActionBlock.includes('gold>=price')||!briefingHeroActionBlock.includes('button.disabled=disabled')||!briefingCompleteHeroBlock.includes('return confirmHeroSelection()')||briefingCompleteHeroBlock.includes('selectHero(')||briefingCompleteHeroBlock.includes('v29ReturnToBriefing()')||!applyHeroBlock.includes("v29BriefingContext?.editor==='heroes'")||!applyHeroBlock.includes('v29ReturnToBriefing()'))fail.push('briefing hero appointment no longer defers selection, purchase and return until explicit build confirmation');
 if((html.match(/data-briefing-return/g)||[]).length!==3||!briefingBeginBlock.includes('window.scrollTo(0,0)')||!briefingOpenEditorBlock.includes('window.scrollTo(0,0)')||!briefingReturnBlock.includes("go('briefing');v29RenderBriefing()")||!briefingReturnBlock.includes("document.getElementById(focusId||'briefingTitle')?.focus()")||briefingReturnBlock.includes('focus({preventScroll:true})')||!briefingKeydownBlock.includes("event.key!=='Escape'")||!briefingKeydownBlock.includes('v29ReturnToBriefing()'))fail.push('preparation pages cannot open from the top or return to a refreshed visible briefing target with Escape');
 if(!loadoutBlock.includes('id="loadoutCompleteAction"')||!loadoutBlock.includes('onclick="v29CompleteLoadout()"')||!briefingCompleteLoadoutBlock.includes("v29BriefingContext?.editor==='loadout'")||!briefingCompleteLoadoutBlock.includes('v29ReturnToBriefing()')||!briefingCompleteLoadoutBlock.includes("go('build')")||!buildBlock.includes('id="buildCompleteAction" onclick="v29CompleteBuild()"')||!briefingCompleteBuildBlock.includes("v29BriefingContext?.editor==='build'")||!briefingCompleteBuildBlock.includes('v29ReturnToBriefing()')||!briefingCompleteBuildBlock.includes("go('world')")||!briefingSyncBlock.includes("loadoutComplete.textContent=active?")||!briefingSyncBlock.includes("buildComplete.setAttribute('aria-label',active?"))fail.push('loadout or build completion is not context-aware between briefing return and the ordinary preparation flow');
 if(!briefingQuickStartBlock.includes('v29BeginBriefing()')||/startBattle\s*\(/.test(briefingQuickStartBlock)||!gameModesCode.includes('function v29ReplayBriefing(){v29BeginBriefing()}')||!gameModesCode.includes('function v29OpenResultHandoff()')||!briefingConfirmBlock.includes('const status=v29BriefingStatus()')||!briefingConfirmBlock.includes('if(v29BriefingLaunching||v29LoadingTimer)return')||!briefingConfirmBlock.includes('v29BriefingLaunching=true')||(briefingConfirmBlock.match(/startBattle\s*\(/g)||[]).length!==1)fail.push('battle launch is not owned exactly once by explicit briefing confirmation');

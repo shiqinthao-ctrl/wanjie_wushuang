@@ -125,7 +125,10 @@ const renderStageListBlock=worldCode.slice(worldCode.indexOf('function renderSta
 const startBattleBlock=engineCode.slice(engineCode.indexOf('function startBattle()'),engineCode.indexOf('function mapEnemyIds('));
 const renderHeroHallBlock=heroesCode.slice(heroesCode.indexOf('function renderHeroHall()'),heroesCode.indexOf('function focusHero('));
 const focusHeroBlock=heroesCode.slice(heroesCode.indexOf('function focusHero('),heroesCode.indexOf('function confirmHeroSelection('));
-const confirmHeroBlock=heroesCode.slice(heroesCode.indexOf('function confirmHeroSelection('),heroesCode.indexOf('function selectHero('));
+const heroPreviewBlock=heroesCode.slice(heroesCode.indexOf('function v34HeroSelectionPreview('),heroesCode.indexOf('function renderHeroes('));
+const confirmHeroBlock=heroesCode.slice(heroesCode.indexOf('function confirmHeroSelection('),heroesCode.indexOf('function v34BuildNames('));
+const cancelHeroBlock=heroesCode.slice(heroesCode.indexOf('function v34CancelHeroSelection('),heroesCode.indexOf('function applyHeroSelection('));
+const applyHeroBlock=heroesCode.slice(heroesCode.indexOf('function applyHeroSelection('),heroesCode.indexOf('function selectHero('));
 const selectHeroBlock=heroesCode.slice(heroesCode.indexOf('function selectHero('));
 const focusLoadoutBayBlock=loadoutCode.slice(loadoutCode.indexOf('function focusLoadoutBay('),loadoutCode.indexOf('function equipGear('));
 const renderBuildBlock=buildCode.slice(buildCode.indexOf('function renderBuild()'),buildCode.indexOf('function renderBuildSlots('));
@@ -327,7 +330,7 @@ const good=[
   (gameDataCode.match(/\bEVOS\b/g)||[]).length===0
    &&(gameData.match(/WW\.config\.evolution/g)||[]).length===3
    &&gameData.includes('function reachableBuildEvos(){return Object.entries(WW.config.evolution)')
-   &&[[buildCode,1],[engineCode,2],[artCinematicsCode,5]].every(([source,count])=>
+   &&[[buildCode,1],[engineCode,3],[artCinematicsCode,5]].every(([source,count])=>
     !/\bEVOS\b/.test(source)
      &&(source.match(/WW\.config\.evolution/g)||[]).length===count
    )],
@@ -353,7 +356,7 @@ const good=[
  ['remaining Hero migrated consumers',
   (gameDataCode.match(/\bHEROES\b/g)||[]).length===0
    &&(gameData.match(/WW\.config\.hero/g)||[]).length===3
-   &&[[engineCode,9],[metaGrowthCode,4],[stabilityCode,2]].every(([source,count])=>
+   &&[[engineCode,10],[metaGrowthCode,4],[stabilityCode,2]].every(([source,count])=>
     !/\bHEROES\b/.test(source)
      &&(source.match(/WW\.config\.hero/g)||[]).length===count
    )],
@@ -503,9 +506,10 @@ const good=[
    &&engine.includes("hazard.type==='fog'")
    &&engine.includes("hazard.type==='blast'")
    &&engine.includes('r:hazard.size,life:hazard.life,dmg:hazard.damage')],
- ['V3.3.3 Story milestones override fixed events, chests and Boss timing',
+ ['V3.4 Story events and Boss timing remain authoritative while active timed rewards replace automatic chests',
   gameModes.includes('v29FirstCampaignMilestone(encounter.eventAt,run.events,showEvent)')
-   &&gameModes.includes('v29FirstCampaignMilestone(encounter.chestAt,run.chests,showChest)')
+   &&engine.includes('Array.isArray(rule?.storyEncounter?.chestAt)?rule.storyEncounter.chestAt.filter')
+   &&!/v29FirstCampaignMilestone\([^\n;]*chestAt[^\n;]*showChest/.test(gameModesCode)
    &&gameModes.includes('contract?.bosses.length&&r.bossAt!=null')
    &&director.includes('if(!v19StoryEncounter()){')],
  ['V3.3.3 encounter evidence records only executed waves, events, chests, hazards and Bosses',
@@ -718,17 +722,27 @@ const good=[
    &&focusHeroBlock.includes('heroHallFocusId=id;renderHeroHall()')
    &&focusHeroBlock.includes("document.querySelector('#heroGrid .heroRosterEntry[aria-pressed=\"true\"]')?.focus({preventScroll:true})")
    &&!/\bsave\.|\bpersist\s*\(|\bselectHero\s*\(/.test(focusHeroBlock)],
- ['single hero confirmation preserves selection and loadout path',
+ ['explicit hero and build confirmation preserves preview, purchase and route authority',
   (heroesBlock.match(/data-hero-confirm/g)||[]).length===1
    &&heroesBlock.includes('onclick="confirmHeroSelection()"')
    &&!/startBattle\s*\(/.test(heroesBlock)
-   &&confirmHeroBlock.includes('selectHero(heroHallFocusId)')
-   &&!/startBattle\s*\(/.test(confirmHeroBlock)
-   &&selectHeroBlock.includes('save.hero=id')
-   &&selectHeroBlock.includes('save.build.active=[...h.presets[0][1]]')
-   &&selectHeroBlock.includes('save.build.passive=[...h.presets[0][2]]')
-   &&selectHeroBlock.includes('persist()')
-   &&selectHeroBlock.includes("go('loadout')")],
+   &&heroPreviewBlock.includes('recommendedPreset:')
+   &&!/\bsave\.|\bpersist\s*\(|localStorage/.test(heroPreviewBlock)
+   &&confirmHeroBlock.includes('v34PendingHeroId=preview.heroId')
+   &&confirmHeroBlock.includes("v32OpenLayer('heroConfirmOverlay')")
+   &&!/\bsave(?:\.[\w$]+)+\s*(?:[+\-*/]?=|\+\+|--)|\bpersist\s*\(/.test(confirmHeroBlock)
+   &&cancelHeroBlock.includes('v34PendingHeroId=null')
+   &&applyHeroBlock.includes("choice!=='keep'&&choice!=='recommended'")
+   &&applyHeroBlock.includes('save.gold-=price;heroSave.unlocked=true')
+   &&applyHeroBlock.includes('save.hero=id')
+   &&applyHeroBlock.includes("if(choice==='recommended')")
+   &&applyHeroBlock.includes('save.build.active=[...preview.recommendedPreset.active]')
+   &&applyHeroBlock.includes('save.build.passive=[...preview.recommendedPreset.passive]')
+   &&applyHeroBlock.includes('persist()')
+   &&applyHeroBlock.includes('v29ReturnToBriefing()')
+   &&applyHeroBlock.includes("go('loadout')")
+   &&selectHeroBlock.includes('confirmHeroSelection()')
+   &&!/startBattle\s*\(/.test(confirmHeroBlock+applyHeroBlock)],
  ['hero hall survives ordered legacy presentation loading',
   heroesCode.includes("document.addEventListener('ui:view-change'")
    &&heroesCode.includes("event.detail?.id==='heroes'")
@@ -905,14 +919,16 @@ const good=[
    &&briefingFixBlock.includes('V29_BRIEFING_EDITORS[target]')
    &&briefingFixBlock.includes("target!=='modes'&&target!=='world'")
    &&briefingFixBlock.includes('v29ClearBriefingContext();go(target)')],
- ['briefing hero appointment reports current, unlocked, affordable and blocked states',
+ ['briefing hero appointment defers mutation and return until explicit build confirmation',
   briefingHeroActionBlock.includes('save.hero===id')
    &&briefingHeroActionBlock.includes('heroSave.unlocked')
    &&briefingHeroActionBlock.includes('gold>=price')
    &&briefingHeroActionBlock.includes('button.disabled=disabled')
-   &&briefingCompleteHeroBlock.includes('Number(save.gold||0)<Number(hero.unlock||0)')
-   &&briefingCompleteHeroBlock.includes("if(save.hero!==id||!heroSave.unlocked){selectHero(id)")
-   &&!briefingCompleteHeroBlock.includes('selectHero(id);v29ReturnToBriefing()')],
+   &&briefingCompleteHeroBlock.includes('return confirmHeroSelection()')
+   &&!briefingCompleteHeroBlock.includes('selectHero(')
+   &&!briefingCompleteHeroBlock.includes('v29ReturnToBriefing()')
+   &&applyHeroBlock.includes("v29BriefingContext?.editor==='heroes'")
+   &&applyHeroBlock.includes('v29ReturnToBriefing()')],
  ['hero, loadout and build pages return to refreshed briefing with visible focus',
   (html.match(/data-briefing-return/g)||[]).length===3
    &&briefingBeginBlock.includes('window.scrollTo(0,0)')
@@ -1224,12 +1240,15 @@ const good=[
    &&REQUIRED_INPUTS.every(input=>playtestValidation.completedRoutes[input]===0)
    &&REQUIRED_ROUTES.every(route=>playtestProtocol.includes(route.stageId))
    &&playtestProtocol.includes('自动化')&&playtestProtocol.includes('实体手机')],
- ['captured dynamic Pointer joystick',
-  saveSlotsCode.includes("base.addEventListener('pointerdown'")
-   &&saveSlotsCode.includes("base.addEventListener('pointermove'")
-   &&saveSlotsCode.includes("base.addEventListener('pointercancel'")
-   &&saveSlotsCode.includes('setPointerCapture(e.pointerId)')
+ ['captured floating-zone Pointer joystick',
+  saveSlotsCode.includes("zone.addEventListener('pointerdown'")
+   &&saveSlotsCode.includes("zone.addEventListener('pointermove'")
+   &&saveSlotsCode.includes("zone.addEventListener('pointercancel'")
+   &&saveSlotsCode.includes('zone.setPointerCapture(e.pointerId)')
+   &&saveSlotsCode.includes('zone.releasePointerCapture(id)')
+   &&saveSlotsCode.includes('v331PositionJoystickBase(e.clientX,e.clientY)')
    &&saveSlotsCode.includes('(Math.min(r.width,r.height)-Math.min(k.width,k.height))/2')
+   &&saveSlotsCode.includes("window.addEventListener('orientationchange',()=>v331ResetJoystick())")
    &&!/touch(?:start|move|end|cancel)/.test(saveSlotsCode)],
  ['shared continuous keyboard and analog movement vector',
   engineCode.includes("typeof v331JoystickVector==='function'?v331JoystickVector():null")

@@ -185,7 +185,6 @@ updateRun = function(dt){
  enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
  v19DirectorMilestones(dt);
  if(!v19StoryEncounter()){
-   [5,10,15].forEach((m,i)=>{if(run.time>=m*60&&!run.chests[i]){run.chests[i]=true;showChest()}});
    [3,8,13].forEach((m,i)=>{if(run.time>=m*60&&!run.events[i]){run.events[i]=true;showEvent()}});
    if(!run.boss&&run.time>=12*60&&selectedStageInfo().stage[2]&&!run.bossDefeated)spawnBoss();
  }

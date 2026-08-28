@@ -330,7 +330,7 @@ const _v24_prevUpdate=updateRun;updateRun=function(dt){_v24_prevUpdate(dt);v24Up
 
 /* refresh forms after choices/chests */
 const _v24_pickLevel=pickLevel;pickLevel=function(o){_v24_pickLevel(o);renderBuildForms();renderV24Runtime()};
-const _v24_pickChest=pickChest;pickChest=function(r){_v24_pickChest(r);renderV24Runtime();if(r?.id)hint((r.type==='fusion'?'融合形态':'进化形态')+'已改变技能形态')};
+const _v24_pickChest=pickChest;pickChest=function(r){const picked=_v24_pickChest(r);if(!picked)return false;renderV24Runtime();if(r?.id)hint((r.type==='fusion'?'融合形态':'进化形态')+'已改变技能形态');return true};
 
 /* damage display names for fusion sources */
 window.WW.config.skillForms.extraNames={F001:'焚天龙卷',F002:'天火炼狱',F003:'炎爆地狱',F004:'炎龙乱舞',F005:'雷神万影',F006:'九天雷劫',F020:'百重气功炮',F021:'星河冲击',F026:'无限影军',F033:'斗战风暴'};

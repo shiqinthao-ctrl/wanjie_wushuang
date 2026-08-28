@@ -604,6 +604,10 @@
       <div class="arenaHud">
         <canvas id="tacticalMinimap" aria-label="战术小地图：显示世界边界、玩家、Boss、互动点、任务目标与当前视野"></canvas>
         <div id="worldEdgeCue" class="worldEdgeCue" role="status" aria-live="polite"></div>
+        <section class="combatLoopHud" aria-label="本局目标与定时奖励">
+          <div class="combatObjectivesPanel"><header><span>RUN OBJECTIVES</span><b>本局目标</b></header><div id="combatObjectiveList" class="combatObjectiveList"></div></div>
+          <div class="timedRewardsPanel"><header><span>MILESTONE REWARDS</span><b>定时奖励</b></header><div id="timedRewardTrack" class="timedRewardTrack"></div></div>
+        </section>
         <div class="hudTop">
           <div class="hudBox"><b id="hudHero">赤焰战神</b> · Lv.<span id="runLevel">1</span> · HP <span id="hudHp">620/620</span></div>
           <div class="hudBox"><span id="runTime">00:00</span> · 击杀 <span id="runKills">0</span> · DPS <span id="runDps">0</span></div>
@@ -623,7 +627,7 @@
           <button type="button" class="actionBtn dodge" id="dodgeAction" aria-label="闪避 · Space · 就绪" aria-disabled="false" onclick="performBattleAction('dodge',tryDodge)"><span class="commandKey wide">SPACE</span><span class="commandCopy"><strong>闪避</strong><small id="dodgeCdText">就绪</small></span></button>
           <button type="button" class="actionBtn ult" id="ultAction" aria-label="终极技能 · R · 能量 0%" aria-disabled="true" onclick="performBattleAction('ult',castUltimate)"><span class="commandKey">R</span><span class="commandCopy"><strong>终极</strong><small id="ultText">能量 0%</small></span></button>
         </div>
-        <div class="battleHint" id="battleSchedule">3/8/13分钟事件 · 5/10/15分钟宝箱 · 20分钟胜负判定</div>
+        <div class="battleHint" id="battleSchedule">3/8/13分钟事件 · 三段定时奖励 · 既有模式时限判定</div>
         <div class="lowHp" id="lowHp"></div>
 
         <div class="phaseCinematic" id="phaseCinematic">
@@ -728,6 +732,18 @@
           <div class="resultPanel resultRecord">
             <div class="resultPanelHead"><span>03 · COMBAT RECORD</span><h3>伤害排行</h3><small>战斗记录</small></div>
             <div class="damageList" id="resultDamage"></div>
+          </div>
+          <div class="resultPanel resultObjectives">
+            <div class="resultPanelHead"><span>04 · OBJECTIVES</span><h3>目标完成度</h3><small>只读战斗快照</small></div>
+            <div id="resultObjectiveSummary" class="resultLoopSummary"></div>
+          </div>
+          <div class="resultPanel resultRewards">
+            <div class="resultPanelHead"><span>05 · REWARDS</span><h3>定时奖励</h3><small>本局领取记录</small></div>
+            <div id="resultTimedRewardSummary" class="resultLoopSummary"></div>
+          </div>
+          <div class="resultPanel resultReplay">
+            <div class="resultPanelHead"><span>06 · NEXT RUN</span><h3>重玩建议</h3><small>基于当前英雄与构筑</small></div>
+            <p id="resultReplayAdvice" class="resultReplayAdvice"></p>
           </div>
         </div>
       </article>

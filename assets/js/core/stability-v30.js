@@ -119,11 +119,11 @@ function v30FlushQueue(){
  const next=v30ModalQueue.shift();setTimeout(()=>{if(run?.active&&!v30BlockingOpen())next.fn()},0)
 }
 const _v30ShowChest=showChest;
-showChest=function(){if(v30Queue('chest',()=>_v30ShowChest()))return;_v30ShowChest()}
+showChest=function(){if(v30Queue('chest',()=>_v30ShowChest()))return false;return _v30ShowChest()}
 const _v30ShowEvent=showEvent;
 showEvent=function(){if(v30Queue('event',()=>_v30ShowEvent()))return;_v30ShowEvent()}
 const _v30PickChest=pickChest;
-pickChest=function(r){_v30PickChest(r);setTimeout(v30FlushQueue,0)}
+pickChest=function(r){const picked=_v30PickChest(r);if(picked)setTimeout(v30FlushQueue,0);return picked}
 const _v30PickEvent=pickEvent;
 pickEvent=function(code,ev){
  _v30PickEvent(code,ev);

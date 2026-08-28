@@ -179,8 +179,8 @@ document.addEventListener('click',event=>{const grid=document.getElementById('he
 function v29QuickStart(id){let [ok,why]=v29Unlocked(id);if(!ok)return toast(why);save.mode=id;persist();v29BeginBriefing()}
 function v29StartSelected(){v29QuickStart(save.mode)}
 
-function v29RuntimeInit(){let rule=v29Rule(),encounter=rule.storyEncounter||null,evidence=encounter?{stage:save.selectedStage,name:encounter.name,waves:[{at:0,name:encounter.waves[0].name,type:encounter.waves[0].type}],events:[],chests:[],hazardName:encounter.hazard.name,hazardType:encounter.hazard.type,hazardUsed:false,hazardTriggers:0,hazardPeak:0,bosses:[]}:null;run.v29={id:save.mode,rule,bossesKilled:0,lastBossSeen:null,countedBoss:null,endlessBossMilestone:0,score:0,daily:rule.daily||null,lootResolvedAt:null,settlingAt:null,encounterEvidence:evidence};if(evidence){if(run.director)run.director.lastWave=v19WaveKey(v19WaveAt(0));log('遭遇档案 · '+encounter.name+' · '+encounter.hazard.name)}}
-function v29EncounterSchedule(encounter,contract){if(!encounter)return storyStageSchedule(save.selectedStage);let parts=[encounter.name];if(encounter.eventAt.length)parts.push('事件 '+encounter.eventAt.map(fmt).join('/'));if(encounter.chestAt.length)parts.push('宝箱 '+encounter.chestAt.map(fmt).join('/'));if(contract?.bosses.length)parts.push(fmt(contract.bossAt)+' Boss');parts.push(fmt(contract?.duration||0)+' 结束');return parts.join(' · ')}
+function v29RuntimeInit(){let rule=v29Rule(),encounter=rule.storyEncounter||null,evidence=encounter?{stage:save.selectedStage,name:encounter.name,waves:[{at:0,name:encounter.waves[0].name,type:encounter.waves[0].type}],events:[],chests:[],hazardName:encounter.hazard.name,hazardType:encounter.hazard.type,hazardUsed:false,hazardTriggers:0,hazardPeak:0,bosses:[]}:null;run.v29={id:save.mode,rule,bossesKilled:0,lastBossSeen:null,countedBoss:null,endlessBossMilestone:0,score:0,daily:rule.daily||null,lootResolvedAt:null,settlingAt:null,encounterEvidence:evidence};if(typeof v34InitRunFeatures==='function')v34InitRunFeatures();if(evidence){if(run.director)run.director.lastWave=v19WaveKey(v19WaveAt(0));log('遭遇档案 · '+encounter.name+' · '+encounter.hazard.name)}}
+function v29EncounterSchedule(encounter,contract){if(!encounter)return storyStageSchedule(save.selectedStage);let parts=[encounter.name];if(encounter.eventAt.length)parts.push('事件 '+encounter.eventAt.map(fmt).join('/'));if(encounter.chestAt.length)parts.push('奖励 '+encounter.chestAt.map(fmt).join('/'));if(contract?.bosses.length)parts.push(fmt(contract.bossAt)+' Boss');parts.push(fmt(contract?.duration||0)+' 结束');return parts.join(' · ')}
 function v29RecordActiveBoss(){let evidence=run?.v29?.encounterEvidence,id=run?.boss?.id;if(evidence&&id&&evidence.bosses.at(-1)?.id!==id){evidence.bosses.push({at:Math.floor(run.time),id,name:run.boss.name});log('遭遇首领 · '+id+' '+run.boss.name)}}
 function storyBossGoalComplete(contract=storyStageContract(save.selectedStage)){if(!contract?.bosses.length)return true;if(contract.bosses.length>1)return (run.v30?.dualBossPhase||0)>=2&&!run.boss&&run.bossDefeated;return !run.boss&&run.bossDefeated}
 function v29FirstCampaignPhase(){
@@ -201,7 +201,7 @@ function v29BattleUI(){
  let target=r.target||('坚持 '+(r.duration?fmt(r.duration):'无限'));if(run.v29.id==='bossrush')target='连续击败8名Boss';if(run.v29.id==='tower')target='第 '+(save.modeStats.tower.floor||1)+' 层 · 击败守层Boss';if(run.v29.id==='endless')target='尽可能生存，10分钟后可撤离';
  let rewardText='×'+r.reward.toFixed(2)+' · 徽记 '+(run.v29.id==='endless'?'动态':r.tokens);if(run.v29.id==='story'){let reward=storyStageReward(save.selectedStage,0);rewardText='基础 +'+reward.base+' · 每星 +'+(r.storyContract?.reward?.starGold||0)+' · 徽记 '+r.tokens}
  document.getElementById('v29BattleObjective').innerHTML='<div class="modeObjRow"><span>核心目标</span><b>'+target+'</b></div>'+(r.storyEncounter?'<div class="modeObjRow"><span>遭遇机制</span><b>'+r.storyEncounter.name+' · '+r.storyEncounter.hazard.name+'</b></div>':'')+(r.storyCurve?'<div class="modeObjRow"><span>压力节拍</span><b>'+r.storyCurve.beat+' · '+r.storyCurve.budget.toFixed(2)+'</b></div>':'')+'<div class="modeObjRow"><span>模式奖励</span><b>'+rewardText+'</b></div><div class="modeObjRow"><span>进度</span><b>'+v29ObjectiveText()+'</b></div>';
- document.getElementById('v29ModeProgress').style.width=(v29Progress()*100)+'%';let act=document.getElementById('v29ModeAction');act.style.display=(run.v29.id==='endless'&&run.time>=600)?'block':'none';let phase=v29FirstCampaignPhase();v29SyncCampaignStatus(document.getElementById('v29CampaignPhase'),phase);v29SyncCampaignStatus(document.getElementById('v29CampaignCue'),phase,true);document.body.classList.toggle('firstCampaignBattle',!!phase);let badge=document.getElementById('v29ModeBadge');if(badge)badge.textContent=phase?phase.step+' · '+phase.title:m.name.replace('模式','')+' · '+v29ObjectiveText();let schedule=document.getElementById('battleSchedule');if(schedule)schedule.textContent=r.firstCampaign?'首战保护 · '+v29EncounterSchedule(r.storyEncounter,r.storyContract):run.v29.id==='story'?v29EncounterSchedule(r.storyEncounter,r.storyContract):'3/8/13分钟事件 · 5/10/15分钟宝箱 · 20分钟胜负判定'
+ document.getElementById('v29ModeProgress').style.width=(v29Progress()*100)+'%';let act=document.getElementById('v29ModeAction');act.style.display=(run.v29.id==='endless'&&run.time>=600)?'block':'none';let phase=v29FirstCampaignPhase();v29SyncCampaignStatus(document.getElementById('v29CampaignPhase'),phase);v29SyncCampaignStatus(document.getElementById('v29CampaignCue'),phase,true);document.body.classList.toggle('firstCampaignBattle',!!phase);let badge=document.getElementById('v29ModeBadge');if(badge)badge.textContent=phase?phase.step+' · '+phase.title:m.name.replace('模式','')+' · '+v29ObjectiveText();let schedule=document.getElementById('battleSchedule');if(schedule)schedule.textContent=r.firstCampaign?'首战保护 · '+v29EncounterSchedule(r.storyEncounter,r.storyContract):run.v29.id==='story'?v29EncounterSchedule(r.storyEncounter,r.storyContract):'3/8/13分钟事件 · 三段定时奖励 · 既有模式时限判定'
 }
 function v29ManualExit(){if(run?.v29?.id!=='endless'||run.time<600)return;finishRun(true,'主动撤离 · 无尽成绩已保存')}
 
@@ -226,7 +226,7 @@ function v29Update(dt){
  if(run.v29.lastBossSeen&&!run.boss&&run.bossDefeated&&run.v29.countedBoss!==run.v29.lastBossSeen){run.v29.countedBoss=run.v29.lastBossSeen;run.v29.bossesKilled++}
  if(r.firstCampaign){
    if(v337FirstCampaignRecovery(r))v29BattleUI();
-   if(v29FirstCampaignMilestone(r.eventAt,run.events,showEvent)||v29FirstCampaignMilestone(r.chestAt,run.chests,showChest)){v29BattleUI();return}
+   if(v29FirstCampaignMilestone(r.eventAt,run.events,showEvent)){v29BattleUI();return}
    if(run.time>=r.bossAt&&!run.boss&&!run.bossDefeated)v29SpawnBossId(r.bossId);
    if(v29FirstCampaignLootResolved()){
      if(run.v29.lootResolvedAt==null){run.v29.lootResolvedAt=run.time;hint('Boss战利品已确认 · 正在封存战果');v29BattleUI();return}
@@ -247,7 +247,7 @@ function v29Update(dt){
  }else if(id==='endless'){
    let milestone=Math.floor(run.time/600);if(milestone>=1&&milestone>run.v29.endlessBossMilestone&&!run.boss){run.v29.endlessBossMilestone=milestone;run.bossDefeated=false;run.v29.countedBoss=null;v29SpawnBossId(WW.config.gameModes.bossOrder[(milestone-1)%WW.config.gameModes.bossOrder.length])}
  }else if(id==='story'){
-   let contract=r.storyContract||storyStageContract(save.selectedStage),encounter=r.storyEncounter;if(encounter&&(v29FirstCampaignMilestone(encounter.eventAt,run.events,showEvent)||v29FirstCampaignMilestone(encounter.chestAt,run.chests,showChest))){v29BattleUI();return}
+   let contract=r.storyContract||storyStageContract(save.selectedStage),encounter=r.storyEncounter;if(encounter&&v29FirstCampaignMilestone(encounter.eventAt,run.events,showEvent)){v29BattleUI();return}
    if(contract?.bosses.length&&r.bossAt!=null&&run.time>=r.bossAt&&!run.boss&&!run.bossDefeated)v29SpawnBossId(v29BossForStage());
    if(r.duration&&run.time>=r.duration){let victory=storyBossGoalComplete(contract);return finishRun(victory,victory?storyStageSuccess(save.selectedStage):storyStageTimeout(save.selectedStage))}
  }else{
@@ -256,7 +256,7 @@ function v29Update(dt){
  }
  run.v29.score=Math.round(run.kills+(run.eliteKills||0)*35+run.v29.bossesKilled*600+(run.maxCombo||0)*2+run.time*.15);v29BattleUI()
 }
-const _v29Update=updateRun;updateRun=function(dt){_v29Update(dt);v29Update(dt)};
+const _v29Update=updateRun;updateRun=function(dt){_v29Update(dt);v29Update(dt);if(!run?.active)return;if(typeof v34UpdateObjectives==='function')v34UpdateObjectives();if(typeof v34UpdateTimedRewards==='function')v34UpdateTimedRewards();if(typeof v34RenderCombatLoop==='function')v34RenderCombatLoop()};
 
 const _v29Finish=finishRun;
 finishRun=function(victory,reason){

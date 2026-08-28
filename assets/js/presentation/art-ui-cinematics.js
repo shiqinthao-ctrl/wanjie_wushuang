@@ -187,10 +187,10 @@ function v22PlayEvolution(id,type){
 const _v22_pickChest=pickChest;
 pickChest=function(r){
  v336ChestChoiceSnapshot={skills:{...run.skills},passives:{...run.passives},dropCount:run.drops.length};
- _v22_pickChest(r);
+ const picked=_v22_pickChest(r);if(!picked)return false;
  if(r?.id&&(r.type==='evo'||r.type==='fusion'))v22PlayEvolution(r.id,r.type);
  if(r?.type==='gear')v22LootToast('装备获得 · '+(run.drops.at(-1)?.name||'新装备'));
- v336PresentChestChoice(r)
+ v336PresentChestChoice(r);return true
 };
 
 /* Boss intro cinematic */

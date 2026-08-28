@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-V3.3.8 First Boss Engagement / Slice 5. In normal `ST001-01 / H001 / B001`, attacks prefer live B001; guidance prioritizes a Boss-effective barrel, the mechanism, then another unused barrel. Nearby copy remains authoritative. Pre-Boss/run-end cast copy is cleared, and stale victory cinema no longer covers later battles. A desktop run naturally defeated B001, selected Boss loot first, and settled once with `0 -> 3` stars.
+V3.4.0 Complete Playable Combat Loop Foundation. Combat now uses persistent world coordinates, bounded camera look-ahead, a floating mobile joystick, tactical minimap, non-destructive hero/build confirmation, run objectives, three idempotent timed rewards, informative choices, and Result replay guidance. Boss Loot remains before one authoritative settlement.
 
 ## Changed files
-`TASK.md`; `assets/js/combat/hero-identity.js`; `assets/js/combat/boss-map-interactions.js`; `assets/css/app.css`; `scripts/asset-pipeline.mjs`; `scripts/smoke.mjs`; `scripts/audit.mjs`; `handoff/STATE.md`. Excluded gameplay values, saves, settlement authority, dependencies, and script order are unchanged.
+`TASK.md`; `index.html`; `assets/css/app.css`; `assets/js/combat/engine.js`; `assets/js/combat/skill-forms.js`; `assets/js/core/stability-v30.js`; `assets/js/presentation/art-ui-cinematics.js`; `assets/js/presentation/quality-presentation.js`; `assets/js/systems/director-balance.js`; `assets/js/systems/game-modes.js`; `assets/js/ui/result.js`; `scripts/asset-pipeline.mjs`; `scripts/smoke.mjs`; `scripts/audit.mjs`; `handoff/STATE.md`. No dependency, schema, ordered-script, settlement, or locked gameplay-value change.
 
 ## Tests
-Target, guide, cast-cleanup, outcome-visibility, constant, and script-order guards completed RED-to-GREEN. Isolated checks prove B001-only scope, old selection fallthrough, guide order, and no interaction/save/combat/settlement writes. Desktop normal UI observed all three casts, natural B001 defeat at `05:27`, Boss Loot before one Result, and one victory. Simulated `390x844` showed live guidance/casts, controls in bounds, zero overlap/overflow, hidden stale cinema, and empty pre-Boss cast text. The final phone run exited normally; record: 13 attempts, 1 victory, best `05:28`, chapter stars 3. Browser warnings/errors: 0. All five required gates pass.
+Focused camera, joystick, minimap, deployment, objective, reward, choice, Boss-loot, responsive, constant, and script-order guards completed RED-to-GREEN. Script order is 26/26; `_v34Old*` and secret scans are empty. Desktop completed the full route and settled once: `04:56`, 542 kills, 3 stars, `+756` gold, Boss Loot `1/1`; repeated reward input did not duplicate a claim. Emulated `390x844` and `320x844` had no overflow/overlap; overlays were usable; warnings/errors: 0. Touch reached interaction range but did not trigger the object. Ordered gates pass: check 26 JS/1 CSS, smoke, audit, context, archive 30/30 HTML and 12 docs.
 
 ## Unresolved risk
-Physical-phone touch feel and five-route human acceptance remain pending. Automation did not sustain joystick movement far enough to reach and use a map object while B001 was alive, although near-copy priority and remote fallback were each observed. There are 130 wrappers; this is a non-Git checkout.
+Physical-phone feel, sustained world-edge traversal, one normal mobile interaction from `0/1` to `1/1`, and five-route human acceptance remain pending. The 130 legacy wrappers remain existing debt.
 
 ## Recommended next task
-Implement V3.3.9 Mobile Boss Interaction / Slice 6: make sustained touch movement toward the guided object reliable, reach one existing object during live B001, and use the normal `F` interaction once. Do not change interaction damage/effects, Boss values, saves, or settlement.
+Implement V3.4.1 Mobile World Navigation and Objective Interaction / Slice 1: on a physical phone, reach a world edge, follow the minimap to one existing object, and complete interaction `0/1 -> 1/1`. Change only touch ergonomics/guidance if evidence requires it; preserve speed, effects, combat values, saves, rewards, and settlement.
 
 ## After each task
 Replace only these fields:

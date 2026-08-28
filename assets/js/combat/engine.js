@@ -70,15 +70,93 @@ function validOptions(){
  const opts=[];save.build.active.forEach(id=>{const lv=run.skills[id]||0;if(lv>0&&lv<5)opts.push({kind:'active',id,label:skillName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.skills).length<6)opts.push({kind:'active',id,label:'解锁 '+skillName(id)})});
  save.build.passive.forEach(id=>{const lv=run.passives[id]||0;if(lv>0&&lv<5)opts.push({kind:'passive',id,label:skillName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.passives).length<6)opts.push({kind:'passive',id,label:'解锁 '+skillName(id)})});return opts.sort(()=>Math.random()-.5)
 }
-function showLevelChoices(){run.paused=true;const opts=validOptions().slice(0,3),g=document.getElementById('choiceGrid');g.innerHTML='';if(!opts.length){run.paused=false;return}opts.forEach(o=>{const d=document.createElement('button');d.type='button';d.className='choice';d.innerHTML='<div class="skillIcon">'+glyph(o.id)+'</div><div class="eyebrow">'+o.id+'</div><h3>'+o.label+'</h3><p>'+(o.kind==='active'?'主动/召唤':'被动')+'</p>';d.onclick=()=>pickLevel(o);g.appendChild(d)});v32OpenLayer('levelOverlay');if(typeof v336PresentLevelChoices==='function')v336PresentLevelChoices(opts)}
+function v34ChoiceMeta(choice){
+ const kind=choice?.kind||choice?.type||'upgrade',id=choice?.id||null,currentLevel=id?(kind==='passive'?(run.passives[id]||0):(run.skills[id]||0)):0,nextLevel=id&&['active','passive'].includes(kind)?Math.min(5,currentLevel+1):null,synergyTags=[];
+ if(id&&save.build?.active?.includes(id)||id&&save.build?.passive?.includes(id))synergyTags.push('当前构筑');
+ if(id&&WW.config.hero?.[save.hero]?.presets?.some(preset=>preset[1]?.includes(id)||preset[2]?.includes(id)))synergyTags.push('英雄推荐');
+ const evolution=Object.entries(WW.config.evolution||{}).find(([,entry])=>entry[1]===id||entry[2]===id);
+ if(evolution)synergyTags.push((run.skills[evolution[1][1]]||0)>0&&(run.passives[evolution[1][2]]||0)>0?'进化就绪':'进化链 '+evolution[0]);
+ if(kind==='fusion')synergyTags.push('双进化融合');
+ if(kind==='evo')synergyTags.push('主动+被动进化');
+ if(kind==='gear')synergyTags.push('永久装备掉落');
+ if(!synergyTags.length)synergyTags.push('本局强化');
+ let category=kind==='active'?'主动术式':kind==='passive'?'被动心法':kind==='fusion'?'融合形态':kind==='evo'?'进化形态':kind==='gear'?'装备掉落':'技能强化';
+ let effect=id&&['active','passive'].includes(kind)?'强化 '+skillName(id)+' 的既有成长效果':kind==='fusion'?'合并两项已完成进化，生成 '+skillName(id):kind==='evo'?'将满足条件的技能转化为 '+skillName(id):kind==='gear'?'生成一件与本局掉落规则一致的装备':'随机强化一项已装备且仍可成长的技能';
+ const choiceMetaTags=[...synergyTags];return{category,currentLevel,nextLevel,effect,synergyTags,choiceMetaTags}
+}
+function v34ChoiceMarkup(meta){const level=meta.nextLevel==null?(meta.category==='装备掉落'?'掉落后永久入库':'按当前条件结算'):'Lv.'+meta.currentLevel+' → Lv.'+meta.nextLevel;return'<p class="choiceEffect">'+meta.effect+'</p><div class="choiceLevel">'+level+'</div><div class="choiceMetaTags">'+meta.choiceMetaTags.map(tag=>'<span>'+tag+'</span>').join('')+'</div>'}
+function showLevelChoices(){run.paused=true;const opts=validOptions().slice(0,3),g=document.getElementById('choiceGrid');g.innerHTML='';if(!opts.length){run.paused=false;return}opts.forEach(o=>{const d=document.createElement('button'),meta=v34ChoiceMeta(o);d.type='button';d.className='choice';d.innerHTML='<div class="skillIcon">'+glyph(o.id)+'</div><div class="eyebrow">'+meta.category+' · '+o.id+'</div><h3>'+o.label+'</h3>'+v34ChoiceMarkup(meta);d.onclick=()=>pickLevel(o);g.appendChild(d)});v32OpenLayer('levelOverlay');if(typeof v336PresentLevelChoices==='function')v336PresentLevelChoices(opts)}
 function pickLevel(o){if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1;v32CloseLayer('levelOverlay');run.paused=false;hint('获得 '+skillName(o.id));log('升级 '+o.id+' '+skillName(o.id));renderRunSide();checkLevel();if(typeof v336PresentLevelChoice==='function')v336PresentLevelChoice(o)}
 function runReadyEvos(){return Object.entries(WW.config.evolution).filter(([id,[n,a,p]])=>!run.evolved[id]&&(run.skills[a]||0)>=5&&(run.passives[p]||0)>=5).map(([id])=>id)}
 function runReadyFusions(){return Object.entries(FUSIONS).filter(([id,[n,a,b]])=>!run.fused[id]&&run.evolved[a]&&run.evolved[b]).map(([id])=>id)}
-function showChest(){run.paused=true;if(run.v29?.encounterEvidence)run.v29.encounterEvidence.chests.push({at:Math.floor(run.time)});const rewards=[];runReadyFusions().forEach(id=>rewards.push({type:'fusion',id}));runReadyEvos().forEach(id=>rewards.push({type:'evo',id}));while(rewards.length<3)rewards.push({type:rewards.length===2?'gear':'upgrade',id:null});const g=document.getElementById('chestChoices');g.innerHTML='';rewards.slice(0,3).forEach(r=>{const d=document.createElement('button');d.type='button';d.className='choice';const title=r.id?skillName(r.id):(r.type==='gear'?'随机装备掉落':'随机技能升级');d.innerHTML='<div class="skillIcon">'+(r.id?glyph(r.id):r.type==='gear'?'装':'箱')+'</div><div class="eyebrow">'+r.type.toUpperCase()+'</div><h3>'+title+'</h3><p>'+(r.id?r.id:'宝箱奖励')+'</p>';d.onclick=()=>pickChest(r);g.appendChild(d)});v32OpenLayer('chestOverlay')}
-function pickChest(r){if(r.type==='evo'){run.evolved[r.id]=true;hint('进化 · '+skillName(r.id));log('进化 '+r.id+' '+skillName(r.id))}else if(r.type==='fusion'){run.fused[r.id]=true;hint('融合 · '+skillName(r.id));log('融合 '+r.id+' '+skillName(r.id))}else if(r.type==='gear'){const d=makeGearDrop('chest');run.drops.push(d);hint('获得装备 · '+d.name)}else{const o=validOptions().find(x=>(x.kind==='active'?(run.skills[x.id]||0)>0:(run.passives[x.id]||0)>0));if(o){if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1}}v32CloseLayer('chestOverlay');run.paused=false;renderRunSide()}
+function showChest(){if(!run?.active||run.v34ChestOpen||run.v34ChestResolving||document.getElementById('chestOverlay')?.classList.contains('show'))return false;run.v34ChestOpen=true;run.paused=true;if(run.v29?.encounterEvidence)run.v29.encounterEvidence.chests.push({at:Math.floor(run.time)});const rewards=[];runReadyFusions().forEach(id=>rewards.push({type:'fusion',id}));runReadyEvos().forEach(id=>rewards.push({type:'evo',id}));while(rewards.length<3)rewards.push({type:rewards.length===2?'gear':'upgrade',id:null});const g=document.getElementById('chestChoices');g.innerHTML='';rewards.slice(0,3).forEach(r=>{const d=document.createElement('button'),meta=v34ChoiceMeta(r);d.type='button';d.className='choice';const title=r.id?skillName(r.id):(r.type==='gear'?'随机装备掉落':'随机技能升级');d.innerHTML='<div class="skillIcon">'+(r.id?glyph(r.id):r.type==='gear'?'装':'箱')+'</div><div class="eyebrow">'+meta.category+'</div><h3>'+title+'</h3>'+v34ChoiceMarkup(meta);d.onclick=()=>pickChest(r);g.appendChild(d)});v32OpenLayer('chestOverlay');return true}
+function pickChest(r){const rewardIndex=Number.isInteger(run.v34ActiveReward)?run.v34ActiveReward:null,reward=rewardIndex==null?null:run.timedRewards?.[rewardIndex];if(!run.v34ChestOpen||run.v34ChestResolving||(rewardIndex!=null&&(!reward||reward.claimed||!reward.opened)))return false;run.v34ChestOpen=false;run.v34ChestResolving=true;document.querySelectorAll('#chestChoices button').forEach(button=>button.disabled=true);if(r.type==='evo'){run.evolved[r.id]=true;hint('进化 · '+skillName(r.id));log('进化 '+r.id+' '+skillName(r.id))}else if(r.type==='fusion'){run.fused[r.id]=true;hint('融合 · '+skillName(r.id));log('融合 '+r.id+' '+skillName(r.id))}else if(r.type==='gear'){const d=makeGearDrop('chest');run.drops.push(d);hint('获得装备 · '+d.name)}else{const o=validOptions().find(x=>(x.kind==='active'?(run.skills[x.id]||0)>0:(run.passives[x.id]||0)>0));if(o){r.appliedId=o.id;if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1}}if(reward){reward.claimed=true;reward.opened=false}run.v34ActiveReward=null;v32CloseLayer('chestOverlay');run.paused=false;run.v34ChestResolving=false;renderRunSide();v34RenderCombatLoop();return true}
 function forceLevel(){if(!run.active)return;run.xp=run.xpNeed;checkLevel()}
 function forceChest(){if(!run.active)return;showChest()}
 function fastForward(m){if(!run.active)startBattle();run.time=m*60-1;hint('跳转到 '+m+'分钟')}
+
+function v34TimedRewardTimes(rule){
+ if(rule?.firstCampaign)return[90,210,300];
+ if(run?.v29?.id==='endless')return[180,420,720];
+ const duration=Math.max(1,Number(rule?.duration)||1200),times=run?.v29?.id==='story'&&Array.isArray(rule?.storyEncounter?.chestAt)?rule.storyEncounter.chestAt.filter(time=>Number.isFinite(time)&&time>0&&time<duration):[];
+ for(const ratio of [.25,.5,.75]){
+  const candidate=Math.max(1,Math.round(duration*ratio));
+  if(!times.includes(candidate))times.push(candidate);
+  if(times.length>=3)break
+ }
+ return times.slice(0,3).sort((a,b)=>a-b)
+}
+function v34InitRunFeatures(){
+ if(!run?.active||run.v34FeaturesReady)return false;
+ const rule=run.v29?.rule||{},modeId=run.v29?.id||save.mode||'story',contract=rule.storyContract||null,bossTarget=modeId==='bossrush'?8:modeId==='tower'?1:modeId==='story'?(contract?.bosses?.length||0):(rule.bossAt!=null?1:0),duration=Number(rule.duration)||0;
+ let primary;
+ if(bossTarget>0)primary={id:'primary',kind:'boss',label:bossTarget>1?'取得全部 Boss 战利品':'取得 Boss 战利品',source:'bossDrops',current:0,target:bossTarget,complete:false};
+ else primary={id:'primary',kind:'survival',label:modeId==='endless'?'坚持至可安全撤离':'坚持至关卡结束',source:'survival',current:0,target:modeId==='endless'?600:duration,complete:false};
+ const killTarget=Math.max(30,Math.round((duration||600)/6));
+ run.objectives=[primary,{id:'side-kills',kind:'kills',label:'清理沿途敌群',source:'kills',current:0,target:killTarget,complete:false},{id:'side-interaction',kind:'interaction',label:'使用一次地图互动',source:'interactions',current:0,target:1,complete:false}];
+ run.timedRewards=v34TimedRewardTimes(rule).map((at,index)=>({id:'reward-'+(index+1),at,opened:false,claimed:false,readyAnnounced:false}));
+ run.v34ActiveReward=null;run.v34ChestOpen=false;run.v34ChestResolving=false;run.v34FeaturesReady=true;
+ v34UpdateObjectives();v34RenderCombatLoop();return true
+}
+function v34ObjectiveCurrent(objective){
+ if(objective.source==='bossDrops')return(run.drops||[]).filter(drop=>drop.source==='boss').length;
+ if(objective.source==='survival')return Math.floor(run.time||0);
+ if(objective.source==='kills')return Number(run.kills)||0;
+ if(objective.source==='interactions')return Number(run.v25?.used)||0;
+ return Number(objective.current)||0
+}
+function v34ObjectiveProjection(){
+ return(run?.objectives||[]).map(objective=>{const complete=!!objective.complete;return{id:objective.id,kind:objective.kind,label:objective.label,current:objective.current,target:objective.target,state:complete?'complete':'active'}})
+}
+function v34UpdateObjectives(){
+ if(!run?.active||!Array.isArray(run.objectives))return false;
+ let changed=false;
+ run.objectives.forEach(objective=>{const previous=objective.complete;objective.current=Math.min(objective.target,v34ObjectiveCurrent(objective));objective.complete=objective.current>=objective.target;if(objective.complete&&!previous){changed=true;hint('目标完成 · '+objective.label)}});
+ return changed
+}
+function v34TimedRewardProjection(){
+ return(run?.timedRewards||[]).map((reward,index)=>({id:reward.id,index,at:reward.at,state:reward.claimed?'claimed':reward.opened?'choosing':run.time>=reward.at?'ready':'locked'}))
+}
+function v34UpdateTimedRewards(){
+ if(!run?.active||!Array.isArray(run.timedRewards))return false;
+ let changed=false;
+ run.timedRewards.forEach((reward,index)=>{if(!reward.claimed&&!reward.opened&&!reward.readyAnnounced&&run.time>=reward.at){reward.readyAnnounced=true;changed=true;hint('定时奖励 '+(index+1)+' 已就绪 · 点击领取')}});
+ return changed
+}
+function claimTimedReward(index){
+ const reward=run?.timedRewards?.[index];
+ if(!reward||reward.claimed||reward.opened||run.paused||run.v26BossLootShown===true)return false;
+ if(!run.active||run.time<reward.at||document.getElementById('v26LootOverlay')?.classList.contains('show'))return false;
+ reward.opened=true;run.v34ActiveReward=index;
+ const opened=showChest();
+ if(!opened){reward.opened=false;run.v34ActiveReward=null;return false}
+ v34RenderCombatLoop();return true
+}
+function v34RenderCombatLoop(){
+ const objectiveList=document.getElementById('combatObjectiveList'),rewardTrack=document.getElementById('timedRewardTrack');
+ if(objectiveList){const objectives=v34ObjectiveProjection(),objectiveSignature=objectives.map(objective=>objective.id+':'+objective.state+':'+objective.current+':'+objective.target).join('|'),objectiveMarkup=objectives.map((objective,index)=>'<div class="combatObjective" data-state="'+objective.state+'"><span>'+(objective.state==='complete'?'✓':index===0?'主':'支')+'</span><div><b>'+objective.label+'</b><small>'+Math.min(objective.current,objective.target)+' / '+objective.target+'</small></div></div>').join('');if(objectiveList.dataset.v34Signature!==objectiveSignature){objectiveList.innerHTML=objectiveMarkup;objectiveList.dataset.v34Signature=objectiveSignature}}
+ if(rewardTrack){const rewards=v34TimedRewardProjection(),rewardSignature=rewards.map(reward=>reward.id+':'+reward.state+':'+reward.at).join('|'),rewardMarkup=rewards.map(reward=>{const label=reward.state==='claimed'?'已领取':reward.state==='choosing'?'选择中':reward.state==='ready'?'领取':'未解锁',disabled=reward.state!=='ready'?' disabled aria-disabled="true"':'';return'<button type="button" class="timedReward" data-state="'+reward.state+'" onclick="claimTimedReward('+reward.index+')"'+disabled+'><span>0'+(reward.index+1)+'</span><b>'+fmt(reward.at)+'</b><small>'+label+'</small></button>'}).join('');if(rewardTrack.dataset.v34Signature!==rewardSignature){rewardTrack.innerHTML=rewardMarkup;rewardTrack.dataset.v34Signature=rewardSignature}}
+}
 
 function tryDodge(){if(!run.active||run.paused||player.dodgeCd>0)return;const input=movementVector(),length=input?Math.hypot(input.x,input.y):0,move=length?{x:input.x/length,y:input.y/length}:dodgeDirection,startX=player.x,startY=player.y,distance=Math.min(90,player.speed*.34,Math.min(AW,AH)*.16);dodgeDirection=move;player.x=Math.max(18,Math.min(WORLD_W-18,player.x+move.x*distance));player.y=Math.max(18,Math.min(WORLD_H-18,player.y+move.y*distance));player.dodgeCd=4.5;player.inv=.35;if(save.settings.particles)effects.push({type:'ring',x:startX,y:startY,r:16,life:.3,max:.3,color:'#70a9ff',maxr:70})}
 function castHeroSkill(){if(!run.active||run.paused||player.skillCd>0)return;const h=WW.config.hero[save.hero];player.skillCd=6;hint(h.skill);if(save.hero==='H002'){const t=nearest();if(t){const a=Math.atan2(t.y-player.y,t.x-player.x);player.x+=Math.cos(a)*130;player.y+=Math.sin(a)*130;clampWorldPoint(player,18)}}enemies.slice().forEach(e=>{if((e.x-player.x)**2+(e.y-player.y)**2<145*145)damageEnemy(e,player.atk*2.2,false,'HERO_SKILL')});if(run.boss&&dist(player,run.boss)<170)damageBoss(player.atk*2.5,'HERO_SKILL');effects.push({type:'ring',x:player.x,y:player.y,r:18,life:.4,max:.4,color:h.color,maxr:130})}
@@ -227,7 +305,6 @@ function updateRun(dt){
  run.spawn+=dt;const spawnInterval=Math.max(.12,.34-run.time/5000);while(run.spawn>spawnInterval){run.spawn-=spawnInterval;spawnEnemy()}if(enemies.length>260)enemies.splice(0,enemies.length-260);
  run.attack+=dt;if(run.attack>1/Math.max(.6,player.aspd)){run.attack=0;shootAuto()}
  enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
- [5,10,15].forEach((m,i)=>{if(run.time>=m*60&&!run.chests[i]){run.chests[i]=true;showChest()}});
  [3,8,13].forEach((m,i)=>{if(run.time>=m*60&&!run.events[i]){run.events[i]=true;showEvent()}});
  if(!run.boss&&run.time>=12*60&&selectedStageInfo().stage[2]&&!run.bossDefeated){spawnBoss()}
  if(run.riftActive&&run.eliteKills>=(run.riftEliteTarget??3)){run.riftActive=false;const d=makeGearDrop('rift');run.drops.push(d);hint('裂缝完成 · '+d.name)}

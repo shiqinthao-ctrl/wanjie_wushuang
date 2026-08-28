@@ -226,7 +226,7 @@ castHeroSkill=function(){const ready=run?.active&&!run.paused&&player.skillCd<=0
 const _v21_castUltimate=castUltimate;
 castUltimate=function(){const ready=run?.active&&!run.paused&&player.ult>=100;_v21_castUltimate();if(ready)V21Audio.ult()}
 const _v21_showChest=showChest;
-showChest=function(){V21Audio.chest();_v21_showChest();if(typeof v336PresentChestChoices==='function')v336PresentChestChoices()}
+showChest=function(){const opened=_v21_showChest();if(!opened)return false;V21Audio.chest();if(typeof v336PresentChestChoices==='function')v336PresentChestChoices();return true}
 
 /* ---------- Boss telegraph / cast banner ---------- */
 let v21LastBossCast=0;
