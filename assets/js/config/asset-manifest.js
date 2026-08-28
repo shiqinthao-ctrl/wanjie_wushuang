@@ -1,0 +1,19 @@
+window.WW=window.WW||{};
+window.WW.config=window.WW.config||{};
+
+window.WW.config.firstPlayableAssets=Object.freeze({
+ version:2,
+ stageId:'ST001-01',
+ entries:Object.freeze([
+  Object.freeze({id:'st001-01-battlefield',role:'battlefield',path:'assets/game/st001-01/battlefield.svg',stageId:'ST001-01',entityId:null,render:Object.freeze({width:2400,height:1600,anchorX:0,anchorY:0})}),
+  Object.freeze({id:'h001-first-playable',role:'hero',path:'assets/game/st001-01/hero-h001.svg',stageId:'ST001-01',entityId:'H001',render:Object.freeze({width:66,height:81,anchorX:.5,anchorY:.84})}),
+  Object.freeze({id:'h001-attack-frame',role:'hero-attack',path:'assets/game/st001-01/hero-h001-attack.svg',stageId:'ST001-01',entityId:'H001',render:Object.freeze({width:116,height:116,anchorX:.5,anchorY:.5})}),
+  Object.freeze({id:'en001-first-playable',role:'enemy',path:'assets/game/st001-01/enemy-en001.svg',stageId:'ST001-01',entityId:'EN001',render:Object.freeze({width:52,height:63,anchorX:.5,anchorY:.88})}),
+  Object.freeze({id:'en001-impact-frame',role:'enemy-hit',path:'assets/game/st001-01/enemy-en001-hit.svg',stageId:'ST001-01',entityId:'EN001',render:Object.freeze({width:72,height:72,anchorX:.5,anchorY:.5})}),
+  Object.freeze({id:'b001-first-playable',role:'boss',path:'assets/game/st001-01/boss-b001.svg',stageId:'ST001-01',entityId:'B001',render:Object.freeze({width:116,height:130,anchorX:.5,anchorY:.9})}),
+  Object.freeze({id:'b001-entrance-frame',role:'boss-entrance',path:'assets/game/st001-01/boss-b001-entrance.svg',stageId:'ST001-01',entityId:'B001',render:Object.freeze({width:226,height:226,anchorX:.5,anchorY:.58})}),
+  Object.freeze({id:'b001-telegraph-frame',role:'boss-telegraph',path:'assets/game/st001-01/boss-b001-telegraph.svg',stageId:'ST001-01',entityId:'B001',render:Object.freeze({width:210,height:210,anchorX:.5,anchorY:.5})}),
+  Object.freeze({id:'b001-impact-frame',role:'boss-hit',path:'assets/game/st001-01/boss-b001-hit.svg',stageId:'ST001-01',entityId:'B001',render:Object.freeze({width:148,height:148,anchorX:.5,anchorY:.5})}),
+  Object.freeze({id:'b001-defeat-frame',role:'boss-defeat',path:'assets/game/st001-01/boss-b001-defeat.svg',stageId:'ST001-01',entityId:'B001',render:Object.freeze({width:240,height:240,anchorX:.5,anchorY:.5})})
+ ])
+});

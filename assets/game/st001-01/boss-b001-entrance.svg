@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="380" viewBox="0 0 380 380">
+  <defs>
+    <radialGradient id="gate"><stop stop-color="#ffe69a" stop-opacity="0.72"/><stop offset="0.34" stop-color="#d94d2d" stop-opacity="0.36"/><stop offset="1" stop-color="#4d151d" stop-opacity="0"/></radialGradient>
+    <linearGradient id="pillar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff3b0" stop-opacity="0"/><stop offset="0.45" stop-color="#ffc64d" stop-opacity="0.78"/><stop offset="1" stop-color="#d8412c" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <circle cx="190" cy="208" r="164" fill="url(#gate)"/>
+  <path d="M147 0h86l48 331H99z" fill="url(#pillar)" opacity="0.46" filter="url(#glow)"/>
+  <g fill="none" stroke-linecap="round">
+    <circle cx="190" cy="217" r="126" stroke="#ef9e3d" stroke-width="9" opacity="0.82"/>
+    <circle cx="190" cy="217" r="93" stroke="#ffe18a" stroke-width="3" stroke-dasharray="13 10"/>
+    <path d="M190 75v36M190 323v35M48 217h35M297 217h35M89 116l25 25M266 292l25 25M291 116l-25 25M114 292l-25 25" stroke="#ffd56b" stroke-width="8"/>
+  </g>
+  <path d="M190 106l24 57 62 6-47 40 14 61-53-32-53 32 14-61-47-40 62-6z" fill="none" stroke="#f6b746" stroke-width="6" opacity="0.66"/>
+</svg>

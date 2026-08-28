@@ -1,0 +1,1642 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>万界无双 · V2.2 正式美术UI与战斗演出版</title>
+<style>
+:root{
+ --bg:#05070b;--panel:#111822;--panel2:#182332;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);
+ --text:#f7f8fb;--muted:#94a1b3;--gold:#f3c66c;--red:#ef694e;--purple:#a47dff;--blue:#70a9ff;--green:#64d59f;
+ --orange:#f19a58;--cyan:#65d8ff;--shadow:0 28px 100px rgba(0,0,0,.48)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+body{background:radial-gradient(circle at 8% 0%,rgba(218,73,54,.14),transparent 24%),radial-gradient(circle at 90% 0%,rgba(102,76,219,.16),transparent 29%),linear-gradient(180deg,#05070b,#091018 55%,#05070b)}
+button,input{font:inherit;color:inherit}
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:15px 12px;background:rgba(5,7,11,.96);border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:50}
+.brand{display:flex;gap:11px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012))}
+.logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:#24110d;font-weight:1000;background:linear-gradient(135deg,#f5d89b,#ef7659 46%,#7e61db)}
+.brand h1{margin:0;font-size:17px}.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:.16em;margin-top:3px}
+.group{margin:18px 10px 8px;color:#536173;font-size:10px;letter-spacing:.18em}
+.nav{display:grid;gap:6px}.nav button{border:1px solid transparent;background:transparent;padding:9px;border-radius:12px;display:flex;gap:10px;align-items:center;color:#7d899a;cursor:pointer;transition:.18s}
+.nav button:hover{background:rgba(255,255,255,.03);color:#e7edf5}.nav button.active{color:#fff;border-color:rgba(239,105,78,.2);background:linear-gradient(90deg,rgba(239,105,78,.16),rgba(105,78,201,.08));box-shadow:inset 3px 0 0 var(--red)}
+.ico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#101823;border:1px solid rgba(255,255,255,.05);font-size:11px;font-weight:900}
+.sidefoot{position:absolute;bottom:12px;left:12px;right:12px;padding:11px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);font-size:9px;color:#627084}
+.main{min-width:0}.topbar{height:70px;position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:0 22px;border-bottom:1px solid var(--line);background:rgba(5,7,11,.76);backdrop-filter:blur(22px)}
+.tleft{display:flex;gap:11px;align-items:center}.accent{width:6px;height:29px;border-radius:5px;background:linear-gradient(var(--gold),var(--red))}.tleft small{display:block;color:#68768a;margin-top:3px}
+.user{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pill{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03);font-size:11px}.pill b{color:var(--gold)}
+.content{padding:18px 22px 42px;max-width:1740px;margin:auto}.page{display:none}.page.active{display:block}
+.card{border:1px solid var(--line);border-radius:18px;padding:16px;background:linear-gradient(180deg,rgba(22,31,44,.94),rgba(12,18,26,.96));box-shadow:0 14px 38px rgba(0,0,0,.2)}
+.grid{display:grid;gap:14px}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.btn{border:1px solid var(--line2);border-radius:10px;padding:10px 14px;background:linear-gradient(180deg,#1b2431,#141b25);cursor:pointer;transition:.18s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.btn:disabled{opacity:.42;cursor:not-allowed;transform:none}
+.btn.primary{font-weight:800;background:linear-gradient(135deg,#c9463b,#ef7958 68%,#e7a05e);border-color:rgba(255,139,109,.32)}.btn.gold{background:linear-gradient(135deg,#5e4a1d,#9d742c);color:#ffe6a5;border-color:rgba(243,198,108,.28)}.btn.purple{background:linear-gradient(135deg,#403166,#6a4d9e);color:#e1d7ff;border-color:rgba(164,125,255,.28)}.btn.ghost{background:rgba(255,255,255,.02)}
+.eyebrow{font-size:9px;letter-spacing:.24em;color:var(--gold);font-weight:900}.muted{color:var(--muted)}.tiny{font-size:9px;color:#68768a}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:9px;padding:5px 7px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.03);color:#bac4d0}.tag.hot{color:#ffb2a2;border-color:rgba(239,105,78,.22);background:rgba(239,105,78,.08)}.tag.ok{color:#9ae0bc;border-color:rgba(100,213,159,.2);background:rgba(100,213,159,.06)}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:20px 0 12px}.section-title h2,.section-title h3{margin:0}.section-title span{font-size:10px;color:#68768a}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.progress{height:7px;border-radius:999px;background:#26313d;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold))}
+
+/* home */
+.heroBanner{min-height:380px;border-radius:26px;position:relative;overflow:hidden;border:1px solid var(--line2);padding:34px 38px;display:flex;align-items:flex-end;box-shadow:var(--shadow);background:radial-gradient(circle at 74% 32%,rgba(239,105,78,.22),transparent 15%),radial-gradient(circle at 78% 52%,rgba(164,125,255,.11),transparent 30%),linear-gradient(120deg,#17212e,#101721 55%,#090f16)}
+.heroArt{position:absolute;right:4%;bottom:0;width:36%;height:92%}.heroArt:before{content:"";position:absolute;left:34%;bottom:-2%;width:44%;height:80%;background:linear-gradient(#70483a,#2d2027 66%,#111821);clip-path:polygon(30% 0,70% 0,80% 12%,84% 30%,100% 47%,79% 57%,66% 100%,34% 100%,21% 57%,0 47%,16% 30%,21% 12%)}.heroArt:after{content:"";position:absolute;left:46%;top:7%;width:17%;height:17%;border-radius:50%;background:radial-gradient(circle at 43% 35%,#e8b985 0 17%,#ae6551 19% 50%,#2a2027 52%)}
+.heroCopy{position:relative;z-index:2;max-width:790px}.heroCopy h1{font-size:44px;margin:10px 0}.heroCopy p{color:#acb8c6;line-height:1.8;font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:13px}.kpi{padding:12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}.kpi small{display:block;color:#68768a;font-size:8px}.kpi b{display:block;margin-top:4px;font-size:15px}
+.featureGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.feature{min-height:135px}.featureIcon{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#29384c,#171f2a);color:var(--gold);border:1px solid var(--line2);font-weight:900}.feature h4{margin:8px 0 4px}.feature p{font-size:8px;color:var(--muted);line-height:1.5}
+
+/* hero/loadout/build/world */
+.heroGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.heroCard{cursor:pointer;transition:.18s}.heroCard:hover{transform:translateY(-3px)}.heroCard.selected{border-color:rgba(243,198,108,.32);background:linear-gradient(180deg,rgba(45,38,25,.92),rgba(12,18,26,.96))}.heroCard.locked{opacity:.45}
+.portrait{height:140px;border-radius:13px;background:radial-gradient(circle at 50% 30%,rgba(243,198,108,.18),transparent 15%),linear-gradient(145deg,#2d2730,#151d27);position:relative}.portrait:before{content:"";position:absolute;left:50%;bottom:-2%;transform:translateX(-50%);width:75px;height:118px;background:linear-gradient(#62433a,#281f27 67%,#111821);clip-path:polygon(31% 0,69% 0,80% 13%,84% 30%,100% 45%,79% 58%,66% 100%,34% 100%,21% 58%,0 45%,16% 30%,21% 13%)}.heroCard h3{margin:9px 0 4px}
+.heroStats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:9px}.heroStats div{padding:7px;border-radius:9px;background:rgba(255,255,255,.025);font-size:8px}.heroStats small{display:block;color:#68768a;font-size:7px}
+.loadoutLayout{display:grid;grid-template-columns:350px minmax(0,1fr);gap:14px}.equipSlots,.runeSlots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.slot{min-height:82px;padding:9px;border-radius:11px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025)}.slot b{display:block;font-size:9px}.slot small{font-size:7px;color:#68768a}
+.itemGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.itemCard{padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.itemCard.active{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.04)}.itemCard h4{margin:6px 0 3px}.itemCard p{font-size:8px;color:var(--muted);line-height:1.4}.itemIcon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:#1d2835;color:var(--gold);font-weight:900}
+.buildLayout{display:grid;grid-template-columns:360px minmax(0,1fr);gap:14px}.buildSlots{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.buildSlot{min-height:84px;padding:8px;border-radius:11px;border:1px dashed rgba(255,255,255,.10);background:rgba(255,255,255,.015)}.buildSlot.filled{border-style:solid;background:rgba(255,255,255,.03)}.buildSlot.ready{border-color:rgba(243,198,108,.34);background:rgba(243,198,108,.045)}.buildSlot b{display:block;font-size:8px;margin-top:5px}.buildSlot small{font-size:7px;color:#68768a}.skillIcon{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:#1d2835;color:var(--gold);font-weight:900}
+.presetGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.preset{padding:11px;border-radius:12px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.preset h4{margin:6px 0}.preset p{font-size:8px;color:var(--muted);line-height:1.4}
+.skillPickGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.pick{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer}.pick.active{border-color:rgba(243,198,108,.25);background:rgba(243,198,108,.04)}.pick b{font-size:8px}.pick small{display:block;color:#68768a;font-size:7px}
+.worldLayout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:14px}.worldMap{min-height:650px;position:relative;overflow:hidden;background:radial-gradient(circle at 18% 65%,rgba(239,105,78,.10),transparent 18%),radial-gradient(circle at 52% 36%,rgba(243,198,108,.08),transparent 18%),radial-gradient(circle at 82% 55%,rgba(101,216,255,.08),transparent 18%),linear-gradient(145deg,#111a23,#0c131b)}
+.route{position:absolute;height:3px;background:linear-gradient(90deg,rgba(243,198,108,.15),rgba(243,198,108,.45));transform-origin:left center;z-index:1}.route.locked{background:rgba(255,255,255,.06)}
+.chapterNode{position:absolute;width:145px;transform:translate(-50%,-50%);z-index:3;cursor:pointer}.nodeOrb{width:70px;height:70px;border-radius:50%;margin:auto;display:grid;place-items:center;border:2px solid rgba(243,198,108,.38);background:radial-gradient(circle,#6d3d2f,#221a20 68%);font-size:20px;font-weight:900;color:var(--gold)}.chapterNode.locked .nodeOrb{filter:grayscale(1);opacity:.45}.chapterNode h4{margin:8px 0 2px;text-align:center;font-size:10px}.chapterNode small{display:block;text-align:center;font-size:7px;color:#68768a}
+.stageList{display:grid;gap:7px}.stageRow{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer}.stageRow.active{border-color:rgba(243,198,108,.25);background:rgba(243,198,108,.04)}.stageRow.locked{opacity:.45}.stageRow b{font-size:9px}.stageRow small{display:block;color:#68768a;font-size:7px}
+
+/* battle */
+.battleLayout{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:14px}.arena{min-height:740px;position:relative;overflow:hidden;padding:0;background:linear-gradient(145deg,#152019,#11171d)}#arenaCanvas{width:100%;height:740px;display:block}.arenaHud{position:absolute;inset:0;pointer-events:none}.hudTop{position:absolute;left:14px;right:14px;top:14px;display:flex;justify-content:space-between;gap:8px}.hudBox{padding:8px 10px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:rgba(6,10,15,.78);font-size:9px}
+.bossBar{position:absolute;left:50%;top:66px;transform:translateX(-50%);width:60%;display:none}.bossBar.show{display:block}.bossBar .progress{height:15px}.bossBar .progress i{background:linear-gradient(90deg,#8b2630,#df4d4d)}.bossLabel{text-align:center;font-size:8px;color:#f1c67f;margin-top:5px}
+.combo{position:absolute;right:18px;top:68px;text-align:right;font-weight:900;font-size:28px;opacity:0;transition:.2s}.combo.show{opacity:1}.combo small{display:block;font-size:9px;color:var(--gold);letter-spacing:.14em}
+.hudSlots{position:absolute;left:14px;bottom:14px;display:flex;gap:5px;padding:7px;border-radius:14px;background:rgba(6,10,15,.76);border:1px solid var(--line)}.hudSlot{width:42px;height:42px;border-radius:10px;border:1px solid #455163;background:linear-gradient(145deg,#29384c,#161d28);display:grid;place-items:center;position:relative}.hudSlot strong{font-size:12px;color:var(--gold)}.hudSlot em{position:absolute;right:3px;bottom:2px;font-size:7px;font-style:normal;color:var(--gold)}.hudSlot.evo{border-color:rgba(243,198,108,.35)}.hudSlot.fusion{border-color:rgba(164,125,255,.36)}
+.actionBtn{position:absolute;bottom:16px;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:8px;font-weight:900;pointer-events:auto;cursor:pointer}.dodge{right:105px;width:57px;height:57px;border:1px solid rgba(112,169,255,.5);background:radial-gradient(circle,#273b5d,#172133 70%)}.heroSkill{right:170px;width:64px;height:64px;border:1px solid rgba(243,198,108,.55);background:radial-gradient(circle,#63442d,#241b20 70%)}.ult{right:18px;width:78px;height:78px;border:2px solid var(--gold);background:radial-gradient(circle,#74402f,#261a20 68%)}
+.eventHint{position:absolute;left:50%;top:110px;transform:translateX(-50%) translateY(-8px);opacity:0;padding:9px 15px;border-radius:999px;background:rgba(10,15,22,.94);border:1px solid rgba(243,198,108,.22);color:var(--gold);font-size:10px;transition:.24s}.eventHint.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.battleHint{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);padding:7px 10px;border-radius:999px;background:rgba(6,10,15,.74);border:1px solid var(--line);font-size:9px;color:#a8b3c0}
+.overlay{position:absolute;inset:0;display:none;place-items:center;background:rgba(5,8,12,.84);backdrop-filter:blur(8px);pointer-events:auto;z-index:10}.overlay.show{display:grid}.choiceWrap{width:min(880px,92%)}.choiceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.choice{padding:14px;border-radius:15px;border:1px solid var(--line2);background:linear-gradient(180deg,#1b2635,#111923);cursor:pointer}.choice:hover{transform:translateY(-3px)}.choice h3{margin:8px 0 3px}.choice p{font-size:8px;color:var(--muted)}
+.eventGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.eventCard{padding:14px;border-radius:15px;border:1px solid var(--line2);background:linear-gradient(180deg,#1b2635,#111923);cursor:pointer}.eventCard h3{margin:8px 0 4px}.eventCard p{font-size:8px;color:var(--muted);line-height:1.45}
+.battleSide{display:grid;gap:12px;align-content:start}.battleStat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:9px}.battleStat span{color:var(--muted)}.runBuild{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.runSkill{padding:7px;border-radius:9px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center}.runSkill b{display:block;font-size:8px}.runSkill small{font-size:7px;color:#68768a}
+.damageList{display:grid;gap:6px}.damageRow{display:grid;grid-template-columns:1fr 70px;gap:8px;font-size:8px}.damageRow span{color:var(--muted)}.damageTrack{height:6px;background:#25303b;border-radius:999px;overflow:hidden}.damageTrack i{display:block;height:100%;background:linear-gradient(90deg,#ef694e,#f3c66c)}
+.log{max-height:145px;overflow:auto;display:grid;gap:6px}.log div{font-size:8px;color:var(--muted);padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.02)}
+.lowHp{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 95px 32px rgba(202,35,35,.0);transition:.2s}.lowHp.show{box-shadow:inset 0 0 95px 32px rgba(202,35,35,.28)}
+.pausePanel{width:min(500px,90%);padding:20px;border-radius:18px;border:1px solid var(--line2);background:linear-gradient(180deg,#182332,#0f1620)}.settingsGrid{display:grid;gap:8px}.settingRow{display:flex;justify-content:space-between;align-items:center;padding:9px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);font-size:9px}.toggle{width:36px;height:20px;border-radius:999px;background:#26313d;position:relative;cursor:pointer}.toggle:after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;left:3px;top:3px;background:#dce5ee;transition:.18s}.toggle.on{background:#7659d8}.toggle.on:after{left:19px}
+
+/* result */
+.resultGrid{display:grid;grid-template-columns:1.08fr .92fr;gap:14px}.resultHero{min-height:320px;background:radial-gradient(circle at 72% 40%,rgba(239,105,78,.17),transparent 26%),linear-gradient(145deg,#1a2432,#101720)}.resultHero h1{font-size:40px;margin:10px 0 4px}.resultMetrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.resultMetric{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}.resultMetric small{display:block;color:#68768a;font-size:9px}.resultMetric b{display:block;margin-top:4px}.resultRow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:9px}.resultRow span{color:var(--muted)}
+.dropGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.dropCard{padding:9px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05)}.dropCard b{font-size:8px}.dropCard small{display:block;color:#68768a;font-size:7px}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,18px);opacity:0;padding:10px 14px;border-radius:11px;background:rgba(8,13,19,.96);border:1px solid var(--line2);z-index:120;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1250px){.app{grid-template-columns:86px 1fr}.brand>div:last-child,.group,.nav .label,.sidefoot{display:none}.brand{justify-content:center}.nav button{justify-content:center}.kpis{grid-template-columns:repeat(3,1fr)}.featureGrid{grid-template-columns:repeat(2,1fr)}.heroGrid{grid-template-columns:repeat(2,1fr)}.loadoutLayout,.buildLayout,.worldLayout,.battleLayout{grid-template-columns:1fr}.skillPickGrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{position:fixed;left:0;right:0;bottom:0;top:auto;height:70px;padding:7px 8px;border-right:0;border-top:1px solid var(--line);overflow-x:auto}.brand,.group,.sidefoot{display:none}.nav{grid-template-columns:repeat(7,minmax(70px,1fr));gap:4px;min-width:560px}.nav button{display:grid;justify-items:center;gap:2px;padding:4px 2px;font-size:8px}.nav .label{display:block}.ico{width:29px;height:29px}.topbar{height:60px;padding:0 12px}.tleft small{display:none}.content{padding:12px 12px 88px}.heroBanner{min-height:500px;padding:24px 18px}.heroCopy h1{font-size:34px}.heroArt{width:70%;right:-30%;opacity:.45}.kpis,.featureGrid,.heroGrid,.itemGrid,.presetGrid,.skillPickGrid,.resultGrid,.resultMetrics,.c2,.c3,.choiceGrid,.eventGrid{grid-template-columns:1fr}.arena{min-height:620px}#arenaCanvas{height:620px}.battleHint{display:none}.actionBtn.heroSkill{right:150px}}
+
+/* V1.9 Director & Balance */
+.difficultyBar{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:12px}
+.diffBtn{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);cursor:pointer;text-align:center}
+.diffBtn.active{border-color:rgba(243,198,108,.3);background:rgba(243,198,108,.055);color:#ffe3a4}
+.diffBtn b{display:block;font-size:9px}.diffBtn small{font-size:7px;color:#68768a}
+.directorPanel{display:grid;gap:7px}
+.directorRow{display:flex;justify-content:space-between;gap:10px;font-size:9px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.directorRow span{color:var(--muted)}.directorValue{color:var(--gold);font-weight:800}
+.pressureMeter{height:10px;border-radius:999px;background:#26313d;overflow:hidden;position:relative}
+.pressureMeter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#64d59f,#f3c66c 55%,#ef694e)}
+.waveTable{display:grid;gap:6px;max-height:280px;overflow:auto;padding-right:3px}
+.waveRow{display:grid;grid-template-columns:50px minmax(0,1fr) 64px;gap:8px;align-items:center;padding:7px 8px;border-radius:9px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.02);font-size:8px}
+.waveRow.active{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.05)}
+.waveRow.past{opacity:.45}.waveRow b{color:var(--gold)}.waveRow small{color:#68768a}
+.waveBadge{padding:3px 5px;border-radius:999px;text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.waveBadge.horde{color:#ffb292;border-color:rgba(239,105,78,.2)}.waveBadge.boss{color:#d8c0ff;border-color:rgba(164,125,255,.22)}
+.balanceGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.balanceBox{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center}
+.balanceBox small{display:block;font-size:7px;color:#68768a}.balanceBox b{font-size:10px}
+@media(max-width:760px){.difficultyBar,.balanceGrid{grid-template-columns:repeat(2,1fr)}}
+
+
+/* V2.0 Public Playtest */
+.startScreen{position:fixed;inset:0;z-index:999;background:radial-gradient(circle at 70% 30%,rgba(239,105,78,.18),transparent 18%),radial-gradient(circle at 25% 75%,rgba(164,125,255,.16),transparent 24%),linear-gradient(145deg,#080b10,#0d131c 52%,#07090d);display:grid;place-items:center;overflow:hidden}.startScreen.hidden{display:none}.startScreen:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent)}
+.startInner{position:relative;z-index:2;width:min(980px,92vw);display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:end}.titleMark .eyebrow{font-size:11px}.gameTitle{font-size:72px;line-height:.95;margin:12px 0 14px;font-weight:1000;letter-spacing:-.04em;background:linear-gradient(135deg,#fff3d1,#f2bc72 45%,#e1644f 72%,#9a75ef);-webkit-background-clip:text;color:transparent}.gameSub{font-size:13px;color:#a8b3c0;line-height:1.8;max-width:580px}.versionChip{display:inline-flex;margin-top:18px;padding:7px 10px;border-radius:999px;border:1px solid rgba(243,198,108,.24);background:rgba(243,198,108,.05);font-size:9px;color:#f3c66c;letter-spacing:.15em}
+.startMenu{padding:18px;border-radius:20px;border:1px solid rgba(255,255,255,.11);background:rgba(13,19,27,.8);backdrop-filter:blur(18px);box-shadow:0 32px 100px rgba(0,0,0,.45)}.startMenu h3{margin:0 0 12px}.menuBtn{width:100%;padding:13px 14px;margin-top:8px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#1c2735,#121923);text-align:left;cursor:pointer}.menuBtn.primary{background:linear-gradient(135deg,#c9463b,#ef7958 68%,#e7a05e);border-color:rgba(255,139,109,.32);font-weight:800}.menuBtn b{display:block}.menuBtn small{display:block;color:#8794a7;margin-top:3px;font-size:8px}.menuBtn.primary small{color:#ffe0d6}.startFooter{margin-top:12px;font-size:8px;color:#5f6c7c;line-height:1.6}
+.modalLayer{position:fixed;inset:0;z-index:1000;display:none;place-items:center;background:rgba(3,5,8,.72);backdrop-filter:blur(10px)}.modalLayer.show{display:grid}.modalBox{width:min(720px,92vw);max-height:86vh;overflow:auto;padding:20px;border-radius:20px;border:1px solid var(--line2);background:linear-gradient(180deg,#182332,#0f1620);box-shadow:var(--shadow)}.modalHead{display:flex;justify-content:space-between;gap:12px;align-items:start}.modalHead h2{margin:3px 0}.closeX{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);cursor:pointer}
+.saveCards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.saveCard{padding:12px;border-radius:13px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025)}.saveCard.active{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.045)}.saveCard h4{margin:5px 0}.saveCard p{font-size:8px;color:var(--muted);line-height:1.5}.settingsSection{margin-top:16px}.settingsSection h4{margin:0 0 8px}.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.segmented button{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);cursor:pointer}.segmented button.active{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.05);color:#f3c66c}
+.storyIntro{position:fixed;inset:0;z-index:950;display:none;place-items:end;background:linear-gradient(to bottom,rgba(3,5,8,.2),rgba(3,5,8,.9));pointer-events:auto}.storyIntro.show{display:grid}.storyIntroCard{width:min(980px,94vw);margin:0 auto 4vh;padding:22px;border-radius:20px;border:1px solid var(--line2);background:rgba(9,14,20,.92);backdrop-filter:blur(15px)}.storyIntroCard h2{margin:6px 0 8px}.storyIntroCard p{font-size:12px;line-height:1.75;color:#b5c0cd}
+.mobileControls{display:none;position:absolute;inset:0;pointer-events:none;z-index:8}.joystickBase{position:absolute;left:18px;bottom:22px;width:116px;height:116px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(9,14,20,.38);pointer-events:auto;touch-action:none}.joystickKnob{position:absolute;left:36px;top:36px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.18)}.mobileAction{position:absolute;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:900;border:1px solid rgba(255,255,255,.2);background:rgba(15,22,31,.72);pointer-events:auto;touch-action:none}.mobileAction.skill{right:102px;bottom:102px;width:66px;height:66px}.mobileAction.dodge{right:30px;bottom:110px;width:58px;height:58px}.mobileAction.ult{right:28px;bottom:28px;width:78px;height:78px;border-color:rgba(243,198,108,.5);color:#f3c66c}
+.versionPanel{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.versionBox{padding:10px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);text-align:center}.versionBox small{display:block;color:#68768a;font-size:7px}.versionBox b{font-size:9px}
+@media(max-width:900px){.startInner{grid-template-columns:1fr}.gameTitle{font-size:54px}.saveCards{grid-template-columns:1fr}.versionPanel{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.mobileControls{display:block}.arenaHud>.actionBtn{display:none}.hudSlots{left:145px;max-width:calc(100% - 260px);overflow:hidden}.startScreen{align-items:start;padding-top:8vh}.gameTitle{font-size:46px}}
+
+
+/* ================= V2.1 QUALITY LAYER ================= */
+.loadingScreen{position:fixed;inset:0;z-index:1200;display:none;place-items:center;background:
+ radial-gradient(circle at 70% 38%,rgba(239,105,78,.16),transparent 18%),
+ linear-gradient(145deg,#080b10,#0b1119 60%,#06080c)}
+.loadingScreen.show{display:grid}
+.loadingInner{width:min(760px,90vw);text-align:center}
+.loadingLogo{font-size:42px;font-weight:1000;letter-spacing:-.04em;background:linear-gradient(135deg,#fff0c9,#efb566,#e2634e);-webkit-background-clip:text;color:transparent}
+.loadingStage{font-size:20px;margin:14px 0 4px}.loadingTip{font-size:9px;color:#8390a2;line-height:1.7;min-height:32px}
+.loadingTrack{height:7px;margin-top:20px;border-radius:999px;background:#202a35;overflow:hidden}
+.loadingTrack i{display:block;height:100%;width:0;background:linear-gradient(90deg,#e45f4c,#f3c66c);transition:width .18s}
+.loadingMeta{display:flex;justify-content:space-between;margin-top:8px;font-size:8px;color:#5f6b7a}
+.bossCastBanner{position:absolute;left:50%;top:106px;transform:translateX(-50%) translateY(-10px);opacity:0;padding:8px 18px;border-radius:8px;
+ background:linear-gradient(90deg,transparent,rgba(76,24,30,.92) 18%,rgba(103,31,43,.96) 50%,rgba(76,24,30,.92) 82%,transparent);
+ color:#ffd4be;font-size:13px;font-weight:900;letter-spacing:.08em;transition:.2s;pointer-events:none}
+.bossCastBanner.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.hitFlash{position:absolute;inset:0;pointer-events:none;background:rgba(255,255,255,0);transition:background .08s}.hitFlash.show{background:rgba(255,238,216,.08)}
+.damageFlash{position:absolute;inset:0;pointer-events:none;background:rgba(188,25,36,0);transition:background .08s}.damageFlash.show{background:rgba(188,25,36,.11)}
+.qualityBadge{position:absolute;left:14px;top:63px;padding:5px 8px;border-radius:999px;border:1px solid rgba(243,198,108,.16);background:rgba(9,14,20,.65);font-size:7px;color:#d8c595;letter-spacing:.12em}
+.endCinematic{position:fixed;inset:0;z-index:1180;display:none;place-items:center;background:rgba(3,5,8,.86);backdrop-filter:blur(8px);pointer-events:none}
+.endCinematic.show{display:grid;animation:v21fade .25s ease}
+.endCinematic .seal{width:min(560px,86vw);text-align:center}
+.endCinematic .sealIcon{width:110px;height:110px;margin:auto;border-radius:50%;display:grid;place-items:center;border:2px solid rgba(243,198,108,.48);
+ box-shadow:0 0 0 12px rgba(243,198,108,.035),0 0 70px rgba(239,105,78,.16);font-size:38px;color:#f3c66c;background:radial-gradient(circle,#34231c,#121820 68%)}
+.endCinematic.defeat .sealIcon{border-color:rgba(239,105,78,.4);color:#ef7958;box-shadow:0 0 0 12px rgba(239,105,78,.03),0 0 70px rgba(170,34,45,.14)}
+.endCinematic h1{font-size:44px;margin:16px 0 4px}.endCinematic p{font-size:10px;color:#9aa7b7}
+@keyframes v21fade{from{opacity:0}to{opacity:1}}
+.feedbackStars{display:flex;gap:7px;margin:14px 0}.feedbackStar{width:46px;height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);display:grid;place-items:center;cursor:pointer;font-size:20px;color:#566274}
+.feedbackStar.on{color:#f3c66c;border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.05)}
+.feedbackTags{display:flex;gap:6px;flex-wrap:wrap}.feedbackTag{padding:7px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);font-size:8px;cursor:pointer;color:#8c99aa}
+.feedbackTag.on{border-color:rgba(164,125,255,.3);color:#d7caff;background:rgba(164,125,255,.06)}
+.feedbackText{width:100%;min-height:110px;resize:vertical;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#0b1118;padding:11px;color:#e9eef5;margin-top:12px}
+.audioMeter{display:flex;align-items:center;gap:7px}.audioMeter input{width:140px}
+.v21Tooltip{position:absolute;z-index:6;padding:5px 7px;border-radius:7px;background:rgba(5,8,12,.74);border:1px solid rgba(255,255,255,.06);font-size:7px;color:#9eabbc;pointer-events:none}
+@media(max-width:760px){.loadingLogo{font-size:34px}.endCinematic h1{font-size:34px}.bossCastBanner{top:92px;font-size:10px;max-width:80vw;text-align:center}}
+
+
+/* ================= V2.2 ART DIRECTION ================= */
+:root{--ink:#0c1016;--paper:#d6c398;--jade:#75b6a5;--mythic:#ff86cf}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.14;background:
+ radial-gradient(circle at 30% 15%,rgba(255,255,255,.035) 0 1px,transparent 1.5px),
+ radial-gradient(circle at 70% 68%,rgba(255,255,255,.025) 0 1px,transparent 1.5px);background-size:17px 19px,23px 25px}
+.card{position:relative;overflow:hidden}
+.card:after{content:"";position:absolute;inset:7px;pointer-events:none;border:1px solid rgba(214,195,152,.025);border-radius:13px}
+.card>.eyebrow:first-child:before{content:"◆";margin-right:5px;color:#806f49}
+.ornament{position:absolute;width:32px;height:32px;border-color:rgba(243,198,108,.18);pointer-events:none}
+.ornament.tl{left:8px;top:8px;border-left:1px solid;border-top:1px solid}.ornament.br{right:8px;bottom:8px;border-right:1px solid;border-bottom:1px solid}
+.heroAvatar{width:56px;height:56px;border-radius:15px;position:relative;overflow:hidden;border:1px solid rgba(243,198,108,.25);background:linear-gradient(145deg,#2a3442,#151c27);box-shadow:inset 0 0 25px rgba(0,0,0,.4)}
+.heroAvatar:before{content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);width:21px;height:21px;border-radius:50%;background:var(--avatar-skin,#d39b72)}
+.heroAvatar:after{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);width:44px;height:42px;clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);background:var(--avatar-color,#ef694e)}
+.heroAvatar .hair{position:absolute;left:50%;top:4px;transform:translateX(-50%);width:25px;height:14px;border-radius:60% 60% 35% 35%;background:var(--avatar-hair,#2c2022);z-index:2}
+.heroAvatar .mark{position:absolute;right:4px;bottom:4px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:rgba(7,10,14,.75);border:1px solid rgba(255,255,255,.08);font-size:8px;color:var(--gold);z-index:3}
+.heroIdentity{display:flex;gap:10px;align-items:center;margin:8px 0}
+.heroIdentity h3{margin:0}.heroIdentity small{display:block;color:#68768a;font-size:8px;margin-top:3px}
+.skillArtIcon{width:44px;height:44px;border-radius:12px;position:relative;overflow:hidden;display:grid;place-items:center;font-size:13px;font-weight:1000;color:#fff;border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 0 20px rgba(255,255,255,.035),0 5px 15px rgba(0,0,0,.22)}
+.skillArtIcon:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 30deg,transparent,rgba(255,255,255,.18),transparent 35%,rgba(255,255,255,.08),transparent);animation:v22spin 8s linear infinite}
+.skillArtIcon span{position:relative;z-index:2;text-shadow:0 1px 5px #000}
+.skillArtIcon.fire{background:radial-gradient(circle at 35% 30%,#ffb56b,#a9342e 58%,#32181a)}.skillArtIcon.lightning{background:radial-gradient(circle at 35% 30%,#bde5ff,#4165bb 55%,#171d3d)}
+.skillArtIcon.wind{background:radial-gradient(circle at 35% 30%,#c9ffe3,#458b80 58%,#122b29)}.skillArtIcon.shadow{background:radial-gradient(circle at 35% 30%,#d6c1ff,#6b47a4 58%,#221732)}
+.skillArtIcon.ki{background:radial-gradient(circle at 35% 30%,#c8fbff,#348ca4 58%,#102830)}.skillArtIcon.physical{background:radial-gradient(circle at 35% 30%,#ffe3a5,#9a6740 58%,#302015)}
+.skillArtIcon.passive{background:radial-gradient(circle at 35% 30%,#e9edf3,#586574 58%,#1b222c)}.skillArtIcon.fusion{background:radial-gradient(circle at 35% 30%,#f3d0ff,#784ba0 52%,#24142d);border-color:rgba(204,155,255,.35)}
+.skillArtIcon.evo{background:radial-gradient(circle at 35% 30%,#fff0b0,#aa7331 52%,#2f2414);border-color:rgba(243,198,108,.42)}
+@keyframes v22spin{to{transform:rotate(360deg)}}
+.bossPortrait{width:78px;height:78px;border-radius:18px;position:relative;margin:auto;border:2px solid rgba(239,105,78,.35);background:radial-gradient(circle at 50% 28%,#80554e,#32212a 55%,#121821);box-shadow:0 0 28px rgba(239,105,78,.10);overflow:hidden}
+.bossPortrait:before{content:"";position:absolute;left:50%;top:10px;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:#b77c62}
+.bossPortrait:after{content:"";position:absolute;left:50%;bottom:-12px;transform:translateX(-50%);width:62px;height:60px;clip-path:polygon(18% 0,82% 0,100% 100%,0 100%);background:var(--boss-color,#733846)}
+.bossPortrait .horn{position:absolute;top:4px;left:12px;width:54px;height:20px;border-top:7px solid rgba(236,205,153,.75);border-radius:50%;z-index:3}
+.mapThumb{height:110px;border-radius:13px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.07);background:#19222c}
+.mapThumb:before,.mapThumb:after{content:"";position:absolute;left:-10%;right:-10%;bottom:0;border-radius:50% 50% 0 0}
+.mapThumb.st001{background:linear-gradient(#27323a,#4b4030 58%,#252117)}.mapThumb.st001:before{height:55px;background:#2a2d20;transform:rotate(-3deg)}.mapThumb.st001:after{height:32px;background:#1e241c;left:20%;bottom:2px}
+.mapThumb.st003{background:linear-gradient(#243832,#435737 55%,#202a1d)}.mapThumb.st003:before{height:70px;background:#283f2d;clip-path:polygon(0 100%,15% 50%,25% 70%,42% 25%,55% 58%,72% 18%,100% 100%)}.mapThumb.st003:after{height:28px;background:#17251c}
+.mapThumb.st004{background:linear-gradient(#20263b,#42384b 55%,#171823)}.mapThumb.st004:before{height:65px;background:#26233a;clip-path:polygon(0 100%,15% 45%,26% 80%,44% 25%,58% 62%,77% 20%,100% 100%)}.mapThumb.st004:after{height:22px;background:#151521}
+.mapThumb .mapLabel{position:absolute;left:10px;bottom:9px;z-index:3;font-size:10px;font-weight:900;text-shadow:0 2px 8px #000}
+.rarity-blue{border-color:rgba(112,169,255,.25)!important;box-shadow:inset 0 0 24px rgba(112,169,255,.025)}.rarity-purple{border-color:rgba(164,125,255,.3)!important;box-shadow:inset 0 0 28px rgba(164,125,255,.035)}.rarity-gold{border-color:rgba(243,198,108,.38)!important;box-shadow:inset 0 0 34px rgba(243,198,108,.045),0 0 18px rgba(243,198,108,.03)}
+.rarity-mythic{border-color:rgba(255,134,207,.45)!important;box-shadow:inset 0 0 38px rgba(255,134,207,.06),0 0 22px rgba(255,134,207,.05);animation:v22mythic 1.8s ease-in-out infinite alternate}
+@keyframes v22mythic{to{filter:brightness(1.08)}}
+.rarityRibbon{position:absolute;right:8px;top:8px;padding:3px 6px;border-radius:999px;font-size:7px;background:rgba(5,8,12,.75);border:1px solid rgba(255,255,255,.06)}
+.hudFrame{position:absolute;left:8px;right:8px;bottom:8px;height:92px;border:1px solid rgba(214,195,152,.09);border-radius:18px;pointer-events:none;background:linear-gradient(to top,rgba(7,10,14,.3),transparent)}
+.combo{font-family:"Arial Black","Microsoft YaHei",sans-serif;font-style:italic;text-shadow:0 3px 0 rgba(0,0,0,.7),0 0 18px rgba(243,198,108,.15);transform:skew(-6deg)}
+.evolutionCinematic{position:fixed;inset:0;z-index:1190;display:none;place-items:center;background:radial-gradient(circle,rgba(76,50,22,.35),rgba(4,6,9,.9) 48%,rgba(3,5,7,.98));pointer-events:none}
+.evolutionCinematic.show{display:grid;animation:v22fade .2s ease}
+.evoCore{text-align:center;position:relative}.evoBurst{position:absolute;left:50%;top:50%;width:220px;height:220px;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 0deg,transparent,rgba(243,198,108,.18),transparent 22%,rgba(164,125,255,.16),transparent 50%);animation:v22spin .9s linear infinite}
+.evoIconBig{width:118px;height:118px;margin:auto;border-radius:26px;display:grid;place-items:center;position:relative;z-index:2;border:2px solid rgba(243,198,108,.45);background:radial-gradient(circle at 35% 30%,#fff0b0,#8c5e2b 52%,#201713);box-shadow:0 0 60px rgba(243,198,108,.16);font-size:36px;font-weight:1000}
+.evoCore.fusion .evoIconBig{border-color:rgba(188,132,255,.52);background:radial-gradient(circle at 35% 30%,#ecd8ff,#714298 52%,#201328);box-shadow:0 0 70px rgba(164,125,255,.2)}
+.evoCore h1{font-size:40px;margin:15px 0 2px}.evoCore .eyebrow{font-size:11px}
+.bossIntro{position:fixed;inset:0;z-index:1170;display:none;place-items:center;background:linear-gradient(100deg,rgba(3,5,8,.96),rgba(54,18,24,.88) 46%,rgba(3,5,8,.96));pointer-events:none}
+.bossIntro.show{display:grid;animation:v22bossIn .25s ease}
+.bossIntroInner{width:min(820px,90vw);display:grid;grid-template-columns:160px 1fr;gap:26px;align-items:center}
+.bossIntroPortrait{width:150px;height:150px;border-radius:28px;position:relative;background:radial-gradient(circle at 50% 30%,#8d5c54,#39232d 53%,#111720);border:2px solid rgba(239,105,78,.4);box-shadow:0 0 50px rgba(239,105,78,.12)}
+.bossIntroPortrait:before{content:"";position:absolute;width:55px;height:55px;left:50%;top:20px;transform:translateX(-50%);border-radius:50%;background:#bd8064}
+.bossIntroPortrait:after{content:"";position:absolute;width:115px;height:95px;left:50%;bottom:-5px;transform:translateX(-50%);clip-path:polygon(16% 0,84% 0,100% 100%,0 100%);background:var(--boss-color,#733846)}
+.bossIntro h1{font-size:48px;margin:2px 0}.bossIntro p{font-size:10px;color:#aeb8c5}
+@keyframes v22fade{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:scale(1)}}@keyframes v22bossIn{from{opacity:0;clip-path:inset(44% 0)}to{opacity:1;clip-path:inset(0)}}
+.lootToast{position:absolute;right:16px;top:170px;display:grid;gap:6px;pointer-events:none}.lootLine{padding:7px 10px;border-radius:9px;background:rgba(7,10,14,.84);border:1px solid rgba(243,198,108,.14);font-size:8px;animation:v22loot 2.4s ease forwards}
+@keyframes v22loot{0%{opacity:0;transform:translateX(18px)}12%,75%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-8px)}}
+@media(max-width:760px){.bossIntroInner{grid-template-columns:100px 1fr}.bossIntroPortrait{width:96px;height:96px}.bossIntro h1{font-size:30px}.evoCore h1{font-size:30px}.evoIconBig{width:92px;height:92px}}
+
+</style>
+</head>
+<body>
+
+<div class="startScreen" id="startScreen"><div class="startInner"><div class="titleMark"><div class="eyebrow">OPEN PLAYTEST BUILD</div><div class="gameTitle">万界无双</div><div class="gameSub">多英雄 · 多世界 · Roguelite 割草 ARPG。选择英雄，搭配局外配置与技能 Build，穿越乱世荒原、花果妖岭和忍界战场，在20分钟怪潮中完成进化、融合与Boss决战。</div><div class="versionChip">V2.2.0 · ART DIRECTION PLAYTEST</div></div><div class="startMenu"><h3>开始游戏</h3><button class="menuBtn primary" onclick="continueGame()"><b>继续游戏</b><small id="continueSummary">载入最近存档</small></button><button class="menuBtn" onclick="newGameConfirm()"><b>新游戏</b><small>从第一章重新开始，并保留其他存档槽</small></button><button class="menuBtn" onclick="openSaveManager()"><b>存档管理</b><small>查看、复制、重置试玩存档</small></button><button class="menuBtn" onclick="openGlobalSettings()"><b>设置</b><small>画面、性能与操作偏好</small></button><button class="menuBtn" onclick="openFeedback()"><b>试玩反馈</b><small>记录评分、问题和最想改进的内容</small></button><div class="startFooter">推荐浏览器：Chrome / Edge 最新版。桌面：WASD + Space + E + R；移动端：虚拟摇杆 + 技能按钮。</div></div></div></div>
+<div class="modalLayer" id="saveModal"><div class="modalBox"><div class="modalHead"><div><div class="eyebrow">SAVE MANAGER</div><h2>存档管理</h2></div><button class="closeX" onclick="closeModal('saveModal')">×</button></div><div class="saveCards" id="saveCards"></div></div></div>
+<div class="modalLayer" id="settingsModal"><div class="modalBox"><div class="modalHead"><div><div class="eyebrow">SETTINGS</div><h2>游戏设置</h2></div><button class="closeX" onclick="closeModal('settingsModal')">×</button></div><div class="settingsSection"><h4>性能档位</h4><div class="segmented" id="perfSegment"></div></div><div class="settingsSection"><h4>音频</h4><div class="settingsGrid">
+      <div class="settingRow"><span>合成音效接口</span><div class="toggle on" id="audioToggle" onclick="toggleAudio()"></div></div>
+      <div class="settingRow"><span>主音量</span><div class="audioMeter"><input type="range" min="0" max="100" value="60" id="masterVolume" oninput="setMasterVolume(this.value)"><b id="masterVolumeText">60%</b></div></div>
+    </div></div>
+    <div class="settingsSection"><h4>操作与显示</h4><div class="settingsGrid"><div class="settingRow"><span>镜头震动</span><div class="toggle" id="globalShake" onclick="toggleGlobal('shake')"></div></div><div class="settingRow"><span>伤害数字</span><div class="toggle" id="globalNumbers" onclick="toggleGlobal('numbers')"></div></div><div class="settingRow"><span>粒子特效</span><div class="toggle" id="globalParticles" onclick="toggleGlobal('particles')"></div></div><div class="settingRow"><span>低血量暗角</span><div class="toggle" id="globalVignette" onclick="toggleGlobal('vignette')"></div></div></div></div><div class="settingsSection"><h4>版本信息</h4><div class="versionPanel"><div class="versionBox"><small>版本</small><b>V2.0.0</b></div><div class="versionBox"><small>内容</small><b>3章 / 12关</b></div><div class="versionBox"><small>英雄</small><b>6名</b></div><div class="versionBox"><small>试玩时长</small><b>30–60分钟+</b></div></div></div></div></div>
+<div class="storyIntro" id="storyIntro"><div class="storyIntroCard"><div class="eyebrow">CHAPTER INTRO</div><h2 id="storyIntroTitle">第一章 · 黄巾乱世</h2><p id="storyIntroText">万界裂隙在乱世边境打开，黄巾残军被异界力量侵蚀。你需要穿过荒原，击败操控裂隙的妖师与骑将。</p><div class="actions"><button class="btn primary" onclick="closeStoryIntro(true)">进入章节</button><button class="btn ghost" onclick="closeStoryIntro(false)">稍后再看</button></div></div></div>
+
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">界</div><div><h1>万界无双</h1><small>ALPHA CONTENT</small></div></div>
+  <div class="group">Alpha完整化</div>
+  <div class="nav">
+    <button class="active" data-page="home"><span class="ico">厅</span><span class="label">主大厅</span></button>
+    <button data-page="heroes"><span class="ico">英</span><span class="label">英雄</span></button>
+    <button data-page="loadout"><span class="ico">装</span><span class="label">装备局外</span></button>
+    <button data-page="build"><span class="ico">筑</span><span class="label">Build</span></button>
+    <button data-page="world"><span class="ico">图</span><span class="label">世界地图</span></button>
+    <button data-page="battle"><span class="ico">战</span><span class="label">战斗</span></button>
+    <button data-page="result"><span class="ico">结</span><span class="label">结算</span></button>
+  </div>
+  <div class="sidefoot"><b>V2.2</b><br>ART DIRECTION · 国潮UI / 英雄头像 / 技能图标 / Boss头像 / 稀有度卡框 / 进化演出 / 地图缩略图</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="tleft"><span class="accent"></span><div><strong id="pageTitle">主大厅</strong><small>Alpha内容完整化</small></div></div>
+  <div class="user">
+    <span class="pill">账号 Lv.<b id="topLv">12</b></span>
+    <span class="pill">战力 <b id="topPower">0</b></span>
+    <span class="pill">金币 <b id="topGold">6000</b></span>
+    <span class="pill">章节星 <b id="topStars">5</b></span>
+  </div>
+</header>
+
+<div class="content">
+<section class="page active" id="home">
+  <div class="heroBanner">
+    <div class="heroArt"></div>
+    <div class="heroCopy">
+      <div class="eyebrow">V2.2 · ART UI & CINEMATICS</div>
+      <h1>建立第一套统一的正式美术与战斗演出语言</h1>
+      <p>V2.2 在不引入外部图片资源的前提下先建立可替换的正式美术框架：统一英雄头像、技能图标、Boss头像、地图缩略图、装备稀有度、国潮纹样HUD，并加入进化/融合与Boss登场的大演出。后续真实美术只需按资源清单替换占位层。</p>
+      <div class="tags"><span class="tag hot">国潮UI语言</span><span class="tag">6英雄头像</span><span class="tag">技能图标体系</span><span class="tag">8 Boss头像</span><span class="tag">地图缩略图</span><span class="tag">稀有度卡框</span><span class="tag">进化/融合演出</span><span class="tag">Boss登场演出</span></div>
+      <div class="actions"><button class="btn primary" onclick="continueFlow()">继续完整流程</button><button class="btn gold" onclick="startBattle()">快速开始当前关卡</button></div>
+    </div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><small>当前英雄</small><b id="homeHero">赤焰战神</b></div>
+    <div class="kpi"><small>当前关卡</small><b id="homeStage">ST001-03</b></div>
+    <div class="kpi"><small>本关Boss</small><b id="homeBoss">B002</b></div>
+    <div class="kpi"><small>装备评分</small><b id="homeGear">0</b></div>
+    <div class="kpi"><small>Build评分</small><b id="homeBuild">0</b></div>
+    <div class="kpi"><small>世界进度</small><b id="homeWorld">0%</b></div>
+  </div>
+
+  <div class="section-title"><h3>V1.9实装内容</h3><span>这些内容已经进入战斗层</span></div>
+  <div class="featureGrid">
+    <div class="card feature"><div class="featureIcon">兵</div><h4>20种正式怪物AI</h4><p>近战、弓手、盾兵、骑兵、爆符、治疗、召唤、冲锋、飞行、法师等不同AI模板。</p></div>
+    <div class="card feature"><div class="featureIcon">王</div><h4>8个Boss技能组</h4><p>B001/B002/B003/B006/B008/B009/B010/B011均有不同技能节奏与阶段行为。</p></div>
+    <div class="card feature"><div class="featureIcon">图</div><h4>3张地图机制</h4><p>荒原火线、妖岭妖雾、忍界爆符区，均会在战斗中实际产生影响。</p></div>
+    <div class="card feature"><div class="featureIcon">事</div><h4>随机事件与掉落</h4><p>游商、战神祭坛、黄金宝箱、时空裂缝、真实装备掉落与词缀。</p></div>
+  </div>
+</section>
+
+<section class="page" id="heroes">
+  <div class="section-title"><h2>英雄选择</h2><span>保留6名首发英雄差异化</span></div>
+  <div class="heroGrid" id="heroGrid"></div>
+</section>
+
+<section class="page" id="loadout">
+  <div class="section-title"><h2>局外配置</h2><span>装备 / 符文 / 宠物 / 真实掉落回流</span></div>
+  <div class="loadoutLayout">
+    <div class="card">
+      <div class="eyebrow">CURRENT LOADOUT</div><h3 id="loadoutHeroName">赤焰战神</h3>
+      <div class="heroStats" id="loadoutHeroStats"></div>
+      <div class="section-title"><h3>装备槽</h3></div><div class="equipSlots" id="equipSlots"></div>
+      <div class="section-title"><h3>符文槽</h3></div><div class="runeSlots" id="runeSlots"></div>
+      <div class="section-title"><h3>主宠</h3></div><div class="slot" id="petSlot"></div>
+      <div class="actions"><button class="btn gold" onclick="autoBest()">一键最高评分</button></div>
+    </div>
+    <div>
+      <div class="card"><div class="eyebrow">GEAR</div><h3>装备背包</h3><div class="itemGrid" id="gearGrid"></div></div>
+      <div class="card" style="margin-top:12px"><div class="eyebrow">RUNES</div><h3>符文库</h3><div class="itemGrid" id="runeGrid"></div></div>
+      <div class="card" style="margin-top:12px"><div class="eyebrow">PETS</div><h3>宠物</h3><div class="itemGrid" id="petGrid"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="build">
+  <div class="section-title"><h2>Build配置</h2><span>6主动 + 6被动 + 进化/融合</span></div>
+  <div class="buildLayout">
+    <div class="card">
+      <div class="eyebrow">CURRENT BUILD</div><h3 id="buildHeroName">赤焰战神</h3>
+      <div class="section-title"><h3>主动/召唤</h3><span id="activeCount">0/6</span></div><div class="buildSlots" id="activeSlots"></div>
+      <div class="section-title"><h3>被动</h3><span id="passiveCount">0/6</span></div><div class="buildSlots" id="passiveSlots"></div>
+      <div class="actions"><button class="btn ghost" onclick="clearBuild()">清空</button><button class="btn primary" onclick="go('world')">完成并选关</button></div>
+    </div>
+    <div>
+      <div class="card"><div class="eyebrow">PRESETS</div><h3>推荐Build</h3><div class="presetGrid" id="presetGrid"></div></div>
+      <div class="section-title"><h3>技能选择</h3><span>点击加入/移除</span></div>
+      <div class="card"><div class="skillPickGrid" id="skillPickGrid"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="world">
+  <div class="section-title"><h2>世界地图</h2><span>选择章节与关卡</span></div>
+  <div class="worldLayout">
+    <div class="card worldMap" id="worldMap"></div>
+    <div class="card">
+      <div class="eyebrow" id="worldChapterId">ST001</div><h2 id="worldChapterName">乱世荒原</h2><p class="muted" id="worldChapterDesc"></p>
+      <div class="stageList" id="stageList"></div>
+      <div class="section-title"><h3>地图机制</h3></div><div class="slot" id="mapMechanic"></div>
+      
+      <div class="section-title"><h3>挑战难度</h3><span id="difficultySummary">标准</span></div>
+      <div class="difficultyBar" id="difficultyBar"></div>
+      <div class="actions"><button class="btn primary" onclick="startBattle()">挑战选中关卡</button></div>
+
+    </div>
+  </div>
+</section>
+
+<section class="page" id="battle">
+  <div class="section-title"><h2 id="battleTitle">ST001-03 · 妖师祭坛</h2><span>WASD移动 · Space闪避 · E英雄技 · R终极 · Esc暂停</span></div>
+  <div class="battleLayout">
+    <div class="card arena">
+      <canvas id="arenaCanvas"></canvas>
+      <div class="arenaHud">
+        <div class="hudTop">
+          <div class="hudBox"><b id="hudHero">赤焰战神</b> · Lv.<span id="runLevel">1</span> · HP <span id="hudHp">620/620</span></div>
+          <div class="hudBox"><span id="runTime">00:00</span> · 击杀 <span id="runKills">0</span> · DPS <span id="runDps">0</span></div>
+        </div>
+        <div class="bossBar" id="bossBar"><div class="progress"><i id="bossHpFill"></i></div><div class="bossLabel" id="bossLabel">Boss</div></div>
+        <div class="combo" id="comboText">0<small>COMBO</small></div>
+        <div class="eventHint" id="eventHint">技能已升级</div>
+        <div class="hudSlots" id="hudSlots"></div>
+        <div class="actionBtn heroSkill" onclick="castHeroSkill()">E<br><span id="skillCdText">READY</span></div>
+        <div class="actionBtn dodge" onclick="tryDodge()">SPACE<br><span id="dodgeCdText">READY</span></div>
+        <div class="actionBtn ult" onclick="castUltimate()">R<br><span id="ultText">0%</span></div>
+        <div class="battleHint">3/8/13分钟事件 · 5/10/15分钟宝箱 · 20分钟胜负判定</div>
+        <div class="lowHp" id="lowHp"></div>
+        <div class="bossCastBanner" id="bossCastBanner">BOSS CAST</div>
+        <div class="hitFlash" id="hitFlash"></div>
+        <div class="damageFlash" id="damageFlash"></div>
+        <div class="qualityBadge">V2.2 · ART DIRECTION</div><div class="hudFrame"></div><div class="lootToast" id="lootToast"></div>
+<div class="mobileControls" id="mobileControls"><div class="joystickBase" id="joystickBase"><div class="joystickKnob" id="joystickKnob"></div></div><div class="mobileAction skill" ontouchstart="castHeroSkill()">E 技能</div><div class="mobileAction dodge" ontouchstart="tryDodge()">闪避</div><div class="mobileAction ult" ontouchstart="castUltimate()">R 终极</div></div>
+
+        <div class="overlay" id="levelOverlay"><div class="choiceWrap"><div style="text-align:center;margin-bottom:14px"><div class="eyebrow">LEVEL UP</div><h2>选择一项强化</h2></div><div class="choiceGrid" id="choiceGrid"></div></div></div>
+        <div class="overlay" id="chestOverlay"><div class="choiceWrap"><div style="text-align:center;margin-bottom:14px"><div class="eyebrow">CHEST</div><h2>进化 / 融合奖励</h2></div><div class="choiceGrid" id="chestChoices"></div></div></div>
+        <div class="overlay" id="eventOverlay"><div class="choiceWrap"><div style="text-align:center;margin-bottom:14px"><div class="eyebrow">MAP EVENT</div><h2 id="eventTitle">随机事件</h2></div><div class="eventGrid" id="eventChoices"></div></div></div>
+        <div class="overlay" id="tutorialOverlay"><div class="pausePanel"><div class="eyebrow">TUTORIAL</div><h2 id="tutorialTitle">移动</h2><p class="muted" id="tutorialText"></p><button class="btn primary" style="width:100%" onclick="nextTutorial()">下一步</button><button class="btn ghost" style="width:100%;margin-top:8px" onclick="skipTutorial()">跳过引导</button></div></div>
+        <div class="overlay" id="pauseOverlay"><div class="pausePanel"><div class="eyebrow">PAUSED</div><h2>战斗暂停</h2><div class="settingsGrid">
+          <div class="settingRow"><span>镜头震动</span><div class="toggle on" id="shakeToggle" onclick="toggleSetting('shake')"></div></div>
+          <div class="settingRow"><span>伤害数字</span><div class="toggle on" id="numbersToggle" onclick="toggleSetting('numbers')"></div></div>
+          <div class="settingRow"><span>粒子特效</span><div class="toggle on" id="particlesToggle" onclick="toggleSetting('particles')"></div></div>
+          <div class="settingRow"><span>低血量暗角</span><div class="toggle on" id="vignetteToggle" onclick="toggleSetting('vignette')"></div></div>
+        </div><div class="actions"><button class="btn primary" style="width:100%" onclick="togglePause()">继续</button><button class="btn ghost" style="width:100%" onclick="finishRun(false,'主动退出')">结束本局</button></div></div></div>
+      </div>
+    </div>
+
+    <div class="battleSide">
+      <div class="card"><div class="eyebrow">RUN STATUS</div><h3 id="sideRunHero">赤焰战神</h3><div id="runStats"></div></div>
+      <div class="card"><div class="eyebrow">BUILD</div><h3>局内构筑</h3><div class="runBuild" id="runBuild"></div></div>
+      <div class="card"><div class="eyebrow">DAMAGE</div><h3>技能伤害统计</h3><div class="damageList" id="damageList"></div></div>
+      <div class="card"><div class="eyebrow">READY</div><h3>可进化/融合</h3><div id="readyList"></div></div>
+      
+      <div class="card">
+        <div class="eyebrow">DIRECTOR</div><h3>动态关卡导演</h3>
+        <div class="directorPanel">
+          <div class="directorRow"><span>当前Wave</span><b class="directorValue" id="directorWave">W01</b></div>
+          <div class="directorRow"><span>刷怪预算</span><b class="directorValue" id="directorBudget">0</b></div>
+          <div class="directorRow"><span>精英倍率</span><b class="directorValue" id="directorElite">1.0x</b></div>
+          <div class="directorRow"><span>动态压力</span><b class="directorValue" id="directorPressureText">0%</b></div>
+          <div class="pressureMeter"><i id="directorPressure"></i></div>
+          <div class="directorRow"><span>下一节点</span><b class="directorValue" id="directorNext">03:00 事件</b></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">WAVE TABLE</div><h3>0–20分钟节奏</h3>
+        <div class="waveTable" id="waveTable"></div>
+      </div>
+      <div class="card"><div class="eyebrow">LOG</div><h3>战斗日志</h3><div class="log" id="battleLog"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="result">
+  <div class="section-title"><h2>完整结算</h2><span>掉落、星级、熟练度和统计全部回流</span></div>
+  <div class="resultGrid">
+    <div class="card resultHero">
+      <div class="eyebrow" id="resultState">VICTORY</div><h1 id="resultTitle">妖师祭坛 · 胜利</h1><p class="muted" id="resultReason">完成目标</p>
+      <div class="resultMetrics">
+        <div class="resultMetric"><small>时间</small><b id="resTime">00:00</b></div>
+        <div class="resultMetric"><small>击杀</small><b id="resKills">0</b></div>
+        <div class="resultMetric"><small>星级</small><b id="resStars">★★★</b></div>
+        <div class="resultMetric"><small>金币</small><b id="resGold">+0</b></div>
+      </div>
+      <div class="actions"><button class="btn primary" onclick="go('home')">回到主大厅</button><button class="btn gold" onclick="startBattle()">再次挑战</button><button class="btn ghost" onclick="openFeedback()">提交试玩反馈</button></div>
+    </div>
+    <div>
+      <div class="card"><div class="eyebrow">PERMANENT PROGRESSION</div><h3>永久成长变化</h3><div id="resultRows"></div></div>
+      <div class="card" style="margin-top:12px"><div class="eyebrow">DROPS</div><h3>本局掉落</h3><div class="dropGrid" id="dropGrid"></div></div>
+      <div class="card" style="margin-top:12px"><div class="eyebrow">DAMAGE REPORT</div><h3>伤害排行</h3><div class="damageList" id="resultDamage"></div></div>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const HEROES={
+ H001:{name:'赤焰战神',hp:620,atk:108,def:28,move:4.8,aspd:.95,crit:5,unlock:0,color:'#ef694e',skill:'炎龙斩',ult:'赤龙降世',
+  presets:[['灭世炎狱',['A011','A021','A026','A027','A003','A054'],['P026','P017','P030','P019','P016','P018']],['炎龙武圣',['A001','A003','A054','A042','A063','A070'],['P016','P026','P011','P003','P019','P043']],['火域站场',['A021','A027','A028','A041','A011','A062'],['P017','P026','P027','P019','P043','P001']]]},
+ H002:{name:'雷霆猛将',hp:520,atk:102,def:20,move:5.4,aspd:1.15,crit:8,unlock:800,color:'#70a9ff',skill:'雷闪突击',ult:'雷霆万军',
+  presets:[['九天雷神',['A013','A022','A041','A051','A062','S003'],['P027','P023','P011','P018','P019','P003']],['雷枪连击',['A002','A051','A062','A013','A041','S003'],['P027','P011','P007','P003','P018','P019']],['雷影军团',['S003','A013','A022','A051','A041','A060'],['P027','P039','P036','P018','P011','P019']]]},
+ H007:{name:'灵猴',hp:560,atk:105,def:22,move:5.4,aspd:1.10,crit:8,unlock:1200,color:'#f0b45d',skill:'腾云震地',ult:'法天象地',
+  presets:[['斗战风暴',['A005','A001','A026','A045','S001','A009'],['P016','P011','P030','P039','P036','P018']],['万猴军团',['S001','A005','A026','A045','A060','A009'],['P039','P036','P037','P018','P016','P030']],['巨神棍阵',['A005','A001','A009','A045','A026','S001'],['P001','P016','P011','P019','P030','P043']]]},
+ H010:{name:'炎忍',hp:440,atk:116,def:14,move:5.3,aspd:1.0,crit:6,unlock:0,color:'#f08358',skill:'炎龙疾走',ult:'炎龙忍法',
+  presets:[['爆炎忍法',['A011','A019','A027','A054','S002','A042'],['P026','P010','P018','P019','P024','P033']],['炎龙疾走',['A054','A011','A027','A051','A060','S002'],['P026','P018','P011','P019','P033','P007']],['火分身',['S002','A011','A019','A027','A042','A063'],['P036','P039','P026','P010','P018','P019']]]},
+ H012:{name:'影忍',hp:430,atk:106,def:14,move:5.6,aspd:1.20,crit:12,unlock:0,color:'#a47dff',skill:'影袭瞬杀',ult:'万影杀阵',
+  presets:[['万影忍神',['A015','S001','A053','A070','A072','A073'],['P024','P039','P033','P007','P018','P019']],['暗器暴击',['A015','A007','A070','A053','A072','A073'],['P024','P007','P011','P019','P033','P018']],['影军召唤',['S001','A015','A053','A070','S002','S003'],['P039','P036','P033','P018','P019','P024']]]},
+ H019:{name:'气功战士',hp:500,atk:112,def:18,move:5.2,aspd:1.05,crit:8,unlock:1500,color:'#65d8ff',skill:'爆气冲击',ult:'超级气功炮',
+  presets:[['万象星河炮',['A014','A030','A049','A060','A068','S018'],['P032','P019','P018','P003','P016','P043']],['气爆领域',['A030','A060','A068','A014','A049','S018'],['P032','P016','P018','P019','P043','P001']],['百重气功',['A014','S018','A049','A068','A060','A030'],['P032','P019','P018','P003','P011','P016']]]}
+};
+
+const SKILLS={A001:'旋风斩',A002:'雷霆枪',A003:'烈焰刀',A005:'回旋棍',A007:'修罗斩',A009:'连环拳',A011:'火球术',A013:'雷电弹',A014:'气功弹',A015:'手里剑',A019:'爆裂弹',A021:'火焰领域',A022:'雷霆领域',A026:'龙卷风',A027:'陨石雨',A028:'爆炎阵',A030:'气爆领域',A041:'落雷',A042:'火柱',A045:'风刃雨',A049:'气功轰炸',A051:'雷闪',A053:'影袭',A054:'火焰冲刺',A060:'气爆瞬移',A062:'雷珠',A063:'火轮',A068:'气功珠',A070:'暗影刃',A072:'黑洞',A073:'镜像攻击',S001:'影分身',S002:'火分身',S003:'雷分身',S018:'气功幻影',P001:'力量强化',P003:'破军',P007:'致命',P010:'暴击爆炸',P011:'极速',P016:'范围强化',P017:'持续强化',P018:'冷却缩减',P019:'技能倍率',P023:'弹射',P024:'分裂',P026:'火神祝福',P027:'雷神祝福',P030:'风神祝福',P032:'气能强化',P033:'暗影强化',P036:'召唤强化',P037:'召唤速度',P039:'召唤数量',P043:'吸血'};
+const EVOS={E001:['无双风暴','A001','P016'],E003:['炼狱龙斩','A003','P026'],E005:['斗战神棍','A005','P018'],E011:['炼狱火球','A011','P026'],E013:['无限雷链','A013','P023'],E014:['星河气弹','A014','P032'],E015:['万影手里剑','A015','P024'],E019:['连环爆破','A019','P010'],E021:['炼狱火海','A021','P017'],E022:['九天雷域','A022','P027'],E026:['天灾风暴','A026','P030'],E027:['天火陨星','A027','P026'],E028:['九重爆炎阵','A028','P019'],E030:['星环气场','A030','P032'],E041:['天罚神雷','A041','P027'],E049:['星河弹幕','A049','P032'],E054:['炎龙疾走','A054','P026'],SE001:['万影军团','S001','P039'],SE003:['雷神影军','S003','P027'],SE018:['星河幻影','S018','P032']};
+const FUSIONS={F001:['焚天龙卷','E011','E026'],F002:['天火炼狱','E021','E027'],F003:['炎爆地狱','E028','E019'],F004:['炎龙乱舞','E003','E054'],F005:['雷神万影','E013','SE003'],F006:['九天雷劫','E022','E041'],F020:['百重气功炮','E014','SE018'],F021:['星河冲击','E030','E049'],F026:['无限影军','SE001','E015'],F033:['斗战风暴','E005','E001']};
+
+const GEAR={
+ EQW001:{name:'赤炎刀',slot:'weapon',score:310,rarity:'purple'},EQW003:{name:'玄铁棍',slot:'weapon',score:403,rarity:'gold'},EQW005:{name:'雷鸣枪',slot:'weapon',score:350,rarity:'purple'},EQW007:{name:'夜鸦千刃',slot:'weapon',score:440,rarity:'gold'},
+ EQA001:{name:'武将甲',slot:'armor',score:220,rarity:'blue'},EQA003:{name:'斗战战甲',slot:'armor',score:380,rarity:'gold'},EQA005:{name:'影忍轻甲',slot:'armor',score:300,rarity:'purple'},EQA007:{name:'灵界战衣',slot:'armor',score:420,rarity:'gold'},
+ EQX001:{name:'炎龙核心',slot:'accessory',score:250,rarity:'purple'},EQX003:{name:'万界印记',slot:'accessory',score:390,rarity:'gold'},EQX005:{name:'天机玉佩',slot:'accessory',score:210,rarity:'blue'},EQX007:{name:'混沌指环',slot:'accessory',score:430,rarity:'gold'}
+};
+const RUNES={R031:{name:'火神符文',score:95},R012:{name:'巨化符文',score:82},R043:{name:'学者符文',score:76},R001:{name:'狂战符文',score:88},R017:{name:'多重符文',score:90},R021:{name:'吸血符文',score:78}};
+const PETS={PET001:{name:'火灵',score:140},PET002:{name:'雷狼',score:120},PET007:{name:'治疗精灵',score:110},PET011:{name:'招财猫',score:105},PET015:{name:'镜像精灵',score:128}};
+
+const ENEMIES={
+ EN001:{name:'黄巾步卒',map:'ST001',ai:'melee',hp:70,speed:68,damage:8,color:'#a84b43'},
+ EN002:{name:'黄巾弓手',map:'ST001',ai:'ranged',hp:55,speed:54,damage:7,color:'#9d6a44'},
+ EN003:{name:'黄巾盾兵',map:'ST001',ai:'shield',hp:145,speed:45,damage:7,color:'#6e737c'},
+ EN004:{name:'黄巾骑兵',map:'ST001',ai:'charge',hp:105,speed:86,damage:12,color:'#8d4b3b'},
+ EN005:{name:'火箭兵',map:'ST001',ai:'aoe_ranged',hp:65,speed:48,damage:9,color:'#b45d3d'},
+ EN006:{name:'黄巾力士',map:'ST001',ai:'brute',hp:220,speed:38,damage:16,color:'#b2844f'},
+ EN014:{name:'猴妖',map:'ST003',ai:'melee',hp:85,speed:76,damage:9,color:'#8e6b40'},
+ EN015:{name:'狼妖',map:'ST003',ai:'flank',hp:72,speed:95,damage:10,color:'#6c6f75'},
+ EN016:{name:'蛇妖',map:'ST003',ai:'poison',hp:68,speed:66,damage:8,color:'#5e8a58'},
+ EN017:{name:'牛妖',map:'ST003',ai:'brute',hp:260,speed:40,damage:18,color:'#825947'},
+ EN018:{name:'飞妖',map:'ST003',ai:'fly',hp:62,speed:82,damage:8,color:'#7b6f92'},
+ EN019:{name:'妖术师',map:'ST003',ai:'summoner',hp:90,speed:45,damage:7,color:'#77508d'},
+ EN020:{name:'石妖',map:'ST003',ai:'shield',hp:210,speed:36,damage:12,color:'#77756b'},
+ EN021:{name:'下忍',map:'ST004',ai:'melee',hp:78,speed:84,damage:9,color:'#6d596f'},
+ EN022:{name:'暗器忍',map:'ST004',ai:'ranged',hp:60,speed:74,damage:8,color:'#64567b'},
+ EN023:{name:'火忍',map:'ST004',ai:'aoe_ranged',hp:72,speed:68,damage:10,color:'#9a4f3d'},
+ EN024:{name:'雷忍',map:'ST004',ai:'dash',hp:74,speed:90,damage:11,color:'#5573a1'},
+ EN025:{name:'分身忍',map:'ST004',ai:'clone',hp:82,speed:72,damage:8,color:'#705d84'},
+ EN026:{name:'爆符忍',map:'ST004',ai:'trap',hp:65,speed:65,damage:12,color:'#8c593d'},
+ EN027:{name:'医忍',map:'ST004',ai:'healer',hp:95,speed:55,damage:5,color:'#5b8c76'}
+};
+
+const BOSSES={
+ B001:{name:'黄巾巨将',map:'ST001',style:'巨斧冲击',hp:7000,color:'#8f3539',skills:['震地斩','狂暴冲锋','旋风斧']},
+ B002:{name:'乱世妖师',map:'ST001',style:'法阵与召唤',hp:11000,color:'#76538f',skills:['火符法阵','妖兵召唤','瞬移雷击']},
+ B003:{name:'混沌骑将',map:'ST001',style:'骑乘冲锋',hp:18000,color:'#8a472d',skills:['直线冲锋','枪阵','下马狂战']},
+ B006:{name:'牛魔妖王',map:'ST003',style:'重击与岩爆',hp:22000,color:'#76513a',skills:['裂地重锤','岩石爆破','霸体冲撞']},
+ B008:{name:'混世魔猿',map:'ST003',style:'跳跃与分身',hp:30000,color:'#805f39',skills:['跃击','棍影分身','狂暴连砸']},
+ B009:{name:'炎狱忍王',map:'ST004',style:'火遁与爆符',hp:24000,color:'#9a4539',skills:['炎墙','爆符雨','炎龙突袭']},
+ B010:{name:'雷瞬忍王',map:'ST004',style:'高速雷闪',hp:26000,color:'#4f6d9c',skills:['雷瞬','雷牢','天雷落']},
+ B011:{name:'万影忍王',map:'ST004',style:'分身与斩杀',hp:36000,color:'#70528d',skills:['万影分身','暗影扇刃','影界处刑']}
+};
+
+const CHAPTERS={
+ ST001:{name:'乱世荒原',desc:'黄巾残军与裂隙妖术肆虐边境。',pos:[18,67],mechanic:'火线：周期出现横向燃烧带，站在其中持续掉血。',bossPool:['B001','B002','B003'],stages:[
+  ['ST001-01','边境清剿',false,260,'B001'],['ST001-02','废村救援',false,320,'B001'],['ST001-03','妖师祭坛',true,420,'B002'],['ST001-04','裂隙骑将',true,650,'B003']
+ ]},
+ ST003:{name:'花果妖岭',desc:'妖气笼罩古道，混世魔猿统领怪潮。',pos:[52,37],mechanic:'妖雾：周期覆盖区域，降低视野并强化妖怪移速。',bossPool:['B006','B008'],stages:[
+  ['ST003-01','妖岭入口',false,420,'B006'],['ST003-02','白骨迷阵',false,480,'B006'],['ST003-03','牛魔试炼',true,620,'B006'],['ST003-04','混世魔猿',true,820,'B008']
+ ]},
+ ST004:{name:'忍界战场',desc:'雷火、暗器与分身制造高速战场。',pos:[83,58],mechanic:'爆符区：地面随机生成爆符预警圈，延迟后爆炸。',bossPool:['B009','B010','B011'],stages:[
+  ['ST004-01','暗器封锁',false,540,'B009'],['ST004-02','爆符峡谷',false,620,'B010'],['ST004-03','炎雷双王',true,820,'B010'],['ST004-04','万影忍王',true,1100,'B011']
+ ]}
+};
+
+const ELITE_AFFIXES=[
+ {id:'swift',name:'迅捷',desc:'移速+35%',apply:e=>{e.speed*=1.35}},
+ {id:'tank',name:'坚甲',desc:'生命+80%',apply:e=>{e.hp*=1.8;e.maxHp*=1.8}},
+ {id:'volatile',name:'爆裂',desc:'死亡爆炸',apply:e=>{e.volatile=true}},
+ {id:'vamp',name:'吸血',desc:'命中回复',apply:e=>{e.vamp=true}},
+ {id:'aura',name:'压制光环',desc:'靠近降低玩家移速',apply:e=>{e.aura=true}},
+ {id:'split',name:'分裂',desc:'死亡分裂',apply:e=>{e.split=true}}
+];
+
+const MAP_EVENTS=[
+ {id:'merchant',name:'万界游商',desc:'用金币购买一次局内强化。'},
+ {id:'altar',name:'战神祭坛',desc:'获得强力增益，但附带代价。'},
+ {id:'goldChest',name:'黄金宝箱',desc:'直接获得技能升级或装备掉落。'},
+ {id:'rift',name:'时空裂缝',desc:'召唤精英怪，胜利后获得高品质奖励。'}
+];
+
+const SAVE_KEY='wanjie_v18_alpha_content';
+const DEFAULT_SAVE={
+ accountLv:12,gold:6000,hero:'H001',
+ heroes:{H001:{unlocked:true,level:6,mastery:40},H002:{unlocked:false,level:1,mastery:0},H007:{unlocked:false,level:1,mastery:0},H010:{unlocked:true,level:4,mastery:20},H012:{unlocked:true,level:5,mastery:28},H019:{unlocked:false,level:1,mastery:0}},
+ equip:{weapon:'EQW001',armor:'EQA001',accessory:'EQX001'},runes:['R031','R012','R043'],pet:'PET001',
+ build:{active:['A011','A021','A026','A027','A003','A054'],passive:['P026','P017','P030','P019','P016','P018']},
+ chapters:{ST001:{stars:{'ST001-01':3,'ST001-02':2,'ST001-03':0,'ST001-04':0}},ST003:{stars:{}},ST004:{stars:{}}},
+ selectedChapter:'ST001',selectedStage:'ST001-03',
+ inventory:{gear:['EQW001','EQW003','EQW005','EQA001','EQA003','EQA005','EQX001','EQX003','EQX005'],runes:['R031','R012','R043','R001','R017','R021'],pets:['PET001','PET002','PET007','PET011','PET015']},
+ stats:{runs:4,kills:1840,bossKills:9},
+ settings:{shake:true,numbers:true,particles:true,vignette:true,tutorialSeen:false}
+};
+
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function merge(a,b){for(const k in b){if(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k])&&a[k]&&typeof a[k]==='object'&&!Array.isArray(a[k]))a[k]=merge(a[k],b[k]);else a[k]=b[k]}return a}
+function loadSave(){try{return merge(clone(DEFAULT_SAVE),JSON.parse(localStorage.getItem(SAVE_KEY)||'{}'))}catch(e){return clone(DEFAULT_SAVE)}}
+let save=loadSave(),lastResult=null;
+function persist(){recomputeWorldUnlocks();localStorage.setItem(SAVE_KEY,JSON.stringify(save));renderAll()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),1600)}
+function hint(m){const t=document.getElementById('eventHint');t.textContent=m;t.classList.add('show');clearTimeout(window.hh);window.hh=setTimeout(()=>t.classList.remove('show'),1700)}
+function log(m){const d=document.createElement('div');d.textContent=m;const l=document.getElementById('battleLog');l.prepend(d);while(l.children.length>14)l.lastChild.remove()}
+function fmt(sec){let m=Math.floor(sec/60),s=Math.floor(sec%60);return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById(id).classList.add('active');document.getElementById('pageTitle').textContent={home:'主大厅',heroes:'英雄',loadout:'装备局外',build:'Build',world:'世界地图',battle:'战斗',result:'结算'}[id]||'万界无双';if(id==='battle')resizeArena()}
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+
+function chapterStars(id){return Object.values(save.chapters[id]?.stars||{}).reduce((a,b)=>a+(b||0),0)}
+function totalStars(){return Object.keys(CHAPTERS).reduce((a,id)=>a+chapterStars(id),0)}
+function recomputeWorldUnlocks(){CHAPTERS.ST001.unlock=true;CHAPTERS.ST003.unlock=chapterStars('ST001')>=8;CHAPTERS.ST004.unlock=chapterStars('ST003')>=8}
+function gearScore(){return Object.values(save.equip).reduce((s,id)=>s+(GEAR[id]?.score||0),0)}
+function runeScore(){return save.runes.reduce((s,id)=>s+(RUNES[id]?.score||0),0)}
+function petScore(){return PETS[save.pet]?.score||0}
+function buildScore(){const e=reachableBuildEvos().length,f=reachableBuildFusions().length;return Math.round(save.build.active.length*70+save.build.passive.length*45+e*35+f*75)}
+function combatPower(){const h=save.heroes[save.hero];return Math.round(1200+save.accountLv*70+(h.level-1)*110+gearScore()*1.7+runeScore()*2.1+petScore()*2+buildScore()*.55)}
+function heroStats(id){const h=HEROES[id],s=save.heroes[id],lv=1+(s.level-1)*.04;return {hp:Math.round(h.hp*(1+(s.level-1)*.03)),atk:Math.round(h.atk*lv),def:Math.round(h.def*(1+(s.level-1)*.02)),move:h.move,aspd:h.aspd,crit:h.crit}}
+function skillName(id){return SKILLS[id]||EVOS[id]?.[0]||FUSIONS[id]?.[0]||id}
+function glyph(id){return skillName(id).slice(0,1)}
+function reachableBuildEvos(){return Object.entries(EVOS).filter(([id,[n,a,p]])=>save.build.active.includes(a)&&save.build.passive.includes(p)).map(([id])=>id)}
+function reachableBuildFusions(){const e=new Set(reachableBuildEvos());return Object.entries(FUSIONS).filter(([id,[n,a,b]])=>e.has(a)&&e.has(b)).map(([id])=>id)}
+function selectedStageInfo(){for(const [cid,c] of Object.entries(CHAPTERS)){for(const st of c.stages)if(st[0]===save.selectedStage)return {chapter:cid,stage:st}}return {chapter:'ST001',stage:CHAPTERS.ST001.stages[0]}}
+function worldProgress(){return Math.round(totalStars()/36*100)}
+
+function renderTop(){
+ const si=selectedStageInfo();document.getElementById('topLv').textContent=save.accountLv;document.getElementById('topPower').textContent=combatPower().toLocaleString();document.getElementById('topGold').textContent=save.gold.toLocaleString();document.getElementById('topStars').textContent=totalStars();
+ document.getElementById('homeHero').textContent=HEROES[save.hero].name;document.getElementById('homeStage').textContent=save.selectedStage;document.getElementById('homeBoss').textContent=si.stage[4];document.getElementById('homeGear').textContent=gearScore();document.getElementById('homeBuild').textContent=buildScore();document.getElementById('homeWorld').textContent=worldProgress()+'%'
+}
+function continueFlow(){go('heroes')}
+
+/* heroes */
+function renderHeroes(){
+ const g=document.getElementById('heroGrid');g.innerHTML='';
+ Object.entries(HEROES).forEach(([id,h])=>{const s=save.heroes[id],st=heroStats(id),d=document.createElement('div');d.className='card heroCard '+(save.hero===id?'selected ':'')+(!s.unlocked?'locked':'');d.innerHTML='<div class="portrait"></div><div class="eyebrow">'+id+'</div><h3>'+h.name+'</h3><div class="tags"><span class="tag">'+h.skill+'</span><span class="tag">'+h.ult+'</span></div><div class="heroStats"><div><small>HP</small><b>'+st.hp+'</b></div><div><small>ATK</small><b>'+st.atk+'</b></div><div><small>Lv.</small><b>'+s.level+'</b></div></div><div class="actions"><button class="btn '+(s.unlocked?'primary':'gold')+'" onclick="selectHero(\''+id+'\')">'+(s.unlocked?'选择':'解锁 '+h.unlock+'金')+'</button></div>';g.appendChild(d)})
+}
+function selectHero(id){const h=HEROES[id],s=save.heroes[id];if(!s.unlocked){if(save.gold<h.unlock){toast('金币不足');return}save.gold-=h.unlock;s.unlocked=true}save.hero=id;save.build.active=[...h.presets[0][1]];save.build.passive=[...h.presets[0][2]];persist();toast('已选择 '+h.name);go('loadout')}
+
+/* loadout */
+function renderLoadout(){
+ const h=HEROES[save.hero],st=heroStats(save.hero);document.getElementById('loadoutHeroName').textContent=h.name;document.getElementById('loadoutHeroStats').innerHTML=[['HP',st.hp],['ATK',st.atk],['DEF',st.def],['战力',combatPower()],['攻速',st.aspd],['暴击',st.crit+'%']].map(([n,v])=>'<div><small>'+n+'</small><b>'+v+'</b></div>').join('');
+ const es=document.getElementById('equipSlots');es.innerHTML='';for(const slot of ['weapon','armor','accessory']){const id=save.equip[slot],d=document.createElement('div');d.className='slot';d.innerHTML='<b>'+({weapon:'武器',armor:'防具',accessory:'饰品'}[slot])+'</b><small>'+GEAR[id].name+' · '+GEAR[id].score+'</small>';es.appendChild(d)}
+ document.getElementById('runeSlots').innerHTML=save.runes.map(id=>'<div class="slot"><b>'+RUNES[id].name+'</b><small>'+id+' · '+RUNES[id].score+'</small></div>').join('');
+ document.getElementById('petSlot').innerHTML='<b>'+PETS[save.pet].name+'</b><small>'+save.pet+' · '+PETS[save.pet].score+'评分</small>';
+ const gg=document.getElementById('gearGrid');gg.innerHTML='';save.inventory.gear.forEach(id=>{const x=GEAR[id],active=Object.values(save.equip).includes(id),d=document.createElement('div');d.className='itemCard '+(active?'active':'');d.innerHTML='<div class="itemIcon">装</div><div class="eyebrow">'+id+'</div><h4>'+x.name+'</h4><p>'+x.slot+' · '+x.score+'评分</p><button class="btn '+(active?'gold':'ghost')+'" style="width:100%" onclick="equipGear(\''+id+'\')">'+(active?'已装备':'装备')+'</button>';gg.appendChild(d)});
+ const rg=document.getElementById('runeGrid');rg.innerHTML='';save.inventory.runes.forEach(id=>{const x=RUNES[id],active=save.runes.includes(id),d=document.createElement('div');d.className='itemCard '+(active?'active':'');d.innerHTML='<div class="itemIcon">符</div><div class="eyebrow">'+id+'</div><h4>'+x.name+'</h4><p>'+x.score+'评分</p><button class="btn '+(active?'purple':'ghost')+'" style="width:100%" onclick="toggleRune(\''+id+'\')">'+(active?'卸下':'装备')+'</button>';rg.appendChild(d)});
+ const pg=document.getElementById('petGrid');pg.innerHTML='';save.inventory.pets.forEach(id=>{const x=PETS[id],active=save.pet===id,d=document.createElement('div');d.className='itemCard '+(active?'active':'');d.innerHTML='<div class="itemIcon">宠</div><div class="eyebrow">'+id+'</div><h4>'+x.name+'</h4><p>'+x.score+'评分</p><button class="btn '+(active?'gold':'ghost')+'" style="width:100%" onclick="setPet(\''+id+'\')">'+(active?'主宠':'设为主宠')+'</button>';pg.appendChild(d)})
+}
+function equipGear(id){save.equip[GEAR[id].slot]=id;persist()}
+function toggleRune(id){const i=save.runes.indexOf(id);if(i>=0)save.runes.splice(i,1);else{if(save.runes.length>=3)save.runes.shift();save.runes.push(id)}persist()}
+function setPet(id){save.pet=id;persist()}
+function autoBest(){for(const slot of ['weapon','armor','accessory']){const arr=save.inventory.gear.filter(id=>GEAR[id].slot===slot).sort((a,b)=>GEAR[b].score-GEAR[a].score);save.equip[slot]=arr[0]}save.runes=save.inventory.runes.slice().sort((a,b)=>RUNES[b].score-RUNES[a].score).slice(0,3);save.pet=save.inventory.pets.slice().sort((a,b)=>PETS[b].score-PETS[a].score)[0];persist();toast('已应用最高评分配置')}
+
+/* build */
+function renderBuild(){
+ document.getElementById('buildHeroName').textContent=HEROES[save.hero].name;renderBuildSlots('activeSlots',save.build.active,6);renderBuildSlots('passiveSlots',save.build.passive,6);document.getElementById('activeCount').textContent=save.build.active.length+'/6';document.getElementById('passiveCount').textContent=save.build.passive.length+'/6';
+ const pg=document.getElementById('presetGrid');pg.innerHTML='';HEROES[save.hero].presets.forEach((p,i)=>{const d=document.createElement('div');d.className='preset';d.innerHTML='<div class="eyebrow">PRESET '+(i+1)+'</div><h4>'+p[0]+'</h4><p>主动：'+p[1].map(skillName).join(' / ')+'<br>被动：'+p[2].map(skillName).join(' / ')+'</p><button class="btn gold" style="width:100%" onclick="applyPreset('+i+')">应用</button>';pg.appendChild(d)});
+ const all=[...new Set(Object.values(HEROES).flatMap(h=>h.presets.flatMap(p=>[...p[1],...p[2]])))],g=document.getElementById('skillPickGrid');g.innerHTML='';
+ all.forEach(id=>{const active=save.build.active.includes(id)||save.build.passive.includes(id),d=document.createElement('div');d.className='pick '+(active?'active':'');d.innerHTML='<b>'+skillName(id)+'</b><small>'+id+'</small>';d.onclick=()=>toggleBuild(id);g.appendChild(d)})
+}
+function renderBuildSlots(elId,arr,limit){const g=document.getElementById(elId);g.innerHTML='';for(let i=0;i<limit;i++){const id=arr[i],d=document.createElement('div');d.className='buildSlot '+(id?'filled':'')+(id&&reachableBuildEvos().some(e=>EVOS[e][1]===id)?' ready':'');d.innerHTML=id?'<div class="skillIcon">'+glyph(id)+'</div><b>'+skillName(id)+'</b><small>'+id+'</small>':'<div class="tiny">空槽</div>';if(id)d.onclick=()=>toggleBuild(id);g.appendChild(d)}}
+function toggleBuild(id){const passive=id.startsWith('P'),arr=passive?save.build.passive:save.build.active,idx=arr.indexOf(id);if(idx>=0)arr.splice(idx,1);else{if(arr.length>=6){toast((passive?'被动':'主动')+'槽已满');return}arr.push(id)}persist()}
+function applyPreset(i){const p=HEROES[save.hero].presets[i];save.build.active=[...p[1]];save.build.passive=[...p[2]];persist();toast('已应用 '+p[0])}
+function clearBuild(){save.build.active=[];save.build.passive=[];persist()}
+
+/* world */
+function renderWorld(){
+ recomputeWorldUnlocks();const wm=document.getElementById('worldMap');wm.innerHTML='';const ids=['ST001','ST003','ST004'];
+ for(let i=0;i<ids.length-1;i++){const a=CHAPTERS[ids[i]].pos,b=CHAPTERS[ids[i+1]].pos,dx=b[0]-a[0],dy=b[1]-a[1],len=Math.sqrt(dx*dx+dy*dy),angle=Math.atan2(dy,dx)*180/Math.PI,r=document.createElement('div');r.className='route '+(!CHAPTERS[ids[i+1]].unlock?'locked':'');r.style.left=a[0]+'%';r.style.top=a[1]+'%';r.style.width=len+'%';r.style.transform='rotate('+angle+'deg)';wm.appendChild(r)}
+ ids.forEach((id,i)=>{const c=CHAPTERS[id],n=document.createElement('div');n.className='chapterNode '+(!c.unlock?'locked':'');n.style.left=c.pos[0]+'%';n.style.top=c.pos[1]+'%';n.innerHTML='<div class="nodeOrb">'+(i+1)+'</div><h4>'+c.name+'</h4><small>'+id+' · '+chapterStars(id)+'/12星</small>';n.onclick=()=>selectWorldChapter(id);wm.appendChild(n)});
+ renderStageList()
+}
+function selectWorldChapter(id){if(!CHAPTERS[id].unlock){toast('章节未解锁');return}save.selectedChapter=id;const first=CHAPTERS[id].stages.find((st,i)=>i===0||((save.chapters[id].stars[CHAPTERS[id].stages[i-1][0]]||0)>0));if(first)save.selectedStage=first[0];persist()}
+function renderStageList(){
+ const cid=save.selectedChapter,c=CHAPTERS[cid];document.getElementById('worldChapterId').textContent=cid;document.getElementById('worldChapterName').textContent=c.name;document.getElementById('worldChapterDesc').textContent=c.desc;document.getElementById('mapMechanic').innerHTML='<b>'+c.mechanic.split('：')[0]+'</b><small>'+c.mechanic+'</small>';const g=document.getElementById('stageList');g.innerHTML='';
+ c.stages.forEach((st,i)=>{const unlocked=i===0||(save.chapters[cid].stars[c.stages[i-1][0]]||0)>0,stars=save.chapters[cid].stars[st[0]]||0,d=document.createElement('div');d.className='stageRow '+(save.selectedStage===st[0]?'active ':'')+(!unlocked?'locked':'');d.innerHTML='<b>'+st[0]+' · '+st[1]+'</b><small>'+('★'.repeat(stars)+'☆'.repeat(3-stars))+' · '+(st[2]?'Boss节点':'普通节点')+' · '+st[4]+'</small>';d.onclick=()=>{if(!unlocked){toast('前置关卡未完成');return}save.selectedStage=st[0];persist()};g.appendChild(d)})
+}
+
+/* battle engine */
+const canvas=document.getElementById('arenaCanvas'),ctx=canvas.getContext('2d');let DPR=Math.min(devicePixelRatio||1,2),AW=900,AH=740,last=performance.now();
+function resizeArena(){const r=canvas.getBoundingClientRect();AW=Math.max(320,r.width);AH=Math.max(430,r.height);canvas.width=Math.floor(AW*DPR);canvas.height=Math.floor(AH*DPR);ctx.setTransform(DPR,0,0,DPR,0,0)}
+window.addEventListener('resize',resizeArena);
+const keys={};window.addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase()))e.preventDefault();if(e.key===' ')tryDodge();if(e.key.toLowerCase()==='e')castHeroSkill();if(e.key.toLowerCase()==='r')castUltimate();if(e.key==='Escape')togglePause()});window.addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+
+let run={active:false,paused:false,time:0,kills:0,spawn:0,attack:0,level:1,xp:0,xpNeed:26,chests:[false,false,false],events:[false,false,false],evolved:{},fused:{},skills:{},passives:{},boss:null,totalDamage:0,lastDps:0,dpsClock:0,dps:0,damageBy:{},combo:0,comboTimer:0,maxCombo:0,mapHazards:[],drops:[],eliteKills:0,shopBuff:0,altarBuff:0,riftActive:false};
+let player={x:450,y:370,r:15,hp:620,maxHp:620,atk:110,speed:240,aspd:1,crit:.08,inv:0,dodgeCd:0,skillCd:0,ult:0};
+let enemies=[],shots=[],enemyShots=[],effects=[],numbers=[],traps=[];
+let tutorialStep=0;
+const TUTORIAL=[['移动','使用 WASD 或方向键移动角色。'],['闪避','按 Space 进行闪避，拥有短暂无敌时间。'],['英雄技','按 E 使用英雄专属技能。'],['终极','击杀敌人积累终极能量，100%后按 R。'],['Build','升级时三选一；5/10/15分钟宝箱可触发进化或融合。']];
+
+function startBattle(){
+ const si=selectedStageInfo(),h=HEROES[save.hero],st=heroStats(save.hero),bossCfg=BOSSES[si.stage[4]];
+ go('battle');resizeArena();document.getElementById('battleTitle').textContent=si.stage[0]+' · '+si.stage[1];document.getElementById('battleLog').innerHTML='';
+ run={active:true,paused:false,time:0,kills:0,spawn:0,attack:0,level:1,xp:0,xpNeed:26,chests:[false,false,false],events:[false,false,false],evolved:{},fused:{},skills:{},passives:{},boss:null,totalDamage:0,lastDps:0,dpsClock:0,dps:0,damageBy:{},combo:0,comboTimer:0,maxCombo:0,mapHazards:[],drops:[],eliteKills:0,shopBuff:0,altarBuff:0,riftActive:false};
+ player={x:AW/2,y:AH/2,r:15,hp:st.hp,maxHp:st.hp,atk:st.atk*(1+gearScore()/5000),speed:h.move*50,aspd:h.aspd,crit:h.crit/100,inv:0,dodgeCd:0,skillCd:0,ult:0};enemies=[];shots=[];enemyShots=[];effects=[];numbers=[];traps=[];
+ save.build.active.slice(0,2).forEach(id=>run.skills[id]=1);save.build.passive.slice(0,1).forEach(id=>run.passives[id]=1);
+ document.getElementById('bossBar').classList.remove('show');log('进入 '+si.stage[0]+' · '+si.stage[1]);renderRunSide();updateHud();
+ if(!save.settings.tutorialSeen){tutorialStep=0;showTutorial()}
+}
+function mapEnemyIds(map){return Object.entries(ENEMIES).filter(([id,e])=>e.map===map).map(([id])=>id)}
+function weightedEnemyId(map){
+ const ids=mapEnemyIds(map),t=run.time/60;let pool=ids.slice(0,Math.min(ids.length,2+Math.floor(t/3)));if(t>10)pool=ids;return pool[Math.floor(Math.random()*pool.length)]
+}
+function spawnEnemy(opts={}){
+ const map=selectedStageInfo().chapter,id=opts.id||weightedEnemyId(map),cfg=ENEMIES[id],a=Math.random()*Math.PI*2,d=Math.max(AW,AH)*.55+60;
+ const e={id,name:cfg.name,ai:cfg.ai,x:player.x+Math.cos(a)*d,y:player.y+Math.sin(a)*d,r:10+(cfg.ai==='brute'||cfg.ai==='shield'?4:0),hp:cfg.hp*(1+run.time/1200),maxHp:cfg.hp*(1+run.time/1200),speed:cfg.speed,damage:cfg.damage,color:cfg.color,attack:Math.random()*2,skill:Math.random()*2,elite:false,affixes:[],flash:0};
+ if(opts.elite||Math.random()<.035+run.time/120000){e.elite=true;e.r*=1.25;e.hp*=3.5;e.maxHp=e.hp;e.damage*=1.45;const aff=ELITE_AFFIXES.slice().sort(()=>Math.random()-.5).slice(0,run.time>600?2:1);aff.forEach(a=>{a.apply(e);e.affixes.push(a.id)});e.color='#d5a254'}
+ enemies.push(e)
+}
+function nearest(){if(!enemies.length)return null;let b=enemies[0],bd=(b.x-player.x)**2+(b.y-player.y)**2;for(const e of enemies){const d=(e.x-player.x)**2+(e.y-player.y)**2;if(d<bd){b=e;bd=d}}return b}
+function shootAuto(){
+ const owned=Object.keys(run.skills);if(!owned.length)return;const t=nearest();if(!t)return;const primary=owned[0],base=Math.atan2(t.y-player.y,t.x-player.x),lv=run.skills[primary],count=1+(save.hero==='H012'?1:0)+(run.passives.P021?1:0);
+ for(let i=0;i<count;i++){const a=base+(i-(count-1)/2)*.12;shots.push({source:primary,x:player.x,y:player.y,vx:Math.cos(a)*500,vy:Math.sin(a)*500,r:5,life:1.7,dmg:player.atk*(1+.16*(lv-1))*(1+run.shopBuff),color:HEROES[save.hero].color,crit:Math.random()<player.crit,pierce:save.hero==='H019'?1:0})}
+}
+function recordDamage(source,dmg){run.totalDamage+=dmg;run.damageBy[source]=(run.damageBy[source]||0)+dmg}
+function damageEnemy(e,dmg,crit=false,source='AUTO'){
+ e.hp-=dmg;recordDamage(source,dmg);e.flash=1;if(save.settings.numbers)numbers.push({x:e.x,y:e.y-12,text:Math.round(dmg),life:.55,max:.55,color:crit?'#ffe27e':'#fff0d6',size:crit?17:11});
+ if(e.hp<=0){const idx=enemies.indexOf(e);if(idx>=0)enemies.splice(idx,1);run.kills++;run.combo++;run.comboTimer=2;run.maxCombo=Math.max(run.maxCombo,run.combo);run.xp+=e.elite?18:4;player.ult=Math.min(100,player.ult+(e.elite?8:1.4));if(e.elite)run.eliteKills++;
+   if(save.settings.particles)for(let i=0;i<(e.elite?10:4);i++)effects.push({type:'particle',x:e.x,y:e.y,vx:(Math.random()-.5)*150,vy:(Math.random()-.5)*150,r:2+Math.random()*3,life:.5,max:.5,color:e.color});
+   if(e.volatile)spawnExplosion(e.x,e.y,58,e.damage*1.2);if(e.split){spawnEnemy({id:e.id});spawnEnemy({id:e.id})}
+   if(e.elite&&Math.random()<.45)run.drops.push(makeGearDrop('elite'));
+   checkLevel()
+ }}
+function checkLevel(){if(run.xp>=run.xpNeed&&!run.paused){run.xp-=run.xpNeed;run.level++;run.xpNeed=Math.round(26+run.level*11);showLevelChoices()}}
+function validOptions(){
+ const opts=[];save.build.active.forEach(id=>{const lv=run.skills[id]||0;if(lv>0&&lv<5)opts.push({kind:'active',id,label:skillName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.skills).length<6)opts.push({kind:'active',id,label:'解锁 '+skillName(id)})});
+ save.build.passive.forEach(id=>{const lv=run.passives[id]||0;if(lv>0&&lv<5)opts.push({kind:'passive',id,label:skillName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.passives).length<6)opts.push({kind:'passive',id,label:'解锁 '+skillName(id)})});return opts.sort(()=>Math.random()-.5)
+}
+function showLevelChoices(){run.paused=true;const opts=validOptions().slice(0,3),g=document.getElementById('choiceGrid');g.innerHTML='';if(!opts.length){run.paused=false;return}opts.forEach(o=>{const d=document.createElement('div');d.className='choice';d.innerHTML='<div class="skillIcon">'+glyph(o.id)+'</div><div class="eyebrow">'+o.id+'</div><h3>'+o.label+'</h3><p>'+(o.kind==='active'?'主动/召唤':'被动')+'</p>';d.onclick=()=>pickLevel(o);g.appendChild(d)});document.getElementById('levelOverlay').classList.add('show')}
+function pickLevel(o){if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1;document.getElementById('levelOverlay').classList.remove('show');run.paused=false;hint('获得 '+skillName(o.id));log('升级 '+o.id+' '+skillName(o.id));renderRunSide();checkLevel()}
+function runReadyEvos(){return Object.entries(EVOS).filter(([id,[n,a,p]])=>!run.evolved[id]&&(run.skills[a]||0)>=5&&(run.passives[p]||0)>=5).map(([id])=>id)}
+function runReadyFusions(){return Object.entries(FUSIONS).filter(([id,[n,a,b]])=>!run.fused[id]&&run.evolved[a]&&run.evolved[b]).map(([id])=>id)}
+function showChest(){run.paused=true;const rewards=[];runReadyFusions().forEach(id=>rewards.push({type:'fusion',id}));runReadyEvos().forEach(id=>rewards.push({type:'evo',id}));while(rewards.length<3)rewards.push({type:rewards.length===2?'gear':'upgrade',id:null});const g=document.getElementById('chestChoices');g.innerHTML='';rewards.slice(0,3).forEach(r=>{const d=document.createElement('div');d.className='choice';const title=r.id?skillName(r.id):(r.type==='gear'?'随机装备掉落':'随机技能升级');d.innerHTML='<div class="skillIcon">'+(r.id?glyph(r.id):r.type==='gear'?'装':'箱')+'</div><div class="eyebrow">'+r.type.toUpperCase()+'</div><h3>'+title+'</h3><p>'+(r.id?r.id:'宝箱奖励')+'</p>';d.onclick=()=>pickChest(r);g.appendChild(d)});document.getElementById('chestOverlay').classList.add('show')}
+function pickChest(r){if(r.type==='evo'){run.evolved[r.id]=true;hint('进化 · '+skillName(r.id));log('进化 '+r.id+' '+skillName(r.id))}else if(r.type==='fusion'){run.fused[r.id]=true;hint('融合 · '+skillName(r.id));log('融合 '+r.id+' '+skillName(r.id))}else if(r.type==='gear'){const d=makeGearDrop('chest');run.drops.push(d);hint('获得装备 · '+d.name)}else{const o=validOptions().find(x=>(x.kind==='active'?(run.skills[x.id]||0)>0:(run.passives[x.id]||0)>0));if(o){if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1}}document.getElementById('chestOverlay').classList.remove('show');run.paused=false;renderRunSide()}
+function forceLevel(){if(!run.active)return;run.xp=run.xpNeed;checkLevel()}
+function forceChest(){if(!run.active)return;showChest()}
+function fastForward(m){if(!run.active)startBattle();run.time=m*60-1;hint('跳转到 '+m+'分钟')}
+
+function tryDodge(){if(!run.active||run.paused||player.dodgeCd>0)return;player.dodgeCd=4.5;player.inv=.35;if(save.settings.particles)effects.push({type:'ring',x:player.x,y:player.y,r:16,life:.3,max:.3,color:'#70a9ff',maxr:70})}
+function castHeroSkill(){if(!run.active||run.paused||player.skillCd>0)return;const h=HEROES[save.hero];player.skillCd=6;hint(h.skill);if(save.hero==='H002'){const t=nearest();if(t){const a=Math.atan2(t.y-player.y,t.x-player.x);player.x+=Math.cos(a)*130;player.y+=Math.sin(a)*130}}enemies.slice().forEach(e=>{if((e.x-player.x)**2+(e.y-player.y)**2<145*145)damageEnemy(e,player.atk*2.2,false,'HERO_SKILL')});if(run.boss&&dist(player,run.boss)<170)damageBoss(player.atk*2.5,'HERO_SKILL');effects.push({type:'ring',x:player.x,y:player.y,r:18,life:.4,max:.4,color:h.color,maxr:130})}
+function castUltimate(){if(!run.active||run.paused||player.ult<100)return;player.ult=0;const h=HEROES[save.hero];hint(h.ult);enemies.slice().forEach(e=>damageEnemy(e,player.atk*7,true,'ULT'));if(run.boss)damageBoss(player.atk*20,'ULT');effects.push({type:'ring',x:player.x,y:player.y,r:20,life:.8,max:.8,color:h.color,maxr:230});shake(12)}
+function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+function spawnExplosion(x,y,r,dmg){effects.push({type:'ring',x,y,r:8,life:.35,max:.35,color:'#ef694e',maxr:r});if(Math.hypot(player.x-x,player.y-y)<r&&player.inv<=0)hurtPlayer(dmg)}
+function hurtPlayer(dmg){if(player.inv>0)return;player.hp-=Math.max(1,dmg-HEROES[save.hero].def*.08);player.inv=.28;shake(5)}
+
+function spawnEnemyShot(x,y,tx,ty,dmg,color='#a47dff',speed=220,r=5){const a=Math.atan2(ty-y,tx-x);enemyShots.push({x,y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,dmg,color,r,life:5})}
+function enemyAI(e,dt){
+ e.attack+=dt;e.skill+=dt;e.flash=Math.max(0,e.flash-dt*5);const dx=player.x-e.x,dy=player.y-e.y,d=Math.hypot(dx,dy)||1,nx=dx/d,ny=dy/d;
+ if(e.aura&&d<140)player.speed*=.997;
+ switch(e.ai){
+  case 'melee':e.x+=nx*e.speed*dt;e.y+=ny*e.speed*dt;break;
+  case 'ranged':
+    if(d>300){e.x+=nx*e.speed*.6*dt;e.y+=ny*e.speed*.6*dt}else if(d<190){e.x-=nx*e.speed*.5*dt;e.y-=ny*e.speed*.5*dt}
+    if(e.attack>1.8){e.attack=0;spawnEnemyShot(e.x,e.y,player.x,player.y,e.damage,e.color,235,5)}break;
+  case 'shield':e.x+=nx*e.speed*.65*dt;e.y+=ny*e.speed*.65*dt;break;
+  case 'charge':
+    if(e.skill>2.4){e.skill=0;e.charge=.6;e.cdx=nx;e.cdy=ny}
+    if(e.charge>0){e.charge-=dt;e.x+=e.cdx*e.speed*3*dt;e.y+=e.cdy*e.speed*3*dt}else{e.x+=nx*e.speed*.55*dt;e.y+=ny*e.speed*.55*dt}break;
+  case 'aoe_ranged':
+    if(d>280){e.x+=nx*e.speed*.45*dt;e.y+=ny*e.speed*.45*dt}
+    if(e.attack>2.7){e.attack=0;traps.push({x:player.x+(Math.random()-.5)*70,y:player.y+(Math.random()-.5)*70,r:42,life:1.1,dmg:e.damage,color:'#ef694e'})}break;
+  case 'brute':e.x+=nx*e.speed*dt;e.y+=ny*e.speed*dt;if(e.attack>3&&d<140){e.attack=0;spawnExplosion(e.x,e.y,95,e.damage*1.2)}break;
+  case 'flank':{const px=-ny,py=nx;e.x+=(nx*.7+px*.6)*e.speed*dt;e.y+=(ny*.7+py*.6)*e.speed*dt}break;
+  case 'poison':e.x+=nx*e.speed*.8*dt;e.y+=ny*e.speed*.8*dt;if(e.attack>2.2){e.attack=0;spawnEnemyShot(e.x,e.y,player.x,player.y,e.damage,'#6bc76a',190,6)}break;
+  case 'fly':e.x+=nx*e.speed*.65*dt;e.y+=ny*e.speed*.65*dt;if(e.attack>1.9){e.attack=0;spawnEnemyShot(e.x,e.y,player.x,player.y,e.damage,'#9d84d8',260,4)}break;
+  case 'summoner':
+    if(d>320){e.x+=nx*e.speed*.35*dt;e.y+=ny*e.speed*.35*dt}
+    if(e.skill>4){e.skill=0;for(let i=0;i<2;i++)spawnEnemy({id:selectedStageInfo().chapter==='ST003'?'EN014':weightedEnemyId(selectedStageInfo().chapter)})}break;
+  case 'dash':
+    if(e.skill>1.7){e.skill=0;e.dash=.24;e.cdx=nx;e.cdy=ny}
+    if(e.dash>0){e.dash-=dt;e.x+=e.cdx*e.speed*4*dt;e.y+=e.cdy*e.speed*4*dt}else{e.x+=nx*e.speed*.5*dt;e.y+=ny*e.speed*.5*dt}break;
+  case 'clone':
+    e.x+=nx*e.speed*.75*dt;e.y+=ny*e.speed*.75*dt;if(e.skill>4.5){e.skill=0;spawnEnemy({id:'EN025'})}break;
+  case 'trap':
+    e.x+=nx*e.speed*.55*dt;e.y+=ny*e.speed*.55*dt;if(e.attack>2.5){e.attack=0;traps.push({x:player.x+(Math.random()-.5)*100,y:player.y+(Math.random()-.5)*100,r:38,life:.9,dmg:e.damage,color:'#f0a14e'})}break;
+  case 'healer':
+    if(d<240){e.x-=nx*e.speed*.4*dt;e.y-=ny*e.speed*.4*dt}
+    if(e.skill>3.5){e.skill=0;enemies.forEach(o=>{if(dist(e,o)<160)o.hp=Math.min(o.maxHp,o.hp+o.maxHp*.12)})}break;
+ }
+ if(d<e.r+player.r+2)hurtPlayer(e.damage);
+ if(e.vamp&&d<e.r+player.r+2)e.hp=Math.min(e.maxHp,e.hp+e.maxHp*.05)
+}
+
+function spawnBoss(){
+ const si=selectedStageInfo(),id=si.stage[4],cfg=BOSSES[id];run.boss={id,name:cfg.name,x:AW*.78,y:AH*.34,r:42,hp:cfg.hp*(1+CHAPTERS[si.chapter].stages.indexOf(si.stage)*.12),maxHp:cfg.hp*(1+CHAPTERS[si.chapter].stages.indexOf(si.stage)*.12),color:cfg.color,phase:1,attack:0,skill:0,state:'idle'};run.boss.maxHp=run.boss.hp;document.getElementById('bossBar').classList.add('show');document.getElementById('bossLabel').textContent=id+' '+cfg.name+' · '+cfg.style;hint('Boss登场 · '+cfg.name);log('Boss登场：'+id+' '+cfg.name);shake(10)
+}
+function damageBoss(dmg,source='AUTO'){if(!run.boss)return;run.boss.hp-=dmg;recordDamage(source,dmg);if(save.settings.numbers)numbers.push({x:run.boss.x,y:run.boss.y-45,text:Math.round(dmg),life:.55,max:.55,color:'#ffe27e',size:16});if(run.boss.hp<=0){const id=run.boss.id,name=run.boss.name;run.boss=null;document.getElementById('bossBar').classList.remove('show');run.drops.push(makeGearDrop('boss'));hint('Boss击败 · '+name);log('击败 '+id+' '+name);shake(12)}}
+function bossAI(dt){
+ const b=run.boss;if(!b)return;b.attack+=dt;b.skill+=dt;b.phase=b.hp/b.maxHp<.35?3:b.hp/b.maxHp<.7?2:1;const dx=player.x-b.x,dy=player.y-b.y,d=Math.hypot(dx,dy)||1,nx=dx/d,ny=dy/d;const cfg=BOSSES[b.id];
+ if(d>180){b.x+=nx*(46+b.phase*7)*dt;b.y+=ny*(46+b.phase*7)*dt}
+ const cd=Math.max(.9,2.8-b.phase*.35);
+ if(b.skill>cd){b.skill=0;
+   if(['B001','B006'].includes(b.id)){spawnExplosion(b.x,b.y,110+b.phase*18,18+b.phase*4)}
+   else if(b.id==='B002'){for(let i=0;i<3+b.phase;i++){const a=Math.random()*Math.PI*2;traps.push({x:player.x+Math.cos(a)*80,y:player.y+Math.sin(a)*80,r:36,life:1.1,dmg:14+b.phase*3,color:'#a47dff'})};if(b.phase>=2)spawnEnemy({elite:true})}
+   else if(b.id==='B003'){b.dash=.5;b.cdx=nx;b.cdy=ny}
+   else if(b.id==='B008'){for(let i=0;i<2+b.phase;i++)spawnEnemy({id:'EN014'});traps.push({x:player.x,y:player.y,r:60,life:.8,dmg:18,color:'#d6a05d'})}
+   else if(b.id==='B009'){for(let i=0;i<5;i++)traps.push({x:Math.random()*AW,y:Math.random()*AH,r:34,life:1.1,dmg:15,color:'#ef694e'})}
+   else if(b.id==='B010'){for(let i=0;i<3+b.phase;i++){const a=i/(3+b.phase)*Math.PI*2;enemyShots.push({x:b.x,y:b.y,vx:Math.cos(a)*260,vy:Math.sin(a)*260,dmg:13,color:'#70a9ff',r:5,life:4})}}
+   else if(b.id==='B011'){for(let i=0;i<4+b.phase;i++)spawnEnemy({id:'EN025'});for(let i=0;i<5;i++)spawnEnemyShot(b.x,b.y,player.x+(Math.random()-.5)*150,player.y+(Math.random()-.5)*150,14,'#a47dff',280,5)}
+ }
+ if(b.dash>0){b.dash-=dt;b.x+=b.cdx*320*dt;b.y+=b.cdy*320*dt}
+ if(d<b.r+player.r+4)hurtPlayer(18+b.phase*4)
+ document.getElementById('bossHpFill').style.width=Math.max(0,b.hp/b.maxHp*100)+'%'
+}
+
+function updateMapMechanic(dt){
+ const map=selectedStageInfo().chapter;
+ if(map==='ST001'){
+   if(Math.floor(run.time/18)!==Math.floor((run.time-dt)/18)){const y=80+Math.random()*(AH-160);run.mapHazards.push({type:'fireline',x:0,y,w:AW,h:42,life:5,max:5})}
+   run.mapHazards.forEach(h=>{h.life-=dt;if(h.type==='fireline'&&Math.abs(player.y-h.y)<h.h/2)hurtPlayer(10*dt)})
+ } else if(map==='ST003'){
+   const fog=(Math.sin(run.time*.22)+1)/2;run.fog=Math.max(0,Math.min(1,(fog-.35)*1.5));
+ } else if(map==='ST004'){
+   if(Math.floor(run.time/6)!==Math.floor((run.time-dt)/6)){traps.push({x:80+Math.random()*(AW-160),y:80+Math.random()*(AH-160),r:44,life:1.3,dmg:16,color:'#ef9f4c'})}
+ }
+ run.mapHazards=run.mapHazards.filter(h=>h.life>0)
+}
+
+function showEvent(){
+ run.paused=true;const ev=MAP_EVENTS[Math.floor(Math.random()*MAP_EVENTS.length)];document.getElementById('eventTitle').textContent=ev.name;const g=document.getElementById('eventChoices');g.innerHTML='';
+ let opts=[];
+ if(ev.id==='merchant')opts=[['购买火力','-250金币；本局伤害 +18%','merchantAtk'],['购买回复','-180金币；恢复40%生命','merchantHeal'],['离开','不购买','skip']];
+ if(ev.id==='altar')opts=[['战神之血','最大HP -15%；伤害 +28%','altarAtk'],['疾风契约','受到伤害 +15%；攻速 +24%','altarSpeed'],['拒绝','不接受代价','skip']];
+ if(ev.id==='goldChest')opts=[['打开黄金宝箱','获得装备 + 技能升级','goldOpen'],['换成金币','直接获得500金币','goldCash'],['离开','不处理','skip']];
+ if(ev.id==='rift')opts=[['进入裂缝','召唤3只精英；胜利高品质掉落','riftFight'],['稳定裂缝','获得经验并直接升级','riftXp'],['离开','忽略裂缝','skip']];
+ opts.forEach(([n,d,code])=>{const x=document.createElement('div');x.className='eventCard';x.innerHTML='<div class="eyebrow">'+ev.id.toUpperCase()+'</div><h3>'+n+'</h3><p>'+d+'</p>';x.onclick=()=>pickEvent(code,ev);g.appendChild(x)});document.getElementById('eventOverlay').classList.add('show')
+}
+function pickEvent(code,ev){
+ if(code==='merchantAtk'){if(save.gold>=250){save.gold-=250;run.shopBuff+=.18;hint('游商：伤害提升')}else toast('金币不足')}
+ if(code==='merchantHeal'){if(save.gold>=180){save.gold-=180;player.hp=Math.min(player.maxHp,player.hp+player.maxHp*.4);hint('游商：生命恢复')}else toast('金币不足')}
+ if(code==='altarAtk'){player.maxHp*=.85;player.hp=Math.min(player.hp,player.maxHp);run.altarBuff+=.28;player.atk*=1.28;hint('祭坛：战神之血')}
+ if(code==='altarSpeed'){player.aspd*=1.24;run.incomingMul=1.15;hint('祭坛：疾风契约')}
+ if(code==='goldOpen'){run.drops.push(makeGearDrop('gold'));const o=validOptions().find(x=>(x.kind==='active'?(run.skills[x.id]||0)>0:(run.passives[x.id]||0)>0));if(o){if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1}}
+ if(code==='goldCash'){save.gold+=500}
+ if(code==='riftFight'){run.riftActive=true;for(let i=0;i<3;i++)spawnEnemy({elite:true})}
+ if(code==='riftXp'){run.xp=run.xpNeed;checkLevel()}
+ document.getElementById('eventOverlay').classList.remove('show');run.paused=false;persist();log('事件：'+ev.name+' → '+code)
+}
+
+function makeGearDrop(source){
+ const ids=Object.keys(GEAR),weights=ids.filter(id=>!save.inventory.gear.includes(id));const pool=weights.length?weights:ids;const id=pool[Math.floor(Math.random()*pool.length)],g=GEAR[id];
+ return {id,name:g.name,rarity:g.rarity,score:g.score,source}
+}
+function finalizeDrops(){
+ run.drops.forEach(d=>{if(GEAR[d.id]&&!save.inventory.gear.includes(d.id))save.inventory.gear.push(d.id)})
+}
+
+function updateProjectiles(dt){
+ for(let i=shots.length-1;i>=0;i--){const p=shots[i];p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;let hit=null;for(const e of enemies){if((e.x-p.x)**2+(e.y-p.y)**2<(e.r+p.r)**2){hit=e;break}}if(hit){damageEnemy(hit,p.dmg*(p.crit?1.5:1),p.crit,p.source);if(p.pierce>0){p.pierce--}else{shots.splice(i,1);continue}}if(run.boss&&Math.hypot(run.boss.x-p.x,run.boss.y-p.y)<run.boss.r+p.r){damageBoss(p.dmg*(p.crit?1.5:1),p.source);if(p.pierce>0)p.pierce--;else{shots.splice(i,1);continue}}if(p.life<=0)shots.splice(i,1)}
+ for(let i=enemyShots.length-1;i>=0;i--){const p=enemyShots[i];p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;if(Math.hypot(player.x-p.x,player.y-p.y)<player.r+p.r){hurtPlayer(p.dmg*(run.incomingMul||1));enemyShots.splice(i,1);continue}if(p.life<=0)enemyShots.splice(i,1)}
+ for(let i=traps.length-1;i>=0;i--){const t=traps[i];t.life-=dt;if(t.life<=0){if(Math.hypot(player.x-t.x,player.y-t.y)<t.r)hurtPlayer(t.dmg*(run.incomingMul||1));spawnExplosion(t.x,t.y,t.r,t.dmg);traps.splice(i,1)}}
+}
+function updateEffects(dt){
+ for(let i=effects.length-1;i>=0;i--){const e=effects[i];e.life-=dt;if(e.vx!=null){e.x+=e.vx*dt;e.y+=e.vy*dt}if(e.life<=0)effects.splice(i,1)}
+ numbers.forEach(n=>{n.life-=dt;n.y-=20*dt});numbers=numbers.filter(n=>n.life>0)
+}
+function updateRun(dt){
+ if(!run.active||run.paused)return;run.time+=dt;player.inv=Math.max(0,player.inv-dt);player.dodgeCd=Math.max(0,player.dodgeCd-dt);player.skillCd=Math.max(0,player.skillCd-dt);run.comboTimer-=dt;if(run.comboTimer<=0)run.combo=0;
+ let dx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),dy=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);if(dx||dy){const l=Math.hypot(dx,dy);player.x+=dx/l*player.speed*dt;player.y+=dy/l*player.speed*dt}player.x=Math.max(18,Math.min(AW-18,player.x));player.y=Math.max(18,Math.min(AH-18,player.y));
+ run.spawn+=dt;const spawnInterval=Math.max(.12,.34-run.time/5000);while(run.spawn>spawnInterval){run.spawn-=spawnInterval;spawnEnemy()}if(enemies.length>260)enemies.splice(0,enemies.length-260);
+ run.attack+=dt;if(run.attack>1/Math.max(.6,player.aspd)){run.attack=0;shootAuto()}
+ enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
+ [5,10,15].forEach((m,i)=>{if(run.time>=m*60&&!run.chests[i]){run.chests[i]=true;showChest()}});
+ [3,8,13].forEach((m,i)=>{if(run.time>=m*60&&!run.events[i]){run.events[i]=true;showEvent()}});
+ if(!run.boss&&run.time>=12*60&&selectedStageInfo().stage[2]&&!run.bossDefeated){spawnBoss()}
+ if(run.riftActive&&run.eliteKills>=3){run.riftActive=false;const d=makeGearDrop('rift');run.drops.push(d);hint('裂缝完成 · '+d.name)}
+ run.dpsClock+=dt;if(run.dpsClock>=1){run.dps=Math.round(run.totalDamage-run.lastDps);run.lastDps=run.totalDamage;run.dpsClock=0}
+ if(player.hp<=0){finishRun(false,'生命归零');return}
+ if(run.time>=20*60){
+   if(selectedStageInfo().stage[2]&&run.boss){finishRun(false,'20分钟到达但Boss仍存活');return}
+   finishRun(true,'坚持20分钟并完成Boss目标');return
+ }
+ updateHud()
+}
+function shake(n){if(!save.settings.shake)return;run.shake=Math.max(run.shake||0,n)}
+function drawRun(){
+ ctx.save();if((run.shake||0)>0){ctx.translate((Math.random()-.5)*run.shake,(Math.random()-.5)*run.shake);run.shake*=.88}
+ ctx.clearRect(-20,-20,AW+40,AH+40);const map=selectedStageInfo().chapter;ctx.fillStyle=map==='ST001'?'#172019':map==='ST003'?'#1a2116':'#151b22';ctx.fillRect(0,0,AW,AH);
+ ctx.strokeStyle='rgba(255,255,255,.02)';for(let x=0;x<AW;x+=55){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,AH);ctx.stroke()}for(let y=0;y<AH;y+=55){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(AW,y);ctx.stroke()}
+ run.mapHazards.forEach(h=>{if(h.type==='fireline'){ctx.globalAlpha=Math.max(.15,h.life/h.max*.45);ctx.fillStyle='#ef694e';ctx.fillRect(h.x,h.y-h.h/2,h.w,h.h);ctx.globalAlpha=1}});
+ traps.forEach(t=>{ctx.globalAlpha=Math.max(.2,1-t.life/1.3);ctx.strokeStyle=t.color;ctx.lineWidth=2;ctx.beginPath();ctx.arc(t.x,t.y,t.r,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1});
+ for(const e of enemies){ctx.beginPath();ctx.fillStyle=e.flash>0?'#fff5dd':e.color;ctx.shadowBlur=e.elite?16:0;ctx.shadowColor=e.color;ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill();if(e.elite){ctx.strokeStyle='#f3c66c';ctx.lineWidth=2;ctx.stroke()}ctx.shadowBlur=0}
+ for(const p of shots){ctx.beginPath();ctx.fillStyle=p.color;ctx.shadowBlur=10;ctx.shadowColor=p.color;ctx.arc(p.x,p.y,p.r+(p.crit?2:0),0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;
+ for(const p of enemyShots){ctx.beginPath();ctx.fillStyle=p.color;ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}
+ if(run.boss){ctx.beginPath();ctx.fillStyle=run.boss.color;ctx.shadowBlur=30;ctx.shadowColor=run.boss.color;ctx.arc(run.boss.x,run.boss.y,run.boss.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0}
+ if(save.settings.particles)for(const e of effects){const a=Math.max(0,e.life/e.max);ctx.globalAlpha=a;if(e.type==='particle'){ctx.fillStyle=e.color;ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill()}else{ctx.strokeStyle=e.color;ctx.lineWidth=4;ctx.beginPath();ctx.arc(e.x,e.y,e.r+(1-a)*(e.maxr||50),0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=1}
+ ctx.beginPath();ctx.fillStyle=player.inv>0?'#fff0c0':HEROES[save.hero].color;ctx.shadowBlur=22;ctx.shadowColor=HEROES[save.hero].color;ctx.arc(player.x,player.y,player.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+ if(save.settings.numbers){ctx.textAlign='center';for(const n of numbers){ctx.globalAlpha=Math.max(0,n.life/n.max);ctx.font='800 '+n.size+'px Inter';ctx.fillStyle=n.color;ctx.fillText(n.text,n.x,n.y)}ctx.globalAlpha=1}
+ if(map==='ST003'&&run.fog>0){ctx.fillStyle='rgba(82,94,70,'+(run.fog*.35)+')';ctx.fillRect(0,0,AW,AH)}
+ ctx.restore()
+}
+function updateHud(){
+ document.getElementById('hudHero').textContent=HEROES[save.hero].name;document.getElementById('runLevel').textContent=run.level;document.getElementById('hudHp').textContent=Math.max(0,Math.round(player.hp))+'/'+Math.round(player.maxHp);document.getElementById('runTime').textContent=fmt(run.time);document.getElementById('runKills').textContent=run.kills;document.getElementById('runDps').textContent=run.dps;document.getElementById('dodgeCdText').textContent=player.dodgeCd>0?player.dodgeCd.toFixed(1)+'s':'READY';document.getElementById('skillCdText').textContent=player.skillCd>0?player.skillCd.toFixed(1)+'s':'READY';document.getElementById('ultText').textContent=Math.floor(player.ult)+'%';
+ const combo=document.getElementById('comboText');combo.textContent=run.combo;combo.innerHTML=run.combo+'<small>'+(run.combo>=100?'无双':run.combo>=60?'狂潮':run.combo>=30?'压制':'COMBO')+'</small>';combo.classList.toggle('show',run.combo>=10);
+ document.getElementById('lowHp').classList.toggle('show',save.settings.vignette&&player.hp/player.maxHp<.3);
+ renderHudSlots();renderDamageList('damageList')
+}
+function renderHudSlots(){const g=document.getElementById('hudSlots');g.innerHTML='';Object.entries(run.skills).forEach(([id,lv])=>{const ev=Object.keys(run.evolved).find(e=>run.evolved[e]&&EVOS[e][1]===id),d=document.createElement('div');d.className='hudSlot '+(ev?'evo':'');d.innerHTML='<strong>'+glyph(ev||id)+'</strong><em>'+lv+'</em>';g.appendChild(d)});Object.keys(run.fused).filter(id=>run.fused[id]).forEach(id=>{const d=document.createElement('div');d.className='hudSlot fusion';d.innerHTML='<strong>'+glyph(id)+'</strong><em>F</em>';g.appendChild(d)})}
+function renderRunSide(){
+ document.getElementById('sideRunHero').textContent=HEROES[save.hero].name;document.getElementById('runStats').innerHTML='<div class="battleStat"><span>战力</span><b>'+combatPower()+'</b></div><div class="battleStat"><span>地图机制</span><b>'+CHAPTERS[selectedStageInfo().chapter].mechanic.split('：')[0]+'</b></div><div class="battleStat"><span>精英击杀</span><b>'+run.eliteKills+'</b></div><div class="battleStat"><span>最大连击</span><b>'+run.maxCombo+'</b></div>';
+ const rb=document.getElementById('runBuild');rb.innerHTML='';Object.entries(run.skills).forEach(([id,lv])=>rb.innerHTML+='<div class="runSkill"><b>'+skillName(id)+'</b><small>'+id+' Lv.'+lv+'</small></div>');Object.entries(run.passives).forEach(([id,lv])=>rb.innerHTML+='<div class="runSkill"><b>'+skillName(id)+'</b><small>'+id+' Lv.'+lv+'</small></div>');
+ const ready=[...runReadyEvos(),...runReadyFusions()],r=document.getElementById('readyList');r.innerHTML=ready.length?ready.map(id=>'<div class="resultRow"><span>'+id+'</span><b>'+skillName(id)+'</b></div>').join(''):'<div class="tiny">暂无可进化节点</div>';renderHudSlots();renderDamageList('damageList')
+}
+function renderDamageList(elId,data=run.damageBy){
+ const el=document.getElementById(elId);if(!el)return;const arr=Object.entries(data).sort((a,b)=>b[1]-a[1]).slice(0,8),max=arr[0]?.[1]||1;el.innerHTML=arr.length?arr.map(([id,dmg])=>'<div class="damageRow"><div><span>'+skillName(id)+'</span><div class="damageTrack"><i style="width:'+(dmg/max*100)+'%"></i></div></div><b>'+Math.round(dmg)+'</b></div>').join(''):'<div class="tiny">暂无伤害数据</div>'
+}
+
+/* tutorial/settings */
+function showTutorial(){run.paused=true;document.getElementById('tutorialOverlay').classList.add('show');renderTutorial()}
+function renderTutorial(){document.getElementById('tutorialTitle').textContent=TUTORIAL[tutorialStep][0];document.getElementById('tutorialText').textContent=TUTORIAL[tutorialStep][1]}
+function nextTutorial(){tutorialStep++;if(tutorialStep>=TUTORIAL.length){skipTutorial();return}renderTutorial()}
+function skipTutorial(){save.settings.tutorialSeen=true;persist();document.getElementById('tutorialOverlay').classList.remove('show');run.paused=false}
+function togglePause(){if(!run.active)return;run.paused=!run.paused;document.getElementById('pauseOverlay').classList.toggle('show',run.paused)}
+function toggleSetting(key){save.settings[key]=!save.settings[key];document.getElementById(key+'Toggle').classList.toggle('on',save.settings[key]);persist()}
+
+/* result */
+function finishRun(victory,reason){
+ if(!run.active)return;run.active=false;run.paused=true;finalizeDrops();const si=selectedStageInfo(),old=save.chapters[si.chapter].stars[si.stage[0]]||0,stars=victory?(player.hp/player.maxHp>.55?3:2):1,newStars=Math.max(old,stars),gold=victory?si.stage[3]+stars*100:Math.floor(si.stage[3]*.35),masteryGain=Math.max(5,Math.round(run.time/30+run.kills*.04));
+ save.chapters[si.chapter].stars[si.stage[0]]=newStars;save.gold+=gold;save.heroes[save.hero].mastery+=masteryGain;save.stats.runs++;save.stats.kills+=run.kills;if(si.stage[2]&&victory)save.stats.bossKills++;
+ lastResult={victory,reason,stage:si.stage,chapter:si.chapter,time:run.time,kills:run.kills,stars,gold,old,newStars,masteryGain,drops:[...run.drops],evo:Object.keys(run.evolved).filter(x=>run.evolved[x]).length,fusion:Object.keys(run.fused).filter(x=>run.fused[x]).length,maxCombo:run.maxCombo,damageBy:{...run.damageBy},eliteKills:run.eliteKills};
+ persist();renderResult();go('result')
+}
+function renderResult(){
+ if(!lastResult)return;const r=lastResult;document.getElementById('resultState').textContent=r.victory?'VICTORY':'DEFEAT';document.getElementById('resultTitle').textContent=r.stage[1]+' · '+(r.victory?'胜利':'战败');document.getElementById('resultReason').textContent=r.reason;document.getElementById('resTime').textContent=fmt(r.time);document.getElementById('resKills').textContent=r.kills;document.getElementById('resStars').textContent='★'.repeat(r.stars)+'☆'.repeat(3-r.stars);document.getElementById('resGold').textContent='+'+r.gold;
+ document.getElementById('resultRows').innerHTML='<div class="resultRow"><span>章节星</span><b>'+r.old+' → '+r.newStars+'</b></div><div class="resultRow"><span>英雄熟练度</span><b>+'+r.masteryGain+'</b></div><div class="resultRow"><span>本局进化</span><b>'+r.evo+'</b></div><div class="resultRow"><span>本局融合</span><b>'+r.fusion+'</b></div><div class="resultRow"><span>精英击杀</span><b>'+r.eliteKills+'</b></div><div class="resultRow"><span>最大连击</span><b>'+r.maxCombo+'</b></div>';
+ const dg=document.getElementById('dropGrid');dg.innerHTML='';if(r.drops.length){r.drops.forEach(d=>{const x=document.createElement('div');x.className='dropCard';x.innerHTML='<b>'+d.name+'</b><small>'+d.id+' · '+d.rarity+' · '+d.source+'</small>';dg.appendChild(x)})}else dg.innerHTML='<div class="tiny">本局无装备掉落</div>';
+ renderDamageList('resultDamage',r.damageBy)
+}
+
+function renderSettingsToggles(){['shake','numbers','particles','vignette'].forEach(k=>{const el=document.getElementById(k+'Toggle');if(el)el.classList.toggle('on',!!save.settings[k])})}
+function renderAll(){recomputeWorldUnlocks();renderTop();renderHeroes();renderLoadout();renderBuild();renderWorld();renderSettingsToggles();if(document.getElementById('battle').classList.contains('active'))renderRunSide()}
+function loop(now){const dt=Math.min(.034,(now-last)/1000||0);last=now;updateRun(dt);drawRun();requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+renderAll();resizeArena();
+</script>
+
+<script>
+/* ================= V1.9 DIRECTOR & BALANCE LAYER ================= */
+const V19_DIFFICULTIES = {
+  easy:     {name:'休闲', hp:0.82, dmg:0.78, speed:0.94, budget:0.82, elite:0.65, gold:0.90, drop:0.90, xp:1.08, desc:'适合首次体验'},
+  normal:   {name:'标准', hp:1.00, dmg:1.00, speed:1.00, budget:1.00, elite:1.00, gold:1.00, drop:1.00, xp:1.00, desc:'推荐默认难度'},
+  hard:     {name:'修罗', hp:1.38, dmg:1.28, speed:1.07, budget:1.22, elite:1.45, gold:1.28, drop:1.18, xp:0.98, desc:'高密度高收益'},
+  nightmare:{name:'万界劫',hp:1.85, dmg:1.58, speed:1.13, budget:1.48, elite:2.00, gold:1.60, drop:1.40, xp:0.95, desc:'终局挑战'}
+};
+const V19_WAVES = [
+ {t:0,  id:'W01',name:'热身怪潮',type:'normal',budget:1.00,elite:0.45, note:'基础近战/远程'},
+ {t:2,  id:'W02',name:'远程混编',type:'normal',budget:1.12,elite:0.60, note:'增加远程单位'},
+ {t:3,  id:'W03',name:'事件窗口',type:'event', budget:0.86,elite:0.45, note:'降低压力，触发事件'},
+ {t:4,  id:'W04',name:'第一波精英',type:'elite', budget:1.22,elite:1.45, note:'至少1只精英'},
+ {t:5,  id:'W05',name:'宝箱节点',type:'chest', budget:0.92,elite:0.70, note:'短暂回落'},
+ {t:6,  id:'W06',name:'混合推进',type:'normal',budget:1.28,elite:0.90, note:'盾/冲锋加入'},
+ {t:8,  id:'W07',name:'超级怪潮Ⅰ',type:'horde', budget:1.90,elite:1.10, note:'高密度90秒'},
+ {t:10, id:'W08',name:'中场压迫',type:'elite', budget:1.38,elite:1.65, note:'精英+地图机制'},
+ {t:12, id:'W09',name:'区域Boss',type:'boss', budget:0.82,elite:0.35, note:'Boss登场'},
+ {t:13, id:'W10',name:'事件缓冲',type:'event', budget:0.88,elite:0.55, note:'第二次资源选择'},
+ {t:14, id:'W11',name:'Boss后反扑',type:'normal',budget:1.42,elite:1.15, note:'密度再次上升'},
+ {t:15, id:'W12',name:'终局宝箱',type:'chest', budget:1.00,elite:0.80, note:'最后一次进化机会'},
+ {t:16, id:'W13',name:'高阶混编',type:'elite', budget:1.55,elite:1.75, note:'双词缀精英概率提升'},
+ {t:18, id:'W14',name:'超级怪潮Ⅱ',type:'horde', budget:2.18,elite:1.55, note:'终局压力峰值'},
+ {t:19, id:'W15',name:'终局压缩',type:'boss', budget:1.38,elite:1.00, note:'清场与Boss竞速'},
+ {t:20, id:'W16',name:'结算节点',type:'end', budget:0,elite:0, note:'胜负判定'}
+];
+if (!save.difficulty) save.difficulty = 'normal';
+
+function v19Difficulty(){ return V19_DIFFICULTIES[save.difficulty] || V19_DIFFICULTIES.normal; }
+function v19WaveAt(sec){
+  const m = sec / 60;
+  let w = V19_WAVES[0];
+  for (const x of V19_WAVES) if (m >= x.t) w = x; else break;
+  return w;
+}
+function v19NextWave(sec){
+  const m = sec / 60;
+  return V19_WAVES.find(x => x.t > m) || V19_WAVES[V19_WAVES.length-1];
+}
+function v19Pressure(){
+  if (!run || !run.active) return 0;
+  const diff = v19Difficulty(), wave = v19WaveAt(run.time);
+  const hpStress = 1 - Math.max(0, player.hp / Math.max(1,player.maxHp));
+  const killPerf = Math.min(1.5, run.kills / Math.max(1, run.time * 0.78));
+  const dpsPerf = Math.min(1.5, run.dps / Math.max(90, player.atk*1.35));
+  const buildMaturity = Math.min(1, (Object.keys(run.evolved||{}).length*0.16 + Object.keys(run.fused||{}).length*0.3 + run.level/80));
+  // Director eases slightly if HP is very low, pushes harder if player is over-performing.
+  let p = 0.38 + wave.budget*0.23 + (killPerf-0.55)*0.18 + (dpsPerf-0.55)*0.12 + buildMaturity*0.14 - hpStress*0.24;
+  p *= diff.budget;
+  return Math.max(.22, Math.min(1.45, p));
+}
+function setDifficulty(id){
+  if (!V19_DIFFICULTIES[id]) return;
+  save.difficulty=id; persist(); toast('难度：'+V19_DIFFICULTIES[id].name);
+}
+function renderDifficulty(){
+  const bar=document.getElementById('difficultyBar'); if(!bar) return;
+  bar.innerHTML='';
+  Object.entries(V19_DIFFICULTIES).forEach(([id,d])=>{
+    const x=document.createElement('div'); x.className='diffBtn '+(save.difficulty===id?'active':'');
+    x.innerHTML='<b>'+d.name+'</b><small>'+d.desc+'<br>敌HP '+d.hp.toFixed(2)+'x · 金币 '+d.gold.toFixed(2)+'x</small>';
+    x.onclick=()=>setDifficulty(id); bar.appendChild(x);
+  });
+  const s=document.getElementById('difficultySummary'); if(s) s.textContent=v19Difficulty().name+' · 推荐战力 '+Math.round(combatPower()*({easy:.75,normal:1,hard:1.25,nightmare:1.55}[save.difficulty]||1));
+}
+function renderWaveTable(){
+  const el=document.getElementById('waveTable'); if(!el) return;
+  const active=v19WaveAt(run?.time||0);
+  el.innerHTML='';
+  V19_WAVES.forEach(w=>{
+    const d=document.createElement('div');
+    const past=(run?.time||0)/60 > w.t+1.99;
+    d.className='waveRow '+(active.id===w.id?'active ':'')+(past?'past':'');
+    d.innerHTML='<b>'+String(w.t).padStart(2,'0')+':00</b><div><strong>'+w.name+'</strong><br><small>'+w.note+'</small></div><div class="waveBadge '+(w.type==='horde'?'horde':w.type==='boss'?'boss':'')+'">'+w.type+'</div>';
+    el.appendChild(d);
+  });
+}
+function renderDirector(){
+  const w=v19WaveAt(run?.time||0),n=v19NextWave(run?.time||0),p=v19Pressure(),diff=v19Difficulty();
+  const budget=Math.round(100*w.budget*diff.budget*p);
+  const e=document.getElementById('directorWave'); if(e)e.textContent=w.id+' · '+w.name;
+  const b=document.getElementById('directorBudget'); if(b)b.textContent=budget;
+  const em=document.getElementById('directorElite'); if(em)em.textContent=(w.elite*diff.elite).toFixed(2)+'x';
+  const pt=document.getElementById('directorPressureText'); if(pt)pt.textContent=Math.round(Math.min(1,p)*100)+'%';
+  const pf=document.getElementById('directorPressure'); if(pf)pf.style.width=Math.round(Math.min(1,p)*100)+'%';
+  const nx=document.getElementById('directorNext'); if(nx)nx.textContent=String(n.t).padStart(2,'0')+':00 '+n.name;
+  renderWaveTable();
+}
+function v19SpawnInterval(){
+  const diff=v19Difficulty(),w=v19WaveAt(run.time),p=v19Pressure();
+  const base=Math.max(.11,.36-run.time/5600);
+  return Math.max(.07, base/(w.budget*diff.budget*Math.max(.65,p)));
+}
+function v19EliteChance(){
+  const diff=v19Difficulty(),w=v19WaveAt(run.time),p=v19Pressure();
+  return Math.min(.28,(.026+run.time/150000)*w.elite*diff.elite*(.82+p*.35));
+}
+function v19StatCurve(sec){
+  const m=sec/60;
+  return {
+    hp: 1 + .07*m + .012*m*m,
+    dmg:1 + .045*m + .006*m*m,
+    speed:1 + Math.min(.22,.007*m)
+  };
+}
+
+/* Wrap spawnEnemy so V1.9 owns enemy scaling and elite rate. */
+const _v18_spawnEnemy = spawnEnemy;
+spawnEnemy = function(opts={}){
+  const map=selectedStageInfo().chapter,id=opts.id||weightedEnemyId(map),cfg=ENEMIES[id],a=Math.random()*Math.PI*2,d=Math.max(AW,AH)*.55+60;
+  const curve=v19StatCurve(run.time),diff=v19Difficulty();
+  const eliteByDirector = opts.elite || Math.random()<v19EliteChance();
+  const e={id,name:cfg.name,ai:cfg.ai,x:player.x+Math.cos(a)*d,y:player.y+Math.sin(a)*d,r:10+(cfg.ai==='brute'||cfg.ai==='shield'?4:0),
+    hp:cfg.hp*curve.hp*diff.hp,maxHp:cfg.hp*curve.hp*diff.hp,speed:cfg.speed*curve.speed*diff.speed,damage:cfg.damage*curve.dmg*diff.dmg,color:cfg.color,
+    attack:Math.random()*2,skill:Math.random()*2,elite:false,affixes:[],flash:0};
+  if(eliteByDirector){
+    e.elite=true;e.r*=1.25;e.hp*=3.25;e.maxHp=e.hp;e.damage*=1.38;
+    const affixCount=(run.time>16*60||save.difficulty==='nightmare')?2:1;
+    ELITE_AFFIXES.slice().sort(()=>Math.random()-.5).slice(0,affixCount).forEach(ax=>{ax.apply(e);e.affixes.push(ax.id)});
+    e.color='#d5a254';
+  }
+  enemies.push(e);
+};
+
+/* More meaningful gold / drop economy by difficulty + source. */
+const _v18_makeGearDrop = makeGearDrop;
+makeGearDrop = function(source){
+  const d=_v18_makeGearDrop(source),diff=v19Difficulty();
+  const bonus={elite:0.03,chest:0.08,boss:0.16,rift:0.22,gold:0.12}[source]||0;
+  if(Math.random() < Math.min(.55, .10*(diff.drop-1)+bonus)){
+    // Try to promote to a gold item if the pool contains one.
+    const goldIds=Object.keys(GEAR).filter(id=>GEAR[id].rarity==='gold');
+    const id=goldIds[Math.floor(Math.random()*goldIds.length)];
+    if(id){d.id=id;d.name=GEAR[id].name;d.rarity=GEAR[id].rarity;d.score=GEAR[id].score}
+  }
+  return d;
+};
+
+/* Wrap startBattle: director state + boss scaling + tutorial unaffected. */
+const _v18_startBattle = startBattle;
+startBattle = function(){
+  _v18_startBattle();
+  if(!run.active) return;
+  run.director={lastWave:v19WaveAt(0).id,superHorde:false,bossPhaseBonus:0};
+  run.incomingMul=run.incomingMul||1;
+  hint('难度 '+v19Difficulty().name+' · '+v19WaveAt(0).name);
+  renderDirector();
+};
+
+/* Director milestones: super hordes + mandatory elites + pacing relief. */
+function v19DirectorMilestones(dt){
+  const w=v19WaveAt(run.time);
+  if(run.director && run.director.lastWave!==w.id){
+    run.director.lastWave=w.id;
+    hint(w.name);
+    log('Director → '+w.id+' '+w.name);
+    if(w.type==='elite'){for(let i=0;i<(save.difficulty==='nightmare'?2:1);i++)spawnEnemy({elite:true})}
+    if(w.type==='horde'){
+      run.director.superHorde=true;
+      const burst=save.difficulty==='easy'?10:save.difficulty==='normal'?16:save.difficulty==='hard'?23:30;
+      for(let i=0;i<burst;i++)spawnEnemy();
+      shake(8); log('超级怪潮启动：额外 '+burst+' 敌人');
+    } else run.director.superHorde=false;
+    if(w.type==='boss' && !run.boss && selectedStageInfo().stage[2]) spawnBoss();
+  }
+  // In final horde, inject more elites if player is clearly over-performing.
+  if(w.type==='horde' && v19Pressure()>1.05 && Math.random()<dt*.20) spawnEnemy({elite:true});
+}
+
+/* Wrap updateRun by temporarily controlling old spawn accumulator behavior.
+   We reproduce V1.8 update logic with Director interval replacing static interval. */
+updateRun = function(dt){
+ if(!run.active||run.paused)return;
+ run.time+=dt;player.inv=Math.max(0,player.inv-dt);player.dodgeCd=Math.max(0,player.dodgeCd-dt);player.skillCd=Math.max(0,player.skillCd-dt);run.comboTimer-=dt;if(run.comboTimer<=0)run.combo=0;
+ let dx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),dy=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);
+ if(dx||dy){const l=Math.hypot(dx,dy);player.x+=dx/l*player.speed*dt;player.y+=dy/l*player.speed*dt}
+ player.x=Math.max(18,Math.min(AW-18,player.x));player.y=Math.max(18,Math.min(AH-18,player.y));
+ run.spawn+=dt;const spawnInterval=v19SpawnInterval();
+ while(run.spawn>spawnInterval){run.spawn-=spawnInterval;spawnEnemy()}
+ const cap={easy:190,normal:250,hard:320,nightmare:380}[save.difficulty]||250;
+ if(enemies.length>cap)enemies.splice(0,enemies.length-cap);
+ run.attack+=dt;if(run.attack>1/Math.max(.6,player.aspd)){run.attack=0;shootAuto()}
+ enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
+ v19DirectorMilestones(dt);
+ [5,10,15].forEach((m,i)=>{if(run.time>=m*60&&!run.chests[i]){run.chests[i]=true;showChest()}});
+ [3,8,13].forEach((m,i)=>{if(run.time>=m*60&&!run.events[i]){run.events[i]=true;showEvent()}});
+ if(!run.boss&&run.time>=12*60&&selectedStageInfo().stage[2]&&!run.bossDefeated)spawnBoss();
+ if(run.riftActive&&run.eliteKills>=3){run.riftActive=false;const d=makeGearDrop('rift');run.drops.push(d);hint('裂缝完成 · '+d.name)}
+ run.dpsClock+=dt;if(run.dpsClock>=1){run.dps=Math.round(run.totalDamage-run.lastDps);run.lastDps=run.totalDamage;run.dpsClock=0}
+ if(player.hp<=0){finishRun(false,'生命归零');return}
+ if(run.time>=20*60){
+   if(selectedStageInfo().stage[2]&&run.boss){finishRun(false,'20分钟到达但Boss仍存活');return}
+   finishRun(true,'坚持20分钟并完成Boss目标');return
+ }
+ updateHud();renderDirector()
+};
+
+/* Boss curve + difficulty. */
+const _v18_spawnBoss = spawnBoss;
+spawnBoss = function(){
+ const si=selectedStageInfo(),id=si.stage[4],cfg=BOSSES[id],diff=v19Difficulty(),curve=v19StatCurve(run.time);
+ run.boss={id,name:cfg.name,x:AW*.78,y:AH*.34,r:42,
+  hp:cfg.hp*(1+CHAPTERS[si.chapter].stages.indexOf(si.stage)*.12)*diff.hp*(.85+curve.hp*.22),
+  maxHp:1,color:cfg.color,phase:1,attack:0,skill:0,state:'idle'};
+ run.boss.maxHp=run.boss.hp;
+ document.getElementById('bossBar').classList.add('show');document.getElementById('bossLabel').textContent=id+' '+cfg.name+' · '+cfg.style+' · '+diff.name;
+ hint('Boss登场 · '+cfg.name);log('Boss登场：'+id+' '+cfg.name);shake(10)
+};
+
+/* Reward economy tuned by difficulty and performance. */
+const _v18_finishRun = finishRun;
+finishRun = function(victory,reason){
+ if(!run.active)return;
+ const diff=v19Difficulty(), si=selectedStageInfo();
+ const oldGold=save.gold, oldRuns=save.stats.runs;
+ // Let original settlement handle persistence and result object.
+ _v18_finishRun(victory,reason);
+ if(lastResult && save.stats.runs>oldRuns){
+   const base=lastResult.gold;
+   const perf=Math.min(1.35,.85 + (lastResult.maxCombo||0)/300 + (lastResult.eliteKills||0)*.015);
+   const tuned=Math.round(base*diff.gold*perf);
+   save.gold += tuned-base;
+   lastResult.gold=tuned;
+   lastResult.difficulty=diff.name;
+   lastResult.directorScore=Math.round((run.maxCombo||0)*1.2+(run.eliteKills||0)*65+(run.kills||0)*.18);
+   localStorage.setItem(SAVE_KEY,JSON.stringify(save));
+   renderAll();renderResult()
+ }
+};
+
+/* Extend result with director data after original renderer. */
+const _v18_renderResult = renderResult;
+renderResult = function(){
+ _v18_renderResult();
+ if(!lastResult)return;
+ const rows=document.getElementById('resultRows');
+ if(rows){
+   rows.innerHTML += '<div class="resultRow"><span>难度</span><b>'+(lastResult.difficulty||v19Difficulty().name)+'</b></div>'+
+   '<div class="resultRow"><span>Director评分</span><b>'+(lastResult.directorScore||0)+'</b></div>';
+ }
+ const resGold=document.getElementById('resGold');if(resGold)resGold.textContent='+'+lastResult.gold;
+};
+
+/* Extend world/home rendering. */
+const _v18_renderWorld = renderWorld;
+renderWorld=function(){_v18_renderWorld();renderDifficulty()};
+const _v18_renderTop = renderTop;
+renderTop=function(){_v18_renderTop(); const p=document.getElementById('topPower'); if(p)p.title='当前难度：'+v19Difficulty().name};
+
+/* Home V1.9 balance snapshot */
+const homeFeatureGrid = document.querySelector('#home .featureGrid');
+if(homeFeatureGrid){
+  homeFeatureGrid.innerHTML =
+  '<div class="card feature"><div class="featureIcon">导</div><h4>动态Director</h4><p>根据时间、血量、DPS、击杀效率与Build成型度动态调整怪物预算。</p></div>'+
+  '<div class="card feature"><div class="featureIcon">浪</div><h4>16段Wave节奏</h4><p>0–20分钟划分热身、事件、精英、宝箱、Boss与两次超级怪潮。</p></div>'+
+  '<div class="card feature"><div class="featureIcon">难</div><h4>4档难度</h4><p>休闲 / 标准 / 修罗 / 万界劫，同时改变敌方属性、精英密度与收益。</p></div>'+
+  '<div class="card feature"><div class="featureIcon">衡</div><h4>收益平衡</h4><p>难度、表现、精英与Boss共同影响金币与高品质装备掉落。</p></div>';
+}
+
+/* Initialize. */
+renderAll(); renderDifficulty(); renderWaveTable(); renderDirector();
+</script>
+
+
+<script>
+const V20_SAVE_SLOTS_KEY='wanjie_v20_slots',V20_ACTIVE_SLOT_KEY='wanjie_v20_active_slot';
+const V20_PERF={low:{name:'性能',enemyCap:.62,particles:false,numbers:false,dpr:1,desc:'低配置/移动端'},balanced:{name:'均衡',enemyCap:.82,particles:true,numbers:true,dpr:1.35,desc:'默认推荐'},high:{name:'高质量',enemyCap:1,particles:true,numbers:true,dpr:2,desc:'高性能设备'}};
+if(!save.settings.performance)save.settings.performance='balanced';if(!save.storySeen)save.storySeen={ST001:false,ST003:false,ST004:false};
+let v20ActiveSlot=Number(localStorage.getItem(V20_ACTIVE_SLOT_KEY)||1),v20Slots=JSON.parse(localStorage.getItem(V20_SAVE_SLOTS_KEY)||'{}');
+if(!v20Slots[1])v20Slots[1]={exists:true,label:'主存档',data:JSON.parse(JSON.stringify(save)),updated:Date.now()};if(!v20Slots[2])v20Slots[2]={exists:false,label:'试玩副档',data:null,updated:0};if(!v20Slots[3])v20Slots[3]={exists:false,label:'新游戏槽',data:null,updated:0};
+function saveV20Slots(){localStorage.setItem(V20_SAVE_SLOTS_KEY,JSON.stringify(v20Slots));localStorage.setItem(V20_ACTIVE_SLOT_KEY,String(v20ActiveSlot))}function snapshotActiveSlot(){v20Slots[v20ActiveSlot]={exists:true,label:v20Slots[v20ActiveSlot]?.label||('存档'+v20ActiveSlot),data:JSON.parse(JSON.stringify(save)),updated:Date.now()};saveV20Slots()}
+const _v20Persist=persist;persist=function(){_v20Persist();snapshotActiveSlot();refreshContinueSummary()};
+function refreshContinueSummary(){const el=document.getElementById('continueSummary');if(!el)return;const s=v20Slots[v20ActiveSlot];if(!s?.exists||!s.data){el.textContent='没有可继续的存档';return}el.textContent='槽位'+v20ActiveSlot+' · '+(HEROES[s.data.hero]?.name||'未知英雄')+' · '+(s.data.selectedStage||'ST001-01')+' · '+new Date(s.updated).toLocaleString()}
+function continueGame(){const s=v20Slots[v20ActiveSlot];if(s?.exists&&s.data){save=merge(clone(DEFAULT_SAVE),JSON.parse(JSON.stringify(s.data)));localStorage.setItem(SAVE_KEY,JSON.stringify(save))}document.getElementById('startScreen').classList.add('hidden');renderAll();go('home');maybeShowStoryIntro(save.selectedChapter||'ST001')}
+function newGameConfirm(){if(!confirm('在当前活动存档槽中开始新游戏？当前槽位内容会被覆盖。'))return;save=clone(DEFAULT_SAVE);save.settings.performance='balanced';save.storySeen={ST001:false,ST003:false,ST004:false};localStorage.setItem(SAVE_KEY,JSON.stringify(save));snapshotActiveSlot();document.getElementById('startScreen').classList.add('hidden');renderAll();go('home');maybeShowStoryIntro('ST001',true)}
+function openSaveManager(){renderSaveCards();document.getElementById('saveModal').classList.add('show')}function openGlobalSettings(){renderGlobalSettings();document.getElementById('settingsModal').classList.add('show')}function closeModal(id){document.getElementById(id).classList.remove('show')}
+function renderSaveCards(){const g=document.getElementById('saveCards');g.innerHTML='';[1,2,3].forEach(i=>{const s=v20Slots[i],d=document.createElement('div');d.className='saveCard '+(i===v20ActiveSlot?'active':'');if(s?.exists&&s.data){d.innerHTML='<div class="eyebrow">SLOT '+i+'</div><h4>'+s.label+'</h4><p>账号 Lv.'+(s.data.accountLv||1)+'<br>英雄 '+(HEROES[s.data.hero]?.name||s.data.hero)+'<br>关卡 '+(s.data.selectedStage||'ST001-01')+'<br>金币 '+(s.data.gold||0)+'</p><div class="actions"><button class="btn gold" onclick="loadSlot('+i+')">'+(i===v20ActiveSlot?'当前槽':'载入')+'</button><button class="btn ghost" onclick="copySlot('+i+')">复制当前</button><button class="btn ghost" onclick="resetSlot('+i+')">重置</button></div>'}else d.innerHTML='<div class="eyebrow">SLOT '+i+'</div><h4>空存档</h4><p>可创建新游戏或复制当前主档。</p><div class="actions"><button class="btn primary" onclick="createSlot('+i+')">创建新游戏</button><button class="btn ghost" onclick="copySlot('+i+')">复制当前</button></div>';g.appendChild(d)})}
+function loadSlot(i){const s=v20Slots[i];if(!s?.exists||!s.data)return;v20ActiveSlot=i;save=merge(clone(DEFAULT_SAVE),JSON.parse(JSON.stringify(s.data)));localStorage.setItem(SAVE_KEY,JSON.stringify(save));saveV20Slots();renderAll();renderSaveCards();refreshContinueSummary();toast('已载入存档槽 '+i)}function copySlot(i){v20Slots[i]={exists:true,label:'存档 '+i,data:JSON.parse(JSON.stringify(save)),updated:Date.now()};saveV20Slots();renderSaveCards();toast('已复制当前进度到槽 '+i)}function resetSlot(i){if(!confirm('确定重置存档槽 '+i+'？'))return;v20Slots[i]={exists:false,label:'存档 '+i,data:null,updated:0};if(i===v20ActiveSlot)v20ActiveSlot=1;saveV20Slots();renderSaveCards();refreshContinueSummary()}function createSlot(i){const fresh=clone(DEFAULT_SAVE);fresh.settings.performance='balanced';fresh.storySeen={ST001:false,ST003:false,ST004:false};v20Slots[i]={exists:true,label:'新游戏 '+i,data:fresh,updated:Date.now()};v20ActiveSlot=i;save=fresh;localStorage.setItem(SAVE_KEY,JSON.stringify(save));saveV20Slots();renderAll();renderSaveCards();toast('已创建新游戏')}
+function renderGlobalSettings(){const p=document.getElementById('perfSegment');p.innerHTML='';Object.entries(V20_PERF).forEach(([id,x])=>{const b=document.createElement('button');b.className=save.settings.performance===id?'active':'';b.innerHTML='<b>'+x.name+'</b><br><small>'+x.desc+'</small>';b.onclick=()=>setPerformance(id);p.appendChild(b)});['shake','numbers','particles','vignette'].forEach(k=>{const e=document.getElementById('global'+k.charAt(0).toUpperCase()+k.slice(1));if(e)e.classList.toggle('on',!!save.settings[k])})}
+function setPerformance(id){if(!V20_PERF[id])return;save.settings.performance=id;const p=V20_PERF[id];if(id==='low'){save.settings.particles=false;save.settings.numbers=false}else{save.settings.particles=p.particles;save.settings.numbers=p.numbers}applyPerformance();persist();renderGlobalSettings();toast('性能档位：'+p.name)}function toggleGlobal(k){save.settings[k]=!save.settings[k];persist();renderGlobalSettings()}function applyPerformance(){const p=V20_PERF[save.settings.performance]||V20_PERF.balanced;DPR=Math.min(devicePixelRatio||1,p.dpr);resizeArena()}
+function maybeShowStoryIntro(chapter,force=false){if(!CHAPTERS[chapter])return;if(!save.storySeen)save.storySeen={ST001:false,ST003:false,ST004:false};if(save.storySeen[chapter]&&!force)return;const map={ST001:['第一章 · 黄巾乱世','万界裂隙在乱世边境打开，黄巾残军被异界力量侵蚀。救援废村、击败乱世妖师与混沌骑将，找到通往下一世界的裂隙。'],ST003:['第二章 · 花果妖岭','跨越裂隙后，你来到妖气冲天的花果妖岭。猴妖、狼妖、牛妖与混世魔猿正在争夺一股不属于这个世界的力量。'],ST004:['第三章 · 忍界战场','战争撕裂了忍界边境。爆符、雷遁与分身充斥战场，炎狱忍王、雷瞬忍王和万影忍王正在争夺万界裂隙的控制权。']};document.getElementById('storyIntroTitle').textContent=map[chapter][0];document.getElementById('storyIntroText').textContent=map[chapter][1];document.getElementById('storyIntro').dataset.chapter=chapter;document.getElementById('storyIntro').classList.add('show')}
+function closeStoryIntro(mark){const el=document.getElementById('storyIntro'),ch=el.dataset.chapter;if(mark&&ch){save.storySeen[ch]=true;persist()}el.classList.remove('show')}
+const _v20SelectWorld=selectWorldChapter;selectWorldChapter=function(id){const before=save.selectedChapter;_v20SelectWorld(id);if(CHAPTERS[id]?.unlock&&before!==id)maybeShowStoryIntro(id)};
+function stripDebugUI(){document.querySelectorAll('.eyebrow').forEach(e=>{if(e.textContent.trim()==='DEBUG'){const c=e.closest('.card');if(c)c.remove()}})}
+let v20Joy={active:false,dx:0,dy:0,id:null};function initJoystick(){const base=document.getElementById('joystickBase'),knob=document.getElementById('joystickKnob');if(!base||!knob)return;function moveTouch(t){const r=base.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;let dx=t.clientX-cx,dy=t.clientY-cy,lim=34,l=Math.hypot(dx,dy)||1;if(l>lim){dx=dx/l*lim;dy=dy/l*lim}v20Joy.dx=dx/lim;v20Joy.dy=dy/lim;knob.style.transform='translate('+dx+'px,'+dy+'px)'}base.addEventListener('touchstart',e=>{const t=e.changedTouches[0];v20Joy.active=true;v20Joy.id=t.identifier;moveTouch(t);e.preventDefault()},{passive:false});base.addEventListener('touchmove',e=>{for(const t of e.changedTouches)if(t.identifier===v20Joy.id)moveTouch(t);e.preventDefault()},{passive:false});function end(e){for(const t of e.changedTouches)if(t.identifier===v20Joy.id){v20Joy.active=false;v20Joy.dx=0;v20Joy.dy=0;v20Joy.id=null;knob.style.transform='translate(0,0)'}e.preventDefault()}base.addEventListener('touchend',end,{passive:false});base.addEventListener('touchcancel',end,{passive:false})}
+const _v20Update=updateRun;updateRun=function(dt){if(v20Joy.active&&run?.active&&!run.paused){const old={w:keys.w,a:keys.a,s:keys.s,d:keys.d};keys.d=v20Joy.dx>.18;keys.a=v20Joy.dx<-.18;keys.s=v20Joy.dy>.18;keys.w=v20Joy.dy<-.18;_v20Update(dt);keys.w=old.w;keys.a=old.a;keys.s=old.s;keys.d=old.d}else _v20Update(dt);if(run?.active){const perf=V20_PERF[save.settings.performance]||V20_PERF.balanced,base={easy:190,normal:250,hard:320,nightmare:380}[save.difficulty]||250,cap=Math.round(base*perf.enemyCap);if(enemies.length>cap)enemies.splice(0,enemies.length-cap)}};
+const _v20RenderResult=renderResult;renderResult=function(){_v20RenderResult();if(lastResult){const s=document.getElementById('resultState');if(s)s.textContent=lastResult.victory?'CHAPTER CLEAR':'RUN FAILED'}};
+function v20Boot(){applyPerformance();stripDebugUI();refreshContinueSummary();initJoystick();renderGlobalSettings();document.getElementById('startScreen').classList.remove('hidden')}window.addEventListener('load',v20Boot);
+</script>
+
+
+<div class="loadingScreen" id="loadingScreen">
+  <div class="loadingInner">
+    <div class="loadingLogo">万界无双</div>
+    <div class="eyebrow" style="margin-top:10px">ENTERING RIFT</div>
+    <div class="loadingStage" id="loadingStage">乱世荒原</div>
+    <div class="loadingTip" id="loadingTip">Build不是越多越好，完整进化路线比零散技能更重要。</div>
+    <div class="loadingTrack"><i id="loadingFill"></i></div>
+    <div class="loadingMeta"><span id="loadingHero">赤焰战神</span><span id="loadingProgress">0%</span></div>
+  </div>
+</div>
+
+<div class="endCinematic" id="endCinematic">
+  <div class="seal">
+    <div class="sealIcon" id="endSealIcon">胜</div>
+    <div class="eyebrow" style="margin-top:18px" id="endEyebrow">RIFT SEALED</div>
+    <h1 id="endTitle">关卡完成</h1>
+    <p id="endText">裂隙暂时稳定，永久奖励已经写入存档。</p>
+  </div>
+</div>
+
+<div class="modalLayer" id="feedbackModal">
+  <div class="modalBox">
+    <div class="modalHead"><div><div class="eyebrow">PLAYTEST FEEDBACK</div><h2>试玩反馈</h2></div><button class="closeX" onclick="closeModal('feedbackModal')">×</button></div>
+    <p class="muted">反馈只保存在当前浏览器本地，便于你在试玩后汇总体验问题。</p>
+    <div class="feedbackStars" id="feedbackStars"></div>
+    <div class="feedbackTags" id="feedbackTags"></div>
+    <textarea class="feedbackText" id="feedbackText" placeholder="例如：Boss预警还不够明显；怪潮很爽但18分钟同屏太乱；希望技能图标更具象……"></textarea>
+    <div class="actions"><button class="btn primary" onclick="submitFeedback()">保存本次反馈</button><button class="btn ghost" onclick="exportFeedback()">导出JSON</button></div>
+    <div class="tiny" id="feedbackCount" style="margin-top:10px"></div>
+  </div>
+</div>
+
+
+<script>
+/* ================= V2.1 QUALITY & PRESENTATION LAYER ================= */
+if(!save.settings.audioEnabled && save.settings.audioEnabled!==false) save.settings.audioEnabled=true;
+if(save.settings.masterVolume==null) save.settings.masterVolume=.60;
+const V21_FEEDBACK_KEY='wanjie_v21_feedback';
+const V21_TIPS=[
+ 'Build不是越多越好，完整进化路线比零散技能更重要。',
+ '闪避拥有短暂无敌时间，Boss大招预警出现时不要贪输出。',
+ '精英怪的金色轮廓代表词缀单位，通常会提供更好的掉落。',
+ '12分钟开始进入Boss节奏，15分钟宝箱是终局Build的重要机会。',
+ '修罗和万界劫会提高收益，但同样显著提高精英密度和Boss生命。'
+];
+
+/* ---------- lightweight audio interface: no external files ---------- */
+const V21Audio={
+  ctx:null, master:null,
+  ensure(){
+    if(!save.settings.audioEnabled)return false;
+    try{
+      if(!this.ctx){this.ctx=new (window.AudioContext||window.webkitAudioContext)();this.master=this.ctx.createGain();this.master.connect(this.ctx.destination)}
+      this.master.gain.value=save.settings.masterVolume||.6;
+      if(this.ctx.state==='suspended')this.ctx.resume();
+      return true
+    }catch(e){return false}
+  },
+  tone(freq=440,dur=.06,type='sine',gain=.06,slide=0){
+    if(!this.ensure())return;
+    const o=this.ctx.createOscillator(),g=this.ctx.createGain(),now=this.ctx.currentTime;
+    o.type=type;o.frequency.setValueAtTime(freq,now);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(40,freq+slide),now+dur);
+    g.gain.setValueAtTime(gain,now);g.gain.exponentialRampToValueAtTime(.0001,now+dur);
+    o.connect(g);g.connect(this.master);o.start(now);o.stop(now+dur)
+  },
+  hit(){this.tone(180,.035,'square',.035,80)},
+  crit(){this.tone(520,.055,'triangle',.045,260)},
+  hurt(){this.tone(110,.09,'sawtooth',.05,-45)},
+  skill(){this.tone(290,.11,'triangle',.05,360)},
+  ult(){this.tone(120,.28,'sawtooth',.06,600);setTimeout(()=>this.tone(620,.16,'triangle',.05,-200),80)},
+  boss(){this.tone(72,.34,'sawtooth',.06,45)},
+  chest(){this.tone(420,.09,'triangle',.04,180);setTimeout(()=>this.tone(660,.12,'triangle',.04,220),65)},
+  win(){[330,440,660].forEach((f,i)=>setTimeout(()=>this.tone(f,.22,'triangle',.045,110),i*120))},
+  lose(){[260,190,125].forEach((f,i)=>setTimeout(()=>this.tone(f,.2,'sawtooth',.04,-35),i*120))}
+};
+function toggleAudio(){save.settings.audioEnabled=!save.settings.audioEnabled;persist();renderV21AudioSettings();if(save.settings.audioEnabled)V21Audio.tone(440,.08,'triangle',.04,100)}
+function setMasterVolume(v){save.settings.masterVolume=Number(v)/100;persist();renderV21AudioSettings()}
+function renderV21AudioSettings(){
+ const t=document.getElementById('audioToggle');if(t)t.classList.toggle('on',!!save.settings.audioEnabled);
+ const r=document.getElementById('masterVolume');if(r)r.value=Math.round((save.settings.masterVolume||0)*100);
+ const tx=document.getElementById('masterVolumeText');if(tx)tx.textContent=Math.round((save.settings.masterVolume||0)*100)+'%'
+}
+
+/* ---------- loading ---------- */
+let v21LoadingTimer=null;
+const _v21_startBattle=startBattle;
+startBattle=function(){
+  if(v21LoadingTimer)return;
+  const si=selectedStageInfo(),screen=document.getElementById('loadingScreen'),fill=document.getElementById('loadingFill');
+  document.getElementById('loadingStage').textContent=CHAPTERS[si.chapter].name+' · '+si.stage[1];
+  document.getElementById('loadingHero').textContent=HEROES[save.hero].name+' · '+(V19_DIFFICULTIES?.[save.difficulty]?.name||'标准');
+  document.getElementById('loadingTip').textContent=V21_TIPS[Math.floor(Math.random()*V21_TIPS.length)];
+  fill.style.width='0%';document.getElementById('loadingProgress').textContent='0%';screen.classList.add('show');
+  let p=0;
+  v21LoadingTimer=setInterval(()=>{
+    p=Math.min(100,p+14+Math.floor(Math.random()*12));fill.style.width=p+'%';document.getElementById('loadingProgress').textContent=p+'%';
+    if(p>=100){
+      clearInterval(v21LoadingTimer);v21LoadingTimer=null;
+      setTimeout(()=>{screen.classList.remove('show');_v21_startBattle();V21Audio.tone(240,.1,'triangle',.035,160)},120)
+    }
+  },70)
+};
+
+/* ---------- silhouettes / combat drawing ---------- */
+function v21Shadow(x,y,rx,ry,a=.28){
+  ctx.save();ctx.globalAlpha=a;ctx.fillStyle='#000';ctx.beginPath();ctx.ellipse(x,y+10,rx,ry,0,0,Math.PI*2);ctx.fill();ctx.restore()
+}
+function v21DrawHero(){
+  const h=HEROES[save.hero],x=player.x,y=player.y,c=h.color;
+  v21Shadow(x,y,18,7,.34);ctx.save();ctx.translate(x,y);
+  if(player.inv>0){ctx.shadowBlur=22;ctx.shadowColor='#fff3c8'}
+  else{ctx.shadowBlur=18;ctx.shadowColor=c}
+  // cape/body
+  ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(-8,-5);ctx.lineTo(8,-5);ctx.lineTo(12,13);ctx.lineTo(0,18);ctx.lineTo(-12,13);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#ead0a8';ctx.beginPath();ctx.arc(0,-12,6,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='#f9df9c';ctx.lineWidth=3;
+  ctx.beginPath();ctx.moveTo(7,-2);ctx.lineTo(18,-13);ctx.stroke();
+  if(save.hero==='H002'||save.hero==='H007'){ctx.beginPath();ctx.moveTo(-3,1);ctx.lineTo(-17,12);ctx.stroke()}
+  if(save.hero==='H012'||save.hero==='H010'){ctx.strokeStyle='#d9c7ff';ctx.beginPath();ctx.moveTo(5,-2);ctx.lineTo(17,5);ctx.stroke()}
+  ctx.restore()
+}
+function v21DrawEnemy(e){
+  v21Shadow(e.x,e.y,e.r*1.05,4,.25);
+  ctx.save();ctx.translate(e.x,e.y);
+  if(e.elite){ctx.shadowBlur=16;ctx.shadowColor='#f3c66c'}
+  ctx.fillStyle=e.flash>0?'#fff4da':e.color;
+  const s=e.r/10;
+  if(['shield'].includes(e.ai)){
+    ctx.fillRect(-5*s,-9*s,10*s,18*s);ctx.fillStyle='#a2a9b2';ctx.fillRect(5*s,-6*s,7*s,14*s)
+  }else if(['ranged','aoe_ranged','poison'].includes(e.ai)){
+    ctx.beginPath();ctx.moveTo(0,-10*s);ctx.lineTo(7*s,7*s);ctx.lineTo(-7*s,7*s);ctx.closePath();ctx.fill();
+    ctx.strokeStyle='#d7b782';ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(8*s,-1*s,6*s,-1.2,1.2);ctx.stroke()
+  }else if(['charge','dash'].includes(e.ai)){
+    ctx.fillRect(-7*s,-7*s,14*s,15*s);ctx.fillStyle='#d3c4a2';ctx.beginPath();ctx.moveTo(6*s,-2*s);ctx.lineTo(16*s,0);ctx.lineTo(6*s,3*s);ctx.fill()
+  }else if(['fly'].includes(e.ai)){
+    ctx.beginPath();ctx.arc(0,0,7*s,0,Math.PI*2);ctx.fill();ctx.globalAlpha=.45;ctx.fillRect(-13*s,-3*s,8*s,5*s);ctx.fillRect(5*s,-3*s,8*s,5*s)
+  }else if(['brute'].includes(e.ai)){
+    ctx.beginPath();ctx.arc(0,0,10*s,0,Math.PI*2);ctx.fill();ctx.fillRect(-11*s,-2*s,22*s,9*s)
+  }else{
+    ctx.beginPath();ctx.arc(0,-5*s,5*s,0,Math.PI*2);ctx.fill();ctx.fillRect(-5*s,0,10*s,11*s)
+  }
+  if(e.elite){ctx.strokeStyle='#f3c66c';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,e.r+4,0,Math.PI*2);ctx.stroke()}
+  ctx.restore()
+}
+function v21DrawBoss(b){
+  v21Shadow(b.x,b.y,b.r*1.2,10,.42);ctx.save();ctx.translate(b.x,b.y);ctx.shadowBlur=34;ctx.shadowColor=b.color;
+  ctx.fillStyle=b.color;ctx.beginPath();ctx.moveTo(-22,-24);ctx.lineTo(22,-24);ctx.lineTo(30,18);ctx.lineTo(0,32);ctx.lineTo(-30,18);ctx.closePath();ctx.fill();
+  ctx.fillStyle='#e4bc8c';ctx.beginPath();ctx.arc(0,-31,12,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='#f6d18b';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(20,-5);ctx.lineTo(43,-25);ctx.stroke();
+  ctx.restore()
+}
+const _v21_drawRun=drawRun;
+drawRun=function(){
+ ctx.save();if((run.shake||0)>0){ctx.translate((Math.random()-.5)*run.shake,(Math.random()-.5)*run.shake);run.shake*=.88}
+ ctx.clearRect(-30,-30,AW+60,AH+60);
+ const map=selectedStageInfo().chapter;
+ // layered ground
+ const grad=ctx.createLinearGradient(0,0,0,AH);
+ if(map==='ST001'){grad.addColorStop(0,'#1a211b');grad.addColorStop(1,'#101713')}
+ else if(map==='ST003'){grad.addColorStop(0,'#1c2519');grad.addColorStop(1,'#121811')}
+ else{grad.addColorStop(0,'#171b25');grad.addColorStop(1,'#10131b')}
+ ctx.fillStyle=grad;ctx.fillRect(0,0,AW,AH);
+ // terrain decoration
+ ctx.globalAlpha=.15;ctx.fillStyle='#9b8b68';for(let i=0;i<15;i++){let x=(i*193+77)%AW,y=(i*131+91)%AH;ctx.beginPath();ctx.ellipse(x,y,22+(i%3)*8,8,0,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;
+ run.mapHazards.forEach(h=>{if(h.type==='fireline'){ctx.globalAlpha=Math.max(.15,h.life/h.max*.45);ctx.fillStyle='#ef694e';ctx.fillRect(h.x,h.y-h.h/2,h.w,h.h);ctx.globalAlpha=1}});
+ traps.forEach(t=>{const pulse=.65+.35*Math.sin(performance.now()/80);ctx.globalAlpha=.5;ctx.fillStyle=t.color;ctx.beginPath();ctx.arc(t.x,t.y,t.r*pulse,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;ctx.strokeStyle='#ffd0aa';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(t.x,t.y,t.r,0,Math.PI*2);ctx.stroke()});
+ // depth-sort actors
+ const actors=enemies.map(e=>({y:e.y,type:'e',o:e}));
+ if(run.boss)actors.push({y:run.boss.y,type:'b',o:run.boss});
+ actors.push({y:player.y,type:'p',o:player});
+ actors.sort((a,b)=>a.y-b.y).forEach(a=>{if(a.type==='e')v21DrawEnemy(a.o);else if(a.type==='b')v21DrawBoss(a.o);else v21DrawHero()});
+ for(const p of shots){ctx.save();ctx.shadowBlur=16;ctx.shadowColor=p.color;ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(p.x,p.y,p.r+(p.crit?2:0),0,Math.PI*2);ctx.fill();ctx.restore()}
+ for(const p of enemyShots){ctx.save();ctx.shadowBlur=10;ctx.shadowColor=p.color;ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.restore()}
+ if(save.settings.particles)for(const e of effects){const a=Math.max(0,e.life/e.max);ctx.globalAlpha=a;if(e.type==='particle'){ctx.fillStyle=e.color;ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill()}else{ctx.strokeStyle=e.color;ctx.lineWidth=4;ctx.beginPath();ctx.arc(e.x,e.y,e.r+(1-a)*(e.maxr||50),0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=1}
+ if(save.settings.numbers){ctx.textAlign='center';for(const n of numbers){ctx.globalAlpha=Math.max(0,n.life/n.max);ctx.font='800 '+n.size+'px Inter';ctx.fillStyle=n.color;ctx.fillText(n.text,n.x,n.y)}ctx.globalAlpha=1}
+ if(map==='ST003'&&run.fog>0){ctx.fillStyle='rgba(74,88,64,'+(run.fog*.30)+')';ctx.fillRect(0,0,AW,AH)}
+ ctx.restore()
+};
+
+/* ---------- impact feedback ---------- */
+function v21Pulse(id){const e=document.getElementById(id);if(!e)return;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),70)}
+const _v21_damageEnemy=damageEnemy;
+damageEnemy=function(e,dmg,crit=false,source='AUTO'){const before=e.hp;_v21_damageEnemy(e,dmg,crit,source);if(before>0){v21Pulse('hitFlash');crit?V21Audio.crit():V21Audio.hit();if(save.settings.particles)effects.push({type:'ring',x:e.x,y:e.y,r:3,life:.12,max:.12,color:crit?'#ffe47d':'#fff0d6',maxr:18})}}
+const _v21_hurtPlayer=hurtPlayer;
+hurtPlayer=function(dmg){const hp=player.hp;_v21_hurtPlayer(dmg);if(player.hp<hp){v21Pulse('damageFlash');V21Audio.hurt()}}
+const _v21_castHeroSkill=castHeroSkill;
+castHeroSkill=function(){const ready=run?.active&&!run.paused&&player.skillCd<=0;_v21_castHeroSkill();if(ready)V21Audio.skill()}
+const _v21_castUltimate=castUltimate;
+castUltimate=function(){const ready=run?.active&&!run.paused&&player.ult>=100;_v21_castUltimate();if(ready)V21Audio.ult()}
+const _v21_showChest=showChest;
+showChest=function(){V21Audio.chest();_v21_showChest()}
+
+/* ---------- Boss telegraph / cast banner ---------- */
+let v21LastBossCast=0;
+function v21BossCastName(id,phase){
+ const maps={
+  B001:['蛮王冲阵','震岳裂地','旋风断军'],
+  B002:['妖火祭阵','万符天降','妖兵唤魂'],
+  B003:['混沌突骑','枪阵封路','下马狂战'],
+  B006:['裂地重锤','山崩岩爆','霸体冲撞'],
+  B008:['魔猿跃击','棍影万重','狂暴连砸'],
+  B009:['炎墙封界','爆符天雨','炎龙突袭'],
+  B010:['雷瞬绝杀','雷牢封域','天雷审判'],
+  B011:['万影分身','暗影扇刃','影界处刑']
+ };
+ return (maps[id]||['首领技能'])[(Math.max(1,phase)-1)%3]
+}
+function v21ShowBossCast(text){
+ const e=document.getElementById('bossCastBanner');if(!e)return;e.textContent=text;e.classList.add('show');clearTimeout(v21ShowBossCast.t);v21ShowBossCast.t=setTimeout(()=>e.classList.remove('show'),950)
+}
+const _v21_spawnBoss=spawnBoss;
+spawnBoss=function(){_v21_spawnBoss();if(run.boss){V21Audio.boss();v21ShowBossCast(BOSSES[run.boss.id].name+' · 登场')}}
+const _v21_bossAI=bossAI;
+bossAI=function(dt){
+ if(run.boss){
+   const b=run.boss,cd=Math.max(.9,2.8-b.phase*.35),remain=cd-b.skill;
+   if(remain<.48&&remain>0&&performance.now()-v21LastBossCast>800){
+      v21LastBossCast=performance.now();v21ShowBossCast(v21BossCastName(b.id,b.phase));
+      effects.push({type:'ring',x:b.x,y:b.y,r:20,life:.45,max:.45,color:'#ef7958',maxr:95})
+   }
+ }
+ _v21_bossAI(dt)
+};
+
+/* ---------- end cinematic ---------- */
+const _v21_finishRun=finishRun;
+finishRun=function(victory,reason){
+ if(!run?.active)return;
+ _v21_finishRun(victory,reason);
+ const e=document.getElementById('endCinematic');e.classList.toggle('defeat',!victory);
+ document.getElementById('endSealIcon').textContent=victory?'胜':'败';
+ document.getElementById('endEyebrow').textContent=victory?'RIFT SEALED':'RIFT COLLAPSED';
+ document.getElementById('endTitle').textContent=victory?'万界裂隙已封印':'本次讨伐失败';
+ document.getElementById('endText').textContent=victory?'永久奖励、章节星与掉落已经写入当前存档。':'调整Build、装备或难度后再次挑战。';
+ e.classList.add('show');victory?V21Audio.win():V21Audio.lose();
+ setTimeout(()=>e.classList.remove('show'),1450)
+};
+
+/* ---------- feedback ---------- */
+let v21FeedbackRating=0,v21FeedbackTags=new Set();
+const V21_FB_TAGS=['战斗很爽','Boss预警','画面辨识','Build成型','难度节奏','操作手感','UI理解','性能问题','想要更多内容'];
+function openFeedback(){
+ document.getElementById('feedbackModal').classList.add('show');
+ const s=document.getElementById('feedbackStars');s.innerHTML='';
+ for(let i=1;i<=5;i++){const b=document.createElement('div');b.className='feedbackStar '+(i<=v21FeedbackRating?'on':'');b.textContent='★';b.onclick=()=>{v21FeedbackRating=i;openFeedback()};s.appendChild(b)}
+ const tg=document.getElementById('feedbackTags');tg.innerHTML='';
+ V21_FB_TAGS.forEach(t=>{const b=document.createElement('div');b.className='feedbackTag '+(v21FeedbackTags.has(t)?'on':'');b.textContent=t;b.onclick=()=>{v21FeedbackTags.has(t)?v21FeedbackTags.delete(t):v21FeedbackTags.add(t);openFeedback()};tg.appendChild(b)});
+ const list=JSON.parse(localStorage.getItem(V21_FEEDBACK_KEY)||'[]');document.getElementById('feedbackCount').textContent='本地已保存 '+list.length+' 条试玩反馈'
+}
+function submitFeedback(){
+ const list=JSON.parse(localStorage.getItem(V21_FEEDBACK_KEY)||'[]');
+ list.push({time:new Date().toISOString(),rating:v21FeedbackRating,tags:[...v21FeedbackTags],text:document.getElementById('feedbackText').value,hero:save.hero,stage:save.selectedStage,difficulty:save.difficulty,version:'2.1.0'});
+ localStorage.setItem(V21_FEEDBACK_KEY,JSON.stringify(list));document.getElementById('feedbackText').value='';v21FeedbackTags.clear();v21FeedbackRating=0;closeModal('feedbackModal');toast('试玩反馈已保存到本地')
+}
+function exportFeedback(){
+ const list=JSON.parse(localStorage.getItem(V21_FEEDBACK_KEY)||'[]'),blob=new Blob([JSON.stringify(list,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='wanjie_wushuang_v2.1_feedback.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)
+}
+
+/* ---------- settings and boot ---------- */
+const _v21_renderGlobalSettings=renderGlobalSettings;
+renderGlobalSettings=function(){_v21_renderGlobalSettings();renderV21AudioSettings()}
+const _v21_v20Boot=v20Boot;
+v20Boot=function(){_v21_v20Boot();renderV21AudioSettings()}
+window.addEventListener('pointerdown',()=>V21Audio.ensure(),{once:true});
+
+/* title-screen copy polish */
+const chip=document.querySelector('.versionChip');if(chip)chip.textContent='V2.2.0 · ART DIRECTION PLAYTEST';
+</script>
+
+
+<div class="evolutionCinematic" id="evolutionCinematic">
+  <div class="evoCore" id="evoCore">
+    <div class="evoBurst"></div>
+    <div class="evoIconBig" id="evoIconBig">进</div>
+    <div class="eyebrow" id="evoEyebrow">SKILL EVOLUTION</div>
+    <h1 id="evoTitle">炼狱火球</h1>
+    <div class="muted" id="evoSub">A011 + P026 → E011</div>
+  </div>
+</div>
+<div class="bossIntro" id="bossIntro">
+  <div class="bossIntroInner">
+    <div class="bossIntroPortrait" id="bossIntroPortrait"></div>
+    <div>
+      <div class="eyebrow">REGION BOSS</div>
+      <h1 id="bossIntroTitle">乱世妖师</h1>
+      <p id="bossIntroStyle">法阵与召唤 · 火符法阵 / 妖兵召唤 / 瞬移雷击</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ================= V2.2 ART UI & CINEMATICS ================= */
+const V22_ASSET_MANIFEST={
+ hero:{
+  H001:{portrait:'assets/heroes/H001_portrait.webp',sheet:'assets/heroes/H001_sheet.webp',element:'fire'},
+  H002:{portrait:'assets/heroes/H002_portrait.webp',sheet:'assets/heroes/H002_sheet.webp',element:'lightning'},
+  H007:{portrait:'assets/heroes/H007_portrait.webp',sheet:'assets/heroes/H007_sheet.webp',element:'physical'},
+  H010:{portrait:'assets/heroes/H010_portrait.webp',sheet:'assets/heroes/H010_sheet.webp',element:'fire'},
+  H012:{portrait:'assets/heroes/H012_portrait.webp',sheet:'assets/heroes/H012_sheet.webp',element:'shadow'},
+  H019:{portrait:'assets/heroes/H019_portrait.webp',sheet:'assets/heroes/H019_sheet.webp',element:'ki'}
+ },
+ bosses:Object.fromEntries(Object.keys(BOSSES).map(id=>[id,{portrait:'assets/bosses/'+id+'_portrait.webp',sheet:'assets/bosses/'+id+'_sheet.webp'}])),
+ skills:{base:'assets/skills/{ID}.webp'},
+ maps:{ST001:'assets/maps/ST001_thumb.webp',ST003:'assets/maps/ST003_thumb.webp',ST004:'assets/maps/ST004_thumb.webp'}
+};
+function v22Element(id){
+ if(id.startsWith('P'))return'passive';
+ if(['A011','A021','A027','A003','A042','A054','A019','S002','A063'].includes(id))return'fire';
+ if(['A002','A013','A022','A041','A051','A062','S003'].includes(id))return'lightning';
+ if(['A026','A045'].includes(id))return'wind';
+ if(['A015','A053','A070','A072','A073','S001','A007'].includes(id))return'shadow';
+ if(['A014','A030','A049','A060','A068','S018'].includes(id))return'ki';
+ return'physical'
+}
+function v22SkillIconHTML(id,cls=''){
+ const t=(id?.startsWith('E')||id?.startsWith('SE'))?'evo':id?.startsWith('F')?'fusion':v22Element(id);
+ return '<div class="skillArtIcon '+t+' '+cls+'"><span>'+glyph(id)+'</span></div>'
+}
+function v22HeroAvatarHTML(id,size=''){
+ const h=HEROES[id],hair={H001:'#321c1d',H002:'#242638',H007:'#4a321c',H010:'#351b1b',H012:'#1e1a31',H019:'#1c3438'}[id]||'#27202a';
+ return '<div class="heroAvatar '+size+'" style="--avatar-color:'+h.color+';--avatar-hair:'+hair+'"><div class="hair"></div><div class="mark">'+id.slice(1)+'</div></div>'
+}
+function v22RarityClass(r){return r==='gold'?'rarity-gold':r==='purple'?'rarity-purple':r==='mythic'?'rarity-mythic':'rarity-blue'}
+function v22RarityName(r){return r==='gold'?'传说':r==='purple'?'史诗':r==='mythic'?'神话':'稀有'}
+
+/* Hero list: art identity replaces generic portrait feel */
+const _v22_renderHeroes=renderHeroes;
+renderHeroes=function(){
+ const g=document.getElementById('heroGrid');g.innerHTML='';
+ Object.entries(HEROES).forEach(([id,h])=>{
+   const s=save.heroes[id],st=heroStats(id),d=document.createElement('div');
+   d.className='card heroCard '+(save.hero===id?'selected ':'')+(!s.unlocked?'locked':'');
+   d.innerHTML='<div class="ornament tl"></div><div class="ornament br"></div><div class="heroIdentity">'+v22HeroAvatarHTML(id)+'<div><div class="eyebrow">'+id+'</div><h3>'+h.name+'</h3><small>'+h.skill+' · '+h.ult+'</small></div></div>'+
+   '<div class="tags"><span class="tag">'+h.skill+'</span><span class="tag">'+h.ult+'</span></div>'+
+   '<div class="heroStats"><div><small>HP</small><b>'+st.hp+'</b></div><div><small>ATK</small><b>'+st.atk+'</b></div><div><small>Lv.</small><b>'+s.level+'</b></div></div>'+
+   '<div class="actions"><button class="btn '+(s.unlocked?'primary':'gold')+'" onclick="selectHero(\''+id+'\')">'+(s.unlocked?'选择':'解锁 '+h.unlock+'金')+'</button></div>';
+   g.appendChild(d)
+ })
+};
+
+/* Build slots now use visual skill icons */
+renderBuildSlots=function(elId,arr,limit){
+ const g=document.getElementById(elId);g.innerHTML='';
+ for(let i=0;i<limit;i++){
+   const id=arr[i],d=document.createElement('div');d.className='buildSlot '+(id?'filled':'')+(id&&reachableBuildEvos().some(e=>EVOS[e][1]===id)?' ready':'');
+   d.innerHTML=id?v22SkillIconHTML(id)+'<b>'+skillName(id)+'</b><small>'+id+'</small>':'<div class="tiny">空槽</div>';
+   if(id)d.onclick=()=>toggleBuild(id);g.appendChild(d)
+ }
+};
+
+/* Loadout: rarity art frames */
+const _v22_renderLoadout=renderLoadout;
+renderLoadout=function(){
+ _v22_renderLoadout();
+ document.querySelectorAll('#gearGrid .itemCard').forEach(card=>{
+   const id=card.querySelector('.eyebrow')?.textContent.trim(),g=GEAR[id];if(!g)return;
+   card.classList.add(v22RarityClass(g.rarity));card.style.position='relative';
+   const rib=document.createElement('div');rib.className='rarityRibbon';rib.textContent=v22RarityName(g.rarity);card.appendChild(rib)
+ });
+};
+
+/* World card gets visual thumbnails */
+const _v22_renderStageList=renderStageList;
+renderStageList=function(){
+ _v22_renderStageList();
+ const side=document.getElementById('worldChapterName')?.parentElement;if(!side)return;
+ let old=side.querySelector('.mapThumb');if(old)old.remove();
+ const cid=save.selectedChapter,thumb=document.createElement('div');thumb.className='mapThumb '+cid.toLowerCase();
+ thumb.innerHTML='<div class="mapLabel">'+cid+' · '+CHAPTERS[cid].name+'</div>';
+ const title=document.getElementById('worldChapterId');title.parentElement.insertBefore(thumb,title)
+};
+
+/* Run/build HUD art icons */
+renderHudSlots=function(){
+ const g=document.getElementById('hudSlots');if(!g)return;g.innerHTML='';
+ Object.entries(run.skills).forEach(([id,lv])=>{
+   const ev=Object.keys(run.evolved).find(e=>run.evolved[e]&&EVOS[e][1]===id),show=ev||id,d=document.createElement('div');
+   d.className='hudSlot '+(ev?'evo':'');d.innerHTML=v22SkillIconHTML(show)+'<em>'+lv+'</em>';g.appendChild(d)
+ });
+ Object.keys(run.fused).filter(id=>run.fused[id]).forEach(id=>{const d=document.createElement('div');d.className='hudSlot fusion';d.innerHTML=v22SkillIconHTML(id)+'<em>F</em>';g.appendChild(d)})
+};
+
+/* Boss portrait beside boss bar */
+function v22EnsureBossPortrait(){
+ const bar=document.getElementById('bossBar');if(!bar||bar.querySelector('.bossPortrait'))return;
+ const p=document.createElement('div');p.className='bossPortrait';p.innerHTML='<div class="horn"></div>';bar.insertBefore(p,bar.firstChild)
+}
+v22EnsureBossPortrait();
+
+/* Evolution / fusion cinematic */
+function v22PlayEvolution(id,type){
+ const c=document.getElementById('evolutionCinematic'),core=document.getElementById('evoCore');if(!c)return;
+ core.classList.toggle('fusion',type==='fusion');
+ document.getElementById('evoIconBig').textContent=glyph(id);
+ document.getElementById('evoEyebrow').textContent=type==='fusion'?'SKILL FUSION':'SKILL EVOLUTION';
+ document.getElementById('evoTitle').textContent=skillName(id);
+ let sub=id;
+ if(type==='fusion'&&FUSIONS[id])sub=FUSIONS[id][1]+' + '+FUSIONS[id][2]+' → '+id;
+ if(type==='evo'&&EVOS[id])sub=EVOS[id][1]+' + '+EVOS[id][2]+' → '+id;
+ document.getElementById('evoSub').textContent=sub;
+ c.classList.add('show');V21Audio.skill();setTimeout(()=>c.classList.remove('show'),1250)
+}
+const _v22_pickChest=pickChest;
+pickChest=function(r){_v22_pickChest(r);if(r?.id&&(r.type==='evo'||r.type==='fusion'))v22PlayEvolution(r.id,r.type);if(r?.type==='gear')v22LootToast('装备获得 · '+(run.drops.at(-1)?.name||'新装备'))};
+
+/* Boss intro cinematic */
+function v22BossIntro(b){
+ const cfg=BOSSES[b.id],el=document.getElementById('bossIntro');if(!el)return;
+ document.getElementById('bossIntroTitle').textContent=b.id+' · '+cfg.name;
+ document.getElementById('bossIntroStyle').textContent=cfg.style+' · '+cfg.skills.join(' / ');
+ document.getElementById('bossIntroPortrait').style.setProperty('--boss-color',cfg.color);
+ el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1350)
+}
+const _v22_spawnBoss=spawnBoss;
+spawnBoss=function(){_v22_spawnBoss();if(run.boss){v22EnsureBossPortrait();const p=document.querySelector('#bossBar .bossPortrait');if(p)p.style.setProperty('--boss-color',run.boss.color);v22BossIntro(run.boss)}}
+
+/* Loot feedback */
+function v22LootToast(text){
+ const g=document.getElementById('lootToast');if(!g)return;const d=document.createElement('div');d.className='lootLine';d.textContent=text;g.appendChild(d);setTimeout(()=>d.remove(),2500)
+}
+const _v22_makeGearDrop=makeGearDrop;
+makeGearDrop=function(source){const d=_v22_makeGearDrop(source);setTimeout(()=>v22LootToast(v22RarityName(d.rarity)+' · '+d.name),0);return d};
+
+/* Result drops get rarity frames */
+const _v22_renderResult=renderResult;
+renderResult=function(){
+ _v22_renderResult();
+ document.querySelectorAll('#dropGrid .dropCard').forEach(card=>{
+   const txt=card.textContent;const id=(txt.match(/EQ[WAX]\d+/)||[])[0],g=GEAR[id];if(g)card.classList.add(v22RarityClass(g.rarity))
+ })
+};
+
+/* Draw upgrades: more stylized silhouettes and weapon trails */
+const _v22_v21DrawHero=v21DrawHero;
+v21DrawHero=function(){
+ const h=HEROES[save.hero],x=player.x,y=player.y,c=h.color;v21Shadow(x,y,19,7,.36);ctx.save();ctx.translate(x,y);
+ ctx.shadowBlur=player.inv>0?26:20;ctx.shadowColor=player.inv>0?'#fff5ce':c;
+ // legs
+ ctx.strokeStyle='#20232b';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(-4,9);ctx.lineTo(-7,18);ctx.moveTo(4,9);ctx.lineTo(7,18);ctx.stroke();
+ // coat/body
+ ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(-10,-5);ctx.quadraticCurveTo(0,-10,10,-5);ctx.lineTo(13,10);ctx.lineTo(5,16);ctx.lineTo(0,12);ctx.lineTo(-5,16);ctx.lineTo(-13,10);ctx.closePath();ctx.fill();
+ // head/hair
+ ctx.fillStyle='#d7a477';ctx.beginPath();ctx.arc(0,-15,7,0,Math.PI*2);ctx.fill();ctx.fillStyle={H001:'#351d1e',H002:'#25263b',H007:'#51351e',H010:'#361c1c',H012:'#201a32',H019:'#18343a'}[save.hero];ctx.beginPath();ctx.arc(0,-18,8,Math.PI,Math.PI*2);ctx.fill();
+ // weapon / energy
+ ctx.strokeStyle='#ffe0a0';ctx.lineWidth=3.5;ctx.beginPath();ctx.moveTo(7,-1);ctx.lineTo(21,-14);ctx.stroke();
+ ctx.globalAlpha=.28;ctx.strokeStyle=c;ctx.lineWidth=7;ctx.beginPath();ctx.arc(9,-2,20,-1.1,.3);ctx.stroke();ctx.globalAlpha=1;
+ ctx.restore()
+};
+const _v22_v21DrawEnemy=v21DrawEnemy;
+v21DrawEnemy=function(e){_v22_v21DrawEnemy(e);if(e.elite&&e.affixes?.length){ctx.save();ctx.font='700 7px Inter';ctx.textAlign='center';ctx.fillStyle='#f3c66c';ctx.fillText(e.affixes.map(x=>x[0].toUpperCase()).join('·'),e.x,e.y-e.r-9);ctx.restore()}};
+
+/* Topbar current hero art badge */
+function v22InjectTopAvatar(){
+ const top=document.querySelector('.user');if(!top)return;let old=document.getElementById('v22TopHeroAvatar');if(old)old.remove();
+ const w=document.createElement('div');w.id='v22TopHeroAvatar';w.style.display='flex';w.style.alignItems='center';w.innerHTML=v22HeroAvatarHTML(save.hero);
+ top.insertBefore(w,top.firstChild)
+}
+const _v22_renderTop=renderTop;
+renderTop=function(){_v22_renderTop();v22InjectTopAvatar()};
+
+/* Improve start title mark */
+const titleMark=document.querySelector('.titleMark');
+if(titleMark){
+ const deco=document.createElement('div');deco.style.cssText='margin-top:14px;display:flex;gap:8px;flex-wrap:wrap';
+ deco.innerHTML='<span class="tag hot">国潮热血</span><span class="tag">Roguelite</span><span class="tag">跨世界Build</span><span class="tag">20分钟一局</span>';
+ titleMark.appendChild(deco)
+}
+
+/* Boot refresh */
+const _v22_v20Boot=v20Boot;
+v20Boot=function(){_v22_v20Boot();v22InjectTopAvatar();v22EnsureBossPortrait()}
+</script>
+
+</body>
+</html>

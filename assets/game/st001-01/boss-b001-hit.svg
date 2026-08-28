@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340">
+  <defs>
+    <radialGradient id="hit"><stop stop-color="#ffffff"/><stop offset="0.2" stop-color="#ffe06a"/><stop offset="0.55" stop-color="#f26132" stop-opacity="0.72"/><stop offset="1" stop-color="#9e2029" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <circle cx="170" cy="168" r="92" fill="url(#hit)" opacity="0.58" filter="url(#glow)"/>
+  <path d="M170 17l14 98 47-73-27 86 83-48-68 68 104-12-96 39 91 43-104-17 65 76-84-58 19 98-51-91-18 82-14-89-61 67 39-87-92 39 78-67-98-14 100-28-76-58 94 36-48-85 71 70z" fill="#ffca54" opacity="0.8"/>
+  <path d="M141 117l29 51-18 27 25 38M205 104l-18 55 31 20-28 52" fill="none" stroke="#fff8cf" stroke-width="9" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>万界无双 · V1.3 完整英雄系统版</title>
+<style>
+:root{
+  --bg:#05070b;--panel:#111822;--panel2:#182332;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);
+  --text:#f7f8fb;--muted:#94a1b3;--muted2:#647286;--gold:#f3c66c;--red:#ef694e;--purple:#a47dff;--blue:#70a9ff;
+  --cyan:#65d8ff;--green:#64d59f;--orange:#f09a58;--shadow:0 28px 100px rgba(0,0,0,.48)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+body{
+ background:
+ radial-gradient(circle at 9% 0%,rgba(218,73,54,.14),transparent 24%),
+ radial-gradient(circle at 89% 0%,rgba(102,76,219,.16),transparent 29%),
+ linear-gradient(180deg,#05070b,#091018 55%,#05070b)
+}
+button,input{font:inherit;color:inherit}.app{display:grid;grid-template-columns:246px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:15px 12px;background:rgba(5,7,11,.96);border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:40}
+.brand{display:flex;gap:11px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012))}
+.logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:#24110d;font-weight:1000;background:linear-gradient(135deg,#f5d89b,#ef7659 46%,#7e61db)}
+.brand h1{margin:0;font-size:17px}.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:.16em;margin-top:3px}
+.group{margin:18px 10px 8px;color:#536173;font-size:10px;letter-spacing:.18em}
+.nav{display:grid;gap:6px}.nav button{border:1px solid transparent;background:transparent;padding:9px;border-radius:12px;display:flex;gap:10px;align-items:center;color:#7d899a;cursor:pointer;transition:.18s}
+.nav button:hover{background:rgba(255,255,255,.03);color:#e7edf5}.nav button.active{color:#fff;border-color:rgba(239,105,78,.2);background:linear-gradient(90deg,rgba(239,105,78,.16),rgba(105,78,201,.08));box-shadow:inset 3px 0 0 var(--red)}
+.ico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#101823;border:1px solid rgba(255,255,255,.05);font-size:11px;font-weight:900}
+.sidefoot{position:absolute;bottom:12px;left:12px;right:12px;padding:11px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);font-size:9px;color:#627084}
+.main{min-width:0}.topbar{height:70px;position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:0 22px;border-bottom:1px solid var(--line);background:rgba(5,7,11,.76);backdrop-filter:blur(22px)}
+.tleft{display:flex;gap:11px;align-items:center}.accent{width:6px;height:29px;border-radius:5px;background:linear-gradient(var(--gold),var(--red))}.tleft small{display:block;color:#68768a;margin-top:3px}
+.user{display:flex;gap:8px;align-items:center}.pill{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03);font-size:11px}.pill b{color:var(--gold)}
+.content{padding:18px 22px 42px;max-width:1700px;margin:auto}.page{display:none}.page.active{display:block}
+.card{border:1px solid var(--line);border-radius:18px;padding:16px;background:linear-gradient(180deg,rgba(22,31,44,.94),rgba(12,18,26,.96));box-shadow:0 14px 38px rgba(0,0,0,.2)}
+.btn{border:1px solid var(--line2);border-radius:10px;padding:10px 14px;background:linear-gradient(180deg,#1b2431,#141b25);cursor:pointer;transition:.18s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.btn.primary{font-weight:800;background:linear-gradient(135deg,#c9463b,#ef7958 68%,#e7a05e);border-color:rgba(255,139,109,.32)}
+.btn.gold{background:linear-gradient(135deg,#5e4a1d,#9d742c);color:#ffe6a5;border-color:rgba(243,198,108,.28)}.btn.purple{background:linear-gradient(135deg,#403166,#6a4d9e);color:#e1d7ff;border-color:rgba(164,125,255,.28)}.btn.ghost{background:rgba(255,255,255,.02)}
+.eyebrow{font-size:9px;letter-spacing:.24em;color:var(--gold);font-weight:900}.muted{color:var(--muted)}.tiny{font-size:9px;color:#68768a}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:9px;padding:5px 7px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.03);color:#bac4d0}.tag.hot{color:#ffb2a2;border-color:rgba(239,105,78,.22);background:rgba(239,105,78,.08)}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:20px 0 12px}.section-title h2,.section-title h3{margin:0}.section-title span{font-size:10px;color:#68768a}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.grid{display:grid;gap:14px}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+/* lobby */
+.heroBanner{min-height:395px;border-radius:28px;position:relative;overflow:hidden;border:1px solid var(--line2);padding:38px 40px;display:flex;align-items:flex-end;box-shadow:var(--shadow);background:
+ radial-gradient(circle at 72% 32%,rgba(240,135,75,.22),transparent 14%),
+ radial-gradient(circle at 74% 39%,rgba(211,71,54,.18),transparent 29%),
+ radial-gradient(circle at 38% 115%,rgba(92,71,193,.2),transparent 44%),
+ linear-gradient(120deg,#17212e,#101721 55%,#090f16)}
+.heroArt{position:absolute;right:3%;bottom:0;width:40%;height:94%}.heroGlow{position:absolute;inset:4% -10% 0 10%;background:radial-gradient(circle,rgba(239,91,60,.2),rgba(120,78,205,.06) 45%,transparent 68%);filter:blur(2px)}
+.heroSil{position:absolute;left:30%;bottom:-2%;width:44%;height:78%;background:linear-gradient(180deg,#6d4638,#2b2026 65%,#12171e);clip-path:polygon(29% 0,70% 0,79% 11%,85% 30%,100% 47%,79% 57%,66% 100%,34% 100%,22% 57%,0 47%,16% 30%,21% 11%)}
+.heroHead{position:absolute;left:44%;top:8%;width:17%;height:17%;border-radius:50%;background:radial-gradient(circle at 43% 35%,#e8b985 0 17%,#ae6551 19% 50%,#2a2027 52%)}
+.heroWeapon{position:absolute;left:-4%;top:25%;width:94%;height:8%;transform:rotate(-28deg);border-radius:100% 10% 10% 100%;background:linear-gradient(90deg,transparent 0 5%,#5d392d 6% 33%,#d59d45 34% 78%,#fff0bb 79%)}
+.heroCopy{position:relative;z-index:2;max-width:730px}.heroCopy h1{font-size:50px;margin:10px 0}.heroCopy p{color:#acb8c6;line-height:1.85;font-size:13px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.metric{padding:13px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}.metric small{display:block;color:#68768a;font-size:9px}.metric b{display:block;margin-top:4px;font-size:16px}
+.heroGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.heroCard{cursor:pointer;position:relative;overflow:hidden;transition:.18s}.heroCard:hover{transform:translateY(-4px)}.heroCard.selected{border-color:rgba(243,198,108,.35);box-shadow:0 0 30px rgba(243,198,108,.08)}.heroCard.locked{filter:saturate(.45);opacity:.72}
+.portrait{height:175px;border-radius:14px;margin-bottom:12px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 30%,rgba(244,183,112,.28),transparent 14%),radial-gradient(circle at 48% 83%,rgba(222,82,59,.2),transparent 32%),linear-gradient(150deg,#3c2931,#151d28 72%)}
+.heroCard:nth-child(2) .portrait{background:radial-gradient(circle at 50% 30%,rgba(119,172,255,.30),transparent 14%),radial-gradient(circle at 48% 83%,rgba(69,105,190,.2),transparent 32%),linear-gradient(150deg,#26384d,#151d28 72%)}
+.heroCard:nth-child(3) .portrait{background:radial-gradient(circle at 50% 30%,rgba(236,190,114,.3),transparent 14%),radial-gradient(circle at 48% 83%,rgba(113,77,45,.2),transparent 32%),linear-gradient(150deg,#493421,#151d28 72%)}
+.heroCard:nth-child(4) .portrait{background:radial-gradient(circle at 50% 30%,rgba(255,132,84,.3),transparent 14%),radial-gradient(circle at 48% 83%,rgba(198,65,41,.2),transparent 32%),linear-gradient(150deg,#47281f,#151d28 72%)}
+.heroCard:nth-child(5) .portrait{background:radial-gradient(circle at 50% 30%,rgba(175,128,255,.3),transparent 14%),radial-gradient(circle at 48% 83%,rgba(84,54,151,.2),transparent 32%),linear-gradient(150deg,#332344,#151d28 72%)}
+.heroCard:nth-child(6) .portrait{background:radial-gradient(circle at 50% 30%,rgba(107,220,255,.28),transparent 14%),radial-gradient(circle at 48% 83%,rgba(59,125,168,.2),transparent 32%),linear-gradient(150deg,#223d49,#151d28 72%)}
+.portrait:before{content:"";position:absolute;left:50%;bottom:-2%;transform:translateX(-50%);width:82px;height:132px;background:linear-gradient(#5a3b35,#241e26 67%,#121821);clip-path:polygon(32% 0,68% 0,77% 15%,84% 34%,100% 49%,77% 57%,66% 100%,34% 100%,23% 57%,0 49%,17% 34%,23% 15%)}
+.lockBadge{position:absolute;top:10px;right:10px;padding:6px 8px;border-radius:999px;background:rgba(6,9,14,.86);border:1px solid var(--line2);font-size:9px;color:var(--gold)}
+.heroCard h3{margin:0 0 4px}.heroMeta{display:flex;justify-content:space-between;font-size:9px;color:#68768a;margin-top:9px}.stars{letter-spacing:.08em;color:#596575}.stars .on{color:var(--gold)}
+.progress{height:6px;border-radius:999px;background:#24303d;overflow:hidden;margin-top:9px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold))}
+
+/* hero detail */
+.detailTop{display:grid;grid-template-columns:410px minmax(0,1fr);gap:14px}.heroProfile{min-height:560px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 25%,rgba(239,105,78,.15),transparent 24%),linear-gradient(180deg,#182332,#0d141d)}.profileArt{height:320px;position:relative;border-radius:16px;overflow:hidden;background:radial-gradient(circle at 52% 25%,rgba(245,187,120,.26),transparent 14%),radial-gradient(circle at 50% 75%,rgba(209,78,57,.20),transparent 34%),linear-gradient(150deg,#39272e,#131b26 72%)}.profileArt:before{content:"";position:absolute;left:50%;bottom:-2%;transform:translateX(-50%);width:130px;height:240px;background:linear-gradient(#5e4038,#281f27 67%,#111821);clip-path:polygon(31% 0,69% 0,80% 13%,84% 30%,100% 45%,79% 58%,66% 100%,34% 100%,21% 58%,0 45%,16% 30%,21% 13%)}.profileGlow{position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(243,198,108,.12),transparent 40%)}.profileText h1{margin:13px 0 4px;font-size:34px}.profileStats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}.miniStat{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.miniStat small{display:block;color:#68768a;font-size:8px}.miniStat b{font-size:13px}
+.detailTabs{display:flex;gap:7px;margin-bottom:12px;flex-wrap:wrap}.detailTabs button{border:1px solid var(--line);background:rgba(255,255,255,.025);padding:8px 11px;border-radius:10px;cursor:pointer;color:#79879a}.detailTabs button.active{color:#fff;border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.06)}
+.detailPanel{display:none}.detailPanel.active{display:block}
+.statBars{display:grid;gap:10px}.statLine{display:grid;grid-template-columns:72px 1fr 58px;gap:10px;align-items:center;font-size:10px}.statLine span{color:var(--muted)}.statTrack{height:8px;border-radius:999px;background:#25303c;overflow:hidden}.statTrack i{display:block;height:100%;background:linear-gradient(90deg,#675ce0,#70a9ff)}
+.skillCards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.skillCard{padding:11px;border:1px solid rgba(255,255,255,.05);border-radius:13px;background:rgba(255,255,255,.025)}.skillCard h4{margin:5px 0}.skillIcon{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#29384c,#171f2a);border:1px solid var(--line2);color:var(--gold);font-weight:900}.skillCard p{font-size:9px;color:var(--muted);line-height:1.55}
+.talentTree{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.talent{padding:11px;border-radius:13px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center}.talent.unlocked{border-color:rgba(100,213,159,.2);background:rgba(100,213,159,.04)}.talent b{font-size:10px}.talent small{display:block;color:#68768a;font-size:8px;margin-top:4px}
+.growthGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.growthCard{padding:12px;border-radius:13px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.growthCard h4{margin:5px 0}.growthCard p{font-size:9px;color:var(--muted);line-height:1.5}.growthCard .btn{width:100%;margin-top:8px}
+.mastery{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.masteryNode{padding:9px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center;font-size:8px;color:#6c798b}.masteryNode.done{color:#cfeee0;border-color:rgba(100,213,159,.2);background:rgba(100,213,159,.04)}
+.weaponBox{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:center}.weaponArt{height:100px;border-radius:14px;background:radial-gradient(circle,rgba(243,198,108,.18),transparent 40%),linear-gradient(145deg,#2b2a28,#161c25);display:grid;place-items:center;font-size:30px;color:var(--gold);border:1px solid rgba(243,198,108,.18)}
+.presetGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.preset{padding:12px;border:1px solid rgba(255,255,255,.05);border-radius:13px;background:rgba(255,255,255,.025)}.preset h4{margin:5px 0}.preset p{font-size:9px;color:var(--muted);line-height:1.45}.preset.active{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.04)}
+
+/* battle */
+.gamegrid{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:14px}.gameshell{position:relative;border:1px solid var(--line);border-radius:22px;padding:8px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));box-shadow:var(--shadow);min-height:735px}
+#gameCanvas{display:block;width:100%;height:715px;border-radius:16px;background:#151e19;cursor:crosshair}.hud{position:absolute;inset:8px;pointer-events:none}.hudtop{position:absolute;left:14px;right:14px;top:14px;display:flex;gap:10px}.hudbox{padding:9px 11px;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:rgba(6,10,15,.78);backdrop-filter:blur(9px)}
+.phud{width:300px}.hline{display:flex;justify-content:space-between;font-size:10px}.bar{height:11px;border-radius:999px;background:#2c252c;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%}.hpbar i{background:linear-gradient(90deg,#ad342f,#ef694e)}.xpbar{height:5px;background:#25303c}.xpbar i{background:linear-gradient(90deg,#6857dc,#67d5ff)}.hudright{margin-left:auto;display:flex;gap:8px}
+.heroSkill{position:absolute;right:16px;bottom:16px;width:76px;height:76px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle,#70402f,#251a20 68%);display:grid;place-items:center;text-align:center;font-size:9px;font-weight:900;pointer-events:auto;cursor:pointer}
+.dodgeBtn{position:absolute;right:103px;bottom:21px;width:58px;height:58px;border-radius:50%;border:1px solid rgba(112,169,255,.55);background:radial-gradient(circle,#273b5d,#172133 70%);display:grid;place-items:center;text-align:center;font-size:9px;pointer-events:auto;cursor:pointer}
+.slotbar{position:absolute;left:14px;bottom:14px;display:flex;gap:5px;padding:7px;border-radius:14px;background:rgba(6,10,15,.76);border:1px solid var(--line)}.slot{width:45px;height:45px;border-radius:10px;border:1px solid #455163;background:linear-gradient(145deg,#29384c,#161d28);display:grid;place-items:center;position:relative}.slot strong{font-size:15px;color:var(--gold)}.slot em{position:absolute;right:3px;bottom:2px;font-size:8px;font-style:normal;color:var(--gold)}
+.hint{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);font-size:9px;color:#aab5c1;padding:7px 10px;border-radius:999px;background:rgba(6,10,15,.7);border:1px solid var(--line)}
+.eventHint{position:absolute;left:50%;top:105px;transform:translateX(-50%) translateY(-8px);opacity:0;padding:9px 15px;border-radius:999px;background:rgba(10,15,22,.94);border:1px solid rgba(243,198,108,.22);color:var(--gold);font-size:10px;transition:.24s}.eventHint.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.overlay{position:absolute;inset:8px;border-radius:16px;display:none;place-items:center;background:rgba(4,7,11,.78);backdrop-filter:blur(8px);z-index:20;pointer-events:auto}.overlay.show{display:grid}.pausePanel{width:min(430px,90%);padding:22px;border-radius:18px;border:1px solid var(--line2);background:linear-gradient(180deg,#182332,#0f1620);text-align:center}.pausePanel .btn{width:100%;margin-top:8px}
+.sidecol{display:grid;gap:12px;align-content:start}.sidecol .card h3{margin:5px 0 10px}.combatStat{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:10px}.combatStat span{color:var(--muted)}.playstyle{display:grid;gap:7px}.playrow{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.playrow b{font-size:10px}.playrow small{display:block;color:#68768a;font-size:8px;margin-top:3px}
+.log{max-height:150px;overflow:auto;display:grid;gap:6px}.log div{font-size:9px;color:var(--muted);padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.02)}
+
+/* result */
+.resultHero{min-height:300px;background:radial-gradient(circle at 72% 40%,rgba(239,105,78,.17),transparent 26%),linear-gradient(145deg,#1a2432,#101720)}.resultHero h1{font-size:40px;margin:10px 0 4px}.resultMetrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.resultMetric{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}.resultMetric small{display:block;color:#68768a;font-size:9px}.resultMetric b{display:block;margin-top:4px}
+.rewardLine{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:10px}.rewardLine span{color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,18px);opacity:0;padding:10px 14px;border-radius:11px;background:rgba(8,13,19,.96);border:1px solid var(--line2);z-index:120;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1200px){.app{grid-template-columns:86px 1fr}.brand>div:last-child,.group,.nav .label,.sidefoot{display:none}.brand{justify-content:center}.nav button{justify-content:center}.heroGrid{grid-template-columns:repeat(2,1fr)}.detailTop{grid-template-columns:350px 1fr}.gamegrid{grid-template-columns:1fr}.sidecol{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{position:fixed;left:0;right:0;bottom:0;top:auto;height:70px;padding:7px 8px;border-right:0;border-top:1px solid var(--line)}.brand,.group,.sidefoot{display:none}.nav{grid-template-columns:repeat(4,1fr);gap:4px}.nav button{display:grid;justify-items:center;gap:2px;padding:5px 2px;font-size:9px}.nav .label{display:block}.ico{width:30px;height:30px}.topbar{height:60px;padding:0 13px}.tleft small{display:none}.content{padding:12px 12px 88px}.heroBanner{min-height:500px;padding:26px 18px}.heroCopy h1{font-size:38px}.heroArt{width:60%;right:-20%;height:70%;opacity:.52}.metrics,.heroGrid,.detailTop,.skillCards,.talentTree,.growthGrid,.presetGrid,.mastery,.c2,.c3,.c4,.sidecol,.resultMetrics{grid-template-columns:1fr}.gameshell{min-height:590px}#gameCanvas{height:570px}.phud{width:190px}.hudright{display:none}.hint{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">界</div><div><h1>万界无双</h1><small>HERO SYSTEM</small></div></div>
+  <div class="group">页面</div>
+  <div class="nav">
+    <button class="active" data-page="lobby"><span class="ico">厅</span><span class="label">英雄大厅</span></button>
+    <button data-page="detail"><span class="ico">英</span><span class="label">英雄详情</span></button>
+    <button data-page="battle"><span class="ico">战</span><span class="label">战斗测试</span></button>
+    <button data-page="result"><span class="ico">结</span><span class="label">结算</span></button>
+  </div>
+  <div class="sidefoot"><b>V1.3</b><br>6英雄 / 解锁 / 等级 / 星级 / 觉醒 / 熟练度 / 专武 / Build</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="tleft"><span class="accent"></span><div><strong id="pageTitle">英雄大厅</strong><small>完整英雄成长与战斗差异化</small></div></div>
+  <div class="user"><span class="pill">账号 Lv.<span id="accountLv">12</span></span><span class="pill">金币 <b id="globalGold">6000</b></span><span class="pill">英雄 <b id="unlockCount">3/6</b></span></div>
+</header>
+
+<div class="content">
+<section class="page active" id="lobby">
+  <div class="heroBanner">
+    <div class="heroArt"><div class="heroGlow"></div><div class="heroWeapon"></div><div class="heroSil"></div><div class="heroHead"></div></div>
+    <div class="heroCopy">
+      <div class="eyebrow">V1.3 · COMPLETE HERO SYSTEM</div>
+      <h1 id="bannerHeroName">赤焰战神</h1>
+      <p id="bannerHeroDesc">稳定的火焰近战核心。擅长范围压制、火系进化与正面持续输出，是新手最容易构筑完整Build的英雄。</p>
+      <div class="tags" id="bannerHeroTags"></div>
+      <div class="actions"><button class="btn primary" onclick="openSelectedDetail()">查看英雄详情</button><button class="btn gold" onclick="startBattle()">使用当前英雄战斗</button></div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><small>当前英雄</small><b id="metricHero">H001</b></div>
+    <div class="metric"><small>永久等级</small><b id="metricLevel">Lv.1</b></div>
+    <div class="metric"><small>星级</small><b id="metricStar">★☆☆☆☆☆</b></div>
+    <div class="metric"><small>熟练度</small><b id="metricMastery">0</b></div>
+  </div>
+
+  <div class="section-title"><h3>六名首发英雄</h3><span>每名英雄的初始属性、专属技能、觉醒与Build倾向都不同</span></div>
+  <div class="heroGrid" id="heroGrid"></div>
+</section>
+
+<section class="page" id="detail">
+  <div class="section-title"><h2 id="detailTitle">H001 · 赤焰战神</h2><span id="detailSubtitle">火 / 剑 / 近战</span></div>
+  <div class="detailTop">
+    <div class="card heroProfile">
+      <div class="profileArt"><div class="profileGlow"></div></div>
+      <div class="profileText">
+        <div class="eyebrow" id="profileId">H001</div><h1 id="profileName">赤焰战神</h1>
+        <div class="tags" id="profileTags"></div>
+        <div class="profileStats">
+          <div class="miniStat"><small>等级</small><b id="profileLv">Lv.1</b></div>
+          <div class="miniStat"><small>星级</small><b id="profileStar">1★</b></div>
+          <div class="miniStat"><small>熟练度</small><b id="profileMastery">0</b></div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="selectHeroBtn" onclick="selectCurrentHero()">设为出战英雄</button>
+          <button class="btn gold" id="unlockHeroBtn" onclick="unlockCurrentHero()">解锁英雄</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="detailTabs">
+        <button class="active" data-tab="stats" onclick="switchDetailTab('stats',this)">属性</button>
+        <button data-tab="skills" onclick="switchDetailTab('skills',this)">技能</button>
+        <button data-tab="talents" onclick="switchDetailTab('talents',this)">天赋</button>
+        <button data-tab="growth" onclick="switchDetailTab('growth',this)">成长</button>
+        <button data-tab="weapon" onclick="switchDetailTab('weapon',this)">专武</button>
+        <button data-tab="builds" onclick="switchDetailTab('builds',this)">Build</button>
+      </div>
+
+      <div class="detailPanel active" id="tab-stats">
+        <div class="card">
+          <div class="eyebrow">BASE ATTRIBUTES</div><h3>基础属性与永久成长</h3>
+          <div class="statBars" id="statBars"></div>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="eyebrow">ROLE</div><h3>战斗定位</h3><p class="muted" id="roleDesc"></p>
+        </div>
+      </div>
+
+      <div class="detailPanel" id="tab-skills">
+        <div class="skillCards" id="skillCards"></div>
+      </div>
+
+      <div class="detailPanel" id="tab-talents">
+        <div class="card">
+          <div class="eyebrow">EXCLUSIVE TALENT</div><h3>专属天赋树</h3>
+          <div class="talentTree" id="talentTree"></div>
+        </div>
+      </div>
+
+      <div class="detailPanel" id="tab-growth">
+        <div class="growthGrid">
+          <div class="growthCard"><div class="eyebrow">LEVEL</div><h4>英雄等级</h4><p id="levelGrowthText">Lv.1 / 30</p><button class="btn primary" id="levelUpBtn" onclick="levelUpHero()">升级</button></div>
+          <div class="growthCard"><div class="eyebrow">STAR</div><h4>英雄升星</h4><p id="starGrowthText">1★ / 6★</p><button class="btn gold" id="starUpBtn" onclick="starUpHero()">升星</button></div>
+          <div class="growthCard"><div class="eyebrow">AWAKEN</div><h4>觉醒</h4><p id="awakenText">Lv.20 + 3★ 后开放</p><button class="btn purple" id="awakenBtn" onclick="awakenHero()">觉醒</button></div>
+          <div class="growthCard"><div class="eyebrow">MASTERY</div><h4>英雄熟练度</h4><p>实战完成后累积，解锁头像框与微型战斗加成。</p><div class="mastery" id="masteryTrack"></div></div>
+        </div>
+      </div>
+
+      <div class="detailPanel" id="tab-weapon">
+        <div class="card">
+          <div class="weaponBox">
+            <div class="weaponArt" id="weaponGlyph">刀</div>
+            <div><div class="eyebrow">EXCLUSIVE WEAPON</div><h3 id="weaponName">赤龙偃月</h3><p class="muted" id="weaponDesc"></p><div class="actions"><button class="btn gold" id="weaponBtn" onclick="upgradeWeapon()">强化专武</button></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detailPanel" id="tab-builds">
+        <div class="presetGrid" id="presetGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="battle">
+  <div class="section-title"><h2 id="battleTitle">赤焰战神 · 战斗手感测试</h2><span>WASD移动 · Space闪避 · E英雄技 · R终极</span></div>
+  <div class="gamegrid">
+    <div class="gameshell">
+      <canvas id="gameCanvas"></canvas>
+      <div class="hud">
+        <div class="hudtop">
+          <div class="hudbox phud"><div class="hline"><b id="hudHero">赤焰战神 · Lv.1</b><span id="hpText">620 / 620</span></div><div class="bar hpbar"><i id="hpFill"></i></div><div class="bar xpbar"><i id="xpFill"></i></div></div>
+          <div class="hudright"><span class="hudbox" id="timeText">00:00</span><span class="hudbox">击杀 <span id="killText">0</span></span><span class="hudbox">DPS <span id="dpsText">0</span></span><button class="hudbox" style="pointer-events:auto;cursor:pointer" onclick="togglePause()">暂停</button></div>
+        </div>
+        <div class="eventHint" id="eventHint">英雄技已就绪</div>
+        <div class="slotbar" id="skillSlots"></div>
+        <div class="dodgeBtn" onclick="tryDodge()">闪避<br><span id="dodgeText">READY</span></div>
+        <div class="heroSkill" onclick="castHeroSkill()">英雄技<br><span id="heroSkillText">READY</span></div>
+        <div class="hint">WASD移动 · 自动攻击 · Space闪避 · E英雄技 · R终极</div>
+      </div>
+      <div class="overlay" id="pauseOverlay"><div class="pausePanel"><div class="eyebrow">PAUSED</div><h2>战斗暂停</h2><p class="muted">成长属性和当前Build已经实时应用。</p><button class="btn primary" onclick="togglePause()">继续</button><button class="btn ghost" onclick="finishBattle()">结束测试</button></div></div>
+    </div>
+
+    <aside class="sidecol">
+      <div class="card"><div class="eyebrow">CURRENT HERO</div><h3 id="sideHeroName">赤焰战神</h3><div id="combatStats"></div></div>
+      <div class="card"><div class="eyebrow">PLAYSTYLE</div><h3>英雄差异</h3><div class="playstyle" id="playstyleRows"></div></div>
+      <div class="card"><div class="eyebrow">BUILD PRESET</div><h3 id="battlePresetName">火域压制</h3><p class="muted" id="battlePresetDesc"></p></div>
+      <div class="card"><div class="eyebrow">TEST</div><h3>快速切换英雄</h3><div class="actions" id="quickHeroButtons"></div></div>
+      <div class="card"><div class="eyebrow">LOG</div><h3>战斗日志</h3><div class="log" id="log"></div></div>
+    </aside>
+  </div>
+</section>
+
+<section class="page" id="result">
+  <div class="section-title"><h2>英雄战斗结算</h2><span>成长与熟练度会保存</span></div>
+  <div class="grid c2">
+    <div class="card resultHero">
+      <div class="eyebrow">HERO TEST COMPLETE</div><h1 id="resultHeroName">赤焰战神</h1><p class="muted">本次战斗已转化为英雄熟练度，并保存当前永久成长。</p>
+      <div class="resultMetrics">
+        <div class="resultMetric"><small>时间</small><b id="resTime">00:00</b></div>
+        <div class="resultMetric"><small>击杀</small><b id="resKills">0</b></div>
+        <div class="resultMetric"><small>平均DPS</small><b id="resDps">0</b></div>
+        <div class="resultMetric"><small>熟练度</small><b id="resMastery">+0</b></div>
+      </div>
+      <div class="actions"><button class="btn primary" onclick="startBattle()">再次测试</button><button class="btn" onclick="openSelectedDetail()">返回英雄详情</button></div>
+    </div>
+    <div class="card"><div class="eyebrow">GROWTH REWARD</div><h3>成长收益</h3><div id="resultRewards"></div></div>
+  </div>
+</section>
+</div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const HEROES={
+ H001:{name:'赤焰战神',tags:['火','剑','近战'],role:'正面持续输出 / 火系AOE',desc:'稳定的火焰近战核心。擅长范围压制、火系进化与正面持续输出，是新手最容易构筑完整Build的英雄。',hp:620,atk:108,def:28,move:4.8,aspd:.95,crit:5,unlock:0,color:'#ef694e',
+ skills:[['普攻','赤焰刀光','自动挥出火焰刀气，近距离命中可追加灼烧。'],['英雄技','炎龙斩','向前斩出高伤火焰剑气，命中精英/Boss时伤害提高。'],['终极','赤龙降世','召唤赤龙横扫全屏，对Boss造成额外伤害。'],['觉醒','炎武圣','火系技能获得更高范围，并周期触发炎爆。']],
+ talents:['烈焰刀锋','火域扩张','灼烧爆燃','强韧战意','炎龙共鸣','赤焰不灭','火神赐福','武圣之心'],
+ weapon:{name:'赤龙偃月',glyph:'刀',desc:'每级提升2%火系伤害；Lv.5后炎龙斩命中会留下火焰裂痕。'},
+ presets:[
+  {name:'火域压制',desc:'火球术 + 火焰领域 + 陨石雨，依靠范围与持续灼烧清图。',slots:['火','域','陨','炎']},
+  {name:'炎龙爆发',desc:'烈焰刀 + 火球 + 暴击强化，短时间爆发和Boss处理更强。',slots:['刀','火','暴','龙']},
+  {name:'不灭战神',desc:'吸血、生命与近战领域组合，强调正面站场。',slots:['血','生','域','盾']}
+ ]},
+ H002:{name:'雷霆猛将',tags:['雷','枪','连击'],role:'高速连击 / 雷链清场',desc:'攻击频率高、节奏快。通过连续命中快速积累雷势，适合雷链、攻速与暴击Build。',hp:520,atk:102,def:20,move:5.4,aspd:1.15,crit:8,unlock:800,color:'#70a9ff',
+ skills:[['普攻','雷枪连突','快速雷枪突刺，连续命中提升雷势。'],['英雄技','雷闪突击','向目标突进并贯穿敌群，期间短暂无敌。'],['终极','雷霆万军','持续落雷轰击大范围敌人。'],['觉醒','天雷神将','雷链弹射次数提升并获得雷霆护体。']],
+ talents:['雷枪精通','连击增幅','电弧扩散','雷势不灭','疾雷步','暴雷处决','天罚印记','神将降临'],
+ weapon:{name:'九霄雷枪',glyph:'枪',desc:'每级提升攻击速度与雷系伤害；Lv.5后雷闪突击留下连锁雷区。'},
+ presets:[
+  {name:'无限雷链',desc:'雷电弹 + 弹射 + 攻速，持续形成全屏电弧网络。',slots:['雷','弹','速','链']},
+  {name:'雷枪突袭',desc:'雷闪、移速与暴击，依靠穿梭走位输出。',slots:['闪','枪','暴','速']},
+  {name:'天罚落雷',desc:'落雷 + 雷域 + 冷却缩减，偏技能轰炸。',slots:['罚','域','冷','雷']}
+ ]},
+ H007:{name:'灵猴',tags:['棍','分身','变身'],role:'分身召唤 / 近战范围',desc:'通过棍法、分身与变身控制战场。技能覆盖范围大，Build成型后非常适合怪海场景。',hp:560,atk:105,def:22,move:5.4,aspd:1.10,crit:8,unlock:1200,color:'#f0b45d',
+ skills:[['普攻','如意棍击','长棍横扫，攻击范围比普通近战英雄更大。'],['英雄技','腾云震地','腾跃后砸地，对范围敌人造成击退。'],['终极','法天象地','短时间巨大化，大幅提高范围和伤害。'],['觉醒','斗战真身','分身数量+1，巨大化期间获得额外攻速。']],
+ talents:['棍势延伸','猴影分身','斗战之心','腾云步','百裂棍影','不屈战意','万猴朝宗','齐天真身'],
+ weapon:{name:'定海神棍',glyph:'棍',desc:'每级提升范围与近战伤害；Lv.5后腾云震地会召唤棍影追击。'},
+ presets:[
+  {name:'斗战风暴',desc:'回旋棍 + 范围 + 攻速，形成持续环身打击。',slots:['棍','域','速','斗']},
+  {name:'万猴军团',desc:'分身 + 召唤强化 + 冷却，依赖召唤军团清图。',slots:['影','召','冷','军']},
+  {name:'法相巨神',desc:'范围、生命与变身强化，强调法天象地持续时间。',slots:['巨','生','域','神']}
+ ]},
+ H010:{name:'炎忍',tags:['火','忍术','爆炸'],role:'远程AOE / 高频技能',desc:'偏远程的火系忍者，技能频率高，擅长火球、陨石与连锁爆炸。',hp:440,atk:116,def:14,move:5.3,aspd:1.0,crit:6,unlock:0,color:'#f08358',
+ skills:[['普攻','炎刃手里剑','投掷带火焰的高速手里剑。'],['英雄技','炎龙疾走','高速冲刺并在路径上留下火焰。'],['终极','炎龙忍法','召唤连续火柱与爆炎攻击。'],['觉醒','焚界炎神','火焰技能命中后有概率触发二次爆炸。']],
+ talents:['忍火强化','爆符增幅','炎步','火分身','爆炎连锁','火遁精通','焚界印记','炎神降临'],
+ weapon:{name:'炎影双刃',glyph:'刃',desc:'每级提升火系技能频率；Lv.5后炎龙疾走结束会触发一次爆炎。'},
+ presets:[
+  {name:'爆炎忍法',desc:'火球 + 爆裂 + 陨石，依靠多段爆炸覆盖战场。',slots:['火','爆','陨','炎']},
+  {name:'炎龙疾走',desc:'冲刺、冷却与移速，形成高速游走流。',slots:['走','冷','速','炎']},
+  {name:'火分身',desc:'火分身 + 召唤强化 + 爆炸，分身负责补足火力。',slots:['分','召','爆','火']}
+ ]},
+ H012:{name:'影忍',tags:['暗影','暗器','高速'],role:'多投射 / 暴击 / 机动',desc:'高速暗器英雄，天生暴击较高，适合多重射击、分裂、追踪与暴击Build。',hp:430,atk:106,def:14,move:5.6,aspd:1.20,crit:12,unlock:0,color:'#a47dff',
+ skills:[['普攻','影刃连投','快速投掷暗器，暴击时额外生成一枚影刃。'],['英雄技','影袭瞬杀','瞬移至目标侧后方并释放多段斩击。'],['终极','万影杀阵','大量影分身从多个方向同时攻击。'],['觉醒','万影忍神','暴击可刷新部分影袭冷却并生成残影。']],
+ talents:['暗器专精','致命精准','影步','分裂刃','影袭连杀','暗影强化','万影共鸣','忍神真身'],
+ weapon:{name:'夜鸦千刃',glyph:'刃',desc:'每级提升暴击与投射物伤害；Lv.5后暴击会给敌人叠加影印。'},
+ presets:[
+  {name:'万影飞刃',desc:'手里剑 + 分裂 + 多重射击，形成密集暗器弹幕。',slots:['影','分','多','暴']},
+  {name:'瞬杀猎手',desc:'影袭 + 暴击 + 移速，偏精英/Boss快速处理。',slots:['袭','暴','速','杀']},
+  {name:'影印收割',desc:'标记、追踪与暴击，依赖叠层后处决。',slots:['印','追','暴','收']}
+ ]},
+ H019:{name:'气功战士',tags:['气','远程','蓄力'],role:'远程穿透 / 大型爆发',desc:'气功型远程英雄，基础攻击稳定，成型后拥有极高的直线穿透与大范围爆发。',hp:500,atk:112,def:18,move:5.2,aspd:1.05,crit:8,unlock:1500,color:'#65d8ff',
+ skills:[['普攻','气功弹','发射稳定气弹，蓄满气势后强化下一发。'],['英雄技','爆气冲击','释放环形气爆并击退周围敌人。'],['终极','超级气功炮','蓄力后释放贯穿屏幕的超大型气功炮。'],['觉醒','极限气焰','气势上限提高，满气势时技能伤害显著提升。']],
+ talents:['气弹强化','气势积累','穿透增幅','爆气护体','蓄力精通','星河共鸣','极限气焰','武道超越'],
+ weapon:{name:'星河拳甲',glyph:'拳',desc:'每级提升气系伤害与蓄力效率；Lv.5后超级气功炮宽度提升。'},
+ presets:[
+  {name:'星河气炮',desc:'气功弹 + 穿透 + 技能倍率，强化直线清场。',slots:['气','穿','强','炮']},
+  {name:'爆气领域',desc:'气爆领域 + 范围 + 冷却，强化贴身防御。',slots:['爆','域','冷','气']},
+  {name:'极限蓄力',desc:'暴击、技能倍率与气势增幅，追求终极爆发。',slots:['蓄','暴','强','极']}
+ ]}
+};
+
+const SAVE_KEY='wanjie_v13_hero_save';
+const DEFAULT_SAVE={
+ gold:6000,accountLv:12,selected:'H001',
+ heroes:{
+  H001:{unlocked:true,level:1,star:1,awakened:false,mastery:0,weaponLv:1,preset:0},
+  H002:{unlocked:false,level:1,star:1,awakened:false,mastery:0,weaponLv:1,preset:0},
+  H007:{unlocked:false,level:1,star:1,awakened:false,mastery:0,weaponLv:1,preset:0},
+  H010:{unlocked:true,level:1,star:1,awakened:false,mastery:0,weaponLv:1,preset:0},
+  H012:{unlocked:true,level:1,star:1,awakened:false,mastery:0,weaponLv:1,preset:0},
+  H019:{unlocked:false,level:1,star:1,awakened:false,mastery:0,weaponLv:1,preset:0}
+ }
+};
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function loadSave(){
+ try{
+  const raw=JSON.parse(localStorage.getItem(SAVE_KEY)||'{}');
+  return {...clone(DEFAULT_SAVE),...raw,heroes:{...clone(DEFAULT_SAVE.heroes),...(raw.heroes||{})}}
+ }catch(e){return clone(DEFAULT_SAVE)}
+}
+let save=loadSave(),currentDetail=save.selected;
+function persist(){localStorage.setItem(SAVE_KEY,JSON.stringify(save));renderAll()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),1600)}
+function hint(m){const t=document.getElementById('eventHint');t.textContent=m;t.classList.add('show');clearTimeout(window._hh);window._hh=setTimeout(()=>t.classList.remove('show'),1700)}
+function log(m){const d=document.createElement('div');d.textContent=m;const l=document.getElementById('log');l.prepend(d);while(l.children.length>12)l.lastChild.remove()}
+function fmt(sec){let m=Math.floor(sec/60),s=Math.floor(sec%60);return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+
+/* navigation */
+const pages={lobby:'英雄大厅',detail:'英雄详情',battle:'战斗测试',result:'战斗结算'};
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById(id).classList.add('active');document.getElementById('pageTitle').textContent=pages[id]||'万界无双';if(id==='battle')resizeCanvas()}
+function starsText(n){return Array.from({length:6},(_,i)=>i<n?'★':'☆').join('')}
+function unlockCount(){return Object.values(save.heroes).filter(x=>x.unlocked).length}
+function levelCost(id){return 450+(save.heroes[id].level-1)*180}
+function starCost(id){return 1400+(save.heroes[id].star-1)*950}
+function weaponCost(id){return 900+(save.heroes[id].weaponLv-1)*650}
+function scaledStats(id){
+ const h=HEROES[id],s=save.heroes[id],lvMul=1+(s.level-1)*.04,starMul=1+(s.star-1)*.06,aw=s.awakened?1.10:1,weap=1+(s.weaponLv-1)*.02;
+ return {
+  hp:Math.round(h.hp*(1+(s.level-1)*.03)*starMul*aw),
+  atk:Math.round(h.atk*lvMul*starMul*aw*weap),
+  def:Math.round(h.def*(1+(s.level-1)*.02)*starMul),
+  move:+(h.move+(s.awakened?.15:0)).toFixed(2),
+  aspd:+(h.aspd*(1+(s.weaponLv-1)*.01)).toFixed(2),
+  crit:+(h.crit+(s.star-1)*.7).toFixed(1)
+ }
+}
+
+/* lobby render */
+function renderLobby(){
+ document.getElementById('globalGold').textContent=save.gold.toLocaleString();
+ document.getElementById('accountLv').textContent=save.accountLv;
+ document.getElementById('unlockCount').textContent=unlockCount()+'/6';
+ const h=HEROES[save.selected],s=save.heroes[save.selected];
+ document.getElementById('bannerHeroName').textContent=h.name;document.getElementById('bannerHeroDesc').textContent=h.desc;
+ document.getElementById('bannerHeroTags').innerHTML=h.tags.map((t,i)=>'<span class="tag '+(i===0?'hot':'')+'">'+t+'</span>').join('');
+ document.getElementById('metricHero').textContent=save.selected;document.getElementById('metricLevel').textContent='Lv.'+s.level;document.getElementById('metricStar').textContent=starsText(s.star);document.getElementById('metricMastery').textContent=s.mastery;
+ const g=document.getElementById('heroGrid');g.innerHTML='';
+ Object.entries(HEROES).forEach(([id,x])=>{
+   const hs=save.heroes[id],d=document.createElement('div');d.className='card heroCard '+(id===save.selected?'selected ':'')+(!hs.unlocked?'locked':'');
+   d.innerHTML='<div class="portrait">'+(!hs.unlocked?'<div class="lockBadge">'+x.unlock+'金币解锁</div>':'')+'</div><div class="eyebrow">'+id+'</div><h3>'+x.name+'</h3><div class="tags">'+x.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div><p class="tiny">'+x.role+'</p><div class="heroMeta"><span>Lv.'+hs.level+'</span><span>'+starsText(hs.star)+'</span></div><div class="progress"><i style="width:'+Math.min(100,hs.mastery/500*100)+'%"></i></div>';
+   d.onclick=()=>{currentDetail=id;if(hs.unlocked){save.selected=id;persist();toast('已选择：'+x.name)}else{renderDetail();go('detail')}};g.appendChild(d)
+ });
+}
+function openSelectedDetail(){currentDetail=save.selected;renderDetail();go('detail')}
+
+/* detail */
+function switchDetailTab(id,btn){
+ document.querySelectorAll('.detailPanel').forEach(p=>p.classList.remove('active'));
+ document.querySelectorAll('.detailTabs button').forEach(b=>b.classList.remove('active'));
+ document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active')
+}
+function renderDetail(){
+ const id=currentDetail,h=HEROES[id],s=save.heroes[id],st=scaledStats(id);
+ document.getElementById('detailTitle').textContent=id+' · '+h.name;document.getElementById('detailSubtitle').textContent=h.tags.join(' / ');
+ document.getElementById('profileId').textContent=id;document.getElementById('profileName').textContent=h.name;document.getElementById('profileTags').innerHTML=h.tags.map(t=>'<span class="tag">'+t+'</span>').join('');
+ document.getElementById('profileLv').textContent='Lv.'+s.level;document.getElementById('profileStar').textContent=s.star+'★';document.getElementById('profileMastery').textContent=s.mastery;
+ document.getElementById('selectHeroBtn').style.display=s.unlocked?'inline-block':'none';document.getElementById('unlockHeroBtn').style.display=s.unlocked?'none':'inline-block';document.getElementById('unlockHeroBtn').textContent='解锁 · '+h.unlock+'金币';
+ document.getElementById('roleDesc').textContent=h.role+'。'+h.desc;
+ const stats=[['生命',st.hp,900],['攻击',st.atk,200],['防御',st.def,70],['移动',st.move,7],['攻速',st.aspd,1.8],['暴击%',st.crit,30]];
+ document.getElementById('statBars').innerHTML=stats.map(([n,v,max])=>'<div class="statLine"><span>'+n+'</span><div class="statTrack"><i style="width:'+Math.min(100,v/max*100)+'%"></i></div><b>'+v+'</b></div>').join('');
+ document.getElementById('skillCards').innerHTML=h.skills.map(([t,n,d])=>'<div class="skillCard"><div class="skillIcon">'+t[0]+'</div><div class="eyebrow">'+t.toUpperCase()+'</div><h4>'+n+'</h4><p>'+d+'</p></div>').join('');
+ document.getElementById('talentTree').innerHTML=h.talents.map((t,i)=>'<div class="talent '+(s.level>=1+i*4?'unlocked':'')+'"><b>'+t+'</b><small>Lv.'+(1+i*4)+' 解锁</small></div>').join('');
+ document.getElementById('levelGrowthText').textContent='Lv.'+s.level+' / 30 · 下一级 ATK +4%、HP +3%';
+ document.getElementById('levelUpBtn').textContent=s.level>=30?'已满级':'升级 · '+levelCost(id)+'金币';document.getElementById('levelUpBtn').disabled=s.level>=30||!s.unlocked;
+ document.getElementById('starGrowthText').textContent=s.star+'★ / 6★ · 每星基础属性约 +6%';
+ document.getElementById('starUpBtn').textContent=s.star>=6?'已满星':'升星 · '+starCost(id)+'金币';document.getElementById('starUpBtn').disabled=s.star>=6||!s.unlocked;
+ document.getElementById('awakenText').textContent=s.awakened?'已觉醒：'+h.skills[3][1]:'条件：Lv.20 + 3★';
+ document.getElementById('awakenBtn').textContent=s.awakened?'已觉醒':'觉醒 · 3000金币';document.getElementById('awakenBtn').disabled=s.awakened||s.level<20||s.star<3||!s.unlocked;
+ document.getElementById('masteryTrack').innerHTML=[50,120,220,350,500].map(v=>'<div class="masteryNode '+(s.mastery>=v?'done':'')+'">'+(s.mastery>=v?'✓ ':'')+v+'</div>').join('');
+ document.getElementById('weaponGlyph').textContent=h.weapon.glyph;document.getElementById('weaponName').textContent=h.weapon.name+' · Lv.'+s.weaponLv;document.getElementById('weaponDesc').textContent=h.weapon.desc;
+ document.getElementById('weaponBtn').textContent=s.weaponLv>=10?'专武满级':'强化 · '+weaponCost(id)+'金币';document.getElementById('weaponBtn').disabled=s.weaponLv>=10||!s.unlocked;
+ document.getElementById('presetGrid').innerHTML=h.presets.map((p,i)=>'<div class="preset '+(s.preset===i?'active':'')+'"><div class="eyebrow">PRESET '+(i+1)+'</div><h4>'+p.name+'</h4><p>'+p.desc+'</p><div class="tags">'+p.slots.map(x=>'<span class="tag">'+x+'</span>').join('')+'</div><button class="btn '+(s.preset===i?'gold':'ghost')+'" style="width:100%;margin-top:8px" onclick="setPreset('+i+')">'+(s.preset===i?'当前预设':'设为预设')+'</button></div>').join('')
+}
+function selectCurrentHero(){if(!save.heroes[currentDetail].unlocked)return;save.selected=currentDetail;persist();toast('出战英雄：'+HEROES[currentDetail].name)}
+function unlockCurrentHero(){
+ const id=currentDetail,h=HEROES[id],s=save.heroes[id];if(s.unlocked)return;if(save.gold<h.unlock){toast('金币不足');return}save.gold-=h.unlock;s.unlocked=true;save.selected=id;persist();toast('已解锁：'+h.name)
+}
+function levelUpHero(){const s=save.heroes[currentDetail],cost=levelCost(currentDetail);if(s.level>=30||!s.unlocked)return;if(save.gold<cost){toast('金币不足');return}save.gold-=cost;s.level++;persist();toast(HEROES[currentDetail].name+' 升至 Lv.'+s.level)}
+function starUpHero(){const s=save.heroes[currentDetail],cost=starCost(currentDetail);if(s.star>=6||!s.unlocked)return;if(save.gold<cost){toast('金币不足');return}save.gold-=cost;s.star++;persist();toast(HEROES[currentDetail].name+' 升至 '+s.star+'★')}
+function awakenHero(){const s=save.heroes[currentDetail];if(s.awakened||s.level<20||s.star<3||!s.unlocked)return;if(save.gold<3000){toast('金币不足');return}save.gold-=3000;s.awakened=true;persist();toast('觉醒完成：'+HEROES[currentDetail].skills[3][1])}
+function upgradeWeapon(){const s=save.heroes[currentDetail],cost=weaponCost(currentDetail);if(s.weaponLv>=10||!s.unlocked)return;if(save.gold<cost){toast('金币不足');return}save.gold-=cost;s.weaponLv++;persist();toast(HEROES[currentDetail].weapon.name+' 强化至 Lv.'+s.weaponLv)}
+function setPreset(i){save.heroes[currentDetail].preset=i;persist();toast('Build预设：'+HEROES[currentDetail].presets[i].name)}
+
+/* battle */
+const canvas=document.getElementById('gameCanvas'),ctx=canvas.getContext('2d');
+let DPR=Math.min(devicePixelRatio||1,2),W=900,H=715,last=performance.now();
+function resizeCanvas(){const r=canvas.getBoundingClientRect();W=Math.max(320,r.width);H=Math.max(430,r.height);canvas.width=Math.floor(W*DPR);canvas.height=Math.floor(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0)}
+window.addEventListener('resize',resizeCanvas);
+const keys={};window.addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase()))e.preventDefault();if(e.key===' ')tryDodge();if(e.key.toLowerCase()==='e')castHeroSkill();if(e.key.toLowerCase()==='r')castUltimate();if(e.key==='Escape')togglePause()});window.addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+
+let started=false,paused=false,gameTime=0,spawnAcc=0,attackAcc=0,totalDamage=0,lastDpsDamage=0,dpsClock=0,currentDps=0;
+let enemies=[],shots=[],effects=[],numbers=[];
+let battleHero='H001';
+const player={x:450,y:360,r:15,hp:620,maxHp:620,atk:108,speed:250,aspd:1,crit:.05,level:1,xp:0,xpNeed:28,kills:0,inv:0,dodgeCd:0,skillCd:0,ult:0};
+function combatProfile(id){
+ const h=HEROES[id],s=save.heroes[id],st=scaledStats(id);
+ return {hp:st.hp,atk:st.atk,def:st.def,speed:st.move*52,aspd:st.aspd,crit:st.crit/100,color:h.color,preset:h.presets[s.preset],awakened:s.awakened}
+}
+function startBattle(){
+ if(!save.heroes[save.selected].unlocked){toast('当前英雄未解锁');return}
+ battleHero=save.selected;go('battle');resizeCanvas();gameTime=spawnAcc=attackAcc=totalDamage=lastDpsDamage=dpsClock=currentDps=0;enemies=[];shots=[];effects=[];numbers=[];
+ const cp=combatProfile(battleHero);Object.assign(player,{x:W/2,y:H/2,hp:cp.hp,maxHp:cp.hp,atk:cp.atk,speed:cp.speed,aspd:cp.aspd,crit:cp.crit,level:1,xp:0,xpNeed:28,kills:0,inv:0,dodgeCd:0,skillCd:0,ult:0});started=true;paused=false;document.getElementById('log').innerHTML='';renderBattleSide();log('战斗开始：'+HEROES[battleHero].name)
+}
+function quickSwitchHero(id){if(!save.heroes[id].unlocked){toast('该英雄未解锁');return}save.selected=id;persist();startBattle()}
+function togglePause(){if(!started)return;paused=!paused;document.getElementById('pauseOverlay').classList.toggle('show',paused)}
+function dist2(a,b){return (a.x-b.x)**2+(a.y-b.y)**2}
+function spawnEnemy(){
+ const a=Math.random()*Math.PI*2,d=Math.max(W,H)*.6+70,min=gameTime/60;
+ enemies.push({x:player.x+Math.cos(a)*d,y:player.y+Math.sin(a)*d,r:10+Math.random()*3,hp:65+min*22,maxHp:65+min*22,speed:55+min*2,damage:9+min*.6,color:Math.random()<.16?'#d5a254':'#a84b43'})
+}
+function nearest(){
+ if(!enemies.length)return null;let best=enemies[0],bd=dist2(player,best);for(const e of enemies){const d=dist2(player,e);if(d<bd){best=e;bd=d}}return best
+}
+function shootAuto(){
+ const t=nearest();if(!t)return;const h=HEROES[battleHero],base=Math.atan2(t.y-player.y,t.x-player.x);
+ let count=1,speed=500,damage=player.atk,spread=.12;
+ if(battleHero==='H012')count=2;
+ if(battleHero==='H002')speed=620;
+ if(battleHero==='H007')damage*=1.08;
+ if(battleHero==='H019')speed=470,damage*=1.15;
+ for(let i=0;i<count;i++){const a=base+(i-(count-1)/2)*spread;shots.push({x:player.x,y:player.y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,r:battleHero==='H019'?7:5,life:1.8,dmg:damage,crit:Math.random()<player.crit,color:h.color,pierce:battleHero==='H019'?2:0})}
+}
+function damageEnemy(e,dmg,crit=false){
+ e.hp-=dmg;totalDamage+=dmg;numbers.push({x:e.x,y:e.y-12,text:Math.round(dmg),life:.55,max:.55,color:crit?'#ffe27e':'#fff0d6',size:crit?18:12});
+ if(e.hp<=0){const i=enemies.indexOf(e);if(i>=0)enemies.splice(i,1);player.kills++;player.xp+=4;player.ult=Math.min(100,player.ult+1.5);effects.push({type:'burst',x:e.x,y:e.y,r:8,life:.3,max:.3,color:HEROES[battleHero].color});checkBattleLevel()}
+}
+function checkBattleLevel(){while(player.xp>=player.xpNeed){player.xp-=player.xpNeed;player.level++;player.xpNeed=Math.round(28+player.level*12);player.atk*=1.025}}
+function tryDodge(){if(!started||player.dodgeCd>0)return;player.dodgeCd=4.5;player.inv=.35;effects.push({type:'dash',x:player.x,y:player.y,r:18,life:.35,max:.35,color:'#70a9ff'});hint('闪避成功')}
+function castHeroSkill(){
+ if(!started||player.skillCd>0)return;const h=HEROES[battleHero],s=save.heroes[battleHero];player.skillCd=6*(s.awakened?.85:1);hint(h.skills[1][1]);
+ if(battleHero==='H001'){const t=nearest();if(t){const a=Math.atan2(t.y-player.y,t.x-player.x);effects.push({type:'slash',x:player.x,y:player.y,a,r:120,life:.3,max:.3,color:h.color});enemies.slice().forEach(e=>{const dx=e.x-player.x,dy=e.y-player.y,d=Math.hypot(dx,dy),dot=(dx*Math.cos(a)+dy*Math.sin(a))/(d||1);if(d<135&&dot>.35)damageEnemy(e,player.atk*2.8)})}}
+ else if(battleHero==='H002'){const t=nearest();if(t){const a=Math.atan2(t.y-player.y,t.x-player.x);player.x+=Math.cos(a)*150;player.y+=Math.sin(a)*150;enemies.slice().forEach(e=>{if(dist2(player,e)<95*95)damageEnemy(e,player.atk*2.4)})}}
+ else if(battleHero==='H007'){effects.push({type:'ring',x:player.x,y:player.y,r:20,life:.5,max:.5,color:h.color,maxr:130});enemies.slice().forEach(e=>{if(dist2(player,e)<140*140)damageEnemy(e,player.atk*2.3)})}
+ else if(battleHero==='H010'){const t=nearest();if(t){const a=Math.atan2(t.y-player.y,t.x-player.x);for(let k=0;k<3;k++){player.x+=Math.cos(a)*45;player.y+=Math.sin(a)*45;effects.push({type:'fire',x:player.x,y:player.y,r:42,life:.9,max:.9,color:h.color});enemies.slice().forEach(e=>{if(dist2(player,e)<60*60)damageEnemy(e,player.atk*.8)})}}}
+ else if(battleHero==='H012'){const t=nearest();if(t){player.x=t.x-55;player.y=t.y;for(let k=0;k<4;k++)damageEnemy(t,player.atk*.78,true);effects.push({type:'shadow',x:t.x,y:t.y,r:55,life:.5,max:.5,color:h.color})}}
+ else if(battleHero==='H019'){effects.push({type:'ring',x:player.x,y:player.y,r:20,life:.5,max:.5,color:h.color,maxr:145});enemies.slice().forEach(e=>{if(dist2(player,e)<150*150)damageEnemy(e,player.atk*2.1)})}
+}
+function castUltimate(){
+ if(!started||player.ult<100)return;player.ult=0;const h=HEROES[battleHero];hint(h.skills[2][1]);
+ if(battleHero==='H019'){effects.push({type:'beam',x:player.x,y:player.y,a:0,r:0,life:.9,max:.9,color:h.color});enemies.slice().forEach(e=>damageEnemy(e,player.atk*7))}
+ else{effects.push({type:'mega',x:player.x,y:player.y,r:20,life:.9,max:.9,color:h.color,maxr:230});enemies.slice().forEach(e=>damageEnemy(e,player.atk*(battleHero==='H007'?6.5:7.5),true))}
+}
+function updateBattle(dt){
+ if(!started||paused)return;gameTime+=dt;player.inv=Math.max(0,player.inv-dt);player.dodgeCd=Math.max(0,player.dodgeCd-dt);player.skillCd=Math.max(0,player.skillCd-dt);
+ let dx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),dy=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);if(dx||dy){const l=Math.hypot(dx,dy);player.x+=dx/l*player.speed*dt;player.y+=dy/l*player.speed*dt}
+ player.x=Math.max(20,Math.min(W-20,player.x));player.y=Math.max(20,Math.min(H-20,player.y));
+ spawnAcc+=dt;const interval=Math.max(.13,.52-gameTime*.002);while(spawnAcc>interval){spawnAcc-=interval;spawnEnemy()}if(enemies.length>240)enemies.splice(0,enemies.length-240);
+ attackAcc+=dt;if(attackAcc>=1/Math.max(.45,player.aspd)){attackAcc=0;shootAuto()}
+ for(const e of enemies){const a=Math.atan2(player.y-e.y,player.x-e.x);e.x+=Math.cos(a)*e.speed*dt;e.y+=Math.sin(a)*e.speed*dt;if(dist2(player,e)<(player.r+e.r)**2&&player.inv<=0){player.hp-=Math.max(1,e.damage-scaledStats(battleHero).def*.08);player.inv=.35}}
+ for(let i=shots.length-1;i>=0;i--){const p=shots[i];p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;let hit=null;for(const e of enemies){if(dist2(p,e)<(p.r+e.r)**2){hit=e;break}}if(hit){damageEnemy(hit,p.dmg*(p.crit?1.5:1),p.crit);if(p.pierce>0){p.pierce--;p.x+=p.vx*.02;p.y+=p.vy*.02}else shots.splice(i,1);continue}if(p.life<=0)shots.splice(i,1)}
+ for(let i=effects.length-1;i>=0;i--){effects[i].life-=dt;if(effects[i].life<=0)effects.splice(i,1)}
+ numbers.forEach(n=>{n.life-=dt;n.y-=20*dt});numbers=numbers.filter(n=>n.life>0);
+ dpsClock+=dt;if(dpsClock>=1){currentDps=Math.round(totalDamage-lastDpsDamage);lastDpsDamage=totalDamage;dpsClock=0}
+ if(player.hp<=0){player.hp=0;finishBattle()}
+ updateBattleHud()
+}
+function drawBattle(){
+ ctx.clearRect(0,0,W,H);ctx.fillStyle='#172019';ctx.fillRect(0,0,W,H);ctx.strokeStyle='rgba(255,255,255,.022)';for(let x=0;x<W;x+=55){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}for(let y=0;y<H;y+=55){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+ for(const e of enemies){ctx.beginPath();ctx.fillStyle=e.color;ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill()}
+ for(const e of effects){const a=Math.max(0,e.life/e.max);ctx.globalAlpha=a;ctx.strokeStyle=e.color;ctx.fillStyle=e.color;
+   if(e.type==='ring'||e.type==='mega'){ctx.beginPath();ctx.lineWidth=e.type==='mega'?6:3;ctx.arc(e.x,e.y,e.r+(1-a)*(e.maxr||100),0,Math.PI*2);ctx.stroke()}
+   else if(e.type==='slash'){ctx.beginPath();ctx.lineWidth=8;ctx.arc(e.x,e.y,e.r,e.a-.55,e.a+.55);ctx.stroke()}
+   else if(e.type==='beam'){ctx.beginPath();ctx.lineWidth=28;ctx.moveTo(e.x,e.y);ctx.lineTo(W,e.y);ctx.stroke()}
+   else{ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill()}
+   ctx.globalAlpha=1
+ }
+ for(const p of shots){ctx.beginPath();ctx.fillStyle=p.color;ctx.shadowBlur=10;ctx.shadowColor=p.color;ctx.arc(p.x,p.y,p.r+(p.crit?2:0),0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;
+ const h=HEROES[battleHero];ctx.beginPath();ctx.fillStyle=player.inv>0?'#fff0bf':h.color;ctx.shadowBlur=24;ctx.shadowColor=h.color;ctx.arc(player.x,player.y,player.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+ ctx.textAlign='center';for(const n of numbers){ctx.globalAlpha=Math.max(0,n.life/n.max);ctx.font='800 '+n.size+'px Inter';ctx.fillStyle=n.color;ctx.fillText(n.text,n.x,n.y)}ctx.globalAlpha=1
+}
+function updateBattleHud(){
+ document.getElementById('hpFill').style.width=Math.max(0,player.hp/player.maxHp*100)+'%';document.getElementById('xpFill').style.width=Math.min(100,player.xp/player.xpNeed*100)+'%';document.getElementById('hpText').textContent=Math.round(player.hp)+' / '+Math.round(player.maxHp);document.getElementById('timeText').textContent=fmt(gameTime);document.getElementById('killText').textContent=player.kills;document.getElementById('dpsText').textContent=currentDps;document.getElementById('dodgeText').textContent=player.dodgeCd>0?player.dodgeCd.toFixed(1)+'s':'READY';document.getElementById('heroSkillText').textContent=player.skillCd>0?player.skillCd.toFixed(1)+'s':'READY'
+}
+function renderBattleSide(){
+ const h=HEROES[battleHero],s=save.heroes[battleHero],st=scaledStats(battleHero),p=h.presets[s.preset];
+ document.getElementById('battleTitle').textContent=h.name+' · 战斗手感测试';document.getElementById('hudHero').textContent=h.name+' · Lv.'+s.level;document.getElementById('sideHeroName').textContent=h.name;
+ document.getElementById('combatStats').innerHTML=[['HP',st.hp],['ATK',st.atk],['DEF',st.def],['移动',st.move],['攻速',st.aspd],['暴击',st.crit+'%']].map(([n,v])=>'<div class="combatStat"><span>'+n+'</span><b>'+v+'</b></div>').join('');
+ document.getElementById('playstyleRows').innerHTML='<div class="playrow"><b>定位</b><small>'+h.role+'</small></div><div class="playrow"><b>英雄技</b><small>'+h.skills[1][1]+'</small></div><div class="playrow"><b>终极</b><small>'+h.skills[2][1]+'</small></div><div class="playrow"><b>觉醒</b><small>'+(s.awakened?h.skills[3][1]:'未觉醒')+'</small></div>';
+ document.getElementById('battlePresetName').textContent=p.name;document.getElementById('battlePresetDesc').textContent=p.desc;document.getElementById('skillSlots').innerHTML=p.slots.map((x,i)=>'<div class="slot"><strong>'+x+'</strong><em>'+(i+1)+'</em></div>').join('');
+ const q=document.getElementById('quickHeroButtons');q.innerHTML='';Object.entries(HEROES).forEach(([id,x])=>{const b=document.createElement('button');b.className='btn '+(id===battleHero?'gold':'ghost');b.textContent=x.name;b.onclick=()=>quickSwitchHero(id);if(!save.heroes[id].unlocked)b.disabled=true;q.appendChild(b)})
+}
+function finishBattle(){
+ if(!started)return;started=false;paused=true;const gain=Math.max(5,Math.round(gameTime/4+player.kills*.12)),s=save.heroes[battleHero];s.mastery=Math.min(999,s.mastery+gain);persist();
+ document.getElementById('resultHeroName').textContent=HEROES[battleHero].name;document.getElementById('resTime').textContent=fmt(gameTime);document.getElementById('resKills').textContent=player.kills;document.getElementById('resDps').textContent=gameTime>0?Math.round(totalDamage/gameTime):0;document.getElementById('resMastery').textContent='+'+gain;
+ document.getElementById('resultRewards').innerHTML='<div class="rewardLine"><span>英雄熟练度</span><b>+'+gain+'</b></div><div class="rewardLine"><span>累计熟练度</span><b>'+s.mastery+'</b></div><div class="rewardLine"><span>当前等级</span><b>Lv.'+s.level+'</b></div><div class="rewardLine"><span>当前星级</span><b>'+s.star+'★</b></div>';
+ go('result')
+}
+function loop(now){const dt=Math.min(.034,(now-last)/1000||0);last=now;updateBattle(dt);drawBattle();requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+
+function renderAll(){renderLobby();renderDetail();if(document.getElementById('battle').classList.contains('active'))renderBattleSide()}
+renderAll();resizeCanvas();
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+{
+  "schema": "wanjie-human-play-v1",
+  "acceptanceStatus": "pending",
+  "recordedAt": "",
+  "buildFingerprint": "",
+  "sessions": [
+    {
+      "sessionId": "pending-keyboard-mouse-01",
+      "status": "pending",
+      "inputMethod": "keyboard-mouse",
+      "tester": {
+        "testerId": "",
+        "humanConfirmed": false
+      },
+      "environment": {
+        "evidenceSource": "pending",
+        "emulated": false,
+        "physicalPhoneConfirmed": false,
+        "deviceName": "",
+        "os": "",
+        "browser": "",
+        "viewport": ""
+      },
+      "routeAccess": {
+        "method": "pending",
+        "notes": ""
+      },
+      "devicePerformance": {
+        "sustainedMinutes": null,
+        "averageFps": null,
+        "minimumObservedFps": null,
+        "thermalObservation": ""
+      },
+      "routes": [
+        {
+          "role": "early-boss",
+          "stageId": "ST001-01",
+          "status": "pending",
+          "outcome": "pending",
+          "attemptCount": null,
+          "deathCount": null,
+          "retryCount": null,
+          "completionSeconds": null,
+          "healthMarginPercent": null,
+          "build": { "summary": "", "keyChoices": [] },
+          "ratings": {
+            "movementAim": null,
+            "threatClarity": null,
+            "hitClarity": null,
+            "dodgeResponse": null,
+            "skillResponse": null,
+            "recoveryFairness": null,
+            "buildQuality": null,
+            "fatigue": null
+          },
+          "observations": {
+            "movementAim": "",
+            "threatAndHitClarity": "",
+            "dodgeAndSkillResponse": "",
+            "recovery": "",
+            "build": "",
+            "deathRetry": "",
+            "fatigue": ""
+          },
+          "evidenceRefs": []
+        },
+        {
+          "role": "early-normal",
+          "stageId": "ST001-02",
+          "status": "pending",
+          "outcome": "pending",
+          "attemptCount": null,
+          "deathCount": null,
+          "retryCount": null,
+          "completionSeconds": null,
+          "healthMarginPercent": null,
+          "build": { "summary": "", "keyChoices": [] },
+          "ratings": {
+            "movementAim": null,
+            "threatClarity": null,
+            "hitClarity": null,
+            "dodgeResponse": null,
+            "skillResponse": null,
+            "recoveryFairness": null,
+            "buildQuality": null,
+            "fatigue": null
+          },
+          "observations": {
+            "movementAim": "",
+            "threatAndHitClarity": "",
+            "dodgeAndSkillResponse": "",
+            "recovery": "",
+            "build": "",
+            "deathRetry": "",
+            "fatigue": ""
+          },
+          "evidenceRefs": []
+        },
+        {
+          "role": "mid-boss",
+          "stageId": "ST003-03",
+          "status": "pending",
+          "outcome": "pending",
+          "attemptCount": null,
+          "deathCount": null,
+          "retryCount": null,
+          "completionSeconds": null,
+          "healthMarginPercent": null,
+          "build": { "summary": "", "keyChoices": [] },
+          "ratings": {
+            "movementAim": null,
+            "threatClarity": null,
+            "hitClarity": null,
+            "dodgeResponse": null,
+            "skillResponse": null,
+            "recoveryFairness": null,
+            "buildQuality": null,
+            "fatigue": null
+          },
+          "observations": {
+            "movementAim": "",
+            "threatAndHitClarity": "",
+            "dodgeAndSkillResponse": "",
+            "recovery": "",
+            "build": "",
+            "deathRetry": "",
+            "fatigue": ""
+          },
+          "evidenceRefs": []
+        },
+        {
+          "role": "late-normal",
+          "stageId": "ST004-02",
+          "status": "pending",
+          "outcome": "pending",
+          "attemptCount": null,
+          "deathCount": null,
+          "retryCount": null,
+          "completionSeconds": null,
+          "healthMarginPercent": null,
+          "build": { "summary": "", "keyChoices": [] },
+          "ratings": {
+            "movementAim": null,
+            "threatClarity": null,
+            "hitClarity": null,
+            "dodgeResponse": null,
+            "skillResponse": null,
+            "recoveryFairness": null,
+            "buildQuality": null,
+            "fatigue": null
+          },
+          "observations": {
+            "movementAim": "",
+            "threatAndHitClarity": "",
+            "dodgeAndSkillResponse": "",
+            "recovery": "",
+            "build": "",
+            "deathRetry": "",
+            "fatigue": ""
+          },
+          "evidenceRefs": []
+        },
+        {
+          "role": "final-dual-boss",
+          "stageId": "ST004-03",
+          "status": "pending",
+          "outcome": "pending",
+          "attemptCount": null,
+          "deathCount": null,
+          "retryCount": null,
+          "completionSeconds": null,
+          "healthMarginPercent": null,
+          "build": { "summary": "", "keyChoices": [] },
+          "ratings": {
+            "movementAim": null,
+            "threatClarity": null,
+            "hitClarity": null,
+            "dodgeResponse": null,
+            "skillResponse": null,
+            "recoveryFairness": null,
+            "buildQuality": null,
+            "fatigue": null
+          },
+          "observations": {
+            "movementAim": "",
+            "threatAndHitClarity": "",
+            "dodgeAndSkillResponse": "",
+            "recovery": "",
+            "build": "",
+            "deathRetry": "",
+            "fatigue": ""
+          },
+          "evidenceRefs": []
+        }
+      ],
+      "sessionNotes": ""
+    },
+    {
+      "sessionId": "pending-browser-touch-01",
+      "status": "pending",
+      "inputMethod": "browser-touch",
+      "tester": { "testerId": "", "humanConfirmed": false },
+      "environment": {
+        "evidenceSource": "pending",
+        "emulated": false,
+        "physicalPhoneConfirmed": false,
+        "deviceName": "",
+        "os": "",
+        "browser": "",
+        "viewport": ""
+      },
+      "routeAccess": { "method": "pending", "notes": "" },
+      "devicePerformance": {
+        "sustainedMinutes": null,
+        "averageFps": null,
+        "minimumObservedFps": null,
+        "thermalObservation": ""
+      },
+      "routes": [
+        { "role": "early-boss", "stageId": "ST001-01", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "early-normal", "stageId": "ST001-02", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "mid-boss", "stageId": "ST003-03", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "late-normal", "stageId": "ST004-02", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "final-dual-boss", "stageId": "ST004-03", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] }
+      ],
+      "sessionNotes": ""
+    },
+    {
+      "sessionId": "pending-physical-phone-01",
+      "status": "pending",
+      "inputMethod": "physical-device-touch",
+      "tester": { "testerId": "", "humanConfirmed": false },
+      "environment": {
+        "evidenceSource": "pending",
+        "emulated": false,
+        "physicalPhoneConfirmed": false,
+        "deviceName": "",
+        "os": "",
+        "browser": "",
+        "viewport": ""
+      },
+      "routeAccess": { "method": "pending", "notes": "" },
+      "devicePerformance": {
+        "sustainedMinutes": null,
+        "averageFps": null,
+        "minimumObservedFps": null,
+        "thermalObservation": ""
+      },
+      "routes": [
+        { "role": "early-boss", "stageId": "ST001-01", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "early-normal", "stageId": "ST001-02", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "mid-boss", "stageId": "ST003-03", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "late-normal", "stageId": "ST004-02", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] },
+        { "role": "final-dual-boss", "stageId": "ST004-03", "status": "pending", "outcome": "pending", "attemptCount": null, "deathCount": null, "retryCount": null, "completionSeconds": null, "healthMarginPercent": null, "build": { "summary": "", "keyChoices": [] }, "ratings": { "movementAim": null, "threatClarity": null, "hitClarity": null, "dodgeResponse": null, "skillResponse": null, "recoveryFairness": null, "buildQuality": null, "fatigue": null }, "observations": { "movementAim": "", "threatAndHitClarity": "", "dodgeAndSkillResponse": "", "recovery": "", "build": "", "deathRetry": "", "fatigue": "" }, "evidenceRefs": [] }
+      ],
+      "sessionNotes": ""
+    }
+  ],
+  "tuningDecisions": []
+}

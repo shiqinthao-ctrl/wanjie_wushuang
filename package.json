@@ -1,0 +1,22 @@
+{
+  "name": "wanjie-wushuang",
+  "version": "3.1.3",
+  "private": true,
+  "description": "万界无双 V3.1.1 Codex Ready",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "audit": "node scripts/audit.mjs",
+    "test": "npm run check && npm run smoke && npm run audit && npm run context && npm run archive:verify",
+    "context": "node scripts/context.mjs",
+    "docs:size": "node scripts/doc-budget.mjs",
+    "archive:verify": "node scripts/archive-verify.mjs",
+    "playtest:validate": "node scripts/playtest-validate.mjs playtest/session-template.json",
+    "playtest:require": "node scripts/playtest-validate.mjs playtest/session-template.json --require-acceptance",
+    "playtest:self-test": "node scripts/playtest-validate.mjs --self-test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

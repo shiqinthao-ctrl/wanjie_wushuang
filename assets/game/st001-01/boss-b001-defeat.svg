@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="440" viewBox="0 0 440 440">
+  <defs>
+    <radialGradient id="collapse"><stop stop-color="#fff3ab" stop-opacity="0.92"/><stop offset="0.28" stop-color="#e85b35" stop-opacity="0.6"/><stop offset="0.66" stop-color="#6f2430" stop-opacity="0.3"/><stop offset="1" stop-color="#17151c" stop-opacity="0"/></radialGradient>
+    <filter id="smoke" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="13"/></filter>
+  </defs>
+  <circle cx="220" cy="220" r="190" fill="url(#collapse)" opacity="0.78"/>
+  <g fill="#5b2b31" opacity="0.58" filter="url(#smoke)">
+    <circle cx="132" cy="183" r="57"/><circle cx="244" cy="138" r="68"/><circle cx="313" cy="228" r="72"/><circle cx="188" cy="300" r="75"/>
+  </g>
+  <g fill="#f6b54c" stroke="#fff0a0" stroke-width="3">
+    <path d="M220 22l18 91-37-7z"/><path d="M391 113l-75 57-14-37z"/><path d="M410 303l-101-24 23-31z"/>
+    <path d="M242 418l-20-101 39 9z"/><path d="M45 336l79-71 13 37z"/><path d="M22 134l102 29-25 30z"/>
+  </g>
+  <circle cx="220" cy="220" r="112" fill="none" stroke="#ffd469" stroke-width="8" stroke-dasharray="8 18" opacity="0.8"/>
+  <path d="M145 145l150 150m0-150L145 295" stroke="#fff3b1" stroke-width="13" stroke-linecap="round" opacity="0.82"/>
+</svg>

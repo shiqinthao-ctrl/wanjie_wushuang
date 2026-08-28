@@ -1,0 +1,64 @@
+{
+  "name": "万界无双",
+  "version": "3.1.2",
+  "schemaVersion": 30,
+  "entry": "index.html",
+  "architecture": "ordered-global-runtime",
+  "scriptCount": 22,
+  "scriptOrder": [
+    "assets/js/config/game-data.js",
+    "assets/js/ui/heroes.js",
+    "assets/js/ui/loadout.js",
+    "assets/js/ui/build.js",
+    "assets/js/ui/world.js",
+    "assets/js/combat/engine.js",
+    "assets/js/ui/tutorial-settings.js",
+    "assets/js/ui/result.js",
+    "assets/js/systems/director-balance.js",
+    "assets/js/systems/save-slots-start.js",
+    "assets/js/presentation/quality-presentation.js",
+    "assets/js/presentation/art-ui-cinematics.js",
+    "assets/js/combat/hero-identity.js",
+    "assets/js/combat/skill-forms.js",
+    "assets/js/combat/boss-map-interactions.js",
+    "assets/js/systems/gear-affix-loot.js",
+    "assets/js/systems/runes-pets.js",
+    "assets/js/systems/meta-growth.js",
+    "assets/js/systems/game-modes.js",
+    "assets/js/systems/daily-mutators.js",
+    "assets/js/core/stability-v30.js",
+    "assets/js/core/v31-project.js"
+  ],
+  "content": {
+    "heroes": 6,
+    "gameModes": 7,
+    "bosses": 8,
+    "equipmentTemplates": 30,
+    "runes": 20,
+    "pets": 5
+  },
+  "codexReady": true,
+  "commands": {
+    "dev": "npm run dev",
+    "check": "npm run check",
+    "smoke": "npm run smoke",
+    "audit": "npm run audit"
+  },
+  "codexFiles": [
+    "AGENTS.md",
+    "CODEX_START_PROMPT.md",
+    "docs/PRODUCT_SPEC.md",
+    "docs/ACCEPTANCE_CRITERIA.md",
+    "docs/ROADMAP.md",
+    "docs/CODEX_WORKFLOW.md"
+  ],
+  "codexContextLite": true,
+  "activeContextFiles": [
+    "AGENTS.md",
+    "TASK.md",
+    "handoff/STATE.md",
+    "docs/INDEX.md"
+  ],
+  "referenceDocs": "docs/reference/",
+  "contextBudgetBytes": 8192
+}

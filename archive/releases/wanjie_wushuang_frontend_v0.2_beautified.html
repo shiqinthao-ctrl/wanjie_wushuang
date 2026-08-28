@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>万界无双 · 前端原型 V0.2</title>
+<style>
+:root{
+  --bg:#080b11;
+  --bg-2:#0c121b;
+  --panel:rgba(18,24,34,.82);
+  --panel-strong:#151d29;
+  --panel-soft:#101722;
+  --line:rgba(255,255,255,.085);
+  --line-strong:rgba(255,255,255,.16);
+  --text:#f6f8fb;
+  --muted:#95a2b4;
+  --muted-2:#677487;
+  --gold:#f3c86f;
+  --gold-2:#b7802d;
+  --red:#ef6b58;
+  --red-2:#9d342d;
+  --blue:#70a9ff;
+  --cyan:#69ddff;
+  --purple:#a884ff;
+  --green:#66d8a4;
+  --shadow:0 24px 80px rgba(0,0,0,.38);
+  --shadow-soft:0 12px 36px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(158,64,61,.15), transparent 28%),
+    radial-gradient(circle at 78% 2%, rgba(77,100,184,.16), transparent 30%),
+    linear-gradient(180deg,#080b11 0,#0a1018 52%,#070a0f 100%);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.85),transparent 80%);
+}
+button{font:inherit}
+button,input{outline:none}
+.app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}
+.sidebar{
+  position:sticky;top:0;height:100vh;padding:18px 14px 18px;
+  background:linear-gradient(180deg,rgba(10,14,21,.96),rgba(8,11,17,.92));
+  border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:30;
+}
+.brand{
+  height:78px;border:1px solid var(--line);border-radius:20px;padding:12px;
+  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  box-shadow:var(--shadow-soft);display:flex;align-items:center;gap:12px;margin-bottom:16px;
+  position:relative;overflow:hidden;
+}
+.brand:after{
+  content:"";position:absolute;right:-22px;top:-34px;width:100px;height:100px;border-radius:50%;
+  background:radial-gradient(circle,rgba(240,113,78,.25),transparent 68%);
+}
+.brand-mark{
+  width:48px;height:48px;border-radius:15px;position:relative;flex:none;
+  background:
+    linear-gradient(135deg,rgba(255,226,150,.95),rgba(239,103,82,.92) 44%,rgba(111,86,213,.94));
+  box-shadow:0 0 24px rgba(238,103,78,.16), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.brand-mark:before{
+  content:"界";position:absolute;inset:0;display:grid;place-items:center;
+  font-size:22px;font-weight:900;color:#160e0b;text-shadow:0 1px rgba(255,255,255,.28);
+}
+.brand-copy{position:relative;z-index:2}
+.brand-copy h1{margin:0;font-size:17px;letter-spacing:.08em}
+.brand-copy small{display:block;margin-top:4px;color:var(--gold);font-size:10px;letter-spacing:.14em}
+.nav-label{
+  color:#596678;font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  margin:18px 10px 9px
+}
+.nav{display:grid;gap:6px}
+.nav button{
+  border:1px solid transparent;background:transparent;color:#7f8b9c;border-radius:14px;
+  padding:11px 12px;cursor:pointer;display:flex;align-items:center;gap:11px;text-align:left;transition:.22s;
+}
+.nav-icon{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;
+  background:#111925;border:1px solid rgba(255,255,255,.05);color:#8391a6;font-weight:800;
+}
+.nav button:hover{
+  color:#dfe6ef;background:rgba(255,255,255,.035);transform:translateX(2px)
+}
+.nav button.active{
+  color:#fff;border-color:rgba(239,105,82,.18);
+  background:linear-gradient(90deg,rgba(239,105,82,.16),rgba(101,79,194,.08));
+  box-shadow:inset 3px 0 0 var(--red);
+}
+.nav button.active .nav-icon{
+  color:#fff;border-color:rgba(255,255,255,.12);
+  background:linear-gradient(145deg,#693934,#342735);
+  box-shadow:0 6px 18px rgba(214,72,56,.2);
+}
+.sidebar-footer{
+  position:absolute;left:14px;right:14px;bottom:14px;padding:12px;border-radius:14px;
+  border:1px solid var(--line);background:rgba(255,255,255,.025);font-size:11px;color:#647185
+}
+.sidebar-footer b{color:#c7d0da}
+
+.main{min-width:0}
+.topbar{
+  height:78px;position:sticky;top:0;z-index:25;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(8,11,17,.86),rgba(8,11,17,.62));
+  backdrop-filter:blur(24px);
+}
+.page-heading{display:flex;align-items:center;gap:14px}
+.page-heading .sigil{
+  width:8px;height:30px;border-radius:6px;background:linear-gradient(180deg,var(--gold),var(--red));
+  box-shadow:0 0 18px rgba(239,107,88,.3)
+}
+.page-heading strong{font-size:17px}
+.page-heading small{display:block;color:var(--muted-2);margin-top:3px}
+.userbar{display:flex;align-items:center;gap:10px}
+.currency,.level-pill{
+  padding:9px 12px;border-radius:12px;border:1px solid var(--line);
+  background:rgba(255,255,255,.035);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)
+}
+.currency b{color:var(--gold)}
+.avatar{
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.14);
+  background:radial-gradient(circle at 40% 35%,#f7d8a0 0 14%,#bb604b 15% 45%,#2b2231 46% 100%);
+}
+
+.content{padding:24px 28px 44px;max-width:1540px;margin:auto}
+.page{display:none;animation:pageIn .28s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.hero-banner{
+  min-height:430px;border-radius:28px;position:relative;overflow:hidden;border:1px solid var(--line-strong);
+  background:
+    radial-gradient(circle at 74% 33%,rgba(255,168,86,.24),transparent 12%),
+    radial-gradient(circle at 70% 38%,rgba(224,70,55,.18),transparent 28%),
+    radial-gradient(circle at 42% 110%,rgba(91,75,190,.20),transparent 42%),
+    linear-gradient(120deg,#151d29 0,#121924 48%,#0d131d 70%,#090d13 100%);
+  box-shadow:var(--shadow);padding:42px 44px;display:flex;align-items:flex-end;
+}
+.hero-banner:before{
+  content:"";position:absolute;inset:0;opacity:.32;
+  background:
+    linear-gradient(110deg,transparent 0 62%,rgba(255,255,255,.035) 63% 64%,transparent 65%),
+    repeating-linear-gradient(120deg,transparent 0 52px,rgba(255,255,255,.018) 53px 54px);
+}
+.hero-art{
+  position:absolute;right:6%;bottom:-12px;width:min(34vw,460px);height:92%;z-index:1;
+  filter:drop-shadow(0 28px 50px rgba(0,0,0,.55))
+}
+.hero-body{
+  position:absolute;left:31%;bottom:8%;width:42%;height:72%;border-radius:48% 48% 24% 24%;
+  background:linear-gradient(180deg,#3c2a29,#1c1a23 64%,#11151c);
+  clip-path:polygon(34% 0,66% 0,76% 14%,83% 31%,96% 50%,80% 57%,70% 100%,30% 100%,20% 58%,3% 50%,18% 31%,25% 14%);
+}
+.hero-head{
+  position:absolute;left:39%;top:3%;width:24%;height:22%;border-radius:50% 50% 44% 44%;
+  background:radial-gradient(circle at 45% 38%,#f2c08d 0 17%,#aa6250 19% 48%,#2c2428 49% 100%);
+}
+.hero-blade{
+  position:absolute;left:2%;top:16%;width:90%;height:10%;border-radius:100% 18% 18% 100%;
+  background:linear-gradient(90deg,transparent 0 5%,#6e402e 6% 35%,#e7b35b 36% 78%,#f8e8b6 79% 100%);
+  transform:rotate(-28deg);transform-origin:left center;box-shadow:0 0 28px rgba(242,171,71,.22);
+}
+.hero-flare{
+  position:absolute;right:2%;top:18%;width:68%;height:68%;border-radius:50%;
+  background:radial-gradient(circle,rgba(239,95,61,.18),rgba(167,54,43,.08) 40%,transparent 69%);
+  filter:blur(1px)
+}
+.hero-copy{position:relative;z-index:3;max-width:690px}
+.eyebrow{font-size:11px;letter-spacing:.28em;color:var(--gold);font-weight:800}
+.hero-copy h2{
+  font-size:54px;line-height:.95;margin:13px 0 14px;letter-spacing:.02em;
+  background:linear-gradient(180deg,#fff,#d9dfe7 70%,#8e98a8);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-copy p{max-width:620px;color:#aab7c7;font-size:14px;line-height:1.9;margin:0}
+.hero-meta{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap}
+.power{
+  padding:8px 11px;border-radius:10px;background:rgba(239,107,88,.08);
+  border:1px solid rgba(239,107,88,.18);font-size:12px;color:#ffd0c8
+}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tag{
+  font-size:10px;padding:6px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.075);
+  background:rgba(255,255,255,.035);color:#b9c4d2
+}
+.tag.hot{border-color:rgba(240,105,82,.2);background:rgba(240,105,82,.08);color:#ffb7aa}
+.cta-row{display:flex;gap:10px;margin-top:25px;flex-wrap:wrap}
+.btn{
+  border:1px solid var(--line-strong);border-radius:12px;padding:11px 16px;color:#e8edf4;
+  background:linear-gradient(180deg,#1b2431,#141b25);cursor:pointer;transition:.2s;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04)
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.btn.primary{
+  color:white;border-color:rgba(255,134,104,.35);font-weight:800;
+  background:linear-gradient(135deg,#d64d42,#ef7c59 65%,#e69b5d);
+  box-shadow:0 12px 30px rgba(209,72,58,.24), inset 0 1px 0 rgba(255,255,255,.22)
+}
+.btn.gold{background:linear-gradient(135deg,#68501e,#a8782b);border-color:rgba(241,198,106,.28);color:#ffe8ab}
+.btn.ghost{background:rgba(255,255,255,.025)}
+
+.section-title{display:flex;justify-content:space-between;align-items:flex-end;margin:30px 0 14px}
+.section-title h3{margin:0;font-size:20px;letter-spacing:.02em}
+.section-title span{color:var(--muted-2);font-size:12px}
+.grid{display:grid;gap:14px}
+.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{
+  position:relative;overflow:hidden;padding:18px;border-radius:18px;
+  background:linear-gradient(180deg,rgba(24,33,45,.9),rgba(15,21,30,.92));
+  border:1px solid var(--line);box-shadow:var(--shadow-soft)
+}
+.card:before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent)
+}
+.card.hover{cursor:pointer;transition:.22s}
+.card.hover:hover{
+  transform:translateY(-4px);border-color:rgba(255,255,255,.16);
+  background:linear-gradient(180deg,rgba(29,39,53,.96),rgba(16,23,33,.96));
+  box-shadow:0 18px 40px rgba(0,0,0,.3)
+}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.metric{
+  padding:13px 14px;border-radius:14px;background:rgba(0,0,0,.14);border:1px solid rgba(255,255,255,.05)
+}
+.metric small{display:block;color:var(--muted-2);font-size:10px;margin-bottom:5px}
+.metric b{font-size:19px}
+.metric b.gold{color:var(--gold)}
+.quest-card{min-height:136px}
+.quest-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.quest-icon{
+  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#273448,#1b2431);border:1px solid var(--line);font-weight:900;color:var(--gold)
+}
+.quest-card h4{margin:0;font-size:14px}
+.quest-card p{font-size:11px;color:var(--muted-2);margin:5px 0 0}
+.progress{
+  height:7px;background:#26313e;border-radius:999px;overflow:hidden;margin-top:16px
+}
+.progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--red),var(--gold))}
+.quest-foot{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--muted-2)}
+
+.mode-card{min-height:190px;display:flex;flex-direction:column;justify-content:space-between}
+.mode-card .mode-no{font-size:10px;letter-spacing:.18em;color:var(--muted-2)}
+.mode-card h4{margin:8px 0 8px;font-size:20px}
+.mode-card p{color:var(--muted);font-size:12px;line-height:1.7}
+.mode-card .mode-glyph{
+  position:absolute;right:12px;bottom:2px;font-size:64px;font-weight:900;color:rgba(255,255,255,.035);
+  transform:rotate(-8deg)
+}
+.mode-card.locked{opacity:.48;filter:grayscale(.4)}
+
+.hero-card{padding:0}
+.hero-card .portrait{
+  height:188px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 52% 34%,rgba(255,180,118,.35),transparent 14%),
+    radial-gradient(circle at 50% 70%,rgba(192,68,55,.22),transparent 32%),
+    linear-gradient(150deg,#35242a,#171d28 70%);
+}
+.hero-card .portrait:before{
+  content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);
+  width:92px;height:145px;border-radius:46% 46% 18% 18%;
+  background:linear-gradient(180deg,#523631,#211c25 70%,#131821);
+  clip-path:polygon(32% 0,68% 0,78% 15%,82% 32%,100% 45%,77% 55%,66% 100%,34% 100%,23% 55%,0 45%,18% 32%,22% 15%);
+}
+.hero-card .portrait:after{
+  content:"";position:absolute;left:50%;top:21px;transform:translateX(-50%);
+  width:45px;height:51px;border-radius:50% 50% 44% 44%;
+  background:radial-gradient(circle at 45% 36%,#e6b483 0 18%,#a86050 20% 50%,#282229 51%);
+}
+.hero-card:nth-child(2) .portrait{background:radial-gradient(circle at 52% 34%,rgba(130,169,255,.35),transparent 14%),radial-gradient(circle at 50% 70%,rgba(65,103,220,.22),transparent 32%),linear-gradient(150deg,#202a48,#171d28 70%)}
+.hero-card:nth-child(3) .portrait{background:radial-gradient(circle at 52% 34%,rgba(230,198,92,.34),transparent 14%),radial-gradient(circle at 50% 70%,rgba(109,151,75,.2),transparent 32%),linear-gradient(150deg,#2d3924,#171d28 70%)}
+.hero-card:nth-child(4) .portrait{background:radial-gradient(circle at 52% 34%,rgba(255,143,97,.38),transparent 14%),radial-gradient(circle at 50% 70%,rgba(212,75,54,.25),transparent 32%),linear-gradient(150deg,#45271f,#171d28 70%)}
+.hero-card:nth-child(5) .portrait{background:radial-gradient(circle at 52% 34%,rgba(177,121,255,.35),transparent 14%),radial-gradient(circle at 50% 70%,rgba(84,55,152,.25),transparent 32%),linear-gradient(150deg,#302342,#171d28 70%)}
+.hero-card:nth-child(6) .portrait{background:radial-gradient(circle at 52% 34%,rgba(95,214,255,.35),transparent 14%),radial-gradient(circle at 50% 70%,rgba(59,120,170,.24),transparent 32%),linear-gradient(150deg,#19374a,#171d28 70%)}
+.hero-card .body{padding:16px 17px 18px}
+.hero-card h3{margin:0;font-size:18px}
+.hero-card .sub{font-size:10px;color:var(--muted-2);margin-top:4px}
+.levelbar{height:6px;border-radius:999px;background:#24303d;overflow:hidden;margin-top:13px}
+.levelbar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:inherit}
+
+.item-card{display:flex;align-items:center;gap:12px}
+.item-icon{
+  width:54px;height:54px;border-radius:14px;display:grid;place-items:center;flex:none;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),
+    linear-gradient(135deg,#29364a,#17202d);
+  border:1px solid rgba(255,255,255,.11);color:var(--gold);font-weight:900;
+  box-shadow:inset 0 0 20px rgba(255,255,255,.025)
+}
+.item-card h4{margin:0 0 4px;font-size:14px}
+.item-card p{margin:0;color:var(--muted);font-size:11px}
+.stat{
+  display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);
+  color:#b7c2cf;font-size:12px
+}
+.stat:last-child{border:none}
+.rune-card .rune-icon{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;margin-bottom:12px;
+  background:radial-gradient(circle,#253a55,#111823 70%);border:1px solid rgba(116,172,255,.18);
+  box-shadow:0 0 22px rgba(77,131,225,.1)
+}
+.pet-visual{
+  height:160px;border-radius:16px;margin-bottom:14px;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 54%,rgba(239,128,75,.24),transparent 28%),linear-gradient(145deg,#182331,#101720)
+}
+.pet-orb{
+  width:74px;height:74px;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 43% 36%,#ffe0a2 0 10%,#f66d4d 12% 40%,#7c2d2b 42% 70%,#311e27 72%);
+  box-shadow:0 0 30px rgba(243,104,74,.28)
+}
+.pet-orb:before,.pet-orb:after{
+  content:"";position:absolute;top:10px;width:22px;height:28px;border-radius:80% 10% 70% 20%;background:#7a302f
+}
+.pet-orb:before{left:-3px;transform:rotate(-30deg)}
+.pet-orb:after{right:-3px;transform:scaleX(-1) rotate(-30deg)}
+
+.talent-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.talent-column{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.022)}
+.talent-column h3{margin:0 0 14px}
+.talent-node{
+  position:relative;border:1px solid #314055;background:linear-gradient(180deg,#192331,#121a25);
+  border-radius:14px;padding:14px;min-height:92px;margin-bottom:10px;transition:.2s
+}
+.talent-node:hover{border-color:#52657f;transform:translateX(2px)}
+.talent-node b{display:block;margin-bottom:6px}
+.talent-node small{color:var(--muted)}
+.talent-node.active:after{
+  content:"";position:absolute;right:12px;top:12px;width:8px;height:8px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 12px var(--gold)
+}
+
+.battle-shell{
+  border-radius:24px;padding:10px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));
+  border:1px solid var(--line);box-shadow:var(--shadow)
+}
+.battle-preview{
+  min-height:650px;border-radius:19px;overflow:hidden;position:relative;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(131,143,97,.20),transparent 23%),
+    radial-gradient(circle at 20% 24%,rgba(105,76,56,.22),transparent 18%),
+    repeating-radial-gradient(circle at 50% 50%,#202a23 0 38px,#19221d 39px 76px);
+}
+.battle-preview:before{
+  content:"";position:absolute;inset:0;opacity:.22;
+  background:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:42px 42px
+}
+.hud-top{position:absolute;left:16px;right:16px;top:16px;display:flex;align-items:center;gap:12px;z-index:4}
+.hud-card{
+  padding:10px 12px;border:1px solid rgba(255,255,255,.1);border-radius:13px;
+  background:rgba(8,12,17,.74);backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(0,0,0,.18)
+}
+.hp-wrap{width:260px}
+.hp-title{display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px}
+.hp{height:12px;border-radius:999px;background:#302128;overflow:hidden;border:1px solid #56343b}
+.hp span{display:block;width:82%;height:100%;background:linear-gradient(90deg,#b73a35,#ef6f56)}
+.exp{height:5px;border-radius:999px;background:#26303c;overflow:hidden;margin-top:6px}
+.exp span{display:block;width:64%;height:100%;background:linear-gradient(90deg,#675ceb,#6dd6ff)}
+.hud-info{margin-left:auto;display:flex;gap:8px}
+.player-dot{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;z-index:3;
+  background:radial-gradient(circle,#ffe1a2 0 18%,#e75f47 20% 54%,#6f2a29 56%);
+  box-shadow:0 0 28px rgba(239,107,79,.75),0 0 70px rgba(239,107,79,.18)
+}
+.player-dot:after{
+  content:"";position:absolute;inset:-42px;border:1px solid rgba(244,201,110,.3);border-radius:50%;
+  animation:pulse 2.2s ease-in-out infinite
+}
+@keyframes pulse{0%,100%{transform:scale(.9);opacity:.25}50%{transform:scale(1.1);opacity:.6}}
+.skill-orbit{
+  position:absolute;left:50%;top:50%;width:180px;height:180px;border-radius:50%;
+  transform:translate(-50%,-50%);border:1px dashed rgba(243,200,111,.24);
+  box-shadow:0 0 40px rgba(231,112,75,.08) inset
+}
+.enemy-dot{
+  position:absolute;width:17px;height:17px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#de7a6b,#7f3232 62%,#351c22);
+  box-shadow:0 0 10px rgba(236,79,70,.24)
+}
+.enemy-dot.elite{
+  width:28px;height:28px;background:radial-gradient(circle at 35% 35%,#edc17a,#986025 62%,#412c1b);
+  box-shadow:0 0 14px rgba(243,184,83,.35)
+}
+.hud-bottom{
+  position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:end;z-index:4
+}
+.skillbar{
+  display:flex;gap:7px;padding:8px;border-radius:15px;background:rgba(8,12,17,.72);border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(10px)
+}
+.skillbox{
+  width:50px;height:50px;border-radius:12px;border:1px solid #465367;
+  background:linear-gradient(145deg,#263548,#161d28);display:grid;place-items:center;
+  font-size:10px;color:#dce5ef;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)
+}
+.skillbox.evolved{border-color:rgba(243,200,111,.44);box-shadow:0 0 16px rgba(243,200,111,.11)}
+.skillbox em{position:absolute;right:5px;bottom:3px;font-style:normal;font-size:9px;color:var(--gold);font-weight:800}
+.ultimate{
+  width:76px;height:76px;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:11px;font-weight:900;
+  border:2px solid var(--gold);background:radial-gradient(circle,#6b3a2d,#241a20 66%);
+  box-shadow:0 0 26px rgba(243,200,111,.2),inset 0 0 24px rgba(239,107,88,.15)
+}
+
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,18px);opacity:0;
+  border-radius:12px;padding:11px 15px;background:rgba(10,15,22,.94);border:1px solid var(--line-strong);
+  color:#e7edf5;box-shadow:0 16px 44px rgba(0,0,0,.35);z-index:120;transition:.22s;pointer-events:none
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.modal{
+  position:fixed;inset:0;display:none;place-items:center;padding:24px;background:rgba(4,6,9,.78);
+  backdrop-filter:blur(10px);z-index:100
+}
+.modal.show{display:grid}
+.modal-card{
+  width:min(780px,96vw);border-radius:24px;padding:24px;background:linear-gradient(180deg,#161f2b,#0e141d);
+  border:1px solid var(--line-strong);box-shadow:var(--shadow);animation:pop .2s ease both
+}
+@keyframes pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.modal-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:15px}
+.modal-head h3{margin:6px 0 0;font-size:24px}
+
+@media(max-width:1100px){
+  .app{grid-template-columns:88px minmax(0,1fr)}
+  .brand{justify-content:center}.brand-copy,.nav-label,.nav .label,.sidebar-footer{display:none}
+  .brand-mark{width:46px;height:46px}
+  .nav button{justify-content:center;padding:8px}
+  .cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-art{opacity:.55;right:-5%;width:420px}
+}
+@media(max-width:760px){
+  .app{display:block}
+  .sidebar{
+    position:fixed;left:0;right:0;bottom:0;top:auto;height:72px;padding:8px 10px;border-right:none;border-top:1px solid var(--line);
+    background:rgba(8,11,17,.96)
+  }
+  .brand,.sidebar-footer,.nav-label{display:none}
+  .nav{grid-template-columns:repeat(6,1fr);gap:4px}
+  .nav button{padding:6px 2px;display:grid;justify-items:center;gap:3px;font-size:9px}
+  .nav button:nth-child(n+7){display:none}
+  .nav-icon{width:30px;height:30px}
+  .nav .label{display:block}
+  .topbar{height:62px;padding:0 14px}
+  .page-heading small{display:none}
+  .content{padding:14px 14px 92px}
+  .hero-banner{min-height:510px;padding:28px 20px}
+  .hero-copy h2{font-size:40px}
+  .hero-art{right:-22%;bottom:-8%;width:430px;height:75%;opacity:.48}
+  .cols-4,.cols-3,.cols-2,.talent-wrap{grid-template-columns:1fr}
+  .metric-grid{grid-template-columns:repeat(3,1fr)}
+  .battle-preview{min-height:540px}
+  .hp-wrap{width:180px}
+  .hud-info{display:none}
+  .skillbox{width:42px;height:42px}
+  .skillbar{max-width:calc(100vw - 124px);overflow:hidden}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-copy"><h1>万界无双</h1><small>WORLDS COLLIDE</small></div>
+    </div>
+    <div class="nav-label">主功能</div>
+    <div class="nav">
+      <button class="active" data-page="home"><span class="nav-icon">主</span><span class="label">主大厅</span></button>
+      <button data-page="heroes"><span class="nav-icon">英</span><span class="label">英雄</span></button>
+      <button data-page="gear"><span class="nav-icon">装</span><span class="label">装备</span></button>
+      <button data-page="runes"><span class="nav-icon">符</span><span class="label">符文</span></button>
+      <button data-page="pets"><span class="nav-icon">宠</span><span class="label">宠物</span></button>
+      <button data-page="talents"><span class="nav-icon">天</span><span class="label">天赋</span></button>
+    </div>
+    <div class="nav-label">挑战</div>
+    <div class="nav">
+      <button data-page="modes"><span class="nav-icon">战</span><span class="label">模式选择</span></button>
+      <button data-page="battle"><span class="nav-icon">演</span><span class="label">战斗HUD</span></button>
+    </div>
+    <div class="sidebar-footer"><b>MVP 原型</b><br>Frontend V0.2 · Beautified</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="page-heading">
+        <span class="sigil"></span>
+        <div><strong id="pageTitle">主大厅</strong><small>万界裂变 · 原型体验版</small></div>
+      </div>
+      <div class="userbar">
+        <span class="level-pill">账号 Lv.12</span>
+        <span class="currency">金币 <b id="gold">3,280</b></span>
+        <span class="avatar"></span>
+      </div>
+    </header>
+
+    <div class="content">
+      <section id="home" class="page active">
+        <div class="hero-banner">
+          <div class="hero-art">
+            <div class="hero-flare"></div><div class="hero-blade"></div><div class="hero-body"></div><div class="hero-head"></div>
+          </div>
+          <div class="hero-copy">
+            <div class="eyebrow">CURRENT HERO · 炎龙专精</div>
+            <h2>赤焰战神</h2>
+            <p>近战火焰系核心英雄。通过横扫切入怪海，以火球、火海、龙卷与陨石逐步构筑「灭世炎狱」，兼顾清场、爆发与生存容错。</p>
+            <div class="hero-meta">
+              <div class="tags"><span class="tag hot">火</span><span class="tag">剑</span><span class="tag">近战</span><span class="tag">新手推荐</span></div>
+              <span class="power">战力 1,284</span>
+            </div>
+            <div class="cta-row">
+              <button class="btn primary" onclick="openMode()">开始战斗</button>
+              <button class="btn ghost" onclick="go('heroes')">英雄详情</button>
+              <button class="btn gold" onclick="toast('已载入：焚天武圣 Build')">载入Build</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric"><small>本周击杀</small><b>128,440</b></div>
+          <div class="metric"><small>最高无尽</small><b>34:28</b></div>
+          <div class="metric"><small>今日金币</small><b class="gold">+4,820</b></div>
+        </div>
+
+        <div class="section-title"><h3>今日目标</h3><span>保持轻量，不让任务喧宾夺主</span></div>
+        <div class="grid cols-3">
+          <div class="card quest-card">
+            <div class="quest-head"><div class="row" style="display:flex;align-items:center;gap:10px"><div class="quest-icon">战</div><div><h4>完成 2 局战斗</h4><p>任意模式均可累计</p></div></div><b>1/2</b></div>
+            <div class="progress"><span style="width:50%"></span></div><div class="quest-foot"><span>奖励</span><span style="color:var(--gold)">500 金币</span></div>
+          </div>
+          <div class="card quest-card">
+            <div class="quest-head"><div class="row" style="display:flex;align-items:center;gap:10px"><div class="quest-icon">进</div><div><h4>完成一次技能进化</h4><p>任意进化技能均可</p></div></div><b style="color:var(--green)">完成</b></div>
+            <div class="progress"><span style="width:100%"></span></div><div class="quest-foot"><span>可领取</span><span style="color:var(--green)">符文碎片 ×3</span></div>
+          </div>
+          <div class="card quest-card">
+            <div class="quest-head"><div class="row" style="display:flex;align-items:center;gap:10px"><div class="quest-icon">王</div><div><h4>击败 3 个 Boss</h4><p>当前已完成 2 个</p></div></div><b>2/3</b></div>
+            <div class="progress"><span style="width:66%"></span></div><div class="quest-foot"><span>奖励</span><span>随机史诗装备</span></div>
+          </div>
+        </div>
+
+        <div class="section-title"><h3>快速挑战</h3><span>直接进入核心内容</span></div>
+        <div class="grid cols-4">
+          <div class="card hover mode-card" onclick="openMode()"><div><div class="mode-no">MODE 01</div><h4>剧情模式</h4><p>推进世界裂变主线，解锁英雄、地图与Boss图鉴。</p></div><span class="tag">推荐战力 850</span><div class="mode-glyph">01</div></div>
+          <div class="card hover mode-card" onclick="toast('已选择：标准通关 · 乱世荒原')"><div><div class="mode-no">MODE 02</div><h4>标准通关</h4><p>20分钟核心局，体验完整进化、融合与最终Boss。</p></div><span class="tag">20 MIN</span><div class="mode-glyph">02</div></div>
+          <div class="card hover mode-card" onclick="toast('已选择：无尽试炼')"><div><div class="mode-no">MODE 03</div><h4>无尽试炼</h4><p>20分钟后继续挑战，怪潮和Boss持续变异。</p></div><span class="tag">BEST 34:28</span><div class="mode-glyph">∞</div></div>
+          <div class="card mode-card locked"><div><div class="mode-no">MODE 04</div><h4>万界塔</h4><p>逐层挑战不同词缀与Boss，账号Lv.20开放。</p></div><span class="tag">LOCKED</span><div class="mode-glyph">塔</div></div>
+        </div>
+      </section>
+
+      <section id="heroes" class="page">
+        <div class="section-title"><h3>英雄阵容</h3><span>6 / 21 已解锁</span></div>
+        <div class="grid cols-3">
+          <div class="card hero-card hover" onclick="selectHero('赤焰战神','火 / 剑 / 近战')"><div class="portrait"></div><div class="body"><h3>赤焰战神</h3><div class="sub">H001 · 炎龙专精</div><div class="tags" style="margin-top:10px"><span class="tag hot">火</span><span class="tag">剑</span><span class="tag">近战</span></div><div class="levelbar"><i style="width:38%"></i></div><div class="sub" style="margin-top:7px">Lv.12 · 战力 1,284</div></div></div>
+          <div class="card hero-card hover" onclick="selectHero('雷霆猛将','雷 / 连击 / 高速')"><div class="portrait"></div><div class="body"><h3>雷霆猛将</h3><div class="sub">H002 · 雷枪专精</div><div class="tags" style="margin-top:10px"><span class="tag">雷</span><span class="tag">连击</span><span class="tag">高速</span></div><div class="levelbar"><i style="width:28%"></i></div><div class="sub" style="margin-top:7px">Lv.8 · 战力 972</div></div></div>
+          <div class="card hero-card hover" onclick="selectHero('灵猴','棍 / 分身 / 召唤')"><div class="portrait"></div><div class="body"><h3>灵猴</h3><div class="sub">H007 · 猴王分身</div><div class="tags" style="margin-top:10px"><span class="tag">棍</span><span class="tag">分身</span><span class="tag">召唤</span></div><div class="levelbar"><i style="width:21%"></i></div><div class="sub" style="margin-top:7px">Lv.6 · 战力 836</div></div></div>
+          <div class="card hero-card hover" onclick="selectHero('炎忍','火 / 忍术 / AOE')"><div class="portrait"></div><div class="body"><h3>炎忍</h3><div class="sub">H010 · 豪火专精</div><div class="tags" style="margin-top:10px"><span class="tag hot">火</span><span class="tag">忍术</span><span class="tag">AOE</span></div><div class="levelbar"><i style="width:19%"></i></div><div class="sub" style="margin-top:7px">Lv.5 · 战力 784</div></div></div>
+          <div class="card hero-card hover" onclick="selectHero('影忍','暗器 / 分身 / 暗影')"><div class="portrait"></div><div class="body"><h3>影忍</h3><div class="sub">H012 · 手里剑专精</div><div class="tags" style="margin-top:10px"><span class="tag">暗器</span><span class="tag">分身</span><span class="tag">暗影</span></div><div class="levelbar"><i style="width:16%"></i></div><div class="sub" style="margin-top:7px">Lv.4 · 战力 731</div></div></div>
+          <div class="card hero-card hover" onclick="selectHero('气功战士','气 / 光束 / Boss')"><div class="portrait"></div><div class="body"><h3>气功战士</h3><div class="sub">H019 · 气弹专精</div><div class="tags" style="margin-top:10px"><span class="tag">气</span><span class="tag">光束</span><span class="tag">Boss</span></div><div class="levelbar"><i style="width:12%"></i></div><div class="sub" style="margin-top:7px">Lv.3 · 战力 688</div></div></div>
+        </div>
+      </section>
+
+      <section id="gear" class="page">
+        <div class="section-title"><h3>当前装备</h3><span>MVP 三槽制</span></div>
+        <div class="grid cols-3">
+          <div class="card item-card"><div class="item-icon">刀</div><div><h4>赤炎刀 +3</h4><p>攻击 +18 · 火伤 +12%</p><div class="tags" style="margin-top:8px"><span class="tag">史诗</span><span class="tag hot">火系</span></div></div></div>
+          <div class="card item-card"><div class="item-icon">甲</div><div><h4>武将甲 +2</h4><p>生命 +120 · 防御 +8</p><div class="tags" style="margin-top:8px"><span class="tag">稀有</span><span class="tag">近战</span></div></div></div>
+          <div class="card item-card"><div class="item-icon">核</div><div><h4>炎龙核心</h4><p>火伤 +20% · 火焰范围 +10%</p><div class="tags" style="margin-top:8px"><span class="tag">传奇</span></div></div></div>
+        </div>
+        <div class="section-title"><h3>装备背包</h3><span>点击卡片可模拟装备</span></div>
+        <div class="grid cols-4" id="gearBag"></div>
+      </section>
+
+      <section id="runes" class="page">
+        <div class="section-title"><h3>已装备符文</h3><span>3个槽位 · MVP</span></div>
+        <div class="grid cols-3">
+          <div class="card rune-card"><div class="rune-icon">火</div><h3>火神符文</h3><p style="color:var(--muted);font-size:12px">火属性伤害 +10%</p><div class="tags"><span class="tag hot">已装备</span><span class="tag">Lv.2</span></div></div>
+          <div class="card rune-card"><div class="rune-icon">速</div><h3>极速符文</h3><p style="color:var(--muted);font-size:12px">攻击速度 +8%</p><div class="tags"><span class="tag">已装备</span><span class="tag">Lv.1</span></div></div>
+          <div class="card rune-card"><div class="rune-icon">学</div><h3>学者符文</h3><p style="color:var(--muted);font-size:12px">经验获取 +10%</p><div class="tags"><span class="tag">已装备</span><span class="tag">Lv.1</span></div></div>
+        </div>
+        <div class="section-title"><h3>符文库存</h3><span>20枚基础符文规划</span></div>
+        <div class="grid cols-4" id="runeGrid"></div>
+      </section>
+
+      <section id="pets" class="page">
+        <div class="section-title"><h3>宠物编队</h3><span>1主宠 + 2辅助位</span></div>
+        <div class="grid cols-3">
+          <div class="card"><div class="pet-visual"><div class="pet-orb"></div></div><h3>火灵</h3><p style="color:var(--muted);font-size:12px">每6秒释放火球，对怪海提供持续补伤。</p><div class="stat"><span>等级</span><b>Lv.6</b></div><div class="stat"><span>星级</span><b>★★☆☆☆</b></div><button class="btn primary" style="margin-top:14px;width:100%" onclick="toast('火灵已设为主宠')">设为主宠</button></div>
+          <div class="card"><div class="pet-visual" style="background:radial-gradient(circle at 50% 54%,rgba(79,143,255,.24),transparent 28%),linear-gradient(145deg,#17243b,#101720)"><div class="pet-orb" style="filter:hue-rotate(160deg)"></div></div><h3>雷狼</h3><p style="color:var(--muted);font-size:12px">周期释放闪电链，适合高密度怪潮。</p><div class="stat"><span>等级</span><b>Lv.3</b></div><div class="stat"><span>星级</span><b>★☆☆☆☆</b></div><button class="btn" style="margin-top:14px;width:100%" onclick="toast('雷狼已加入辅助位')">装备</button></div>
+          <div class="card" style="opacity:.52"><div class="pet-visual" style="filter:grayscale(1)"><div class="pet-orb"></div></div><h3>镜像精灵</h3><p style="color:var(--muted);font-size:12px">低概率复制一个玩家技能。</p><div class="stat"><span>状态</span><b>未解锁</b></div><div class="stat"><span>条件</span><b>击败万影忍王</b></div><button class="btn" style="margin-top:14px;width:100%" disabled>未解锁</button></div>
+        </div>
+      </section>
+
+      <section id="talents" class="page">
+        <div class="section-title"><h3>天赋</h3><span>剩余点数：3</span></div>
+        <div class="talent-wrap">
+          <div class="talent-column"><h3>战斗</h3><div class="talent-node active"><b>力量 I</b><small>攻击 +2%</small></div><div class="talent-node"><b>精准 I</b><small>暴击率 +2%</small></div><div class="talent-node"><b>进化掌握</b><small>进化技能伤害 +3%</small></div></div>
+          <div class="talent-column"><h3>生存</h3><div class="talent-node active"><b>体魄 I</b><small>生命 +3%</small></div><div class="talent-node"><b>护甲 I</b><small>防御 +3%</small></div><div class="talent-node"><b>不屈</b><small>首次致死保留 1 HP</small></div></div>
+          <div class="talent-column"><h3>成长</h3><div class="talent-node active"><b>学识 I</b><small>经验获取 +3%</small></div><div class="talent-node"><b>贪婪 I</b><small>金币获取 +3%</small></div><div class="talent-node"><b>幸运 I</b><small>幸运 +5</small></div></div>
+        </div>
+      </section>
+
+      <section id="modes" class="page">
+        <div class="section-title"><h3>模式选择</h3><span>MVP 先开放三种模式</span></div>
+        <div class="grid cols-3">
+          <div class="card hover mode-card" onclick="toast('已选择：剧情 · 乱世荒原')"><div><div class="mode-no">STORY</div><h4>剧情模式</h4><p>推进主线，逐步开放新的世界、Boss与英雄。</p></div><button class="btn primary">进入</button></div>
+          <div class="card hover mode-card" onclick="toast('已选择：标准通关 · 20分钟')"><div><div class="mode-no">SURVIVAL</div><h4>标准通关</h4><p>20分钟完整Build循环，适合刷装备和验证流派。</p></div><button class="btn">进入</button></div>
+          <div class="card hover mode-card" onclick="toast('已选择：无尽试炼')"><div><div class="mode-no">ENDLESS</div><h4>无尽试炼</h4><p>Boss持续变异，挑战更长生存时间和更高击杀。</p></div><button class="btn">进入</button></div>
+        </div>
+      </section>
+
+      <section id="battle" class="page">
+        <div class="section-title"><h3>战斗 HUD 预览</h3><span>支持怪潮、进化、融合演示</span></div>
+        <div class="battle-shell">
+          <div class="battle-preview" id="arena">
+            <div class="hud-top">
+              <div class="hud-card hp-wrap">
+                <div class="hp-title"><b>赤焰战神 · Lv.28</b><span>82%</span></div>
+                <div class="hp"><span></span></div><div class="exp"><span></span></div>
+              </div>
+              <div class="hud-info"><span class="hud-card">18:25</span><span class="hud-card">击杀 10,245</span></div>
+            </div>
+            <div class="player-dot"></div><div class="skill-orbit"></div>
+            <div class="hud-bottom">
+              <div class="skillbar">
+                <div class="skillbox evolved">火球<em>5</em></div><div class="skillbox evolved">火海<em>5</em></div><div class="skillbox">龙卷<em>4</em></div><div class="skillbox evolved">陨石<em>5</em></div><div class="skillbox">剑阵<em>3</em></div><div class="skillbox">黑洞<em>2</em></div>
+              </div>
+              <div class="ultimate">终极<br>READY</div>
+            </div>
+          </div>
+        </div>
+        <div class="cta-row">
+          <button class="btn primary" onclick="spawnWave()">模拟怪潮</button>
+          <button class="btn" onclick="toast('技能进化：火球术 → 炼狱火球')">模拟进化</button>
+          <button class="btn gold" onclick="toast('融合完成：炼狱火球 + 天灾风暴 → 焚天龙卷')">模拟融合</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="modal" id="modeModal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div><div class="eyebrow">SELECT MODE</div><h3>选择挑战</h3></div>
+      <button class="btn ghost" onclick="closeMode()">关闭</button>
+    </div>
+    <div class="grid cols-3">
+      <div class="card hover mode-card" onclick="startGame('剧情 · 乱世荒原')"><div><div class="mode-no">STORY</div><h4>剧情模式</h4><p>推荐第一次游玩。</p></div><span class="tag">推荐</span></div>
+      <div class="card hover mode-card" onclick="startGame('标准通关 · 20分钟')"><div><div class="mode-no">SURVIVAL</div><h4>标准通关</h4><p>完整Build循环。</p></div><span class="tag">20 MIN</span></div>
+      <div class="card hover mode-card" onclick="startGame('无尽试炼')"><div><div class="mode-no">ENDLESS</div><h4>无尽试炼</h4><p>挑战最高生存。</p></div><span class="tag">BEST 34:28</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const titles={home:'主大厅',heroes:'英雄',gear:'装备',runes:'符文',pets:'宠物',talents:'天赋',modes:'模式选择',battle:'战斗 HUD'};
+document.querySelectorAll('.nav button').forEach(btn=>btn.addEventListener('click',()=>go(btn.dataset.page)));
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('pageTitle').textContent=titles[id]||'万界无双';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>t.classList.remove('show'),1800);
+}
+function openMode(){document.getElementById('modeModal').classList.add('show')}
+function closeMode(){document.getElementById('modeModal').classList.remove('show')}
+function startGame(name){closeMode();go('battle');toast('进入 '+name)}
+function selectHero(name,tags){toast('已选择：'+name+' · '+tags)}
+function spawnWave(){
+  const arena=document.getElementById('arena');
+  arena.querySelectorAll('.enemy-dot').forEach(n=>n.remove());
+  for(let i=0;i<95;i++){
+    const e=document.createElement('i');e.className='enemy-dot'+(i%19===0?' elite':'');
+    e.style.left=(3+Math.random()*94)+'%';e.style.top=(11+Math.random()*79)+'%';
+    e.style.transform='scale('+(0.75+Math.random()*.55)+')';
+    arena.appendChild(e);
+  }
+  toast('怪潮模拟：95 个视觉单位');
+}
+const gearData=[
+  ['雷枪','攻击 +14 · 雷伤 +8%','枪'],['影刃','暴击 +5% · 暗影伤 +10%','刃'],
+  ['气功核心','气伤 +12% · CD -3%','气'],['忍者服','闪避 +4%','衣'],
+  ['妖灵甲','召唤生命 +12%','妖'],['轻甲','防御 +6','甲'],
+  ['猴王石','召唤数量概率 +1','石'],['幸运金币','金币 +10%','金']
+];
+const bag=document.getElementById('gearBag');
+gearData.forEach(([n,d,g])=>{
+  const el=document.createElement('div');el.className='card item-card hover';
+  el.innerHTML='<div class="item-icon">'+g+'</div><div><h4>'+n+'</h4><p>'+d+'</p><div class="tags" style="margin-top:7px"><span class="tag">可装备</span></div></div>';
+  el.onclick=()=>toast('已装备：'+n);bag.appendChild(el);
+});
+const runes=['狂战','破军','暴君','连击','穿透','奥术','巨化','分裂','持续','多重','火神','雷神','冰神','气神','吸血','护盾','闪避','学者','贪婪','幸运'];
+const rg=document.getElementById('runeGrid');
+runes.forEach((r,i)=>{
+  const d=document.createElement('div');d.className='card hover rune-card';
+  d.innerHTML='<div class="rune-icon">'+r.slice(0,1)+'</div><b>'+r+'符文</b><p style="color:var(--muted);font-size:11px">Lv.'+(1+i%3)+' · '+(['攻击强化','技能强化','元素强化','生存强化','成长强化'][i%5])+'</p>';
+  d.onclick=()=>toast('符文已选择：'+r);rg.appendChild(d);
+});
+spawnWave();
+</script>
+</body>
+</html>

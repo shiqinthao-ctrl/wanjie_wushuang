@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="zh-CN" data-self-contained="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="万界无双 V3.3.5 真人战斗体验与手机操作评审包">
+  <title>万界无双 V3.3.5｜真人战斗体验评审包</title>
+  <style>
+    :root {
+      --ink: #171611;
+      --ink-soft: #4d493f;
+      --muted: #746d60;
+      --paper: #f5f0e6;
+      --paper-deep: #e9dfcd;
+      --surface: #fffdf8;
+      --line: #d4c8b5;
+      --line-strong: #9f927d;
+      --accent: #aa3027;
+      --accent-dark: #7f211c;
+      --success: #2f6848;
+      --warning: #8b5a16;
+      --shadow-1: 0 8px 24px rgba(46, 36, 22, .08);
+      --shadow-2: 0 22px 64px rgba(46, 36, 22, .14);
+      --r1: 4px;
+      --r2: 12px;
+      --s1: 4px;
+      --s2: 8px;
+      --s3: 12px;
+      --s4: 16px;
+      --s5: 24px;
+      --s6: 32px;
+      --s7: 48px;
+      --s8: 64px;
+      --text-xs: .75rem;
+      --text-sm: .875rem;
+      --text-base: 1rem;
+      --text-lg: 1.25rem;
+      --text-xl: 1.563rem;
+      --text-2xl: 1.953rem;
+      --text-3xl: 2.441rem;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(255,255,255,.42), rgba(255,255,255,.42)),
+        repeating-linear-gradient(0deg, transparent 0, transparent 31px, rgba(84,66,38,.035) 32px),
+        var(--paper);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    button, textarea { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+    :where(a, button, summary, textarea):focus-visible {
+      outline: 3px solid rgba(170, 48, 39, .35);
+      outline-offset: 3px;
+    }
+
+    .masthead {
+      position: relative;
+      overflow: hidden;
+      color: #f9f2e5;
+      background:
+        radial-gradient(circle at 84% 12%, rgba(198, 154, 81, .24), transparent 28%),
+        linear-gradient(135deg, #15140f 0%, #242016 58%, #17130f 100%);
+      border-bottom: 6px solid var(--accent);
+    }
+    .masthead::after {
+      position: absolute;
+      right: -34px;
+      bottom: -78px;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      box-shadow: 0 0 0 28px rgba(255,255,255,.025), 0 0 0 62px rgba(255,255,255,.018);
+      content: "";
+    }
+    .masthead-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - var(--s6)));
+      margin: 0 auto;
+      padding: var(--s7) 0 var(--s8);
+    }
+    .eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--s3);
+      margin-bottom: var(--s5);
+      color: #d9c8aa;
+      font-size: var(--text-xs);
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .seal {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      color: #fff7e8;
+      background: var(--accent);
+      border: 1px solid rgba(255,255,255,.34);
+      border-radius: var(--r1);
+      font-family: "STKaiti", "KaiTi", serif;
+      font-size: var(--text-lg);
+      line-height: 1;
+      transform: rotate(-3deg);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, .5fr);
+      align-items: end;
+      gap: var(--s7);
+    }
+    h1, h2, h3, .display {
+      font-family: "STKaiti", "KaiTi", "FangSong", serif;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.03;
+    }
+    .lead {
+      max-width: 720px;
+      margin: var(--s5) 0 0;
+      color: #d9d0c0;
+      font-size: var(--text-lg);
+    }
+    .hero-status {
+      padding: var(--s5);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--r2);
+      backdrop-filter: blur(8px);
+    }
+    .hero-status .kicker { color: #d9c8aa; }
+    .hero-status strong {
+      display: block;
+      margin: var(--s2) 0;
+      color: #fff8eb;
+      font-family: "STKaiti", "KaiTi", serif;
+      font-size: var(--text-2xl);
+      line-height: 1.15;
+    }
+    .hero-status p { margin: 0; color: #d9d0c0; font-size: var(--text-sm); }
+
+    .page {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: var(--s7);
+      width: min(1180px, calc(100% - var(--s6)));
+      margin: 0 auto;
+      padding: var(--s7) 0 var(--s8);
+    }
+    .rail {
+      position: sticky;
+      top: var(--s5);
+      align-self: start;
+      padding: var(--s5) 0;
+      border-top: 3px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+    .rail-label, .kicker {
+      margin: 0;
+      color: var(--muted);
+      font-size: var(--text-xs);
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .rail nav { display: grid; gap: var(--s1); margin-top: var(--s4); }
+    .rail a {
+      padding: var(--s2) var(--s3);
+      color: var(--ink-soft);
+      border-left: 2px solid transparent;
+      text-decoration: none;
+      transition: color 160ms ease-out, border-color 160ms ease-out, background 160ms ease-out;
+    }
+    .rail a:hover {
+      color: var(--ink);
+      background: rgba(255,255,255,.5);
+      border-left-color: var(--accent);
+    }
+    .rail-actions { display: grid; gap: var(--s2); margin-top: var(--s5); }
+
+    main { min-width: 0; }
+    section {
+      margin-bottom: var(--s8);
+      scroll-margin-top: var(--s5);
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: var(--s4);
+      align-items: start;
+      margin-bottom: var(--s5);
+      padding-bottom: var(--s4);
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .section-index {
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-size: var(--text-lg);
+      font-weight: 800;
+      letter-spacing: .04em;
+    }
+    h2 { margin: 0; font-size: var(--text-2xl); line-height: 1.15; }
+    h3 { margin: 0 0 var(--s3); font-size: var(--text-xl); line-height: 1.3; }
+    p { margin: 0 0 var(--s4); }
+    .section-copy { max-width: 760px; color: var(--ink-soft); }
+
+    .decision-banner {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--s5);
+      margin-top: calc(var(--s7) * -1);
+      margin-bottom: var(--s7);
+      padding: var(--s5);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+      border-radius: var(--r2);
+      box-shadow: var(--shadow-2);
+    }
+    .decision-mark {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 50%;
+      font-family: Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 800;
+    }
+    .decision-banner h2 { margin-bottom: var(--s2); font-size: var(--text-xl); }
+    .decision-banner p { margin: 0; color: var(--ink-soft); }
+
+    .metric-grid, .review-grid, .done-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--s4);
+    }
+    .metric, .review-card, .done-card {
+      min-width: 0;
+      padding: var(--s5);
+      background: rgba(255,253,248,.86);
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+      box-shadow: var(--shadow-1);
+    }
+    .metric-value {
+      display: block;
+      margin: var(--s2) 0;
+      color: var(--ink);
+      font-family: Georgia, serif;
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      line-height: 1;
+    }
+    .metric-value small { font-size: var(--text-base); font-weight: 700; }
+    .metric p, .review-card p, .done-card p { margin: 0; color: var(--muted); font-size: var(--text-sm); }
+    .status-line {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      margin-bottom: var(--s3);
+      font-size: var(--text-xs);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--warning); }
+    .dot.ok { background: var(--success); }
+    .dot.pending { background: var(--accent); }
+
+    .zero-state {
+      margin-top: var(--s4);
+      padding: var(--s4);
+      background: #f1e8da;
+      border-left: 4px solid var(--accent);
+      color: var(--ink-soft);
+      font-size: var(--text-sm);
+    }
+
+    .review-card { position: relative; padding-top: var(--s6); }
+    .review-number {
+      position: absolute;
+      top: var(--s4);
+      right: var(--s4);
+      color: var(--line-strong);
+      font-family: Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 800;
+    }
+    .review-card h3 { padding-right: var(--s6); }
+    .review-card ul, .plain-list { margin: var(--s4) 0 0; padding-left: var(--s5); }
+    .review-card li, .plain-list li { margin-bottom: var(--s2); color: var(--ink-soft); }
+
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+      box-shadow: var(--shadow-1);
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; }
+    th, td { padding: var(--s3) var(--s4); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th {
+      color: var(--muted);
+      background: #eee5d6;
+      font-size: var(--text-xs);
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: #fffaf0; }
+    td code, .inline-code {
+      padding: 2px var(--s1);
+      color: var(--accent-dark);
+      background: #f2e7dd;
+      border-radius: var(--r1);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: .9em;
+    }
+    .cell-state { font-weight: 800; white-space: nowrap; }
+    .cell-state.ok { color: var(--success); }
+    .cell-state.pending { color: var(--accent-dark); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--s3);
+      counter-reset: flow;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 180px;
+      padding: var(--s5);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+      counter-increment: flow;
+    }
+    .flow-step::before {
+      display: block;
+      margin-bottom: var(--s4);
+      color: var(--accent);
+      font-family: Georgia, serif;
+      font-size: var(--text-xl);
+      font-weight: 800;
+      content: "0" counter(flow);
+    }
+    .flow-step strong { display: block; margin-bottom: var(--s2); }
+    .flow-step p { margin: 0; color: var(--muted); font-size: var(--text-sm); }
+
+    .guardrails {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s4);
+    }
+    .guard {
+      padding: var(--s5);
+      border-radius: var(--r2);
+    }
+    .guard.keep { background: #e7efe8; border: 1px solid #b6ccba; }
+    .guard.stop { background: #f3e6df; border: 1px solid #d8b9aa; }
+    .guard h3 { font-size: var(--text-lg); }
+
+    details {
+      margin-bottom: var(--s3);
+      background: rgba(255,253,248,.8);
+      border: 1px solid var(--line);
+      border-radius: var(--r2);
+    }
+    summary {
+      padding: var(--s4) var(--s5);
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { float: right; color: var(--accent); content: "+"; font-size: var(--text-lg); }
+    details[open] summary::after { content: "−"; }
+    .details-body { padding: 0 var(--s5) var(--s5); color: var(--ink-soft); }
+    pre {
+      overflow-x: auto;
+      margin: var(--s3) 0 0;
+      padding: var(--s4);
+      color: #f5ebdb;
+      background: #1d1b16;
+      border-radius: var(--r1);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: var(--text-sm);
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .feedback-box {
+      padding: var(--s5);
+      background: #201d16;
+      border-radius: var(--r2);
+      box-shadow: var(--shadow-2);
+    }
+    .feedback-box h3 { color: #fff7e8; }
+    .feedback-box > p { color: #cfc4b2; }
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 420px;
+      resize: vertical;
+      padding: var(--s4);
+      color: #29251d;
+      background: #fffaf0;
+      border: 1px solid #766b5a;
+      border-radius: var(--r1);
+      line-height: 1.65;
+    }
+    .button-row { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s4); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: var(--s2) var(--s4);
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid var(--accent-dark);
+      border-radius: var(--r1);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease-out, background 160ms ease-out, box-shadow 160ms ease-out;
+    }
+    .button:hover { background: var(--accent-dark); box-shadow: 0 8px 18px rgba(127,33,28,.2); transform: translateY(-1px); }
+    .button:active { transform: translateY(0); }
+    .button.secondary { color: var(--ink); background: transparent; border-color: var(--line-strong); }
+    .button.secondary:hover { color: var(--accent-dark); background: #fffaf0; }
+    .button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+    .fingerprint {
+      overflow-wrap: anywhere;
+      padding: var(--s3);
+      color: var(--ink-soft);
+      background: #ede4d5;
+      border-radius: var(--r1);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: var(--text-xs);
+    }
+    .footer {
+      padding: var(--s6);
+      color: #cfc4b2;
+      background: #171611;
+      text-align: center;
+      font-size: var(--text-sm);
+    }
+    .footer strong { color: #fff7e8; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .page { grid-template-columns: 1fr; }
+      .hero-status { max-width: 520px; }
+      .rail { position: static; padding: var(--s4) 0; }
+      .rail nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .rail a { border-left: 0; border-bottom: 2px solid transparent; }
+      .rail a:hover { border-bottom-color: var(--accent); }
+      .rail-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      .masthead-inner, .page { width: min(100% - var(--s5), 1180px); }
+      .masthead-inner { padding: var(--s6) 0 var(--s7); }
+      .page { gap: var(--s6); padding: var(--s6) 0 var(--s7); }
+      h1 { font-size: clamp(2.25rem, 14vw, 3.5rem); }
+      .lead { font-size: var(--text-base); }
+      .rail nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .decision-banner { grid-template-columns: 1fr; margin-top: calc(var(--s6) * -1); }
+      .metric-grid, .review-grid, .done-grid, .guardrails, .flow { grid-template-columns: 1fr; }
+      .flow-step { min-height: 0; }
+      .section-head { grid-template-columns: 40px minmax(0, 1fr); }
+      h2 { font-size: var(--text-xl); }
+      section { margin-bottom: var(--s7); }
+      textarea { min-height: 520px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      @page { margin: 16mm; }
+      body { color: #000; background: #fff; font-size: 10pt; }
+      .masthead { color: #000; background: #fff; border-bottom: 2px solid #000; }
+      .masthead-inner { width: 100%; padding: 0 0 10mm; }
+      .masthead::after, .rail, .button-row { display: none !important; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-status { color: #000; background: #fff; border-color: #777; }
+      .hero-status .kicker, .hero-status strong, .hero-status p, .lead, .eyebrow { color: #000; }
+      .page { display: block; width: 100%; padding: 10mm 0 0; }
+      .decision-banner { margin-top: 0; box-shadow: none; }
+      section { break-inside: avoid; margin-bottom: 10mm; }
+      .metric, .review-card, .done-card, .table-wrap, .feedback-box { box-shadow: none; }
+      .feedback-box { color: #000; background: #fff; border: 1px solid #777; }
+      .feedback-box h3, .feedback-box > p { color: #000; }
+      textarea { min-height: 150mm; color: #000; background: #fff; }
+      details { break-inside: avoid; }
+      details:not([open]) > *:not(summary) { display: block; }
+      .footer { color: #000; background: #fff; border-top: 1px solid #777; }
+      .footer strong { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="eyebrow"><span class="seal" aria-hidden="true">审</span> 万界无双 · V3.3.5 · 2026-08-25</div>
+      <div class="hero-grid">
+        <div>
+          <h1>真人战斗体验<br>评审卷宗</h1>
+          <p class="lead">游戏前端与自动回归基线已经就绪。现在需要评审的不是“页面是否能打开”，而是真实玩家能否直观操作、持续战斗并在手机上稳定完成核心路线。</p>
+        </div>
+        <aside class="hero-status" aria-label="当前评审状态">
+          <p class="kicker">当前结论</p>
+          <strong>待真人验收</strong>
+          <p>15 个必需真人路线槽位尚未产生有效证据，V3.3.5 不可标记完成。</p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <aside class="rail" aria-label="页面目录">
+      <p class="rail-label">审议目录</p>
+      <nav>
+        <a href="#decision">评审结论</a>
+        <a href="#status">当前状态</a>
+        <a href="#review">评审重点</a>
+        <a href="#evidence">证据矩阵</a>
+        <a href="#routes">路线覆盖</a>
+        <a href="#workflow">下一步流程</a>
+        <a href="#guardrails">边界约束</a>
+        <a href="#feedback">反馈模板</a>
+        <a href="#appendix">技术附录</a>
+      </nav>
+      <div class="rail-actions">
+        <button class="button secondary" id="printPage" type="button">打印 / 导出 PDF</button>
+        <button class="button" id="jumpFeedback" type="button">填写评审意见</button>
+      </div>
+    </aside>
+
+    <main>
+      <section class="decision-banner" id="decision" aria-labelledby="decision-title">
+        <div class="decision-mark" aria-hidden="true">!</div>
+        <div>
+          <h2 id="decision-title">请不要把“自动检查通过”评成“游戏体验通过”</h2>
+          <p>当前代码质量和关键规则守卫均已通过，但操作直观性、战斗疲劳、难度公平性、真实触控、实体手机帧率与热感仍没有真人证据。本轮评审的目标是决定是否可以进入正式真人路线验收，以及还需补哪些条件。</p>
+        </div>
+      </section>
+
+      <section id="status" aria-labelledby="status-title">
+        <div class="section-head">
+          <span class="section-index">01</span>
+          <div>
+            <h2 id="status-title">当前状态，一眼看清</h2>
+            <p class="section-copy">“可运行”已经证明，“好玩、好操作、可持续”仍待证明。</p>
+          </div>
+        </div>
+        <div class="metric-grid">
+          <article class="metric">
+            <div class="status-line"><span class="dot ok"></span>自动基线</div>
+            <span class="metric-value">5<small>/5</small></span>
+            <p>check、smoke、audit、context、archive:verify 均通过。</p>
+          </article>
+          <article class="metric">
+            <div class="status-line"><span class="dot pending"></span>真人路线</div>
+            <span class="metric-value">0<small>/15</small></span>
+            <p>键鼠、真实浏览器触控、实体手机各需完成五条路线。</p>
+          </article>
+          <article class="metric">
+            <div class="status-line"><span class="dot"></span>本地试玩服务</div>
+            <span class="metric-value">8082</span>
+            <p>交接时未启动；真人试玩前需在可信环境单独启动。</p>
+          </article>
+        </div>
+        <div class="zero-state"><strong>零状态不是失败：</strong>它表示团队没有伪造真人数据，也没有用自动化或手机模拟器替代真实玩家。下一步应产生第一条键鼠 `ST001-01` 真人证据。</div>
+      </section>
+
+      <section id="review" aria-labelledby="review-title">
+        <div class="section-head">
+          <span class="section-index">02</span>
+          <div>
+            <h2 id="review-title">本轮请重点评审三件事</h2>
+            <p class="section-copy">请把意见落到具体输入方式、具体路线和可观察现象，不要只给“不错”或“再优化”的泛化结论。</p>
+          </div>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <span class="review-number">01</span>
+            <h3>操作是否直观</h3>
+            <p>桌面已明确显示“英雄技 / 闪避 / 终极”与快捷键；手机保留全屏摇杆和动作按钮。</p>
+            <ul>
+              <li>玩家是否无需说明就能发现操作？</li>
+              <li>闪避、技能、终极的反馈是否及时？</li>
+              <li>暂停、恢复和焦点切换是否可靠？</li>
+            </ul>
+          </article>
+          <article class="review-card">
+            <span class="review-number">02</span>
+            <h3>战斗是否公平</h3>
+            <p>当前不预设调参结论，只有真人路线观察才能证明某个时序、反馈或难度值有害。</p>
+            <ul>
+              <li>威胁预警和命中反馈是否清晰？</li>
+              <li>死亡是否能理解原因并愿意重试？</li>
+              <li>构筑选择是否真实影响完成过程？</li>
+            </ul>
+          </article>
+          <article class="review-card">
+            <span class="review-number">03</span>
+            <h3>手机是否真能玩</h3>
+            <p>390×844 模拟仅证明布局没有明显越界，不证明真实触控、性能或人体工学。</p>
+            <ul>
+              <li>双指移动与动作能否稳定并行？</li>
+              <li>安全区、横竖屏和旋转是否可靠？</li>
+              <li>20 分钟后的帧率、热感和疲劳如何？</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="evidence" aria-labelledby="evidence-title">
+        <div class="section-head">
+          <span class="section-index">03</span>
+          <div>
+            <h2 id="evidence-title">证据边界</h2>
+            <p class="section-copy">每层证据回答不同问题，不能跨层替代。</p>
+          </div>
+        </div>
+        <div class="table-wrap" role="region" aria-label="证据状态表" tabindex="0">
+          <table>
+            <thead><tr><th>证据层</th><th>状态</th><th>已证明</th><th>仍未证明</th></tr></thead>
+            <tbody>
+              <tr><td>源码与静态守卫</td><td class="cell-state ok">已完成</td><td>桌面命名操作坞、移动端控件和关键规则存在</td><td>玩家是否觉得直观、稳定</td></tr>
+              <tr><td>确定性自动检查</td><td class="cell-state ok">已通过</td><td>Schema30、路线、星级、结算、成长与安全规则未回退</td><td>真实难度、手感和疲劳</td></tr>
+              <tr><td>桌面浏览器自动验收</td><td class="cell-state ok">已完成</td><td>1280×720 首屏容纳、暂停/焦点、无横向溢出</td><td>真人键鼠反应与理解</td></tr>
+              <tr><td>390×844 模拟回归</td><td class="cell-state ok">已完成</td><td>控件可见、在边界内、无明显重叠</td><td>真实触控、刘海、多指和性能</td></tr>
+              <tr><td>真人键鼠</td><td class="cell-state pending">待完成 0/5</td><td>暂无</td><td>五条代表路线全过程</td></tr>
+              <tr><td>真人浏览器触控</td><td class="cell-state pending">待完成 0/5</td><td>暂无</td><td>五条路线与真实触控表现</td></tr>
+              <tr><td>实体手机</td><td class="cell-state pending">待完成 0/5</td><td>暂无</td><td>五条路线、20 分钟性能、FPS、热感和安全区</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="routes" aria-labelledby="routes-title">
+        <div class="section-head">
+          <span class="section-index">04</span>
+          <div>
+            <h2 id="routes-title">必须完成的五条代表路线</h2>
+            <p class="section-copy">每条路线都要分别用三种输入方式由真人完成，共 15 个有效槽位。</p>
+          </div>
+        </div>
+        <div class="table-wrap" role="region" aria-label="真人路线覆盖表" tabindex="0">
+          <table>
+            <thead><tr><th>定位</th><th>路线</th><th>完成条件</th><th>键鼠</th><th>真实触控</th><th>实体手机</th></tr></thead>
+            <tbody>
+              <tr><td>前期 Boss</td><td><code>ST001-01</code></td><td>06:00 前击败 B001 并领取战利品</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td></tr>
+              <tr><td>前期普通</td><td><code>ST001-02</code></td><td>生存至 20:00</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td></tr>
+              <tr><td>中期 Boss</td><td><code>ST003-03</code></td><td>20:00 前击败 B006</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td></tr>
+              <tr><td>后期普通</td><td><code>ST004-02</code></td><td>生存至 20:00</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td></tr>
+              <tr><td>最终双 Boss</td><td><code>ST004-03</code></td><td>20:00 前依次击败 B009、B010</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td><td class="cell-state pending">待验收</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <details>
+          <summary>每条路线必须记录什么？</summary>
+          <div class="details-body">
+            结果、尝试/死亡/重试次数、完成时间、剩余生命百分比、英雄/装备/构筑与关键选择；移动瞄准、威胁清晰、命中清晰、闪避响应、技能响应、恢复公平、构筑质量、疲劳八项 1-5 分；七类文字观察以及至少一条录像、截图或带时间戳的人工记录。
+          </div>
+        </details>
+        <details>
+          <summary>实体手机额外需要什么？</summary>
+          <div class="details-body">
+            设备型号、系统、浏览器、视口；至少 20 分钟持续性能窗口；平均 FPS、最低观测 FPS、热感；横竖屏、刘海/安全区、双指操作以及暂停/恢复可靠性。
+          </div>
+        </details>
+      </section>
+
+      <section id="workflow" aria-labelledby="workflow-title">
+        <div class="section-head">
+          <span class="section-index">05</span>
+          <div>
+            <h2 id="workflow-title">下一步执行路径</h2>
+            <p class="section-copy">先产生一条可信真人记录，再决定是否需要开发改动。</p>
+          </div>
+        </div>
+        <div class="flow">
+          <article class="flow-step"><strong>启动隔离服务</strong><p>检查未知监听后，在本机或可信局域网启动 8082，不碰现有浏览器数据。</p></article>
+          <article class="flow-step"><strong>真人完成首局</strong><p>先由真人键鼠完成 ST001-01；Agent 只记录，不代按、不自动通关。</p></article>
+          <article class="flow-step"><strong>证据决定改动</strong><p>只有具体路线出现可追溯问题，才允许修改现有反馈、时序或难度值。</p></article>
+          <article class="flow-step"><strong>同路线复验</strong><p>记录修改前后结果；完成 15 个槽位后才进入严格验收和版本关闭。</p></article>
+        </div>
+      </section>
+
+      <section id="guardrails" aria-labelledby="guardrails-title">
+        <div class="section-head">
+          <span class="section-index">06</span>
+          <div>
+            <h2 id="guardrails-title">不可越过的产品边界</h2>
+            <p class="section-copy">本轮目标是验证和修正战斗体验，不是借机扩展玩法或重写系统。</p>
+          </div>
+        </div>
+        <div class="guardrails">
+          <article class="guard keep">
+            <h3>必须保持</h3>
+            <ul class="plain-list">
+              <li>Schema30 存档及星级隔离规则。</li>
+              <li>每局最多一次结算，Boss 战利品先于结算。</li>
+              <li>有序脚本、既有路线、六种非剧情模式。</li>
+              <li>V3.0 安全修复与 V3.3.2—V3.3.4 基线。</li>
+              <li>ST001-01 现有六项数值，除非真人证据证明有害。</li>
+            </ul>
+          </article>
+          <article class="guard stop">
+            <h3>本轮禁止</h3>
+            <ul class="plain-list">
+              <li>新增内容、依赖、存档字段或公开 Debug UI。</li>
+              <li>新增 `_vXXOld*` 包装层或重写战斗循环。</li>
+              <li>修改正式存档、解锁条件来缩短验收。</li>
+              <li>把自动化、模拟器或 AI 操作写成真人证据。</li>
+              <li>真人验收关闭前创建 V3.3.6。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="feedback" aria-labelledby="feedback-title">
+        <div class="section-head">
+          <span class="section-index">07</span>
+          <div>
+            <h2 id="feedback-title">评审意见模板</h2>
+            <p class="section-copy">复制后填写并发回。建议每个问题独立编号，附上路线、输入方式和证据。</p>
+          </div>
+        </div>
+        <div class="feedback-box">
+          <h3>请用可执行意见替代泛化评价</h3>
+          <p>“优化一下手感”无法直接进入开发；“键鼠 ST001-01 的闪避按下到视觉反馈明显滞后，录像 01:42”可以。</p>
+          <label class="sr-only" for="feedbackText">评审意见模板</label>
+          <textarea id="feedbackText" spellcheck="false">《万界无双 V3.3.5》评审意见
+
+评审人：
+评审日期：
+评审角色：产品 / 战斗设计 / UI / 测试 / 其他
+
+一、总体结论
+[ ] 同意进入真人路线验收
+[ ] 修改后再进入真人路线验收
+[ ] 当前存在阻断项
+
+二、关键判断
+1. 桌面操作是否直观：
+2. 战斗反馈与难度是否具备真人测试条件：
+3. 手机操作方案是否具备实体机测试条件：
+
+三、具体问题（每个问题复制一份）
+问题编号：
+严重度：阻断 / 高 / 中 / 低
+输入方式：键鼠 / 真实浏览器触控 / 实体手机
+路线：ST001-01 / ST001-02 / ST003-03 / ST004-02 / ST004-03
+观察到的现象：
+发生时间或条件：
+证据文件/时间戳：
+期望结果：
+建议的最小改动（可选）：
+
+四、不得改变的内容确认
+[ ] 同意保持 Schema30、星级、结算、路线与成长基线
+[ ] 同意不以自动化或模拟器替代真人证据
+[ ] 同意 V3.3.5 关闭前不扩大到 V3.3.6
+
+五、其他意见：
+</textarea>
+          <div class="button-row">
+            <button class="button" id="copyFeedback" type="button">复制评审模板</button>
+            <span id="copyStatus" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="appendix" aria-labelledby="appendix-title">
+        <div class="section-head">
+          <span class="section-index">08</span>
+          <div>
+            <h2 id="appendix-title">技术附录</h2>
+            <p class="section-copy">评审人无需执行；交给开发 Agent 时可直接使用。</p>
+          </div>
+        </div>
+        <details>
+          <summary>当前运行构建指纹</summary>
+          <div class="details-body">
+            <p>覆盖 <code class="inline-code">index.html</code> 与 <code class="inline-code">assets/</code> 下 24 个运行文件：</p>
+            <div class="fingerprint">sha256-runtime-manifest:43bc4b4005f12f8a0e501b40ec91038d5c29e543bda7133fce62db7c1193b45a</div>
+          </div>
+        </details>
+        <details>
+          <summary>关键实现锚点</summary>
+          <div class="details-body">
+            <ul class="plain-list">
+              <li><code class="inline-code">index.html:220</code>：桌面战斗操作坞。</li>
+              <li><code class="inline-code">assets/css/app.css:60</code>：操作坞样式。</li>
+              <li><code class="inline-code">assets/css/app.css:110</code>：手机战斗布局与安全区。</li>
+              <li><code class="inline-code">assets/js/combat/engine.js:237</code>：实时操作状态同步。</li>
+              <li><code class="inline-code">scripts/playtest-validate.mjs:7</code>：五条路线；第 14 行定义三种输入。</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>开发 Agent 的第一组命令</summary>
+          <div class="details-body">
+            <pre>Set-Location -LiteralPath 'E:\wanjie_wushuang'
+npm run playtest:self-test
+node scripts/playtest-validate.mjs playtest/human-acceptance-2026-08-25.json
+$env:PORT='8082'
+npm run dev</pre>
+          </div>
+        </details>
+        <details>
+          <summary>最终完成门槛</summary>
+          <div class="details-body">
+            <pre>node scripts/playtest-validate.mjs playtest/human-acceptance-2026-08-25.json --require-acceptance
+npm run check &amp;&amp; npm run smoke &amp;&amp; npm run audit &amp;&amp; npm run context &amp;&amp; npm run archive:verify</pre>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <strong>万界无双 V3.3.5 真人战斗体验评审包</strong><br>
+    单文件、无外部依赖、可离线打开与打印。当前验收状态：pending · 真人路线：0/15。
+  </footer>
+
+  <script>
+    (() => {
+      const feedback = document.getElementById('feedbackText');
+      const copyButton = document.getElementById('copyFeedback');
+      const copyStatus = document.getElementById('copyStatus');
+      const setCopyState = (message) => {
+        copyStatus.textContent = message;
+        window.setTimeout(() => { copyStatus.textContent = ''; }, 2400);
+      };
+
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(feedback.value);
+          setCopyState('已复制，可直接粘贴发送。');
+        } catch (error) {
+          feedback.focus();
+          feedback.select();
+          const copied = document.execCommand('copy');
+          setCopyState(copied ? '已复制，可直接粘贴发送。' : '复制受限，请手动选择文本。');
+        }
+      });
+
+      document.getElementById('printPage').addEventListener('click', () => window.print());
+      document.getElementById('jumpFeedback').addEventListener('click', () => {
+        document.getElementById('feedback').scrollIntoView({ behavior: 'smooth' });
+        window.setTimeout(() => feedback.focus({ preventScroll: true }), 320);
+      });
+    })();
+  </script>
+</body>
+</html>

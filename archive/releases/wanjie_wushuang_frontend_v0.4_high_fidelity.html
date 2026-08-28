@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>万界无双 · V0.4 高保真战斗体验版</title>
+<style>
+:root{
+  --bg:#06090e;--panel:#121a25;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);
+  --text:#f5f7fb;--muted:#92a0b2;--muted2:#657386;--gold:#f4c76e;--red:#ef6e58;--blue:#6da7ff;
+  --cyan:#67d8ff;--purple:#9e7cff;--green:#63d39d;--shadow:0 28px 100px rgba(0,0,0,.46)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+body{background:radial-gradient(circle at 11% 0%,rgba(212,74,58,.15),transparent 24%),radial-gradient(circle at 86% 0%,rgba(102,80,211,.15),transparent 28%),linear-gradient(180deg,#06090e,#0a1018 52%,#06090e)}
+button{font:inherit;color:inherit}.app{display:grid;grid-template-columns:252px 1fr;min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:16px 13px;background:rgba(6,9,14,.95);border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:50}
+.brand{display:flex;align-items:center;gap:12px;padding:11px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));margin-bottom:14px}
+.logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-weight:1000;color:#1c0e0b;background:linear-gradient(135deg,#f4d59a,#ef7357 48%,#835fe0)}
+.brand h1{margin:0;font-size:17px}.brand small{display:block;margin-top:4px;color:var(--gold);font-size:10px;letter-spacing:.16em}
+.group-title{margin:18px 10px 8px;color:#536173;font-size:10px;letter-spacing:.18em}.nav{display:grid;gap:6px}
+.nav button{border:1px solid transparent;background:transparent;padding:9px 10px;border-radius:13px;display:flex;gap:10px;align-items:center;cursor:pointer;color:#7f8b9d;transition:.2s}
+.nav button:hover{background:rgba(255,255,255,.03);color:#dfe6ef;transform:translateX(2px)}
+.nav button.active{color:#fff;border-color:rgba(239,110,88,.2);background:linear-gradient(90deg,rgba(239,110,88,.16),rgba(114,91,214,.08));box-shadow:inset 3px 0 0 var(--red)}
+.nav-ico{width:33px;height:33px;border-radius:10px;display:grid;place-items:center;background:#111925;border:1px solid rgba(255,255,255,.05);font-size:12px;font-weight:900}
+.side-foot{position:absolute;left:13px;right:13px;bottom:13px;padding:12px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:#5d697a;font-size:10px}
+.main{min-width:0}.topbar{height:76px;position:sticky;top:0;z-index:40;padding:0 26px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,9,14,.76);backdrop-filter:blur(22px);border-bottom:1px solid var(--line)}
+.top-left{display:flex;align-items:center;gap:12px}.accent{width:6px;height:29px;border-radius:5px;background:linear-gradient(var(--gold),var(--red))}
+.top-left small{display:block;color:var(--muted2);margin-top:3px}.userbar{display:flex;gap:8px;align-items:center}.pill{padding:8px 11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.03);font-size:12px}.pill.gold b{color:var(--gold)}
+.avatar{width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);background:radial-gradient(circle at 45% 35%,#f0c38e 0 13%,#b95d4d 14% 43%,#2d2431 45% 100%)}
+.content{padding:22px 26px 44px;max-width:1580px;margin:auto}.page{display:none;animation:pageIn .24s ease both}.page.active{display:block}@keyframes pageIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.section-title{display:flex;align-items:end;justify-content:space-between;margin:28px 0 13px}.section-title h2,.section-title h3{margin:0}.section-title span{color:var(--muted2);font-size:11px}
+.grid{display:grid;gap:14px}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;padding:17px;background:linear-gradient(180deg,rgba(22,31,44,.94),rgba(13,19,28,.96));box-shadow:0 14px 36px rgba(0,0,0,.2)}
+.hover{cursor:pointer;transition:.2s}.hover:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.16);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.btn{border:1px solid var(--line2);border-radius:11px;padding:10px 15px;background:linear-gradient(180deg,#1b2431,#141b25);cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.btn.primary{font-weight:800;border-color:rgba(255,139,109,.32);background:linear-gradient(135deg,#cf493e,#ef7958 66%,#e79a5d)}.btn.gold{background:linear-gradient(135deg,#65501f,#a7792d);border-color:rgba(244,199,110,.28);color:#ffe7ac}.btn.ghost{background:rgba(255,255,255,.02)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:10px;padding:5px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);color:#bbc5d1}.tag.hot{color:#ffb5a7;border-color:rgba(239,110,88,.2);background:rgba(239,110,88,.08)}
+.eyebrow{font-size:10px;letter-spacing:.26em;color:var(--gold);font-weight:900}.muted{color:var(--muted)}.tiny{font-size:10px;color:var(--muted2)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.hero-stage{min-height:440px;border-radius:28px;overflow:hidden;position:relative;border:1px solid var(--line2);background:radial-gradient(circle at 72% 34%,rgba(240,141,75,.2),transparent 15%),radial-gradient(circle at 72% 38%,rgba(207,72,58,.18),transparent 32%),radial-gradient(circle at 42% 110%,rgba(100,78,200,.2),transparent 42%),linear-gradient(120deg,#17202d,#111822 53%,#0b1119);box-shadow:var(--shadow);padding:40px 42px;display:flex;align-items:flex-end}
+.hero-visual{position:absolute;right:3%;bottom:0;width:43%;height:92%;z-index:1}.figure-head{position:absolute;left:43%;top:7%;width:18%;height:18%;border-radius:50%;background:radial-gradient(circle at 45% 36%,#e6b581 0 18%,#ad6250 20% 52%,#2d2329 54%)}.figure-body{position:absolute;left:27%;bottom:0;width:48%;height:76%;background:linear-gradient(180deg,#543a35,#211c25 70%,#11161e);clip-path:polygon(30% 0,70% 0,79% 12%,84% 29%,98% 45%,78% 55%,66% 100%,34% 100%,22% 56%,2% 45%,17% 30%,22% 12%)}.weapon{position:absolute;left:-8%;top:24%;width:95%;height:9%;border-radius:100% 15% 15% 100%;transform:rotate(-28deg);background:linear-gradient(90deg,transparent 0 4%,#6a402e 5% 34%,#dca550 35% 82%,#f8e8b0 83%)}.aura{position:absolute;right:-3%;top:10%;width:78%;height:78%;border-radius:50%;background:radial-gradient(circle,rgba(239,98,63,.2),rgba(114,73,193,.08) 40%,transparent 70%)}
+.hero-copy{position:relative;z-index:3;max-width:670px}.hero-copy h1{font-size:54px;margin:12px 0;line-height:.96}.hero-copy p{color:#aab6c5;line-height:1.9;font-size:13px;max-width:610px}.hero-data{display:flex;gap:10px;margin-top:17px;flex-wrap:wrap}.data-chip{padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:11px}.data-chip b{color:var(--gold)}
+.feature-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.feature-box{padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.025)}.feature-box small{display:block;color:var(--muted2);font-size:9px;margin-bottom:4px}.feature-box b{font-size:16px}
+.skill-library{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.skill-token{padding:10px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,#172130,#111923);cursor:pointer;transition:.2s}.skill-token:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.16)}
+.skill-icon{height:62px;border-radius:11px;display:grid;place-items:center;font-size:22px;font-weight:900;color:var(--gold);background:radial-gradient(circle,rgba(239,110,88,.24),transparent 34%),linear-gradient(145deg,#28364b,#18202c)}.skill-token:nth-child(3n+2) .skill-icon{color:var(--blue)}.skill-token:nth-child(3n+3) .skill-icon{color:var(--purple)}.skill-token b{display:block;margin-top:9px;font-size:11px}.skill-token small{display:block;color:var(--muted2);font-size:9px;margin-top:3px}
+.evo-track{display:grid;grid-template-columns:180px 70px 180px 70px 200px 70px 220px;gap:8px;align-items:center;min-width:1060px}.evo-board{overflow:auto}.evo-card{padding:14px;border-radius:15px;border:1px solid var(--line);background:linear-gradient(180deg,#172130,#111923);min-height:112px}.evo-card.epic{border-color:rgba(244,199,110,.24);background:linear-gradient(180deg,#2a241c,#171821)}.evo-card.mythic{border-color:rgba(239,110,88,.34);background:linear-gradient(135deg,#3b2423,#241c33)}.arrow{text-align:center;color:var(--gold);font-size:23px}
+.battle-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:14px}.battle-frame{border-radius:22px;padding:9px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));border:1px solid var(--line);box-shadow:var(--shadow)}
+.arena{min-height:690px;border-radius:17px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(127,142,94,.18),transparent 23%),radial-gradient(circle at 19% 24%,rgba(114,78,55,.18),transparent 18%),repeating-radial-gradient(circle at 50% 50%,#202a23 0 38px,#19221d 39px 76px)}
+.hud-top{position:absolute;left:14px;right:14px;top:14px;display:flex;gap:10px;z-index:8}.hud-box{padding:9px 11px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(7,11,16,.75);backdrop-filter:blur(9px)}.hpbox{width:260px}.hline{display:flex;justify-content:space-between;font-size:10px}.hp{height:11px;border-radius:999px;background:#302128;overflow:hidden;margin-top:6px}.hp i{display:block;height:100%;width:82%;background:linear-gradient(90deg,#b63a36,#ef6e58)}.xp{height:5px;border-radius:999px;background:#26313e;overflow:hidden;margin-top:5px}.xp i{display:block;width:64%;height:100%;background:linear-gradient(90deg,#645ee7,#67d8ff)}.hud-right{margin-left:auto;display:flex;gap:8px}
+.bossbar{position:absolute;left:50%;top:70px;transform:translateX(-50%);width:min(620px,68%);z-index:8;display:none}.bossbar.show{display:block}.boss-head{display:flex;justify-content:space-between;font-size:10px;margin-bottom:5px}.boss-hp{height:16px;border-radius:999px;background:#2d1720;border:1px solid rgba(239,110,88,.35);overflow:hidden}.boss-hp i{display:block;height:100%;width:68%;background:linear-gradient(90deg,#8f2530,#df4b4b 55%,#f08b5d)}.phase-dots{display:flex;gap:5px;margin-top:5px;justify-content:center}.phase-dots i{width:26px;height:3px;border-radius:999px;background:#394455}.phase-dots i.on{background:var(--gold)}
+.player{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:radial-gradient(circle,#ffe2a4 0 18%,#e45d45 20% 54%,#6b2928 56%);box-shadow:0 0 28px rgba(239,110,88,.78);z-index:5}.player:after{content:"";position:absolute;inset:-48px;border-radius:50%;border:1px solid rgba(244,199,110,.24);animation:pulse 2.1s infinite ease-in-out}@keyframes pulse{0%,100%{transform:scale(.9);opacity:.25}50%{transform:scale(1.08);opacity:.65}}
+.enemy{position:absolute;width:17px;height:17px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e27c6b,#7d3132 65%,#311b21)}.enemy.elite{width:28px;height:28px;background:radial-gradient(circle at 35% 35%,#efc37c,#996026 65%,#402b19)}
+.boss-dot{position:absolute;left:68%;top:40%;width:72px;height:72px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f2bd78,#8d2f31 42%,#331b25 72%);box-shadow:0 0 40px rgba(239,110,88,.36);display:none;z-index:4}.boss-dot.show{display:block}
+.skillbar{position:absolute;left:15px;bottom:15px;z-index:8;display:flex;gap:6px;padding:7px;border-radius:14px;background:rgba(7,11,16,.72);border:1px solid var(--line)}.skillbox{width:48px;height:48px;border-radius:11px;border:1px solid #445165;background:linear-gradient(145deg,#263548,#161d28);display:grid;place-items:center;font-size:9px;position:relative}.skillbox.evolved{border-color:rgba(244,199,110,.38)}.skillbox em{position:absolute;right:4px;bottom:2px;font-style:normal;color:var(--gold);font-size:9px}.ultimate{position:absolute;right:17px;bottom:16px;width:74px;height:74px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle,#6c3b2e,#251a20 68%);display:grid;place-items:center;text-align:center;font-size:10px;font-weight:900;z-index:8}
+.warning-zone{position:absolute;display:none;border-radius:50%;border:2px solid rgba(255,89,72,.7);background:rgba(255,70,60,.09);z-index:3}.warning-zone.show{display:block;animation:warn 1.2s ease-in-out infinite}@keyframes warn{0%,100%{opacity:.45}50%{opacity:1}}
+.pause-overlay,.choice-overlay{position:absolute;inset:0;background:rgba(5,8,12,.75);backdrop-filter:blur(7px);display:none;place-items:center;z-index:20}.pause-overlay.show,.choice-overlay.show{display:grid}
+.pause-panel{width:min(460px,90%);padding:22px;border-radius:18px;border:1px solid var(--line2);background:linear-gradient(180deg,#182332,#0f1620);text-align:center}.pause-actions{display:grid;gap:9px;margin-top:18px}
+.choice-panel{width:min(900px,92%)}.choice-title{text-align:center;margin-bottom:14px}.choice-title h2{margin:0 0 5px}.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.choice-card{padding:16px;border-radius:16px;border:1px solid var(--line2);background:linear-gradient(180deg,#1b2635,#111923);cursor:pointer}.choice-icon{height:90px;border-radius:13px;background:radial-gradient(circle,rgba(239,110,88,.28),transparent 34%),linear-gradient(145deg,#27354a,#17202c);display:grid;place-items:center;font-size:30px;font-weight:900;color:var(--gold)}.choice-card h3{margin:12px 0 5px}.choice-card p{color:var(--muted);font-size:11px;line-height:1.6}.choice-foot{font-size:10px;color:var(--gold);margin-top:8px}
+.side-panel{display:grid;gap:12px;align-content:start}.timeline{padding:14px}.timeline-head{display:flex;justify-content:space-between;align-items:center}.timeline-head b{font-size:13px}.time-progress{height:7px;background:#24303d;border-radius:999px;overflow:hidden;margin:10px 0 14px}.time-progress i{display:block;width:55%;height:100%;background:linear-gradient(90deg,var(--red),var(--gold))}
+.event-list{display:grid;gap:8px}.event-item{display:grid;grid-template-columns:50px 1fr;gap:9px;padding:9px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.045)}.event-time{font-size:10px;color:var(--gold)}.event-item b{font-size:11px}.event-item small{display:block;color:var(--muted2);margin-top:3px;font-size:9px}
+.build-panel .build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}.build-chip{padding:8px;border-radius:10px;text-align:center;border:1px solid var(--line);background:rgba(255,255,255,.025);font-size:9px}.build-chip.on{border-color:rgba(244,199,110,.28);color:var(--gold)}.event-actions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.event-card{min-height:210px;display:flex;flex-direction:column;justify-content:space-between}.event-icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-weight:900;background:linear-gradient(145deg,#28374b,#17202c);border:1px solid var(--line2);color:var(--gold)}.event-card h3{margin:12px 0 5px}.event-card p{font-size:11px;color:var(--muted);line-height:1.6}
+.shop-list{display:grid;gap:9px}.shop-item{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025)}.shop-icon{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:#1d2938;color:var(--gold);font-weight:900}.shop-meta{flex:1}.shop-meta b{font-size:11px}.shop-meta small{display:block;color:var(--muted2)}.price{font-size:10px;color:var(--gold)}
+.result-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.rank-list{display:grid;gap:9px;margin-top:10px}.rank-row{display:grid;grid-template-columns:28px 1fr 70px;gap:8px;align-items:center;padding:10px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05)}.rank-row b:last-child{text-align:right;color:var(--gold)}
+.modal{position:fixed;inset:0;display:none;place-items:center;padding:24px;background:rgba(4,6,9,.78);backdrop-filter:blur(10px);z-index:100}.modal.show{display:grid}.modal-card{width:min(720px,95vw);border-radius:22px;padding:22px;background:linear-gradient(180deg,#161f2b,#0e141d);border:1px solid var(--line2);box-shadow:var(--shadow)}.modal-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:14px}.modal-head h3{margin:5px 0 0}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,18px);opacity:0;padding:10px 14px;border-radius:11px;background:rgba(8,13,19,.95);border:1px solid var(--line2);z-index:120;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1180px){.app{grid-template-columns:86px 1fr}.brand>div:last-child,.group-title,.nav .label,.side-foot{display:none}.brand{justify-content:center}.nav button{justify-content:center;padding:8px}.c4{grid-template-columns:repeat(2,1fr)}.c3{grid-template-columns:repeat(2,1fr)}.battle-layout{grid-template-columns:1fr}.side-panel{grid-template-columns:repeat(2,1fr)}.skill-library{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{position:fixed;left:0;right:0;top:auto;bottom:0;height:70px;padding:7px 8px;border-right:0;border-top:1px solid var(--line)}.brand,.side-foot,.group-title{display:none}.nav{grid-template-columns:repeat(6,1fr);gap:3px}.nav:nth-of-type(2){display:none}.nav button{display:grid;justify-items:center;gap:2px;padding:5px 2px;font-size:9px}.nav .label{display:block}.nav-ico{width:30px;height:30px}.topbar{height:60px;padding:0 13px}.top-left small{display:none}.content{padding:13px 13px 88px}.hero-stage{min-height:510px;padding:28px 19px}.hero-copy h1{font-size:40px}.hero-visual{width:62%;right:-22%;height:72%;opacity:.5}.feature-strip,.c4,.c3,.c2,.choice-grid,.result-grid,.side-panel{grid-template-columns:1fr}.skill-library{grid-template-columns:repeat(3,1fr)}.arena{min-height:560px}.hpbox{width:180px}.hud-right{display:none}.skillbar{max-width:calc(100vw - 120px);overflow:hidden}.skillbox{width:41px;height:41px}.bossbar{width:82%}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">界</div><div><h1>万界无双</h1><small>HIGH FIDELITY</small></div></div>
+  <div class="group-title">核心</div>
+  <div class="nav">
+    <button class="active" data-page="home"><span class="nav-ico">主</span><span class="label">主大厅</span></button>
+    <button data-page="skills"><span class="nav-ico">技</span><span class="label">技能库</span></button>
+    <button data-page="events"><span class="nav-ico">事</span><span class="label">战斗事件</span></button>
+    <button data-page="battle"><span class="nav-ico">战</span><span class="label">战斗模拟</span></button>
+    <button data-page="result"><span class="nav-ico">结</span><span class="label">结算</span></button>
+    <button data-page="settings"><span class="nav-ico">设</span><span class="label">设置</span></button>
+  </div>
+  <div class="group-title">演示跳转</div>
+  <div class="nav">
+    <button onclick="setBattleMinute(5)"><span class="nav-ico">5</span><span class="label">5分钟 Boss</span></button>
+    <button onclick="setBattleMinute(10)"><span class="nav-ico">10</span><span class="label">10分钟进化</span></button>
+    <button onclick="setBattleMinute(18)"><span class="nav-ico">18</span><span class="label">18分钟怪潮</span></button>
+  </div>
+  <div class="side-foot"><b>V0.4</b><br>High Fidelity Battle Prototype</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="top-left"><span class="accent"></span><div><strong id="title">主大厅</strong><small>战斗体验高保真原型</small></div></div>
+  <div class="userbar"><span class="pill">Lv.12</span><span class="pill gold">金币 <b>3,280</b></span><span class="avatar"></span></div>
+</header>
+
+<div class="content">
+<section class="page active" id="home">
+  <div class="hero-stage">
+    <div class="hero-visual"><div class="aura"></div><div class="weapon"></div><div class="figure-body"></div><div class="figure-head"></div></div>
+    <div class="hero-copy">
+      <div class="eyebrow">CURRENT HERO · 炎龙专精</div><h1>赤焰战神</h1>
+      <p>本版重点展示战斗流程、Boss阶段、技能进化提示与地图事件交互。可直接跳转 5、10、18、20 分钟节点查看不同战斗状态。</p>
+      <div class="hero-data"><span class="data-chip">战力 <b>1,284</b></span><span class="data-chip">Build <b>焚天武圣</b></span><span class="data-chip">最高无尽 <b>34:28</b></span></div>
+      <div class="tags" style="margin-top:12px"><span class="tag hot">火</span><span class="tag">剑</span><span class="tag">近战</span><span class="tag">进化路线清晰</span></div>
+      <div class="actions"><button class="btn primary" onclick="go('battle')">进入战斗模拟</button><button class="btn ghost" onclick="go('skills')">技能库</button><button class="btn gold" onclick="go('events')">查看事件</button></div>
+    </div>
+  </div>
+  <div class="feature-strip"><div class="feature-box"><small>技能图标</small><b>24+</b></div><div class="feature-box"><small>战斗事件</small><b>4类</b></div><div class="feature-box"><small>Boss阶段</small><b>3阶段</b></div><div class="feature-box"><small>流程模拟</small><b>0–20 MIN</b></div></div>
+  <div class="section-title"><h3>本版新增</h3><span>高保真交互重点</span></div>
+  <div class="grid c4">
+    <div class="card"><div class="eyebrow">BOSS</div><h3>阶段化Boss HUD</h3><p class="muted">血条、阶段标记、攻击预警与Boss节点演示。</p></div>
+    <div class="card"><div class="eyebrow" style="color:var(--green)">EVENT</div><h3>商人 / 祭坛 / 宝箱</h3><p class="muted">战斗中的随机事件与即时选择。</p></div>
+    <div class="card"><div class="eyebrow" style="color:var(--blue)">TIMELINE</div><h3>20分钟流程</h3><p class="muted">快速跳转Boss、进化、融合与怪潮节点。</p></div>
+    <div class="card"><div class="eyebrow" style="color:var(--purple)">BUILD</div><h3>Build状态</h3><p class="muted">实时展示主动、被动、进化与成型进度。</p></div>
+  </div>
+</section>
+
+<section class="page" id="skills">
+  <div class="section-title"><h2>技能库</h2><span>MVP 图标体系与标签预览</span></div><div class="skill-library" id="skillLibrary"></div>
+  <div class="section-title"><h3>进化链路</h3><span>火系示例</span></div>
+  <div class="card evo-board">
+    <div class="evo-track"><div class="evo-card"><b>A011 火球术</b><p class="muted">基础投射 · Lv.5</p></div><div class="arrow">＋</div><div class="evo-card"><b>P026 火神祝福</b><p class="muted">Lv.3+</p></div><div class="arrow">→</div><div class="evo-card epic"><b>E011 炼狱火球</b><p class="muted">爆炸 + 燃烧区域</p></div><div class="arrow">＋</div><div class="evo-card mythic"><b>F001 焚天龙卷</b><p class="muted">与天灾风暴融合</p></div></div>
+    <div class="evo-track" style="margin-top:10px"><div class="evo-card mythic"><b>F001 焚天龙卷</b><p class="muted">融合技能</p></div><div class="arrow">＋</div><div class="evo-card epic"><b>E027 天火陨星</b><p class="muted">陨石进化</p></div><div class="arrow">＋</div><div class="evo-card"><b>P026 Lv.5</b><p class="muted">火神祝福满级</p></div><div class="arrow">→</div><div class="evo-card mythic"><b>M001 灭世炎狱</b><p class="muted">神话终点</p></div></div>
+  </div>
+</section>
+
+<section class="page" id="events">
+  <div class="section-title"><h2>战斗事件</h2><span>点击卡片查看交互</span></div>
+  <div class="grid c4">
+    <div class="card hover event-card" onclick="openEvent('shop')"><div><div class="event-icon">商</div><h3>游商</h3><p>局内金币购买回血、升级、刷新或特殊Buff。</p></div><span class="tag">6–15分钟</span></div>
+    <div class="card hover event-card" onclick="openEvent('altar')"><div><div class="event-icon">祭</div><h3>战神祭坛</h3><p>以生命、防御等代价换取强力战斗强化。</p></div><span class="tag">风险换收益</span></div>
+    <div class="card hover event-card" onclick="openEvent('chest')"><div><div class="event-icon">宝</div><h3>黄金宝箱</h3><p>优先提供进化、传奇强化或高品质选择。</p></div><span class="tag">精英 / Boss</span></div>
+    <div class="card hover event-card" onclick="openEvent('rift')"><div><div class="event-icon">裂</div><h3>时空裂缝</h3><p>进入高压挑战，成功后获得免费进化/融合机会。</p></div><span class="tag">隐藏事件</span></div>
+  </div>
+</section>
+
+<section class="page" id="battle">
+  <div class="section-title"><h2>20分钟战斗模拟</h2><span>右侧时间轴可快速切换阶段</span></div>
+  <div class="battle-layout">
+    <div class="battle-frame"><div class="arena" id="arena">
+      <div class="hud-top"><div class="hud-box hpbox"><div class="hline"><b>赤焰战神 · Lv.<span id="playerLv">28</span></b><span>82%</span></div><div class="hp"><i></i></div><div class="xp"><i></i></div></div><div class="hud-right"><span class="hud-box" id="timeLabel">11:00</span><span class="hud-box">击杀 <span id="killLabel">5,840</span></span><button class="hud-box" style="cursor:pointer" onclick="togglePause()">暂停</button></div></div>
+      <div class="bossbar" id="bossBar"><div class="boss-head"><b id="bossName">乱世妖师</b><span id="bossPhaseText">阶段 II / III</span></div><div class="boss-hp"><i id="bossHpFill"></i></div><div class="phase-dots"><i class="on"></i><i class="on"></i><i></i></div></div>
+      <div class="player"></div><div class="boss-dot" id="bossDot"></div><div class="warning-zone" id="warningZone"></div>
+      <div class="skillbar"><div class="skillbox evolved">火球<em>5</em></div><div class="skillbox evolved">火海<em>5</em></div><div class="skillbox">龙卷<em>4</em></div><div class="skillbox evolved">陨石<em>5</em></div><div class="skillbox">剑阵<em>3</em></div><div class="skillbox">黑洞<em>2</em></div></div><div class="ultimate">终极<br>READY</div>
+      <div class="choice-overlay" id="choice"><div class="choice-panel"><div class="choice-title"><div class="eyebrow">LEVEL UP</div><h2>选择一项强化</h2><div class="tiny">Build保护权重已生效</div></div><div class="choice-grid">
+        <div class="choice-card" onclick="pickChoice('火球术 Lv.5')"><div class="choice-icon">火</div><h3>火球术 Lv.5</h3><p>伤害+25%，爆炸范围+15%，达到进化条件。</p><div class="choice-foot">距离进化：1步</div></div>
+        <div class="choice-card" onclick="pickChoice('范围强化 Lv.3')"><div class="choice-icon" style="color:var(--blue)">域</div><h3>范围强化 Lv.3</h3><p>所有范围技能尺寸+10%，强化火海与龙卷。</p><div class="choice-foot">标签：范围</div></div>
+        <div class="choice-card" onclick="pickChoice('陨石雨 Lv.4')"><div class="choice-icon" style="color:var(--gold)">陨</div><h3>陨石雨 Lv.4</h3><p>落点数量+1，更接近天火陨星路线。</p><div class="choice-foot">可融合：天火路线</div></div>
+      </div></div></div>
+      <div class="pause-overlay" id="pause"><div class="pause-panel"><div class="eyebrow">PAUSED</div><h2>战斗暂停</h2><p class="muted">当前Build：焚天武圣 · 火系倾向72%</p><div class="pause-actions"><button class="btn primary" onclick="togglePause()">继续战斗</button><button class="btn" onclick="go('skills')">查看技能图谱</button><button class="btn ghost" onclick="go('home')">退出模拟</button></div></div></div>
+    </div></div>
+
+    <aside class="side-panel">
+      <div class="card timeline"><div class="timeline-head"><b>战斗时间轴</b><span class="tiny" id="minuteText">11 / 20 MIN</span></div><div class="time-progress"><i id="timeProgress"></i></div><div class="event-list">
+        <div class="event-item hover" onclick="setBattleMinute(3)"><div class="event-time">03:00</div><div><b>第一精英</b><small>黄巾力士 · 宝箱</small></div></div>
+        <div class="event-item hover" onclick="setBattleMinute(5)"><div class="event-time">05:00</div><div><b>Boss 1</b><small>黄巾巨将</small></div></div>
+        <div class="event-item hover" onclick="setBattleMinute(8)"><div class="event-time">08:00</div><div><b>超级怪潮</b><small>生成率 ×1.8</small></div></div>
+        <div class="event-item hover" onclick="setBattleMinute(10)"><div class="event-time">10:00</div><div><b>Boss 2</b><small>首次进化窗口</small></div></div>
+        <div class="event-item hover" onclick="setBattleMinute(15)"><div class="event-time">15:00</div><div><b>Boss 3</b><small>融合机会</small></div></div>
+        <div class="event-item hover" onclick="setBattleMinute(18)"><div class="event-time">18:00</div><div><b>万军来袭</b><small>超级怪海高潮</small></div></div>
+        <div class="event-item hover" onclick="setBattleMinute(20)"><div class="event-time">20:00</div><div><b>最终Boss</b><small>混沌巨灵</small></div></div>
+      </div></div>
+      <div class="card build-panel"><div class="eyebrow">BUILD STATUS</div><h3 style="margin:7px 0 0">焚天武圣</h3><div class="build-grid"><div class="build-chip on">火球 Lv5</div><div class="build-chip on">火海 Lv5</div><div class="build-chip">龙卷 Lv4</div><div class="build-chip on">陨石 Lv5</div><div class="build-chip">火神 Lv4</div><div class="build-chip">范围 Lv3</div></div><div class="event-actions"><button class="btn" onclick="showChoice()">升级三选一</button><button class="btn gold" onclick="toast('进化提示：火球术 → 炼狱火球')">进化提示</button><button class="btn" onclick="triggerWarning()">Boss预警</button><button class="btn" onclick="openEvent('shop')">触发商人</button></div></div>
+    </aside>
+  </div>
+</section>
+
+<section class="page" id="result">
+  <div class="section-title"><h2>战斗结算</h2><span>乱世荒原 · 普通</span></div>
+  <div class="result-grid">
+    <div class="card" style="min-height:300px;background:radial-gradient(circle at 72% 40%,rgba(239,110,88,.17),transparent 26%),linear-gradient(145deg,#1a2432,#101720)"><div class="eyebrow">VICTORY</div><h1 style="font-size:42px;margin:10px 0 4px">乱世荒原 已净化</h1><p class="muted">完成3次进化、1次融合，击败4个Boss。</p><div class="feature-strip" style="grid-template-columns:repeat(3,1fr)"><div class="feature-box"><small>时间</small><b>21:37</b></div><div class="feature-box"><small>击杀</small><b>12,482</b></div><div class="feature-box"><small>金币</small><b style="color:var(--gold)">+2,350</b></div></div><div class="actions"><button class="btn primary" onclick="go('battle')">再次挑战</button><button class="btn" onclick="go('home')">返回大厅</button></div></div>
+    <div class="card"><div class="eyebrow">DPS REPORT</div><h3>技能伤害排行</h3><div class="rank-list"><div class="rank-row"><b>1</b><span>焚天龙卷</span><b>31%</b></div><div class="rank-row"><b>2</b><span>炼狱火海</span><b>22%</b></div><div class="rank-row"><b>3</b><span>天火陨星</span><b>18%</b></div><div class="rank-row"><b>4</b><span>烈焰刀</span><b>15%</b></div><div class="rank-row"><b>5</b><span>其他</span><b>14%</b></div></div></div>
+  </div>
+</section>
+
+<section class="page" id="settings">
+  <div class="section-title"><h2>设置</h2><span>战斗表现与性能选项</span></div>
+  <div class="grid c2">
+    <div class="card"><h3>显示</h3><div class="event-list"><div class="event-item"><div>伤害数字</div><div><b>简化</b><small>DOT合并显示</small></div></div><div class="event-item"><div>特效透明</div><div><b>70%</b><small>Boss预警优先</small></div></div><div class="event-item"><div>镜头震动</div><div><b>中</b><small>神话技能增强</small></div></div></div></div>
+    <div class="card"><h3>性能</h3><div class="event-list"><div class="event-item"><div>怪物显示</div><div><b>高</b><small>目标400+</small></div></div><div class="event-item"><div>粒子质量</div><div><b>中</b><small>动态调节</small></div></div><div class="event-item"><div>目标帧率</div><div><b>60 FPS</b><small>PC模式</small></div></div></div></div>
+  </div>
+</section>
+</div>
+</main>
+</div>
+
+<div class="modal" id="eventModal"><div class="modal-card"><div class="modal-head"><div><div class="eyebrow">BATTLE EVENT</div><h3 id="modalTitle">战斗事件</h3></div><button class="btn ghost" onclick="closeEvent()">关闭</button></div><div id="modalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const names={home:'主大厅',skills:'技能库',events:'战斗事件',battle:'战斗模拟',result:'战斗结算',settings:'设置'};
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById(id).classList.add('active');document.getElementById('title').textContent=names[id]||'万界无双';window.scrollTo({top:0,behavior:'smooth'})}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),1800)}
+const skills=[['火','火球术','火 / 投射'],['雷','雷电弹','雷 / 弹射'],['冰','冰箭','冰 / 控制'],['气','气功弹','气 / 投射'],['忍','手里剑','暗影 / 分裂'],['剑','剑阵','剑 / 范围'],['风','龙卷风','风 / 持续'],['陨','陨石雨','火 / 地图'],['爆','爆炎阵','火 / AOE'],['域','火焰领域','火 / 持续'],['珠','雷珠','雷 / 环绕'],['黑','黑洞','控制 / 吸附'],['闪','雷闪','雷 / 位移'],['影','影袭','暗影 / 位移'],['刀','烈焰刀','火 / 近战'],['拳','地裂拳','拳 / 重击'],['弩','连弩','远程 / 高频'],['刃','飞刀','暴击 / 投射'],['爆','连锁爆炸','爆炸 / 击杀'],['轮','火轮','火 / 环绕'],['矢','万箭雨','弓 / 地图'],['炮','气功轰炸','气 / AOE'],['剑','飞剑护体','剑 / 环绕'],['冰','极寒领域','冰 / 领域']];
+const lib=document.getElementById('skillLibrary');skills.forEach(([i,n,t])=>{const d=document.createElement('div');d.className='skill-token';d.innerHTML='<div class="skill-icon">'+i+'</div><b>'+n+'</b><small>'+t+'</small>';d.onclick=()=>toast(n+' · '+t);lib.appendChild(d)});
+function spawn(count=100){const a=document.getElementById('arena');a.querySelectorAll('.enemy').forEach(e=>e.remove());for(let i=0;i<count;i++){const e=document.createElement('i');e.className='enemy'+(i%21===0?' elite':'');e.style.left=(3+Math.random()*94)+'%';e.style.top=(11+Math.random()*78)+'%';e.style.transform='scale('+(0.7+Math.random()*.6)+')';a.appendChild(e)}}
+function showBoss(name,phase,hp){document.getElementById('bossName').textContent=name;document.getElementById('bossPhaseText').textContent=phase;document.getElementById('bossHpFill').style.width=hp+'%';document.getElementById('bossBar').classList.add('show');document.getElementById('bossDot').classList.add('show')}
+function setBattleMinute(min){go('battle');document.getElementById('timeLabel').textContent=String(min).padStart(2,'0')+':00';document.getElementById('minuteText').textContent=min+' / 20 MIN';document.getElementById('timeProgress').style.width=Math.min(100,min/20*100)+'%';document.getElementById('playerLv').textContent=Math.round(4+min*2.3);document.getElementById('killLabel').textContent=(Math.round(min*530)).toLocaleString();document.getElementById('bossBar').classList.remove('show');document.getElementById('bossDot').classList.remove('show');document.getElementById('warningZone').classList.remove('show');let count=40+min*13;if(min===5){showBoss('黄巾巨将','阶段 I / I',76);count=95}if(min===10){showBoss('乱世妖师','阶段 II / III',68);count=150;toast('进化窗口已开启')}if(min===15){showBoss('混沌骑将','阶段 II / II',42);count=210;toast('高级宝箱可能触发融合')}if(min>=18&&min<20){count=320;toast('万军来袭：超级怪海')}if(min>=20){showBoss('混沌巨灵','阶段 III / III',35);count=220}spawn(count)}
+function showChoice(){document.getElementById('choice').classList.add('show')}function pickChoice(n){document.getElementById('choice').classList.remove('show');toast('已选择：'+n)}function togglePause(){document.getElementById('pause').classList.toggle('show')}
+function triggerWarning(){const z=document.getElementById('warningZone');z.style.left='58%';z.style.top='34%';z.style.width='160px';z.style.height='160px';z.classList.add('show');setTimeout(()=>z.classList.remove('show'),1800);toast('Boss危险技能预警')}
+function openEvent(type){const m=document.getElementById('eventModal'),title=document.getElementById('modalTitle'),body=document.getElementById('modalBody');
+if(type==='shop'){title.textContent='游商 · 战场补给';body.innerHTML='<div class="shop-list"><div class="shop-item"><div class="shop-icon">药</div><div class="shop-meta"><b>恢复药剂</b><small>恢复30%生命</small></div><span class="price">100金币</span><button class="btn" onclick="buyEvent(\'恢复药剂\')">购买</button></div><div class="shop-item"><div class="shop-icon">升</div><div class="shop-meta"><b>技能升级</b><small>随机已有技能+1级</small></div><span class="price">300金币</span><button class="btn" onclick="buyEvent(\'技能升级\')">购买</button></div></div>'}
+else if(type==='altar'){title.textContent='战神祭坛';body.innerHTML='<p class="muted">献祭部分生存能力，换取强力局内强化。</p><div class="grid c2"><div class="card"><h3>战神之血</h3><p class="muted">生命上限-15%<br>攻击+25%</p><button class="btn primary" onclick="buyEvent(\'战神之血\')">接受</button></div><div class="card"><h3>疾风契约</h3><p class="muted">防御-10%<br>攻速+30%</p><button class="btn" onclick="buyEvent(\'疾风契约\')">接受</button></div></div>'}
+else if(type==='chest'){title.textContent='黄金宝箱';body.innerHTML='<p class="muted">当前已满足火球术进化条件。</p><div class="grid c3"><div class="card hover" onclick="buyEvent(\'炼狱火球进化\')"><div class="eyebrow">EVOLUTION</div><h3>炼狱火球</h3><p class="muted">优先进化核心技能</p></div><div class="card hover" onclick="buyEvent(\'传奇强化\')"><div class="eyebrow">LEGENDARY</div><h3>传奇强化</h3><p class="muted">随机已有技能获得高阶强化</p></div><div class="card hover" onclick="buyEvent(\'金币×500\')"><div class="eyebrow">REWARD</div><h3>金币 ×500</h3><p class="muted">保底资源选择</p></div></div>'}
+else{title.textContent='时空裂缝';body.innerHTML='<p class="muted">进入60秒挑战区域。怪物数量+80%，生命+30%。完成后获得免费进化或融合机会。</p><div class="actions"><button class="btn primary" onclick="buyEvent(\'进入时空裂缝\')">进入挑战</button><button class="btn ghost" onclick="closeEvent()">放弃</button></div>'}m.classList.add('show')}
+function closeEvent(){document.getElementById('eventModal').classList.remove('show')}function buyEvent(n){closeEvent();toast('已选择：'+n)}
+setBattleMinute(11);go('home');
+</script>
+</body></html>

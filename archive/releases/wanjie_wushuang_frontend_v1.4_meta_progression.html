@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>万界无双 · V1.4 完整局外养成版</title>
+<style>
+:root{
+ --bg:#05070b;--panel:#111822;--panel2:#182332;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);
+ --text:#f7f8fb;--muted:#94a1b3;--muted2:#647286;--gold:#f3c66c;--red:#ef694e;--purple:#a47dff;--blue:#70a9ff;
+ --cyan:#65d8ff;--green:#64d59f;--orange:#f09a58;--shadow:0 28px 100px rgba(0,0,0,.48)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+body{background:radial-gradient(circle at 9% 0%,rgba(218,73,54,.14),transparent 24%),radial-gradient(circle at 89% 0%,rgba(102,76,219,.16),transparent 29%),linear-gradient(180deg,#05070b,#091018 55%,#05070b)}
+button,input,select{font:inherit;color:inherit}
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:15px 12px;background:rgba(5,7,11,.96);border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:40}
+.brand{display:flex;gap:11px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012))}
+.logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:#24110d;font-weight:1000;background:linear-gradient(135deg,#f5d89b,#ef7659 46%,#7e61db)}
+.brand h1{margin:0;font-size:17px}.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:.16em;margin-top:3px}
+.group{margin:18px 10px 8px;color:#536173;font-size:10px;letter-spacing:.18em}
+.nav{display:grid;gap:6px}.nav button{border:1px solid transparent;background:transparent;padding:9px;border-radius:12px;display:flex;gap:10px;align-items:center;color:#7d899a;cursor:pointer;transition:.18s}
+.nav button:hover{background:rgba(255,255,255,.03);color:#e7edf5}.nav button.active{color:#fff;border-color:rgba(239,105,78,.2);background:linear-gradient(90deg,rgba(239,105,78,.16),rgba(105,78,201,.08));box-shadow:inset 3px 0 0 var(--red)}
+.ico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#101823;border:1px solid rgba(255,255,255,.05);font-size:11px;font-weight:900}
+.sidefoot{position:absolute;bottom:12px;left:12px;right:12px;padding:11px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);font-size:9px;color:#627084}
+.main{min-width:0}.topbar{height:70px;position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:0 22px;border-bottom:1px solid var(--line);background:rgba(5,7,11,.76);backdrop-filter:blur(22px)}
+.tleft{display:flex;gap:11px;align-items:center}.accent{width:6px;height:29px;border-radius:5px;background:linear-gradient(var(--gold),var(--red))}.tleft small{display:block;color:#68768a;margin-top:3px}
+.user{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pill{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03);font-size:11px}.pill b{color:var(--gold)}
+.content{padding:18px 22px 42px;max-width:1720px;margin:auto}.page{display:none}.page.active{display:block}
+.card{border:1px solid var(--line);border-radius:18px;padding:16px;background:linear-gradient(180deg,rgba(22,31,44,.94),rgba(12,18,26,.96));box-shadow:0 14px 38px rgba(0,0,0,.2)}
+.grid{display:grid;gap:14px}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.btn{border:1px solid var(--line2);border-radius:10px;padding:10px 14px;background:linear-gradient(180deg,#1b2431,#141b25);cursor:pointer;transition:.18s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn.primary{font-weight:800;background:linear-gradient(135deg,#c9463b,#ef7958 68%,#e7a05e);border-color:rgba(255,139,109,.32)}.btn.gold{background:linear-gradient(135deg,#5e4a1d,#9d742c);color:#ffe6a5;border-color:rgba(243,198,108,.28)}.btn.purple{background:linear-gradient(135deg,#403166,#6a4d9e);color:#e1d7ff;border-color:rgba(164,125,255,.28)}.btn.ghost{background:rgba(255,255,255,.02)}
+.eyebrow{font-size:9px;letter-spacing:.24em;color:var(--gold);font-weight:900}.muted{color:var(--muted)}.tiny{font-size:9px;color:#68768a}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:9px;padding:5px 7px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.03);color:#bac4d0}.tag.hot{color:#ffb2a2;border-color:rgba(239,105,78,.22);background:rgba(239,105,78,.08)}.tag.ok{color:#9ae0bc;border-color:rgba(100,213,159,.2);background:rgba(100,213,159,.06)}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:20px 0 12px}.section-title h2,.section-title h3{margin:0}.section-title span{font-size:10px;color:#68768a}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.progress{height:7px;border-radius:999px;background:#26313d;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold))}
+.value{color:var(--gold)}.status-ok{color:var(--green)}.status-lock{color:#6d7888}
+
+/* home */
+.dashboardHero{min-height:350px;border-radius:26px;position:relative;overflow:hidden;border:1px solid var(--line2);padding:32px 36px;display:flex;align-items:flex-end;box-shadow:var(--shadow);background:
+ radial-gradient(circle at 72% 32%,rgba(240,135,75,.22),transparent 14%),
+ radial-gradient(circle at 74% 39%,rgba(211,71,54,.18),transparent 29%),
+ radial-gradient(circle at 38% 115%,rgba(92,71,193,.2),transparent 44%),
+ linear-gradient(120deg,#17212e,#101721 55%,#090f16)}
+.heroArt{position:absolute;right:2%;bottom:0;width:39%;height:92%}.heroArt:before{content:"";position:absolute;left:35%;bottom:-2%;width:42%;height:80%;background:linear-gradient(180deg,#70483a,#2d2027 66%,#111821);clip-path:polygon(30% 0,70% 0,80% 12%,84% 30%,100% 47%,79% 57%,66% 100%,34% 100%,21% 57%,0 47%,16% 30%,21% 12%)}.heroArt:after{content:"";position:absolute;left:45%;top:7%;width:17%;height:17%;border-radius:50%;background:radial-gradient(circle at 43% 35%,#e8b985 0 17%,#ae6551 19% 50%,#2a2027 52%)}
+.heroCopy{position:relative;z-index:2;max-width:760px}.heroCopy h1{font-size:46px;margin:10px 0}.heroCopy p{color:#acb8c6;line-height:1.8;font-size:13px}
+.kpiGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:13px}.kpi{padding:12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}.kpi small{display:block;color:#68768a;font-size:8px}.kpi b{display:block;margin-top:4px;font-size:15px}
+.quickGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.quickCard{cursor:pointer;min-height:140px;transition:.18s}.quickCard:hover{transform:translateY(-3px)}.quickCard h3{margin:8px 0 4px}.quickIcon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#29384c,#171f2a);border:1px solid var(--line2);color:var(--gold);font-weight:900}
+.dailyGrid{display:grid;grid-template-columns:1.3fr .7fr;gap:14px}.missionList{display:grid;gap:8px}.mission{padding:10px;border:1px solid rgba(255,255,255,.05);border-radius:11px;background:rgba(255,255,255,.025)}.missionTop{display:flex;justify-content:space-between;gap:10px;font-size:10px}.mission small{color:#68768a}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{padding:8px 4px;border-radius:9px;text-align:center;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);font-size:8px}.day.done{border-color:rgba(100,213,159,.2);color:#b9ecd0}.day.today{border-color:rgba(243,198,108,.28);color:var(--gold)}
+
+/* equipment */
+.equipLayout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:14px}.loadout{position:relative;min-height:520px}.loadoutCenter{height:250px;border-radius:16px;margin-bottom:12px;background:radial-gradient(circle at 50% 40%,rgba(239,105,78,.14),transparent 26%),linear-gradient(145deg,#182332,#101721);display:grid;place-items:center}.loadoutCenter .avatar{width:92px;height:150px;background:linear-gradient(#604239,#281f27 67%,#111821);clip-path:polygon(31% 0,69% 0,80% 13%,84% 30%,100% 45%,79% 58%,66% 100%,34% 100%,21% 58%,0 45%,16% 30%,21% 13%)}
+.equipSlots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.equipSlot{min-height:84px;padding:9px;border-radius:11px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025)}.equipSlot b{display:block;font-size:10px}.equipSlot small{font-size:8px;color:#68768a}.gearGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.gear{padding:11px;border:1px solid rgba(255,255,255,.05);border-radius:13px;background:rgba(255,255,255,.025)}.gear.equipped{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.04)}.gearIcon{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:#1c2734;color:var(--gold);font-weight:900}.gear h4{margin:7px 0 3px}.gear p{font-size:8px;color:var(--muted);line-height:1.45}
+.rarity-blue{color:#75aaff}.rarity-purple{color:#b78cff}.rarity-gold{color:#f3c66c}
+
+/* runes */
+.runeLayout{display:grid;grid-template-columns:360px minmax(0,1fr);gap:14px}.runeBoard{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.runeSocket{height:100px;border-radius:14px;border:1px solid rgba(255,255,255,.06);background:radial-gradient(circle,rgba(164,125,255,.12),transparent 45%),rgba(255,255,255,.025);display:grid;place-items:center;text-align:center}.runeSocket b{display:block;font-size:11px}.runeSocket small{font-size:8px;color:#68768a}.runeGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.rune{padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer}.rune.selected{border-color:rgba(164,125,255,.28);background:rgba(164,125,255,.05)}.runeGlyph{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(164,125,255,.28);background:rgba(164,125,255,.08);color:#d5c6ff;font-weight:900;margin-bottom:7px}.rune b{font-size:9px}.rune small{display:block;font-size:8px;color:#68768a}
+
+/* pets */
+.petGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.petCard{padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer}.petCard.active{border-color:rgba(100,213,159,.24);background:rgba(100,213,159,.04)}.petOrb{height:100px;border-radius:13px;display:grid;place-items:center;background:radial-gradient(circle,rgba(100,213,159,.18),transparent 35%),linear-gradient(145deg,#1b2733,#101820)}.petOrb:before{content:"";width:52px;height:52px;border-radius:50% 50% 45% 45%;background:linear-gradient(145deg,#f1b767,#bd6a4e);box-shadow:0 0 24px rgba(243,198,108,.12)}.petCard:nth-child(2) .petOrb:before{background:linear-gradient(145deg,#85b3ff,#4969a4)}.petCard:nth-child(3) .petOrb:before{background:linear-gradient(145deg,#8ee0b8,#4d8d72)}.petCard:nth-child(4) .petOrb:before{background:linear-gradient(145deg,#f3d88d,#a6813f)}.petCard:nth-child(5) .petOrb:before{background:linear-gradient(145deg,#c39fff,#7052a4)}.petCard h4{margin:8px 0 4px}.petCard p{font-size:8px;color:var(--muted);line-height:1.45}
+
+/* talents */
+.talentLayout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:14px}.accountPanel .levelRing{width:120px;height:120px;border-radius:50%;margin:10px auto;display:grid;place-items:center;background:radial-gradient(circle,#141d27 57%,transparent 58%),conic-gradient(var(--gold) 0 45%,#27313e 45%);border:1px solid var(--line)}.levelRing b{font-size:28px}.talentTree{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.talentNode{min-height:95px;padding:10px;border-radius:13px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer}.talentNode.active{border-color:rgba(100,213,159,.22);background:rgba(100,213,159,.04)}.talentNode.locked{opacity:.5}.talentNode b{font-size:9px}.talentNode p{font-size:8px;color:var(--muted);line-height:1.4}
+
+/* tasks / achievements / codex */
+.taskTabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.taskTabs button{border:1px solid var(--line);background:rgba(255,255,255,.025);padding:8px 11px;border-radius:10px;cursor:pointer;color:#79879a}.taskTabs button.active{color:#fff;border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.06)}
+.taskPanel{display:none}.taskPanel.active{display:block}.taskRows{display:grid;gap:8px}.taskRow{display:grid;grid-template-columns:minmax(0,1fr) 180px 120px;gap:10px;align-items:center;padding:11px;border-radius:12px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.taskRow h4{margin:0 0 3px;font-size:10px}.taskRow p{margin:0;font-size:8px;color:var(--muted)}.taskReward{text-align:right;font-size:9px;color:var(--gold)}
+.codexGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.codexCard{min-height:105px;border-radius:12px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);padding:9px}.codexCard.locked{filter:grayscale(1);opacity:.35}.codexCard b{font-size:9px}.codexCard small{display:block;color:#68768a;font-size:8px}
+
+/* modes */
+.modeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.modeCard{min-height:200px;position:relative;overflow:hidden}.modeCard h3{margin:10px 0 5px}.modeCard p{font-size:9px;color:var(--muted);line-height:1.5}.modeArt{height:90px;border-radius:12px;background:radial-gradient(circle at 65% 45%,rgba(239,105,78,.18),transparent 25%),linear-gradient(145deg,#223043,#111923)}.modeCard:nth-child(2) .modeArt{background:radial-gradient(circle at 65% 45%,rgba(164,125,255,.2),transparent 25%),linear-gradient(145deg,#29233d,#111923)}.modeCard:nth-child(3) .modeArt{background:radial-gradient(circle at 65% 45%,rgba(101,216,255,.18),transparent 25%),linear-gradient(145deg,#203543,#111923)}
+.modeCard.locked{opacity:.5}
+
+/* save slots */
+.saveGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.saveSlot{min-height:210px}.saveSlot h3{margin:8px 0}.saveMeta{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.saveMeta div{padding:8px;border-radius:9px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05)}.saveMeta small{display:block;color:#68768a;font-size:8px}.saveMeta b{font-size:11px}
+
+/* result style generic */
+.infoRows{display:grid;gap:8px}.infoRow{display:flex;justify-content:space-between;padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);font-size:9px}.infoRow span{color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,18px);opacity:0;padding:10px 14px;border-radius:11px;background:rgba(8,13,19,.96);border:1px solid var(--line2);z-index:120;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1250px){.app{grid-template-columns:86px 1fr}.brand>div:last-child,.group,.nav .label,.sidefoot{display:none}.brand{justify-content:center}.nav button{justify-content:center}.kpiGrid{grid-template-columns:repeat(3,1fr)}.quickGrid{grid-template-columns:repeat(2,1fr)}.equipLayout,.runeLayout,.talentLayout{grid-template-columns:1fr}.petGrid{grid-template-columns:repeat(3,1fr)}.codexGrid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{position:fixed;left:0;right:0;bottom:0;top:auto;height:70px;padding:7px 8px;border-right:0;border-top:1px solid var(--line);overflow-x:auto}.brand,.group,.sidefoot{display:none}.nav{grid-template-columns:repeat(10,minmax(64px,1fr));gap:4px;min-width:700px}.nav button{display:grid;justify-items:center;gap:2px;padding:4px 2px;font-size:8px}.nav .label{display:block}.ico{width:29px;height:29px}.topbar{height:60px;padding:0 12px}.tleft small{display:none}.content{padding:12px 12px 88px}.dashboardHero{min-height:470px;padding:25px 18px}.heroCopy h1{font-size:36px}.heroArt{width:65%;right:-26%;opacity:.5}.kpiGrid,.quickGrid,.dailyGrid,.gearGrid,.runeGrid,.petGrid,.talentTree,.modeGrid,.saveGrid,.codexGrid,.c2,.c3,.c4{grid-template-columns:1fr}.taskRow{grid-template-columns:1fr}.taskReward{text-align:left}.calendar{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">界</div><div><h1>万界无双</h1><small>META PROGRESSION</small></div></div>
+  <div class="group">局外系统</div>
+  <div class="nav">
+    <button class="active" data-page="home"><span class="ico">厅</span><span class="label">主大厅</span></button>
+    <button data-page="gear"><span class="ico">装</span><span class="label">装备</span></button>
+    <button data-page="runes"><span class="ico">符</span><span class="label">符文</span></button>
+    <button data-page="pets"><span class="ico">宠</span><span class="label">宠物</span></button>
+    <button data-page="talents"><span class="ico">天</span><span class="label">账号天赋</span></button>
+    <button data-page="tasks"><span class="ico">任</span><span class="label">任务成就</span></button>
+    <button data-page="codex"><span class="ico">鉴</span><span class="label">图鉴</span></button>
+    <button data-page="modes"><span class="ico">模</span><span class="label">模式入口</span></button>
+    <button data-page="saves"><span class="ico">存</span><span class="label">存档槽</span></button>
+  </div>
+  <div class="sidefoot"><b>V1.4</b><br>装备 / 符文 / 宠物 / 天赋 / 任务 / 成就 / 图鉴 / 每日 / 存档</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="tleft"><span class="accent"></span><div><strong id="pageTitle">主大厅</strong><small>完整局外养成与长期目标</small></div></div>
+  <div class="user">
+    <span class="pill">账号 Lv.<b id="accountLv">12</b></span>
+    <span class="pill">战力 <b id="combatPower">0</b></span>
+    <span class="pill">金币 <b id="goldTop">6000</b></span>
+    <span class="pill">天赋点 <b id="talentPtsTop">6</b></span>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="page active" id="home">
+  <div class="dashboardHero">
+    <div class="heroArt"></div>
+    <div class="heroCopy">
+      <div class="eyebrow">V1.4 · META PROGRESSION LOOP</div>
+      <h1>长期游玩主大厅</h1>
+      <p>这一版把局内战斗之外的成长全部串联：每次战斗获得金币、装备、符文、宠物素材与账号经验，再通过强化、天赋、每日任务和成就持续提升战力，最终解锁更高难度模式。</p>
+      <div class="tags"><span class="tag hot">战力实时计算</span><span class="tag">装备3槽</span><span class="tag">符文3槽</span><span class="tag">1主宠</span><span class="tag">账号天赋</span><span class="tag">每日任务</span><span class="tag">成就图鉴</span></div>
+      <div class="actions"><button class="btn primary" onclick="simulateRun()">模拟完成一局并结算</button><button class="btn gold" onclick="go('modes')">进入模式选择</button></div>
+    </div>
+  </div>
+
+  <div class="kpiGrid">
+    <div class="kpi"><small>账号等级</small><b id="kpiAccount">12</b></div>
+    <div class="kpi"><small>总战力</small><b id="kpiPower">0</b></div>
+    <div class="kpi"><small>装备评分</small><b id="kpiGear">0</b></div>
+    <div class="kpi"><small>符文评分</small><b id="kpiRune">0</b></div>
+    <div class="kpi"><small>宠物评分</small><b id="kpiPet">0</b></div>
+    <div class="kpi"><small>成就点</small><b id="kpiAchievement">0</b></div>
+  </div>
+
+  <div class="section-title"><h3>核心养成入口</h3><span>所有入口都会影响战力或长期解锁</span></div>
+  <div class="quickGrid">
+    <div class="card quickCard" onclick="go('gear')"><div class="quickIcon">装</div><h3>装备强化</h3><p class="tiny">武器 / 防具 / 饰品。升级、换装、评分计算。</p></div>
+    <div class="card quickCard" onclick="go('runes')"><div class="quickIcon">符</div><h3>符文构筑</h3><p class="tiny">三槽系统，提供火力、冷却、暴击、成长类加成。</p></div>
+    <div class="card quickCard" onclick="go('pets')"><div class="quickIcon">宠</div><h3>宠物养成</h3><p class="tiny">主宠提供主动/被动效果，升级后提升局内收益。</p></div>
+    <div class="card quickCard" onclick="go('talents')"><div class="quickIcon">天</div><h3>账号天赋</h3><p class="tiny">全英雄共享，控制长期基础属性与资源效率。</p></div>
+  </div>
+
+  <div class="section-title"><h3>每日运营</h3><span>驱动持续登录与明确短期目标</span></div>
+  <div class="dailyGrid">
+    <div class="card">
+      <div class="eyebrow">DAILY MISSIONS</div><h3>今日任务</h3>
+      <div class="missionList" id="dailyMissionList"></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">LOGIN STREAK</div><h3>七日签到</h3>
+      <div class="calendar" id="calendar"></div>
+      <div class="actions"><button class="btn gold" id="claimLoginBtn" onclick="claimLogin()">领取今日签到</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="gear">
+  <div class="section-title"><h2>装备系统</h2><span>3槽MVP结构 · 武器 / 防具 / 饰品</span></div>
+  <div class="equipLayout">
+    <div class="card loadout">
+      <div class="eyebrow">CURRENT LOADOUT</div><h3>当前出战装备</h3>
+      <div class="loadoutCenter"><div class="avatar"></div></div>
+      <div class="equipSlots" id="equipSlots"></div>
+      <div class="actions"><button class="btn gold" onclick="autoEquipBest()">一键穿戴最高评分</button></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">INVENTORY</div><h3>装备背包</h3>
+      <div class="gearGrid" id="gearGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="runes">
+  <div class="section-title"><h2>符文系统</h2><span>三槽构筑 · 攻击 / 技能 / 成长</span></div>
+  <div class="runeLayout">
+    <div class="card">
+      <div class="eyebrow">SOCKETS</div><h3>已装备符文</h3>
+      <div class="runeBoard" id="runeBoard"></div>
+      <div class="actions"><button class="btn purple" onclick="autoRune()">推荐配置</button></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">RUNE INVENTORY</div><h3>符文库</h3>
+      <div class="runeGrid" id="runeGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="pets">
+  <div class="section-title"><h2>宠物系统</h2><span>1主宠 + 永久等级成长</span></div>
+  <div class="card">
+    <div class="eyebrow">PET COLLECTION</div><h3>已拥有宠物</h3>
+    <div class="petGrid" id="petGrid"></div>
+  </div>
+</section>
+
+<section class="page" id="talents">
+  <div class="section-title"><h2>账号天赋</h2><span>全英雄共享的长期成长</span></div>
+  <div class="talentLayout">
+    <div class="card accountPanel">
+      <div class="eyebrow">ACCOUNT LEVEL</div><h3>账号成长</h3>
+      <div class="levelRing"><b id="talentAccountLv">12</b></div>
+      <div class="infoRows">
+        <div class="infoRow"><span>可用天赋点</span><b id="talentPts">6</b></div>
+        <div class="infoRow"><span>已投入</span><b id="talentSpent">0</b></div>
+        <div class="infoRow"><span>下一点来源</span><b>账号升级</b></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">ACCOUNT TALENT TREE</div><h3>20节点MVP天赋</h3>
+      <div class="talentTree" id="talentTree"></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="tasks">
+  <div class="section-title"><h2>任务与成就</h2><span>短期目标 + 长期里程碑</span></div>
+  <div class="taskTabs">
+    <button class="active" onclick="switchTaskTab('daily',this)">每日</button>
+    <button onclick="switchTaskTab('weekly',this)">每周</button>
+    <button onclick="switchTaskTab('achievement',this)">成就</button>
+  </div>
+  <div class="taskPanel active" id="task-daily"><div class="taskRows" id="dailyRows"></div></div>
+  <div class="taskPanel" id="task-weekly"><div class="taskRows" id="weeklyRows"></div></div>
+  <div class="taskPanel" id="task-achievement"><div class="taskRows" id="achievementRows"></div></div>
+</section>
+
+<section class="page" id="codex">
+  <div class="section-title"><h2>万界图鉴</h2><span>英雄 / 怪物 / Boss / 装备 / 符文收集进度</span></div>
+  <div class="card">
+    <div class="eyebrow">COLLECTION PROGRESS</div><h3 id="codexProgressText">0%</h3><div class="progress"><i id="codexProgress"></i></div>
+  </div>
+  <div class="section-title"><h3>图鉴条目</h3><span>未遇见内容保持隐藏</span></div>
+  <div class="codexGrid" id="codexGrid"></div>
+</section>
+
+<section class="page" id="modes">
+  <div class="section-title"><h2>模式入口</h2><span>战力与账号等级共同控制解锁</span></div>
+  <div class="modeGrid" id="modeGrid"></div>
+</section>
+
+<section class="page" id="saves">
+  <div class="section-title"><h2>存档槽</h2><span>主档 + 测试档 + 新游戏档</span></div>
+  <div class="saveGrid" id="saveGrid"></div>
+</section>
+
+</div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const SAVE_KEY='wanjie_v14_meta_save';
+const DEFAULT_SAVE={
+ accountLv:12,accountXp:340,gold:6000,talentPoints:6,
+ equippedGear:{weapon:'EQW001',armor:'EQA001',accessory:'EQX001'},
+ gear:{
+  EQW001:{id:'EQW001',name:'赤炎刀',slot:'weapon',rarity:'purple',level:3,base:220,desc:'攻击 +12%，火系伤害 +8%'},
+  EQW002:{id:'EQW002',name:'雷鸣枪',slot:'weapon',rarity:'blue',level:1,base:170,desc:'攻速 +5%，雷系伤害 +6%'},
+  EQW003:{id:'EQW003',name:'玄铁棍',slot:'weapon',rarity:'gold',level:1,base:260,desc:'范围 +8%，近战伤害 +10%'},
+  EQA001:{id:'EQA001',name:'武将甲',slot:'armor',rarity:'blue',level:2,base:150,desc:'最大生命 +10%，防御 +8%'},
+  EQA002:{id:'EQA002',name:'影忍轻甲',slot:'armor',rarity:'purple',level:1,base:200,desc:'移速 +5%，闪避 +4%'},
+  EQA003:{id:'EQA003',name:'斗战战甲',slot:'armor',rarity:'gold',level:1,base:245,desc:'生命 +15%，受击减伤 +5%'},
+  EQX001:{id:'EQX001',name:'炎龙核心',slot:'accessory',rarity:'purple',level:1,base:180,desc:'火系技能冷却 -5%'},
+  EQX002:{id:'EQX002',name:'天机玉佩',slot:'accessory',rarity:'blue',level:1,base:145,desc:'经验获取 +6%'},
+  EQX003:{id:'EQX003',name:'万界印记',slot:'accessory',rarity:'gold',level:1,base:250,desc:'Boss伤害 +10%'}
+ },
+ equippedRunes:['R031','R012','R043'],
+ runes:{
+  R031:{id:'R031',name:'火神符文',glyph:'火',type:'元素',level:2,score:95,desc:'火系伤害 +12%'},
+  R012:{id:'R012',name:'巨化符文',glyph:'巨',type:'技能',level:1,score:82,desc:'技能范围 +8%'},
+  R043:{id:'R043',name:'学者符文',glyph:'学',type:'成长',level:1,score:76,desc:'经验获取 +8%'},
+  R001:{id:'R001',name:'狂战符文',glyph:'狂',type:'攻击',level:1,score:88,desc:'伤害 +6%，低血量额外提升'},
+  R004:{id:'R004',name:'连击符文',glyph:'连',type:'攻击',level:1,score:84,desc:'连续命中提高攻速'},
+  R017:{id:'R017',name:'多重符文',glyph:'多',type:'技能',level:1,score:90,desc:'投射物类技能 +1概率'},
+  R021:{id:'R021',name:'吸血符文',glyph:'血',type:'防御',level:1,score:78,desc:'吸血 +2.5%'},
+  R046:{id:'R046',name:'磁力符文',glyph:'磁',type:'成长',level:1,score:72,desc:'拾取范围 +25%'}
+ },
+ activePet:'PET001',
+ pets:{
+  PET001:{id:'PET001',name:'火灵',level:3,score:140,desc:'周期喷射火焰；火系伤害 +5%'},
+  PET002:{id:'PET002',name:'雷狼',level:1,score:120,desc:'冲刺攻击最近精英；攻速 +3%'},
+  PET007:{id:'PET007',name:'治疗精灵',level:1,score:110,desc:'每30秒恢复生命；回复效率 +8%'},
+  PET011:{id:'PET011',name:'招财猫',level:1,score:105,desc:'金币获取 +10%'},
+  PET015:{id:'PET015',name:'镜像精灵',level:1,score:128,desc:'周期复制一次普通技能'}
+ },
+ talents:{},
+ stats:{runs:4,kills:1840,bossKills:9,goldEarned:12600,highestTime:1200},
+ daily:{kill300:180,play2:1,boss1:1,upgrade1:0},
+ weekly:{runs10:4,boss8:3,gold5000:2600},
+ achievements:{kill1000:true,kill5000:false,boss10:false,firstClear:true,gearGold:false},
+ claimedDaily:{},claimedWeekly:{},claimedAchievements:{},
+ loginDay:3,loginClaimed:false,
+ codexUnlocked:['H001','H010','H012','EN001','EN002','EN003','EN004','EN005','EN006','B001','B002','B003','EQW001','EQA001','EQX001','R031','R012','R043','PET001'],
+ saveSlots:{
+  1:{name:'主存档',exists:true,accountLv:12,power:0,runs:4,updated:'当前'},
+  2:{name:'测试存档',exists:true,accountLv:6,power:4200,runs:2,updated:'昨天'},
+  3:{name:'新游戏',exists:false,accountLv:1,power:0,runs:0,updated:'未创建'}
+ }
+};
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function loadSave(){try{const raw=JSON.parse(localStorage.getItem(SAVE_KEY)||'{}');return deepMerge(clone(DEFAULT_SAVE),raw)}catch(e){return clone(DEFAULT_SAVE)}}
+function deepMerge(a,b){for(const k in b){if(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k])&&a[k]&&typeof a[k]==='object'&&!Array.isArray(a[k]))a[k]=deepMerge(a[k],b[k]);else a[k]=b[k]}return a}
+let save=loadSave();
+function persist(){save.saveSlots[1].power=calcCombatPower();save.saveSlots[1].accountLv=save.accountLv;save.saveSlots[1].runs=save.stats.runs;localStorage.setItem(SAVE_KEY,JSON.stringify(save));renderAll()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),1600)}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById(id).classList.add('active');document.getElementById('pageTitle').textContent={home:'主大厅',gear:'装备',runes:'符文',pets:'宠物',talents:'账号天赋',tasks:'任务成就',codex:'图鉴',modes:'模式入口',saves:'存档槽'}[id]||'万界无双'}
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function gearScore(g){const rarityMul={blue:1,purple:1.25,gold:1.55}[g.rarity]||1;return Math.round(g.base*rarityMul*(1+(g.level-1)*.12))}
+function totalGearScore(){return Object.values(save.equippedGear).reduce((sum,id)=>sum+(save.gear[id]?gearScore(save.gear[id]):0),0)}
+function totalRuneScore(){return save.equippedRunes.reduce((sum,id)=>sum+(save.runes[id]?.score||0)*(1+((save.runes[id]?.level||1)-1)*.15),0)}
+function petScore(){const p=save.pets[save.activePet];return p?Math.round(p.score*(1+(p.level-1)*.12)):0}
+function talentSpent(){return Object.values(save.talents).reduce((a,b)=>a+(b||0),0)}
+function talentScore(){return talentSpent()*110}
+function calcCombatPower(){return Math.round(1000+save.accountLv*85+totalGearScore()*2.1+totalRuneScore()*2.4+petScore()*2.2+talentScore())}
+function achievementPoints(){let p=0;for(const [id,v] of Object.entries(save.achievements))if(v)p+=id==='firstClear'?30:20;return p}
+
+/* home */
+const DAILY_DEF=[
+ {id:'kill300',name:'今日击杀300名敌人',goal:300,reward:300},
+ {id:'play2',name:'完成2局任意模式',goal:2,reward:450},
+ {id:'boss1',name:'击败1名Boss',goal:1,reward:250},
+ {id:'upgrade1',name:'进行1次装备强化',goal:1,reward:200}
+];
+function renderHome(){
+ document.getElementById('accountLv').textContent=save.accountLv;document.getElementById('goldTop').textContent=save.gold.toLocaleString();document.getElementById('talentPtsTop').textContent=save.talentPoints;document.getElementById('combatPower').textContent=calcCombatPower().toLocaleString();
+ document.getElementById('kpiAccount').textContent=save.accountLv;document.getElementById('kpiPower').textContent=calcCombatPower().toLocaleString();document.getElementById('kpiGear').textContent=totalGearScore();document.getElementById('kpiRune').textContent=Math.round(totalRuneScore());document.getElementById('kpiPet').textContent=petScore();document.getElementById('kpiAchievement').textContent=achievementPoints();
+ const g=document.getElementById('dailyMissionList');g.innerHTML='';
+ DAILY_DEF.forEach(m=>{const cur=Math.min(m.goal,save.daily[m.id]||0),done=cur>=m.goal,claimed=save.claimedDaily[m.id];const d=document.createElement('div');d.className='mission';d.innerHTML='<div class="missionTop"><b>'+m.name+'</b><span class="'+(done?'status-ok':'')+'">'+cur+' / '+m.goal+'</span></div><div class="progress" style="margin-top:7px"><i style="width:'+(cur/m.goal*100)+'%"></i></div><div class="actions"><button class="btn '+(done&&!claimed?'gold':'ghost')+'" '+(!done||claimed?'disabled':'')+' onclick="claimDaily(\''+m.id+'\')">'+(claimed?'已领取':'领取 '+m.reward+'金币')+'</button></div>';g.appendChild(d)});
+ const cal=document.getElementById('calendar');cal.innerHTML='';for(let i=1;i<=7;i++){const d=document.createElement('div');d.className='day '+(i<save.loginDay?'done':i===save.loginDay?'today':'');d.innerHTML='<b>D'+i+'</b><br><span>'+(i===7?'符文':100*i+'金')+'</span>';cal.appendChild(d)}
+ document.getElementById('claimLoginBtn').disabled=save.loginClaimed;document.getElementById('claimLoginBtn').textContent=save.loginClaimed?'今日已领取':'领取今日签到';
+}
+function claimDaily(id){const m=DAILY_DEF.find(x=>x.id===id);if(!m||save.claimedDaily[id]||(save.daily[id]||0)<m.goal)return;save.gold+=m.reward;save.claimedDaily[id]=true;persist();toast('每日任务奖励 +'+m.reward+'金币')}
+function claimLogin(){if(save.loginClaimed)return;const reward=save.loginDay===7?0:save.loginDay*100;if(reward)save.gold+=reward;if(save.loginDay===7&&!save.runes.R035)save.runes.R035={id:'R035',name:'风神符文',glyph:'风',type:'元素',level:1,score:92,desc:'移动与攻速提升'};save.loginClaimed=true;persist();toast(save.loginDay===7?'签到获得风神符文':'签到 +'+reward+'金币')}
+
+/* gear */
+function renderGear(){
+ const slotNames={weapon:'武器',armor:'防具',accessory:'饰品'},slotGlyph={weapon:'武',armor:'甲',accessory:'饰'},slots=document.getElementById('equipSlots');slots.innerHTML='';
+ for(const slot of ['weapon','armor','accessory']){const id=save.equippedGear[slot],g=save.gear[id],d=document.createElement('div');d.className='equipSlot';d.innerHTML='<b>'+slotNames[slot]+'</b><small>'+(g?g.name+' · '+gearScore(g)+'评分':'未装备')+'</small>';slots.appendChild(d)}
+ const grid=document.getElementById('gearGrid');grid.innerHTML='';
+ Object.values(save.gear).forEach(g=>{const equipped=Object.values(save.equippedGear).includes(g.id),d=document.createElement('div');d.className='gear '+(equipped?'equipped':'');d.innerHTML='<div class="gearIcon">'+slotGlyph[g.slot]+'</div><div class="eyebrow">'+g.id+'</div><h4 class="rarity-'+g.rarity+'">'+g.name+' +'+g.level+'</h4><p>'+g.desc+'</p><div class="infoRows"><div class="infoRow"><span>评分</span><b>'+gearScore(g)+'</b></div></div><div class="actions"><button class="btn '+(equipped?'gold':'ghost')+'" onclick="equipGear(\''+g.id+'\')">'+(equipped?'已装备':'装备')+'</button><button class="btn primary" onclick="upgradeGear(\''+g.id+'\')">强化</button></div>';grid.appendChild(d)})
+}
+function equipGear(id){const g=save.gear[id];if(!g)return;save.equippedGear[g.slot]=id;persist();toast('已装备 '+g.name)}
+function upgradeGear(id){const g=save.gear[id];if(!g||g.level>=10)return;const cost=280+g.level*160;if(save.gold<cost){toast('金币不足');return}save.gold-=cost;g.level++;save.daily.upgrade1=1;persist();toast(g.name+' 强化至 +'+g.level)}
+function autoEquipBest(){for(const slot of ['weapon','armor','accessory']){const arr=Object.values(save.gear).filter(g=>g.slot===slot).sort((a,b)=>gearScore(b)-gearScore(a));if(arr[0])save.equippedGear[slot]=arr[0].id}persist();toast('已穿戴最高评分装备')}
+
+/* runes */
+function renderRunes(){
+ const board=document.getElementById('runeBoard');board.innerHTML='';save.equippedRunes.forEach((id,idx)=>{const r=save.runes[id],d=document.createElement('div');d.className='runeSocket';d.innerHTML=r?'<div><b>'+r.glyph+' · '+r.name+'</b><small>槽位 '+(idx+1)+' · Lv.'+r.level+'</small></div>':'<div><b>空槽</b><small>槽位 '+(idx+1)+'</small></div>';board.appendChild(d)});
+ while(board.children.length<3){const d=document.createElement('div');d.className='runeSocket';d.innerHTML='<div><b>空槽</b><small>未装备</small></div>';board.appendChild(d)}
+ const grid=document.getElementById('runeGrid');grid.innerHTML='';
+ Object.values(save.runes).forEach(r=>{const selected=save.equippedRunes.includes(r.id),d=document.createElement('div');d.className='rune '+(selected?'selected':'');d.innerHTML='<div class="runeGlyph">'+r.glyph+'</div><b>'+r.name+' Lv.'+r.level+'</b><small>'+r.type+' · '+r.desc+'</small><div class="actions"><button class="btn '+(selected?'purple':'ghost')+'" onclick="toggleRune(\''+r.id+'\')">'+(selected?'卸下':'装备')+'</button><button class="btn ghost" onclick="upgradeRune(\''+r.id+'\')">升级</button></div>';grid.appendChild(d)})
+}
+function toggleRune(id){const i=save.equippedRunes.indexOf(id);if(i>=0)save.equippedRunes.splice(i,1);else{if(save.equippedRunes.length>=3)save.equippedRunes.shift();save.equippedRunes.push(id)}persist()}
+function upgradeRune(id){const r=save.runes[id];if(!r||r.level>=5)return;const cost=500+r.level*280;if(save.gold<cost){toast('金币不足');return}save.gold-=cost;r.level++;r.score+=14;persist();toast(r.name+' 升至 Lv.'+r.level)}
+function autoRune(){const arr=Object.values(save.runes).sort((a,b)=>b.score-a.score).slice(0,3);save.equippedRunes=arr.map(x=>x.id);persist();toast('已应用最高评分符文')}
+
+/* pets */
+function renderPets(){
+ const grid=document.getElementById('petGrid');grid.innerHTML='';
+ Object.values(save.pets).forEach(p=>{const active=save.activePet===p.id,d=document.createElement('div');d.className='petCard '+(active?'active':'');d.innerHTML='<div class="petOrb"></div><div class="eyebrow">'+p.id+'</div><h4>'+p.name+' · Lv.'+p.level+'</h4><p>'+p.desc+'</p><div class="infoRows"><div class="infoRow"><span>评分</span><b>'+Math.round(p.score*(1+(p.level-1)*.12))+'</b></div></div><div class="actions"><button class="btn '+(active?'gold':'ghost')+'" onclick="setPet(\''+p.id+'\')">'+(active?'主宠':'设为主宠')+'</button><button class="btn primary" onclick="upgradePet(\''+p.id+'\')">升级</button></div>';grid.appendChild(d)})
+}
+function setPet(id){save.activePet=id;persist();toast('主宠：'+save.pets[id].name)}
+function upgradePet(id){const p=save.pets[id];if(!p||p.level>=10)return;const cost=600+p.level*320;if(save.gold<cost){toast('金币不足');return}save.gold-=cost;p.level++;persist();toast(p.name+' 升至 Lv.'+p.level)}
+
+/* talents */
+const TALENT_DEF=[
+ ['T001','攻击强化','ATK +2%/级'],['T002','生命强化','HP +3%/级'],['T003','防御强化','DEF +3%/级'],['T004','暴击训练','暴击 +1%/级'],['T005','疾行训练','移速 +1.5%/级'],
+ ['T006','技能增幅','技能伤害 +2%/级'],['T007','冷却研习','冷却 -1.5%/级'],['T008','范围掌控','范围 +2%/级'],['T009','投射训练','投射速度 +3%/级'],['T010','元素亲和','元素伤害 +2%/级'],
+ ['T011','金币学','金币 +4%/级'],['T012','经验学','经验 +4%/级'],['T013','幸运学','稀有掉落 +1%/级'],['T014','宝箱学','精英宝箱收益 +3%/级'],['T015','宠物链接','宠物效果 +4%/级'],
+ ['T016','首领猎手','Boss伤害 +3%/级'],['T017','精英猎手','精英伤害 +3%/级'],['T018','再生','每分钟回复2%HP/级'],['T019','坚韧','受击减伤 +1.5%/级'],['T020','万界共鸣','总伤害 +1%/级']
+];
+function renderTalents(){
+ document.getElementById('talentAccountLv').textContent=save.accountLv;document.getElementById('talentPts').textContent=save.talentPoints;document.getElementById('talentPtsTop').textContent=save.talentPoints;document.getElementById('talentSpent').textContent=talentSpent();
+ const g=document.getElementById('talentTree');g.innerHTML='';
+ TALENT_DEF.forEach(([id,n,d],idx)=>{const lv=save.talents[id]||0,locked=idx>=10&&save.accountLv<10;const x=document.createElement('div');x.className='talentNode '+(lv>0?'active ':'')+(locked?'locked':'');x.innerHTML='<div class="eyebrow">'+id+'</div><b>'+n+' · '+lv+'/5</b><p>'+d+'</p><button class="btn '+(lv>0?'gold':'ghost')+'" style="width:100%;margin-top:7px" '+(locked||lv>=5||save.talentPoints<=0?'disabled':'')+' onclick="buyTalent(\''+id+'\')">投入1点</button>';g.appendChild(x)})
+}
+function buyTalent(id){if(save.talentPoints<=0)return;const lv=save.talents[id]||0;if(lv>=5)return;save.talents[id]=lv+1;save.talentPoints--;persist();toast('天赋升级：'+TALENT_DEF.find(x=>x[0]===id)[1])}
+
+/* tasks */
+const WEEKLY_DEF=[
+ {id:'runs10',name:'本周完成10局',goal:10,reward:1200},
+ {id:'boss8',name:'本周击败8名Boss',goal:8,reward:1000},
+ {id:'gold5000',name:'本周获得5000金币',goal:5000,reward:800}
+];
+const ACH_DEF=[
+ {id:'firstClear',name:'第一次通关',desc:'完成ST001乱世荒原',reward:500},
+ {id:'kill1000',name:'千人斩',desc:'累计击杀1000敌人',reward:800},
+ {id:'kill5000',name:'万军之中',desc:'累计击杀5000敌人',reward:1800},
+ {id:'boss10',name:'首领猎手',desc:'累计击败10名Boss',reward:1200},
+ {id:'gearGold',name:'金装初现',desc:'获得任意金色装备',reward:1000}
+];
+function switchTaskTab(id,btn){document.querySelectorAll('.taskPanel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.taskTabs button').forEach(b=>b.classList.remove('active'));document.getElementById('task-'+id).classList.add('active');btn.classList.add('active')}
+function renderTaskRows(){
+ renderTaskList(document.getElementById('dailyRows'),DAILY_DEF,save.daily,save.claimedDaily);
+ renderTaskList(document.getElementById('weeklyRows'),WEEKLY_DEF,save.weekly,save.claimedWeekly);
+ const g=document.getElementById('achievementRows');g.innerHTML='';
+ ACH_DEF.forEach(a=>{const done=!!save.achievements[a.id],claimed=!!save.claimedAchievements[a.id],x=document.createElement('div');x.className='taskRow';x.innerHTML='<div><h4>'+a.name+'</h4><p>'+a.desc+'</p></div><div><span class="'+(done?'status-ok':'status-lock')+'">'+(done?'已达成':'进行中')+'</span></div><div class="taskReward"><button class="btn '+(done&&!claimed?'gold':'ghost')+'" '+(!done||claimed?'disabled':'')+' onclick="claimAchievement(\''+a.id+'\')">'+(claimed?'已领取':a.reward+'金币')+'</button></div>';g.appendChild(x)})
+}
+function renderTaskList(g,defs,state,claimed){g.innerHTML='';defs.forEach(m=>{const cur=Math.min(m.goal,state[m.id]||0),done=cur>=m.goal,x=document.createElement('div');x.className='taskRow';x.innerHTML='<div><h4>'+m.name+'</h4><p>完成后领取金币奖励</p></div><div><div class="progress"><i style="width:'+(cur/m.goal*100)+'%"></i></div><span class="tiny">'+cur+' / '+m.goal+'</span></div><div class="taskReward"><button class="btn '+(done&&!claimed[m.id]?'gold':'ghost')+'" '+(!done||claimed[m.id]?'disabled':'')+' onclick="'+(defs===DAILY_DEF?'claimDaily':'claimWeekly')+'(\''+m.id+'\')">'+(claimed[m.id]?'已领取':m.reward+'金币')+'</button></div>';g.appendChild(x)})}
+function claimWeekly(id){const m=WEEKLY_DEF.find(x=>x.id===id);if(!m||save.claimedWeekly[id]||(save.weekly[id]||0)<m.goal)return;save.gold+=m.reward;save.claimedWeekly[id]=true;persist();toast('每周奖励 +'+m.reward+'金币')}
+function claimAchievement(id){const a=ACH_DEF.find(x=>x.id===id);if(!a||!save.achievements[id]||save.claimedAchievements[id])return;save.gold+=a.reward;save.claimedAchievements[id]=true;persist();toast('成就奖励 +'+a.reward+'金币')}
+
+/* codex */
+const CODEX=[
+ ['H001','英雄','赤焰战神'],['H002','英雄','雷霆猛将'],['H007','英雄','灵猴'],['H010','英雄','炎忍'],['H012','英雄','影忍'],['H019','英雄','气功战士'],
+ ['EN001','怪物','黄巾步卒'],['EN002','怪物','黄巾弓手'],['EN003','怪物','黄巾盾兵'],['EN004','怪物','黄巾骑兵'],['EN005','怪物','火箭兵'],['EN006','怪物','黄巾力士'],
+ ['B001','Boss','黄巾巨将'],['B002','Boss','乱世妖师'],['B003','Boss','混沌骑将'],['B006','Boss','牛魔妖王'],['B009','Boss','炎狱忍王'],['B020','Boss','混沌魔神'],
+ ['EQW001','装备','赤炎刀'],['EQW003','装备','玄铁棍'],['EQA001','装备','武将甲'],['EQA003','装备','斗战战甲'],['EQX001','装备','炎龙核心'],['EQX003','装备','万界印记'],
+ ['R031','符文','火神符文'],['R012','符文','巨化符文'],['R043','符文','学者符文'],['R001','符文','狂战符文'],['PET001','宠物','火灵'],['PET002','宠物','雷狼']
+];
+function renderCodex(){
+ const unlocked=new Set(save.codexUnlocked);Object.keys(save.gear).forEach(id=>unlocked.add(id));Object.keys(save.runes).forEach(id=>unlocked.add(id));Object.keys(save.pets).forEach(id=>unlocked.add(id));
+ const count=CODEX.filter(x=>unlocked.has(x[0])).length,pct=Math.round(count/CODEX.length*100);document.getElementById('codexProgressText').textContent=count+' / '+CODEX.length+' · '+pct+'%';document.getElementById('codexProgress').style.width=pct+'%';
+ const g=document.getElementById('codexGrid');g.innerHTML='';CODEX.forEach(([id,type,n])=>{const open=unlocked.has(id),d=document.createElement('div');d.className='codexCard '+(open?'':'locked');d.innerHTML='<div class="eyebrow">'+id+'</div><b>'+(open?n:'???')+'</b><small>'+(open?type:'未发现')+'</small>';g.appendChild(d)})
+}
+
+/* modes */
+const MODES=[
+ {id:'story',name:'剧情模式',needLv:1,needPower:0,desc:'章节推进、剧情事件与首通奖励。'},
+ {id:'clear',name:'标准通关',needLv:3,needPower:2200,desc:'20分钟标准生存，完整Boss节点。'},
+ {id:'endless',name:'无尽模式',needLv:5,needPower:3200,desc:'持续提升怪物强度，挑战最长生存。'},
+ {id:'bossrush',name:'Boss Rush',needLv:8,needPower:4500,desc:'连续Boss战，强化单体构筑。'},
+ {id:'tower',name:'万界塔',needLv:10,needPower:5200,desc:'多层爬塔与一次性关卡词缀。'},
+ {id:'daily',name:'每日挑战',needLv:6,needPower:3600,desc:'每日固定规则与额外资源奖励。'}
+];
+function renderModes(){
+ const power=calcCombatPower(),g=document.getElementById('modeGrid');g.innerHTML='';MODES.forEach(m=>{const open=save.accountLv>=m.needLv&&power>=m.needPower,d=document.createElement('div');d.className='card modeCard '+(open?'':'locked');d.innerHTML='<div class="modeArt"></div><div class="eyebrow">'+m.id.toUpperCase()+'</div><h3>'+m.name+'</h3><p>'+m.desc+'</p><div class="tags"><span class="tag">Lv.'+m.needLv+'</span><span class="tag">'+m.needPower+'战力</span></div><div class="actions"><button class="btn '+(open?'primary':'ghost')+'" '+(!open?'disabled':'')+' onclick="simulateMode(\''+m.id+'\')">'+(open?'开始模拟':'未解锁')+'</button></div>';g.appendChild(d)})
+}
+function simulateMode(id){const name=MODES.find(x=>x.id===id)?.name||id;toast('已进入 '+name+'（本版用结算模拟代替局内战斗）');setTimeout(simulateRun,250)}
+
+/* save slots */
+function renderSaves(){
+ const g=document.getElementById('saveGrid');g.innerHTML='';Object.entries(save.saveSlots).forEach(([id,s])=>{const d=document.createElement('div');d.className='card saveSlot';d.innerHTML='<div class="eyebrow">SAVE SLOT '+id+'</div><h3>'+s.name+'</h3>'+(s.exists?'<div class="saveMeta"><div><small>账号等级</small><b>'+s.accountLv+'</b></div><div><small>战力</small><b>'+s.power+'</b></div><div><small>局数</small><b>'+s.runs+'</b></div><div><small>更新</small><b>'+s.updated+'</b></div></div><div class="actions"><button class="btn '+(id==='1'?'gold':'ghost')+'">'+(id==='1'?'当前存档':'载入')+'</button><button class="btn ghost" onclick="copyToSlot('+id+')">覆盖保存</button></div>':'<p class="muted">空存档槽，可从头开始或复制当前主档。</p><div class="actions"><button class="btn primary" onclick="createSlot('+id+')">创建新存档</button><button class="btn ghost" onclick="copyToSlot('+id+')">复制主档</button></div>');g.appendChild(d)})
+}
+function createSlot(id){save.saveSlots[id]={name:'新游戏 '+id,exists:true,accountLv:1,power:1000,runs:0,updated:'刚刚'};persist();toast('已创建存档槽 '+id)}
+function copyToSlot(id){save.saveSlots[id]={name:id==1?'主存档':'主档副本 '+id,exists:true,accountLv:save.accountLv,power:calcCombatPower(),runs:save.stats.runs,updated:'刚刚'};persist();toast('已覆盖存档槽 '+id)}
+
+/* economy loop */
+function simulateRun(){
+ const gold=850+Math.floor(Math.random()*450),kills=260+Math.floor(Math.random()*180),boss=1+Math.floor(Math.random()*2);
+ save.gold+=gold;save.stats.runs++;save.stats.kills+=kills;save.stats.bossKills+=boss;save.stats.goldEarned+=gold;
+ save.daily.kill300=Math.min(300,(save.daily.kill300||0)+kills);save.daily.play2=Math.min(2,(save.daily.play2||0)+1);save.daily.boss1=Math.min(1,(save.daily.boss1||0)+boss);
+ save.weekly.runs10=Math.min(10,(save.weekly.runs10||0)+1);save.weekly.boss8=Math.min(8,(save.weekly.boss8||0)+boss);save.weekly.gold5000=Math.min(5000,(save.weekly.gold5000||0)+gold);
+ save.accountXp+=220;if(save.accountXp>=500){save.accountXp-=500;save.accountLv++;save.talentPoints++}
+ if(save.stats.kills>=1000)save.achievements.kill1000=true;if(save.stats.kills>=5000)save.achievements.kill5000=true;if(save.stats.bossKills>=10)save.achievements.boss10=true;
+ if(Math.random()<.28){const goldGear=Object.values(save.gear).find(x=>x.rarity==='gold');if(goldGear)save.achievements.gearGold=true}
+ persist();toast('本局结算：+'+gold+'金币 / '+kills+'击杀 / '+boss+' Boss')
+}
+
+/* render all */
+function renderAll(){renderHome();renderGear();renderRunes();renderPets();renderTalents();renderTaskRows();renderCodex();renderModes();renderSaves()}
+renderAll();
+</script>
+</body>
+</html>

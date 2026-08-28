@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="danger"><stop stop-color="#ffed97" stop-opacity="0.12"/><stop offset="0.5" stop-color="#f14a31" stop-opacity="0.18"/><stop offset="1" stop-color="#b81725" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <circle cx="200" cy="200" r="188" fill="url(#danger)"/>
+  <circle cx="200" cy="200" r="157" fill="none" stroke="#e8322d" stroke-width="14" opacity="0.34" filter="url(#glow)"/>
+  <circle cx="200" cy="200" r="157" fill="none" stroke="#ff6642" stroke-width="5" stroke-dasharray="28 13"/>
+  <circle cx="200" cy="200" r="126" fill="none" stroke="#ffd069" stroke-width="3" stroke-dasharray="5 13" opacity="0.9"/>
+  <g fill="#ff6541" stroke="#ffd36b" stroke-width="3">
+    <path d="M200 8l18 45-18 27-18-27z"/><path d="M392 200l-45 18-27-18 27-18z"/>
+    <path d="M200 392l-18-45 18-27 18 27z"/><path d="M8 200l45-18 27 18-27 18z"/>
+  </g>
+  <path d="M200 112l70 121-140 0z" fill="#e7362d" opacity="0.18" stroke="#ffd071" stroke-width="6"/>
+  <path d="M200 145v48m0 19v9" stroke="#fff1ae" stroke-width="13" stroke-linecap="round"/>
+</svg>

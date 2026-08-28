@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>万界无双 - 前端原型 V0.1</title>
+<style>
+:root{
+  --bg:#0d1117;
+  --panel:#151b24;
+  --panel-2:#1b2330;
+  --line:#2a3442;
+  --text:#f3f6fb;
+  --muted:#9aa7b5;
+  --gold:#f0c86b;
+  --red:#d85b52;
+  --blue:#69a7ff;
+  --green:#67d39b;
+  --purple:#a985ff;
+  --shadow:0 16px 40px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:linear-gradient(180deg,#0a0f14,#111820 55%,#0c1117);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+button{font:inherit}
+body{min-height:100vh}
+.app{min-height:100vh;display:grid;grid-template-columns:220px 1fr}
+.sidebar{
+  position:sticky;top:0;height:100vh;padding:18px 14px;background:rgba(11,15,20,.92);
+  border-right:1px solid var(--line);backdrop-filter:blur(16px);z-index:20
+}
+.logo{
+  height:64px;border:1px solid #3b4654;border-radius:16px;padding:10px 12px;
+  background:linear-gradient(135deg,#222a36,#111720);box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:12px;margin-bottom:16px
+}
+.logo-mark{
+  width:42px;height:42px;border-radius:12px;background:
+  radial-gradient(circle at 35% 30%,#ffe9a7 0 9%,transparent 10%),
+  linear-gradient(135deg,#d64f42,#7547d8 60%,#2f8cc6);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)
+}
+.logo h1{font-size:16px;margin:0}
+.logo small{color:var(--gold)}
+.nav{display:grid;gap:8px}
+.nav button{
+  border:1px solid transparent;background:transparent;color:var(--muted);
+  text-align:left;border-radius:12px;padding:12px 14px;cursor:pointer;transition:.2s
+}
+.nav button:hover,.nav button.active{
+  color:#fff;background:linear-gradient(90deg,#232d39,#1a2230);
+  border-color:#334152;transform:translateX(2px)
+}
+.side-foot{position:absolute;left:14px;right:14px;bottom:18px;color:#657384;font-size:12px}
+.main{min-width:0}
+.topbar{
+  height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;
+  position:sticky;top:0;z-index:15;background:rgba(13,17,23,.78);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06)
+}
+.user-meta{display:flex;gap:10px;align-items:center}
+.pill{padding:8px 12px;border:1px solid var(--line);background:#161e28;border-radius:999px;color:#d7e0ea}
+.coin{color:var(--gold);font-weight:700}
+.content{padding:24px 28px 40px;max-width:1500px;margin:auto}
+.page{display:none}
+.page.active{display:block}
+.hero-banner{
+  min-height:350px;border-radius:24px;overflow:hidden;position:relative;border:1px solid #303a47;
+  background:
+    radial-gradient(circle at 72% 26%,rgba(218,78,65,.24),transparent 28%),
+    radial-gradient(circle at 30% 70%,rgba(92,89,225,.2),transparent 32%),
+    linear-gradient(135deg,#1d2531,#121820 55%,#0c1218);
+  box-shadow:var(--shadow);padding:42px;display:flex;align-items:flex-end
+}
+.hero-banner::after{
+  content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(11,15,20,.06),rgba(11,15,20,.7) 75%),
+  repeating-linear-gradient(115deg,transparent 0 42px,rgba(255,255,255,.015) 44px 45px)
+}
+.hero-copy{position:relative;z-index:2;max-width:650px}
+.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.hero-copy h2{font-size:46px;line-height:1;margin:10px 0 12px}
+.hero-copy p{color:#bdc8d4;line-height:1.8;max-width:620px}
+.cta-row{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn{
+  border:1px solid #3a4655;border-radius:12px;padding:11px 18px;color:white;background:#202a36;cursor:pointer;
+  transition:.2s
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.btn.primary{background:linear-gradient(135deg,#bd463d,#e77b55);border-color:#eb8867;color:white;font-weight:700}
+.btn.gold{background:linear-gradient(135deg,#7d5b1b,#c4953a);border-color:#d1a44e}
+.grid{display:grid;gap:16px}
+.grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:28px 0 14px}
+.section-title h3{margin:0;font-size:22px}
+.section-title span{color:var(--muted);font-size:13px}
+.card{
+  background:linear-gradient(180deg,#18212b,#121922);border:1px solid var(--line);border-radius:18px;
+  padding:18px;box-shadow:0 10px 26px rgba(0,0,0,.18)
+}
+.card.hover{cursor:pointer;transition:.2s}
+.card.hover:hover{transform:translateY(-3px);border-color:#46566a}
+.hero-card .portrait{
+  height:160px;border-radius:14px;margin-bottom:14px;position:relative;overflow:hidden;
+  background:radial-gradient(circle at 50% 25%,#6c7a90 0,transparent 28%),linear-gradient(145deg,#3a2020,#151b24 62%);
+}
+.hero-card:nth-child(2) .portrait{background:radial-gradient(circle at 50% 25%,#7b87f2 0,transparent 27%),linear-gradient(145deg,#1d2e4b,#151b24 62%)}
+.hero-card:nth-child(3) .portrait{background:radial-gradient(circle at 50% 25%,#b7a46c 0,transparent 27%),linear-gradient(145deg,#314628,#151b24 62%)}
+.hero-card:nth-child(4) .portrait{background:radial-gradient(circle at 50% 25%,#df704f 0,transparent 27%),linear-gradient(145deg,#4b2220,#151b24 62%)}
+.hero-card:nth-child(5) .portrait{background:radial-gradient(circle at 50% 25%,#7446bb 0,transparent 27%),linear-gradient(145deg,#261d3b,#151b24 62%)}
+.hero-card:nth-child(6) .portrait{background:radial-gradient(circle at 50% 25%,#5aa6d7 0,transparent 27%),linear-gradient(145deg,#18394b,#151b24 62%)}
+.levelbar{height:7px;border-radius:999px;background:#26313e;overflow:hidden;margin-top:12px}
+.levelbar i{display:block;height:100%;background:linear-gradient(90deg,#c45246,#f0c86b)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:#252e3a;color:#c8d3df;border:1px solid #334050}
+.stat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.stat:last-child{border:none}
+.item-icon{
+  width:52px;height:52px;border-radius:13px;background:linear-gradient(135deg,#29394d,#171d27);
+  display:grid;place-items:center;font-weight:800;color:var(--gold);border:1px solid #3a485b;flex:none
+}
+.row{display:flex;align-items:center;gap:12px}
+.item-card{display:flex;gap:12px;align-items:center}
+.item-card .meta{min-width:0}
+.item-card h4{margin:0 0 5px}
+.item-card p{margin:0;color:var(--muted);font-size:12px}
+.mode-card{min-height:170px;display:flex;flex-direction:column;justify-content:space-between}
+.mode-card strong{font-size:20px}
+.mode-card p{color:var(--muted);line-height:1.6}
+.locked{opacity:.5;filter:grayscale(.4)}
+.talent-node{
+  border:1px solid #384558;background:#1a2330;border-radius:14px;padding:14px;min-height:94px;
+}
+.talent-node b{display:block;margin-bottom:5px}
+.talent-node small{color:var(--muted)}
+.battle-preview{
+  min-height:590px;position:relative;border-radius:22px;overflow:hidden;border:1px solid #344152;
+  background:
+   radial-gradient(circle at 50% 50%,rgba(117,128,90,.22),transparent 26%),
+   repeating-radial-gradient(circle at 50% 50%,#202c25 0 35px,#1a241f 36px 70px);
+}
+.battle-preview:before{
+  content:"";position:absolute;inset:0;background:
+  linear-gradient(transparent 95%,rgba(255,255,255,.03) 96%),
+  linear-gradient(90deg,transparent 95%,rgba(255,255,255,.03) 96%);
+  background-size:40px 40px
+}
+.hud-top{
+  position:absolute;top:16px;left:16px;right:16px;display:flex;align-items:center;gap:12px;z-index:3
+}
+.hp-wrap{width:240px}
+.hp{height:16px;border-radius:999px;background:#31262a;border:1px solid #53343a;overflow:hidden}
+.hp span{display:block;width:82%;height:100%;background:linear-gradient(90deg,#a73635,#e15b4c)}
+.exp{height:7px;border-radius:999px;background:#28313b;overflow:hidden;margin-top:6px}
+.exp span{display:block;width:64%;height:100%;background:linear-gradient(90deg,#6f8ffc,#7bc8ff)}
+.hud-info{margin-left:auto;display:flex;gap:10px}
+.enemy-dot{position:absolute;width:18px;height:18px;border-radius:50%;background:#8f3d3d;box-shadow:0 0 12px rgba(255,80,80,.35)}
+.enemy-dot.elite{width:28px;height:28px;background:#a16c30}
+.player-dot{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;
+  background:radial-gradient(circle,#ffe9ae 0 20%,#d85846 22% 55%,#652b28 56%);box-shadow:0 0 26px rgba(239,107,76,.8);z-index:2
+}
+.skill-orbit{position:absolute;left:50%;top:50%;width:160px;height:160px;border:2px dashed rgba(240,200,107,.35);border-radius:50%;transform:translate(-50%,-50%)}
+.hud-bottom{position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;align-items:end;z-index:3}
+.skillbar{display:flex;gap:7px}
+.skillbox{
+  width:48px;height:48px;border-radius:12px;border:1px solid #4c596c;background:#202b38;display:grid;place-items:center;
+  font-size:11px;color:#dce5ef;position:relative
+}
+.skillbox em{position:absolute;right:4px;bottom:2px;font-style:normal;font-size:10px;color:var(--gold)}
+.ultimate{width:72px;height:72px;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle,#6f4430,#271d22);display:grid;place-items:center;font-weight:800}
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:#10161d;border:1px solid #3a4758;border-radius:12px;padding:11px 16px;z-index:99;transition:.25s
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.68);display:none;place-items:center;padding:20px;z-index:80
+}
+.modal.show{display:grid}
+.modal-card{
+  width:min(720px,96vw);background:#121923;border:1px solid #3b4654;border-radius:22px;padding:24px;box-shadow:var(--shadow)
+}
+.modal-card h3{margin-top:0}
+.progress-row{display:grid;grid-template-columns:110px 1fr 60px;gap:12px;align-items:center;margin:12px 0}
+.progress{height:10px;border-radius:999px;background:#27313c;overflow:hidden}
+.progress span{height:100%;display:block;background:linear-gradient(90deg,#d65b4d,#e9c263)}
+@media(max-width:1000px){
+  .app{grid-template-columns:86px 1fr}
+  .logo{justify-content:center}.logo .txt,.nav .label,.side-foot{display:none}
+  .nav button{text-align:center;padding:12px 8px}
+  .grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .app{display:block}
+  .sidebar{
+    position:fixed;left:0;right:0;bottom:0;top:auto;height:68px;border-right:none;border-top:1px solid var(--line);
+    padding:8px;background:#0d131a
+  }
+  .logo,.side-foot{display:none}
+  .nav{grid-template-columns:repeat(6,1fr);gap:4px}
+  .nav button{font-size:11px;padding:8px 4px}
+  .nav button:nth-child(n+7){display:none}
+  .topbar{padding:0 14px;height:58px}
+  .content{padding:16px 14px 88px}
+  .hero-banner{min-height:430px;padding:26px 20px}
+  .hero-copy h2{font-size:34px}
+  .grid.cols-4,.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}
+  .battle-preview{min-height:520px}
+  .hp-wrap{width:150px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      <div class="txt"><h1>万界无双</h1><small>FRONTEND PROTOTYPE</small></div>
+    </div>
+    <div class="nav">
+      <button class="active" data-page="home">🏯 <span class="label">主大厅</span></button>
+      <button data-page="heroes">⚔️ <span class="label">英雄</span></button>
+      <button data-page="gear">🛡️ <span class="label">装备</span></button>
+      <button data-page="runes">🔷 <span class="label">符文</span></button>
+      <button data-page="pets">🐾 <span class="label">宠物</span></button>
+      <button data-page="talents">✦ <span class="label">天赋</span></button>
+      <button data-page="modes">🗺️ <span class="label">模式</span></button>
+      <button data-page="battle">🎮 <span class="label">战斗HUD</span></button>
+    </div>
+    <div class="side-foot">V0.1 · Static HTML Prototype</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <strong id="pageTitle">主大厅</strong>
+        <span style="color:var(--muted);font-size:12px;margin-left:8px">万界融合测试版</span>
+      </div>
+      <div class="user-meta">
+        <span class="pill">Lv. 12</span>
+        <span class="pill coin">◉ <b id="gold">3280</b></span>
+      </div>
+    </header>
+
+    <div class="content">
+      <section id="home" class="page active">
+        <div class="hero-banner">
+          <div class="hero-copy">
+            <div class="eyebrow">WORLD FRACTURE / 万界裂变</div>
+            <h2>赤焰战神</h2>
+            <p>火焰与剑系专精。以近战横扫切入怪群，通过火球、火海、龙卷与陨石构筑「灭世炎狱」路线。</p>
+            <div class="tags">
+              <span class="tag">近战</span><span class="tag">火</span><span class="tag">剑</span><span class="tag">新手推荐</span>
+            </div>
+            <div class="cta-row">
+              <button class="btn primary" onclick="openMode()">开始游戏</button>
+              <button class="btn" onclick="go('heroes')">查看英雄</button>
+              <button class="btn gold" onclick="toast('Build预设已载入：焚天武圣')">载入Build</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title"><h3>今日目标</h3><span>完成目标获得长期成长资源</span></div>
+        <div class="grid cols-3">
+          <div class="card">
+            <b>完成 2 局战斗</b>
+            <div class="progress-row"><span>进度</span><div class="progress"><span style="width:50%"></span></div><b>1/2</b></div>
+            <small style="color:var(--muted)">奖励：500金币</small>
+          </div>
+          <div class="card">
+            <b>完成 1 次技能进化</b>
+            <div class="progress-row"><span>进度</span><div class="progress"><span style="width:100%"></span></div><b>1/1</b></div>
+            <small style="color:var(--green)">可领取：符文碎片 ×3</small>
+          </div>
+          <div class="card">
+            <b>击败 3 个Boss</b>
+            <div class="progress-row"><span>进度</span><div class="progress"><span style="width:67%"></span></div><b>2/3</b></div>
+            <small style="color:var(--muted)">奖励：随机史诗装备</small>
+          </div>
+        </div>
+
+        <div class="section-title"><h3>快速入口</h3><span>优先展示核心玩法</span></div>
+        <div class="grid cols-4">
+          <div class="card hover mode-card" onclick="openMode()"><div><strong>剧情模式</strong><p>推进世界裂变主线，逐步解锁英雄与地图。</p></div><span class="tag">推荐战力 850</span></div>
+          <div class="card hover mode-card" onclick="toast('已选择：标准通关 · 乱世荒原')"><div><strong>标准通关</strong><p>20分钟完整Build循环，5/10/15/20分钟Boss节点。</p></div><span class="tag">20 MIN</span></div>
+          <div class="card hover mode-card" onclick="toast('无尽模式将在通关后开放')"><div><strong>无尽试炼</strong><p>20分钟后继续挑战，怪物和Boss持续变异。</p></div><span class="tag">最高 34:28</span></div>
+          <div class="card hover mode-card locked"><div><strong>万界塔</strong><p>账号Lv.20开放。层层词缀与Boss挑战。</p></div><span class="tag">LOCKED</span></div>
+        </div>
+      </section>
+
+      <section id="heroes" class="page">
+        <div class="section-title"><h3>英雄</h3><span>6 / 21 已解锁</span></div>
+        <div class="grid cols-3">
+          <div class="card hero-card hover" onclick="selectHero('赤焰战神','火 / 剑 / 近战')"><div class="portrait"></div><h3>赤焰战神</h3><div class="tags"><span class="tag">火</span><span class="tag">剑</span><span class="tag">近战</span></div><div class="levelbar"><i style="width:38%"></i></div><small>Lv.12 · 炎龙专精</small></div>
+          <div class="card hero-card hover" onclick="selectHero('雷霆猛将','雷 / 连击 / 高速')"><div class="portrait"></div><h3>雷霆猛将</h3><div class="tags"><span class="tag">雷</span><span class="tag">连击</span><span class="tag">高速</span></div><div class="levelbar"><i style="width:28%"></i></div><small>Lv.8 · 雷枪专精</small></div>
+          <div class="card hero-card hover" onclick="selectHero('灵猴','棍 / 分身 / 召唤')"><div class="portrait"></div><h3>灵猴</h3><div class="tags"><span class="tag">棍</span><span class="tag">分身</span><span class="tag">召唤</span></div><div class="levelbar"><i style="width:21%"></i></div><small>Lv.6 · 猴王分身</small></div>
+          <div class="card hero-card hover" onclick="selectHero('炎忍','火 / 爆炸 / 忍术')"><div class="portrait"></div><h3>炎忍</h3><div class="tags"><span class="tag">火</span><span class="tag">忍术</span><span class="tag">AOE</span></div><div class="levelbar"><i style="width:19%"></i></div><small>Lv.5 · 豪火专精</small></div>
+          <div class="card hero-card hover" onclick="selectHero('影忍','暗器 / 分身 / 暗影')"><div class="portrait"></div><h3>影忍</h3><div class="tags"><span class="tag">暗器</span><span class="tag">分身</span><span class="tag">暗影</span></div><div class="levelbar"><i style="width:16%"></i></div><small>Lv.4 · 手里剑专精</small></div>
+          <div class="card hero-card hover" onclick="selectHero('气功战士','气 / 光束 / 爆发')"><div class="portrait"></div><h3>气功战士</h3><div class="tags"><span class="tag">气</span><span class="tag">光束</span><span class="tag">Boss</span></div><div class="levelbar"><i style="width:12%"></i></div><small>Lv.3 · 气弹专精</small></div>
+        </div>
+      </section>
+
+      <section id="gear" class="page">
+        <div class="section-title"><h3>装备</h3><span>MVP三槽简化版</span></div>
+        <div class="grid cols-3">
+          <div class="card item-card"><div class="item-icon">刀</div><div class="meta"><h4>赤炎刀 +3</h4><p>攻击 +18 · 火伤 +12%</p><div class="tags"><span class="tag">史诗</span><span class="tag">火系</span></div></div></div>
+          <div class="card item-card"><div class="item-icon">甲</div><div class="meta"><h4>武将甲 +2</h4><p>生命 +120 · 防御 +8</p><div class="tags"><span class="tag">稀有</span><span class="tag">近战</span></div></div></div>
+          <div class="card item-card"><div class="item-icon">核</div><div class="meta"><h4>炎龙核心</h4><p>火伤 +20% · 火焰范围 +10%</p><div class="tags"><span class="tag">传奇</span></div></div></div>
+        </div>
+        <div class="section-title"><h3>背包</h3><span>点击装备模拟</span></div>
+        <div class="grid cols-4" id="gearBag"></div>
+      </section>
+
+      <section id="runes" class="page">
+        <div class="section-title"><h3>符文</h3><span>3个槽位 · MVP</span></div>
+        <div class="grid cols-3">
+          <div class="card"><h3>🔥 火神符文</h3><p style="color:var(--muted)">火属性伤害 +10%</p><div class="tags"><span class="tag">已装备</span><span class="tag">Lv.2</span></div></div>
+          <div class="card"><h3>⚡ 极速符文</h3><p style="color:var(--muted)">攻击速度 +8%</p><div class="tags"><span class="tag">已装备</span><span class="tag">Lv.1</span></div></div>
+          <div class="card"><h3>📘 学者符文</h3><p style="color:var(--muted)">经验获取 +10%</p><div class="tags"><span class="tag">已装备</span><span class="tag">Lv.1</span></div></div>
+        </div>
+        <div class="section-title"><h3>符文库存</h3><span>20枚基础符文规划</span></div>
+        <div class="grid cols-4" id="runeGrid"></div>
+      </section>
+
+      <section id="pets" class="page">
+        <div class="section-title"><h3>宠物</h3><span>1主宠 + 2辅助位</span></div>
+        <div class="grid cols-3">
+          <div class="card"><h2>🔥 火灵</h2><p style="color:var(--muted)">每6秒释放一次火球。输出型。</p><div class="stat"><span>等级</span><b>Lv.6</b></div><div class="stat"><span>星级</span><b>★★☆☆☆</b></div><button class="btn primary" style="margin-top:12px" onclick="toast('火灵已设为主宠')">设为主宠</button></div>
+          <div class="card"><h2>⚡ 雷狼</h2><p style="color:var(--muted)">周期释放闪电链。AOE型。</p><div class="stat"><span>等级</span><b>Lv.3</b></div><div class="stat"><span>星级</span><b>★☆☆☆☆</b></div><button class="btn" style="margin-top:12px" onclick="toast('雷狼已加入辅助位')">装备</button></div>
+          <div class="card locked"><h2>🪞 镜像精灵</h2><p style="color:var(--muted)">低概率复制一个玩家技能。</p><div class="stat"><span>状态</span><b>未解锁</b></div><div class="stat"><span>条件</span><b>击败万影忍王</b></div></div>
+        </div>
+      </section>
+
+      <section id="talents" class="page">
+        <div class="section-title"><h3>天赋</h3><span>剩余点数：3</span></div>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>战斗</h3>
+            <div class="grid">
+              <div class="talent-node"><b>力量 I</b><small>攻击 +2%</small></div>
+              <div class="talent-node"><b>精准 I</b><small>暴击率 +2%</small></div>
+              <div class="talent-node"><b>进化掌握</b><small>进化技能伤害 +3%</small></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>生存</h3>
+            <div class="grid">
+              <div class="talent-node"><b>体魄 I</b><small>生命 +3%</small></div>
+              <div class="talent-node"><b>护甲 I</b><small>防御 +3%</small></div>
+              <div class="talent-node"><b>不屈</b><small>首次致死保留1HP</small></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>成长</h3>
+            <div class="grid">
+              <div class="talent-node"><b>学识 I</b><small>经验 +3%</small></div>
+              <div class="talent-node"><b>贪婪 I</b><small>金币 +3%</small></div>
+              <div class="talent-node"><b>幸运 I</b><small>幸运 +5</small></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="modes" class="page">
+        <div class="section-title"><h3>模式选择</h3><span>MVP先开放三种</span></div>
+        <div class="grid cols-3">
+          <div class="card hover mode-card" onclick="toast('已选择：剧情 · 乱世荒原')"><div><strong>剧情模式</strong><p>推进主线与世界解锁，新手优先。</p></div><button class="btn primary">进入</button></div>
+          <div class="card hover mode-card" onclick="toast('已选择：标准通关 · 20分钟')"><div><strong>标准通关</strong><p>核心20分钟局，完整进化/融合流程。</p></div><button class="btn">进入</button></div>
+          <div class="card hover mode-card" onclick="toast('已选择：无尽试炼')"><div><strong>无尽试炼</strong><p>20分钟后持续战斗，记录最高时间。</p></div><button class="btn">进入</button></div>
+        </div>
+      </section>
+
+      <section id="battle" class="page">
+        <div class="section-title"><h3>战斗HUD预览</h3><span>静态交互演示</span></div>
+        <div class="battle-preview" id="arena">
+          <div class="hud-top">
+            <div class="hp-wrap">
+              <div><b>赤焰战神</b> <small style="color:var(--muted)">Lv.28</small></div>
+              <div class="hp"><span></span></div>
+              <div class="exp"><span></span></div>
+            </div>
+            <div class="hud-info"><span class="pill">18:25</span><span class="pill">击杀 10,245</span></div>
+          </div>
+          <div class="player-dot"></div>
+          <div class="skill-orbit"></div>
+          <div class="hud-bottom">
+            <div class="skillbar">
+              <div class="skillbox">火球<em>5</em></div>
+              <div class="skillbox">火海<em>5</em></div>
+              <div class="skillbox">龙卷<em>4</em></div>
+              <div class="skillbox">陨石<em>5</em></div>
+              <div class="skillbox">剑阵<em>3</em></div>
+              <div class="skillbox">黑洞<em>2</em></div>
+            </div>
+            <div class="ultimate">终极<br>READY</div>
+          </div>
+        </div>
+        <div class="cta-row">
+          <button class="btn primary" onclick="spawnWave()">模拟怪潮</button>
+          <button class="btn" onclick="toast('技能进化：火球术 → 炼狱火球')">模拟进化</button>
+          <button class="btn gold" onclick="toast('融合完成：炼狱火球 + 天灾风暴 → 焚天龙卷')">模拟融合</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="modal" id="modeModal">
+  <div class="modal-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div class="eyebrow">START GAME</div><h3>选择挑战</h3></div>
+      <button class="btn" onclick="closeMode()">关闭</button>
+    </div>
+    <div class="grid cols-3">
+      <div class="card hover" onclick="startGame('剧情·乱世荒原')"><b>剧情模式</b><p style="color:var(--muted)">推荐新玩家</p></div>
+      <div class="card hover" onclick="startGame('标准通关·20分钟')"><b>标准通关</b><p style="color:var(--muted)">完整Build循环</p></div>
+      <div class="card hover" onclick="startGame('无尽试炼')"><b>无尽模式</b><p style="color:var(--muted)">挑战最高时间</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const titles={home:'主大厅',heroes:'英雄',gear:'装备',runes:'符文',pets:'宠物',talents:'天赋',modes:'模式选择',battle:'战斗HUD'};
+document.querySelectorAll('.nav button').forEach(btn=>{
+  btn.addEventListener('click',()=>go(btn.dataset.page));
+});
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('pageTitle').textContent=titles[id]||'万界无双';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer=setTimeout(()=>t.classList.remove('show'),1800);
+}
+function openMode(){document.getElementById('modeModal').classList.add('show')}
+function closeMode(){document.getElementById('modeModal').classList.remove('show')}
+function startGame(name){closeMode();go('battle');toast('进入 '+name)}
+function selectHero(name,tags){toast('已选择英雄：'+name+' · '+tags)}
+function spawnWave(){
+  const arena=document.getElementById('arena');
+  arena.querySelectorAll('.enemy-dot').forEach(n=>n.remove());
+  for(let i=0;i<70;i++){
+    const e=document.createElement('i');
+    e.className='enemy-dot'+(i%17===0?' elite':'');
+    e.style.left=(4+Math.random()*92)+'%';
+    e.style.top=(12+Math.random()*76)+'%';
+    arena.appendChild(e);
+  }
+  toast('怪潮模拟：70个视觉单位');
+}
+const gearNames=['雷枪','影刃','气功核心','忍者服','妖灵甲','轻甲','猴王石','幸运金币'];
+const bag=document.getElementById('gearBag');
+gearNames.forEach((n,i)=>{
+  const d=document.createElement('div');d.className='card item-card hover';
+  d.innerHTML='<div class="item-icon">'+['武','刃','气','衣','妖','甲','石','金'][i]+'</div><div class="meta"><h4>'+n+'</h4><p>'+['攻击+14 · 雷伤+8%','暴击+5% · 暗影伤+10%','气伤+12% · CD-3%','闪避+4%','召唤生命+12%','防御+6','召唤数量概率+1','金币+10%'][i]+'</p></div>';
+  d.onclick=()=>toast('已装备：'+n);
+  bag.appendChild(d);
+});
+const runes=['狂战','破军','暴君','连击','穿透','奥术','巨化','分裂','持续','多重','火神','雷神','冰神','气神','吸血','护盾','闪避','学者','贪婪','幸运'];
+const rg=document.getElementById('runeGrid');
+runes.forEach((r,i)=>{
+  const d=document.createElement('div');d.className='card hover';
+  d.innerHTML='<b>'+r+'符文</b><p style="color:var(--muted);font-size:12px">Lv.'+(1+i%3)+' · '+(['攻击强化','技能强化','元素强化','生存强化','成长强化'][i%5])+'</p>';
+  d.onclick=()=>toast('符文已选择：'+r);
+  rg.appendChild(d);
+});
+spawnWave();
+</script>
+</body>
+</html>

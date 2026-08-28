@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>万界无双 · V1.6 完整技能Build构筑版</title>
+<style>
+:root{
+ --bg:#05070b;--panel:#111822;--panel2:#182332;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);
+ --text:#f7f8fb;--muted:#94a1b3;--muted2:#647286;--gold:#f3c66c;--red:#ef694e;--purple:#a47dff;--blue:#70a9ff;
+ --cyan:#65d8ff;--green:#64d59f;--orange:#f09a58;--shadow:0 28px 100px rgba(0,0,0,.48)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+body{background:
+ radial-gradient(circle at 8% 0%,rgba(218,73,54,.14),transparent 24%),
+ radial-gradient(circle at 90% 0%,rgba(102,76,219,.16),transparent 29%),
+ linear-gradient(180deg,#05070b,#091018 55%,#05070b)}
+button,input,select{font:inherit;color:inherit}
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:15px 12px;background:rgba(5,7,11,.96);border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:40}
+.brand{display:flex;gap:11px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012))}
+.logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:#24110d;font-weight:1000;background:linear-gradient(135deg,#f5d89b,#ef7659 46%,#7e61db)}
+.brand h1{margin:0;font-size:17px}.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:.16em;margin-top:3px}
+.group{margin:18px 10px 8px;color:#536173;font-size:10px;letter-spacing:.18em}
+.nav{display:grid;gap:6px}.nav button{border:1px solid transparent;background:transparent;padding:9px;border-radius:12px;display:flex;gap:10px;align-items:center;color:#7d899a;cursor:pointer;transition:.18s}
+.nav button:hover{background:rgba(255,255,255,.03);color:#e7edf5}.nav button.active{color:#fff;border-color:rgba(239,105,78,.2);background:linear-gradient(90deg,rgba(239,105,78,.16),rgba(105,78,201,.08));box-shadow:inset 3px 0 0 var(--red)}
+.ico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#101823;border:1px solid rgba(255,255,255,.05);font-size:11px;font-weight:900}
+.sidefoot{position:absolute;bottom:12px;left:12px;right:12px;padding:11px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);font-size:9px;color:#627084}
+.main{min-width:0}.topbar{height:70px;position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:0 22px;border-bottom:1px solid var(--line);background:rgba(5,7,11,.76);backdrop-filter:blur(22px)}
+.tleft{display:flex;gap:11px;align-items:center}.accent{width:6px;height:29px;border-radius:5px;background:linear-gradient(var(--gold),var(--red))}.tleft small{display:block;color:#68768a;margin-top:3px}
+.user{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pill{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03);font-size:11px}.pill b{color:var(--gold)}
+.content{padding:18px 22px 42px;max-width:1720px;margin:auto}.page{display:none}.page.active{display:block}
+.card{border:1px solid var(--line);border-radius:18px;padding:16px;background:linear-gradient(180deg,rgba(22,31,44,.94),rgba(12,18,26,.96));box-shadow:0 14px 38px rgba(0,0,0,.2)}
+.grid{display:grid;gap:14px}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.btn{border:1px solid var(--line2);border-radius:10px;padding:10px 14px;background:linear-gradient(180deg,#1b2431,#141b25);cursor:pointer;transition:.18s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.btn:disabled{opacity:.42;cursor:not-allowed;transform:none}
+.btn.primary{font-weight:800;background:linear-gradient(135deg,#c9463b,#ef7958 68%,#e7a05e);border-color:rgba(255,139,109,.32)}.btn.gold{background:linear-gradient(135deg,#5e4a1d,#9d742c);color:#ffe6a5;border-color:rgba(243,198,108,.28)}.btn.purple{background:linear-gradient(135deg,#403166,#6a4d9e);color:#e1d7ff;border-color:rgba(164,125,255,.28)}.btn.ghost{background:rgba(255,255,255,.02)}
+.eyebrow{font-size:9px;letter-spacing:.24em;color:var(--gold);font-weight:900}.muted{color:var(--muted)}.tiny{font-size:9px;color:#68768a}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:9px;padding:5px 7px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.03);color:#bac4d0}.tag.hot{color:#ffb2a2;border-color:rgba(239,105,78,.22);background:rgba(239,105,78,.08)}.tag.ok{color:#9ae0bc;border-color:rgba(100,213,159,.2);background:rgba(100,213,159,.06)}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:20px 0 12px}.section-title h2,.section-title h3{margin:0}.section-title span{font-size:10px;color:#68768a}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.progress{height:7px;border-radius:999px;background:#26313d;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold))}
+
+/* overview */
+.heroBanner{min-height:360px;border-radius:26px;position:relative;overflow:hidden;border:1px solid var(--line2);padding:34px 38px;display:flex;align-items:flex-end;box-shadow:var(--shadow);background:
+ radial-gradient(circle at 74% 32%,rgba(239,105,78,.22),transparent 15%),
+ radial-gradient(circle at 78% 52%,rgba(164,125,255,.11),transparent 30%),
+ linear-gradient(120deg,#17212e,#101721 55%,#090f16)}
+.buildArt{position:absolute;right:2%;top:0;width:46%;height:100%;opacity:.85;background:
+ radial-gradient(circle at 24% 35%,rgba(243,198,108,.25) 0 3%,transparent 4%),
+ radial-gradient(circle at 50% 25%,rgba(239,105,78,.22) 0 3%,transparent 4%),
+ radial-gradient(circle at 72% 44%,rgba(112,169,255,.20) 0 3%,transparent 4%),
+ radial-gradient(circle at 45% 68%,rgba(164,125,255,.20) 0 3%,transparent 4%)}
+.buildArt:before,.buildArt:after{content:"";position:absolute;left:20%;right:10%;top:42%;height:2px;background:linear-gradient(90deg,transparent,rgba(243,198,108,.35),transparent);transform:rotate(-16deg)}.buildArt:after{top:58%;transform:rotate(14deg)}
+.heroCopy{position:relative;z-index:2;max-width:760px}.heroCopy h1{font-size:44px;margin:10px 0}.heroCopy p{color:#acb8c6;line-height:1.8;font-size:13px}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:13px}.metric{padding:12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}.metric small{display:block;color:#68768a;font-size:8px}.metric b{display:block;margin-top:4px;font-size:15px}
+.featureGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.feature{min-height:130px}.featureIcon{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#29384c,#171f2a);color:var(--gold);border:1px solid var(--line2);font-weight:900}.feature h4{margin:8px 0 4px}.feature p{font-size:8px;color:var(--muted);line-height:1.45}
+
+/* library */
+.libraryTop{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.filters{display:flex;gap:7px;flex-wrap:wrap}.filterBtn{border:1px solid var(--line);background:rgba(255,255,255,.025);padding:7px 10px;border-radius:999px;font-size:9px;color:#7f8b9d;cursor:pointer}.filterBtn.active{color:#fff;border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.05)}
+.search{border:1px solid var(--line2);background:#0c131b;border-radius:10px;padding:9px 11px;min-width:230px;color:#fff}
+.skillGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.skillCard{padding:10px;border-radius:13px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer;transition:.16s}.skillCard:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.12)}.skillCard.selected{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.04)}
+.skillIcon{width:39px;height:39px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(145deg,#29384c,#171f2a);border:1px solid var(--line2);color:var(--gold);font-size:12px;font-weight:900}.skillCard h4{margin:7px 0 2px;font-size:10px}.skillCard p{font-size:8px;color:var(--muted);line-height:1.45;margin:5px 0}.skillMeta{display:flex;justify-content:space-between;font-size:8px;color:#68768a}
+.type-active{color:#ff9f80}.type-passive{color:#82b8ff}.type-summon{color:#9de0ba}.type-evo{color:#f3c66c}.type-fusion{color:#d1a8ff}.type-mythic{color:#ff8bd3}
+
+/* build editor */
+.editorLayout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:14px}.heroSelectGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.heroMini{padding:9px;border-radius:11px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer;text-align:center}.heroMini.active{border-color:rgba(243,198,108,.28);background:rgba(243,198,108,.04)}.heroMini b{font-size:9px}.heroMini small{display:block;font-size:7px;color:#68768a}
+.slotTitle{display:flex;justify-content:space-between;align-items:center;margin:12px 0 7px}.slotTitle b{font-size:10px}.buildSlots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.buildSlot{min-height:86px;padding:8px;border-radius:11px;border:1px dashed rgba(255,255,255,.10);background:rgba(255,255,255,.015);cursor:pointer}.buildSlot.filled{border-style:solid;background:rgba(255,255,255,.03)}.buildSlot.ready{border-color:rgba(243,198,108,.34);background:rgba(243,198,108,.045)}.buildSlot .slotIcon{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:#1d2835;color:var(--gold);font-weight:900}.buildSlot b{font-size:8px;display:block;margin-top:5px}.buildSlot small{font-size:7px;color:#68768a}
+.buildScore{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.scoreBox{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center}.scoreBox small{display:block;font-size:7px;color:#68768a}.scoreBox b{font-size:12px}
+.recommendGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.recommend{padding:12px;border-radius:13px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.recommend h4{margin:6px 0}.recommend p{font-size:8px;color:var(--muted);line-height:1.45}
+.editorLib{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.pickCard{padding:9px;border-radius:11px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer}.pickCard.disabled{opacity:.35;cursor:not-allowed}.pickCard h5{margin:4px 0;font-size:9px}.pickCard small{font-size:7px;color:#68768a}
+
+/* evolution */
+.evoLayout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px}.treeCanvas{min-height:660px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(164,125,255,.06),transparent 35%),linear-gradient(145deg,#101821,#0b1118)}.treeCanvas svg{position:absolute;inset:0;width:100%;height:100%}.treeNodes{position:absolute;inset:0}.treeNode{position:absolute;width:150px;transform:translate(-50%,-50%);padding:9px;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:#141d27;text-align:center}.treeNode.base{border-color:rgba(112,169,255,.18)}.treeNode.evo{border-color:rgba(243,198,108,.24)}.treeNode.fusion{border-color:rgba(164,125,255,.26)}.treeNode.mythic{border-color:rgba(255,139,211,.30);box-shadow:0 0 24px rgba(255,139,211,.06)}.treeNode.ready{box-shadow:0 0 0 3px rgba(243,198,108,.05),0 0 26px rgba(243,198,108,.12)}.treeNode b{display:block;font-size:9px}.treeNode small{font-size:7px;color:#68768a}
+.validator{display:grid;gap:8px}.validRow{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);font-size:8px}.validRow.ok{border-color:rgba(100,213,159,.18);color:#bce9d1}.validRow.warn{border-color:rgba(243,198,108,.18);color:#f0d797}
+
+/* battle */
+.battleLayout{display:grid;grid-template-columns:minmax(0,1fr) 365px;gap:14px}.arena{min-height:690px;position:relative;overflow:hidden;padding:0;background:linear-gradient(145deg,#152019,#11171d)}#arenaCanvas{width:100%;height:690px;display:block}.arenaHud{position:absolute;inset:0;pointer-events:none}.hudTop{position:absolute;left:14px;right:14px;top:14px;display:flex;justify-content:space-between;gap:10px}.hudBox{padding:8px 10px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:rgba(6,10,15,.75);font-size:9px}.levelOverlay{position:absolute;inset:0;display:none;place-items:center;background:rgba(5,8,12,.82);backdrop-filter:blur(7px);pointer-events:auto}.levelOverlay.show{display:grid}.choiceWrap{width:min(840px,92%)}.choiceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.choice{padding:14px;border-radius:15px;border:1px solid var(--line2);background:linear-gradient(180deg,#1b2635,#111923);cursor:pointer}.choice:hover{transform:translateY(-3px)}.choice .skillIcon{width:50px;height:50px}.choice h3{margin:8px 0 3px}.choice p{font-size:8px;color:var(--muted)}
+.chestOverlay{position:absolute;inset:0;display:none;place-items:center;background:rgba(5,8,12,.82);backdrop-filter:blur(7px);pointer-events:auto}.chestOverlay.show{display:grid}
+.hudSlots{position:absolute;left:14px;bottom:14px;display:flex;gap:5px;padding:7px;border-radius:14px;background:rgba(6,10,15,.76);border:1px solid var(--line)}.hudSlot{width:43px;height:43px;border-radius:10px;border:1px solid #455163;background:linear-gradient(145deg,#29384c,#161d28);display:grid;place-items:center;position:relative}.hudSlot strong{font-size:13px;color:var(--gold)}.hudSlot em{position:absolute;right:3px;bottom:2px;font-size:7px;font-style:normal;color:var(--gold)}.hudSlot.evo{border-color:rgba(243,198,108,.35)}.hudSlot.fusion{border-color:rgba(164,125,255,.36)}
+.battleHint{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);padding:7px 10px;border-radius:999px;background:rgba(6,10,15,.74);border:1px solid var(--line);font-size:9px;color:#a8b3c0}.eventHint{position:absolute;left:50%;top:70px;transform:translateX(-50%) translateY(-8px);opacity:0;padding:9px 15px;border-radius:999px;background:rgba(10,15,22,.94);border:1px solid rgba(243,198,108,.22);color:var(--gold);font-size:10px;transition:.24s}.eventHint.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.battleSide{display:grid;gap:12px;align-content:start}.battleStat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:9px}.battleStat span{color:var(--muted)}.runBuild{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.runSkill{padding:7px;border-radius:9px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center}.runSkill b{display:block;font-size:8px}.runSkill small{font-size:7px;color:#68768a}.log{max-height:150px;overflow:auto;display:grid;gap:6px}.log div{font-size:8px;color:var(--muted);padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.02)}
+
+/* codex/result */
+.compactGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.compactCard{padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025)}.compactCard h4{margin:6px 0 3px}.compactCard p{font-size:8px;color:var(--muted);line-height:1.45}
+.resultGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.resultHero{min-height:300px;background:radial-gradient(circle at 72% 40%,rgba(239,105,78,.17),transparent 26%),linear-gradient(145deg,#1a2432,#101720)}.resultHero h1{font-size:40px;margin:10px 0 4px}.resultMetrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.resultMetric{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}.resultMetric small{display:block;color:#68768a;font-size:9px}.resultMetric b{display:block;margin-top:4px}.resultRow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:9px}.resultRow span{color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,18px);opacity:0;padding:10px 14px;border-radius:11px;background:rgba(8,13,19,.96);border:1px solid var(--line2);z-index:120;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1250px){.app{grid-template-columns:86px 1fr}.brand>div:last-child,.group,.nav .label,.sidefoot{display:none}.brand{justify-content:center}.nav button{justify-content:center}.metrics{grid-template-columns:repeat(3,1fr)}.featureGrid{grid-template-columns:repeat(3,1fr)}.skillGrid{grid-template-columns:repeat(4,1fr)}.editorLayout,.evoLayout,.battleLayout{grid-template-columns:1fr}.editorLib{grid-template-columns:repeat(5,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{position:fixed;left:0;right:0;bottom:0;top:auto;height:70px;padding:7px 8px;border-right:0;border-top:1px solid var(--line);overflow-x:auto}.brand,.group,.sidefoot{display:none}.nav{grid-template-columns:repeat(7,minmax(70px,1fr));gap:4px;min-width:560px}.nav button{display:grid;justify-items:center;gap:2px;padding:4px 2px;font-size:8px}.nav .label{display:block}.ico{width:29px;height:29px}.topbar{height:60px;padding:0 12px}.tleft small{display:none}.content{padding:12px 12px 88px}.heroBanner{min-height:470px;padding:24px 18px}.heroCopy h1{font-size:34px}.buildArt{width:75%;right:-35%;opacity:.4}.metrics,.featureGrid,.skillGrid,.recommendGrid,.editorLib,.compactGrid,.resultGrid,.resultMetrics,.c2,.c3,.c4{grid-template-columns:1fr}.libraryTop{grid-template-columns:1fr}.search{min-width:0;width:100%}.choiceGrid{grid-template-columns:1fr}.treeCanvas{min-height:760px}.treeNode{width:112px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">界</div><div><h1>万界无双</h1><small>BUILD SYSTEM</small></div></div>
+  <div class="group">技能构筑</div>
+  <div class="nav">
+    <button class="active" data-page="overview"><span class="ico">筑</span><span class="label">系统总览</span></button>
+    <button data-page="library"><span class="ico">库</span><span class="label">技能库</span></button>
+    <button data-page="editor"><span class="ico">编</span><span class="label">Build编辑器</span></button>
+    <button data-page="evolution"><span class="ico">进</span><span class="label">进化图谱</span></button>
+    <button data-page="battle"><span class="ico">战</span><span class="label">局内模拟</span></button>
+    <button data-page="codex"><span class="ico">谱</span><span class="label">融合图鉴</span></button>
+    <button data-page="result"><span class="ico">结</span><span class="label">结算</span></button>
+  </div>
+  <div class="sidefoot"><b>V1.6</b><br>40战斗技能 / 25被动 / 20进化 / 10融合 / 4神话 / 6+6槽</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="tleft"><span class="accent"></span><div><strong id="pageTitle">系统总览</strong><small>技能库、Build、进化与融合</small></div></div>
+  <div class="user">
+    <span class="pill">英雄 <b id="topHero">H001</b></span>
+    <span class="pill">Build评分 <b id="topScore">0</b></span>
+    <span class="pill">进化可达 <b id="topReachable">0</b></span>
+    <span class="pill">融合可达 <b id="topFusion">0</b></span>
+  </div>
+</header>
+
+<div class="content">
+<section class="page active" id="overview">
+  <div class="heroBanner">
+    <div class="buildArt"></div>
+    <div class="heroCopy">
+      <div class="eyebrow">V1.6 · COMPLETE SKILL BUILD SYSTEM</div>
+      <h1>让“割草”真正靠 Build 产生重复可玩性</h1>
+      <p>主动技能负责输出形态，被动决定进化方向，两个已进化技能可以进一步融合，最终在极端条件下形成神话技能。所有选择都受6主动+6被动槽位限制，避免玩家无脑全拿。</p>
+      <div class="tags"><span class="tag hot">40战斗技能</span><span class="tag">25被动</span><span class="tag">20进化</span><span class="tag">10融合</span><span class="tag">4神话</span><span class="tag">6+6槽</span></div>
+      <div class="actions"><button class="btn primary" onclick="go('editor')">开始编辑Build</button><button class="btn gold" onclick="startRun()">用当前Build实战模拟</button></div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><small>主动/召唤</small><b>40</b></div>
+    <div class="metric"><small>被动技能</small><b>25</b></div>
+    <div class="metric"><small>进化节点</small><b>20</b></div>
+    <div class="metric"><small>融合节点</small><b>10</b></div>
+    <div class="metric"><small>神话节点</small><b>4</b></div>
+  </div>
+
+  <div class="section-title"><h3>Build层级</h3><span>从基础选择逐步走向高阶构筑</span></div>
+  <div class="featureGrid">
+    <div class="card feature"><div class="featureIcon">1</div><h4>基础技能</h4><p>局内升级获取Lv1–5，决定最基础攻击方式。</p></div>
+    <div class="card feature"><div class="featureIcon">2</div><h4>被动匹配</h4><p>被动不只是加数值，而是决定技能是否具备进化资格。</p></div>
+    <div class="card feature"><div class="featureIcon">3</div><h4>宝箱进化</h4><p>技能达到Lv5且被动条件满足后，在精英/Boss宝箱中完成进化。</p></div>
+    <div class="card feature"><div class="featureIcon">4</div><h4>技能融合</h4><p>两个指定进化技能组合成更高阶技能，改变攻击逻辑。</p></div>
+    <div class="card feature"><div class="featureIcon">5</div><h4>神话终局</h4><p>满足融合、指定进化和Lv5被动条件，进入极端终局Build。</p></div>
+  </div>
+</section>
+
+<section class="page" id="library">
+  <div class="section-title"><h2>技能总库</h2><span>冻结生产ID，不使用局部重编号</span></div>
+  <div class="card">
+    <div class="libraryTop">
+      <div class="filters" id="filters">
+        <button class="filterBtn active" data-filter="all">全部</button>
+        <button class="filterBtn" data-filter="active">主动</button>
+        <button class="filterBtn" data-filter="summon">召唤</button>
+        <button class="filterBtn" data-filter="passive">被动</button>
+        <button class="filterBtn" data-filter="evo">进化</button>
+        <button class="filterBtn" data-filter="fusion">融合</button>
+        <button class="filterBtn" data-filter="mythic">神话</button>
+      </div>
+      <input class="search" id="skillSearch" placeholder="搜索 ID / 技能名">
+    </div>
+  </div>
+  <div class="section-title"><h3 id="libraryCount">0项</h3><span>点击基础技能可直接加入当前Build</span></div>
+  <div class="skillGrid" id="skillGrid"></div>
+</section>
+
+<section class="page" id="editor">
+  <div class="section-title"><h2>Build编辑器</h2><span>6主动 + 6被动 · 自动校验进化/融合路线</span></div>
+  <div class="editorLayout">
+    <div class="card">
+      <div class="eyebrow">HERO</div><h3>选择英雄</h3>
+      <div class="heroSelectGrid" id="heroSelectGrid"></div>
+
+      <div class="slotTitle"><b>主动 / 召唤槽</b><span class="tiny" id="activeCount">0 / 6</span></div>
+      <div class="buildSlots" id="activeSlots"></div>
+
+      <div class="slotTitle"><b>被动槽</b><span class="tiny" id="passiveCount">0 / 6</span></div>
+      <div class="buildSlots" id="passiveSlots"></div>
+
+      <div class="section-title" style="margin-top:14px"><h3>Build评分</h3></div>
+      <div class="buildScore">
+        <div class="scoreBox"><small>清场</small><b id="scoreClear">0</b></div>
+        <div class="scoreBox"><small>Boss</small><b id="scoreBoss">0</b></div>
+        <div class="scoreBox"><small>成型</small><b id="scoreForm">0</b></div>
+      </div>
+      <div class="actions"><button class="btn ghost" onclick="clearBuild()">清空</button><button class="btn primary" onclick="startRun()">实战模拟</button></div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="eyebrow">QUICK PRESETS</div><h3>英雄推荐Build</h3>
+        <div class="recommendGrid" id="recommendGrid"></div>
+      </div>
+
+      <div class="section-title"><h3>可加入技能</h3><span>已满槽时自动禁用新技能</span></div>
+      <div class="card"><div class="editorLib" id="editorLib"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="evolution">
+  <div class="section-title"><h2>进化与融合图谱</h2><span>根据当前Build动态显示可达性</span></div>
+  <div class="evoLayout">
+    <div class="card treeCanvas" id="treeCanvas">
+      <svg id="treeSvg"></svg><div class="treeNodes" id="treeNodes"></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">BUILD VALIDATOR</div><h3>路线校验</h3>
+      <div class="validator" id="validator"></div>
+      <div class="section-title"><h3>当前可达</h3></div>
+      <div class="infoRows" id="reachableList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="battle">
+  <div class="section-title"><h2>局内 Build 模拟</h2><span>三选一、Lv1–5、宝箱进化、融合触发</span></div>
+  <div class="battleLayout">
+    <div class="card arena">
+      <canvas id="arenaCanvas"></canvas>
+      <div class="arenaHud">
+        <div class="hudTop">
+          <div class="hudBox"><b id="hudHero">H001 赤焰战神</b> · Lv.<span id="runLevel">1</span></div>
+          <div class="hudBox"><span id="runTime">00:00</span> · 击杀 <span id="runKills">0</span></div>
+        </div>
+        <div class="eventHint" id="eventHint">技能已升级</div>
+        <div class="hudSlots" id="hudSlots"></div>
+        <div class="battleHint">WASD移动 · 自动攻击 · 5/10/15分钟宝箱 · Debug可直接升级</div>
+
+        <div class="levelOverlay" id="levelOverlay">
+          <div class="choiceWrap">
+            <div style="text-align:center;margin-bottom:14px"><div class="eyebrow">LEVEL UP</div><h2>选择一项强化</h2></div>
+            <div class="choiceGrid" id="choiceGrid"></div>
+          </div>
+        </div>
+
+        <div class="chestOverlay" id="chestOverlay">
+          <div class="choiceWrap">
+            <div style="text-align:center;margin-bottom:14px"><div class="eyebrow">CHEST</div><h2>宝箱奖励</h2></div>
+            <div class="choiceGrid" id="chestChoices"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="battleSide">
+      <div class="card"><div class="eyebrow">RUN BUILD</div><h3>当前局内构筑</h3><div class="runBuild" id="runBuild"></div></div>
+      <div class="card"><div class="eyebrow">EVOLUTION READY</div><h3>可进化/融合</h3><div class="validator" id="runReady"></div></div>
+      <div class="card"><div class="eyebrow">DEBUG</div><h3>测试工具</h3><div class="actions"><button class="btn ghost" onclick="forceLevel()">直接升级</button><button class="btn gold" onclick="forceChest()">开启宝箱</button><button class="btn purple" onclick="fastForward(15)">跳到15分钟</button></div></div>
+      <div class="card"><div class="eyebrow">LOG</div><h3>构筑日志</h3><div class="log" id="battleLog"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="codex">
+  <div class="section-title"><h2>融合与神话图鉴</h2><span>10个融合 + 4个神话</span></div>
+  <div class="section-title"><h3>融合</h3></div>
+  <div class="compactGrid" id="fusionCodex"></div>
+  <div class="section-title"><h3>神话</h3></div>
+  <div class="compactGrid" id="mythicCodex"></div>
+</section>
+
+<section class="page" id="result">
+  <div class="section-title"><h2>Build结算</h2><span>评估实际成型路线</span></div>
+  <div class="resultGrid">
+    <div class="card resultHero">
+      <div class="eyebrow">BUILD TEST COMPLETE</div><h1 id="resultBuildName">火域压制</h1><p class="muted">本局已记录实际获得的技能、进化与融合。</p>
+      <div class="resultMetrics">
+        <div class="resultMetric"><small>时间</small><b id="resTime">00:00</b></div>
+        <div class="resultMetric"><small>击杀</small><b id="resKills">0</b></div>
+        <div class="resultMetric"><small>进化</small><b id="resEvo">0</b></div>
+        <div class="resultMetric"><small>融合</small><b id="resFusion">0</b></div>
+      </div>
+      <div class="actions"><button class="btn primary" onclick="startRun()">再次测试</button><button class="btn" onclick="go('editor')">返回编辑器</button></div>
+    </div>
+    <div class="card"><div class="eyebrow">FINAL BUILD</div><h3>最终构筑</h3><div id="resultRows"></div></div>
+  </div>
+</section>
+</div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const HEROES={
+ H001:{name:'赤焰战神',tag:'火/剑/近战',fav:['A001','A003','A011','A021','A026','A027'],preset:[
+  {name:'灭世炎狱',a:['A011','A021','A026','A027','A003','A054'],p:['P026','P017','P030','P019','P016','P018']},
+  {name:'炎龙武圣',a:['A001','A003','A054','A042','A063','A070'],p:['P016','P026','P011','P003','P019','P043']},
+  {name:'火域站场',a:['A021','A027','A028','A041','A011','A062'],p:['P017','P026','P027','P019','P043','P001']}
+ ]},
+ H002:{name:'雷霆猛将',tag:'雷/枪/连击',fav:['A002','A013','A022','A041','A051','A062'],preset:[
+  {name:'九天雷神',a:['A013','A022','A041','A051','A062','S003'],p:['P027','P023','P011','P018','P019','P003']},
+  {name:'雷枪连击',a:['A002','A051','A062','A034','A013','A041'],p:['P027','P011','P007','P003','P018','P019']},
+  {name:'雷影军团',a:['S003','A013','A022','A051','A041','A060'],p:['P027','P039','P036','P018','P011','P019']}
+ ]},
+ H007:{name:'灵猴',tag:'棍/分身/变身',fav:['A005','A026','A045','S008','S001'],preset:[
+  {name:'斗战风暴',a:['A005','A001','A026','A045','S008','S001'],p:['P016','P011','P030','P039','P036','P018']},
+  {name:'万猴军团',a:['S008','S001','A005','A026','A045','A060'],p:['P039','P036','P037','P018','P016','P030']},
+  {name:'巨神棍阵',a:['A005','A001','A009','A045','A026','S008'],p:['P001','P016','P011','P019','P030','P043']}
+ ]},
+ H010:{name:'炎忍',tag:'火/忍术/爆炸',fav:['A011','A015','A019','A027','A054','S002'],preset:[
+  {name:'爆炎忍法',a:['A011','A019','A027','A054','S002','A042'],p:['P026','P010','P018','P019','P024','P033']},
+  {name:'炎龙疾走',a:['A054','A011','A027','A051','A060','S002'],p:['P026','P018','P011','P019','P033','P007']},
+  {name:'火分身',a:['S002','A011','A019','A027','A042','A063'],p:['P036','P039','P026','P010','P018','P019']}
+ ]},
+ H012:{name:'影忍',tag:'暗影/暗器/高速',fav:['A015','A053','A070','S001'],preset:[
+  {name:'万影忍神',a:['A015','S001','A053','A070','A072','A073'],p:['P024','P039','P033','P007','P018','P019']},
+  {name:'暗器暴击',a:['A015','A007','A070','A053','A072','A073'],p:['P024','P007','P011','P019','P033','P018']},
+  {name:'影军召唤',a:['S001','A015','A053','A070','S002','S003'],p:['P039','P036','P033','P018','P019','P024']}
+ ]},
+ H019:{name:'气功战士',tag:'气/远程/蓄力',fav:['A014','A030','A049','A060','A068','S018'],preset:[
+  {name:'万象星河炮',a:['A014','A030','A049','A060','A068','S018'],p:['P032','P019','P018','P003','P016','P043']},
+  {name:'气爆领域',a:['A030','A060','A068','A014','A049','S018'],p:['P032','P016','P018','P019','P043','P001']},
+  {name:'百重气功',a:['A014','S018','A049','A068','A060','A030'],p:['P032','P019','P018','P003','P011','P016']}
+ ]}
+};
+
+const ACTIVES={
+ A001:['旋风斩','近战','物理',72],A002:['雷霆枪','近战','雷',76],A003:['烈焰刀','近战','火',78],A005:['回旋棍','近战','物理',74],
+ A007:['修罗斩','近战','暗',82],A009:['连环拳','近战','物理',76],A011:['火球术','远程','火',80],A013:['雷电弹','远程','雷',80],
+ A014:['气功弹','远程','气',82],A015:['手里剑','远程','暗',79],A019:['爆裂弹','远程','火',84],A021:['火焰领域','领域','火',88],
+ A022:['雷霆领域','领域','雷',88],A026:['龙卷风','领域','风',86],A027:['陨石雨','轰炸','火',92],A028:['爆炎阵','领域','火',90],
+ A030:['气爆领域','领域','气',89],A031:['灼烧','持续','火',74],A034:['雷蚀','持续','雷',76],A037:['黑炎','持续','暗',82],
+ A041:['落雷','轰炸','雷',88],A042:['火柱','轰炸','火',85],A045:['风刃雨','轰炸','风',86],A049:['气功轰炸','轰炸','气',90],
+ A051:['雷闪','位移','雷',82],A053:['影袭','位移','暗',84],A054:['火焰冲刺','位移','火',86],A060:['气爆瞬移','位移','气',86],
+ A062:['雷珠','环绕','雷',83],A063:['火轮','环绕','火',83],A068:['气功珠','环绕','气',84],A069:['龙魂','环绕','混合',91],
+ A070:['暗影刃','环绕','暗',86],A072:['黑洞','控制','暗',95],A073:['镜像攻击','特殊','混合',94],
+ S001:['影分身','召唤','暗',88],S002:['火分身','召唤','火',86],S003:['雷分身','召唤','雷',86],S008:['猴兵','召唤','物理',84],S018:['气功幻影','召唤','气',90]
+};
+
+const PASSIVES={
+ P001:['力量强化','基础','攻击'],P003:['破军','基础','Boss'],P005:['斩杀','基础','处决'],P006:['精准','暴击','命中'],P007:['致命','暴击','暴伤'],
+ P010:['暴击爆炸','暴击','爆炸'],P011:['极速','攻速','速度'],P016:['范围强化','技能','范围'],P017:['持续强化','技能','持续'],P018:['冷却缩减','技能','冷却'],
+ P019:['技能倍率','技能','倍率'],P021:['多重射击','投射','数量'],P022:['穿透','投射','穿透'],P023:['弹射','投射','弹射'],P024:['分裂','投射','分裂'],
+ P025:['追踪','投射','追踪'],P026:['火神祝福','元素','火'],P027:['雷神祝福','元素','雷'],P030:['风神祝福','元素','风'],P032:['气能强化','元素','气'],
+ P033:['暗影强化','元素','暗'],P036:['召唤强化','召唤','伤害'],P037:['召唤速度','召唤','攻速'],P039:['召唤数量','召唤','数量'],P043:['吸血','生存','吸血']
+};
+
+const EVOS={
+ E001:['无双风暴','A001','P016'],E003:['炼狱龙斩','A003','P026'],E005:['斗战神棍','A005','P018'],E011:['炼狱火球','A011','P026'],
+ E013:['无限雷链','A013','P023'],E014:['星河气弹','A014','P032'],E015:['万影手里剑','A015','P024'],E019:['连环爆破','A019','P010'],
+ E021:['炼狱火海','A021','P017'],E022:['九天雷域','A022','P027'],E026:['天灾风暴','A026','P030'],E027:['天火陨星','A027','P026'],
+ E028:['九重爆炎阵','A028','P019'],E030:['星环气场','A030','P032'],E041:['天罚神雷','A041','P027'],E049:['星河弹幕','A049','P032'],
+ E054:['炎龙疾走','A054','P026'],SE001:['万影军团','S001','P039'],SE003:['雷神影军','S003','P027'],SE018:['星河幻影','S018','P032']
+};
+
+const FUSIONS={
+ F001:['焚天龙卷','E011','E026'],F002:['天火炼狱','E021','E027'],F003:['炎爆地狱','E028','E019'],F004:['炎龙乱舞','E003','E054'],
+ F005:['雷神万影','E013','SE003'],F006:['九天雷劫','E022','E041'],F020:['百重气功炮','E014','SE018'],F021:['星河冲击','E030','E049'],
+ F026:['无限影军','SE001','E015'],F033:['斗战风暴','E005','E001']
+};
+
+const MYTHICS={
+ M001:['灭世炎狱',['F001','E027'],'P026'],
+ M002:['九天雷神',['F005','F006'],'P027'],
+ M006:['万象星河炮',['F020','F021'],'P032'],
+ M008:['万影忍神',['F026','F005'],'P033']
+};
+
+const SAVE_KEY='wanjie_v16_build_save';
+const DEFAULT_SAVE={
+ hero:'H001',
+ build:{
+  active:['A011','A021','A026','A027','A003','A054'],
+  passive:['P026','P017','P030','P019','P016','P018']
+ }
+};
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function loadSave(){try{return {...clone(DEFAULT_SAVE),...JSON.parse(localStorage.getItem(SAVE_KEY)||'{}')}}catch(e){return clone(DEFAULT_SAVE)}}
+let save=loadSave();
+let selectedFilter='all';
+let librarySearch='';
+
+function persist(){localStorage.setItem(SAVE_KEY,JSON.stringify(save));renderAll()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),1600)}
+function hint(m){const t=document.getElementById('eventHint');t.textContent=m;t.classList.add('show');clearTimeout(window.hh);window.hh=setTimeout(()=>t.classList.remove('show'),1700)}
+function log(m){const d=document.createElement('div');d.textContent=m;const l=document.getElementById('battleLog');l.prepend(d);while(l.children.length>12)l.lastChild.remove()}
+function fmt(sec){let m=Math.floor(sec/60),s=Math.floor(sec%60);return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById(id).classList.add('active');document.getElementById('pageTitle').textContent={overview:'系统总览',library:'技能库',editor:'Build编辑器',evolution:'进化图谱',battle:'局内模拟',codex:'融合图鉴',result:'Build结算'}[id]||'万界无双';if(id==='battle')resizeArena();if(id==='evolution')setTimeout(renderTree,0)}
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+
+function itemName(id){
+ if(ACTIVES[id])return ACTIVES[id][0];
+ if(PASSIVES[id])return PASSIVES[id][0];
+ if(EVOS[id])return EVOS[id][0];
+ if(FUSIONS[id])return FUSIONS[id][0];
+ if(MYTHICS[id])return MYTHICS[id][0];
+ return id
+}
+function itemType(id){
+ if(id.startsWith('S')&&ACTIVES[id])return 'summon';
+ if(ACTIVES[id])return 'active';
+ if(PASSIVES[id])return 'passive';
+ if(EVOS[id])return 'evo';
+ if(FUSIONS[id])return 'fusion';
+ if(MYTHICS[id])return 'mythic';
+ return 'unknown'
+}
+function glyph(id){const n=itemName(id);return n.slice(0,1)}
+function allItems(){
+ const arr=[];
+ Object.keys(ACTIVES).forEach(id=>arr.push({id,type:itemType(id),name:itemName(id)}));
+ Object.keys(PASSIVES).forEach(id=>arr.push({id,type:'passive',name:itemName(id)}));
+ Object.keys(EVOS).forEach(id=>arr.push({id,type:'evo',name:itemName(id)}));
+ Object.keys(FUSIONS).forEach(id=>arr.push({id,type:'fusion',name:itemName(id)}));
+ Object.keys(MYTHICS).forEach(id=>arr.push({id,type:'mythic',name:itemName(id)}));
+ return arr
+}
+function buildScore(){
+ const h=HEROES[save.hero];
+ let clear=0,boss=0,form=0;
+ save.build.active.forEach(id=>{
+  const v=ACTIVES[id]?.[3]||80;clear+=v;
+  if(['A003','A007','A014','A049','A072'].includes(id))boss+=12;
+  if(h.fav.includes(id))form+=7;
+ });
+ save.build.passive.forEach(id=>{
+  if(['P016','P017','P018','P019','P021','P024','P039'].includes(id))clear+=10;
+  if(['P003','P005','P006','P007','P019','P032','P043'].includes(id))boss+=10;
+  form+=6;
+ });
+ const evo=countReachableEvos(),fusion=countReachableFusions();
+ clear+=evo*7+fusion*12;boss+=evo*5+fusion*9;form+=evo*8+fusion*10;
+ return {clear:Math.min(100,Math.round(clear/(6*92+60)*100)),boss:Math.min(100,Math.round((boss+45))),form:Math.min(100,Math.round(form+20)),total:Math.min(999,Math.round(clear*.5+boss*3+form*2))}
+}
+function countReachableEvos(){
+ return Object.values(EVOS).filter(([n,a,p])=>save.build.active.includes(a)&&save.build.passive.includes(p)).length
+}
+function reachableEvoIds(){
+ return Object.entries(EVOS).filter(([id,[n,a,p]])=>save.build.active.includes(a)&&save.build.passive.includes(p)).map(([id])=>id)
+}
+function countReachableFusions(){
+ const e=new Set(reachableEvoIds());return Object.values(FUSIONS).filter(([n,a,b])=>e.has(a)&&e.has(b)).length
+}
+function reachableFusionIds(){
+ const e=new Set(reachableEvoIds());return Object.entries(FUSIONS).filter(([id,[n,a,b]])=>e.has(a)&&e.has(b)).map(([id])=>id)
+}
+function reachableMythicIds(){
+ const e=new Set(reachableEvoIds()),f=new Set(reachableFusionIds());
+ return Object.entries(MYTHICS).filter(([id,[n,needs,p]])=>save.build.passive.includes(p)&&needs.every(x=>e.has(x)||f.has(x))).map(([id])=>id)
+}
+
+/* top */
+function renderTop(){
+ const s=buildScore();document.getElementById('topHero').textContent=save.hero;document.getElementById('topScore').textContent=s.total;document.getElementById('topReachable').textContent=countReachableEvos();document.getElementById('topFusion').textContent=countReachableFusions()
+}
+
+/* library */
+document.querySelectorAll('.filterBtn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filterBtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');selectedFilter=b.dataset.filter;renderLibrary()}));
+document.getElementById('skillSearch').addEventListener('input',e=>{librarySearch=e.target.value.trim().toLowerCase();renderLibrary()});
+function renderLibrary(){
+ const grid=document.getElementById('skillGrid');grid.innerHTML='';
+ const items=allItems().filter(x=>(selectedFilter==='all'||x.type===selectedFilter)&&(!librarySearch||(x.id.toLowerCase().includes(librarySearch)||x.name.toLowerCase().includes(librarySearch))));
+ document.getElementById('libraryCount').textContent=items.length+'项';
+ items.forEach(x=>{
+  const selected=save.build.active.includes(x.id)||save.build.passive.includes(x.id);
+  const d=document.createElement('div');d.className='skillCard '+(selected?'selected':'');
+  let desc='';
+  if(ACTIVES[x.id])desc=ACTIVES[x.id][1]+' · '+ACTIVES[x.id][2]+' · 强度'+ACTIVES[x.id][3];
+  if(PASSIVES[x.id])desc=PASSIVES[x.id][1]+' · '+PASSIVES[x.id][2];
+  if(EVOS[x.id])desc=EVOS[x.id][1]+' + '+EVOS[x.id][2];
+  if(FUSIONS[x.id])desc=FUSIONS[x.id][1]+' + '+FUSIONS[x.id][2];
+  if(MYTHICS[x.id])desc=MYTHICS[x.id][1].join(' + ')+' + '+MYTHICS[x.id][2]+' Lv5';
+  d.innerHTML='<div class="skillIcon">'+glyph(x.id)+'</div><h4 class="type-'+x.type+'">'+x.name+'</h4><div class="skillMeta"><span>'+x.id+'</span><span>'+x.type.toUpperCase()+'</span></div><p>'+desc+'</p>';
+  if(['active','summon','passive'].includes(x.type))d.onclick=()=>toggleBuildItem(x.id);
+  grid.appendChild(d)
+ })
+}
+
+/* editor */
+function toggleBuildItem(id){
+ const type=itemType(id),arr=type==='passive'?save.build.passive:save.build.active,limit=6;
+ const idx=arr.indexOf(id);if(idx>=0)arr.splice(idx,1);else{if(arr.length>=limit){toast((type==='passive'?'被动':'主动')+'槽已满');return}arr.push(id)}
+ persist()
+}
+function renderEditor(){
+ const hg=document.getElementById('heroSelectGrid');hg.innerHTML='';
+ Object.entries(HEROES).forEach(([id,h])=>{const d=document.createElement('div');d.className='heroMini '+(id===save.hero?'active':'');d.innerHTML='<b>'+h.name+'</b><small>'+id+' · '+h.tag+'</small>';d.onclick=()=>{save.hero=id;persist()};hg.appendChild(d)});
+ renderBuildSlots('activeSlots',save.build.active,6);renderBuildSlots('passiveSlots',save.build.passive,6);
+ document.getElementById('activeCount').textContent=save.build.active.length+' / 6';document.getElementById('passiveCount').textContent=save.build.passive.length+' / 6';
+ const s=buildScore();document.getElementById('scoreClear').textContent=s.clear;document.getElementById('scoreBoss').textContent=s.boss;document.getElementById('scoreForm').textContent=s.form;
+ const rg=document.getElementById('recommendGrid');rg.innerHTML='';HEROES[save.hero].preset.forEach((p,i)=>{const d=document.createElement('div');d.className='recommend';d.innerHTML='<div class="eyebrow">PRESET '+(i+1)+'</div><h4>'+p.name+'</h4><p>主动：'+p.a.map(itemName).join(' / ')+'<br>被动：'+p.p.map(itemName).join(' / ')+'</p><button class="btn gold" style="width:100%" onclick="applyPreset('+i+')">应用预设</button>';rg.appendChild(d)});
+ const lib=document.getElementById('editorLib');lib.innerHTML='';
+ [...Object.keys(ACTIVES),...Object.keys(PASSIVES)].forEach(id=>{
+   const type=itemType(id),arr=type==='passive'?save.build.passive:save.build.active,full=arr.length>=6&&!arr.includes(id);
+   const d=document.createElement('div');d.className='pickCard '+(full?'disabled':'');d.innerHTML='<div class="eyebrow">'+id+'</div><h5>'+itemName(id)+'</h5><small>'+type+'</small>';if(!full)d.onclick=()=>toggleBuildItem(id);lib.appendChild(d)
+ })
+}
+function renderBuildSlots(elId,arr,limit){
+ const g=document.getElementById(elId);g.innerHTML='';
+ for(let i=0;i<limit;i++){const id=arr[i],d=document.createElement('div');d.className='buildSlot '+(id?'filled':'')+(id&&reachableEvoIds().some(e=>EVOS[e][1]===id)?' ready':'');if(id){d.innerHTML='<div class="slotIcon">'+glyph(id)+'</div><b>'+itemName(id)+'</b><small>'+id+'</small>';d.onclick=()=>toggleBuildItem(id)}else d.innerHTML='<div class="tiny">空槽</div>';g.appendChild(d)}
+}
+function applyPreset(i){const p=HEROES[save.hero].preset[i];save.build.active=[...p.a];save.build.passive=[...p.p];persist();toast('已应用：'+p.name)}
+function clearBuild(){save.build.active=[];save.build.passive=[];persist()}
+
+/* tree */
+function renderTree(){
+ const box=document.getElementById('treeCanvas'),nodes=document.getElementById('treeNodes'),svg=document.getElementById('treeSvg');if(!box)return;
+ nodes.innerHTML='';svg.innerHTML='';
+ const W=box.clientWidth,H=box.clientHeight;
+ const evoIds=reachableEvoIds(),fusionIds=reachableFusionIds(),mythicIds=reachableMythicIds();
+ const bases=[...save.build.active.slice(0,6),...save.build.passive.slice(0,6)];
+ const nodePos={};
+ function addNode(id,x,y,cls){
+  const d=document.createElement('div');d.className='treeNode '+cls+(evoIds.includes(id)||fusionIds.includes(id)||mythicIds.includes(id)?' ready':'');d.style.left=x+'px';d.style.top=y+'px';d.innerHTML='<b>'+itemName(id)+'</b><small>'+id+'</small>';nodes.appendChild(d);nodePos[id]=[x,y]
+ }
+ const baseY=85,evoY=250,fusionY=430,mythicY=585;
+ bases.slice(0,12).forEach((id,i)=>addNode(id,70+(W-140)*(i%6)/5,baseY+(i>=6?70:0),'base'));
+ const relevantEvos=Object.entries(EVOS).filter(([id,[n,a,p]])=>save.build.active.includes(a)||save.build.passive.includes(p)).slice(0,10);
+ relevantEvos.forEach(([id],i)=>addNode(id,85+(W-170)*(i%5)/4,evoY+(i>=5?85:0),'evo'));
+ Object.entries(FUSIONS).filter(([id,[n,a,b]])=>relevantEvos.some(([e])=>e===a||e===b)).slice(0,6).forEach(([id],i)=>addNode(id,100+(W-200)*(i%3)/2,fusionY+(i>=3?80:0),'fusion'));
+ Object.keys(MYTHICS).forEach((id,i)=>addNode(id,110+(W-220)*(i%4)/3,mythicY,'mythic'));
+ function line(a,b,color='rgba(255,255,255,.12)'){if(!nodePos[a]||!nodePos[b])return;const [x1,y1]=nodePos[a],[x2,y2]=nodePos[b],l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.setAttribute('stroke',color);l.setAttribute('stroke-width','2');svg.appendChild(l)}
+ relevantEvos.forEach(([id,[n,a,p]])=>{line(a,id,evoIds.includes(id)?'rgba(243,198,108,.45)':'rgba(255,255,255,.1)');line(p,id,evoIds.includes(id)?'rgba(243,198,108,.45)':'rgba(255,255,255,.1)')});
+ Object.entries(FUSIONS).forEach(([id,[n,a,b]])=>{line(a,id,fusionIds.includes(id)?'rgba(164,125,255,.48)':'rgba(255,255,255,.08)');line(b,id,fusionIds.includes(id)?'rgba(164,125,255,.48)':'rgba(255,255,255,.08)')});
+ Object.entries(MYTHICS).forEach(([id,[n,needs,p]])=>{needs.forEach(x=>line(x,id,mythicIds.includes(id)?'rgba(255,139,211,.48)':'rgba(255,255,255,.06)'));line(p,id,mythicIds.includes(id)?'rgba(255,139,211,.48)':'rgba(255,255,255,.06)')});
+ renderValidator()
+}
+function renderValidator(){
+ const v=document.getElementById('validator');v.innerHTML='';
+ const checks=[
+  ['主动槽未超过6个',save.build.active.length<=6],
+  ['被动槽未超过6个',save.build.passive.length<=6],
+  ['至少存在1条进化路线',countReachableEvos()>0],
+  ['至少存在1条融合路线',countReachableFusions()>0],
+  ['英雄偏好技能≥2',save.build.active.filter(x=>HEROES[save.hero].fav.includes(x)).length>=2]
+ ];
+ checks.forEach(([n,ok])=>{const d=document.createElement('div');d.className='validRow '+(ok?'ok':'warn');d.textContent=(ok?'✓ ':'! ')+n;v.appendChild(d)});
+ const r=document.getElementById('reachableList');r.innerHTML='';
+ [...reachableEvoIds(),...reachableFusionIds(),...reachableMythicIds()].forEach(id=>{const d=document.createElement('div');d.className='resultRow';d.innerHTML='<span>'+id+'</span><b>'+itemName(id)+'</b>';r.appendChild(d)});
+ if(!r.children.length)r.innerHTML='<div class="tiny">当前Build没有完整的进化路径。</div>'
+}
+
+/* codex */
+function renderCodex(){
+ const f=document.getElementById('fusionCodex');f.innerHTML='';Object.entries(FUSIONS).forEach(([id,[n,a,b]])=>{const d=document.createElement('div');d.className='compactCard';d.innerHTML='<div class="eyebrow">'+id+'</div><h4 class="type-fusion">'+n+'</h4><p>'+a+' '+itemName(a)+'<br>+ '+b+' '+itemName(b)+'</p>';f.appendChild(d)});
+ const m=document.getElementById('mythicCodex');m.innerHTML='';Object.entries(MYTHICS).forEach(([id,[n,needs,p]])=>{const d=document.createElement('div');d.className='compactCard';d.innerHTML='<div class="eyebrow">'+id+'</div><h4 class="type-mythic">'+n+'</h4><p>'+needs.map(x=>x+' '+itemName(x)).join('<br>+ ')+'<br>+ '+p+' Lv5</p>';m.appendChild(d)})
+}
+
+/* battle */
+const canvas=document.getElementById('arenaCanvas'),ctx=canvas.getContext('2d');let DPR=Math.min(devicePixelRatio||1,2),AW=900,AH=690,last=performance.now();
+function resizeArena(){const r=canvas.getBoundingClientRect();AW=Math.max(320,r.width);AH=Math.max(430,r.height);canvas.width=Math.floor(AW*DPR);canvas.height=Math.floor(AH*DPR);ctx.setTransform(DPR,0,0,DPR,0,0)}
+window.addEventListener('resize',resizeArena);
+const keys={};window.addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase()))e.preventDefault()});window.addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+
+let run={active:false,paused:false,time:0,kills:0,spawn:0,attack:0,level:1,xp:0,xpNeed:26,chests:[false,false,false],evolved:{},fused:{},mythic:{},skills:{},passives:{}};
+let player={x:450,y:345,r:15,hp:620,maxHp:620,atk:105,speed:230,crit:.08};
+let enemies=[],shots=[],effects=[];
+function initRunBuild(){
+ run.skills={};run.passives={};
+ save.build.active.slice(0,2).forEach(id=>run.skills[id]=1);
+ save.build.passive.slice(0,1).forEach(id=>run.passives[id]=1);
+}
+function startRun(){
+ go('battle');resizeArena();run={active:true,paused:false,time:0,kills:0,spawn:0,attack:0,level:1,xp:0,xpNeed:26,chests:[false,false,false],evolved:{},fused:{},mythic:{},skills:{},passives:{}};player={x:AW/2,y:AH/2,r:15,hp:620,maxHp:620,atk:105,speed:230,crit:.08};enemies=[];shots=[];effects=[];initRunBuild();document.getElementById('battleLog').innerHTML='';log('开始Build实战：'+HEROES[save.hero].name);renderRunSide();updateHud()
+}
+function spawnEnemy(){const a=Math.random()*Math.PI*2,d=Math.max(AW,AH)*.55+60;enemies.push({x:player.x+Math.cos(a)*d,y:player.y+Math.sin(a)*d,r:10,hp:58+run.time*.06,speed:52+run.time*.015,color:'#a84b43'})}
+function nearest(){if(!enemies.length)return null;let b=enemies[0],bd=(b.x-player.x)**2+(b.y-player.y)**2;for(const e of enemies){const d=(e.x-player.x)**2+(e.y-player.y)**2;if(d<bd){b=e;bd=d}}return b}
+function shootAuto(){
+ const owned=Object.keys(run.skills);if(!owned.length)return;const t=nearest();if(!t)return;const primary=owned[0],base=Math.atan2(t.y-player.y,t.x-player.x),lv=run.skills[primary],count=1+(primary==='A015'?1:0)+(run.passives.P021?1:0);
+ for(let i=0;i<count;i++){const a=base+(i-(count-1)/2)*.12;shots.push({x:player.x,y:player.y,vx:Math.cos(a)*500,vy:Math.sin(a)*500,r:5,life:1.7,dmg:player.atk*(1+.16*(lv-1)),color:colorFor(primary)})}
+}
+function colorFor(id){const elem=ACTIVES[id]?.[2];return {火:'#ef694e',雷:'#70a9ff',气:'#65d8ff',暗:'#a47dff',风:'#8fd5b6',物理:'#f0c184'}[elem]||'#f0c184'}
+function damageEnemy(e,dmg){e.hp-=dmg;if(e.hp<=0){const i=enemies.indexOf(e);if(i>=0)enemies.splice(i,1);run.kills++;run.xp+=4;effects.push({x:e.x,y:e.y,r:6,life:.2,max:.2,color:'#ffe0a3'});checkRunLevel()}}
+function checkRunLevel(){if(run.xp>=run.xpNeed&&!run.paused){run.xp-=run.xpNeed;run.level++;run.xpNeed=Math.round(26+run.level*11);showLevelChoices()}}
+function validRunOptions(){
+ const opts=[];
+ save.build.active.forEach(id=>{const lv=run.skills[id]||0;if(lv>0&&lv<5)opts.push({kind:'active',id,label:itemName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.skills).length<6)opts.push({kind:'active',id,label:'解锁 '+itemName(id)})});
+ save.build.passive.forEach(id=>{const lv=run.passives[id]||0;if(lv>0&&lv<5)opts.push({kind:'passive',id,label:itemName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.passives).length<6)opts.push({kind:'passive',id,label:'解锁 '+itemName(id)})});
+ return opts.sort(()=>Math.random()-.5)
+}
+function showLevelChoices(){
+ run.paused=true;const opts=validRunOptions().slice(0,3),g=document.getElementById('choiceGrid');g.innerHTML='';
+ if(!opts.length){run.paused=false;return}
+ opts.forEach(o=>{const d=document.createElement('div');d.className='choice';d.innerHTML='<div class="skillIcon">'+glyph(o.id)+'</div><div class="eyebrow">'+o.id+'</div><h3>'+o.label+'</h3><p>'+(o.kind==='active'?'主动技能':'被动技能')+'</p>';d.onclick=()=>pickLevel(o);g.appendChild(d)});document.getElementById('levelOverlay').classList.add('show')
+}
+function pickLevel(o){
+ if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1;
+ document.getElementById('levelOverlay').classList.remove('show');run.paused=false;hint('获得 '+itemName(o.id));log('升级：'+o.id+' '+itemName(o.id)+' Lv.'+(o.kind==='active'?run.skills[o.id]:run.passives[o.id]));renderRunSide();checkRunLevel()
+}
+function runReadyEvos(){
+ return Object.entries(EVOS).filter(([id,[n,a,p]])=>!run.evolved[id]&&(run.skills[a]||0)>=5&&(run.passives[p]||0)>=5).map(([id])=>id)
+}
+function runReadyFusions(){
+ return Object.entries(FUSIONS).filter(([id,[n,a,b]])=>!run.fused[id]&&run.evolved[a]&&run.evolved[b]).map(([id])=>id)
+}
+function runReadyMythics(){
+ return Object.entries(MYTHICS).filter(([id,[n,needs,p]])=>!run.mythic[id]&&(run.passives[p]||0)>=5&&needs.every(x=>run.evolved[x]||run.fused[x])).map(([id])=>id)
+}
+function forceLevel(){if(!run.active)return;run.xp=run.xpNeed;checkRunLevel()}
+function fastForward(m){if(!run.active)startRun();run.time=m*60-1;hint('跳转到 '+m+'分钟')}
+function forceChest(){if(!run.active)return;showChest()}
+function showChest(){
+ run.paused=true;const g=document.getElementById('chestChoices');g.innerHTML=[];const rewards=[];
+ runReadyMythics().forEach(id=>rewards.push({type:'mythic',id}));
+ runReadyFusions().forEach(id=>rewards.push({type:'fusion',id}));
+ runReadyEvos().forEach(id=>rewards.push({type:'evo',id}));
+ if(rewards.length<3)rewards.push({type:'upgrade',id:null});
+ if(rewards.length<3)rewards.push({type:'gold',id:null});
+ if(rewards.length<3)rewards.push({type:'upgrade',id:null});
+ rewards.slice(0,3).forEach(r=>{const d=document.createElement('div');d.className='choice';const title=r.id?itemName(r.id):(r.type==='gold'?'金币奖励':'随机技能升级');d.innerHTML='<div class="skillIcon">'+(r.id?glyph(r.id):'箱')+'</div><div class="eyebrow">'+r.type.toUpperCase()+'</div><h3>'+title+'</h3><p>'+(r.id?r.id:'通用奖励')+'</p>';d.onclick=()=>pickChest(r);g.appendChild(d)});document.getElementById('chestOverlay').classList.add('show')
+}
+function pickChest(r){
+ if(r.type==='evo'){run.evolved[r.id]=true;log('进化：'+r.id+' '+itemName(r.id));hint('技能进化 · '+itemName(r.id))}
+ else if(r.type==='fusion'){run.fused[r.id]=true;log('融合：'+r.id+' '+itemName(r.id));hint('技能融合 · '+itemName(r.id))}
+ else if(r.type==='mythic'){run.mythic[r.id]=true;log('神话：'+r.id+' '+itemName(r.id));hint('神话技能 · '+itemName(r.id))}
+ else if(r.type==='upgrade'){const opts=validRunOptions().filter(x=>(x.kind==='active'?(run.skills[x.id]||0)>0:(run.passives[x.id]||0)>0));if(opts.length){const o=opts[Math.floor(Math.random()*opts.length)];if(o.kind==='active')run.skills[o.id]=(run.skills[o.id]||0)+1;else run.passives[o.id]=(run.passives[o.id]||0)+1;log('宝箱升级：'+itemName(o.id))}}
+ else log('宝箱：金币 +500');
+ document.getElementById('chestOverlay').classList.remove('show');run.paused=false;renderRunSide()
+}
+function updateRun(dt){
+ if(!run.active||run.paused)return;run.time+=dt;let dx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),dy=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);if(dx||dy){const l=Math.hypot(dx,dy);player.x+=dx/l*player.speed*dt;player.y+=dy/l*player.speed*dt}player.x=Math.max(18,Math.min(AW-18,player.x));player.y=Math.max(18,Math.min(AH-18,player.y));
+ run.spawn+=dt;while(run.spawn>.32){run.spawn-=.32;spawnEnemy()}if(enemies.length>220)enemies.splice(0,enemies.length-220);
+ run.attack+=dt;if(run.attack>.65){run.attack=0;shootAuto()}
+ for(const e of enemies){const a=Math.atan2(player.y-e.y,player.x-e.x);e.x+=Math.cos(a)*e.speed*dt;e.y+=Math.sin(a)*e.speed*dt}
+ for(let i=shots.length-1;i>=0;i--){const p=shots[i];p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;let hit=null;for(const e of enemies){if((e.x-p.x)**2+(e.y-p.y)**2<(e.r+p.r)**2){hit=e;break}}if(hit){damageEnemy(hit,p.dmg);shots.splice(i,1);continue}if(p.life<=0)shots.splice(i,1)}
+ for(let i=effects.length-1;i>=0;i--){effects[i].life-=dt;if(effects[i].life<=0)effects.splice(i,1)}
+ [5,10,15].forEach((m,i)=>{if(run.time>=m*60&&!run.chests[i]){run.chests[i]=true;showChest()}});
+ if(run.time>=20*60)finishRun();
+ updateHud()
+}
+function drawRun(){
+ ctx.clearRect(0,0,AW,AH);ctx.fillStyle='#172019';ctx.fillRect(0,0,AW,AH);ctx.strokeStyle='rgba(255,255,255,.02)';for(let x=0;x<AW;x+=55){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,AH);ctx.stroke()}for(let y=0;y<AH;y+=55){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(AW,y);ctx.stroke()}
+ for(const e of enemies){ctx.beginPath();ctx.fillStyle=e.color;ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill()}
+ for(const p of shots){ctx.beginPath();ctx.fillStyle=p.color;ctx.shadowBlur=10;ctx.shadowColor=p.color;ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;
+ for(const e of effects){ctx.globalAlpha=e.life/e.max;ctx.beginPath();ctx.fillStyle=e.color;ctx.arc(e.x,e.y,e.r+(1-e.life/e.max)*18,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1}
+ ctx.beginPath();ctx.fillStyle='#ef694e';ctx.shadowBlur=22;ctx.shadowColor='#ef694e';ctx.arc(player.x,player.y,player.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0
+}
+function updateHud(){document.getElementById('hudHero').textContent=save.hero+' '+HEROES[save.hero].name;document.getElementById('runLevel').textContent=run.level;document.getElementById('runTime').textContent=fmt(run.time);document.getElementById('runKills').textContent=run.kills;renderHudSlots()}
+function renderHudSlots(){
+ const g=document.getElementById('hudSlots');g.innerHTML='';
+ Object.entries(run.skills).forEach(([id,lv])=>{const evoId=Object.keys(run.evolved).find(e=>run.evolved[e]&&EVOS[e][1]===id),d=document.createElement('div');d.className='hudSlot '+(evoId?'evo':'');d.innerHTML='<strong>'+glyph(evoId||id)+'</strong><em>'+lv+'</em>';g.appendChild(d)});
+ Object.keys(run.fused).filter(id=>run.fused[id]).forEach(id=>{const d=document.createElement('div');d.className='hudSlot fusion';d.innerHTML='<strong>'+glyph(id)+'</strong><em>F</em>';g.appendChild(d)})
+}
+function renderRunSide(){
+ const rb=document.getElementById('runBuild');rb.innerHTML='';
+ Object.entries(run.skills).forEach(([id,lv])=>{const d=document.createElement('div');d.className='runSkill';d.innerHTML='<b>'+itemName(id)+'</b><small>'+id+' Lv.'+lv+'</small>';rb.appendChild(d)});
+ Object.entries(run.passives).forEach(([id,lv])=>{const d=document.createElement('div');d.className='runSkill';d.innerHTML='<b>'+itemName(id)+'</b><small>'+id+' Lv.'+lv+'</small>';rb.appendChild(d)});
+ const rr=document.getElementById('runReady');rr.innerHTML='';[...runReadyEvos(),...runReadyFusions(),...runReadyMythics()].forEach(id=>{const d=document.createElement('div');d.className='validRow ok';d.textContent='READY · '+id+' '+itemName(id);rr.appendChild(d)});if(!rr.children.length)rr.innerHTML='<div class="validRow warn">暂无可进化节点</div>';
+ renderHudSlots()
+}
+function finishRun(){
+ if(!run.active)return;run.active=false;const ev=Object.keys(run.evolved).filter(x=>run.evolved[x]),fu=Object.keys(run.fused).filter(x=>run.fused[x]);document.getElementById('resultBuildName').textContent=HEROES[save.hero].name+' · '+HEROES[save.hero].preset[0].name;document.getElementById('resTime').textContent=fmt(run.time);document.getElementById('resKills').textContent=run.kills;document.getElementById('resEvo').textContent=ev.length;document.getElementById('resFusion').textContent=fu.length;let html='';[...Object.entries(run.skills),...Object.entries(run.passives)].forEach(([id,lv])=>html+='<div class="resultRow"><span>'+id+' '+itemName(id)+'</span><b>Lv.'+lv+'</b></div>');ev.forEach(id=>html+='<div class="resultRow"><span>'+id+' '+itemName(id)+'</span><b>进化</b></div>');fu.forEach(id=>html+='<div class="resultRow"><span>'+id+' '+itemName(id)+'</span><b>融合</b></div>');document.getElementById('resultRows').innerHTML=html;go('result')
+}
+function loop(now){const dt=Math.min(.034,(now-last)/1000||0);last=now;updateRun(dt);drawRun();requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+
+/* all */
+function renderAll(){renderTop();renderLibrary();renderEditor();renderValidator();renderCodex();renderRunSide();if(document.getElementById('evolution').classList.contains('active'))renderTree()}
+renderAll();resizeArena();
+</script>
+</body>
+</html>

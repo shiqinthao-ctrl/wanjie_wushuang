@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>万界无双 · 裂隙征途</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div class="startScreen" id="startScreen" data-scene-entrance>
+  <div class="startWorld" aria-hidden="true">
+    <div class="startSky"></div><div class="startTemple"></div>
+    <div class="startPortal"><i></i><i></i><i></i></div>
+    <div class="startGuardian"><i></i></div>
+  </div>
+  <header class="startBrand"><span class="startSeal">界</span><div><b>万界无双</b><small>RIFT HUNTERS</small></div></header>
+  <main class="startCommand">
+    <div class="eyebrow">THE NEXUS IS CALLING</div>
+    <div class="gameTitle">万界<br>无双</div>
+    <p class="gameSub">裂隙已在三界同时开启。选择你的守界者，从观星殿出发。</p>
+    <div class="versionChip">三界十二关 · 七种挑战规则</div>
+    <div class="startSelection"><span><small>守界者</small><b id="startCurrentHero">赤焰战神</b></span><span><small>待命任务</small><b id="startCurrentStage">边境清剿</b></span></div>
+    <button class="menuBtn primary startContinue" onclick="continueGame()"><span>继续征途</span><small id="continueSummary">载入最近存档</small><b aria-hidden="true">进入</b></button>
+    <div class="startUtilities" aria-label="其他游戏选项">
+      <button class="menuBtn" onclick="newGameConfirm()"><b>新征途</b><small>创建冒险</small></button>
+      <button class="menuBtn" onclick="openSaveManager()"><b>存档</b><small>管理槽位</small></button>
+      <button class="menuBtn" onclick="openGlobalSettings()"><b>设置</b><small>画面与操作</small></button>
+    </div>
+    <div class="startFooter">WASD 移动 · Space 闪避 · E 英雄技 · R 终极技</div>
+  </main>
+</div>
+<div class="modalLayer" id="saveModal" role="dialog" aria-modal="true" aria-labelledby="saveModalTitle"><div class="modalBox"><div class="modalHead"><div><div class="eyebrow">SAVE MANAGER</div><h2 id="saveModalTitle">存档管理</h2></div><button type="button" class="closeX" aria-label="关闭存档管理" onclick="closeModal('saveModal')">×</button></div><div class="saveCards" id="saveCards"></div></div></div>
+<div class="modalLayer" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle"><div class="modalBox"><div class="modalHead"><div><div class="eyebrow">SETTINGS</div><h2 id="settingsModalTitle">游戏设置</h2></div><button type="button" class="closeX" aria-label="关闭游戏设置" onclick="closeModal('settingsModal')">×</button></div><div class="settingsSection"><h4>性能档位</h4><div class="segmented" id="perfSegment"></div></div><div class="settingsSection"><h4>音频</h4><div class="settingsGrid">
+      <div class="settingRow"><span>游戏音效</span><button type="button" class="toggle on" id="audioToggle" role="switch" aria-label="游戏音效" aria-checked="true" onclick="toggleAudio()"></button></div>
+      <div class="settingRow"><span>主音量</span><div class="audioMeter"><input type="range" min="0" max="100" value="60" id="masterVolume" aria-label="主音量" oninput="setMasterVolume(this.value)"><b id="masterVolumeText">60%</b></div></div>
+    </div></div>
+    <div class="settingsSection"><h4>操作与显示</h4><div class="settingsGrid"><div class="settingRow"><span>镜头震动</span><button type="button" class="toggle" id="globalShake" role="switch" aria-label="镜头震动" aria-checked="false" onclick="toggleGlobal('shake')"></button></div><div class="settingRow"><span>伤害数字</span><button type="button" class="toggle" id="globalNumbers" role="switch" aria-label="伤害数字" aria-checked="false" onclick="toggleGlobal('numbers')"></button></div><div class="settingRow"><span>粒子特效</span><button type="button" class="toggle" id="globalParticles" role="switch" aria-label="粒子特效" aria-checked="false" onclick="toggleGlobal('particles')"></button></div><div class="settingRow"><span>低血量暗角</span><button type="button" class="toggle" id="globalVignette" role="switch" aria-label="低血量暗角" aria-checked="false" onclick="toggleGlobal('vignette')"></button></div></div></div><div class="settingsSection"><h4>冒险图鉴</h4><div class="versionPanel"><div class="versionBox"><small>世界</small><b>3界</b></div><div class="versionBox"><small>关卡</small><b>12关</b></div><div class="versionBox"><small>英雄</small><b>6名</b></div><div class="versionBox"><small>模式</small><b>7种</b></div></div></div></div></div>
+<div class="storyIntro" id="storyIntro" role="dialog" aria-modal="true" aria-labelledby="storyIntroTitle" aria-describedby="storyIntroText"><div class="storyIntroCard"><div class="eyebrow">CHAPTER INTRO</div><h2 id="storyIntroTitle">第一章 · 黄巾乱世</h2><p id="storyIntroText">万界裂隙在乱世边境打开，黄巾残军被异界力量侵蚀。你需要穿过荒原，击败操控裂隙的妖师与骑将。</p><div class="actions"><button class="btn primary" onclick="closeStoryIntro(true)">进入章节</button><button class="btn ghost" onclick="closeStoryIntro(false)">稍后再看</button></div></div></div>
+
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">界</div><div><h1>万界无双</h1><small>RIFT HUNTERS</small></div></div>
+  <div class="group">万界征途</div>
+  <nav class="nav" aria-label="游戏主导航">
+    <button type="button" class="active" data-page="home" data-nav-tier="primary" aria-current="page"><span class="ico">厅</span><span class="label">主大厅</span></button>
+    <button type="button" data-page="heroes" data-nav-tier="primary"><span class="ico">英</span><span class="label">英雄</span></button>
+    <button type="button" data-page="growth" data-nav-tier="primary"><span class="ico">养</span><span class="label">成长</span></button>
+    <button type="button" data-page="loadout" data-nav-tier="primary"><span class="ico">装</span><span class="label">行囊</span></button>
+    <div class="mobileNavPanel" id="mobileNavPanel">
+      <button type="button" data-page="build" data-nav-tier="secondary"><span class="ico">筑</span><span class="label">Build</span></button>
+      <button type="button" data-page="modes" data-nav-tier="secondary"><span class="ico">模</span><span class="label">游戏模式</span></button>
+      <button type="button" data-page="world" data-nav-tier="secondary"><span class="ico">图</span><span class="label">世界地图</span></button>
+      <button type="button" data-page="battle" data-nav-tier="flow" hidden aria-hidden="true" tabindex="-1"><span class="ico">战</span><span class="label">战斗</span></button>
+      <button type="button" data-page="result" data-nav-tier="flow" hidden aria-hidden="true" tabindex="-1"><span class="ico">结</span><span class="label">结算</span></button>
+    </div>
+    <button type="button" class="navMore" id="navMore" aria-expanded="false" aria-controls="mobileNavPanel"><span class="ico">···</span><span class="label">更多</span></button>
+  </nav>
+  <div class="sidefoot"><b>裂隙征途</b><br>三界十二关 · 六名英雄 · 七种模式 · 装备、符文、宠物与技能构筑</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="tleft"><span class="accent"></span><div><strong id="pageTitle">主大厅</strong><small>穿越裂隙，征服万界</small></div></div>
+  <div class="user">
+    <span class="pill pillEssential">账号 Lv.<b id="topLv">12</b></span>
+    <span class="pill pillSecondary">战力 <b id="topPower">0</b></span>
+    <span class="pill pillEssential">金币 <b id="topGold">6000</b></span>
+    <span class="pill pillSecondary">章节星 <b id="topStars">5</b></span><span class="pill pillSecondary">天赋点 <b id="topTalentPts">0</b></span><span class="pill pillSecondary">模式 <b id="topMode">剧情</b></span>
+  </div>
+</header>
+
+<div class="content">
+<section class="page active" id="home" data-scene-lobby aria-labelledby="nexusTitle">
+  <div class="nexusLobby">
+    <div class="nexusBackdrop" aria-hidden="true"><i class="riftRay a"></i><i class="riftRay b"></i><i class="riftRay c"></i><i class="nexusFloor"></i></div>
+    <header class="nexusSceneHeader">
+      <div><div class="eyebrow">NEXUS · 万界中枢</div><h1 id="nexusTitle">观星殿</h1></div>
+      <div class="nexusCampaign"><small id="homeCampaignLabel">标准征途</small><b id="homeCampaignTime">20 MIN</b></div>
+    </header>
+    <div class="nexusScene">
+      <aside class="nexusMission" aria-label="当前裂隙任务">
+        <div class="nexusPanelTitle"><span>当前裂隙</span><i id="nexusMissionState" role="status" aria-live="polite">当前任务已同步</i></div>
+        <div class="nexusStageCode" id="homeStage">ST001-03</div>
+        <h2 id="nexusStageName">妖师祭坛</h2>
+        <p id="nexusObjective">击败裂隙首领并完成当前目标。</p>
+        <dl><div><dt>所在世界</dt><dd id="nexusChapterName">乱世荒原</dd></div><div><dt>首领信号</dt><dd id="homeBoss">乱世妖师</dd></div><div><dt>世界进度</dt><dd id="homeWorld">0%</dd></div></dl>
+      </aside>
+
+      <div class="nexusFocus" aria-label="当前英雄与裂隙">
+        <div class="nexusPortal" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="nexusChampion" aria-hidden="true"><span class="championHead"></span><span class="championMantle"></span><span class="championBody"></span><span class="championBlade"></span></div>
+        <div class="nexusHeroIdentity"><div id="nexusHeroArt"></div><div><small>当前守界者</small><h2 id="homeHero">赤焰战神</h2><span id="nexusHeroSkill">炎龙斩 · 赤龙降世</span></div></div>
+      </div>
+
+      <aside class="nexusLoadout" aria-label="当前出征配置">
+        <div class="nexusPanelTitle"><span>出征配置</span><i>同步存档</i></div>
+        <div class="nexusPower"><small>战力构成</small><b id="nexusPower">0</b></div>
+        <dl><div><dt>装备评分</dt><dd id="homeGear">0</dd></div><div><dt>Build评分</dt><dd id="homeBuild">0</dd></div><div><dt>英雄技</dt><dd id="nexusSkillName">炎龙斩</dd></div><div><dt>终极技</dt><dd id="nexusUltName">赤龙降世</dd></div></dl>
+        <div class="nexusReadiness"><i></i><span>守界者与构筑已载入</span></div>
+      </aside>
+    </div>
+    <footer class="nexusCommand">
+      <div><span>下一步</span><b id="nexusActionHint">选择剧情或挑战规则</b></div>
+      <button class="nexusPrimaryAction" data-primary-action onclick="go('modes')"><span>选择裂隙任务</span><small>剧情推进 · 无尽 · 首领连战等 7 种规则</small><b aria-hidden="true">进入任务台</b></button>
+    </footer>
+  </div>
+</section>
+
+<section class="page" id="heroes" data-hero-hall aria-labelledby="heroHallTitle">
+  <div class="heroHall">
+    <div class="heroHallBackdrop" aria-hidden="true"><i></i><i></i><i></i></div>
+    <header class="heroHallHeader">
+      <button type="button" class="heroHallBack" onclick="go('home')">返回观星殿</button>
+      <div><span class="eyebrow">BOUNDARY GUARDIAN ARCHIVE</span><h1 id="heroHallTitle">守界者名录</h1></div>
+      <div class="heroHallCount"><small>已收录</small><b>06</b><span>英雄殿</span></div>
+      <button type="button" class="briefingReturn" id="heroBriefingReturn" data-briefing-return hidden onclick="v29ReturnToBriefing()">← 返回出战简报</button>
+    </header>
+    <div class="heroHallScene">
+      <aside class="heroHallRoster" aria-labelledby="heroRosterTitle">
+        <div class="heroHallPanelTitle"><span id="heroRosterTitle">守界序列</span><small>选择以检视档案</small></div>
+        <div class="heroGrid" id="heroGrid" role="list" aria-label="六名守界者"></div>
+      </aside>
+      <article class="heroHallFocus" aria-labelledby="heroHallHeroName">
+        <div class="heroHallRings" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="heroHallFigure" aria-hidden="true"><i class="heroHallHead"></i><i class="heroHallMantle"></i><i class="heroHallBody"></i><i class="heroHallWeapon"></i></div>
+        <div class="heroHallIdentity">
+          <span id="heroHallHeroId">H001</span>
+          <h2 id="heroHallHeroName">赤焰战神</h2>
+          <p id="heroHallHeroRole">赤焰刀势 · 近战压制</p>
+          <strong id="heroHallHeroState">当前守界者</strong>
+        </div>
+      </article>
+      <aside class="heroHallDossier" aria-labelledby="heroDossierTitle">
+        <div class="heroHallPanelTitle"><span id="heroDossierTitle">战斗档案</span><small id="heroHallResource">炎势</small></div>
+        <p class="heroHallTrait" id="heroHallTrait">刀势越热，斩击范围与伤害越高</p>
+        <dl class="heroHallSkills">
+          <div><dt>普攻</dt><dd id="heroHallBasic">近距离火焰弧斩</dd></div>
+          <div><dt>英雄技 · E</dt><dd id="heroHallSkill">炎龙斩</dd></div>
+          <div><dt>终极 · R</dt><dd id="heroHallUlt">赤龙降世</dd></div>
+        </dl>
+        <div class="heroHallStats" aria-label="英雄属性">
+          <div><small>HP</small><b id="heroHallHp">620</b></div>
+          <div><small>ATK</small><b id="heroHallAtk">108</b></div>
+          <div><small>DEF</small><b id="heroHallDef">28</b></div>
+          <div><small>Lv.</small><b id="heroHallLevel">6</b></div>
+        </div>
+        <div class="heroHallReadiness" id="heroHallReadiness"><i></i><span>已解锁 · 可任命出征</span></div>
+        <dl class="heroCombatProfile" aria-label="战斗定位">
+          <div><dt>定位</dt><dd id="heroHallRole">近战压制</dd></div><div><dt>难度</dt><dd id="heroHallDifficulty">入门</dd></div><div><dt>射程</dt><dd id="heroHallRange">近战</dd></div>
+          <div><dt>生存</dt><dd id="heroHallSurvival">高</dd></div><div><dt>机动</dt><dd id="heroHallMobility">稳健</dd></div>
+        </dl>
+        <div class="heroCombatLoop"><small>资源循环</small><p id="heroHallLoop">贴身连斩积蓄炎势，以炎龙斩清场。</p><strong id="heroHallStyle">适合喜欢正面推进的玩家。</strong></div>
+      </aside>
+    </div>
+    <footer class="heroHallCommand">
+      <div><span>守界任命</span><b id="heroHallActionHint">当前守界者已载入</b></div>
+      <button type="button" class="heroHallConfirm" id="heroHallConfirm" data-hero-confirm onclick="confirmHeroSelection()"><span id="heroHallConfirmLabel">当前守界者</span><small id="heroHallConfirmDetail">检视行囊与出征配置</small><strong>确认任命</strong></button>
+      <button type="button" class="heroHallConfirm" id="heroBriefingComplete" data-briefing-hero-complete hidden onclick="v29CompleteBriefingHero()"><span>任命英雄 · 返回简报</span><small>保存英雄与推荐构筑后重新核对整备</small><strong>完成任命</strong></button>
+    </footer>
+  </div>
+</section>
+
+<div class="overlay heroConfirmOverlay" id="heroConfirmOverlay" role="dialog" aria-modal="true" aria-labelledby="heroConfirmTitle" aria-describedby="heroConfirmCost">
+  <div class="heroConfirmPanel">
+    <header><span class="eyebrow">DEPLOYMENT CONTRACT</span><h2 id="heroConfirmTitle">确认英雄与构筑</h2><p><b id="heroConfirmName">赤焰战神</b><span id="heroConfirmRole">近战压制 · 入门 · 近战</span></p><small id="heroConfirmCost">英雄已解锁，本次不扣除金币</small></header>
+    <div class="heroBuildChoices">
+      <button type="button" data-build-choice="keep" onclick="applyHeroSelection('keep')"><span>方案 A · 保留现有</span><h3>沿用当前构筑</h3><p>主动：<b id="heroConfirmKeepActive">—</b></p><p>被动：<b id="heroConfirmKeepPassive">—</b></p><strong>只切换英雄，不覆盖技能</strong></button>
+      <button type="button" data-build-choice="recommended" onclick="applyHeroSelection('recommended')"><span>方案 B · 推荐方案</span><h3 id="heroConfirmPresetName">推荐构筑</h3><p>主动：<b id="heroConfirmPresetActive">—</b></p><p>被动：<b id="heroConfirmPresetPassive">—</b></p><strong>应用该英雄第一套预设</strong></button>
+    </div>
+    <footer><button type="button" class="btn ghost" onclick="v34CancelHeroSelection()">取消并保持原配置</button><span>任命、解锁与构筑变更只在选择方案后生效</span></footer>
+  </div>
+</div>
+
+
+<section class="page" id="growth">
+  <div class="growthCourt" data-growth-court aria-labelledby="growthCourtTitle">
+    <div class="growthCourtBackdrop" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+    <header class="growthCourtHeader">
+      <button type="button" class="growthCourtBack" data-growth-handoff onclick="go('build')"><span>返回万法构筑台</span><small>← BUILD SANCTUM</small></button>
+      <div><span class="eyebrow">CULTIVATION COURT</span><h1 id="growthCourtTitle">万相修行庭</h1></div>
+      <div class="metaCurrencies" aria-label="修行资源">
+        <div class="metaCurrency"><small>金币</small><b id="v28Gold">0</b></div>
+        <div class="metaCurrency"><small>天赋点</small><b id="v28TalentPts">0</b></div>
+        <div class="metaCurrency"><small>账号等级</small><b>Lv.<span id="v28AccountLv">1</span></b></div>
+      </div>
+    </header>
+
+    <div class="growthCourtLayout">
+      <aside class="growthHeroDossier" aria-labelledby="v28MetaHeroName">
+        <div class="growthPanelTitle"><span>守界者命盘</span><small>CURRENT PROJECTION</small></div>
+        <div class="growthHeroSigil"><div id="v28MetaAvatar"></div><i aria-hidden="true"></i></div>
+        <div class="eyebrow" id="v28MetaHeroId">H001</div>
+        <h2 id="v28MetaHeroName">赤焰战神</h2>
+        <p>所见为当前修行投影；切换英雄只检视数据，不改变出征任命。</p>
+        <div class="growthHeroStep" aria-label="检视英雄">
+          <button type="button" onclick="v28HeroStep(-1)"><span>上一位</span><small>PREV</small></button>
+          <button type="button" onclick="v28HeroStep(1)"><span>下一位</span><small>NEXT</small></button>
+        </div>
+        <div class="growthDossierSeal"><small>修行规则</small><b>永久成长随英雄入阵</b><span>此处不会开启战斗</span></div>
+      </aside>
+
+      <section class="growthPractice" aria-labelledby="growthPracticeTitle">
+        <div class="growthPracticeHead">
+          <div><span class="eyebrow">FOUR PATHS</span><h2 id="growthPracticeTitle">四脉修行</h2></div>
+          <p>选择修行路径，读取真实成长、天赋、觉醒与构筑预设。</p>
+        </div>
+        <nav class="growthTabs growthPathRail" aria-label="修行路径">
+          <button type="button" class="growthTab active" data-growth-target="hero" data-growth="hero" aria-pressed="true" aria-controls="growth-hero" onclick="v28SetGrowthTab('hero')"><i>命</i><span>英雄成长</span><small>等级 · 星级</small></button>
+          <button type="button" class="growthTab" data-growth-target="talent" data-growth="talent" aria-pressed="false" aria-controls="growth-talent" onclick="v28SetGrowthTab('talent')"><i>脉</i><span>账号天赋</span><small>共享 · 20节点</small></button>
+          <button type="button" class="growthTab" data-growth-target="mastery" data-growth="mastery" aria-pressed="false" aria-controls="growth-mastery" onclick="v28SetGrowthTab('mastery')"><i>悟</i><span>熟练觉醒</span><small>熟练 · 觉醒</small></button>
+          <button type="button" class="growthTab" data-growth-target="presets" data-growth="presets" aria-pressed="false" aria-controls="growth-presets" onclick="v28SetGrowthTab('presets')"><i>阵</i><span>Build预设</span><small>保存 · 载入</small></button>
+        </nav>
+
+        <div class="growthPracticeScroll">
+          <div id="growth-hero" class="growthPane active" data-growth-pane="hero" tabindex="-1" aria-hidden="false">
+            <div class="growthPaneTitle"><div><span>01 / HERO PATH</span><h3>淬炼命格</h3></div><small>等级、星级与永久效果</small></div>
+            <div class="heroGrowthGrid" id="v28HeroGrowthGrid"></div>
+            <section class="growthRite" aria-labelledby="growthStarTitle">
+              <div><span class="eyebrow">STAR ASCENSION</span><h3 id="growthStarTitle">升星突破</h3><div class="starRow" id="v28Stars"></div></div>
+              <div class="actions"><button type="button" class="btn primary" onclick="v28LevelUp()">英雄升级</button><button type="button" class="btn gold" onclick="v28StarUp()">升星突破</button></div>
+            </section>
+            <div class="growthPaneTitle compact"><div><span>PERMANENT EFFECTS</span><h3>永久效果</h3></div><small>已计入当前投影</small></div>
+            <div class="metaEffectGrid" id="v28MetaEffects"></div>
+          </div>
+
+          <div id="growth-talent" class="growthPane" data-growth-pane="talent" tabindex="-1" aria-hidden="true" hidden>
+            <div class="growthPaneTitle"><div><span>02 / ACCOUNT PATH</span><h3>贯通天赋经脉</h3></div><small>所有英雄共享</small></div>
+            <div class="accountProgress">
+              <div class="accountBadge"><div><small>ACCOUNT LEVEL</small><strong id="v28AccountBadge">12</strong><div class="progress"><i id="v28AccountXpFill"></i></div><small id="v28AccountXpText">0 / 1000 XP</small></div></div>
+              <div><div class="eyebrow">GLOBAL TALENTS</div><h3>20节点账号天赋树</h3><p class="muted">每个节点最高5级，部分节点需要前置或账号等级。</p><div class="metaEffectGrid" id="v28TalentSummary"></div></div>
+            </div>
+            <div class="growthPaneTitle compact"><div><span>MERIDIAN NODES</span><h3>天赋树</h3></div><small>激活按钮会投入1点</small></div>
+            <div class="talentTree" id="v28TalentTree"></div>
+          </div>
+
+          <div id="growth-mastery" class="growthPane" data-growth-pane="mastery" tabindex="-1" aria-hidden="true" hidden>
+            <div class="growthPaneTitle"><div><span>03 / MASTERY PATH</span><h3>参悟熟练与觉醒</h3></div><small id="v28MasteryText">0 / 500</small></div>
+            <div class="masteryTrack" aria-hidden="true"><i id="v28MasteryFill"></i></div>
+            <div class="masteryNodes" id="v28MasteryNodes"></div>
+            <div class="growthPaneTitle compact"><div><span>AWAKENING RITE</span><h3>觉醒仪式</h3></div><small>条件与效果来自当前英雄</small></div>
+            <div class="awakenPanel" id="v28AwakenPanel"></div>
+          </div>
+
+          <div id="growth-presets" class="growthPane" data-growth-pane="presets" tabindex="-1" aria-hidden="true" hidden>
+            <div class="growthPaneTitle"><div><span>04 / FORMATION PATH</span><h3>构筑卷宗</h3></div><small>当前英雄 · 三个真实槽位</small></div>
+            <p class="growthPaneLead">每名英雄可保存3套6主动 + 6被动配置；载入后返回万法构筑台继续整备。</p>
+            <div class="presetSaveGrid" id="v28PresetGrid"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="loadout" data-expedition-armory aria-labelledby="armoryTitle">
+  <div class="armoryScene">
+    <div class="armoryBackdrop" aria-hidden="true"><i></i><i></i><i></i></div>
+    <header class="armoryHeader">
+      <button type="button" class="armoryBack" onclick="go('heroes')"><span>返回守界者名录</span><small>← HERO HALL</small></button>
+      <div><span class="eyebrow">EXPEDITION ARMORY</span><h1 id="armoryTitle">出征军械库</h1></div>
+      <div class="armoryStatus"><small>整备状态</small><b>配置已接入</b><span>所有调整沿用现有存档</span></div>
+      <button type="button" class="briefingReturn" id="loadoutBriefingReturn" data-briefing-return hidden onclick="v29ReturnToBriefing()">← 返回出战简报</button>
+    </header>
+
+    <div class="armoryDeck">
+      <aside class="armoryHeroBay" aria-labelledby="loadoutHeroName">
+        <div class="armoryPanelTitle"><span>守界者档案</span><small>ACTIVE KEEPER</small></div>
+        <div class="armoryHeroSigil" aria-hidden="true"><i></i><span>界</span></div>
+        <div class="eyebrow">CURRENT LOADOUT</div>
+        <h2 id="loadoutHeroName">赤焰战神</h2>
+        <p class="armoryHeroRole">当前出征英雄 · 装备实时计入战力</p>
+        <div class="heroStats" id="loadoutHeroStats"></div>
+        <div class="armorySeal"><i></i><span>军械许可已同步</span></div>
+      </aside>
+
+      <section class="armoryConfig" aria-labelledby="armoryConfigTitle">
+        <div class="armoryPanelTitle"><span id="armoryConfigTitle">当前出征配置</span><small>FIELD READY</small></div>
+        <div class="armoryConfigScroll">
+          <section class="armoryModule">
+            <div class="armoryModuleHead"><span>甲装阵列</span><small>武器 / 防具 / 饰品</small></div>
+            <div class="equipSlots" id="equipSlots"></div>
+          </section>
+          <section class="armoryModule">
+            <div class="armoryModuleHead"><span>符文回路</span><small>最多三枚生效</small></div>
+            <div class="runeSlots" id="runeSlots"></div>
+          </section>
+          <section class="armoryModule armoryPetModule">
+            <div class="armoryModuleHead"><span>伴战灵契</span><small>当前主宠</small></div>
+            <div class="slot" id="petSlot"></div>
+          </section>
+          <details class="armoryEffects">
+            <summary>战斗效果与共鸣明细</summary>
+            <div class="armoryEffectBody">
+              <div class="armorySubhead">装备 Build 效果</div><div class="loadoutBonusGrid" id="v26LoadoutBonuses"></div>
+              <div class="armorySubhead">套装效果</div><div class="setSummary" id="v26SetSummary"></div>
+              <div class="armorySubhead">符文战斗效果</div><div class="runeEffectGrid" id="v27RuneEffects"></div>
+              <div class="armorySubhead">符文共鸣</div><div class="runeResonance" id="v27RuneResonance"></div>
+              <div class="armorySubhead">宠物实战能力</div><div class="petCombatCard slot" id="v27PetLoadout"></div>
+            </div>
+          </details>
+        </div>
+        <div class="armoryAuto"><span>先定军械，再入万法台完成术式构筑</span><div class="armoryAutoActions"><button type="button" class="btn gold" onclick="autoBest()">一键最高评分</button><button type="button" class="btn primary" id="loadoutCompleteAction" data-build-handoff onclick="v29CompleteLoadout()">进入万法构筑</button></div></div>
+      </section>
+
+      <section class="armoryArsenal" aria-labelledby="armoryArsenalTitle">
+        <div class="armoryArsenalHead">
+          <div><span class="eyebrow">ARSENAL INVENTORY</span><h2 id="armoryArsenalTitle">军械仓</h2></div>
+          <small>选择分类，在同一仓库内完成配置</small>
+        </div>
+        <div class="armoryCategoryRail" role="group" aria-label="军械仓分类">
+          <button type="button" class="armoryCategory" data-loadout-target="gear" aria-pressed="true" aria-controls="armory-gear" onclick="focusLoadoutBay('gear')"><i>甲</i><span>装备仓</span><small>GEAR</small></button>
+          <button type="button" class="armoryCategory" data-loadout-target="runes" aria-pressed="false" aria-controls="armory-runes" onclick="focusLoadoutBay('runes')"><i>符</i><span>符文库</span><small>RUNES</small></button>
+          <button type="button" class="armoryCategory" data-loadout-target="pets" aria-pressed="false" aria-controls="armory-pets" onclick="focusLoadoutBay('pets')"><i>灵</i><span>宠物契</span><small>PETS</small></button>
+        </div>
+        <div class="armoryInventoryScroll">
+          <section id="armory-gear" class="armoryBay" data-loadout-bay="gear" tabindex="-1" aria-labelledby="armoryGearTitle">
+            <div class="armoryBayTitle"><div><span>01</span><h3 id="armoryGearTitle">装备仓</h3></div><small>从实际库存中选择装备</small></div>
+            <div class="itemGrid" id="gearGrid"></div>
+          </section>
+          <section id="armory-runes" class="armoryBay" data-loadout-bay="runes" tabindex="-1" aria-labelledby="armoryRuneTitle">
+            <div class="armoryBayTitle"><div><span>02</span><h3 id="armoryRuneTitle">符文库</h3></div><small>装备或卸下现有符文</small></div>
+            <div class="itemGrid" id="runeGrid"></div>
+          </section>
+          <section id="armory-pets" class="armoryBay" data-loadout-bay="pets" tabindex="-1" aria-labelledby="armoryPetTitle">
+            <div class="armoryBayTitle"><div><span>03</span><h3 id="armoryPetTitle">宠物契</h3></div><small>从现有灵契中指定主宠</small></div>
+            <div class="itemGrid" id="petGrid"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="build">
+  <div class="buildSanctum" data-build-sanctum aria-labelledby="buildSanctumTitle">
+    <div class="buildBackdrop" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+    <header class="buildSanctumHeader">
+      <button type="button" class="buildBack" onclick="go('loadout')"><span>← 返回出征军械库</span><small>LOADOUT ARMORY</small></button>
+      <div><span class="eyebrow">RIFT ART FORMATION</span><h1 id="buildSanctumTitle">万法构筑台</h1></div>
+      <div class="buildSanctumStatus"><small>FORMATION LIMIT</small><b>6 主动 · 6 被动</b><span>只配置出征术式，不在此处开战</span></div>
+      <button type="button" class="briefingReturn" id="buildBriefingReturn" data-briefing-return hidden onclick="v29ReturnToBriefing()">← 返回出战简报</button>
+    </header>
+
+    <div class="buildLayout">
+      <aside class="buildHeroBay" aria-labelledby="buildHeroName">
+        <div class="buildPanelTitle"><span>当前共鸣</span><small>FIELD FORM</small></div>
+        <div class="buildHeroSigil" aria-hidden="true"><i></i><span>术</span></div>
+        <div class="eyebrow">CURRENT KEEPER</div>
+        <h2 id="buildHeroName">赤焰战神</h2>
+        <p class="buildHeroRole">当前英雄 · 实时读取出征 Build</p>
+        <div class="buildFormSummary" aria-label="当前构筑共鸣摘要">
+          <div class="sum"><small>战场形态</small><b id="buildEntityCount">0</b></div>
+          <div class="sum"><small>可达进化</small><b id="buildEvoCount">0</b></div>
+          <div class="sum"><small>可达融合</small><b id="buildFusionCount">0</b></div>
+        </div>
+        <div class="buildFormScroll"><div class="skillFormPanel" id="buildFormPanel"></div></div>
+      </aside>
+
+      <section class="buildMatrix" aria-labelledby="buildMatrixTitle">
+        <div class="buildPanelTitle"><span id="buildMatrixTitle">当前法阵</span><small>ACTIVE FORMATION</small></div>
+        <div class="buildMatrixScroll">
+          <section class="buildSlotBank" aria-labelledby="buildActiveTitle">
+            <div class="buildSlotBankHead"><div><i>01</i><h2 id="buildActiveTitle">主动术式</h2></div><span id="activeCount" aria-live="polite">0/6</span></div>
+            <p>投射、领域、召唤与英雄联动术式</p>
+            <div class="buildSlots" id="activeSlots"></div>
+          </section>
+          <section class="buildSlotBank" aria-labelledby="buildPassiveTitle">
+            <div class="buildSlotBankHead"><div><i>02</i><h2 id="buildPassiveTitle">被动心法</h2></div><span id="passiveCount" aria-live="polite">0/6</span></div>
+            <p>强化属性与进化条件的常驻心法</p>
+            <div class="buildSlots" id="passiveSlots"></div>
+          </section>
+        </div>
+        <div class="buildCommands">
+          <button type="button" class="btn ghost" onclick="clearBuild()">清空法阵</button>
+          <button type="button" class="btn purple" onclick="go('growth');v28SetGrowthTab('presets')">预设管理</button>
+          <button type="button" class="btn primary" id="buildCompleteAction" onclick="v29CompleteBuild()"><span class="buildCompleteWorld">完成构筑 · 前往选关</span><span class="buildCompleteBriefing">完成构筑 · 返回简报</span></button>
+        </div>
+      </section>
+
+      <section class="buildCodex" aria-labelledby="buildCodexTitle">
+        <div class="buildCodexHead"><div><span class="eyebrow">REAL SKILL CODEX</span><h2 id="buildCodexTitle">万法库</h2></div><small>从现有术式与流派中调整出征法阵</small></div>
+        <div class="buildCodexRail" role="group" aria-label="万法库分类">
+          <button type="button" class="buildCodexTarget" data-build-target="active" aria-pressed="true" aria-controls="build-library-active" onclick="focusBuildLibrary('active')"><i>攻</i><span>主动术式</span><small>ACTIVE</small></button>
+          <button type="button" class="buildCodexTarget" data-build-target="passive" aria-pressed="false" aria-controls="build-library-passive" onclick="focusBuildLibrary('passive')"><i>守</i><span>被动心法</span><small>PASSIVE</small></button>
+          <button type="button" class="buildCodexTarget" data-build-target="presets" aria-pressed="false" aria-controls="build-library-presets" onclick="focusBuildLibrary('presets')"><i>谱</i><span>推荐流派</span><small>PRESETS</small></button>
+        </div>
+        <div class="buildCodexScroll">
+          <div class="skillPickGrid" id="skillPickGrid">
+            <section id="build-library-active" class="buildLibraryBay" data-build-library="active" tabindex="-1" aria-labelledby="buildLibraryActiveTitle">
+              <div class="buildLibraryTitle"><div><span>01</span><h3 id="buildLibraryActiveTitle">主动术式</h3></div><small id="buildActiveLibraryCount">读取中</small></div>
+              <div class="buildSkillList" data-build-picks="active"></div>
+            </section>
+            <section id="build-library-passive" class="buildLibraryBay" data-build-library="passive" tabindex="-1" aria-labelledby="buildLibraryPassiveTitle">
+              <div class="buildLibraryTitle"><div><span>02</span><h3 id="buildLibraryPassiveTitle">被动心法</h3></div><small id="buildPassiveLibraryCount">读取中</small></div>
+              <div class="buildSkillList" data-build-picks="passive"></div>
+            </section>
+            <section id="build-library-presets" class="buildLibraryBay" data-build-library="presets" tabindex="-1" aria-labelledby="buildLibraryPresetTitle">
+              <div class="buildLibraryTitle"><div><span>03</span><h3 id="buildLibraryPresetTitle">推荐流派</h3></div><small id="buildPresetLibraryCount">读取中</small></div>
+              <div class="presetGrid" id="presetGrid"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+
+<section class="page" id="modes" data-mission-board aria-labelledby="missionBoardTitle">
+  <div class="missionBoard">
+    <div class="missionBackdrop" aria-hidden="true"><i class="missionHalo a"></i><i class="missionHalo b"></i><i class="missionAxis"></i></div>
+    <header class="missionHeader">
+      <button type="button" class="missionBack" onclick="go('home')"><span aria-hidden="true">←</span> 返回观星殿</button>
+      <div><div class="eyebrow">RIFT MISSION CONSOLE</div><h1 id="missionBoardTitle">裂隙任务台</h1></div>
+      <button type="button" class="missionRoute" onclick="go('world')">调整地图 / 关卡 <span aria-hidden="true">↗</span></button>
+    </header>
+
+    <div class="missionConsole">
+      <aside class="missionRuleRail" aria-label="切换任务规则">
+        <div class="missionPanelTitle"><span>规则投影</span><small>选择即同步</small></div>
+        <div class="modeGrid" id="v29ModeGrid" role="group" aria-label="七种裂隙任务规则"></div>
+      </aside>
+
+      <article class="modeCurrent" aria-live="polite">
+        <div class="missionSeal" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="missionCurrentCopy">
+          <div class="missionStageCode" id="missionStageCode">ST001-01</div>
+          <div class="eyebrow">SELECTED DIRECTIVE</div>
+          <h2 id="v29CurrentMode">剧情模式</h2>
+          <div class="missionStageLine"><span>当前裂隙</span><strong id="missionStageName">边境清剿</strong></div>
+          <p id="v29CurrentDesc"></p>
+          <div class="missionTarget"><span>核心目标</span><b id="missionTargetText">在 06:00 前击败黄巾巨将并领取战利品</b></div>
+          <div class="modeCurrentStats">
+            <div><small>目标时长</small><b id="v29CurrentTime">20:00</b></div><div><small>奖励倍率</small><b id="v29CurrentReward">×1.00</b></div>
+            <div><small>万界徽记</small><b id="v29Tokens">0</b></div><div><small>当前难度</small><b id="v29CurrentDiff">标准</b></div>
+          </div>
+          <div class="dailyMutator" id="v29MutatorBox" style="display:none"><b id="v29MutatorName"></b><small id="v29MutatorDesc"></small></div>
+        </div>
+      </article>
+
+      <aside class="modeRecordPanel">
+        <div class="missionPanelTitle"><span>出征校验</span><small>存档已同步</small></div>
+        <div class="missionRoster"><small>守界者</small><b id="missionHeroName">赤焰战神</b></div>
+        <div class="missionRoster"><small>首领信号</small><b id="missionBossName">黄巾巨将</b></div>
+        <div class="missionReady"><i></i><span id="missionReadyText">任务规则可执行</span></div>
+        <div class="eyebrow">LOCAL RECORD</div><h3>当前规则记录</h3>
+        <div class="modeRecordRows" id="v29RecordRows"></div>
+      </aside>
+    </div>
+
+    <footer class="missionCommand">
+      <div><span>任务确认</span><b>所有配置将在出征时载入</b></div>
+      <button type="button" class="missionLaunch" data-mission-start onclick="v29StartSelected()"><span>查看出战简报</span><small><b id="v29StartMode">剧情模式</b> · 核对英雄与构筑</small><strong aria-hidden="true">进入简报</strong></button>
+    </footer>
+  </div>
+</section>
+
+<section class="page" id="briefing" data-expedition-briefing aria-labelledby="briefingTitle">
+  <div class="expeditionBriefing">
+    <div class="briefingBackdrop" aria-hidden="true"><i></i><i></i><i></i></div>
+    <header class="briefingHeader">
+      <button type="button" class="briefingBack" onclick="go('modes')">← 返回裂隙任务台</button>
+      <div><span class="eyebrow">EXPEDITION DEPLOYMENT</span><h1 id="briefingTitle" tabindex="-1">出战简报</h1></div>
+      <div class="briefingReadiness" id="briefingReadiness" role="status" aria-live="polite"><i></i><span>正在核对整备状态</span></div>
+    </header>
+
+    <div class="briefingBody">
+      <article class="briefingMission" aria-labelledby="briefingMissionTitle">
+        <div class="briefingPanelTitle"><span>01 · 任务指令</span><small id="briefingStageCode">ST001-01</small></div>
+        <div class="briefingMissionSeal" aria-hidden="true"><i></i><i></i></div>
+        <div class="eyebrow" id="briefingModeName">剧情模式</div>
+        <h2 id="briefingMissionTitle"><span id="briefingStageName">边境清剿</span></h2>
+        <p id="briefingObjective">正在读取核心目标</p>
+        <dl class="briefingMissionFacts">
+          <div><dt>目标时长</dt><dd id="briefingDuration">--:--</dd></div>
+          <div><dt>奖励倍率</dt><dd id="briefingReward">×1.00</dd></div>
+          <div><dt>当前难度</dt><dd id="briefingDifficulty">标准</dd></div>
+          <div><dt>首领信号</dt><dd id="briefingBosses">待确认</dd></div>
+        </dl>
+      </article>
+
+      <div class="briefingPreparation">
+        <section class="briefingHero" aria-labelledby="briefingHeroTitle">
+          <div class="briefingPanelTitle"><span>02 · 守界者</span><button type="button" id="briefingEditHero" onclick="v29OpenBriefingEditor('heroes')">调整英雄</button></div>
+          <div class="briefingHeroIdentity"><div class="briefingHeroMark" aria-hidden="true">界</div><div><span id="briefingHeroId">H001</span><h2 id="briefingHeroTitle"><span id="briefingHeroName">赤焰战神</span></h2><p id="briefingHeroDetail">Lv.1 · 0★</p></div><strong><small>综合战力</small><b id="briefingPower">0</b></strong></div>
+          <div class="briefingHeroSkills"><span>英雄技 <b id="briefingHeroSkill">炎龙斩</b></span><span>终极技 <b id="briefingHeroUlt">赤龙降世</b></span></div>
+        </section>
+
+        <section class="briefingLoadout" aria-labelledby="briefingLoadoutTitle">
+          <div class="briefingPanelTitle"><span id="briefingLoadoutTitle">03 · 军械与灵契</span><button type="button" id="briefingEditLoadout" onclick="v29OpenBriefingEditor('loadout')">调整军械</button></div>
+          <div class="briefingLoadoutGrid">
+            <div><h3>三件装备</h3><ul id="briefingGearList"></ul></div>
+            <div><h3>符文回路</h3><ul id="briefingRuneList"></ul></div>
+            <div><h3>伴战主宠</h3><p id="briefingPetName">待配置</p></div>
+          </div>
+        </section>
+
+        <section class="briefingBuild" aria-labelledby="briefingBuildTitle">
+          <div class="briefingPanelTitle"><span id="briefingBuildTitle">04 · 术式构筑</span><button type="button" id="briefingEditBuild" onclick="v29OpenBriefingEditor('build')">调整构筑</button></div>
+          <div class="briefingBuildGrid"><div><h3>主动术式</h3><ul id="briefingActiveList"></ul></div><div><h3>被动心法</h3><ul id="briefingPassiveList"></ul></div></div>
+        </section>
+      </div>
+
+      <aside class="briefingCheck" aria-labelledby="briefingCheckTitle">
+        <div class="briefingPanelTitle"><span>05 · 出征校验</span><small>实时读取存档</small></div>
+        <h2 id="briefingCheckTitle" tabindex="-1">整备确认</h2>
+        <p id="briefingCheckSummary">正在检查任务、英雄、装备与构筑。</p>
+        <ul id="briefingBlockers" aria-live="polite"></ul>
+        <div class="briefingNoSnapshot"><b>不建立第二套配置</b><span>返回本页时会重新读取你刚完成的所有调整。</span></div>
+      </aside>
+    </div>
+
+    <footer class="briefingCommand">
+      <button type="button" class="briefingSecondary" onclick="go('modes')">返回任务台</button>
+      <div><span>最终确认</span><b id="briefingCommandHint">完整核对后才会进入裂隙</b></div>
+      <button type="button" class="briefingConfirm" id="briefingConfirm" data-briefing-confirm aria-describedby="briefingBlockers" onclick="v29ConfirmBriefing()"><span>确认出征</span><small>调用当前战斗入口 · 每次仅一次</small><strong aria-hidden="true">DEPLOY</strong></button>
+    </footer>
+  </div>
+</section>
+
+<section class="page" id="world" data-rift-atlas aria-labelledby="riftAtlasTitle">
+  <div class="riftAtlas">
+    <div class="atlasBackdrop" aria-hidden="true"><i class="atlasMeridian a"></i><i class="atlasMeridian b"></i><i class="atlasCompass"></i></div>
+    <header class="atlasHeader">
+      <button type="button" class="atlasBack" onclick="go('modes')"><span aria-hidden="true">←</span> 返回任务台</button>
+      <div><div class="eyebrow">RIFT ATLAS · 三界航路</div><h1 id="riftAtlasTitle">万界裂隙图谱</h1></div>
+      <div class="atlasProgress"><small>三界总勘探</small><b id="atlasWorldProgress">0%</b><span>12 条关卡航路</span></div>
+    </header>
+
+    <div class="atlasScene">
+      <article class="atlasChart" aria-label="三界裂隙航路">
+        <div class="atlasChartHead"><div><span>世界坐标</span><b>选择裂隙世界</b></div><small>解锁将沿金色航路推进</small></div>
+        <div class="worldMap" id="worldMap" role="group" aria-label="三个裂隙世界"></div>
+      </article>
+
+      <aside class="atlasIntel" aria-live="polite">
+        <div class="atlasChapter">
+          <div><span aria-hidden="true">界</span><small>当前世界</small></div>
+          <div><span id="worldChapterId">ST001</span><h2 id="worldChapterName">乱世荒原</h2><p id="worldChapterDesc"></p></div>
+          <strong><small>章节星</small><b id="atlasChapterStars">0 / 12</b></strong>
+        </div>
+
+        <div class="atlasStageFocus">
+          <div class="atlasStageHeading"><span id="atlasStageId">ST001-01</span><small id="atlasRouteState">航路可用</small></div>
+          <h2 id="atlasStageName">边境清剿</h2>
+          <p id="atlasStageObjective">在 06:00 前击败黄巾巨将并领取战利品</p>
+          <dl><div><dt>完成星级</dt><dd id="atlasStageStars">0 / 3</dd></div><div><dt>目标时长</dt><dd id="atlasStageTime">06:00</dd></div><div><dt>首领航路</dt><dd id="atlasBossRoute">黄巾巨将</dd></div></dl>
+        </div>
+
+        <div class="atlasRoutePanel">
+          <div class="atlasPanelTitle"><span>关卡航路</span><small>选择即同步存档</small></div>
+          <div class="stageList" id="stageList" role="group" aria-label="当前世界的四条关卡航路"></div>
+        </div>
+
+        <div class="atlasIntelGrid">
+          <div class="atlasMechanic"><div class="atlasPanelTitle"><span>战场机制</span><small>当前关卡</small></div><div id="mapMechanic"></div></div>
+          <div class="worldBossPreview" id="v25WorldBossPreview"></div>
+        </div>
+
+        <div class="atlasDifficulty">
+          <div class="atlasPanelTitle"><span>挑战难度</span><small id="difficultySummary">标准</small></div>
+          <div class="difficultyBar" id="difficultyBar"></div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="atlasCommand">
+      <div><span>航路确认</span><b>关卡与难度将同步至裂隙任务台</b></div>
+      <button type="button" class="atlasConfirm" data-atlas-confirm onclick="go('modes')"><span>确认关卡</span><small><b id="atlasConfirmStage">ST001-01 · 边境清剿</b> · 返回任务台</small><strong aria-hidden="true">同步航路</strong></button>
+    </footer>
+  </div>
+</section>
+
+<section class="page" id="battle" data-battle-theater aria-labelledby="battleTitle">
+  <div class="battleTheater">
+    <div class="battleBackdrop" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+    <header class="battleCommandHeader">
+      <div class="battleIdentity">
+        <span>RIFT COMBAT THEATER</span>
+        <h1 id="battleTitle">ST001-03 · 妖师祭坛</h1>
+        <small>WASD 移动 · E 英雄技 · Space 闪避 · R 终极</small>
+      </div>
+      <section class="battleObjectivePanel" aria-label="当前任务目标">
+        <div class="battlePanelHeading"><span>MISSION OBJECTIVE</span><b id="v29BattleMode">剧情模式</b></div>
+        <div class="campaignPhase" id="v29CampaignPhase" role="status" aria-live="polite" hidden></div>
+        <div class="modeObjective" id="v29BattleObjective"></div>
+        <div class="modeProgress"><i id="v29ModeProgress"></i></div>
+        <button type="button" class="btn gold" id="v29ModeAction" style="display:none" onclick="v29ManualExit()">撤离并结算</button>
+      </section>
+      <section class="battleThreatPanel" aria-label="实时战场威胁">
+        <div class="battleThreatHeading"><span>THREAT MONITOR</span><div class="battleThreatCommands"><button type="button" class="battleDossierCommand" id="battleDossierToggle" aria-controls="battleDossier" aria-expanded="false" onclick="toggleBattleDossier()"><b>档</b><span id="battleDossierToggleText">展开卷宗</span></button><button type="button" class="battlePauseCommand" data-battle-pause aria-controls="pauseOverlay" onclick="performBattleAction('pause',togglePause)"><b>Ⅱ</b><span>暂停</span><small>ESC</small></button></div></div>
+        <div class="battleThreatGrid">
+          <div><span>当前怪潮</span><b id="directorWave">热身</b></div>
+          <div><span>威胁强度</span><b id="directorPressureText">0%</b></div>
+        </div>
+        <div class="pressureMeter"><i id="directorPressure"></i></div>
+        <div class="battleThreatNext"><span>下一异变</span><b id="directorNext">03:00 事件</b></div>
+      </section>
+    </header>
+    <div class="battleStage battleLayout" id="battleStage">
+    <div class="card arena">
+      <canvas id="arenaCanvas" tabindex="-1"></canvas>
+      <div class="arenaHud">
+        <canvas id="tacticalMinimap" aria-label="战术小地图：显示世界边界、玩家、Boss、互动点、任务目标与当前视野"></canvas>
+        <div id="worldEdgeCue" class="worldEdgeCue" role="status" aria-live="polite"></div>
+        <div class="hudTop">
+          <div class="hudBox"><b id="hudHero">赤焰战神</b> · Lv.<span id="runLevel">1</span> · HP <span id="hudHp">620/620</span></div>
+          <div class="hudBox"><span id="runTime">00:00</span> · 击杀 <span id="runKills">0</span> · DPS <span id="runDps">0</span></div>
+        </div>
+        <div class="campaignCue" id="v29CampaignCue" role="status" aria-live="polite" hidden></div>
+        <div class="bossBar" id="bossBar">
+  <div class="progress"><i id="bossHpFill"></i></div>
+  <div class="bossShieldTrack" id="bossShieldTrack"><i id="bossShieldFill"></i></div>
+  <div class="bossPhaseLine"><i class="phasePip on" id="bossPhase1"></i><i class="phasePip" id="bossPhase2"></i><i class="phasePip" id="bossPhase3"></i></div>
+  <div class="bossLabel" id="bossLabel">Boss</div>
+</div>
+        <div class="combo" id="comboText">0<small>COMBO</small></div>
+        <div class="eventHint" id="eventHint">技能已升级</div>
+        <div class="hudSlots" id="hudSlots"></div>
+        <div class="battleCommandDock" role="group" aria-label="战斗快捷操作">
+          <button type="button" class="actionBtn heroSkill" id="heroSkillAction" aria-label="英雄技能 · E · 就绪" aria-disabled="false" onclick="performBattleAction('skill',castHeroSkill)"><span class="commandKey">E</span><span class="commandCopy"><strong>英雄技</strong><small id="skillCdText">就绪</small></span></button>
+          <button type="button" class="actionBtn dodge" id="dodgeAction" aria-label="闪避 · Space · 就绪" aria-disabled="false" onclick="performBattleAction('dodge',tryDodge)"><span class="commandKey wide">SPACE</span><span class="commandCopy"><strong>闪避</strong><small id="dodgeCdText">就绪</small></span></button>
+          <button type="button" class="actionBtn ult" id="ultAction" aria-label="终极技能 · R · 能量 0%" aria-disabled="true" onclick="performBattleAction('ult',castUltimate)"><span class="commandKey">R</span><span class="commandCopy"><strong>终极</strong><small id="ultText">能量 0%</small></span></button>
+        </div>
+        <div class="battleHint" id="battleSchedule">3/8/13分钟事件 · 5/10/15分钟宝箱 · 20分钟胜负判定</div>
+        <div class="lowHp" id="lowHp"></div>
+
+        <div class="phaseCinematic" id="phaseCinematic">
+          <div><div class="num" id="phaseNum">PHASE 2</div><h2 id="phaseTitle">首领转阶段</h2><p id="phaseDesc">战场规则发生变化</p></div>
+        </div>
+
+        <div class="bossCastBanner" id="bossCastBanner" role="status" aria-live="assertive" aria-atomic="true">BOSS CAST</div>
+        <div class="hitFlash" id="hitFlash"></div>
+        <div class="damageFlash" id="damageFlash"></div>
+        <div class="qualityBadge">裂隙征途</div><div class="modeBadge" id="v29ModeBadge">剧情 · 20:00</div>
+        <div class="onboardingTip" id="v30OnboardingTip" role="status" aria-live="polite" aria-label="首战实战清单">
+          <div class="onboardingHeading"><div><span>FIELD DRILL</span><strong>实战清单 <em id="battleOnboardingCount">0/6</em></strong></div><button type="button" class="onboardingDismiss" data-onboarding-dismiss aria-label="关闭实战清单" onclick="skipTutorial()">&times;</button></div>
+          <div class="onboardingSteps" role="list">
+            <span data-onboarding-step="move" role="listitem"><i>WASD</i><b>移动</b></span><span data-onboarding-step="skill" role="listitem"><i>E</i><b>英雄技</b></span><span data-onboarding-step="dodge" role="listitem"><i>SPACE</i><b>闪避</b></span>
+            <span data-onboarding-step="ult" role="listitem"><i>R</i><b>终极</b></span><span data-onboarding-step="interact" role="listitem"><i>F</i><b>互动</b></span><span data-onboarding-step="pause" role="listitem"><i>ESC</i><b>暂停</b></span>
+          </div>
+        </div>
+        <div class="heroStateBadge" id="heroStateBadge">专属资源 0%</div><div class="petStateBadge" id="v27PetStateBadge">宠物 READY</div><div class="interactPrompt" id="interactPrompt"><strong>F</strong><span id="interactPromptText">使用地图交互</span></div><div class="hudFrame"></div><div class="lootToast" aria-live="polite" id="lootToast"></div>
+<div class="mobileControls" id="mobileControls" aria-label="移动端战斗控制"><div class="mobileMoveZone" id="mobileMoveZone" role="application" aria-label="左侧浮动移动区域"><div class="joystickBase" id="joystickBase" aria-hidden="true"><div class="joystickKnob" id="joystickKnob"></div></div></div><button type="button" class="mobileAction skill" id="mobileSkill" aria-label="英雄技能"><span class="mobileKey">E</span><span id="mobileSkillState">技能</span></button><button type="button" class="mobileAction dodge" id="mobileDodge" aria-label="闪避"><span class="mobileKey">闪</span><span id="mobileDodgeState">就绪</span></button><button type="button" class="mobileAction ult unavailable" id="mobileUlt" aria-label="终极技能" aria-disabled="true"><span class="mobileKey">R</span><span id="mobileUltState">0%</span></button><button type="button" class="mobileAction interact" id="mobileInteract" aria-label="地图互动"><span class="mobileKey">F</span><span id="mobileInteractState">互动</span></button><button type="button" class="mobilePause" id="mobilePause" aria-label="暂停游戏">Ⅱ</button></div>
+
+        
+        <div class="lootChoiceOverlay" id="v26LootOverlay" role="dialog" aria-modal="true" aria-labelledby="v26LootTitle">
+          <div class="lootChoiceWrap">
+            <div class="lootChoiceTitle"><div class="eyebrow">BOSS LOOT</div><h2 id="v26LootTitle">Boss专属战利品 · 三选一</h2><div class="muted" id="v26LootSummary">装备会永久进入当前存档，可在下一局前重新配置。</div></div>
+            <div class="gearChoiceGrid" id="v26LootChoices"></div>
+          </div>
+        </div>
+<div class="overlay flowChoiceOverlay" id="levelOverlay" data-first-playable-flow="level" role="dialog" aria-modal="true" aria-labelledby="levelOverlayTitle" aria-describedby="levelOverlayHint"><div class="choiceWrap flowChoiceWrap"><header class="flowChoiceHeader"><div class="flowChoiceMeta"><span id="levelOverlayStep">COMBAT GROWTH</span><b id="levelOverlayProgress">经验已充满</b></div><div class="eyebrow">LEVEL UP</div><h2 id="levelOverlayTitle">选择一项强化</h2><p id="levelOverlayHint">战斗已暂停。选择一项本局强化后继续推进。</p></header><div class="choiceGrid" id="choiceGrid"></div><footer class="flowChoiceFooter"><span>本局生效</span><b>选择后自动继续战斗</b></footer></div></div>
+        <div class="overlay flowChoiceOverlay" id="chestOverlay" data-first-playable-flow="chest" role="dialog" aria-modal="true" aria-labelledby="chestOverlayTitle" aria-describedby="chestOverlayHint"><div class="choiceWrap flowChoiceWrap"><header class="flowChoiceHeader"><div class="flowChoiceMeta"><span id="chestOverlayStep">MILESTONE REWARD</span><b id="chestOverlayProgress">首战宝箱</b></div><div class="eyebrow">CHEST SECURED</div><h2 id="chestOverlayTitle">选择一项战利强化</h2><p id="chestOverlayHint">战斗已暂停。奖励由当前构筑与宝箱节点生成。</p></header><div class="choiceGrid" id="chestChoices"></div><footer class="flowChoiceFooter"><span>当前构筑判定</span><b>选择后立即生效</b></footer></div></div>
+        <div class="overlay" id="eventOverlay" role="dialog" aria-modal="true" aria-labelledby="eventTitle"><div class="choiceWrap"><div style="text-align:center;margin-bottom:14px"><div class="eyebrow">MAP EVENT</div><h2 id="eventTitle">随机事件</h2></div><div class="eventGrid" id="eventChoices"></div></div></div>
+        <div class="overlay" id="tutorialOverlay" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle" aria-describedby="tutorialText"><div class="pausePanel"><div class="eyebrow">TUTORIAL</div><h2 id="tutorialTitle">移动</h2><p class="muted" id="tutorialText"></p><button class="btn primary" style="width:100%" onclick="nextTutorial()">下一步</button><button class="btn ghost" style="width:100%;margin-top:8px" onclick="skipTutorial()">跳过引导</button></div></div>
+        <div class="overlay" id="pauseOverlay" role="dialog" aria-modal="true" aria-labelledby="pauseOverlayTitle"><div class="pausePanel"><div class="eyebrow">PAUSED</div><h2 id="pauseOverlayTitle">战斗暂停</h2><div class="settingsGrid">
+          <div class="settingRow"><span>镜头震动</span><button type="button" class="toggle on" id="shakeToggle" role="switch" aria-label="镜头震动" aria-checked="true" onclick="toggleSetting('shake')"></button></div>
+          <div class="settingRow"><span>伤害数字</span><button type="button" class="toggle on" id="numbersToggle" role="switch" aria-label="伤害数字" aria-checked="true" onclick="toggleSetting('numbers')"></button></div>
+          <div class="settingRow"><span>粒子特效</span><button type="button" class="toggle on" id="particlesToggle" role="switch" aria-label="粒子特效" aria-checked="true" onclick="toggleSetting('particles')"></button></div>
+          <div class="settingRow"><span>低血量暗角</span><button type="button" class="toggle on" id="vignetteToggle" role="switch" aria-label="低血量暗角" aria-checked="true" onclick="toggleSetting('vignette')"></button></div>
+        </div><div class="actions"><button class="btn primary" style="width:100%" onclick="togglePause()">继续</button><button class="btn ghost" style="width:100%" onclick="finishRun(false,'主动退出')">结束本局</button></div></div></div>
+      </div>
+    </div>
+
+    <aside class="battleDossier battleSide" id="battleDossier" aria-label="战术卷宗" aria-hidden="true">
+      <div class="battleDossierHead"><span>TACTICAL DOSSIER</span><h2>战术卷宗</h2><small>局内构筑与战斗记录</small></div>
+      <div class="card"><div class="eyebrow">BATTLE STATUS</div><h3 id="sideRunHero">赤焰战神</h3><div id="runStats"></div></div>
+      <div class="card"><div class="eyebrow">BUILD</div><h3>局内构筑</h3><div class="runBuild" id="runBuild"></div></div>
+      <div class="card heroMechanicCard"><div class="eyebrow">HERO POWER</div><h3 id="heroMechanicName">英雄战斗机制</h3><div class="heroLegend" id="heroMechanicLegend"></div><div class="mechanicMeter"><i id="heroMechanicFill"></i></div><div class="mechanicLabel"><span id="heroMechanicLabel">专属资源</span><b id="heroMechanicValue">0%</b></div></div>
+      <div class="card">
+        <div class="eyebrow">BATTLE EFFECTS</div><h3>技能形态</h3>
+        <div class="buildFormSummary">
+          <div class="sum"><small>投射物</small><b id="v24ProjectileCount">0</b></div>
+          <div class="sum"><small>领域/控制</small><b id="v24FieldCount">0</b></div>
+          <div class="sum"><small>召唤/环绕</small><b id="v24SummonCount">0</b></div>
+        </div>
+        <div class="formStatusBar" id="v24FormStatus" style="margin-top:9px"></div>
+      </div>
+<div class="card"><div class="eyebrow">DAMAGE</div><h3>技能伤害统计</h3><div class="damageList" id="damageList"></div></div>
+      <div class="card"><div class="eyebrow">READY</div><h3>可进化/融合</h3><div id="readyList"></div></div>
+      <div class="card"><div class="eyebrow">LOG</div><h3>战斗日志</h3><div class="log" id="battleLog"></div></div>
+    </aside>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="result" data-result-chamber data-result-outcome="pending" aria-labelledby="resultTitle">
+  <div class="resultChamber">
+    <div class="resultChamberBackdrop" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+    <header class="resultChamberHeader">
+      <div><span>EXPEDITION VERDICT</span><b>裂隙远征裁定</b></div>
+      <div><span>战果已归档</span><small>奖励、掉落与战斗记录均来自本局结算</small></div>
+    </header>
+    <div class="resultScene">
+      <article class="resultVerdict">
+        <div class="resultVerdictMark" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="resultOutcomeSeal" id="resultState">RESULT</div>
+        <div class="resultVerdictCopy">
+          <span>远征回响</span>
+          <h1 id="resultTitle">远征战果待载入</h1>
+          <p id="resultReason">完成远征后，此处将呈现真实结算</p>
+        </div>
+        <div class="resultMetrics" aria-label="本局核心数据">
+          <div class="resultMetric"><small>历时</small><b id="resTime">--:--</b><span>TIME</span></div>
+          <div class="resultMetric"><small>击破</small><b id="resKills">--</b><span>KILLS</span></div>
+          <div class="resultMetric"><small>评星</small><b id="resStars">☆☆☆</b><span>RANK</span></div>
+          <div class="resultMetric"><small>金币</small><b id="resGold">--</b><span>GOLD</span></div>
+        </div>
+        <p class="resultHandoffStatus" id="resultHandoffStatus" role="status" aria-live="polite">正在推导下一任务</p>
+        <div class="resultCommands" aria-label="结算操作">
+          <button type="button" class="btn gold" data-result-replay onclick="v29OpenResultHandoff()"><span id="resultPrimaryLabel">继续征途</span><small id="resultPrimaryDetail">正在同步出战任务</small></button>
+          <button type="button" class="btn" data-result-return onclick="v29ReturnResultHandoff()"><span>返回主大厅</span><small>同步任务并返回观星殿</small></button>
+        </div>
+      </article>
+      <article class="resultLedger" aria-label="本局结算明细">
+        <div class="resultLedgerHead"><div><span>SETTLEMENT LEDGER</span><h2>战利账册</h2></div><small>按掉落、成长、战斗记录归档</small></div>
+        <div class="resultLedgerScroll">
+          <div class="resultPanel resultDrops">
+            <div class="resultPanelHead"><span>01 · DROPS</span><h3>本局掉落</h3><small>战利先行入库</small></div>
+            <div class="dropGrid" id="dropGrid"></div>
+          </div>
+          <div class="resultPanel resultProgression">
+            <div class="resultPanelHead"><span>02 · PROGRESSION</span><h3>永久成长变化</h3><small>结算账目</small></div>
+            <div id="resultRows"></div>
+          </div>
+          <div class="resultPanel resultRecord">
+            <div class="resultPanelHead"><span>03 · COMBAT RECORD</span><h3>伤害排行</h3><small>战斗记录</small></div>
+            <div class="damageList" id="resultDamage"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+
+
+
+
+
+
+
+
+<div class="loadingScreen" id="loadingScreen" role="status" aria-live="polite" aria-atomic="true" aria-label="正在进入裂隙">
+  <div class="loadingInner">
+    <div class="loadingLogo">万界无双</div>
+    <div class="eyebrow" style="margin-top:10px">ENTERING RIFT</div>
+    <div class="loadingStage" id="loadingStage">乱世荒原</div>
+    <div class="loadingTip" id="loadingTip">Build不是越多越好，完整进化路线比零散技能更重要。</div>
+    <div class="loadingTrack"><i id="loadingFill"></i></div>
+    <div class="loadingMeta"><span id="loadingHero">赤焰战神</span><span id="loadingProgress">0%</span></div>
+  </div>
+</div>
+
+<div class="endCinematic" id="endCinematic" data-first-playable-flow="outcome" data-outcome="pending" role="status" aria-live="assertive">
+  <div class="endTransitionBackdrop" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="seal">
+    <div class="endChapter" id="endChapter">ST001-01 · 首战归档</div>
+    <div class="sealIcon" id="endSealIcon">胜</div>
+    <div class="eyebrow" style="margin-top:18px" id="endEyebrow">RIFT SEALED</div>
+    <h1 id="endTitle">关卡完成</h1>
+    <p id="endText">裂隙暂时稳定，永久奖励已经写入存档。</p>
+    <div class="endTransitionRail" aria-hidden="true"><i></i></div>
+    <small class="endNext" id="endNext">正在进入战果账册</small>
+  </div>
+</div>
+
+
+<div class="evolutionCinematic" id="evolutionCinematic">
+  <div class="evoCore" id="evoCore">
+    <div class="evoBurst"></div>
+    <div class="evoIconBig" id="evoIconBig">进</div>
+    <div class="eyebrow" id="evoEyebrow">SKILL EVOLUTION</div>
+    <h1 id="evoTitle">炼狱火球</h1>
+    <div class="muted" id="evoSub">A011 + P026 → E011</div>
+  </div>
+</div>
+<div class="bossIntro" id="bossIntro">
+  <div class="bossIntroInner">
+    <div class="bossIntroPortrait" id="bossIntroPortrait"></div>
+    <div>
+      <div class="eyebrow">REGION BOSS</div>
+      <h1 id="bossIntroTitle">乱世妖师</h1>
+      <p id="bossIntroStyle">法阵与召唤 · 火符法阵 / 妖兵召唤 / 瞬移雷击</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="recoveryOverlay" id="v30Recovery" role="alertdialog" aria-modal="true" aria-labelledby="v30RecoveryTitle" aria-describedby="v30RecoveryDescription">
+  <div class="recoveryBox">
+    <div class="eyebrow">SAFE RETURN</div>
+    <h2 id="v30RecoveryTitle">本局已进入安全暂停</h2>
+    <p id="v30RecoveryDescription">战斗发生异常，本局已暂停并保护当前存档。你可以返回主大厅继续冒险，或重新载入页面。</p>
+    <div class="recoveryMeta" id="v30RecoveryMeta">战斗状态已保存</div>
+    <div class="actions"><button class="btn primary" onclick="v30RecoverHome()">保存并回到主大厅</button><button class="btn ghost" onclick="location.reload()">重新载入页面</button></div>
+  </div>
+</div>
+
+
+
+
+  <script src="assets/js/config/game-data.js"></script>
+  <script src="assets/js/config/asset-manifest.js"></script>
+  <script src="assets/js/presentation/first-playable-assets.js"></script>
+  <script src="assets/js/ui/heroes.js"></script>
+  <script src="assets/js/ui/loadout.js"></script>
+  <script src="assets/js/ui/build.js"></script>
+  <script src="assets/js/ui/world.js"></script>
+  <script src="assets/js/combat/engine.js"></script>
+  <script src="assets/js/ui/tutorial-settings.js"></script>
+  <script src="assets/js/ui/result.js"></script>
+  <script src="assets/js/systems/director-balance.js"></script>
+  <script src="assets/js/systems/save-slots-start.js"></script>
+  <script src="assets/js/presentation/quality-presentation.js"></script>
+  <script src="assets/js/presentation/art-ui-cinematics.js"></script>
+  <script src="assets/js/combat/hero-identity.js"></script>
+  <script src="assets/js/combat/skill-forms.js"></script>
+  <script src="assets/js/combat/boss-map-interactions.js"></script>
+  <script src="assets/js/systems/gear-affix-loot.js"></script>
+  <script src="assets/js/systems/runes-pets.js"></script>
+  <script src="assets/js/systems/meta-growth.js"></script>
+  <script src="assets/js/systems/game-modes.js"></script>
+  <script src="assets/js/systems/daily-mutators.js"></script>
+  <script src="assets/js/core/stability-v30.js"></script>
+  <script src="assets/js/ui/ui-shell.js"></script>
+  <script src="assets/js/ui/nexus-hub.js"></script>
+  <script src="assets/js/core/v31-project.js"></script>
+</body>
+</html>

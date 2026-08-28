@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="290" viewBox="0 0 260 290">
+  <defs>
+    <radialGradient id="bossAura" cx="50%" cy="52%" r="52%"><stop stop-color="#e8a93b" stop-opacity="0.3"/><stop offset="1" stop-color="#8a2b20" stop-opacity="0"/></radialGradient>
+    <linearGradient id="bossArmor" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9c4b33"/><stop offset="0.55" stop-color="#54282b"/><stop offset="1" stop-color="#251c22"/></linearGradient>
+    <linearGradient id="bossGold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2cc5b"/><stop offset="1" stop-color="#7c581d"/></linearGradient>
+    <linearGradient id="iron" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dad2bb"/><stop offset="0.5" stop-color="#746d61"/><stop offset="1" stop-color="#28292a"/></linearGradient>
+  </defs>
+  <ellipse cx="126" cy="163" rx="120" ry="118" fill="url(#bossAura)"/>
+  <ellipse cx="126" cy="261" rx="77" ry="17" fill="#030605" opacity="0.62"/>
+  <path d="M64 157q60-64 122 0l-9 89-51 28-52-28z" fill="url(#bossArmor)" stroke="#21161a" stroke-width="10"/>
+  <path d="M75 168h102M82 198h88M91 226l35 22 34-22" fill="none" stroke="url(#bossGold)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M76 233l-20 33m106-32 24 31" stroke="#221d20" stroke-width="14" stroke-linecap="round"/>
+  <path d="M67 159L25 187l21 36 42-35M184 158l43 30-23 38-41-37" fill="#6e322e" stroke="#211619" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M77 95q49-45 96 0l8 48-55 31-56-31z" fill="#b57955" stroke="#241713" stroke-width="10"/>
+  <path d="M72 102q12-58 57-61 42 5 53 58l-23-16-30 26-31-25z" fill="#302022"/>
+  <path d="M74 91q50-39 109 2l-6 23-101 2z" fill="url(#bossGold)" stroke="#423217" stroke-width="8"/>
+  <path d="M160 94l67-8-48 39" fill="#d7aa36" stroke="#4a3517" stroke-width="7"/>
+  <path d="M94 124l18 6m47-6-18 6" stroke="#421a15" stroke-width="7" stroke-linecap="round"/>
+  <path d="M119 146q9 7 19 0" fill="none" stroke="#541f18" stroke-width="6" stroke-linecap="round"/>
+  <path d="M206 197l22-17 23 27-22 17z" fill="#9c742c" stroke="#302316" stroke-width="8"/>
+  <path d="M221 200L249 48" stroke="#49331f" stroke-width="14" stroke-linecap="round"/>
+  <path d="M245 56l-14-38 28 16-1 89-32 21z" fill="url(#iron)" stroke="#29251f" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M32 187Q3 208 17 242q36 5 55-28z" fill="#584834" stroke="#211c16" stroke-width="9"/>
+  <path d="M30 194v39m-18-20h38" stroke="#b89343" stroke-width="7" opacity="0.78"/>
+</svg>

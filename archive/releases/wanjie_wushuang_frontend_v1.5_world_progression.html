@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>万界无双 · V1.5 世界地图与章节推进版</title>
+<style>
+:root{
+ --bg:#05070b;--panel:#111822;--panel2:#182332;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.16);
+ --text:#f7f8fb;--muted:#94a1b3;--muted2:#647286;--gold:#f3c66c;--red:#ef694e;--purple:#a47dff;--blue:#70a9ff;
+ --cyan:#65d8ff;--green:#64d59f;--orange:#f09a58;--shadow:0 28px 100px rgba(0,0,0,.48)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+body{background:
+ radial-gradient(circle at 8% 0%,rgba(218,73,54,.14),transparent 24%),
+ radial-gradient(circle at 90% 0%,rgba(102,76,219,.16),transparent 29%),
+ linear-gradient(180deg,#05070b,#091018 55%,#05070b)}
+button{font:inherit;color:inherit}
+.app{display:grid;grid-template-columns:246px minmax(0,1fr);min-height:100vh}
+.sidebar{position:sticky;top:0;height:100vh;padding:15px 12px;background:rgba(5,7,11,.96);border-right:1px solid var(--line);backdrop-filter:blur(22px);z-index:40}
+.brand{display:flex;gap:11px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.012))}
+.logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:#24110d;font-weight:1000;background:linear-gradient(135deg,#f5d89b,#ef7659 46%,#7e61db)}
+.brand h1{margin:0;font-size:17px}.brand small{display:block;color:var(--gold);font-size:9px;letter-spacing:.16em;margin-top:3px}
+.group{margin:18px 10px 8px;color:#536173;font-size:10px;letter-spacing:.18em}
+.nav{display:grid;gap:6px}.nav button{border:1px solid transparent;background:transparent;padding:9px;border-radius:12px;display:flex;gap:10px;align-items:center;color:#7d899a;cursor:pointer;transition:.18s}
+.nav button:hover{background:rgba(255,255,255,.03);color:#e7edf5}.nav button.active{color:#fff;border-color:rgba(239,105,78,.2);background:linear-gradient(90deg,rgba(239,105,78,.16),rgba(105,78,201,.08));box-shadow:inset 3px 0 0 var(--red)}
+.ico{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#101823;border:1px solid rgba(255,255,255,.05);font-size:11px;font-weight:900}
+.sidefoot{position:absolute;bottom:12px;left:12px;right:12px;padding:11px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);font-size:9px;color:#627084}
+.main{min-width:0}.topbar{height:70px;position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:0 22px;border-bottom:1px solid var(--line);background:rgba(5,7,11,.76);backdrop-filter:blur(22px)}
+.tleft{display:flex;gap:11px;align-items:center}.accent{width:6px;height:29px;border-radius:5px;background:linear-gradient(var(--gold),var(--red))}.tleft small{display:block;color:#68768a;margin-top:3px}
+.user{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pill{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03);font-size:11px}.pill b{color:var(--gold)}
+.content{padding:18px 22px 42px;max-width:1720px;margin:auto}.page{display:none}.page.active{display:block}
+.card{border:1px solid var(--line);border-radius:18px;padding:16px;background:linear-gradient(180deg,rgba(22,31,44,.94),rgba(12,18,26,.96));box-shadow:0 14px 38px rgba(0,0,0,.2)}
+.grid{display:grid;gap:14px}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.btn{border:1px solid var(--line2);border-radius:10px;padding:10px 14px;background:linear-gradient(180deg,#1b2431,#141b25);cursor:pointer;transition:.18s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.btn:disabled{opacity:.42;cursor:not-allowed;transform:none}
+.btn.primary{font-weight:800;background:linear-gradient(135deg,#c9463b,#ef7958 68%,#e7a05e);border-color:rgba(255,139,109,.32)}.btn.gold{background:linear-gradient(135deg,#5e4a1d,#9d742c);color:#ffe6a5;border-color:rgba(243,198,108,.28)}.btn.purple{background:linear-gradient(135deg,#403166,#6a4d9e);color:#e1d7ff;border-color:rgba(164,125,255,.28)}.btn.ghost{background:rgba(255,255,255,.02)}
+.eyebrow{font-size:9px;letter-spacing:.24em;color:var(--gold);font-weight:900}.muted{color:var(--muted)}.tiny{font-size:9px;color:#68768a}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:9px;padding:5px 7px;border:1px solid rgba(255,255,255,.07);border-radius:999px;background:rgba(255,255,255,.03);color:#bac4d0}.tag.hot{color:#ffb2a2;border-color:rgba(239,105,78,.22);background:rgba(239,105,78,.08)}.tag.ok{color:#9ae0bc;border-color:rgba(100,213,159,.2);background:rgba(100,213,159,.06)}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:20px 0 12px}.section-title h2,.section-title h3{margin:0}.section-title span{font-size:10px;color:#68768a}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.progress{height:7px;border-radius:999px;background:#26313d;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold))}
+.stars{color:#596575;letter-spacing:.08em}.stars .on{color:var(--gold)}
+
+/* hero */
+.heroBanner{min-height:350px;border-radius:26px;position:relative;overflow:hidden;border:1px solid var(--line2);padding:32px 36px;display:flex;align-items:flex-end;box-shadow:var(--shadow);background:
+ radial-gradient(circle at 76% 30%,rgba(239,105,78,.20),transparent 16%),
+ radial-gradient(circle at 76% 42%,rgba(112,79,205,.11),transparent 32%),
+ linear-gradient(120deg,#17212e,#101721 55%,#090f16)}
+.heroMapArt{position:absolute;right:2%;bottom:-5%;width:42%;height:100%;opacity:.78;background:
+ radial-gradient(circle at 56% 56%,rgba(243,198,108,.22),transparent 7%),
+ radial-gradient(circle at 32% 40%,rgba(239,105,78,.18),transparent 9%),
+ radial-gradient(circle at 78% 32%,rgba(101,216,255,.16),transparent 8%)}
+.heroMapArt:before,.heroMapArt:after{content:"";position:absolute;border:1px solid rgba(243,198,108,.18);border-radius:50%;filter:blur(.2px)}
+.heroMapArt:before{width:270px;height:160px;left:80px;top:80px;transform:rotate(-16deg)}.heroMapArt:after{width:190px;height:120px;left:170px;top:190px;transform:rotate(18deg)}
+.heroCopy{position:relative;z-index:2;max-width:760px}.heroCopy h1{font-size:44px;margin:10px 0}.heroCopy p{color:#acb8c6;line-height:1.8;font-size:13px}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:13px}.metric{padding:12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}.metric small{display:block;color:#68768a;font-size:8px}.metric b{display:block;margin-top:4px;font-size:15px}
+
+/* world map */
+.worldWrap{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:14px}.worldMap{min-height:690px;position:relative;overflow:hidden;background:
+ radial-gradient(circle at 18% 65%,rgba(239,105,78,.10),transparent 18%),
+ radial-gradient(circle at 52% 36%,rgba(243,198,108,.08),transparent 18%),
+ radial-gradient(circle at 82% 55%,rgba(101,216,255,.08),transparent 18%),
+ linear-gradient(145deg,#111a23,#0c131b)}
+.worldMap:before{content:"";position:absolute;inset:20px;border-radius:20px;background:
+ linear-gradient(20deg,transparent 49%,rgba(255,255,255,.03) 50%,transparent 51%),
+ linear-gradient(115deg,transparent 49%,rgba(255,255,255,.025) 50%,transparent 51%);background-size:130px 130px}
+.route{position:absolute;height:3px;background:linear-gradient(90deg,rgba(243,198,108,.15),rgba(243,198,108,.45));transform-origin:left center;z-index:1}.route.locked{background:rgba(255,255,255,.06)}
+.chapterNode{position:absolute;width:150px;transform:translate(-50%,-50%);z-index:3;cursor:pointer}.nodeOrb{width:72px;height:72px;border-radius:50%;margin:auto;display:grid;place-items:center;border:2px solid rgba(243,198,108,.38);background:radial-gradient(circle,#6d3d2f,#221a20 68%);box-shadow:0 0 24px rgba(243,198,108,.10);font-size:20px;font-weight:900;color:var(--gold);transition:.18s}.chapterNode:hover .nodeOrb{transform:scale(1.06)}.chapterNode.locked .nodeOrb{filter:grayscale(1);opacity:.45;border-color:rgba(255,255,255,.1);box-shadow:none}.chapterNode.current .nodeOrb{box-shadow:0 0 0 8px rgba(243,198,108,.05),0 0 28px rgba(243,198,108,.18)}
+.chapterNode h4{margin:8px 0 2px;text-align:center;font-size:11px}.chapterNode small{display:block;text-align:center;font-size:8px;color:#68768a}.chapterNode .stars{text-align:center;font-size:10px;margin-top:3px}
+.mapSide{display:grid;gap:12px;align-content:start}.chapterInfo h2{margin:7px 0 5px}.chapterInfo p{font-size:10px;color:var(--muted);line-height:1.55}.rewardGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.rewardBox{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center}.rewardBox b{display:block;color:var(--gold)}.rewardBox small{font-size:8px;color:#68768a}
+.chapterTasks{display:grid;gap:7px}.chapterTask{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);font-size:9px}.chapterTask.done{border-color:rgba(100,213,159,.18);color:#bdebd2}
+
+/* chapter detail */
+.chapterTop{display:grid;grid-template-columns:1fr 360px;gap:14px}.chapterBanner{min-height:290px;position:relative;overflow:hidden;background:radial-gradient(circle at 76% 34%,rgba(239,105,78,.18),transparent 24%),linear-gradient(145deg,#182332,#0f1620)}.chapterBanner h1{font-size:38px;margin:10px 0}.chapterBanner p{max-width:760px;line-height:1.65;font-size:11px;color:var(--muted)}
+.nodeGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stageCard{min-height:185px;position:relative}.stageCard.locked{opacity:.45}.stageCard.selected{border-color:rgba(243,198,108,.28);background:linear-gradient(180deg,rgba(45,38,25,.92),rgba(12,18,26,.96))}
+.stageArt{height:75px;border-radius:11px;background:radial-gradient(circle at 65% 48%,rgba(239,105,78,.16),transparent 26%),linear-gradient(145deg,#223043,#111923);display:grid;place-items:center;font-size:22px;font-weight:900;color:var(--gold)}
+.stageCard:nth-child(2n) .stageArt{background:radial-gradient(circle at 65% 48%,rgba(164,125,255,.17),transparent 26%),linear-gradient(145deg,#29233d,#111923)}
+.stageCard h4{margin:8px 0 4px}.stageCard p{font-size:8px;color:var(--muted);line-height:1.45}.stageStatus{display:flex;justify-content:space-between;align-items:center;font-size:8px;color:#68768a}
+.sideQuestGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sideQuest{min-height:130px}.sideQuest h4{margin:8px 0 4px}.sideQuest p{font-size:8px;color:var(--muted);line-height:1.45}
+
+/* battle sim */
+.battleLayout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px}.arena{min-height:650px;position:relative;overflow:hidden;padding:0;background:linear-gradient(145deg,#152019,#11171d)}#arenaCanvas{width:100%;height:650px;display:block}.arenaHud{position:absolute;inset:0;pointer-events:none}.hudTop{position:absolute;left:14px;right:14px;top:14px;display:flex;justify-content:space-between}.hudBox{padding:8px 10px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:rgba(6,10,15,.75);font-size:9px}.bossBar{position:absolute;left:50%;top:68px;transform:translateX(-50%);width:58%;display:none}.bossBar.show{display:block}.bossBar .progress{height:14px}.bossBar .progress i{background:linear-gradient(90deg,#8b2630,#df4d4d)}.bossLabel{text-align:center;font-size:9px;color:#f1c67f;margin-top:5px}.battleHint{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);padding:7px 10px;border-radius:999px;background:rgba(6,10,15,.74);border:1px solid var(--line);font-size:9px;color:#a8b3c0}
+.battleSide{display:grid;gap:12px;align-content:start}.battleStat{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:9px}.battleStat span{color:var(--muted)}.objectiveList{display:grid;gap:7px}.objective{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);font-size:9px}.objective.done{border-color:rgba(100,213,159,.2);color:#bfead4}.log{max-height:145px;overflow:auto;display:grid;gap:6px}.log div{font-size:9px;color:var(--muted);padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.02)}
+
+/* story */
+.storyLayout{display:grid;grid-template-columns:1fr 330px;gap:14px}.storyScene{min-height:520px;position:relative;overflow:hidden;background:radial-gradient(circle at 65% 45%,rgba(239,105,78,.14),transparent 25%),linear-gradient(145deg,#17212e,#0f1620)}.storyBackdrop{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(5,7,11,.85));}.speakerArt{position:absolute;right:8%;bottom:0;width:240px;height:360px;background:linear-gradient(#614038,#281f27 67%,#111821);clip-path:polygon(31% 0,69% 0,80% 13%,84% 30%,100% 45%,79% 58%,66% 100%,34% 100%,21% 58%,0 45%,16% 30%,21% 13%);opacity:.8}.dialogueBox{position:absolute;left:24px;right:24px;bottom:22px;padding:18px;border-radius:16px;border:1px solid var(--line2);background:rgba(7,11,16,.88);backdrop-filter:blur(10px)}.dialogueBox h3{margin:0 0 8px;color:var(--gold)}.dialogueBox p{margin:0;font-size:13px;line-height:1.65}.storyList{display:grid;gap:8px}.storyEntry{padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);cursor:pointer}.storyEntry.active{border-color:rgba(243,198,108,.24);background:rgba(243,198,108,.04)}.storyEntry b{font-size:9px}.storyEntry small{display:block;color:#68768a;font-size:8px}
+
+/* rewards */
+.rewardTimeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.milestone{padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.025);text-align:center}.milestone.claimed{border-color:rgba(100,213,159,.2);background:rgba(100,213,159,.04)}.milestone b{display:block;font-size:10px}.milestone small{font-size:8px;color:#68768a}.milestone .reward{margin-top:6px;color:var(--gold);font-size:9px}
+
+/* result */
+.resultGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.resultHero{min-height:300px;background:radial-gradient(circle at 72% 40%,rgba(239,105,78,.17),transparent 26%),linear-gradient(145deg,#1a2432,#101720)}.resultHero h1{font-size:40px;margin:10px 0 4px}.resultMetrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.resultMetric{padding:12px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025)}.resultMetric small{display:block;color:#68768a;font-size:9px}.resultMetric b{display:block;margin-top:4px}.resultRow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:9px}.resultRow span{color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,18px);opacity:0;padding:10px 14px;border-radius:11px;background:rgba(8,13,19,.96);border:1px solid var(--line2);z-index:120;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1250px){.app{grid-template-columns:86px 1fr}.brand>div:last-child,.group,.nav .label,.sidefoot{display:none}.brand{justify-content:center}.nav button{justify-content:center}.metrics{grid-template-columns:repeat(3,1fr)}.worldWrap,.chapterTop,.battleLayout,.storyLayout{grid-template-columns:1fr}.nodeGrid{grid-template-columns:repeat(2,1fr)}.rewardTimeline{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{position:fixed;left:0;right:0;bottom:0;top:auto;height:70px;padding:7px 8px;border-right:0;border-top:1px solid var(--line);overflow-x:auto}.brand,.group,.sidefoot{display:none}.nav{grid-template-columns:repeat(7,minmax(70px,1fr));gap:4px;min-width:560px}.nav button{display:grid;justify-items:center;gap:2px;padding:4px 2px;font-size:8px}.nav .label{display:block}.ico{width:29px;height:29px}.topbar{height:60px;padding:0 12px}.tleft small{display:none}.content{padding:12px 12px 88px}.heroBanner{min-height:460px;padding:24px 18px}.heroCopy h1{font-size:34px}.heroMapArt{width:70%;right:-30%;opacity:.45}.metrics,.nodeGrid,.sideQuestGrid,.rewardTimeline,.resultGrid,.resultMetrics,.c2,.c3,.c4{grid-template-columns:1fr}.worldMap{min-height:620px}.chapterNode{width:110px}.nodeOrb{width:62px;height:62px}.storyScene{min-height:600px}.speakerArt{width:180px;height:290px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">界</div><div><h1>万界无双</h1><small>WORLD PROGRESSION</small></div></div>
+  <div class="group">世界推进</div>
+  <div class="nav">
+    <button class="active" data-page="overview"><span class="ico">界</span><span class="label">世界总览</span></button>
+    <button data-page="world"><span class="ico">图</span><span class="label">世界地图</span></button>
+    <button data-page="chapter"><span class="ico">章</span><span class="label">章节详情</span></button>
+    <button data-page="story"><span class="ico">剧</span><span class="label">剧情回顾</span></button>
+    <button data-page="battle"><span class="ico">战</span><span class="label">关卡模拟</span></button>
+    <button data-page="rewards"><span class="ico">奖</span><span class="label">章节奖励</span></button>
+    <button data-page="result"><span class="ico">结</span><span class="label">结算</span></button>
+  </div>
+  <div class="sidefoot"><b>V1.5</b><br>世界地图 / 章节节点 / 星级 / 支线 / 隐藏关 / 区域Boss / 长期推进</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div class="tleft"><span class="accent"></span><div><strong id="pageTitle">世界总览</strong><small>ST001 → ST003 → ST004</small></div></div>
+  <div class="user">
+    <span class="pill">账号 Lv.<b id="accountLv">12</b></span>
+    <span class="pill">世界进度 <b id="worldPct">0%</b></span>
+    <span class="pill">章节星 <b id="starTop">0</b></span>
+    <span class="pill">金币 <b id="goldTop">6000</b></span>
+  </div>
+</header>
+
+<div class="content">
+<section class="page active" id="overview">
+  <div class="heroBanner">
+    <div class="heroMapArt"></div>
+    <div class="heroCopy">
+      <div class="eyebrow">V1.5 · WORLD MAP & CHAPTER FLOW</div>
+      <h1>万界裂隙开始形成真正的“世界推进”</h1>
+      <p>玩家不再从菜单直接选择一张地图，而是在世界地图上逐步推进。主线关、精英关、剧情节点、支线和隐藏关会共同决定章节星级、区域奖励与下一世界的解锁。</p>
+      <div class="tags"><span class="tag hot">3个世界</span><span class="tag">12主线节点</span><span class="tag">6支线</span><span class="tag">3隐藏关</span><span class="tag">区域Boss</span><span class="tag">章节星级</span></div>
+      <div class="actions"><button class="btn primary" onclick="go('world')">进入世界地图</button><button class="btn gold" onclick="continueProgress()">继续当前进度</button></div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><small>已解锁世界</small><b id="metricWorlds">1 / 3</b></div>
+    <div class="metric"><small>主线完成</small><b id="metricStages">0 / 12</b></div>
+    <div class="metric"><small>支线完成</small><b id="metricSides">0 / 6</b></div>
+    <div class="metric"><small>隐藏关发现</small><b id="metricHidden">0 / 3</b></div>
+    <div class="metric"><small>章节星</small><b id="metricStars">0 / 36</b></div>
+  </div>
+
+  <div class="section-title"><h3>三个当前世界</h3><span>未来继续扩展至水浒 / 海域 / 灵界 / 气武界</span></div>
+  <div class="grid c3" id="overviewChapters"></div>
+</section>
+
+<section class="page" id="world">
+  <div class="section-title"><h2>万界世界地图</h2><span>点击区域进入章节详情</span></div>
+  <div class="worldWrap">
+    <div class="card worldMap" id="worldMap"></div>
+    <div class="mapSide">
+      <div class="card chapterInfo">
+        <div class="eyebrow" id="sideChapterId">ST001</div><h2 id="sideChapterName">乱世荒原</h2>
+        <p id="sideChapterDesc"></p>
+        <div class="tags" id="sideChapterTags"></div>
+        <div class="rewardGrid" style="margin-top:12px">
+          <div class="rewardBox"><b id="sideStars">0 / 12</b><small>章节星</small></div>
+          <div class="rewardBox"><b id="sideClear">0 / 4</b><small>主线完成</small></div>
+          <div class="rewardBox"><b id="sidePower">1000</b><small>推荐战力</small></div>
+        </div>
+        <div class="actions"><button class="btn primary" onclick="openSelectedChapter()">进入章节</button></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">REGION OBJECTIVES</div><h3>章节长期目标</h3>
+        <div class="chapterTasks" id="regionTasks"></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">NEXT UNLOCK</div><h3>下一世界条件</h3>
+        <p class="muted" id="nextUnlockText"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="chapter">
+  <div class="section-title"><h2 id="chapterTitle">ST001 · 乱世荒原</h2><span id="chapterSub">章节详情</span></div>
+  <div class="chapterTop">
+    <div class="card chapterBanner">
+      <div class="eyebrow" id="chapterEyebrow">CHAPTER 01</div><h1 id="chapterName">乱世荒原</h1>
+      <p id="chapterDesc"></p>
+      <div class="tags" id="chapterTags"></div>
+      <div class="actions"><button class="btn gold" onclick="playNextStage()">挑战下一主线</button><button class="btn ghost" onclick="go('story')">查看剧情</button></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">CHAPTER STATUS</div><h3>章节进度</h3>
+      <div class="rewardGrid">
+        <div class="rewardBox"><b id="chapterStarCount">0</b><small>章节星</small></div>
+        <div class="rewardBox"><b id="chapterMainCount">0/4</b><small>主线</small></div>
+        <div class="rewardBox"><b id="chapterSideCount">0/2</b><small>支线</small></div>
+      </div>
+      <div class="progress" style="margin-top:12px"><i id="chapterProgressBar"></i></div>
+      <p class="tiny" id="chapterUnlockInfo" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <div class="section-title"><h3>主线节点</h3><span>每关最多3星</span></div>
+  <div class="nodeGrid" id="mainStageGrid"></div>
+
+  <div class="section-title"><h3>支线与隐藏节点</h3><span>用于额外奖励和世界观扩展</span></div>
+  <div class="sideQuestGrid" id="sideQuestGrid"></div>
+</section>
+
+<section class="page" id="story">
+  <div class="section-title"><h2>剧情回顾</h2><span>按章节回看已解锁剧情</span></div>
+  <div class="storyLayout">
+    <div class="card storyScene">
+      <div class="storyBackdrop"></div><div class="speakerArt"></div>
+      <div class="dialogueBox"><div class="eyebrow" id="storyChapterLabel">ST001</div><h3 id="storySpeaker">旁白</h3><p id="storyText">万界裂隙第一次在乱世边境稳定成形。</p><div class="actions"><button class="btn primary" onclick="nextStory()">下一句</button></div></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">STORY ARCHIVE</div><h3>已解锁剧情</h3>
+      <div class="storyList" id="storyList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="battle">
+  <div class="section-title"><h2 id="battleStageTitle">ST001-01 · 边境清剿</h2><span>简化关卡模拟，用于验证世界推进</span></div>
+  <div class="battleLayout">
+    <div class="card arena">
+      <canvas id="arenaCanvas"></canvas>
+      <div class="arenaHud">
+        <div class="hudTop"><div class="hudBox" id="battleHpText">HP 620 / 620</div><div class="hudBox" id="battleTimer">00:00</div></div>
+        <div class="bossBar" id="bossBar"><div class="progress"><i id="bossHpFill"></i></div><div class="bossLabel" id="bossLabel">区域Boss</div></div>
+        <div class="battleHint">WASD移动 · 自动攻击 · 目标完成后自动结算</div>
+      </div>
+    </div>
+    <div class="battleSide">
+      <div class="card"><div class="eyebrow">STAGE INFO</div><h3 id="battleStageName">边境清剿</h3><div id="battleStageStats"></div></div>
+      <div class="card"><div class="eyebrow">STAR OBJECTIVES</div><h3>三星条件</h3><div class="objectiveList" id="battleObjectives"></div></div>
+      <div class="card"><div class="eyebrow">LOG</div><h3>关卡日志</h3><div class="log" id="battleLog"></div></div>
+      <div class="card"><div class="eyebrow">DEBUG</div><h3>推进测试</h3><div class="actions"><button class="btn ghost" onclick="forceWin(1)">1星通关</button><button class="btn gold" onclick="forceWin(3)">3星通关</button></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="rewards">
+  <div class="section-title"><h2>章节星级奖励</h2><span>星级推动长期收集与解锁</span></div>
+  <div class="card">
+    <div class="eyebrow">STAR MILESTONES</div><h3>总章节星奖励</h3>
+    <div class="rewardTimeline" id="rewardTimeline"></div>
+  </div>
+  <div class="section-title"><h3>各章节奖励</h3><span>首通 / 满星 / 区域Boss</span></div>
+  <div class="grid c3" id="chapterRewardCards"></div>
+</section>
+
+<section class="page" id="result">
+  <div class="section-title"><h2>关卡结算</h2><span>星级、章节进度与世界解锁实时更新</span></div>
+  <div class="resultGrid">
+    <div class="card resultHero">
+      <div class="eyebrow" id="resultState">VICTORY</div><h1 id="resultStageName">边境清剿</h1><p class="muted">关卡目标已完成。</p>
+      <div class="resultMetrics">
+        <div class="resultMetric"><small>星级</small><b id="resultStars">★★★</b></div>
+        <div class="resultMetric"><small>时间</small><b id="resultTime">00:00</b></div>
+        <div class="resultMetric"><small>击杀</small><b id="resultKills">0</b></div>
+        <div class="resultMetric"><small>金币</small><b id="resultGold">+0</b></div>
+      </div>
+      <div class="actions"><button class="btn primary" onclick="backToChapter()">返回章节</button><button class="btn gold" onclick="playNextStage()">挑战下一关</button></div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">PROGRESSION UPDATE</div><h3>推进变化</h3>
+      <div id="resultProgressRows"></div>
+    </div>
+  </div>
+</section>
+</div>
+</main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SAVE_KEY='wanjie_v15_world_save';
+
+const CHAPTERS={
+ ST001:{
+  order:1,name:'乱世荒原',theme:'三国乱世',desc:'万界裂隙首次在边境形成稳定入口。玩家从救援村庄、清剿黄巾军开始，逐步面对乱世妖师与混沌骑将。',
+  tags:['三国','荒原','火系','新手章'],power:1000,boss:'B003 混沌骑将',pos:[18,67],
+  unlock:{type:'start'},next:'ST003',
+  stages:[
+   {id:'ST001-01',name:'边境清剿',type:'主线',goal:'击杀120敌人',duration:35,boss:false,reward:260},
+   {id:'ST001-02',name:'废村救援',type:'主线',goal:'守护村民并清理怪潮',duration:42,boss:false,reward:320},
+   {id:'ST001-03',name:'妖师祭坛',type:'精英',goal:'击败乱世妖师',duration:48,boss:true,reward:420},
+   {id:'ST001-04',name:'裂隙骑将',type:'Boss',goal:'击败混沌骑将',duration:55,boss:true,reward:650}
+  ],
+  sides:[
+   {id:'ST001-S1',name:'火烧营寨',hidden:false,unlockStars:4,reward:'装备箱'},
+   {id:'ST001-S2',name:'古墓残军',hidden:false,unlockStars:7,reward:'符文碎片'},
+   {id:'ST001-H1',name:'时空裂隙',hidden:true,unlockStars:10,reward:'隐藏宝箱'}
+  ],
+  stories:[
+   ['旁白','万界裂隙第一次在乱世边境稳定成形，黄巾残军被混沌力量侵蚀。'],
+   ['天机军师','裂隙正在扩大。先救出村民，再去找那个主持妖术的人。'],
+   ['赤焰战神','乱军也好，妖术也罢。挡路的，都斩了。'],
+   ['旁白','随着混沌骑将倒下，荒原深处出现了通往花果妖岭的异界通道。']
+  ]
+ },
+ ST003:{
+  order:2,name:'花果妖岭',theme:'西游妖域',desc:'妖气充斥山岭，猴妖、狼妖与蛇妖占据古道。玩家将在分身、召唤与大型妖王战中学习更复杂的怪潮处理。',
+  tags:['西游','妖岭','召唤','范围'],power:3600,boss:'B008 混世魔猿',pos:[52,37],
+  unlock:{chapter:'ST001',stars:8},next:'ST004',
+  stages:[
+   {id:'ST003-01',name:'妖岭入口',type:'主线',goal:'突破猴妖包围',duration:40,boss:false,reward:420},
+   {id:'ST003-02',name:'白骨迷阵',type:'主线',goal:'击破三处妖阵',duration:45,boss:false,reward:480},
+   {id:'ST003-03',name:'牛魔试炼',type:'精英',goal:'击败牛魔妖王',duration:52,boss:true,reward:620},
+   {id:'ST003-04',name:'混世魔猿',type:'Boss',goal:'击败混世魔猿',duration:60,boss:true,reward:820}
+  ],
+  sides:[
+   {id:'ST003-S1',name:'猴王遗迹',hidden:false,unlockStars:4,reward:'宠物素材'},
+   {id:'ST003-S2',name:'妖市奇遇',hidden:false,unlockStars:7,reward:'金币商店'},
+   {id:'ST003-H1',name:'花果秘境',hidden:true,unlockStars:10,reward:'定海神棍碎片'}
+  ],
+  stories:[
+   ['旁白','通道另一端并非乱世，而是一片妖气冲天的山岭。'],
+   ['灵猴','这地方的妖气不对。有人在模仿我的气息。'],
+   ['赤焰战神','那就把冒牌货揪出来。'],
+   ['旁白','混世魔猿败北后，一道充满雷火与忍术气息的新裂隙打开。']
+  ]
+ },
+ ST004:{
+  order:3,name:'忍界战场',theme:'忍界裂隙',desc:'高速忍者、爆符与分身制造出高机动战场。玩家需要处理远程暗器、冲刺忍者与多阶段忍王。',
+  tags:['忍界','高速','暗器','雷火'],power:6200,boss:'B011 万影忍王',pos:[83,58],
+  unlock:{chapter:'ST003',stars:8},next:null,
+  stages:[
+   {id:'ST004-01',name:'暗器封锁',type:'主线',goal:'突破忍者封锁线',duration:42,boss:false,reward:540},
+   {id:'ST004-02',name:'爆符峡谷',type:'主线',goal:'躲避爆符并摧毁据点',duration:48,boss:false,reward:620},
+   {id:'ST004-03',name:'炎雷双王',type:'精英',goal:'击败炎狱忍王与雷瞬忍王',duration:58,boss:true,reward:820},
+   {id:'ST004-04',name:'万影忍王',type:'Boss',goal:'击败万影忍王',duration:65,boss:true,reward:1100}
+  ],
+  sides:[
+   {id:'ST004-S1',name:'影分身训练场',hidden:false,unlockStars:4,reward:'暗器符文'},
+   {id:'ST004-S2',name:'雷火试炼',hidden:false,unlockStars:7,reward:'英雄材料'},
+   {id:'ST004-H1',name:'忍神封印',hidden:true,unlockStars:10,reward:'万影核心'}
+  ],
+  stories:[
+   ['旁白','新的世界被战争撕裂，空气中到处都是爆符与雷火留下的气味。'],
+   ['影忍','这里的暗影术被某种力量扭曲了。'],
+   ['炎忍','先找到炎狱忍王。他知道裂隙中心在哪里。'],
+   ['旁白','万影忍王陨落后，真正的万界融合危机才刚刚显露。']
+  ]
+ }
+};
+
+const DEFAULT_SAVE={
+ accountLv:12,gold:6000,selectedChapter:'ST001',
+ chapters:{
+  ST001:{unlocked:true,stars:{'ST001-01':3,'ST001-02':2,'ST001-03':0,'ST001-04':0},sides:{},hiddenFound:false,bossCleared:false},
+  ST003:{unlocked:false,stars:{},sides:{},hiddenFound:false,bossCleared:false},
+  ST004:{unlocked:false,stars:{},sides:{},hiddenFound:false,bossCleared:false}
+ },
+ claimedMilestones:[],
+ codexUnlocked:['ST001'],
+ currentStory:{chapter:'ST001',index:0}
+};
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function loadSave(){try{const raw=JSON.parse(localStorage.getItem(SAVE_KEY)||'{}');return deepMerge(clone(DEFAULT_SAVE),raw)}catch(e){return clone(DEFAULT_SAVE)}}
+function deepMerge(a,b){for(const k in b){if(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k])&&a[k]&&typeof a[k]==='object'&&!Array.isArray(a[k]))a[k]=deepMerge(a[k],b[k]);else a[k]=b[k]}return a}
+let save=loadSave();
+let currentChapter=save.selectedChapter;
+let currentStage=null;
+let lastResult=null;
+
+function persist(){recomputeUnlocks();localStorage.setItem(SAVE_KEY,JSON.stringify(save));renderAll()}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>t.classList.remove('show'),1600)}
+function log(m){const d=document.createElement('div');d.textContent=m;const l=document.getElementById('battleLog');l.prepend(d);while(l.children.length>10)l.lastChild.remove()}
+function fmt(sec){let m=Math.floor(sec/60),s=Math.floor(sec%60);return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+function starsHtml(n,max=3){return Array.from({length:max},(_,i)=>'<span class="'+(i<n?'on':'')+'">★</span>').join('')}
+function chapterStars(id){return Object.values(save.chapters[id].stars||{}).reduce((a,b)=>a+(b||0),0)}
+function chapterMainClears(id){const c=CHAPTERS[id];return c.stages.filter(s=>(save.chapters[id].stars[s.id]||0)>0).length}
+function chapterSideClears(id){return Object.values(save.chapters[id].sides||{}).filter(Boolean).length}
+function totalStars(){return Object.keys(CHAPTERS).reduce((a,id)=>a+chapterStars(id),0)}
+function totalMainClears(){return Object.keys(CHAPTERS).reduce((a,id)=>a+chapterMainClears(id),0)}
+function totalSideClears(){return Object.keys(CHAPTERS).reduce((a,id)=>a+chapterSideClears(id),0)}
+function hiddenCount(){return Object.keys(CHAPTERS).filter(id=>save.chapters[id].hiddenFound).length}
+function worldProgress(){return Math.round((totalMainClears()*3 + totalSideClears() + hiddenCount()*2)/(12*3+6+3*2)*100)}
+function recomputeUnlocks(){
+ for(const [id,c] of Object.entries(CHAPTERS)){
+   if(c.unlock.type==='start'){save.chapters[id].unlocked=true;continue}
+   const need=c.unlock,prev=save.chapters[need.chapter];save.chapters[id].unlocked=!!prev&&chapterStars(need.chapter)>=need.stars;
+   if(save.chapters[id].unlocked&&!save.codexUnlocked.includes(id))save.codexUnlocked.push(id)
+ }
+}
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById(id).classList.add('active');document.getElementById('pageTitle').textContent={overview:'世界总览',world:'世界地图',chapter:'章节详情',story:'剧情回顾',battle:'关卡模拟',rewards:'章节奖励',result:'关卡结算'}[id]||'万界无双';if(id==='battle')resizeArena()}
+document.querySelectorAll('.nav button[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+
+/* overview */
+function renderOverview(){
+ document.getElementById('accountLv').textContent=save.accountLv;document.getElementById('goldTop').textContent=save.gold.toLocaleString();document.getElementById('worldPct').textContent=worldProgress()+'%';document.getElementById('starTop').textContent=totalStars();
+ document.getElementById('metricWorlds').textContent=Object.values(save.chapters).filter(x=>x.unlocked).length+' / 3';document.getElementById('metricStages').textContent=totalMainClears()+' / 12';document.getElementById('metricSides').textContent=totalSideClears()+' / 6';document.getElementById('metricHidden').textContent=hiddenCount()+' / 3';document.getElementById('metricStars').textContent=totalStars()+' / 36';
+ const g=document.getElementById('overviewChapters');g.innerHTML='';
+ Object.entries(CHAPTERS).forEach(([id,c])=>{const s=save.chapters[id],d=document.createElement('div');d.className='card '+(!s.unlocked?'muted':'');d.innerHTML='<div class="eyebrow">'+id+'</div><h3>'+c.name+'</h3><p class="muted">'+c.theme+'</p><div class="tags">'+c.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div><div class="rewardGrid" style="margin-top:12px"><div class="rewardBox"><b>'+chapterStars(id)+'/12</b><small>星</small></div><div class="rewardBox"><b>'+chapterMainClears(id)+'/4</b><small>主线</small></div><div class="rewardBox"><b>'+chapterSideClears(id)+'/2</b><small>支线</small></div></div><div class="actions"><button class="btn '+(s.unlocked?'primary':'ghost')+'" '+(!s.unlocked?'disabled':'')+' onclick="selectChapter(\''+id+'\')">'+(s.unlocked?'进入区域':'未解锁')+'</button></div>';g.appendChild(d)})
+}
+function continueProgress(){
+ const ids=Object.keys(CHAPTERS).sort((a,b)=>CHAPTERS[a].order-CHAPTERS[b].order);
+ let target=ids[0];for(const id of ids){if(save.chapters[id].unlocked)target=id}
+ selectChapter(target)
+}
+
+/* world */
+function renderWorld(){
+ const wm=document.getElementById('worldMap');wm.innerHTML='';
+ const ids=Object.keys(CHAPTERS).sort((a,b)=>CHAPTERS[a].order-CHAPTERS[b].order);
+ for(let i=0;i<ids.length-1;i++){const a=CHAPTERS[ids[i]].pos,b=CHAPTERS[ids[i+1]].pos,dx=b[0]-a[0],dy=b[1]-a[1],len=Math.sqrt(dx*dx+dy*dy),angle=Math.atan2(dy,dx)*180/Math.PI,r=document.createElement('div');r.className='route '+(!save.chapters[ids[i+1]].unlocked?'locked':'');r.style.left=a[0]+'%';r.style.top=a[1]+'%';r.style.width=len+'%';r.style.transform='rotate('+angle+'deg)';wm.appendChild(r)}
+ ids.forEach(id=>{const c=CHAPTERS[id],s=save.chapters[id],n=document.createElement('div');n.className='chapterNode '+(!s.unlocked?'locked ':'')+(id===currentChapter?'current':'');n.style.left=c.pos[0]+'%';n.style.top=c.pos[1]+'%';n.innerHTML='<div class="nodeOrb">'+c.order+'</div><h4>'+c.name+'</h4><small>'+id+' · '+c.theme+'</small><div class="stars">'+starsHtml(Math.min(3,Math.ceil(chapterStars(id)/4)),3)+'</div>';n.onclick=()=>{if(!s.unlocked){toast('尚未满足解锁条件');return}currentChapter=id;save.selectedChapter=id;persist();renderWorldSide()};wm.appendChild(n)})
+ renderWorldSide()
+}
+function renderWorldSide(){
+ const c=CHAPTERS[currentChapter],s=save.chapters[currentChapter];document.getElementById('sideChapterId').textContent=currentChapter;document.getElementById('sideChapterName').textContent=c.name;document.getElementById('sideChapterDesc').textContent=c.desc;document.getElementById('sideChapterTags').innerHTML=c.tags.map(t=>'<span class="tag">'+t+'</span>').join('');document.getElementById('sideStars').textContent=chapterStars(currentChapter)+' / 12';document.getElementById('sideClear').textContent=chapterMainClears(currentChapter)+' / 4';document.getElementById('sidePower').textContent=c.power.toLocaleString();
+ const rt=document.getElementById('regionTasks');rt.innerHTML='';[['完成4个主线',chapterMainClears(currentChapter)>=4],['获得8颗章节星',chapterStars(currentChapter)>=8],['完成2个支线',chapterSideClears(currentChapter)>=2],['发现隐藏关',s.hiddenFound]].forEach(([n,done])=>{const d=document.createElement('div');d.className='chapterTask '+(done?'done':'');d.textContent=(done?'✓ ':'')+n;rt.appendChild(d)});
+ let txt='该区域为当前最高已解锁世界。';if(c.next){const nc=CHAPTERS[c.next],need=nc.unlock;txt='解锁 '+nc.name+'：'+c.name+' 获得 '+need.stars+' 颗章节星。当前 '+chapterStars(currentChapter)+' / '+need.stars+'。'}document.getElementById('nextUnlockText').textContent=txt
+}
+function selectChapter(id){if(!save.chapters[id].unlocked){toast('章节未解锁');return}currentChapter=id;save.selectedChapter=id;persist();renderChapter();go('chapter')}
+function openSelectedChapter(){selectChapter(currentChapter)}
+
+/* chapter */
+function stageUnlocked(chapterId,index){
+ if(index===0)return true;const prev=CHAPTERS[chapterId].stages[index-1];return (save.chapters[chapterId].stars[prev.id]||0)>0
+}
+function renderChapter(){
+ const c=CHAPTERS[currentChapter],s=save.chapters[currentChapter];document.getElementById('chapterTitle').textContent=currentChapter+' · '+c.name;document.getElementById('chapterSub').textContent=c.theme+' · 推荐战力 '+c.power;document.getElementById('chapterEyebrow').textContent='CHAPTER 0'+c.order;document.getElementById('chapterName').textContent=c.name;document.getElementById('chapterDesc').textContent=c.desc;document.getElementById('chapterTags').innerHTML=c.tags.map(t=>'<span class="tag">'+t+'</span>').join('');
+ document.getElementById('chapterStarCount').textContent=chapterStars(currentChapter)+'/12';document.getElementById('chapterMainCount').textContent=chapterMainClears(currentChapter)+'/4';document.getElementById('chapterSideCount').textContent=chapterSideClears(currentChapter)+'/2';document.getElementById('chapterProgressBar').style.width=(chapterMainClears(currentChapter)/4*100)+'%';
+ document.getElementById('chapterUnlockInfo').textContent=c.next?'下一世界：'+CHAPTERS[c.next].name+'，需要 '+CHAPTERS[c.next].unlock.stars+' 星':'当前版本世界推进终点';
+ const mg=document.getElementById('mainStageGrid');mg.innerHTML='';
+ c.stages.forEach((st,i)=>{const unlocked=stageUnlocked(currentChapter,i),stars=s.stars[st.id]||0,d=document.createElement('div');d.className='card stageCard '+(!unlocked?'locked ':'')+(currentStage?.id===st.id?'selected':'');d.innerHTML='<div class="stageArt">'+(st.boss?'王':(i+1))+'</div><div class="eyebrow">'+st.id+'</div><h4>'+st.name+'</h4><p>'+st.goal+'</p><div class="stageStatus"><span>'+st.type+'</span><span>'+st.reward+'金币</span></div><div class="stars">'+starsHtml(stars,3)+'</div><div class="actions"><button class="btn '+(unlocked?'primary':'ghost')+'" '+(!unlocked?'disabled':'')+' onclick="startStage(\''+st.id+'\')">'+(stars>0?'再次挑战':'挑战')+'</button></div>';mg.appendChild(d)});
+ const sg=document.getElementById('sideQuestGrid');sg.innerHTML='';
+ c.sides.forEach(q=>{const unlocked=chapterStars(currentChapter)>=q.unlockStars,done=!!s.sides[q.id],d=document.createElement('div');d.className='card sideQuest '+(!unlocked?'muted':'');d.innerHTML='<div class="eyebrow">'+(q.hidden?'HIDDEN':'SIDE QUEST')+'</div><h4>'+(q.hidden&&!unlocked?'???':q.name)+'</h4><p>'+(q.hidden&&!unlocked?'获得更多章节星后可能发现。':'解锁条件：'+q.unlockStars+'星 · 奖励：'+q.reward)+'</p><div class="actions"><button class="btn '+(done?'gold':unlocked?'ghost':'ghost')+'" '+(!unlocked?'disabled':'')+' onclick="completeSide(\''+q.id+'\')">'+(done?'已完成':'完成模拟')+'</button></div>';sg.appendChild(d)})
+}
+function playNextStage(){const c=CHAPTERS[currentChapter];for(let i=0;i<c.stages.length;i++){const st=c.stages[i];if(stageUnlocked(currentChapter,i)&&(save.chapters[currentChapter].stars[st.id]||0)===0){startStage(st.id);return}}toast('当前章节主线已全部完成')}
+function completeSide(id){const c=CHAPTERS[currentChapter],q=c.sides.find(x=>x.id===id);if(!q)return;if(chapterStars(currentChapter)<q.unlockStars){toast('章节星不足');return}save.chapters[currentChapter].sides[id]=true;if(q.hidden)save.chapters[currentChapter].hiddenFound=true;save.gold+=q.hidden?500:250;persist();toast('完成 '+q.name+' · 获得奖励')}
+
+/* story */
+let storyIndex=0;
+function renderStory(){
+ const c=CHAPTERS[currentChapter],s=save.chapters[currentChapter];document.getElementById('storyChapterLabel').textContent=currentChapter+' · '+c.name;storyIndex=Math.min(storyIndex,c.stories.length-1);document.getElementById('storySpeaker').textContent=c.stories[storyIndex][0];document.getElementById('storyText').textContent=c.stories[storyIndex][1];
+ const list=document.getElementById('storyList');list.innerHTML='';c.stories.forEach((x,i)=>{const unlocked=i===0||chapterMainClears(currentChapter)>=Math.min(i,3),d=document.createElement('div');d.className='storyEntry '+(i===storyIndex?'active ':'')+(!unlocked?'muted':'');d.innerHTML='<b>'+(unlocked?x[0]:'???')+'</b><small>'+(unlocked?'剧情 '+(i+1):'尚未解锁')+'</small>';d.onclick=()=>{if(!unlocked){toast('继续推进主线以解锁');return}storyIndex=i;renderStory()};list.appendChild(d)})
+}
+function nextStory(){const c=CHAPTERS[currentChapter];storyIndex=(storyIndex+1)%c.stories.length;renderStory()}
+
+/* battle */
+const canvas=document.getElementById('arenaCanvas'),ctx=canvas.getContext('2d');let DPR=Math.min(devicePixelRatio||1,2),AW=900,AH=650,last=performance.now();
+function resizeArena(){const r=canvas.getBoundingClientRect();AW=Math.max(320,r.width);AH=Math.max(430,r.height);canvas.width=Math.floor(AW*DPR);canvas.height=Math.floor(AH*DPR);ctx.setTransform(DPR,0,0,DPR,0,0)}
+window.addEventListener('resize',resizeArena);
+const keys={};window.addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase()))e.preventDefault()});window.addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+let battle={active:false,time:0,kills:0,spawn:0,damageTaken:0,bossSpawned:false,bossHp:0,bossMax:0};let player={x:450,y:320,hp:620,maxHp:620,atk:110,r:15,inv:0};let enemies=[],shots=[],effects=[];
+function startStage(stageId){
+ const c=CHAPTERS[currentChapter],st=c.stages.find(x=>x.id===stageId);if(!st)return;const idx=c.stages.indexOf(st);if(!stageUnlocked(currentChapter,idx)){toast('前置关卡未完成');return}
+ currentStage=st;go('battle');resizeArena();battle={active:true,time:0,kills:0,spawn:0,damageTaken:0,bossSpawned:false,bossHp:st.boss?2800+idx*1800:0,bossMax:st.boss?2800+idx*1800:0};player={x:AW/2,y:AH/2,hp:620,maxHp:620,atk:115+CHAPTERS[currentChapter].order*18,r:15,inv:0};enemies=[];shots=[];effects=[];document.getElementById('battleLog').innerHTML='';renderBattleInfo();log('进入 '+st.id+' · '+st.name)
+}
+function renderBattleInfo(){
+ if(!currentStage)return;document.getElementById('battleStageTitle').textContent=currentStage.id+' · '+currentStage.name;document.getElementById('battleStageName').textContent=currentStage.name;document.getElementById('battleStageStats').innerHTML='<div class="battleStat"><span>目标</span><b>'+currentStage.goal+'</b></div><div class="battleStat"><span>推荐战力</span><b>'+CHAPTERS[currentChapter].power+'</b></div><div class="battleStat"><span>基础奖励</span><b>'+currentStage.reward+'金币</b></div>';
+ const obj=document.getElementById('battleObjectives');obj.innerHTML='';[['通关关卡',false],['生命≥40%',false],['在目标时间内完成',false]].forEach(([n,d],i)=>{const x=document.createElement('div');x.className='objective';x.id='obj'+i;x.textContent='☆ '+n;obj.appendChild(x)})
+}
+function spawnEnemy(){
+ const a=Math.random()*Math.PI*2,d=Math.max(AW,AH)*.55+50;enemies.push({x:player.x+Math.cos(a)*d,y:player.y+Math.sin(a)*d,r:10+Math.random()*3,hp:52+CHAPTERS[currentChapter].order*26,speed:48+CHAPTERS[currentChapter].order*7,damage:6+CHAPTERS[currentChapter].order*2,color:['#a84b43','#8a6844','#67538c'][CHAPTERS[currentChapter].order-1]})
+}
+function nearest(){if(!enemies.length)return null;let b=enemies[0],bd=(b.x-player.x)**2+(b.y-player.y)**2;for(const e of enemies){const d=(e.x-player.x)**2+(e.y-player.y)**2;if(d<bd){b=e;bd=d}}return b}
+function shoot(){const t=nearest();if(!t)return;const a=Math.atan2(t.y-player.y,t.x-player.x);shots.push({x:player.x,y:player.y,vx:Math.cos(a)*480,vy:Math.sin(a)*480,r:5,dmg:player.atk,life:1.5})}
+function updateBattle(dt){
+ if(!battle.active)return;battle.time+=dt;player.inv=Math.max(0,player.inv-dt);
+ let dx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),dy=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);if(dx||dy){const l=Math.hypot(dx,dy);player.x+=dx/l*230*dt;player.y+=dy/l*230*dt}player.x=Math.max(18,Math.min(AW-18,player.x));player.y=Math.max(18,Math.min(AH-18,player.y));
+ battle.spawn+=dt;while(battle.spawn>.34){battle.spawn-=.34;spawnEnemy()}if(enemies.length>180)enemies.splice(0,enemies.length-180);
+ if(Math.floor(battle.time*4)!==Math.floor((battle.time-dt)*4))shoot();
+ for(const e of enemies){const a=Math.atan2(player.y-e.y,player.x-e.x);e.x+=Math.cos(a)*e.speed*dt;e.y+=Math.sin(a)*e.speed*dt;if((e.x-player.x)**2+(e.y-player.y)**2<(e.r+player.r)**2&&player.inv<=0){player.hp-=e.damage;player.inv=.3;battle.damageTaken+=e.damage}}
+ for(let i=shots.length-1;i>=0;i--){const p=shots[i];p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;let hit=null;for(const e of enemies){if((e.x-p.x)**2+(e.y-p.y)**2<(e.r+p.r)**2){hit=e;break}}if(hit){hit.hp-=p.dmg;effects.push({x:hit.x,y:hit.y,r:6,life:.18,max:.18});if(hit.hp<=0){enemies.splice(enemies.indexOf(hit),1);battle.kills++}shots.splice(i,1);continue}if(p.life<=0)shots.splice(i,1)}
+ if(currentStage.boss&&!battle.bossSpawned&&battle.time>currentStage.duration*.55){battle.bossSpawned=true;document.getElementById('bossBar').classList.add('show');document.getElementById('bossLabel').textContent=currentStage.name+' · 区域Boss';log('Boss进入战场')}
+ if(battle.bossSpawned&&battle.bossHp>0){battle.bossHp-=dt*170;document.getElementById('bossHpFill').style.width=Math.max(0,battle.bossHp/battle.bossMax*100)+'%';if(battle.bossHp<=0){battle.bossHp=0;log('Boss已击败')}}
+ for(let i=effects.length-1;i>=0;i--){effects[i].life-=dt;if(effects[i].life<=0)effects.splice(i,1)}
+ if(player.hp<=0){player.hp=1;forceWin(1);return}
+ if(battle.time>=currentStage.duration&&(!currentStage.boss||battle.bossHp<=0))finishStage()
+ document.getElementById('battleHpText').textContent='HP '+Math.round(player.hp)+' / '+player.maxHp;document.getElementById('battleTimer').textContent=fmt(battle.time)
+}
+function drawBattle(){
+ ctx.clearRect(0,0,AW,AH);ctx.fillStyle=['#182019','#1b2116','#151b22'][CHAPTERS[currentChapter].order-1];ctx.fillRect(0,0,AW,AH);ctx.strokeStyle='rgba(255,255,255,.02)';for(let x=0;x<AW;x+=55){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,AH);ctx.stroke()}for(let y=0;y<AH;y+=55){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(AW,y);ctx.stroke()}
+ for(const e of enemies){ctx.beginPath();ctx.fillStyle=e.color;ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill()}
+ for(const p of shots){ctx.beginPath();ctx.fillStyle='#ff9c70';ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}
+ if(battle.bossSpawned&&battle.bossHp>0){ctx.beginPath();ctx.fillStyle=['#7f3338','#6e4a7d','#5e354f'][CHAPTERS[currentChapter].order-1];ctx.shadowBlur=25;ctx.shadowColor=ctx.fillStyle;ctx.arc(AW*.78,AH*.36,38,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0}
+ for(const e of effects){ctx.globalAlpha=e.life/e.max;ctx.beginPath();ctx.fillStyle='#ffe0a3';ctx.arc(e.x,e.y,e.r+(1-e.life/e.max)*18,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1}
+ ctx.beginPath();ctx.fillStyle='#ef694e';ctx.shadowBlur=22;ctx.shadowColor='#ef694e';ctx.arc(player.x,player.y,player.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0
+}
+function calcStars(){
+ let stars=1;if(player.hp/player.maxHp>=.4)stars++;if(battle.time<=currentStage.duration*1.08)stars++;return Math.min(3,stars)
+}
+function finishStage(){forceWin(calcStars())}
+function forceWin(stars){
+ if(!battle.active)return;battle.active=false;const old=save.chapters[currentChapter].stars[currentStage.id]||0,newStars=Math.max(old,stars);save.chapters[currentChapter].stars[currentStage.id]=newStars;
+ if(currentStage===CHAPTERS[currentChapter].stages[3])save.chapters[currentChapter].bossCleared=true;
+ const earned=currentStage.reward+stars*90;save.gold+=earned;
+ const newlyUnlockedBefore=Object.fromEntries(Object.keys(CHAPTERS).map(id=>[id,save.chapters[id].unlocked]));recomputeUnlocks();
+ const unlockedNow=Object.keys(CHAPTERS).filter(id=>!newlyUnlockedBefore[id]&&save.chapters[id].unlocked);
+ lastResult={chapter:currentChapter,stage:currentStage,stars,time:battle.time,kills:battle.kills,gold:earned,oldStars:old,newStars,unlockedNow};
+ persist();renderResult();go('result')
+}
+function renderResult(){
+ if(!lastResult)return;const r=lastResult;document.getElementById('resultStageName').textContent=r.stage.name;document.getElementById('resultStars').textContent='★'.repeat(r.stars)+'☆'.repeat(3-r.stars);document.getElementById('resultTime').textContent=fmt(r.time);document.getElementById('resultKills').textContent=r.kills;document.getElementById('resultGold').textContent='+'+r.gold;
+ let html='<div class="resultRow"><span>章节星变化</span><b>'+r.oldStars+' → '+r.newStars+'</b></div><div class="resultRow"><span>'+r.chapter+' 总星数</span><b>'+chapterStars(r.chapter)+'/12</b></div><div class="resultRow"><span>主线进度</span><b>'+chapterMainClears(r.chapter)+'/4</b></div>';if(r.unlockedNow.length)html+='<div class="resultRow"><span>新世界解锁</span><b>'+r.unlockedNow.map(id=>CHAPTERS[id].name).join('、')+'</b></div>';document.getElementById('resultProgressRows').innerHTML=html
+}
+function backToChapter(){currentChapter=lastResult?.chapter||currentChapter;renderChapter();go('chapter')}
+
+/* rewards */
+const MILESTONES=[
+ {stars:3,reward:'500金币'},{stars:6,reward:'装备箱'},{stars:9,reward:'符文箱'},{stars:12,reward:'宠物素材'},{stars:24,reward:'英雄碎片'},{stars:36,reward:'万界宝箱'}
+];
+function renderRewards(){
+ const total=totalStars(),g=document.getElementById('rewardTimeline');g.innerHTML='';
+ MILESTONES.forEach(m=>{const claimed=save.claimedMilestones.includes(m.stars),open=total>=m.stars,d=document.createElement('div');d.className='milestone '+(claimed?'claimed':'');d.innerHTML='<b>'+m.stars+'★</b><small>'+(open?'已达成':'当前 '+total+'★')+'</small><div class="reward">'+m.reward+'</div><button class="btn '+(open&&!claimed?'gold':'ghost')+'" style="margin-top:8px;width:100%" '+(!open||claimed?'disabled':'')+' onclick="claimMilestone('+m.stars+')">'+(claimed?'已领取':'领取')+'</button>';g.appendChild(d)})
+ const cg=document.getElementById('chapterRewardCards');cg.innerHTML='';Object.entries(CHAPTERS).forEach(([id,c])=>{const s=save.chapters[id],d=document.createElement('div');d.className='card';d.innerHTML='<div class="eyebrow">'+id+'</div><h3>'+c.name+'</h3><div class="chapterTasks"><div class="chapterTask '+(chapterMainClears(id)>=4?'done':'')+'">首通4主线：'+(chapterMainClears(id)>=4?'已达成':'未达成')+'</div><div class="chapterTask '+(chapterStars(id)>=12?'done':'')+'">章节满星：'+chapterStars(id)+'/12</div><div class="chapterTask '+(s.bossCleared?'done':'')+'">区域Boss：'+(s.bossCleared?'已击败':'未击败')+'</div></div>';cg.appendChild(d)})
+}
+function claimMilestone(stars){if(totalStars()<stars||save.claimedMilestones.includes(stars))return;save.claimedMilestones.push(stars);if(stars===3)save.gold+=500;else save.gold+=300;persist();toast('已领取 '+stars+'★ 里程碑奖励')}
+
+/* general render */
+function renderAll(){recomputeUnlocks();renderOverview();renderWorld();renderChapter();renderStory();renderRewards();document.getElementById('starTop').textContent=totalStars();document.getElementById('worldPct').textContent=worldProgress()+'%';document.getElementById('goldTop').textContent=save.gold.toLocaleString()}
+function loop(now){const dt=Math.min(.034,(now-last)/1000||0);last=now;updateBattle(dt);drawBattle();requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+recomputeUnlocks();renderAll();resizeArena();
+</script>
+</body>
+</html>
