@@ -68,7 +68,7 @@ function v25UseInteractable(){
  }else if(it.type==='supply'){
    v.bonusGold+=180;run.xp+=Math.ceil(run.xpNeed*.75);checkLevel();hint(it.name+' · 经验与战利金')
  }
- log('地图交互：'+it.name);v25UpdateInteractUI()
+ log('地图交互：'+it.name);if(typeof v34UpdateObjectives==='function')v34UpdateObjectives();if(typeof v34RenderCombatLoop==='function')v34RenderCombatLoop();v25UpdateInteractUI()
 }
 window.addEventListener('keydown',e=>{if(!v32InteractiveKeyTarget(e.target)&&e.key.toLowerCase()==='f')performBattleAction('interact',v25UseInteractable)});
 

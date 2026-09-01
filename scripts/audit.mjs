@@ -1277,12 +1277,33 @@ const good=[
    &&saveSlotsCode.includes("['mobileInteract','interact',v25UseInteractable]")
    &&saveSlotsCode.includes("['mobilePause','pause',togglePause]")
    &&saveSlotsCode.includes('performBattleAction(action,fn)')],
- ['mobile action HUD feedback',
-  engineCode.includes("setMobileActionState('mobileSkill'")
+['mobile action HUD feedback',
+ engineCode.includes("setMobileActionState('mobileSkill'")
    &&engineCode.includes("setMobileActionState('mobileDodge'")
    &&engineCode.includes("setMobileActionState('mobileUlt'")
    &&engineCode.includes("setMobileActionState('mobileInteract'")],
- ['persistent world and follow camera',
+['V3.4.1 nearest existing interaction navigation',
+ html.includes('id="interactionRouteGuide" role="status" aria-live="polite"')
+   &&html.includes('id="interactionRouteDirection"')
+   &&html.includes('id="interactionRouteText"')
+   &&engineCode.includes('function v341NearestInteractionTarget(')
+   &&engineCode.includes('function v341DirectionLabel(')
+   &&engineCode.includes('interactionTarget:interactionTarget')
+   &&engineCode.includes('distanceBucket:')],
+['V3.4.1 edge and mobile readiness feedback',
+ engineCode.includes('function v341WorldEdgeState(')
+   &&engineCode.includes('function v341UpdateInteractionRouteGuide(')
+   &&engineCode.includes("setMobileActionState('mobileInteract',interactionState,!near,'地图互动')")
+   &&css.includes('V3.4.1 MOBILE WORLD NAVIGATION')
+   &&css.includes('.mobileMoveZone{position:absolute;left:0;top:0;bottom:0;z-index:9;width:68%')
+   &&css.includes('.interactionRouteGuide.show')
+   &&css.includes('.mobileAction.interact:not(.unavailable)')],
+['V3.4.1 existing interaction objective authority',
+ bossInteractionsCode.includes("if(typeof v34UpdateObjectives==='function')v34UpdateObjectives()")
+   &&bossInteractionsCode.includes("if(typeof v34RenderCombatLoop==='function')v34RenderCombatLoop()")
+   &&!engineCode.includes('autoPath')
+   &&!engineCode.includes('autoInteract')],
+['persistent world and follow camera',
   engineCode.includes('const BATTLE_WORLD_MIN_W=')
    &&engineCode.includes('WORLD_W=Math.max(BATTLE_WORLD_MIN_W,Math.ceil(AW*BATTLE_WORLD_VIEW_SCALE))')
    &&engineCode.includes('WORLD_H=Math.max(BATTLE_WORLD_MIN_H,Math.ceil(AH*BATTLE_WORLD_VIEW_SCALE))')

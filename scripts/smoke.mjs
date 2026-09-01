@@ -479,6 +479,49 @@ try{
 }
 
 try{
+ const navigationStart=engine.indexOf('function v341DirectionLabel('),navigationEnd=engine.indexOf('function v34DrawTacticalMinimap(');
+ if(navigationStart<0||navigationEnd<0)throw new Error('V3.4.1 navigation projection helpers are missing');
+ const navigationSandbox={
+  WORLD_W:3600,WORLD_H:2400,AW:390,AH:844,
+  player:{x:1000,y:1000},battleCamera:{x:800,y:600},
+  run:{active:true,boss:null,objectives:[{id:'side-interaction',kind:'interaction',complete:false}],v25:{interactables:[
+   {id:'I0',type:'heal',name:'far supply',x:100,y:100,used:false},
+   {id:'I1',type:'mechanism',name:'near mechanism',x:1100,y:900,used:false}
+  ]}}
+ };
+ vm.runInNewContext(engine.slice(navigationStart,navigationEnd),navigationSandbox);
+ const before=JSON.stringify(navigationSandbox.run),snapshot=vm.runInNewContext('v34MinimapSnapshot()',navigationSandbox);
+ if(JSON.stringify(navigationSandbox.run)!==before)fail.push('V3.4.1 navigation projection mutates run state');
+ if(snapshot.interactionTarget?.id!=='I1'||snapshot.objective?.id!=='side-interaction'||snapshot.interactionTarget?.direction!=='东北'||snapshot.interactionTarget?.distanceBucket!==150)fail.push('V3.4.1 minimap does not guide to the nearest unfinished interaction with direction and bucketed distance');
+ const edge=vm.runInNewContext('player.x=18;player.y=1200;v341WorldEdgeState()',navigationSandbox);
+ if(edge?.edge!=='west'||edge?.state!=='contact'||edge?.returnDirection!=='东'||edge?.distance!==0)fail.push('V3.4.1 world-edge projection does not distinguish contact or return direction');
+ navigationSandbox.run.objectives[0].complete=true;
+ if(vm.runInNewContext('v34MinimapSnapshot().interactionTarget',navigationSandbox)!==null)fail.push('V3.4.1 navigation continues after the existing interaction objective completes');
+}catch(error){
+ fail.push('V3.4.1 navigation runtime test throws: '+error.message);
+}
+
+try{
+ const interactionStart=bossInteractions.indexOf('function v25Ensure('),interactionEnd=bossInteractions.indexOf("window.addEventListener('keydown'");
+ const objectiveStart=engine.indexOf('function v34ObjectiveCurrent('),objectiveEnd=engine.indexOf('function v34TimedRewardProjection(');
+ if(interactionStart<0||interactionEnd<0||objectiveStart<0||objectiveEnd<0)throw new Error('interaction or objective helpers are missing');
+ const interactionSandbox={
+  run:{active:true,paused:false,v25:{telegraphs:[],interactables:[{id:'I0',type:'heal',name:'medic supply',x:100,y:100,used:false}],used:0,bonusGold:0,hazardSuppress:0},objectives:[{id:'side-interaction',kind:'interaction',label:'use one interaction',source:'interactions',current:0,target:1,complete:false}]},
+  player:{x:100,y:100,hp:50,maxHp:100,atk:10},effects:[],enemies:[],traps:[],hints:[],logs:[],
+  WW:{config:{bossInteractions:{interactionNames:{},interactionDescriptions:{}}}},V21Audio:{chest(){}},
+  selectedStageInfo:()=>({chapter:'ST001'}),v338ClearFirstBossCast(){},v25UpdateInteractUI(){},v25RenderInteractLegend(){},recordBattleOnboarding(){},damageEnemy(){},damageBoss(){},shake(){},checkLevel(){},
+  hint(message){interactionSandbox.hints.push(message)},log(message){interactionSandbox.logs.push(message)},v34RenderCombatLoop(){}
+ };
+ vm.createContext(interactionSandbox);vm.runInContext(bossInteractions.slice(interactionStart,interactionEnd)+'\n'+engine.slice(objectiveStart,objectiveEnd),interactionSandbox);
+ vm.runInContext('v25UseInteractable()',interactionSandbox);
+ if(interactionSandbox.run.v25.used!==1||interactionSandbox.player.hp!==85||interactionSandbox.run.objectives[0].current!==1||!interactionSandbox.run.objectives[0].complete)fail.push('existing mobile interaction path does not advance the existing objective from 0/1 to 1/1');
+ vm.runInContext('v25UseInteractable()',interactionSandbox);
+ if(interactionSandbox.run.v25.used!==1||interactionSandbox.player.hp!==85)fail.push('repeated interaction input consumes one existing object more than once');
+}catch(error){
+ fail.push('V3.4.1 interaction completion runtime test throws: '+error.message);
+}
+
+try{
  const joystickStart=saveSlots.indexOf('const V331_JOYSTICK_DEAD_ZONE='),joystickEnd=saveSlots.indexOf('function v331ClearInputs(');
  if(joystickStart<0||joystickEnd<0)throw new Error('continuous joystick vector helper is missing');
  const movementSandbox={keys:{d:true,w:true},v20Joy:{active:false,dx:0,dy:0,id:null},document:{getElementById:()=>null}};
@@ -685,6 +728,10 @@ if(!saveSlotsCode.includes('(Math.min(r.width,r.height)-Math.min(k.width,k.heigh
 if(!engineCode.includes("typeof v331JoystickVector==='function'?v331JoystickVector():null")||!directorCode.includes('const move=responsiveMovementVector(dt);if(move){')||!saveSlotsCode.includes('function v331JoystickVector()')||/keys\.d=v20Joy|keys\.a=v20Joy|keys\.s=v20Joy|keys\.w=v20Joy/.test(saveSlotsCode))fail.push('active movement path does not share the continuous keyboard and analog joystick vector');
 if(!saveSlotsCode.includes("['mobileSkill','skill',castHeroSkill]")||!saveSlotsCode.includes("['mobileDodge','dodge',tryDodge]")||!saveSlotsCode.includes("['mobileUlt','ult',castUltimate]")||!saveSlotsCode.includes("['mobileInteract','interact',v25UseInteractable]")||!saveSlotsCode.includes("['mobilePause','pause',togglePause]"))fail.push('mobile actions are not bound once to onboarding-aware gameplay functions');
 if(!engineCode.includes("setMobileActionState('mobileSkill'")||!engineCode.includes("setMobileActionState('mobileDodge'")||!engineCode.includes("setMobileActionState('mobileUlt'")||!engineCode.includes("setMobileActionState('mobileInteract'"))fail.push('mobile cooldown, ultimate and interaction states are not HUD-driven');
+if(!battleBlock.includes('id="interactionRouteGuide" role="status" aria-live="polite"')||!battleBlock.includes('id="interactionRouteDirection"')||!battleBlock.includes('id="interactionRouteText"'))fail.push('V3.4.1 mobile interaction route guidance markup is missing');
+if(!engineCode.includes('function v341NearestInteractionTarget(')||!engineCode.includes('function v341WorldEdgeState(')||!engineCode.includes('function v341UpdateInteractionRouteGuide(')||!engineCode.includes('interactionTarget:interactionTarget'))fail.push('V3.4.1 nearest-target, edge-state or route-guide projection is missing');
+if(!engineCode.includes("setMobileActionState('mobileInteract',interactionState,!near,'地图互动')")||!bossInteractionsCode.includes("if(typeof v34UpdateObjectives==='function')v34UpdateObjectives()")||!bossInteractionsCode.includes("if(typeof v34RenderCombatLoop==='function')v34RenderCombatLoop()"))fail.push('V3.4.1 mobile interaction readiness or immediate existing-objective refresh is missing');
+if(!css.includes('V3.4.1 MOBILE WORLD NAVIGATION')||!css.includes('.mobileMoveZone{position:absolute;left:0;top:0;bottom:0;z-index:9;width:68%')||!css.includes('.interactionRouteGuide.show')||!css.includes('.mobileAction.interact:not(.unavailable)'))fail.push('V3.4.1 expanded touch plane or mobile navigation feedback styling is missing');
 if(engineCode.includes('function remapArenaPoint(')||/points\.forEach\(o=>remapArenaPoint/.test(engineCode)||!engineCode.includes('ensureBattleWorld();clampBattleCamera()'))fail.push('arena resize still remaps entities instead of preserving world coordinates and reclamping the camera');
 if(!engineCode.includes('WORLD_W=Math.max(BATTLE_WORLD_MIN_W,Math.ceil(AW*BATTLE_WORLD_VIEW_SCALE))')||!engineCode.includes('WORLD_H=Math.max(BATTLE_WORLD_MIN_H,Math.ceil(AH*BATTLE_WORLD_VIEW_SCALE))')||!engineCode.includes('function updateBattleCamera(dt,instant=false)'))fail.push('battle world dimensions or smooth follow camera contract is missing');
 if(!engineCode.includes('player.x=Math.max(18,Math.min(WORLD_W-18')||!directorCode.includes('player.x=Math.max(18,Math.min(WORLD_W-18'))fail.push('normal movement is still clamped to the viewport instead of the world');

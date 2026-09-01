@@ -1,36 +1,31 @@
-# TASK.md - V3.4.0 Complete Playable Combat Loop Foundation
+# TASK.md - V3.4.1 Mobile World Navigation and Objective Interaction / Slice 1
 
-Status: implementation and final release gates complete.
+Status: implementation and required completion gates complete.
 
-## Goal and delivered behavior
+## Goal
 
-Turn combat into a coherent replayable browser-game loop without numerical rebalance.
+Complete one bounded mobile navigation and interaction slice without changing combat balance or run authority.
 
-- Persistent world coordinates, bounded follow-camera look-ahead, edge feedback, and shared keyboard/floating-joystick movement.
-- Tactical minimap projects player, viewport, live Boss, unused interaction, and objective from existing run state only.
-- Hero preview is non-destructive. Explicit confirmation retains a compatible build or applies the recommended preset, then returns to one deployment summary.
-- One primary and up to two contextual objectives use existing run events only.
-- Three once-per-run timed rewards expose locked/ready/choosing/claimed states, pause through the existing choice UI, and reject repeated claims.
-- Choice cards show category, level change, effect, and synergy. Result shows objectives, rewards, hero/build context, and replay guidance without extra settlement.
-- Boss Loot remains authoritative before victory settlement.
+- Expand the existing floating-joystick touch plane while preserving the current analog vector, movement speed, world size, camera, and Pointer Events ownership.
+- Derive one navigation target from the nearest unused existing map interactable while the existing interaction objective is incomplete.
+- Show the same target on the tactical minimap and mobile HUD with a readable direction and bucketed distance; make the existing interaction button visibly ready only inside the established interaction radius.
+- Distinguish approaching a world edge from reaching it and show the direction back into the playable world.
+- On the existing successful interaction path, refresh the existing objective projection immediately so `0/1` becomes `1/1` without a second objective or settlement path.
+
+## Acceptance
+
+- Focused guards first fail on the absent V3.4.1 contract, then pass after implementation.
+- A read-only runtime projection selects the nearest unused interaction, reports direction/distance, and stops guiding after the existing interaction objective completes.
+- The existing interaction function consumes exactly one nearby object, preserves its existing effect, and advances the existing objective to `1/1`; repeated input cannot consume it twice.
+- Emulated `390x844` and `320x844` battle views have no horizontal overflow. Pointer movement can traverse toward the guided target, the existing mobile interaction button completes it, and edge feedback remains visible without blocking controls.
+- Browser console errors and warnings remain zero. Physical-phone feel remains a separately reported acceptance risk unless a real device is tested.
 
 ## Preserve and exclude
 
-Preserve Schema30, fresh chapter 0 stars, defeat 0 stars, non-story star isolation, one settlement per run, dual-Boss routing, V3.0 fixes, ordered scripts, and existing saves.
+Preserve Schema30, fresh chapter 0 stars, defeat 0 stars, non-story star isolation, one settlement per run, dual-Boss routing, V3.0 safety fixes, Boss Loot precedence, ordered scripts, existing saves, interaction effects, and interaction radius.
 
-No backend/account/network service, login/offline/calendar reward, gacha, monetization, multiplayer, dependency, public Debug UI, second clock/settlement, new stage/enemy/interactable, schema bump, or `_v34Old*` wrapper. Do not change attack, skills, damage, speed, collision, enemy density/AI, XP, drops, Boss parameters, stage length, `incoming:.44`, five `22%` recoveries, `telegraphScale:1.65`, `bossHp:3.00`, `bossAt:270`, or `duration:360`.
+No backend/account/network service, auto-pathing, new map, new interactable, new objective authority, automatic interaction, dependency, public Debug UI, schema bump, second clock/settlement, or `_v341Old*` wrapper. Do not change attack, skills, damage, speed, collision, enemy density/AI, XP, drops, Boss parameters, stage length, `incoming:.44`, five `22%` recoveries, `telegraphScale:1.65`, `bossHp:3.00`, `bossAt:270`, or `duration:360`.
 
-## Verification record
+## Required completion gates
 
-- RED: focused guards first covered world/camera policy, joystick lifecycle, minimap and deployment projections, preview/build confirmation, objectives, reward idempotency, choice copy, Boss-loot precedence, containment, constants, and script order; the new contract was absent before implementation.
-- GREEN: focused smoke/audit guards cover those contracts and prove read-only projections. The final ordered `check`, `smoke`, `audit`, `context`, and `archive:verify` gates pass.
-- Desktop `1280x720` completed `home -> mission -> hero/build confirmation -> briefing -> battle -> timed reward -> B001 -> Boss Loot -> Result`. Result: `04:56`, 542 kills, 3 stars, `+756` gold, Boss Loot `1/1`, and no repeated settlement after waiting.
-- Timed rewards reached all four states; rapid repeated input did not duplicate a claim; Boss Loot preceded the third milestone.
-- Emulated `390x844` and `320x844` had no horizontal overflow. Minimap, objectives, joystick, actions, pause, upgrade, reward, and Boss-Loot overlays stayed usable. Browser warnings/errors: 0.
-- Normal touch movement reached an interaction radius and enabled interaction, but did not complete the recorded map interaction.
-
-## Remaining gap and release rule
-
-Physical-phone feel, sustained world-edge traversal, a normal mobile interaction from `0/1` to `1/1`, and five-route human play acceptance remain unverified. Emulation is not physical-device acceptance.
-
-Before release run, in order: `npm run check`, `npm run smoke`, `npm run audit`, `npm run context`, `npm run archive:verify`. Update only the five rotating sections of `handoff/STATE.md`; commit, tag `v3.4.0`, push only to an existing writable GitHub repository, and verify remote branch/tag SHAs.
+Run in order: `npm run check`, `npm run smoke`, `npm run audit`, `npm run context`, `npm run archive:verify`. Then update only the five rotating sections of `handoff/STATE.md`.
