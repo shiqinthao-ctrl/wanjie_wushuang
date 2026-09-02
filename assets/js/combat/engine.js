@@ -20,7 +20,7 @@ const keys={};window.addEventListener('keydown',e=>{if(v32InteractiveKeyTarget(e
 
 let run={active:false,paused:false,time:0,kills:0,spawn:0,attack:0,level:1,xp:0,xpNeed:26,chests:[false,false,false],events:[false,false,false],evolved:{},fused:{},skills:{},passives:{},boss:null,totalDamage:0,lastDps:0,dpsClock:0,dps:0,damageBy:{},combo:0,comboTimer:0,maxCombo:0,mapHazards:[],drops:[],eliteKills:0,shopBuff:0,altarBuff:0,riftActive:false};
 let player={x:450,y:370,r:15,hp:620,maxHp:620,atk:110,speed:240,aspd:1,crit:.08,inv:0,dodgeCd:0,skillCd:0,ult:0};
-let enemies=[],shots=[],enemyShots=[],effects=[],numbers=[],traps=[];
+let enemies=[],shots=[],enemyShots=[],effects=[],numbers=[],traps=[],xpCrystals=[];
 let dodgeDirection={x:0,y:-1};
 function movementVector(){const x=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),y=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0),length=Math.hypot(x,y);if(length)return{x:x/length,y:y/length};return typeof v331JoystickVector==='function'?v331JoystickVector():null}
 function v34CameraIntent(){const input=movementVector(),length=input?Math.hypot(input.x,input.y):0;return length?{x:input.x/length,y:input.y/length}:{x:0,y:0}}
@@ -34,7 +34,7 @@ function startBattle(){
  const si=selectedStageInfo(),h=WW.config.hero[save.hero],st=heroStats(save.hero),bossCfg=WW.config.boss[si.stage[4]];
  go('battle');setBattleDossierOpen(false);resizeArena();resetBattleWorld();document.getElementById('battleTitle').textContent=si.stage[0]+' · '+si.stage[1];document.getElementById('battleLog').innerHTML='';
  run={active:true,paused:false,time:0,kills:0,spawn:0,attack:0,level:1,xp:0,xpNeed:26,chests:[false,false,false],events:[false,false,false],evolved:{},fused:{},skills:{},passives:{},boss:null,totalDamage:0,lastDps:0,dpsClock:0,dps:0,damageBy:{},combo:0,comboTimer:0,maxCombo:0,mapHazards:[],drops:[],eliteKills:0,shopBuff:0,altarBuff:0,riftActive:false};
- player={x:WORLD_W/2,y:WORLD_H/2,r:15,hp:st.hp,maxHp:st.hp,atk:st.atk*(1+gearScore()/5000),speed:h.move*50,aspd:h.aspd,crit:h.crit/100,inv:0,dodgeCd:0,skillCd:0,ult:0};dodgeDirection={x:0,y:-1};resetMovementResponse();snapBattleCamera();enemies=[];shots=[];enemyShots=[];effects=[];numbers=[];traps=[];
+ player={x:WORLD_W/2,y:WORLD_H/2,r:15,hp:st.hp,maxHp:st.hp,atk:st.atk*(1+gearScore()/5000),speed:h.move*50,aspd:h.aspd,crit:h.crit/100,inv:0,dodgeCd:0,skillCd:0,ult:0};dodgeDirection={x:0,y:-1};resetMovementResponse();snapBattleCamera();enemies=[];shots=[];enemyShots=[];effects=[];numbers=[];traps=[];xpCrystals=[];
  save.build.active.slice(0,2).forEach(id=>run.skills[id]=1);save.build.passive.slice(0,1).forEach(id=>run.passives[id]=1);
  document.getElementById('bossBar').classList.remove('show');log('进入 '+si.stage[0]+' · '+si.stage[1]);renderRunSide();updateHud();
  if(!save.settings.tutorialSeen)showTutorial()
@@ -57,13 +57,18 @@ function shootAuto(){
  for(let i=0;i<count;i++){const a=base+(i-(count-1)/2)*.12;shots.push({source:primary,x:player.x,y:player.y,vx:Math.cos(a)*500,vy:Math.sin(a)*500,r:5,life:1.7,dmg:player.atk*(1+.16*(lv-1))*(1+run.shopBuff),color:WW.config.hero[save.hero].color,crit:Math.random()<player.crit,pierce:save.hero==='H019'?1:0})}
 }
 function recordDamage(source,dmg){run.totalDamage+=dmg;run.damageBy[source]=(run.damageBy[source]||0)+dmg}
+const V342_XP_CRYSTAL_LIMIT=180,V342_XP_ATTRACT_RADIUS=170,V342_XP_COLLECT_RADIUS=26,V342_XP_ATTRACT_SPEED=420;
+function v342EffectiveXp(enemy){const difficulty=typeof v19Difficulty==='function'?v19Difficulty():null,multiplier=Number.isFinite(difficulty?.xp)?difficulty.xp:1;return(enemy?.elite?18:4)*multiplier}
+function v342MergeXpCrystals(){while(xpCrystals.length>V342_XP_CRYSTAL_LIMIT){const overflow=xpCrystals.pop(),target=xpCrystals[0];if(!target){xpCrystals.push(overflow);break}target.value+=overflow.value;target.elite=target.elite||overflow.elite}return xpCrystals.length}
+function v342SpawnXpCrystal(enemy,value=v342EffectiveXp(enemy)){if(!enemy||!Number.isFinite(value)||value<=0)return null;const crystal={x:enemy.x,y:enemy.y,value:value,elite:!!enemy.elite};xpCrystals.push(crystal);v342MergeXpCrystals();return crystal}
+function v342UpdateXpCrystals(dt){const elapsed=Math.max(0,Number.isFinite(dt)?dt:0);let collected=0,pickupX=player.x,pickupY=player.y;for(let i=xpCrystals.length-1;i>=0;i--){const crystal=xpCrystals[i],dx=player.x-crystal.x,dy=player.y-crystal.y,distance=Math.hypot(dx,dy);if(distance<=V342_XP_COLLECT_RADIUS){collected+=crystal.value;pickupX=crystal.x;pickupY=crystal.y;xpCrystals.splice(i,1);continue}if(distance<V342_XP_ATTRACT_RADIUS&&distance>0){const step=Math.min(distance,V342_XP_ATTRACT_SPEED*elapsed);crystal.x+=dx/distance*step;crystal.y+=dy/distance*step}}if(collected>0){run.xp+=collected;if(save.settings.numbers)numbers.push({x:pickupX,y:pickupY-12,text:'XP +'+Math.round(collected),life:.7,max:.7,color:'#74f0cf',size:11});if(save.settings.particles)effects.push({type:'ring',x:pickupX,y:pickupY,r:7,life:.28,max:.28,color:'#65dfbd',maxr:34});checkLevel()}return collected}
+function v342CombatVitalsProjection(){const hpMax=Math.max(1,Number(player.maxHp)||1),hp=Math.max(0,Math.min(hpMax,Number(player.hp)||0)),xpNeed=Math.max(1,Number(run.xpNeed)||1),xp=Math.max(0,Number(run.xp)||0);return{level:Math.max(1,Number(run.level)||1),hp:hp,hpMax:hpMax,hpPercent:Math.min(100,hp/hpMax*100),xp:xp,xpNeed:xpNeed,xpPercent:Math.min(100,xp/xpNeed*100)}}
 function damageEnemy(e,dmg,crit=false,source='AUTO'){
  e.hp-=dmg;recordDamage(source,dmg);e.flash=1;if(save.settings.numbers)numbers.push({x:e.x,y:e.y-12,text:Math.round(dmg),life:.55,max:.55,color:crit?'#ffe27e':'#fff0d6',size:crit?17:11});
- if(e.hp<=0){const idx=enemies.indexOf(e);if(idx>=0)enemies.splice(idx,1);run.kills++;run.combo++;run.comboTimer=2;run.maxCombo=Math.max(run.maxCombo,run.combo);run.xp+=(e.elite?18:4)*(typeof v19Difficulty==='function'?v19Difficulty().xp:1);player.ult=Math.min(100,player.ult+(e.elite?8:1.4));if(e.elite)run.eliteKills++;
+ if(e.hp<=0){const idx=enemies.indexOf(e);if(idx>=0)enemies.splice(idx,1);run.kills++;run.combo++;run.comboTimer=2;run.maxCombo=Math.max(run.maxCombo,run.combo);v342SpawnXpCrystal(e);player.ult=Math.min(100,player.ult+(e.elite?8:1.4));if(e.elite)run.eliteKills++;
    if(save.settings.particles)for(let i=0;i<(e.elite?10:4);i++)effects.push({type:'particle',x:e.x,y:e.y,vx:(Math.random()-.5)*150,vy:(Math.random()-.5)*150,r:2+Math.random()*3,life:.5,max:.5,color:e.color});
    if(e.volatile)spawnExplosion(e.x,e.y,58,e.damage*1.2);if(e.split){spawnEnemy({id:e.id});spawnEnemy({id:e.id})}
    if(e.elite&&Math.random()<.45)run.drops.push(makeGearDrop('elite'));
-   checkLevel()
  }}
 function checkLevel(){if(run.xp>=run.xpNeed&&!run.paused){run.xp-=run.xpNeed;run.level++;run.xpNeed=Math.round(26+run.level*11);showLevelChoices()}}
 function validOptions(){
@@ -313,7 +318,7 @@ function updateRun(dt){
  const move=responsiveMovementVector(dt);if(move){const length=Math.hypot(move.x,move.y)||1;dodgeDirection={x:move.x/length,y:move.y/length};player.x+=move.x*player.speed*dt;player.y+=move.y*player.speed*dt}player.x=Math.max(18,Math.min(WORLD_W-18,player.x));player.y=Math.max(18,Math.min(WORLD_H-18,player.y));
  run.spawn+=dt;const spawnInterval=Math.max(.12,.34-run.time/5000);while(run.spawn>spawnInterval){run.spawn-=spawnInterval;spawnEnemy()}if(enemies.length>260)enemies.splice(0,enemies.length-260);
  run.attack+=dt;if(run.attack>1/Math.max(.6,player.aspd)){run.attack=0;shootAuto()}
- enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
+ enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);v342UpdateXpCrystals(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
  [3,8,13].forEach((m,i)=>{if(run.time>=m*60&&!run.events[i]){run.events[i]=true;showEvent()}});
  if(!run.boss&&run.time>=12*60&&selectedStageInfo().stage[2]&&!run.bossDefeated){spawnBoss()}
  if(run.riftActive&&run.eliteKills>=(run.riftEliteTarget??3)){run.riftActive=false;const d=makeGearDrop('rift');run.drops.push(d);hint('裂缝完成 · '+d.name)}
@@ -332,6 +337,7 @@ function drawRun(){
  ctx.strokeStyle='rgba(255,255,255,.02)';for(let x=0;x<WORLD_W;x+=55){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,WORLD_H);ctx.stroke()}for(let y=0;y<WORLD_H;y+=55){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(WORLD_W,y);ctx.stroke()}
  run.mapHazards.forEach(h=>{if(h.type==='fireline'){ctx.globalAlpha=Math.max(.15,h.life/h.max*.45);ctx.fillStyle='#ef694e';ctx.fillRect(h.x,h.y-h.h/2,h.w,h.h);ctx.globalAlpha=1}});
  traps.forEach(t=>{ctx.globalAlpha=Math.max(.2,1-t.life/1.3);ctx.strokeStyle=t.color;ctx.lineWidth=2;ctx.beginPath();ctx.arc(t.x,t.y,t.r,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1});
+ v342DrawXpCrystals();
  for(const e of enemies){ctx.beginPath();ctx.fillStyle=e.flash>0?'#fff5dd':e.color;ctx.shadowBlur=e.elite?16:0;ctx.shadowColor=e.color;ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill();if(e.elite){ctx.strokeStyle='#f3c66c';ctx.lineWidth=2;ctx.stroke()}ctx.shadowBlur=0}
  for(const p of shots){ctx.beginPath();ctx.fillStyle=p.color;ctx.shadowBlur=10;ctx.shadowColor=p.color;ctx.arc(p.x,p.y,p.r+(p.crit?2:0),0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;
  for(const p of enemyShots){ctx.beginPath();ctx.fillStyle=p.color;ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}
@@ -342,6 +348,7 @@ function drawRun(){
  if(map==='ST003'&&run.fog>0){ctx.fillStyle='rgba(82,94,70,'+(run.fog*.35)+')';ctx.fillRect(0,0,WORLD_W,WORLD_H)}
  ctx.restore()
 }
+function v342DrawXpCrystals(){if(!xpCrystals.length)return;ctx.save();for(const crystal of xpCrystals){const size=crystal.elite?8:5.5;ctx.shadowBlur=crystal.elite?18:11;ctx.shadowColor=crystal.elite?'#f4c86a':'#56e4c0';ctx.fillStyle=crystal.elite?'#f6d47d':'#78f0d1';ctx.beginPath();ctx.moveTo(crystal.x,crystal.y-size*1.35);ctx.lineTo(crystal.x+size,crystal.y);ctx.lineTo(crystal.x,crystal.y+size*1.35);ctx.lineTo(crystal.x-size,crystal.y);ctx.closePath();ctx.fill();ctx.strokeStyle=crystal.elite?'rgba(255,245,190,.9)':'rgba(219,255,246,.82)';ctx.lineWidth=1;ctx.stroke()}ctx.shadowBlur=0;ctx.restore()}
 function drawBattleFrame(dt){updateBattleCamera(dt);ctx.save();ctx.setTransform(DPR,0,0,DPR,0,0);ctx.clearRect(0,0,AW,AH);ctx.translate(-battleCamera.x,-battleCamera.y);drawRun();ctx.restore();v34DrawTacticalMinimap();v34UpdateWorldEdgeCue()}
 function setMobileActionState(id,state,unavailable,label){const button=document.getElementById(id),text=document.getElementById(id+'State');if(!button||!text)return;text.textContent=state;button.classList.toggle('unavailable',unavailable);button.setAttribute('aria-disabled',String(unavailable));button.setAttribute('aria-label',label+' · '+state)}
 function v341UpdateInteractionRouteGuide(target,near){const guide=document.getElementById('interactionRouteGuide'),direction=document.getElementById('interactionRouteDirection'),text=document.getElementById('interactionRouteText');if(!guide||!direction||!text)return;guide.classList.toggle('show',!!target);guide.dataset.state=near?'ready':target?'tracking':'complete';if(!target)return;const signature=near?'ready:'+near.id:'tracking:'+target.id+':'+target.direction+':'+target.distanceBucket;if(guide.dataset.signature===signature)return;guide.dataset.signature=signature;direction.textContent=near?'✓':target.direction;text.textContent=near?(near.name+' · 点击互动'):(target.name+' · '+target.distanceBucket+'m')}
@@ -349,7 +356,7 @@ function updateMobileControlsHud(){const near=typeof v25NearestInteract==='funct
 function setDesktopActionState(id,textId,state,unavailable,label,shortcut){const button=document.getElementById(id),text=document.getElementById(textId);if(!button||!text)return;text.textContent=state;button.classList.toggle('unavailable',unavailable);button.setAttribute('aria-disabled',String(unavailable));button.setAttribute('aria-label',label+' · '+shortcut+' · '+state)}
 function updateDesktopActionsHud(){setDesktopActionState('heroSkillAction','skillCdText',player.skillCd>0?'冷却 '+player.skillCd.toFixed(1)+'秒':'就绪',player.skillCd>0,'英雄技能','E');setDesktopActionState('dodgeAction','dodgeCdText',player.dodgeCd>0?'冷却 '+player.dodgeCd.toFixed(1)+'秒':'就绪',player.dodgeCd>0,'闪避','Space');setDesktopActionState('ultAction','ultText','能量 '+Math.floor(player.ult)+'%',player.ult<100,'终极技能','R')}
 function updateHud(){
- document.getElementById('hudHero').textContent=WW.config.hero[save.hero].name;document.getElementById('runLevel').textContent=run.level;document.getElementById('hudHp').textContent=Math.max(0,Math.round(player.hp))+'/'+Math.round(player.maxHp);document.getElementById('runTime').textContent=fmt(run.time);document.getElementById('runKills').textContent=run.kills;document.getElementById('runDps').textContent=run.dps;updateDesktopActionsHud();updateMobileControlsHud();
+ const vitals=v342CombatVitalsProjection(),hpTrack=document.getElementById('combatHpTrack'),xpTrack=document.getElementById('combatXpTrack');document.getElementById('hudHero').textContent=WW.config.hero[save.hero].name;document.getElementById('runLevel').textContent=vitals.level;document.getElementById('hudHp').textContent=Math.round(vitals.hp)+' / '+Math.round(vitals.hpMax);document.getElementById('hudXp').textContent=Math.round(vitals.xp)+' / '+Math.round(vitals.xpNeed);document.getElementById('combatHpFill').style.width=vitals.hpPercent+'%';document.getElementById('combatXpFill').style.width=vitals.xpPercent+'%';hpTrack.setAttribute('aria-valuemax',String(Math.round(vitals.hpMax)));hpTrack.setAttribute('aria-valuenow',String(Math.round(vitals.hp)));xpTrack.setAttribute('aria-valuemax',String(Math.round(vitals.xpNeed)));xpTrack.setAttribute('aria-valuenow',String(Math.round(Math.min(vitals.xp,vitals.xpNeed))));document.getElementById('runTime').textContent=fmt(run.time);document.getElementById('runKills').textContent=run.kills;document.getElementById('runDps').textContent=run.dps;updateDesktopActionsHud();updateMobileControlsHud();
  const combo=document.getElementById('comboText');combo.textContent=run.combo;combo.innerHTML=run.combo+'<small>'+(run.combo>=100?'无双':run.combo>=60?'狂潮':run.combo>=30?'压制':'COMBO')+'</small>';combo.classList.toggle('show',run.combo>=10);
  document.getElementById('lowHp').classList.toggle('show',save.settings.vignette&&player.hp/player.maxHp<.3);
  renderHudSlots();renderDamageList('damageList')

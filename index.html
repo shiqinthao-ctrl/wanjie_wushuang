@@ -610,7 +610,16 @@
           <div class="timedRewardsPanel"><header><span>MILESTONE REWARDS</span><b>定时奖励</b></header><div id="timedRewardTrack" class="timedRewardTrack"></div></div>
         </section>
         <div class="hudTop">
-          <div class="hudBox"><b id="hudHero">赤焰战神</b> · Lv.<span id="runLevel">1</span> · HP <span id="hudHp">620/620</span></div>
+          <div class="hudBox hudHeroName"><span>HERO</span><b id="hudHero">赤焰战神</b></div>
+          <section class="combatVitals" id="combatVitals" aria-label="生命与经验进度">
+            <div class="combatVitalLevel"><span>LEVEL</span><b>Lv.<strong id="runLevel">1</strong></b></div>
+            <div class="combatVitalTracks">
+              <div class="combatVitalMeta"><span>生命</span><b id="hudHp">620 / 620</b></div>
+              <div class="combatVitalTrack combatHpTrack" id="combatHpTrack" role="progressbar" aria-label="当前生命" aria-valuemin="0" aria-valuemax="620" aria-valuenow="620"><i id="combatHpFill"></i></div>
+              <div class="combatVitalMeta"><span>经验</span><b id="hudXp">0 / 26</b></div>
+              <div class="combatVitalTrack combatXpTrack" id="combatXpTrack" role="progressbar" aria-label="当前等级经验" aria-valuemin="0" aria-valuemax="26" aria-valuenow="0"><i class="combatXpFill" id="combatXpFill"></i></div>
+            </div>
+          </section>
           <div class="hudBox"><span id="runTime">00:00</span> · 击杀 <span id="runKills">0</span> · DPS <span id="runDps">0</span></div>
         </div>
         <div class="campaignCue" id="v29CampaignCue" role="status" aria-live="polite" hidden></div>

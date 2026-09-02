@@ -1298,12 +1298,37 @@ const good=[
    &&css.includes('.mobileMoveZone{position:absolute;left:0;top:0;bottom:0;z-index:9;width:68%')
    &&css.includes('.interactionRouteGuide.show')
    &&css.includes('.mobileAction.interact:not(.unavailable)')],
-['V3.4.1 existing interaction objective authority',
- bossInteractionsCode.includes("if(typeof v34UpdateObjectives==='function')v34UpdateObjectives()")
-   &&bossInteractionsCode.includes("if(typeof v34RenderCombatLoop==='function')v34RenderCombatLoop()")
-   &&!engineCode.includes('autoPath')
-   &&!engineCode.includes('autoInteract')],
-['persistent world and follow camera',
+ ['V3.4.1 existing interaction objective authority',
+  bossInteractionsCode.includes("if(typeof v34UpdateObjectives==='function')v34UpdateObjectives()")
+    &&bossInteractionsCode.includes("if(typeof v34RenderCombatLoop==='function')v34RenderCombatLoop()")
+    &&!engineCode.includes('autoPath')
+    &&!engineCode.includes('autoInteract')],
+ ['V3.4.2 collectible XP authority',
+  engineCode.includes('const V342_XP_CRYSTAL_LIMIT=180')
+    &&engineCode.includes('function v342EffectiveXp(')
+    &&engineCode.includes('function v342SpawnXpCrystal(')
+    &&engineCode.includes('function v342UpdateXpCrystals(')
+    &&engineCode.includes('v342SpawnXpCrystal(e)')
+    &&engineCode.includes('run.xp+=collected')
+    &&engineCode.includes('checkLevel()')
+    &&!engineCode.includes('run.xp+=(e.elite?18:4)')],
+ ['V3.4.2 bounded high-contrast XP crystals',
+  engineCode.includes('function v342MergeXpCrystals(')
+    &&engineCode.includes('target.value+=overflow.value')
+    &&engineCode.includes('function v342DrawXpCrystals(')
+    &&engineCode.includes("'#78f0d1'")
+    &&engineCode.includes('v342UpdateXpCrystals(dt)')
+    &&engineCode.includes('v342DrawXpCrystals()')],
+ ['V3.4.2 persistent combat vitals rail',
+  html.includes('id="combatVitals"')
+    &&html.includes('id="combatHpTrack" role="progressbar"')
+    &&html.includes('id="combatXpTrack" role="progressbar"')
+    &&html.includes('id="hudXp"')
+    &&engineCode.includes('function v342CombatVitalsProjection(')
+    &&engineCode.includes("document.getElementById('combatXpFill').style.width")
+    &&css.includes('V3.4.2 COMBAT GROWTH PICKUP LOOP')
+    &&css.includes('body.mobileBattle .combatVitals')],
+ ['persistent world and follow camera',
   engineCode.includes('const BATTLE_WORLD_MIN_W=')
    &&engineCode.includes('WORLD_W=Math.max(BATTLE_WORLD_MIN_W,Math.ceil(AW*BATTLE_WORLD_VIEW_SCALE))')
    &&engineCode.includes('WORLD_H=Math.max(BATTLE_WORLD_MIN_H,Math.ceil(AH*BATTLE_WORLD_VIEW_SCALE))')

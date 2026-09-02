@@ -502,6 +502,62 @@ try{
 }
 
 try{
+ const pickupStart=engine.indexOf('const V342_XP_CRYSTAL_LIMIT='),pickupEnd=engine.indexOf('function checkLevel(');
+ if(pickupStart<0||pickupEnd<0)throw new Error('V3.4.2 XP crystal helpers are missing');
+ const pickupSandbox={
+  run:{active:true,paused:false,xp:0,xpNeed:26,kills:0,combo:0,comboTimer:0,maxCombo:0,eliteKills:0,drops:[]},
+  player:{x:100,y:100,ult:0},enemies:[],effects:[],numbers:[],xpCrystals:[],checkLevelCalls:0,
+  save:{settings:{numbers:false,particles:false}},v19Difficulty:()=>({xp:1.5}),
+  recordDamage(){},spawnExplosion(){},spawnEnemy(){},makeGearDrop(){return{id:'TEST'}},
+  checkLevel(){pickupSandbox.checkLevelCalls++}
+ };
+ const pickupContext=vm.createContext(pickupSandbox);vm.runInContext(engine.slice(pickupStart,pickupEnd),pickupContext);
+ vm.runInContext("normal={x:300,y:100,hp:1,maxHp:1,elite:false,color:'#4fd'};enemies.push(normal);damageEnemy(normal,2)",pickupContext);
+ let pickupState=vm.runInContext('({xp:run.xp,kills:run.kills,count:xpCrystals.length,value:xpCrystals[0]?.value,x:xpCrystals[0]?.x})',pickupContext);
+ if(pickupState.xp!==0||pickupState.kills!==1||pickupState.count!==1||pickupState.value!==6)fail.push('normal enemy defeat does not create exactly one effective-value XP crystal without direct XP');
+ vm.runInContext('v342UpdateXpCrystals(.25)',pickupContext);pickupState=vm.runInContext('({xp:run.xp,count:xpCrystals.length,x:xpCrystals[0]?.x})',pickupContext);
+ if(pickupState.xp!==0||pickupState.count!==1||pickupState.x!==300)fail.push('XP crystal moves or awards XP outside attraction range');
+ vm.runInContext('player.x=282;v342UpdateXpCrystals(.016)',pickupContext);pickupState=vm.runInContext('({xp:run.xp,count:xpCrystals.length})',pickupContext);
+ if(pickupState.xp!==6||pickupState.count!==0||pickupSandbox.checkLevelCalls!==1)fail.push('XP crystal collection does not award its exact value once through existing level authority');
+ vm.runInContext('v342UpdateXpCrystals(.016)',pickupContext);
+ if(vm.runInContext('run.xp',pickupContext)!==6||pickupSandbox.checkLevelCalls!==1)fail.push('collected XP crystal can settle more than once');
+ vm.runInContext("elite={x:620,y:100,hp:1,maxHp:1,elite:true,color:'#fc6'};enemies.push(elite);damageEnemy(elite,2)",pickupContext);
+ if(vm.runInContext('xpCrystals[0]?.value',pickupContext)!==27||pickupSandbox.run.eliteKills!==1)fail.push('elite defeat does not preserve the existing effective XP value');
+ vm.runInContext("v342SpawnXpCrystal({x:400,y:100,elite:false});attractBefore=xpCrystals.at(-1).x;v342UpdateXpCrystals(.1)",pickupContext);
+ const attracted=vm.runInContext('({before:attractBefore,after:xpCrystals.at(-1).x,xp:run.xp})',pickupContext);
+ if(!(attracted.after<attracted.before&&attracted.after>pickupSandbox.player.x)||attracted.xp!==6)fail.push('nearby XP crystal does not home toward the player without early settlement');
+ const vitals=vm.runInContext('player.hp=75;player.maxHp=100;run.level=3;run.xp=13;run.xpNeed=52;v342CombatVitalsProjection()',pickupContext);
+ if(vitals.level!==3||vitals.hp!==75||vitals.hpMax!==100||vitals.hpPercent!==75||vitals.xp!==13||vitals.xpNeed!==52||vitals.xpPercent!==25)fail.push('combat HP and XP status projection is inaccurate');
+ vm.runInContext('xpCrystals=[];for(let i=0;i<V342_XP_CRYSTAL_LIMIT+5;i++)v342SpawnXpCrystal({x:500+i,y:500,elite:false})',pickupContext);
+ const bounded=vm.runInContext('({count:xpCrystals.length,limit:V342_XP_CRYSTAL_LIMIT,total:xpCrystals.reduce((sum,crystal)=>sum+crystal.value,0)})',pickupContext);
+ if(bounded.count!==bounded.limit||bounded.total!==(bounded.limit+5)*6)fail.push('XP crystal cap does not preserve all stored XP value');
+
+ const choiceEnd=engine.indexOf('function runReadyEvos(');
+ if(choiceEnd<0)throw new Error('existing level choice authority is missing');
+ const choiceGrid={children:[],set innerHTML(value){this.children=value===''?[]:this.children},appendChild(child){this.children.push(child)}};
+ const choiceSandbox={
+  run:{active:true,paused:false,level:1,xp:0,xpNeed:6,skills:{A001:1,A002:1,A003:1},passives:{}},
+  player:{x:100,y:100},xpCrystals:[{x:100,y:100,value:6,elite:false}],sameRun:null,opened:[],closed:[],hints:[],logs:[],
+  save:{hero:'H001',settings:{numbers:false,particles:false},build:{active:['A001','A002','A003'],passive:[]}},
+  WW:{config:{hero:{H001:{presets:[]}},evolution:{}}},
+  document:{getElementById(id){return id==='choiceGrid'?choiceGrid:null},createElement(){return{type:'',className:'',innerHTML:'',onclick:null}}},
+  skillName:id=>id,glyph:()=>'*',v32OpenLayer(id){choiceSandbox.opened.push(id)},v32CloseLayer(id){choiceSandbox.closed.push(id)},
+  hint(message){choiceSandbox.hints.push(message)},log(message){choiceSandbox.logs.push(message)},renderRunSide(){}
+ };
+ choiceSandbox.sameRun=choiceSandbox.run;
+ const choiceContext=vm.createContext(choiceSandbox);
+ vm.runInContext(engine.slice(pickupStart,pickupEnd)+'\n'+engine.slice(pickupEnd,choiceEnd),choiceContext);
+ vm.runInContext('v342UpdateXpCrystals(.016)',choiceContext);
+ let choiceState=vm.runInContext('({sameRun:run===sameRun,paused:run.paused,level:run.level,xp:run.xp,xpNeed:run.xpNeed,count:xpCrystals.length,choices:document.getElementById("choiceGrid").children.length})',choiceContext);
+ if(!choiceState.sameRun||!choiceState.paused||choiceState.level!==2||choiceState.xp!==0||choiceState.xpNeed!==48||choiceState.count!==0||choiceState.choices!==3||choiceSandbox.opened.at(-1)!=='levelOverlay')fail.push('XP crystal collection does not open the existing three-choice level overlay in the same run');
+ vm.runInContext('document.getElementById("choiceGrid").children[0].onclick()',choiceContext);
+ choiceState=vm.runInContext('({sameRun:run===sameRun,paused:run.paused,level:run.level,total:Object.values(run.skills).reduce((sum,value)=>sum+value,0)})',choiceContext);
+ if(!choiceState.sameRun||choiceState.paused||choiceState.level!==2||choiceState.total!==4||choiceSandbox.closed.at(-1)!=='levelOverlay'||choiceSandbox.hints.length!==1||choiceSandbox.logs.length!==1)fail.push('existing level choice does not apply once and resume the same run');
+}catch(error){
+ fail.push('V3.4.2 XP crystal runtime test throws: '+error.message);
+}
+
+try{
  const interactionStart=bossInteractions.indexOf('function v25Ensure('),interactionEnd=bossInteractions.indexOf("window.addEventListener('keydown'");
  const objectiveStart=engine.indexOf('function v34ObjectiveCurrent('),objectiveEnd=engine.indexOf('function v34TimedRewardProjection(');
  if(interactionStart<0||interactionEnd<0||objectiveStart<0||objectiveEnd<0)throw new Error('interaction or objective helpers are missing');
@@ -732,6 +788,9 @@ if(!battleBlock.includes('id="interactionRouteGuide" role="status" aria-live="po
 if(!engineCode.includes('function v341NearestInteractionTarget(')||!engineCode.includes('function v341WorldEdgeState(')||!engineCode.includes('function v341UpdateInteractionRouteGuide(')||!engineCode.includes('interactionTarget:interactionTarget'))fail.push('V3.4.1 nearest-target, edge-state or route-guide projection is missing');
 if(!engineCode.includes("setMobileActionState('mobileInteract',interactionState,!near,'地图互动')")||!bossInteractionsCode.includes("if(typeof v34UpdateObjectives==='function')v34UpdateObjectives()")||!bossInteractionsCode.includes("if(typeof v34RenderCombatLoop==='function')v34RenderCombatLoop()"))fail.push('V3.4.1 mobile interaction readiness or immediate existing-objective refresh is missing');
 if(!css.includes('V3.4.1 MOBILE WORLD NAVIGATION')||!css.includes('.mobileMoveZone{position:absolute;left:0;top:0;bottom:0;z-index:9;width:68%')||!css.includes('.interactionRouteGuide.show')||!css.includes('.mobileAction.interact:not(.unavailable)'))fail.push('V3.4.1 expanded touch plane or mobile navigation feedback styling is missing');
+if(!battleBlock.includes('id="combatVitals"')||!battleBlock.includes('id="combatHpTrack" role="progressbar"')||!battleBlock.includes('id="combatXpTrack" role="progressbar"')||!battleBlock.includes('id="hudXp"'))fail.push('V3.4.2 persistent HP and XP status rail markup is missing');
+if(!engineCode.includes('function v342SpawnXpCrystal(')||!engineCode.includes('function v342UpdateXpCrystals(')||!engineCode.includes('function v342DrawXpCrystals(')||!engineCode.includes('v342UpdateXpCrystals(dt)')||!engineCode.includes('v342DrawXpCrystals()'))fail.push('V3.4.2 XP crystal spawn, attraction, collection, or rendering path is missing');
+if(!css.includes('V3.4.2 COMBAT GROWTH PICKUP LOOP')||!css.includes('.combatVitals{')||!css.includes('.combatXpFill{')||!css.includes('body.mobileBattle .combatVitals'))fail.push('V3.4.2 persistent combat status rail styling is missing');
 if(engineCode.includes('function remapArenaPoint(')||/points\.forEach\(o=>remapArenaPoint/.test(engineCode)||!engineCode.includes('ensureBattleWorld();clampBattleCamera()'))fail.push('arena resize still remaps entities instead of preserving world coordinates and reclamping the camera');
 if(!engineCode.includes('WORLD_W=Math.max(BATTLE_WORLD_MIN_W,Math.ceil(AW*BATTLE_WORLD_VIEW_SCALE))')||!engineCode.includes('WORLD_H=Math.max(BATTLE_WORLD_MIN_H,Math.ceil(AH*BATTLE_WORLD_VIEW_SCALE))')||!engineCode.includes('function updateBattleCamera(dt,instant=false)'))fail.push('battle world dimensions or smooth follow camera contract is missing');
 if(!engineCode.includes('player.x=Math.max(18,Math.min(WORLD_W-18')||!directorCode.includes('player.x=Math.max(18,Math.min(WORLD_W-18'))fail.push('normal movement is still clamped to the viewport instead of the world');

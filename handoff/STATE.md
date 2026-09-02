@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-V3.4.1 Mobile World Navigation and Objective Interaction / Slice 1. The mobile joystick touch plane is wider, the nearest unused existing interaction is projected through one shared direction/distance target, the minimap and mobile route card stay synchronized, the existing interaction button shows readiness only inside the unchanged 74px radius, and world-edge feedback distinguishes approach from contact with a return direction. The existing successful interaction path immediately refreshes the existing `0/1 -> 1/1` objective projection.
+V3.4.2 Combat Growth Pickup Loop / Slice 1. Normal and elite defeats now create visible experience crystals with their existing effective XP values. Crystals remain in the world, attract only within 170px, settle once within 26px, and retain total XP through a deterministic 180-crystal cap. Collection reuses the existing `checkLevel()` -> `showLevelChoices()` -> `pickLevel()` authority. The battle HUD now keeps level, HP, and XP progress visible.
 
 ## Changed files
-`TASK.md`; `index.html`; `assets/css/app.css`; `assets/js/combat/engine.js`; `assets/js/combat/boss-map-interactions.js`; `scripts/smoke.mjs`; `scripts/audit.mjs`; `handoff/STATE.md`. No dependency, schema, ordered-script, world-size, movement-speed, interaction-radius, interaction-effect, settlement, or locked gameplay-value change.
+`TASK.md`; `index.html`; `assets/css/app.css`; `assets/js/combat/engine.js`; `scripts/smoke.mjs`; `scripts/audit.mjs`; `handoff/STATE.md`. No dependency, schema, ordered-script, enemy/player/skill/Boss balance, stage duration, upgrade authority, objective authority, or settlement change.
 
 ## Tests
-Focused nearest-target, direction/distance, minimap consistency, edge-state, existing-effect, idempotency, and `0/1 -> 1/1` guards completed RED-to-GREEN. Automated coverage proves navigation stops after the existing objective completes and adds no auto-pathing or auto-interaction. Desktop `1280x720`, emulated `390x844`, and emulated `320x844` fill the viewport with no horizontal overflow; the touch plane measures 68% at 390px and 64% at 320px, and minimap, route card, objective HUD, and actions remain visible. Real browser UI showed the same nearest target at `北 625m`, with prior mobile action evidence updating it to `北 575m` and `北 500m`; warnings/errors: 0. Ordered gates pass: check 26 JS/1 CSS, smoke, audit, context 7985/8192 bytes, archive 30/30 HTML and 12 docs.
+Focused guards cover normal `6 XP` and elite `27 XP` crystals at the existing 1.5x multiplier, no XP at defeat, attraction boundaries, one-time collection, value-preserving cap, and HP/XP projection. An integration guard executes the real pickup, three-choice overlay, upgrade selection, and same-run resume path. Desktop `1280x720`, emulated `390x844`, and emulated `320x844` keep the rail and controls visible without horizontal overflow; browser warnings/errors: 0. Ordered check, smoke, audit, context, and archive gates pass.
 
 ## Unresolved risk
-Physical-phone feel, sustained Pointer hold through the browser automation surface, real-device world-edge traversal, one normal touch interaction from `0/1` to `1/1`, and five-route human acceptance remain pending. Browser automation cannot keep the floating joystick held while animation frames advance, so the complete touch route is covered by focused runtime guards rather than claimed as browser or physical-device acceptance. The 130 legacy wrappers remain existing debt.
+Physical-phone pickup feel, long-session high-density feel, and a fully natural browser run that kills, walks to crystals, upgrades, and resumes remain unverified. Browser emulation and automated integration are not physical-device or human-play acceptance. The 130 legacy wrappers remain existing debt.
 
 ## Recommended next task
-Implement V3.4.2 Physical-Phone Navigation Acceptance / Slice 2: on one real phone, follow the shared target to an existing object, complete `0/1 -> 1/1`, reach and leave a world edge, and record any obstruction or missed input. Change only evidence-backed touch ergonomics or feedback; preserve speed, world size, 74px interaction radius, effects, combat values, saves, rewards, and settlement.
+Implement V3.4.3 Combat Growth Feel Acceptance / Slice 2: complete one natural desktop run and one physical-phone run through kill -> attract -> collect -> choose -> resume, then tune only evidence-backed crystal visibility or pickup feel. Preserve existing XP values, combat balance, saves, upgrade authority, objectives, and settlement.
 
 ## After each task
 Replace only these fields:
