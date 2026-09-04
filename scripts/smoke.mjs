@@ -512,12 +512,12 @@ try{
   checkLevel(){pickupSandbox.checkLevelCalls++}
  };
  const pickupContext=vm.createContext(pickupSandbox);vm.runInContext(engine.slice(pickupStart,pickupEnd),pickupContext);
- vm.runInContext("normal={x:300,y:100,hp:1,maxHp:1,elite:false,color:'#4fd'};enemies.push(normal);damageEnemy(normal,2)",pickupContext);
+ vm.runInContext("normal={x:360,y:100,hp:1,maxHp:1,elite:false,color:'#4fd'};enemies.push(normal);damageEnemy(normal,2)",pickupContext);
  let pickupState=vm.runInContext('({xp:run.xp,kills:run.kills,count:xpCrystals.length,value:xpCrystals[0]?.value,x:xpCrystals[0]?.x})',pickupContext);
  if(pickupState.xp!==0||pickupState.kills!==1||pickupState.count!==1||pickupState.value!==6)fail.push('normal enemy defeat does not create exactly one effective-value XP crystal without direct XP');
  vm.runInContext('v342UpdateXpCrystals(.25)',pickupContext);pickupState=vm.runInContext('({xp:run.xp,count:xpCrystals.length,x:xpCrystals[0]?.x})',pickupContext);
- if(pickupState.xp!==0||pickupState.count!==1||pickupState.x!==300)fail.push('XP crystal moves or awards XP outside attraction range');
- vm.runInContext('player.x=282;v342UpdateXpCrystals(.016)',pickupContext);pickupState=vm.runInContext('({xp:run.xp,count:xpCrystals.length})',pickupContext);
+ if(pickupState.xp!==0||pickupState.count!==1||pickupState.x!==360)fail.push('XP crystal moves or awards XP outside attraction range');
+ vm.runInContext('player.x=342;v342UpdateXpCrystals(.016)',pickupContext);pickupState=vm.runInContext('({xp:run.xp,count:xpCrystals.length})',pickupContext);
  if(pickupState.xp!==6||pickupState.count!==0||pickupSandbox.checkLevelCalls!==1)fail.push('XP crystal collection does not award its exact value once through existing level authority');
  vm.runInContext('v342UpdateXpCrystals(.016)',pickupContext);
  if(vm.runInContext('run.xp',pickupContext)!==6||pickupSandbox.checkLevelCalls!==1)fail.push('collected XP crystal can settle more than once');
@@ -526,6 +526,9 @@ try{
  vm.runInContext("v342SpawnXpCrystal({x:400,y:100,elite:false});attractBefore=xpCrystals.at(-1).x;v342UpdateXpCrystals(.1)",pickupContext);
  const attracted=vm.runInContext('({before:attractBefore,after:xpCrystals.at(-1).x,xp:run.xp})',pickupContext);
  if(!(attracted.after<attracted.before&&attracted.after>pickupSandbox.player.x)||attracted.xp!==6)fail.push('nearby XP crystal does not home toward the player without early settlement');
+ vm.runInContext("player.x=100;v342SpawnXpCrystal({x:320,y:100,elite:false});midRangeBefore=xpCrystals.at(-1).x;v342UpdateXpCrystals(.1)",pickupContext);
+ const midRangeAttracted=vm.runInContext('({before:midRangeBefore,after:xpCrystals.at(-1).x,xp:run.xp})',pickupContext);
+ if(!(midRangeAttracted.after<midRangeAttracted.before&&midRangeAttracted.after>pickupSandbox.player.x)||midRangeAttracted.xp!==6)fail.push('V3.4.3 XP crystal does not enter attraction from 220px without early settlement');
  const vitals=vm.runInContext('player.hp=75;player.maxHp=100;run.level=3;run.xp=13;run.xpNeed=52;v342CombatVitalsProjection()',pickupContext);
  if(vitals.level!==3||vitals.hp!==75||vitals.hpMax!==100||vitals.hpPercent!==75||vitals.xp!==13||vitals.xpNeed!==52||vitals.xpPercent!==25)fail.push('combat HP and XP status projection is inaccurate');
  vm.runInContext('xpCrystals=[];for(let i=0;i<V342_XP_CRYSTAL_LIMIT+5;i++)v342SpawnXpCrystal({x:500+i,y:500,elite:false})',pickupContext);
@@ -555,6 +558,33 @@ try{
  if(!choiceState.sameRun||choiceState.paused||choiceState.level!==2||choiceState.total!==4||choiceSandbox.closed.at(-1)!=='levelOverlay'||choiceSandbox.hints.length!==1||choiceSandbox.logs.length!==1)fail.push('existing level choice does not apply once and resume the same run');
 }catch(error){
  fail.push('V3.4.2 XP crystal runtime test throws: '+error.message);
+}
+
+try{
+ const drawRunStart=engine.indexOf('function drawRun()'),drawCrystalDefinition=engine.indexOf('function v342DrawXpCrystals(');
+ if(drawRunStart<0||drawCrystalDefinition<0)throw new Error('combat draw or XP crystal renderer is missing');
+ const drawRunBlock=engine.slice(drawRunStart,drawCrystalDefinition),crystalLayer=drawRunBlock.indexOf('v342DrawXpCrystals();'),enemyLayer=drawRunBlock.indexOf('for(const e of enemies)'),enemyShotLayer=drawRunBlock.indexOf('for(const p of enemyShots)'),playerLayer=drawRunBlock.indexOf("ctx.beginPath();ctx.fillStyle=player.inv>0");
+ if(crystalLayer<=enemyLayer||crystalLayer<=enemyShotLayer||crystalLayer>=playerLayer)fail.push('V3.4.3 XP crystals are not rendered above enemies and projectiles while keeping the player foregrounded');
+}catch(error){
+ fail.push('V3.4.3 XP crystal render-order test throws: '+error.message);
+}
+
+try{
+ const finalDrawStart=qualityPresentation.indexOf('drawRun=function(){'),finalDrawEnd=qualityPresentation.indexOf('/* ---------- impact feedback',finalDrawStart);
+ if(finalDrawStart<0||finalDrawEnd<0)throw new Error('final combat presentation draw authority is missing');
+ const finalDrawBlock=qualityPresentation.slice(finalDrawStart,finalDrawEnd),crystalLayer=finalDrawBlock.indexOf('v342DrawXpCrystals();'),enemyLayer=finalDrawBlock.indexOf('const actors=enemies.map'),enemyShotLayer=finalDrawBlock.indexOf('for(const p of enemyShots)');
+ if(crystalLayer<=enemyLayer||crystalLayer<=enemyShotLayer)fail.push('V3.4.3 final combat presentation omits readable XP crystals above actors and projectiles');
+}catch(error){
+ fail.push('V3.4.3 final XP crystal presentation test throws: '+error.message);
+}
+
+try{
+ const directorUpdateStart=director.indexOf('updateRun = function(dt){'),directorUpdateEnd=director.indexOf('/* Boss curve',directorUpdateStart);
+ if(directorUpdateStart<0||directorUpdateEnd<0)throw new Error('Director combat update authority is missing');
+ const directorUpdateBlock=director.slice(directorUpdateStart,directorUpdateEnd),bossUpdate=directorUpdateBlock.indexOf('bossAI(dt)'),crystalUpdate=directorUpdateBlock.indexOf('v342UpdateXpCrystals(dt);'),projectileUpdate=directorUpdateBlock.indexOf('updateProjectiles(dt)');
+ if(crystalUpdate<=bossUpdate||crystalUpdate>=projectileUpdate)fail.push('V3.4.3 final combat update authority omits XP crystal attraction and collection');
+}catch(error){
+ fail.push('V3.4.3 final XP crystal update test throws: '+error.message);
 }
 
 try{

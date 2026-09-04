@@ -182,7 +182,7 @@ updateRun = function(dt){
  const cap={easy:190,normal:250,hard:320,nightmare:380}[save.difficulty]||250;
  if(enemies.length>cap)enemies.splice(0,enemies.length-cap);
  run.attack+=dt;if(run.attack>1/Math.max(.6,player.aspd)){run.attack=0;shootAuto()}
- enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
+ enemies.slice().forEach(e=>enemyAI(e,dt));bossAI(dt);v342UpdateXpCrystals(dt);updateProjectiles(dt);updateMapMechanic(dt);updateEffects(dt);
  v19DirectorMilestones(dt);
  if(!v19StoryEncounter()){
    [3,8,13].forEach((m,i)=>{if(run.time>=m*60&&!run.events[i]){run.events[i]=true;showEvent()}});

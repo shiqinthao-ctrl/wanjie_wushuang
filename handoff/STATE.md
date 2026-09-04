@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-V3.4.2 Combat Growth Pickup Loop / Slice 1. Normal and elite defeats now create visible experience crystals with their existing effective XP values. Crystals remain in the world, attract only within 170px, settle once within 26px, and retain total XP through a deterministic 180-crystal cap. Collection reuses the existing `checkLevel()` -> `showLevelChoices()` -> `pickLevel()` authority. The battle HUD now keeps level, HP, and XP progress visible.
+V3.4.3 Combat Growth Feel Acceptance / Slice 2. A natural browser run proves defeat -> crystal drop -> attraction and collection -> XP growth -> existing three-choice level-up -> upgrade -> same-run resume. Final presentation and Director overrides now retain the V3.4.2 crystal authorities. Crystal contrast, pulse, attraction radius (`240px`), and speed (`540px/s`) were tuned from reproduced pickup-readability issues without changing XP values, `xpNeed`, combat damage, objectives, or settlement.
 
 ## Changed files
-`TASK.md`; `index.html`; `assets/css/app.css`; `assets/js/combat/engine.js`; `scripts/smoke.mjs`; `scripts/audit.mjs`; `handoff/STATE.md`. No dependency, schema, ordered-script, enemy/player/skill/Boss balance, stage duration, upgrade authority, objective authority, or settlement change.
+`TASK.md`; `assets/js/combat/engine.js`; `assets/js/presentation/quality-presentation.js`; `assets/js/systems/director-balance.js`; `scripts/smoke.mjs`; `handoff/STATE.md`. No dependency, schema, ordered-script, XP-value, `xpNeed`, enemy/player/skill/Boss balance, stage duration, upgrade authority, objective authority, or settlement change.
 
 ## Tests
-Focused guards cover normal `6 XP` and elite `27 XP` crystals at the existing 1.5x multiplier, no XP at defeat, attraction boundaries, one-time collection, value-preserving cap, and HP/XP projection. An integration guard executes the real pickup, three-choice overlay, upgrade selection, and same-run resume path. Desktop `1280x720`, emulated `390x844`, and emulated `320x844` keep the rail and controls visible without horizontal overflow; browser warnings/errors: 0. Ordered check, smoke, audit, context, and archive gates pass.
+Focused RED -> GREEN guards cover `220px` attraction, render order, final presentation, and final Director updates. Natural `ST001-01` play progressed from Lv.1 / 0 XP through visible pickups to a real three-choice level-up; selection closed the overlay and the same run continued with increasing time, kills, and XP. Desktop `1280x720`, emulated `390x844`, and emulated `320x844` have no horizontal overflow or HUD collision with the visible joystick and five action controls. Browser warnings/errors: 0. Ordered check, smoke, audit, context (under `8192` bytes), and archive (`30/30`, 12 docs) gates pass.
 
 ## Unresolved risk
-Physical-phone pickup feel, long-session high-density feel, and a fully natural browser run that kills, walks to crystals, upgrades, and resumes remain unverified. Browser emulation and automated integration are not physical-device or human-play acceptance. The 130 legacy wrappers remain existing debt.
+Physical-phone joystick, safe-area, pickup, and skill-combo feel remain unverified; browser emulation is not physical-device acceptance. Full-stage long-session density through Boss and settlement was not part of this slice. The 130 legacy wrappers remain existing debt.
 
 ## Recommended next task
-Implement V3.4.3 Combat Growth Feel Acceptance / Slice 2: complete one natural desktop run and one physical-phone run through kill -> attract -> collect -> choose -> resume, then tune only evidence-backed crystal visibility or pickup feel. Preserve existing XP values, combat balance, saves, upgrade authority, objectives, and settlement.
+Implement V3.4.4 Physical Mobile Combat Feel Acceptance / Slice 1: run one real phone through movement, dodge, skill, ultimate, interaction, crystal pickup, level-up choice, pause/resume, and return to the same run; record obstruction, dead-zone, reach, and safe-area evidence, then tune only reproduced mobile-control issues. Preserve saves, XP and combat values, existing action authorities, objectives, and settlement; do not represent browser emulation as phone acceptance.
 
 ## After each task
 Replace only these fields:

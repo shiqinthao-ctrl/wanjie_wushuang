@@ -201,6 +201,7 @@ drawRun=function(){
  for(const p of shots){ctx.save();ctx.shadowBlur=16;ctx.shadowColor=p.color;ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(p.x,p.y,p.r+(p.crit?2:0),0,Math.PI*2);ctx.fill();ctx.restore()}
  for(const p of enemyShots){ctx.save();ctx.shadowBlur=10;ctx.shadowColor=p.color;ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.restore()}
  if(save.settings.particles)for(const e of effects){const a=Math.max(0,e.life/e.max);ctx.globalAlpha=a;if(e.type==='particle'){ctx.fillStyle=e.color;ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,Math.PI*2);ctx.fill()}else{ctx.strokeStyle=e.color;ctx.lineWidth=4;ctx.beginPath();ctx.arc(e.x,e.y,e.r+(1-a)*(e.maxr||50),0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=1}
+ v342DrawXpCrystals();
  if(save.settings.numbers){ctx.textAlign='center';for(const n of numbers){ctx.globalAlpha=Math.max(0,n.life/n.max);ctx.font='800 '+n.size+'px Inter';ctx.fillStyle=n.color;ctx.fillText(n.text,n.x,n.y)}ctx.globalAlpha=1}
  if(map==='ST003'&&run.fog>0){ctx.fillStyle='rgba(74,88,64,'+(run.fog*.30)+')';ctx.fillRect(0,0,WORLD_W,WORLD_H)}
  ctx.restore()
