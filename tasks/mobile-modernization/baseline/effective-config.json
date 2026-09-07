@@ -1,0 +1,4433 @@
+{
+  "hero": {
+    "H001": {
+      "name": "赤焰战神",
+      "hp": 620,
+      "atk": 108,
+      "def": 28,
+      "move": 4.8,
+      "aspd": 0.95,
+      "crit": 5,
+      "unlock": 0,
+      "color": "#ef694e",
+      "skill": "炎龙斩",
+      "ult": "赤龙降世",
+      "presets": [
+        [
+          "灭世炎狱",
+          [
+            "A011",
+            "A021",
+            "A026",
+            "A027",
+            "A003",
+            "A054"
+          ],
+          [
+            "P026",
+            "P017",
+            "P030",
+            "P019",
+            "P016",
+            "P018"
+          ]
+        ],
+        [
+          "炎龙武圣",
+          [
+            "A001",
+            "A003",
+            "A054",
+            "A042",
+            "A063",
+            "A070"
+          ],
+          [
+            "P016",
+            "P026",
+            "P011",
+            "P003",
+            "P019",
+            "P043"
+          ]
+        ],
+        [
+          "火域站场",
+          [
+            "A021",
+            "A027",
+            "A028",
+            "A041",
+            "A011",
+            "A062"
+          ],
+          [
+            "P017",
+            "P026",
+            "P027",
+            "P019",
+            "P043",
+            "P001"
+          ]
+        ]
+      ]
+    },
+    "H002": {
+      "name": "雷霆猛将",
+      "hp": 520,
+      "atk": 102,
+      "def": 20,
+      "move": 5.4,
+      "aspd": 1.15,
+      "crit": 8,
+      "unlock": 800,
+      "color": "#70a9ff",
+      "skill": "雷闪突击",
+      "ult": "雷霆万军",
+      "presets": [
+        [
+          "九天雷神",
+          [
+            "A013",
+            "A022",
+            "A041",
+            "A051",
+            "A062",
+            "S003"
+          ],
+          [
+            "P027",
+            "P023",
+            "P011",
+            "P018",
+            "P019",
+            "P003"
+          ]
+        ],
+        [
+          "雷枪连击",
+          [
+            "A002",
+            "A051",
+            "A062",
+            "A013",
+            "A041",
+            "S003"
+          ],
+          [
+            "P027",
+            "P011",
+            "P007",
+            "P003",
+            "P018",
+            "P019"
+          ]
+        ],
+        [
+          "雷影军团",
+          [
+            "S003",
+            "A013",
+            "A022",
+            "A051",
+            "A041",
+            "A060"
+          ],
+          [
+            "P027",
+            "P039",
+            "P036",
+            "P018",
+            "P011",
+            "P019"
+          ]
+        ]
+      ]
+    },
+    "H007": {
+      "name": "灵猴",
+      "hp": 560,
+      "atk": 105,
+      "def": 22,
+      "move": 5.4,
+      "aspd": 1.1,
+      "crit": 8,
+      "unlock": 1200,
+      "color": "#f0b45d",
+      "skill": "腾云震地",
+      "ult": "法天象地",
+      "presets": [
+        [
+          "斗战风暴",
+          [
+            "A005",
+            "A001",
+            "A026",
+            "A045",
+            "S001",
+            "A009"
+          ],
+          [
+            "P016",
+            "P011",
+            "P030",
+            "P039",
+            "P036",
+            "P018"
+          ]
+        ],
+        [
+          "万猴军团",
+          [
+            "S001",
+            "A005",
+            "A026",
+            "A045",
+            "A060",
+            "A009"
+          ],
+          [
+            "P039",
+            "P036",
+            "P037",
+            "P018",
+            "P016",
+            "P030"
+          ]
+        ],
+        [
+          "巨神棍阵",
+          [
+            "A005",
+            "A001",
+            "A009",
+            "A045",
+            "A026",
+            "S001"
+          ],
+          [
+            "P001",
+            "P016",
+            "P011",
+            "P019",
+            "P030",
+            "P043"
+          ]
+        ]
+      ]
+    },
+    "H010": {
+      "name": "炎忍",
+      "hp": 440,
+      "atk": 116,
+      "def": 14,
+      "move": 5.3,
+      "aspd": 1,
+      "crit": 6,
+      "unlock": 0,
+      "color": "#f08358",
+      "skill": "炎龙疾走",
+      "ult": "炎龙忍法",
+      "presets": [
+        [
+          "爆炎忍法",
+          [
+            "A011",
+            "A019",
+            "A027",
+            "A054",
+            "S002",
+            "A042"
+          ],
+          [
+            "P026",
+            "P010",
+            "P018",
+            "P019",
+            "P024",
+            "P033"
+          ]
+        ],
+        [
+          "炎龙疾走",
+          [
+            "A054",
+            "A011",
+            "A027",
+            "A051",
+            "A060",
+            "S002"
+          ],
+          [
+            "P026",
+            "P018",
+            "P011",
+            "P019",
+            "P033",
+            "P007"
+          ]
+        ],
+        [
+          "火分身",
+          [
+            "S002",
+            "A011",
+            "A019",
+            "A027",
+            "A042",
+            "A063"
+          ],
+          [
+            "P036",
+            "P039",
+            "P026",
+            "P010",
+            "P018",
+            "P019"
+          ]
+        ]
+      ]
+    },
+    "H012": {
+      "name": "影忍",
+      "hp": 430,
+      "atk": 106,
+      "def": 14,
+      "move": 5.6,
+      "aspd": 1.2,
+      "crit": 12,
+      "unlock": 0,
+      "color": "#a47dff",
+      "skill": "影袭瞬杀",
+      "ult": "万影杀阵",
+      "presets": [
+        [
+          "万影忍神",
+          [
+            "A015",
+            "S001",
+            "A053",
+            "A070",
+            "A072",
+            "A073"
+          ],
+          [
+            "P024",
+            "P039",
+            "P033",
+            "P007",
+            "P018",
+            "P019"
+          ]
+        ],
+        [
+          "暗器暴击",
+          [
+            "A015",
+            "A007",
+            "A070",
+            "A053",
+            "A072",
+            "A073"
+          ],
+          [
+            "P024",
+            "P007",
+            "P011",
+            "P019",
+            "P033",
+            "P018"
+          ]
+        ],
+        [
+          "影军召唤",
+          [
+            "S001",
+            "A015",
+            "A053",
+            "A070",
+            "S002",
+            "S003"
+          ],
+          [
+            "P039",
+            "P036",
+            "P033",
+            "P018",
+            "P019",
+            "P024"
+          ]
+        ]
+      ]
+    },
+    "H019": {
+      "name": "气功战士",
+      "hp": 500,
+      "atk": 112,
+      "def": 18,
+      "move": 5.2,
+      "aspd": 1.05,
+      "crit": 8,
+      "unlock": 1500,
+      "color": "#65d8ff",
+      "skill": "爆气冲击",
+      "ult": "超级气功炮",
+      "presets": [
+        [
+          "万象星河炮",
+          [
+            "A014",
+            "A030",
+            "A049",
+            "A060",
+            "A068",
+            "S018"
+          ],
+          [
+            "P032",
+            "P019",
+            "P018",
+            "P003",
+            "P016",
+            "P043"
+          ]
+        ],
+        [
+          "气爆领域",
+          [
+            "A030",
+            "A060",
+            "A068",
+            "A014",
+            "A049",
+            "S018"
+          ],
+          [
+            "P032",
+            "P016",
+            "P018",
+            "P019",
+            "P043",
+            "P001"
+          ]
+        ],
+        [
+          "百重气功",
+          [
+            "A014",
+            "S018",
+            "A049",
+            "A068",
+            "A060",
+            "A030"
+          ],
+          [
+            "P032",
+            "P019",
+            "P018",
+            "P003",
+            "P011",
+            "P016"
+          ]
+        ]
+      ]
+    }
+  },
+  "skill": {
+    "A001": "旋风斩",
+    "A002": "雷霆枪",
+    "A003": "烈焰刀",
+    "A005": "回旋棍",
+    "A007": "修罗斩",
+    "A009": "连环拳",
+    "A011": "火球术",
+    "A013": "雷电弹",
+    "A014": "气功弹",
+    "A015": "手里剑",
+    "A019": "爆裂弹",
+    "A021": "火焰领域",
+    "A022": "雷霆领域",
+    "A026": "龙卷风",
+    "A027": "陨石雨",
+    "A028": "爆炎阵",
+    "A030": "气爆领域",
+    "A041": "落雷",
+    "A042": "火柱",
+    "A045": "风刃雨",
+    "A049": "气功轰炸",
+    "A051": "雷闪",
+    "A053": "影袭",
+    "A054": "火焰冲刺",
+    "A060": "气爆瞬移",
+    "A062": "雷珠",
+    "A063": "火轮",
+    "A068": "气功珠",
+    "A070": "暗影刃",
+    "A072": "黑洞",
+    "A073": "镜像攻击",
+    "S001": "影分身",
+    "S002": "火分身",
+    "S003": "雷分身",
+    "S018": "气功幻影",
+    "P001": "力量强化",
+    "P003": "破军",
+    "P007": "致命",
+    "P010": "暴击爆炸",
+    "P011": "极速",
+    "P016": "范围强化",
+    "P017": "持续强化",
+    "P018": "冷却缩减",
+    "P019": "技能倍率",
+    "P023": "弹射",
+    "P024": "分裂",
+    "P026": "火神祝福",
+    "P027": "雷神祝福",
+    "P030": "风神祝福",
+    "P032": "气能强化",
+    "P033": "暗影强化",
+    "P036": "召唤强化",
+    "P037": "召唤速度",
+    "P039": "召唤数量",
+    "P043": "吸血"
+  },
+  "evolution": {
+    "E001": [
+      "无双风暴",
+      "A001",
+      "P016"
+    ],
+    "E003": [
+      "炼狱龙斩",
+      "A003",
+      "P026"
+    ],
+    "E005": [
+      "斗战神棍",
+      "A005",
+      "P018"
+    ],
+    "E011": [
+      "炼狱火球",
+      "A011",
+      "P026"
+    ],
+    "E013": [
+      "无限雷链",
+      "A013",
+      "P023"
+    ],
+    "E014": [
+      "星河气弹",
+      "A014",
+      "P032"
+    ],
+    "E015": [
+      "万影手里剑",
+      "A015",
+      "P024"
+    ],
+    "E019": [
+      "连环爆破",
+      "A019",
+      "P010"
+    ],
+    "E021": [
+      "炼狱火海",
+      "A021",
+      "P017"
+    ],
+    "E022": [
+      "九天雷域",
+      "A022",
+      "P027"
+    ],
+    "E026": [
+      "天灾风暴",
+      "A026",
+      "P030"
+    ],
+    "E027": [
+      "天火陨星",
+      "A027",
+      "P026"
+    ],
+    "E028": [
+      "九重爆炎阵",
+      "A028",
+      "P019"
+    ],
+    "E030": [
+      "星环气场",
+      "A030",
+      "P032"
+    ],
+    "E041": [
+      "天罚神雷",
+      "A041",
+      "P027"
+    ],
+    "E049": [
+      "星河弹幕",
+      "A049",
+      "P032"
+    ],
+    "E054": [
+      "炎龙疾走",
+      "A054",
+      "P026"
+    ],
+    "SE001": [
+      "万影军团",
+      "S001",
+      "P039"
+    ],
+    "SE003": [
+      "雷神影军",
+      "S003",
+      "P027"
+    ],
+    "SE018": [
+      "星河幻影",
+      "S018",
+      "P032"
+    ]
+  },
+  "gear": {
+    "EQW001": {
+      "name": "赤炎刀",
+      "slot": "weapon",
+      "score": 315,
+      "rarity": "purple",
+      "set": "SET_FIRE",
+      "exclusive": "H001",
+      "legend": "烈焰斩击范围+12%，火系伤害+8%。"
+    },
+    "EQW003": {
+      "name": "玄铁神棍",
+      "slot": "weapon",
+      "score": 350,
+      "rarity": "gold",
+      "set": "SET_MONKEY",
+      "exclusive": "H007",
+      "legend": "召唤伤害+12%，斗战分身上限提高。"
+    },
+    "EQW005": {
+      "name": "万影短刃",
+      "slot": "weapon",
+      "score": 335,
+      "rarity": "purple",
+      "set": "SET_SHADOW",
+      "exclusive": "H012",
+      "legend": "暗器穿透+1，影系暴击+5%。"
+    },
+    "EQW007": {
+      "name": "黄天战刃",
+      "slot": "weapon",
+      "score": 405,
+      "rarity": "gold",
+      "set": "SET_CHAOS",
+      "boss": "B001",
+      "legend": "对Boss伤害+12%；击破护盾时提升攻击。"
+    },
+    "EQA001": {
+      "name": "炎龙战甲",
+      "slot": "armor",
+      "score": 250,
+      "rarity": "purple",
+      "set": "SET_FIRE",
+      "legend": "最大生命+8%，火焰领域范围+8%。"
+    },
+    "EQA003": {
+      "name": "斗战金甲",
+      "slot": "armor",
+      "score": 275,
+      "rarity": "gold",
+      "set": "SET_MONKEY",
+      "legend": "召唤物数量倾向+1，受到近战伤害降低。"
+    },
+    "EQA005": {
+      "name": "万影忍装",
+      "slot": "armor",
+      "score": 265,
+      "rarity": "purple",
+      "set": "SET_SHADOW",
+      "legend": "影印衰减减缓，暴击伤害提高。"
+    },
+    "EQA007": {
+      "name": "混沌骑甲",
+      "slot": "armor",
+      "score": 410,
+      "rarity": "gold",
+      "set": "SET_CHAOS",
+      "boss": "B003",
+      "legend": "Boss预警期间移动速度+10%。"
+    },
+    "EQX001": {
+      "name": "炎龙核心",
+      "slot": "accessory",
+      "score": 265,
+      "rarity": "purple",
+      "set": "SET_FIRE",
+      "legend": "火系爆炸命中有概率扩大燃烧区域。"
+    },
+    "EQX003": {
+      "name": "斗战战印",
+      "slot": "accessory",
+      "score": 285,
+      "rarity": "gold",
+      "set": "SET_MONKEY",
+      "legend": "分身攻击速度提高，范围强化。"
+    },
+    "EQX005": {
+      "name": "影界勾玉",
+      "slot": "accessory",
+      "score": 275,
+      "rarity": "purple",
+      "set": "SET_SHADOW",
+      "legend": "手里剑分裂层数+1。"
+    },
+    "EQX007": {
+      "name": "妖师法印",
+      "slot": "accessory",
+      "score": 400,
+      "rarity": "gold",
+      "set": "SET_CHAOS",
+      "boss": "B002",
+      "legend": "对护盾目标伤害提高；元素伤害+8%。"
+    },
+    "EQW002": {
+      "name": "雷鸣枪",
+      "slot": "weapon",
+      "score": 330,
+      "rarity": "purple",
+      "set": "SET_THUNDER",
+      "exclusive": "H002",
+      "legend": "雷系技能获得额外弹射倾向。"
+    },
+    "EQW004": {
+      "name": "炎忍苦无",
+      "slot": "weapon",
+      "score": 325,
+      "rarity": "purple",
+      "set": "SET_BLAZE",
+      "exclusive": "H010",
+      "legend": "爆炸范围+15%，闪避爆符强化。"
+    },
+    "EQW006": {
+      "name": "星河拳环",
+      "slot": "weapon",
+      "score": 345,
+      "rarity": "gold",
+      "set": "SET_KI",
+      "exclusive": "H019",
+      "legend": "气功弹穿透+1，气能蓄积速度提高。"
+    },
+    "EQW008": {
+      "name": "牛魔战棍",
+      "slot": "weapon",
+      "score": 430,
+      "rarity": "gold",
+      "set": "SET_YAOLING",
+      "boss": "B006",
+      "legend": "范围伤害+14%，近身技能对精英伤害提高。"
+    },
+    "EQW009": {
+      "name": "万影妖刀",
+      "slot": "weapon",
+      "score": 455,
+      "rarity": "gold",
+      "set": "SET_NINJABOSS",
+      "boss": "B011",
+      "legend": "暗影技能额外分裂，Boss阶段3伤害提高。"
+    },
+    "EQW010": {
+      "name": "裂界神刃",
+      "slot": "weapon",
+      "score": 480,
+      "rarity": "gold",
+      "set": "SET_RIFT",
+      "legend": "全元素伤害+10%，融合技能伤害+15%。"
+    },
+    "EQA002": {
+      "name": "雷神战铠",
+      "slot": "armor",
+      "score": 255,
+      "rarity": "purple",
+      "set": "SET_THUNDER",
+      "legend": "闪避后雷势+12%。"
+    },
+    "EQA004": {
+      "name": "炎忍战装",
+      "slot": "armor",
+      "score": 260,
+      "rarity": "purple",
+      "set": "SET_BLAZE",
+      "legend": "英雄技冷却-6%，移动速度+5%。"
+    },
+    "EQA006": {
+      "name": "星河武衣",
+      "slot": "armor",
+      "score": 270,
+      "rarity": "gold",
+      "set": "SET_KI",
+      "legend": "气功技能冷却-6%，最大生命+5%。"
+    },
+    "EQA008": {
+      "name": "炎狱忍装",
+      "slot": "armor",
+      "score": 425,
+      "rarity": "gold",
+      "set": "SET_NINJABOSS",
+      "boss": "B009",
+      "legend": "火/暗影伤害提高，地图危险伤害降低。"
+    },
+    "EQA009": {
+      "name": "妖王战铠",
+      "slot": "armor",
+      "score": 420,
+      "rarity": "gold",
+      "set": "SET_YAOLING",
+      "legend": "精英伤害+15%，击杀精英恢复生命。"
+    },
+    "EQA010": {
+      "name": "万界神衣",
+      "slot": "armor",
+      "score": 470,
+      "rarity": "gold",
+      "set": "SET_RIFT",
+      "legend": "最大生命+12%，所有冷却缩减提高。"
+    },
+    "EQX002": {
+      "name": "雷霆勾玉",
+      "slot": "accessory",
+      "score": 270,
+      "rarity": "purple",
+      "set": "SET_THUNDER",
+      "legend": "雷电弹/雷枪弹射次数提高。"
+    },
+    "EQX004": {
+      "name": "爆炎卷轴",
+      "slot": "accessory",
+      "score": 268,
+      "rarity": "purple",
+      "set": "SET_BLAZE",
+      "legend": "爆符和爆裂弹的爆炸半径提高。"
+    },
+    "EQX006": {
+      "name": "星河核心",
+      "slot": "accessory",
+      "score": 282,
+      "rarity": "gold",
+      "set": "SET_KI",
+      "legend": "气功领域范围+12%，穿透伤害提高。"
+    },
+    "EQX008": {
+      "name": "魔猿战印",
+      "slot": "accessory",
+      "score": 435,
+      "rarity": "gold",
+      "set": "SET_YAOLING",
+      "boss": "B008",
+      "legend": "召唤与范围技能伤害提高。"
+    },
+    "EQX009": {
+      "name": "雷瞬勾玉",
+      "slot": "accessory",
+      "score": 440,
+      "rarity": "gold",
+      "set": "SET_NINJABOSS",
+      "boss": "B010",
+      "legend": "闪避后短时间暴击率提高。"
+    },
+    "EQX010": {
+      "name": "万界印记",
+      "slot": "accessory",
+      "score": 475,
+      "rarity": "gold",
+      "set": "SET_RIFT",
+      "legend": "融合/进化技能伤害和范围同时提高。"
+    }
+  },
+  "rune": {
+    "R031": {
+      "name": "火神符文",
+      "score": 96
+    },
+    "R012": {
+      "name": "巨化符文",
+      "score": 96
+    },
+    "R043": {
+      "name": "学者符文",
+      "score": 96
+    },
+    "R001": {
+      "name": "狂战符文",
+      "score": 96
+    },
+    "R017": {
+      "name": "多重符文",
+      "score": 90
+    },
+    "R021": {
+      "name": "吸血符文",
+      "score": 96
+    },
+    "R002": {
+      "name": "破军符文",
+      "score": 96
+    },
+    "R003": {
+      "name": "暴君符文",
+      "score": 102
+    },
+    "R004": {
+      "name": "连击符文",
+      "score": 90
+    },
+    "R006": {
+      "name": "杀戮符文",
+      "score": 90
+    },
+    "R011": {
+      "name": "奥术符文",
+      "score": 102
+    },
+    "R013": {
+      "name": "分裂符文",
+      "score": 90
+    },
+    "R015": {
+      "name": "持续符文",
+      "score": 90
+    },
+    "R022": {
+      "name": "护盾符文",
+      "score": 90
+    },
+    "R025": {
+      "name": "闪避符文",
+      "score": 90
+    },
+    "R032": {
+      "name": "雷神符文",
+      "score": 96
+    },
+    "R033": {
+      "name": "冰神符文",
+      "score": 96
+    },
+    "R035": {
+      "name": "风神符文",
+      "score": 102
+    },
+    "R041": {
+      "name": "贪婪符文",
+      "score": 96
+    },
+    "R046": {
+      "name": "磁力符文",
+      "score": 96
+    }
+  },
+  "pet": {
+    "PET001": {
+      "name": "火灵",
+      "score": 140
+    },
+    "PET002": {
+      "name": "雷狼",
+      "score": 120
+    },
+    "PET007": {
+      "name": "治疗精灵",
+      "score": 110
+    },
+    "PET011": {
+      "name": "招财猫",
+      "score": 105
+    },
+    "PET015": {
+      "name": "镜像精灵",
+      "score": 128
+    }
+  },
+  "boss": {
+    "B001": {
+      "name": "黄巾巨将",
+      "map": "ST001",
+      "style": "巨斧冲击",
+      "hp": 7000,
+      "color": "#8f3539",
+      "skills": [
+        "震地斩",
+        "狂暴冲锋",
+        "旋风斧"
+      ]
+    },
+    "B002": {
+      "name": "乱世妖师",
+      "map": "ST001",
+      "style": "法阵与召唤",
+      "hp": 11000,
+      "color": "#76538f",
+      "skills": [
+        "火符法阵",
+        "妖兵召唤",
+        "瞬移雷击"
+      ]
+    },
+    "B003": {
+      "name": "混沌骑将",
+      "map": "ST001",
+      "style": "骑乘冲锋",
+      "hp": 18000,
+      "color": "#8a472d",
+      "skills": [
+        "直线冲锋",
+        "枪阵",
+        "下马狂战"
+      ]
+    },
+    "B006": {
+      "name": "牛魔妖王",
+      "map": "ST003",
+      "style": "重击与岩爆",
+      "hp": 22000,
+      "color": "#76513a",
+      "skills": [
+        "裂地重锤",
+        "岩石爆破",
+        "霸体冲撞"
+      ]
+    },
+    "B008": {
+      "name": "混世魔猿",
+      "map": "ST003",
+      "style": "跳跃与分身",
+      "hp": 30000,
+      "color": "#805f39",
+      "skills": [
+        "跃击",
+        "棍影分身",
+        "狂暴连砸"
+      ]
+    },
+    "B009": {
+      "name": "炎狱忍王",
+      "map": "ST004",
+      "style": "火遁与爆符",
+      "hp": 24000,
+      "color": "#9a4539",
+      "skills": [
+        "炎墙",
+        "爆符雨",
+        "炎龙突袭"
+      ]
+    },
+    "B010": {
+      "name": "雷瞬忍王",
+      "map": "ST004",
+      "style": "高速雷闪",
+      "hp": 26000,
+      "color": "#4f6d9c",
+      "skills": [
+        "雷瞬",
+        "雷牢",
+        "天雷落"
+      ]
+    },
+    "B011": {
+      "name": "万影忍王",
+      "map": "ST004",
+      "style": "分身与斩杀",
+      "hp": 36000,
+      "color": "#70528d",
+      "skills": [
+        "万影分身",
+        "暗影扇刃",
+        "影界处刑"
+      ]
+    }
+  },
+  "stage": {
+    "ST001": {
+      "name": "乱世荒原",
+      "desc": "黄巾残军与裂隙妖术肆虐边境。",
+      "pos": [
+        18,
+        67
+      ],
+      "mechanic": "火线：周期出现横向燃烧带，站在其中持续掉血。",
+      "bossPool": [
+        "B001",
+        "B002",
+        "B003"
+      ],
+      "stages": [
+        [
+          "ST001-01",
+          "边境清剿",
+          true,
+          260,
+          "B001",
+          {
+            "objective": "在 06:00 前击败黄巾巨将并领取战利品",
+            "duration": 360,
+            "bosses": [
+              "B001"
+            ],
+            "bossAt": 270,
+            "unlockAfter": null,
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST001-02",
+          "废村救援",
+          false,
+          320,
+          "B001",
+          {
+            "objective": "守住废村救援路线，坚持至 20:00",
+            "duration": 1200,
+            "bosses": [],
+            "bossAt": null,
+            "unlockAfter": "ST001-01",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST001-03",
+          "妖师祭坛",
+          true,
+          420,
+          "B002",
+          {
+            "objective": "在 20:00 前击败乱世妖师并摧毁祭坛",
+            "duration": 1200,
+            "bosses": [
+              "B002"
+            ],
+            "bossAt": 720,
+            "unlockAfter": "ST001-02",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST001-04",
+          "裂隙骑将",
+          true,
+          650,
+          "B003",
+          {
+            "objective": "在 20:00 前击败混沌骑将，封锁裂隙",
+            "duration": 1200,
+            "bosses": [
+              "B003"
+            ],
+            "bossAt": 720,
+            "unlockAfter": "ST001-03",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ]
+      ],
+      "unlock": true
+    },
+    "ST003": {
+      "name": "花果妖岭",
+      "desc": "妖气笼罩古道，混世魔猿统领怪潮。",
+      "pos": [
+        52,
+        37
+      ],
+      "mechanic": "妖雾：周期覆盖区域，降低视野并强化妖怪移速。",
+      "bossPool": [
+        "B006",
+        "B008"
+      ],
+      "stages": [
+        [
+          "ST003-01",
+          "妖岭入口",
+          false,
+          420,
+          "B006",
+          {
+            "objective": "突破妖岭入口，坚持至 20:00",
+            "duration": 1200,
+            "bosses": [],
+            "bossAt": null,
+            "unlockAfter": "ST001-04",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST003-02",
+          "白骨迷阵",
+          false,
+          480,
+          "B006",
+          {
+            "objective": "穿越白骨迷阵，坚持至 20:00",
+            "duration": 1200,
+            "bosses": [],
+            "bossAt": null,
+            "unlockAfter": "ST003-01",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST003-03",
+          "牛魔试炼",
+          true,
+          620,
+          "B006",
+          {
+            "objective": "在 20:00 前击败牛魔妖王，完成试炼",
+            "duration": 1200,
+            "bosses": [
+              "B006"
+            ],
+            "bossAt": 720,
+            "unlockAfter": "ST003-02",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST003-04",
+          "混世魔猿",
+          true,
+          820,
+          "B008",
+          {
+            "objective": "在 20:00 前击败混世魔猿，平息妖岭",
+            "duration": 1200,
+            "bosses": [
+              "B008"
+            ],
+            "bossAt": 720,
+            "unlockAfter": "ST003-03",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ]
+      ],
+      "unlock": false
+    },
+    "ST004": {
+      "name": "忍界战场",
+      "desc": "雷火、暗器与分身制造高速战场。",
+      "pos": [
+        83,
+        58
+      ],
+      "mechanic": "爆符区：地面随机生成爆符预警圈，延迟后爆炸。",
+      "bossPool": [
+        "B009",
+        "B010",
+        "B011"
+      ],
+      "stages": [
+        [
+          "ST004-01",
+          "暗器封锁",
+          false,
+          540,
+          "B009",
+          {
+            "objective": "突破暗器封锁，坚持至 20:00",
+            "duration": 1200,
+            "bosses": [],
+            "bossAt": null,
+            "unlockAfter": "ST003-04",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST004-02",
+          "爆符峡谷",
+          false,
+          620,
+          "B010",
+          {
+            "objective": "穿越爆符峡谷，坚持至 20:00",
+            "duration": 1200,
+            "bosses": [],
+            "bossAt": null,
+            "unlockAfter": "ST004-01",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST004-03",
+          "炎雷双王",
+          true,
+          820,
+          "B010",
+          {
+            "objective": "在 20:00 前依次击败炎狱忍王与雷瞬忍王",
+            "duration": 1200,
+            "bosses": [
+              "B009",
+              "B010"
+            ],
+            "bossAt": 720,
+            "unlockAfter": "ST004-02",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ],
+        [
+          "ST004-04",
+          "万影忍王",
+          true,
+          1100,
+          "B011",
+          {
+            "objective": "在 20:00 前击败万影忍王，终结战役",
+            "duration": 1200,
+            "bosses": [
+              "B011"
+            ],
+            "bossAt": 720,
+            "unlockAfter": "ST004-03",
+            "stars": {
+              "clear": 2,
+              "mastery": 3,
+              "masteryHp": 0.55
+            },
+            "reward": {
+              "starGold": 100
+            }
+          }
+        ]
+      ],
+      "unlock": false
+    }
+  },
+  "storyEncounters": {
+    "ST001-01": {
+      "name": "边境疏火线",
+      "spawn": 0.88,
+      "elite": 0.7,
+      "horde": 0.7,
+      "enemies": [
+        [
+          "EN001",
+          5
+        ],
+        [
+          "EN002",
+          3
+        ],
+        [
+          "EN003",
+          1
+        ]
+      ],
+      "eventAt": [
+        45,
+        150
+      ],
+      "eventPool": [
+        "merchant",
+        "goldChest"
+      ],
+      "chestAt": [
+        90,
+        210
+      ],
+      "hazard": {
+        "type": "fireline",
+        "name": "边境疏火线",
+        "desc": "低频横向火线留出明确闪避窗口。",
+        "interval": 26,
+        "damage": 8,
+        "size": 36,
+        "life": 4
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "步卒接战",
+          "type": "normal",
+          "budget": 0.78,
+          "elite": 0.35,
+          "note": "步卒与弓手建立基础走位"
+        },
+        {
+          "at": 60,
+          "name": "弓手压线",
+          "type": "normal",
+          "budget": 0.88,
+          "elite": 0.45,
+          "note": "远程火力开始夹击"
+        },
+        {
+          "at": 150,
+          "name": "盾阵试锋",
+          "type": "elite",
+          "budget": 0.96,
+          "elite": 0.85,
+          "note": "首名精英检验构筑"
+        },
+        {
+          "at": 270,
+          "name": "巨将压境",
+          "type": "boss",
+          "budget": 0.68,
+          "elite": 0.3,
+          "bosses": [
+            "B001"
+          ],
+          "note": "黄巾巨将登场"
+        },
+        {
+          "at": 360,
+          "name": "边境决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "Boss战利品决定通关"
+        }
+      ]
+    },
+    "ST001-02": {
+      "name": "废村守援",
+      "spawn": 0.94,
+      "elite": 0.9,
+      "horde": 1.05,
+      "enemies": [
+        [
+          "EN003",
+          4
+        ],
+        [
+          "EN006",
+          2
+        ],
+        [
+          "EN002",
+          2
+        ]
+      ],
+      "eventAt": [
+        150,
+        450,
+        780
+      ],
+      "eventPool": [
+        "merchant",
+        "goldChest"
+      ],
+      "chestAt": [
+        300,
+        660,
+        960
+      ],
+      "hazard": {
+        "type": "fireline",
+        "name": "救援间歇火线",
+        "desc": "较慢火线穿过村道，重装敌群借机包围。",
+        "interval": 30,
+        "damage": 9,
+        "size": 44,
+        "life": 5
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "村口盾阵",
+          "type": "normal",
+          "budget": 0.84,
+          "elite": 0.45,
+          "note": "盾兵掩护弓手推进"
+        },
+        {
+          "at": 180,
+          "name": "救援窗口",
+          "type": "event",
+          "budget": 0.7,
+          "elite": 0.35,
+          "note": "短暂回落并处理补给"
+        },
+        {
+          "at": 360,
+          "name": "力士围攻",
+          "type": "elite",
+          "budget": 1.18,
+          "elite": 1.2,
+          "note": "重装精英压缩村道"
+        },
+        {
+          "at": 600,
+          "name": "双路守援",
+          "type": "horde",
+          "budget": 1.58,
+          "elite": 0.9,
+          "note": "高密度包围"
+        },
+        {
+          "at": 900,
+          "name": "撤离反扑",
+          "type": "horde",
+          "budget": 1.72,
+          "elite": 1.05,
+          "note": "护送终段持续增压"
+        },
+        {
+          "at": 1080,
+          "name": "村口坚守",
+          "type": "elite",
+          "budget": 1.42,
+          "elite": 1.35,
+          "note": "终局精英守线"
+        },
+        {
+          "at": 1200,
+          "name": "救援完成",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "生存目标结算"
+        }
+      ]
+    },
+    "ST001-03": {
+      "name": "妖火祭坛",
+      "spawn": 1.02,
+      "elite": 1.2,
+      "horde": 1.1,
+      "enemies": [
+        [
+          "EN005",
+          4
+        ],
+        [
+          "EN002",
+          2
+        ],
+        [
+          "EN006",
+          2
+        ]
+      ],
+      "eventAt": [
+        180,
+        420,
+        780
+      ],
+      "eventPool": [
+        "altar",
+        "rift"
+      ],
+      "chestAt": [
+        300,
+        600,
+        930
+      ],
+      "hazard": {
+        "type": "fireline",
+        "name": "祭坛妖火线",
+        "desc": "密集妖火横扫祭坛，迫使玩家持续换边。",
+        "interval": 19,
+        "damage": 11,
+        "size": 48,
+        "life": 5
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "火箭试探",
+          "type": "normal",
+          "budget": 0.94,
+          "elite": 0.55,
+          "note": "火箭兵封锁停留区"
+        },
+        {
+          "at": 180,
+          "name": "祭坛抉择",
+          "type": "event",
+          "budget": 0.76,
+          "elite": 0.4,
+          "note": "祭坛或裂缝事件"
+        },
+        {
+          "at": 360,
+          "name": "妖火齐射",
+          "type": "horde",
+          "budget": 1.55,
+          "elite": 0.95,
+          "note": "范围火力形成密集区"
+        },
+        {
+          "at": 540,
+          "name": "力士护坛",
+          "type": "elite",
+          "budget": 1.34,
+          "elite": 1.55,
+          "note": "精英护卫压迫近身空间"
+        },
+        {
+          "at": 720,
+          "name": "妖师现身",
+          "type": "boss",
+          "budget": 0.82,
+          "elite": 0.42,
+          "bosses": [
+            "B002"
+          ],
+          "note": "乱世妖师登场"
+        },
+        {
+          "at": 960,
+          "name": "法阵反扑",
+          "type": "horde",
+          "budget": 1.62,
+          "elite": 1.18,
+          "note": "Boss战中敌潮回补"
+        },
+        {
+          "at": 1200,
+          "name": "祭坛决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "检查Boss目标"
+        }
+      ]
+    },
+    "ST001-04": {
+      "name": "骑阵裂隙",
+      "spawn": 1.08,
+      "elite": 1.35,
+      "horde": 1.25,
+      "enemies": [
+        [
+          "EN004",
+          4
+        ],
+        [
+          "EN006",
+          3
+        ],
+        [
+          "EN003",
+          2
+        ]
+      ],
+      "eventAt": [
+        120,
+        510,
+        840
+      ],
+      "eventPool": [
+        "rift",
+        "altar"
+      ],
+      "chestAt": [
+        270,
+        570,
+        900
+      ],
+      "hazard": {
+        "type": "fireline",
+        "name": "裂隙烈焰带",
+        "desc": "高频宽火线配合骑兵冲锋切割战场。",
+        "interval": 15,
+        "damage": 12,
+        "size": 58,
+        "life": 5
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "骑兵穿阵",
+          "type": "normal",
+          "budget": 1.02,
+          "elite": 0.62,
+          "note": "冲锋敌人提前入场"
+        },
+        {
+          "at": 150,
+          "name": "裂隙诱敌",
+          "type": "event",
+          "budget": 0.78,
+          "elite": 0.48,
+          "note": "高风险事件窗口"
+        },
+        {
+          "at": 330,
+          "name": "盾骑夹击",
+          "type": "horde",
+          "budget": 1.68,
+          "elite": 1.1,
+          "note": "盾兵与骑兵同步推进"
+        },
+        {
+          "at": 540,
+          "name": "力士破阵",
+          "type": "elite",
+          "budget": 1.48,
+          "elite": 1.72,
+          "note": "重装精英制造缺口"
+        },
+        {
+          "at": 720,
+          "name": "骑将冲阵",
+          "type": "boss",
+          "budget": 0.88,
+          "elite": 0.52,
+          "bosses": [
+            "B003"
+          ],
+          "note": "混沌骑将登场"
+        },
+        {
+          "at": 930,
+          "name": "裂隙暴走",
+          "type": "horde",
+          "budget": 1.86,
+          "elite": 1.35,
+          "note": "Boss战场持续高压"
+        },
+        {
+          "at": 1110,
+          "name": "封隙死战",
+          "type": "elite",
+          "budget": 1.58,
+          "elite": 1.72,
+          "note": "终局精英压迫"
+        },
+        {
+          "at": 1200,
+          "name": "裂隙决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "检查Boss目标"
+        }
+      ]
+    },
+    "ST003-01": {
+      "name": "妖岭疾袭",
+      "spawn": 1.05,
+      "elite": 0.8,
+      "horde": 1.2,
+      "enemies": [
+        [
+          "EN014",
+          4
+        ],
+        [
+          "EN015",
+          4
+        ],
+        [
+          "EN018",
+          2
+        ]
+      ],
+      "eventAt": [
+        180,
+        480,
+        780
+      ],
+      "eventPool": [
+        "merchant",
+        "rift"
+      ],
+      "chestAt": [
+        300,
+        630,
+        960
+      ],
+      "hazard": {
+        "type": "fog",
+        "name": "流动薄雾",
+        "desc": "薄雾周期遮蔽边缘，疾速妖怪从侧翼突入。",
+        "frequency": 0.18,
+        "density": 0.58
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "猴妖探路",
+          "type": "normal",
+          "budget": 0.92,
+          "elite": 0.42,
+          "note": "快速近战建立节奏"
+        },
+        {
+          "at": 180,
+          "name": "狼妖侧袭",
+          "type": "horde",
+          "budget": 1.48,
+          "elite": 0.72,
+          "note": "侧翼敌群短促爆发"
+        },
+        {
+          "at": 390,
+          "name": "飞妖掠阵",
+          "type": "normal",
+          "budget": 1.16,
+          "elite": 0.7,
+          "note": "空中远射迫使转向"
+        },
+        {
+          "at": 600,
+          "name": "山道奔袭",
+          "type": "horde",
+          "budget": 1.72,
+          "elite": 0.92,
+          "note": "疾速混编持续推进"
+        },
+        {
+          "at": 840,
+          "name": "雾中补给",
+          "type": "event",
+          "budget": 0.76,
+          "elite": 0.48,
+          "note": "事件后快速回压"
+        },
+        {
+          "at": 1020,
+          "name": "妖岭冲锋",
+          "type": "horde",
+          "budget": 1.88,
+          "elite": 1.08,
+          "note": "终局速度峰值"
+        },
+        {
+          "at": 1200,
+          "name": "入口突破",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "生存目标结算"
+        }
+      ]
+    },
+    "ST003-02": {
+      "name": "白骨迷雾",
+      "spawn": 0.92,
+      "elite": 1.15,
+      "horde": 0.95,
+      "enemies": [
+        [
+          "EN016",
+          4
+        ],
+        [
+          "EN019",
+          3
+        ],
+        [
+          "EN020",
+          2
+        ]
+      ],
+      "eventAt": [
+        150,
+        540,
+        870
+      ],
+      "eventPool": [
+        "altar",
+        "goldChest"
+      ],
+      "chestAt": [
+        330,
+        690,
+        990
+      ],
+      "hazard": {
+        "type": "fog",
+        "name": "白骨浓雾",
+        "desc": "浓雾长时间压低视野，术师与石妖构成阵地战。",
+        "frequency": 0.24,
+        "density": 0.88
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "蛇妖毒径",
+          "type": "normal",
+          "budget": 0.82,
+          "elite": 0.58,
+          "note": "毒性远射限制路径"
+        },
+        {
+          "at": 210,
+          "name": "术师布阵",
+          "type": "normal",
+          "budget": 1.08,
+          "elite": 0.82,
+          "note": "召唤单位逐步增多"
+        },
+        {
+          "at": 420,
+          "name": "石妖封路",
+          "type": "elite",
+          "budget": 1.28,
+          "elite": 1.48,
+          "note": "高耐久精英堵塞通道"
+        },
+        {
+          "at": 690,
+          "name": "迷阵换位",
+          "type": "event",
+          "budget": 0.68,
+          "elite": 0.46,
+          "note": "资源窗口短暂降压"
+        },
+        {
+          "at": 840,
+          "name": "白骨围阵",
+          "type": "horde",
+          "budget": 1.52,
+          "elite": 1.12,
+          "note": "召唤与毒射混编"
+        },
+        {
+          "at": 1080,
+          "name": "浓雾镇守",
+          "type": "elite",
+          "budget": 1.44,
+          "elite": 1.62,
+          "note": "终局重装精英"
+        },
+        {
+          "at": 1200,
+          "name": "迷阵穿越",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "生存目标结算"
+        }
+      ]
+    },
+    "ST003-03": {
+      "name": "牛魔重阵",
+      "spawn": 0.96,
+      "elite": 1.35,
+      "horde": 1.05,
+      "enemies": [
+        [
+          "EN017",
+          4
+        ],
+        [
+          "EN020",
+          3
+        ],
+        [
+          "EN014",
+          2
+        ]
+      ],
+      "eventAt": [
+        210,
+        510,
+        810
+      ],
+      "eventPool": [
+        "rift",
+        "altar"
+      ],
+      "chestAt": [
+        300,
+        660,
+        960
+      ],
+      "hazard": {
+        "type": "fog",
+        "name": "沉降妖尘",
+        "desc": "妖尘间歇收拢视野，重装敌人正面推进。",
+        "frequency": 0.15,
+        "density": 0.66
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "石妖列阵",
+          "type": "normal",
+          "budget": 0.96,
+          "elite": 0.68,
+          "note": "高耐久前排缓慢推进"
+        },
+        {
+          "at": 240,
+          "name": "牛妖重压",
+          "type": "elite",
+          "budget": 1.32,
+          "elite": 1.55,
+          "note": "首轮重装精英"
+        },
+        {
+          "at": 420,
+          "name": "妖军踏阵",
+          "type": "horde",
+          "budget": 1.54,
+          "elite": 1.12,
+          "note": "低速高血敌潮"
+        },
+        {
+          "at": 600,
+          "name": "试炼补给",
+          "type": "chest",
+          "budget": 0.72,
+          "elite": 0.42,
+          "note": "Boss前构筑窗口"
+        },
+        {
+          "at": 720,
+          "name": "牛魔试炼",
+          "type": "boss",
+          "budget": 0.86,
+          "elite": 0.48,
+          "bosses": [
+            "B006"
+          ],
+          "note": "牛魔妖王登场"
+        },
+        {
+          "at": 960,
+          "name": "岩阵回响",
+          "type": "elite",
+          "budget": 1.52,
+          "elite": 1.72,
+          "note": "Boss战中重装回补"
+        },
+        {
+          "at": 1200,
+          "name": "试炼决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "检查Boss目标"
+        }
+      ]
+    },
+    "ST003-04": {
+      "name": "魔猿乱潮",
+      "spawn": 1.12,
+      "elite": 1.25,
+      "horde": 1.35,
+      "enemies": [
+        [
+          "EN014",
+          4
+        ],
+        [
+          "EN018",
+          3
+        ],
+        [
+          "EN019",
+          3
+        ]
+      ],
+      "eventAt": [
+        120,
+        420,
+        750
+      ],
+      "eventPool": [
+        "rift",
+        "goldChest"
+      ],
+      "chestAt": [
+        240,
+        570,
+        900
+      ],
+      "hazard": {
+        "type": "fog",
+        "name": "翻涌妖云",
+        "desc": "妖云快速明暗变化，召唤与飞行敌群连续换位。",
+        "frequency": 0.3,
+        "density": 0.94
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "群猴乱入",
+          "type": "horde",
+          "budget": 1.18,
+          "elite": 0.62,
+          "note": "开场即进入密集近战"
+        },
+        {
+          "at": 180,
+          "name": "飞妖遮天",
+          "type": "normal",
+          "budget": 1.24,
+          "elite": 0.82,
+          "note": "远射与近战快速换层"
+        },
+        {
+          "at": 360,
+          "name": "术师唤群",
+          "type": "elite",
+          "budget": 1.42,
+          "elite": 1.45,
+          "note": "精英术师持续召唤"
+        },
+        {
+          "at": 540,
+          "name": "妖云狂潮",
+          "type": "horde",
+          "budget": 1.88,
+          "elite": 1.22,
+          "note": "Boss前密度峰值"
+        },
+        {
+          "at": 720,
+          "name": "魔猿降临",
+          "type": "boss",
+          "budget": 0.92,
+          "elite": 0.5,
+          "bosses": [
+            "B008"
+          ],
+          "note": "混世魔猿登场"
+        },
+        {
+          "at": 900,
+          "name": "棍影群潮",
+          "type": "horde",
+          "budget": 1.96,
+          "elite": 1.38,
+          "note": "Boss战中持续增援"
+        },
+        {
+          "at": 1080,
+          "name": "万妖反扑",
+          "type": "elite",
+          "budget": 1.72,
+          "elite": 1.78,
+          "note": "终局精英与召唤混合"
+        },
+        {
+          "at": 1200,
+          "name": "妖岭决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "检查Boss目标"
+        }
+      ]
+    },
+    "ST004-01": {
+      "name": "暗器封锁线",
+      "spawn": 1.04,
+      "elite": 0.9,
+      "horde": 1.1,
+      "enemies": [
+        [
+          "EN022",
+          5
+        ],
+        [
+          "EN021",
+          2
+        ],
+        [
+          "EN027",
+          1
+        ]
+      ],
+      "eventAt": [
+        180,
+        480,
+        810
+      ],
+      "eventPool": [
+        "merchant",
+        "goldChest"
+      ],
+      "chestAt": [
+        300,
+        630,
+        960
+      ],
+      "hazard": {
+        "type": "blast",
+        "name": "稀疏爆符区",
+        "desc": "小型爆符定点预警，暗器忍从远处封锁走位。",
+        "interval": 9,
+        "damage": 12,
+        "size": 34,
+        "life": 1.35
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "暗器试射",
+          "type": "normal",
+          "budget": 0.9,
+          "elite": 0.46,
+          "note": "远程忍者建立火力线"
+        },
+        {
+          "at": 210,
+          "name": "下忍突入",
+          "type": "normal",
+          "budget": 1.12,
+          "elite": 0.66,
+          "note": "近战牵制远程射线"
+        },
+        {
+          "at": 420,
+          "name": "医疗增援",
+          "type": "elite",
+          "budget": 1.24,
+          "elite": 1.32,
+          "note": "优先处理精英与医忍"
+        },
+        {
+          "at": 660,
+          "name": "封锁齐射",
+          "type": "horde",
+          "budget": 1.62,
+          "elite": 0.96,
+          "note": "远程密度明显提升"
+        },
+        {
+          "at": 870,
+          "name": "忍具补给",
+          "type": "event",
+          "budget": 0.72,
+          "elite": 0.44,
+          "note": "终局前资源选择"
+        },
+        {
+          "at": 1050,
+          "name": "暗器绝阵",
+          "type": "elite",
+          "budget": 1.52,
+          "elite": 1.52,
+          "note": "精英射手终局压迫"
+        },
+        {
+          "at": 1200,
+          "name": "封锁突破",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "生存目标结算"
+        }
+      ]
+    },
+    "ST004-02": {
+      "name": "爆符峡谷",
+      "spawn": 1.08,
+      "elite": 1.1,
+      "horde": 1.2,
+      "enemies": [
+        [
+          "EN026",
+          5
+        ],
+        [
+          "EN023",
+          3
+        ],
+        [
+          "EN024",
+          2
+        ]
+      ],
+      "eventAt": [
+        150,
+        450,
+        780
+      ],
+      "eventPool": [
+        "altar",
+        "rift"
+      ],
+      "chestAt": [
+        270,
+        600,
+        930
+      ],
+      "hazard": {
+        "type": "blast",
+        "name": "连锁爆符区",
+        "desc": "大范围爆符快速落点，火忍与雷忍迫使连续闪避。",
+        "interval": 5.5,
+        "damage": 16,
+        "size": 46,
+        "life": 1.05
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "爆符投放",
+          "type": "normal",
+          "budget": 1.02,
+          "elite": 0.58,
+          "note": "陷阱忍者限制安全区"
+        },
+        {
+          "at": 180,
+          "name": "火雷夹谷",
+          "type": "horde",
+          "budget": 1.52,
+          "elite": 0.92,
+          "note": "范围火力与突进混合"
+        },
+        {
+          "at": 390,
+          "name": "爆符精锐",
+          "type": "elite",
+          "budget": 1.38,
+          "elite": 1.48,
+          "note": "精英陷阱制造者入场"
+        },
+        {
+          "at": 600,
+          "name": "峡谷连爆",
+          "type": "horde",
+          "budget": 1.78,
+          "elite": 1.08,
+          "note": "危险区与怪潮同步加速"
+        },
+        {
+          "at": 840,
+          "name": "雷忍突阵",
+          "type": "elite",
+          "budget": 1.48,
+          "elite": 1.62,
+          "note": "高速精英追击"
+        },
+        {
+          "at": 1050,
+          "name": "爆符封谷",
+          "type": "horde",
+          "budget": 1.92,
+          "elite": 1.36,
+          "note": "终局范围压迫"
+        },
+        {
+          "at": 1200,
+          "name": "峡谷穿越",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "生存目标结算"
+        }
+      ]
+    },
+    "ST004-03": {
+      "name": "炎雷王域",
+      "spawn": 1.06,
+      "elite": 1.3,
+      "horde": 1.18,
+      "enemies": [
+        [
+          "EN023",
+          3
+        ],
+        [
+          "EN024",
+          4
+        ],
+        [
+          "EN027",
+          2
+        ]
+      ],
+      "eventAt": [
+        180,
+        510,
+        840
+      ],
+      "eventPool": [
+        "goldChest",
+        "rift"
+      ],
+      "chestAt": [
+        300,
+        660,
+        990
+      ],
+      "hazard": {
+        "type": "blast",
+        "name": "炎雷交错区",
+        "desc": "中频爆符与高速雷忍交替压迫，双王依次登场。",
+        "interval": 7,
+        "damage": 17,
+        "size": 42,
+        "life": 0.95
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "炎忍开阵",
+          "type": "normal",
+          "budget": 1,
+          "elite": 0.62,
+          "note": "火忍范围压迫"
+        },
+        {
+          "at": 210,
+          "name": "雷忍穿场",
+          "type": "horde",
+          "budget": 1.48,
+          "elite": 0.92,
+          "note": "高速突进接管节奏"
+        },
+        {
+          "at": 420,
+          "name": "炎雷精锐",
+          "type": "elite",
+          "budget": 1.46,
+          "elite": 1.62,
+          "note": "精英火雷混编"
+        },
+        {
+          "at": 600,
+          "name": "双王前哨",
+          "type": "chest",
+          "budget": 0.76,
+          "elite": 0.46,
+          "note": "双Boss前构筑窗口"
+        },
+        {
+          "at": 720,
+          "name": "炎雷双王",
+          "type": "boss",
+          "budget": 0.84,
+          "elite": 0.42,
+          "bosses": [
+            "B009",
+            "B010"
+          ],
+          "note": "炎狱忍王后接雷瞬忍王"
+        },
+        {
+          "at": 930,
+          "name": "王域增援",
+          "type": "horde",
+          "budget": 1.72,
+          "elite": 1.26,
+          "note": "双王战中忍军增援"
+        },
+        {
+          "at": 1110,
+          "name": "炎雷终阵",
+          "type": "elite",
+          "budget": 1.62,
+          "elite": 1.76,
+          "note": "终局高速精英"
+        },
+        {
+          "at": 1200,
+          "name": "双王决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "检查双Boss目标"
+        }
+      ]
+    },
+    "ST004-04": {
+      "name": "万影终阵",
+      "spawn": 1.16,
+      "elite": 1.45,
+      "horde": 1.45,
+      "enemies": [
+        [
+          "EN025",
+          5
+        ],
+        [
+          "EN026",
+          2
+        ],
+        [
+          "EN022",
+          2
+        ]
+      ],
+      "eventAt": [
+        120,
+        420,
+        720
+      ],
+      "eventPool": [
+        "rift",
+        "altar"
+      ],
+      "chestAt": [
+        240,
+        540,
+        870
+      ],
+      "hazard": {
+        "type": "blast",
+        "name": "万影爆符阵",
+        "desc": "高频大范围爆符压缩空间，分身忍持续复制。",
+        "interval": 4.8,
+        "damage": 18,
+        "size": 48,
+        "life": 0.85
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "分身涌现",
+          "type": "horde",
+          "budget": 1.22,
+          "elite": 0.72,
+          "note": "分身敌群开场复制"
+        },
+        {
+          "at": 180,
+          "name": "暗器猎杀",
+          "type": "normal",
+          "budget": 1.32,
+          "elite": 0.92,
+          "note": "远程火力穿插分身"
+        },
+        {
+          "at": 360,
+          "name": "万影精锐",
+          "type": "elite",
+          "budget": 1.54,
+          "elite": 1.68,
+          "note": "高压精英分身"
+        },
+        {
+          "at": 540,
+          "name": "影潮覆场",
+          "type": "horde",
+          "budget": 2.02,
+          "elite": 1.36,
+          "note": "Boss前最高密度怪潮"
+        },
+        {
+          "at": 720,
+          "name": "忍王终阵",
+          "type": "boss",
+          "budget": 0.96,
+          "elite": 0.52,
+          "bosses": [
+            "B011"
+          ],
+          "note": "万影忍王登场"
+        },
+        {
+          "at": 900,
+          "name": "影界增殖",
+          "type": "horde",
+          "budget": 2.1,
+          "elite": 1.52,
+          "note": "Boss战中分身持续增长"
+        },
+        {
+          "at": 1080,
+          "name": "万影处刑",
+          "type": "elite",
+          "budget": 1.84,
+          "elite": 1.92,
+          "note": "终局精英压迫"
+        },
+        {
+          "at": 1200,
+          "name": "战役决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "检查Boss目标"
+        }
+      ]
+    }
+  },
+  "storyCurve": {
+    "ST001-01": {
+      "budget": 0.64,
+      "beat": "首战保护",
+      "hp": 0.9,
+      "dmg": 0.82,
+      "speed": 0.96,
+      "incoming": 0.58,
+      "bossHp": 3,
+      "note": "六分钟教学Boss，低承伤与疏潮换取完整三阶段首领体验。"
+    },
+    "ST001-02": {
+      "budget": 0.76,
+      "beat": "首个长局",
+      "hp": 0.92,
+      "dmg": 0.86,
+      "speed": 0.97,
+      "incoming": 0.72,
+      "bossHp": 0.9,
+      "note": "无Boss守援关，延长构筑时间并温和抬升怪潮密度。"
+    },
+    "ST001-03": {
+      "budget": 0.9,
+      "beat": "首个标准Boss",
+      "hp": 0.96,
+      "dmg": 0.9,
+      "speed": 0.98,
+      "incoming": 0.76,
+      "bossHp": 0.92,
+      "note": "祭坛火线与单Boss形成第一处明确战役峰值。"
+    },
+    "ST001-04": {
+      "budget": 1.03,
+      "beat": "章节决战",
+      "hp": 1,
+      "dmg": 0.94,
+      "speed": 1,
+      "incoming": 0.8,
+      "bossHp": 0.95,
+      "note": "裂隙高压怪潮接骑将，完成第一章强度收束。"
+    },
+    "ST003-01": {
+      "budget": 1.1,
+      "beat": "新章换速",
+      "hp": 0.98,
+      "dmg": 0.92,
+      "speed": 1.01,
+      "incoming": 0.8,
+      "bossHp": 0.96,
+      "note": "降低重装倍率，以高速妖怪和薄雾建立章节转换。"
+    },
+    "ST003-02": {
+      "budget": 1.18,
+      "beat": "阵地耐久",
+      "hp": 1.02,
+      "dmg": 0.96,
+      "speed": 1,
+      "incoming": 0.84,
+      "bossHp": 0.98,
+      "note": "浓雾、术师与石妖把压力从速度切换为耐久。"
+    },
+    "ST003-03": {
+      "budget": 1.3,
+      "beat": "重阵Boss",
+      "hp": 1.06,
+      "dmg": 1,
+      "speed": 1.01,
+      "incoming": 0.88,
+      "bossHp": 0.98,
+      "note": "重装精英和牛魔Boss构成第二章首个稳定峰值。"
+    },
+    "ST003-04": {
+      "budget": 1.42,
+      "beat": "妖岭决战",
+      "hp": 1.1,
+      "dmg": 1.04,
+      "speed": 1.03,
+      "incoming": 0.9,
+      "bossHp": 1,
+      "note": "高密妖潮与魔猿连续换位，验证成熟构筑清场能力。"
+    },
+    "ST004-01": {
+      "budget": 1.48,
+      "beat": "忍界换章",
+      "hp": 1.04,
+      "dmg": 1,
+      "speed": 1.04,
+      "incoming": 0.88,
+      "bossHp": 0.98,
+      "note": "略收生命压力，以暗器封锁和稀疏爆符重建节奏。"
+    },
+    "ST004-02": {
+      "budget": 1.6,
+      "beat": "爆符进阶",
+      "hp": 1.08,
+      "dmg": 1.04,
+      "speed": 1.05,
+      "incoming": 0.92,
+      "bossHp": 1,
+      "note": "连锁爆符配合火雷忍，形成持续走位检查。"
+    },
+    "ST004-03": {
+      "budget": 1.76,
+      "beat": "双王峰值",
+      "hp": 1.12,
+      "dmg": 1.07,
+      "speed": 1.06,
+      "incoming": 0.94,
+      "bossHp": 0.86,
+      "note": "单体Boss生命下调但连续两战，总首领负载形成刻意峰值。"
+    },
+    "ST004-04": {
+      "budget": 1.9,
+      "beat": "战役终阵",
+      "hp": 1.16,
+      "dmg": 1.1,
+      "speed": 1.07,
+      "incoming": 0.96,
+      "bossHp": 1.04,
+      "note": "最高怪潮、精英与万影忍王共同构成最终构筑检查。"
+    }
+  },
+  "firstPlayableAssets": {
+    "version": 2,
+    "stageId": "ST001-01",
+    "entries": [
+      {
+        "id": "st001-01-battlefield",
+        "role": "battlefield",
+        "path": "assets/game/st001-01/battlefield.svg",
+        "stageId": "ST001-01",
+        "entityId": null,
+        "render": {
+          "width": 2400,
+          "height": 1600,
+          "anchorX": 0,
+          "anchorY": 0
+        }
+      },
+      {
+        "id": "h001-first-playable",
+        "role": "hero",
+        "path": "assets/game/st001-01/hero-h001.svg",
+        "stageId": "ST001-01",
+        "entityId": "H001",
+        "render": {
+          "width": 66,
+          "height": 81,
+          "anchorX": 0.5,
+          "anchorY": 0.84
+        }
+      },
+      {
+        "id": "h001-attack-frame",
+        "role": "hero-attack",
+        "path": "assets/game/st001-01/hero-h001-attack.svg",
+        "stageId": "ST001-01",
+        "entityId": "H001",
+        "render": {
+          "width": 116,
+          "height": 116,
+          "anchorX": 0.5,
+          "anchorY": 0.5
+        }
+      },
+      {
+        "id": "en001-first-playable",
+        "role": "enemy",
+        "path": "assets/game/st001-01/enemy-en001.svg",
+        "stageId": "ST001-01",
+        "entityId": "EN001",
+        "render": {
+          "width": 52,
+          "height": 63,
+          "anchorX": 0.5,
+          "anchorY": 0.88
+        }
+      },
+      {
+        "id": "en001-impact-frame",
+        "role": "enemy-hit",
+        "path": "assets/game/st001-01/enemy-en001-hit.svg",
+        "stageId": "ST001-01",
+        "entityId": "EN001",
+        "render": {
+          "width": 72,
+          "height": 72,
+          "anchorX": 0.5,
+          "anchorY": 0.5
+        }
+      },
+      {
+        "id": "b001-first-playable",
+        "role": "boss",
+        "path": "assets/game/st001-01/boss-b001.svg",
+        "stageId": "ST001-01",
+        "entityId": "B001",
+        "render": {
+          "width": 116,
+          "height": 130,
+          "anchorX": 0.5,
+          "anchorY": 0.9
+        }
+      },
+      {
+        "id": "b001-entrance-frame",
+        "role": "boss-entrance",
+        "path": "assets/game/st001-01/boss-b001-entrance.svg",
+        "stageId": "ST001-01",
+        "entityId": "B001",
+        "render": {
+          "width": 226,
+          "height": 226,
+          "anchorX": 0.5,
+          "anchorY": 0.58
+        }
+      },
+      {
+        "id": "b001-telegraph-frame",
+        "role": "boss-telegraph",
+        "path": "assets/game/st001-01/boss-b001-telegraph.svg",
+        "stageId": "ST001-01",
+        "entityId": "B001",
+        "render": {
+          "width": 210,
+          "height": 210,
+          "anchorX": 0.5,
+          "anchorY": 0.5
+        }
+      },
+      {
+        "id": "b001-impact-frame",
+        "role": "boss-hit",
+        "path": "assets/game/st001-01/boss-b001-hit.svg",
+        "stageId": "ST001-01",
+        "entityId": "B001",
+        "render": {
+          "width": 148,
+          "height": 148,
+          "anchorX": 0.5,
+          "anchorY": 0.5
+        }
+      },
+      {
+        "id": "b001-defeat-frame",
+        "role": "boss-defeat",
+        "path": "assets/game/st001-01/boss-b001-defeat.svg",
+        "stageId": "ST001-01",
+        "entityId": "B001",
+        "render": {
+          "width": 240,
+          "height": 240,
+          "anchorX": 0.5,
+          "anchorY": 0.5
+        }
+      }
+    ]
+  },
+  "heroIdentity": {
+    "combat": {
+      "H001": {
+        "title": "赤焰刀势 · 近战压制",
+        "trait": "刀势越热，斩击范围与伤害越高",
+        "basic": "近距离火焰弧斩",
+        "skill": "炎龙斩：冲刺穿敌并留下灼烧路径",
+        "ult": "赤龙降世：大范围多段火焰斩击",
+        "resource": "炎势",
+        "key": "heat",
+        "color": "#ef694e"
+      },
+      "H002": {
+        "title": "雷枪连锁 · 连击爆发",
+        "trait": "连续命中积累雷势，提升链雷跳跃次数",
+        "basic": "高速雷枪刺 + 链雷",
+        "skill": "雷闪突击：穿刺并触发连锁雷",
+        "ult": "雷霆万军：全屏连续雷击",
+        "resource": "雷势",
+        "key": "chain",
+        "color": "#70a9ff"
+      },
+      "H007": {
+        "title": "斗战分身 · 棍法召唤",
+        "trait": "斗战气可自动生成分身协同攻击",
+        "basic": "回旋棍弧 + 分身补击",
+        "skill": "腾云震地：范围震击并召唤分身",
+        "ult": "法天象地：巨大化并强化范围/攻速",
+        "resource": "斗战气",
+        "key": "spirit",
+        "color": "#f0b45d"
+      },
+      "H010": {
+        "title": "炎忍爆破 · 高速布雷",
+        "trait": "爆破命中积累炎印，满层强化爆炸",
+        "basic": "火苦无 + 小范围爆炸",
+        "skill": "炎龙疾走：高速冲刺沿途布爆符",
+        "ult": "炎龙忍法：爆符雨覆盖全场",
+        "resource": "炎印",
+        "key": "bomb",
+        "color": "#f08358"
+      },
+      "H012": {
+        "title": "万影暗器 · 残影处刑",
+        "trait": "暗器和闪避积累影印，强化穿透",
+        "basic": "多重手里剑 + 穿透",
+        "skill": "影袭瞬杀：瞬移至目标处刑",
+        "ult": "万影杀阵：全场暗器风暴",
+        "resource": "影印",
+        "key": "shadow",
+        "color": "#a47dff"
+      },
+      "H019": {
+        "title": "气功蓄力 · 远程重炮",
+        "trait": "移动蓄气，停步蓄气更快",
+        "basic": "蓄力气功弹，蓄满体积/伤害提升",
+        "skill": "爆气冲击：击退并快速补气",
+        "ult": "超级气功炮：贯穿全场光束",
+        "resource": "气能",
+        "key": "ki",
+        "color": "#65d8ff"
+      }
+    },
+    "skillNames": {
+      "H001_SLASH": "火刀弧斩",
+      "H001_E": "炎龙斩",
+      "H001_R": "赤龙降世",
+      "H002_SPEAR": "雷枪刺",
+      "H002_CHAIN": "连锁雷",
+      "H002_E": "雷闪突击",
+      "H002_R": "雷霆万军",
+      "H007_STAFF": "斗战棍",
+      "H007_CLONE": "斗战分身",
+      "H007_E": "腾云震地",
+      "H010_KUNAI": "火苦无",
+      "H010_BOMB": "炎忍爆符",
+      "H012_SHURIKEN": "万影手里剑",
+      "H012_E": "影袭瞬杀",
+      "H012_R": "万影杀阵",
+      "H012_DODGE": "残影暗器",
+      "H019_KI": "蓄力气功弹",
+      "H019_E": "爆气冲击",
+      "H019_R": "超级气功炮"
+    }
+  },
+  "skillForms": {
+    "descriptions": {
+      "A001": [
+        "physical",
+        "弧斩",
+        "周期释放范围弧斩；范围强化会直接扩大刀圈。"
+      ],
+      "A002": [
+        "lightning",
+        "雷枪",
+        "高速贯穿雷枪；弹射被动会追加链雷。"
+      ],
+      "A003": [
+        "fire",
+        "烈焰刀",
+        "近身火刀斩并留下短时灼烧区域。"
+      ],
+      "A005": [
+        "physical",
+        "回旋棍",
+        "向目标方向飞出后回旋，对路径敌人多次命中。"
+      ],
+      "A007": [
+        "shadow",
+        "修罗斩",
+        "锁定最近目标进行高伤单点斩击。"
+      ],
+      "A009": [
+        "physical",
+        "连环拳",
+        "近身连续拳风，小范围高速多段。"
+      ],
+      "A011": [
+        "fire",
+        "火球",
+        "飞行火球命中爆炸；进化后爆炸半径和子火球提升。"
+      ],
+      "A013": [
+        "lightning",
+        "雷电弹",
+        "命中后向附近目标弹射；进化后链数大幅提升。"
+      ],
+      "A014": [
+        "ki",
+        "气功弹",
+        "直线气弹，天然穿透；进化后体积和穿透增加。"
+      ],
+      "A015": [
+        "shadow",
+        "手里剑",
+        "多重暗器；分裂/穿透被动直接改变弹道。"
+      ],
+      "A019": [
+        "fire",
+        "爆裂弹",
+        "命中后范围爆炸；暴击爆炸被动提升爆炸次数。"
+      ],
+      "A021": [
+        "fire",
+        "火焰领域",
+        "跟随英雄的持续燃烧领域。"
+      ],
+      "A022": [
+        "lightning",
+        "雷霆领域",
+        "跟随英雄的雷域，周期随机劈击域内敌人。"
+      ],
+      "A026": [
+        "wind",
+        "龙卷风",
+        "沿目标方向移动，并持续把附近敌人吸向中心。"
+      ],
+      "A027": [
+        "fire",
+        "陨石雨",
+        "地面先出现落点预警，延迟后陨石砸落。"
+      ],
+      "A028": [
+        "fire",
+        "爆炎阵",
+        "在敌群附近生成延迟爆炸法阵。"
+      ],
+      "A030": [
+        "ki",
+        "气爆领域",
+        "跟随英雄周期释放击退气浪。"
+      ],
+      "A041": [
+        "lightning",
+        "落雷",
+        "直接锁定敌人落雷，优先打击精英和Boss。"
+      ],
+      "A042": [
+        "fire",
+        "火柱",
+        "目标脚下出现火柱，对小范围连续灼烧。"
+      ],
+      "A045": [
+        "wind",
+        "风刃雨",
+        "向前方扇形发射多枚风刃。"
+      ],
+      "A049": [
+        "ki",
+        "气功轰炸",
+        "多个落点连续气爆轰炸。"
+      ],
+      "A051": [
+        "lightning",
+        "雷闪",
+        "瞬间闪击目标并在原地/目标点形成雷痕。"
+      ],
+      "A053": [
+        "shadow",
+        "影袭",
+        "目标身后出现影刃并进行高倍率斩击。"
+      ],
+      "A054": [
+        "fire",
+        "火焰冲刺",
+        "生成向前推进的火焰路径。"
+      ],
+      "A060": [
+        "ki",
+        "气爆瞬移",
+        "在目标位置爆发气能冲击波。"
+      ],
+      "A062": [
+        "lightning",
+        "雷珠",
+        "雷珠环绕英雄，接触敌人并周期放电。"
+      ],
+      "A063": [
+        "fire",
+        "火轮",
+        "火轮环绕英雄，对接触目标造成灼烧。"
+      ],
+      "A068": [
+        "ki",
+        "气功珠",
+        "气珠环绕并自动向附近敌人发射小气弹。"
+      ],
+      "A070": [
+        "shadow",
+        "暗影刃",
+        "暗影刀环绕英雄并造成高频切割。"
+      ],
+      "A072": [
+        "shadow",
+        "黑洞",
+        "在敌群中心生成黑洞，持续吸怪并造成伤害。"
+      ],
+      "A073": [
+        "shadow",
+        "镜像攻击",
+        "生成镜像，从对称位置复制投射攻击。"
+      ],
+      "S001": [
+        "shadow",
+        "影分身",
+        "实体分身独立选择目标并发射暗器。"
+      ],
+      "S002": [
+        "fire",
+        "火分身",
+        "实体分身独立发射火弹，命中产生小爆炸。"
+      ],
+      "S003": [
+        "lightning",
+        "雷分身",
+        "实体分身发射雷弹并附带链雷。"
+      ],
+      "S018": [
+        "ki",
+        "气功幻影",
+        "实体幻影持续发射穿透气功弹。"
+      ]
+    },
+    "elementPassives": {
+      "fire": "P026",
+      "lightning": "P027",
+      "wind": "P030",
+      "ki": "P032",
+      "shadow": "P033"
+    },
+    "baseCooldowns": {
+      "A001": 1.25,
+      "A002": 1.15,
+      "A003": 1.8,
+      "A005": 2.1,
+      "A007": 2.8,
+      "A009": 1.7,
+      "A011": 1.3,
+      "A013": 1.45,
+      "A014": 1.25,
+      "A015": 1.15,
+      "A019": 1.75,
+      "A021": 0.5,
+      "A022": 0.5,
+      "A026": 3.4,
+      "A027": 4.2,
+      "A028": 3,
+      "A030": 0.5,
+      "A041": 2.2,
+      "A042": 2.8,
+      "A045": 2,
+      "A049": 3.2,
+      "A051": 3,
+      "A053": 2.6,
+      "A054": 3.1,
+      "A060": 3.2,
+      "A062": 0.5,
+      "A063": 0.5,
+      "A068": 0.5,
+      "A070": 0.5,
+      "A072": 5,
+      "A073": 4.6,
+      "S001": 0.5,
+      "S002": 0.5,
+      "S003": 0.5,
+      "S018": 0.5
+    },
+    "extraNames": {
+      "F001": "焚天龙卷",
+      "F002": "天火炼狱",
+      "F003": "炎爆地狱",
+      "F004": "炎龙乱舞",
+      "F005": "雷神万影",
+      "F006": "九天雷劫",
+      "F020": "百重气功炮",
+      "F021": "星河冲击",
+      "F026": "无限影军",
+      "F033": "斗战风暴"
+    }
+  },
+  "bossInteractions": {
+    "bosses": {
+      "B001": {
+        "name": "黄巾巨将",
+        "phase": [
+          "巨斧压境",
+          "蛮王狂怒",
+          "震岳绝境"
+        ],
+        "shield": 0,
+        "shrink": false,
+        "skills": [
+          [
+            "circle",
+            "震地斩"
+          ],
+          [
+            "line",
+            "蛮王冲锋"
+          ],
+          [
+            "cone",
+            "旋风断军"
+          ]
+        ]
+      },
+      "B002": {
+        "name": "乱世妖师",
+        "phase": [
+          "妖火祭阵",
+          "唤魂护法",
+          "万符焚界"
+        ],
+        "shield": 0.22,
+        "shrink": false,
+        "skills": [
+          [
+            "multiCircle",
+            "妖火祭阵"
+          ],
+          [
+            "summon",
+            "妖兵唤魂"
+          ],
+          [
+            "ring",
+            "万符焚界"
+          ]
+        ]
+      },
+      "B003": {
+        "name": "混沌骑将",
+        "phase": [
+          "铁骑冲阵",
+          "下马枪阵",
+          "混沌狂战"
+        ],
+        "shield": 0,
+        "shrink": true,
+        "skills": [
+          [
+            "line",
+            "混沌突骑"
+          ],
+          [
+            "cone",
+            "枪阵封路"
+          ],
+          [
+            "circle",
+            "狂战震地"
+          ]
+        ]
+      },
+      "B006": {
+        "name": "牛魔妖王",
+        "phase": [
+          "裂地重锤",
+          "岩甲霸体",
+          "山崩绝杀"
+        ],
+        "shield": 0.18,
+        "shrink": true,
+        "skills": [
+          [
+            "cone",
+            "裂地重锤"
+          ],
+          [
+            "multiCircle",
+            "山崩岩爆"
+          ],
+          [
+            "ring",
+            "大地震荡"
+          ]
+        ]
+      },
+      "B008": {
+        "name": "混世魔猿",
+        "phase": [
+          "魔猿跃击",
+          "棍影分身",
+          "斗战狂潮"
+        ],
+        "shield": 0,
+        "shrink": false,
+        "skills": [
+          [
+            "circle",
+            "魔猿跃击"
+          ],
+          [
+            "summon",
+            "棍影分身"
+          ],
+          [
+            "multiCircle",
+            "狂暴连砸"
+          ]
+        ]
+      },
+      "B009": {
+        "name": "炎狱忍王",
+        "phase": [
+          "炎遁封路",
+          "爆符炼狱",
+          "炎界收缩"
+        ],
+        "shield": 0,
+        "shrink": true,
+        "skills": [
+          [
+            "line",
+            "炎墙封界"
+          ],
+          [
+            "multiCircle",
+            "爆符天雨"
+          ],
+          [
+            "ring",
+            "炎狱禁界"
+          ]
+        ]
+      },
+      "B010": {
+        "name": "雷瞬忍王",
+        "phase": [
+          "雷瞬突袭",
+          "雷牢护体",
+          "天雷审判"
+        ],
+        "shield": 0.17,
+        "shrink": false,
+        "skills": [
+          [
+            "line",
+            "雷瞬绝杀"
+          ],
+          [
+            "ring",
+            "雷牢封域"
+          ],
+          [
+            "multiCircle",
+            "天雷审判"
+          ]
+        ]
+      },
+      "B011": {
+        "name": "万影忍王",
+        "phase": [
+          "万影初现",
+          "影盾分身",
+          "影界处刑"
+        ],
+        "shield": 0.24,
+        "shrink": true,
+        "skills": [
+          [
+            "summon",
+            "万影分身"
+          ],
+          [
+            "cone",
+            "暗影扇刃"
+          ],
+          [
+            "circle",
+            "影界处刑"
+          ]
+        ]
+      }
+    },
+    "interactionNames": {
+      "ST001": {
+        "barrel": "火药桶",
+        "heal": "军医补给",
+        "altar": "战旗祭坛",
+        "mechanism": "弩炮机关",
+        "supply": "遗失军箱"
+      },
+      "ST003": {
+        "barrel": "妖火石",
+        "heal": "灵桃",
+        "altar": "斗战祭坛",
+        "mechanism": "镇妖石阵",
+        "supply": "猴王宝箱"
+      },
+      "ST004": {
+        "barrel": "爆符桶",
+        "heal": "医疗卷轴",
+        "altar": "忍印祭坛",
+        "mechanism": "雷符机关",
+        "supply": "忍具补给"
+      }
+    },
+    "interactionDescriptions": {
+      "barrel": "引爆后对周围怪物与Boss造成巨额伤害。",
+      "heal": "恢复35%最大生命。",
+      "altar": "最大生命-10%，本局攻击+22%。",
+      "mechanism": "清除当前地图危险，并压制地图机制25秒。",
+      "supply": "获得本局额外金币，并补充大量经验。"
+    },
+    "damageNames": {
+      "MAP_BARREL": "地图炸药桶",
+      "MAP_MECHANISM": "地图机关"
+    }
+  },
+  "gearSystem": {
+    "catalog": {
+      "EQW001": {
+        "name": "赤炎刀",
+        "slot": "weapon",
+        "score": 315,
+        "rarity": "purple",
+        "set": "SET_FIRE",
+        "exclusive": "H001",
+        "legend": "烈焰斩击范围+12%，火系伤害+8%。"
+      },
+      "EQW002": {
+        "name": "雷鸣枪",
+        "slot": "weapon",
+        "score": 330,
+        "rarity": "purple",
+        "set": "SET_THUNDER",
+        "exclusive": "H002",
+        "legend": "雷系技能获得额外弹射倾向。"
+      },
+      "EQW003": {
+        "name": "玄铁神棍",
+        "slot": "weapon",
+        "score": 350,
+        "rarity": "gold",
+        "set": "SET_MONKEY",
+        "exclusive": "H007",
+        "legend": "召唤伤害+12%，斗战分身上限提高。"
+      },
+      "EQW004": {
+        "name": "炎忍苦无",
+        "slot": "weapon",
+        "score": 325,
+        "rarity": "purple",
+        "set": "SET_BLAZE",
+        "exclusive": "H010",
+        "legend": "爆炸范围+15%，闪避爆符强化。"
+      },
+      "EQW005": {
+        "name": "万影短刃",
+        "slot": "weapon",
+        "score": 335,
+        "rarity": "purple",
+        "set": "SET_SHADOW",
+        "exclusive": "H012",
+        "legend": "暗器穿透+1，影系暴击+5%。"
+      },
+      "EQW006": {
+        "name": "星河拳环",
+        "slot": "weapon",
+        "score": 345,
+        "rarity": "gold",
+        "set": "SET_KI",
+        "exclusive": "H019",
+        "legend": "气功弹穿透+1，气能蓄积速度提高。"
+      },
+      "EQW007": {
+        "name": "黄天战刃",
+        "slot": "weapon",
+        "score": 405,
+        "rarity": "gold",
+        "set": "SET_CHAOS",
+        "boss": "B001",
+        "legend": "对Boss伤害+12%；击破护盾时提升攻击。"
+      },
+      "EQW008": {
+        "name": "牛魔战棍",
+        "slot": "weapon",
+        "score": 430,
+        "rarity": "gold",
+        "set": "SET_YAOLING",
+        "boss": "B006",
+        "legend": "范围伤害+14%，近身技能对精英伤害提高。"
+      },
+      "EQW009": {
+        "name": "万影妖刀",
+        "slot": "weapon",
+        "score": 455,
+        "rarity": "gold",
+        "set": "SET_NINJABOSS",
+        "boss": "B011",
+        "legend": "暗影技能额外分裂，Boss阶段3伤害提高。"
+      },
+      "EQW010": {
+        "name": "裂界神刃",
+        "slot": "weapon",
+        "score": 480,
+        "rarity": "gold",
+        "set": "SET_RIFT",
+        "legend": "全元素伤害+10%，融合技能伤害+15%。"
+      },
+      "EQA001": {
+        "name": "炎龙战甲",
+        "slot": "armor",
+        "score": 250,
+        "rarity": "purple",
+        "set": "SET_FIRE",
+        "legend": "最大生命+8%，火焰领域范围+8%。"
+      },
+      "EQA002": {
+        "name": "雷神战铠",
+        "slot": "armor",
+        "score": 255,
+        "rarity": "purple",
+        "set": "SET_THUNDER",
+        "legend": "闪避后雷势+12%。"
+      },
+      "EQA003": {
+        "name": "斗战金甲",
+        "slot": "armor",
+        "score": 275,
+        "rarity": "gold",
+        "set": "SET_MONKEY",
+        "legend": "召唤物数量倾向+1，受到近战伤害降低。"
+      },
+      "EQA004": {
+        "name": "炎忍战装",
+        "slot": "armor",
+        "score": 260,
+        "rarity": "purple",
+        "set": "SET_BLAZE",
+        "legend": "英雄技冷却-6%，移动速度+5%。"
+      },
+      "EQA005": {
+        "name": "万影忍装",
+        "slot": "armor",
+        "score": 265,
+        "rarity": "purple",
+        "set": "SET_SHADOW",
+        "legend": "影印衰减减缓，暴击伤害提高。"
+      },
+      "EQA006": {
+        "name": "星河武衣",
+        "slot": "armor",
+        "score": 270,
+        "rarity": "gold",
+        "set": "SET_KI",
+        "legend": "气功技能冷却-6%，最大生命+5%。"
+      },
+      "EQA007": {
+        "name": "混沌骑甲",
+        "slot": "armor",
+        "score": 410,
+        "rarity": "gold",
+        "set": "SET_CHAOS",
+        "boss": "B003",
+        "legend": "Boss预警期间移动速度+10%。"
+      },
+      "EQA008": {
+        "name": "炎狱忍装",
+        "slot": "armor",
+        "score": 425,
+        "rarity": "gold",
+        "set": "SET_NINJABOSS",
+        "boss": "B009",
+        "legend": "火/暗影伤害提高，地图危险伤害降低。"
+      },
+      "EQA009": {
+        "name": "妖王战铠",
+        "slot": "armor",
+        "score": 420,
+        "rarity": "gold",
+        "set": "SET_YAOLING",
+        "legend": "精英伤害+15%，击杀精英恢复生命。"
+      },
+      "EQA010": {
+        "name": "万界神衣",
+        "slot": "armor",
+        "score": 470,
+        "rarity": "gold",
+        "set": "SET_RIFT",
+        "legend": "最大生命+12%，所有冷却缩减提高。"
+      },
+      "EQX001": {
+        "name": "炎龙核心",
+        "slot": "accessory",
+        "score": 265,
+        "rarity": "purple",
+        "set": "SET_FIRE",
+        "legend": "火系爆炸命中有概率扩大燃烧区域。"
+      },
+      "EQX002": {
+        "name": "雷霆勾玉",
+        "slot": "accessory",
+        "score": 270,
+        "rarity": "purple",
+        "set": "SET_THUNDER",
+        "legend": "雷电弹/雷枪弹射次数提高。"
+      },
+      "EQX003": {
+        "name": "斗战战印",
+        "slot": "accessory",
+        "score": 285,
+        "rarity": "gold",
+        "set": "SET_MONKEY",
+        "legend": "分身攻击速度提高，范围强化。"
+      },
+      "EQX004": {
+        "name": "爆炎卷轴",
+        "slot": "accessory",
+        "score": 268,
+        "rarity": "purple",
+        "set": "SET_BLAZE",
+        "legend": "爆符和爆裂弹的爆炸半径提高。"
+      },
+      "EQX005": {
+        "name": "影界勾玉",
+        "slot": "accessory",
+        "score": 275,
+        "rarity": "purple",
+        "set": "SET_SHADOW",
+        "legend": "手里剑分裂层数+1。"
+      },
+      "EQX006": {
+        "name": "星河核心",
+        "slot": "accessory",
+        "score": 282,
+        "rarity": "gold",
+        "set": "SET_KI",
+        "legend": "气功领域范围+12%，穿透伤害提高。"
+      },
+      "EQX007": {
+        "name": "妖师法印",
+        "slot": "accessory",
+        "score": 400,
+        "rarity": "gold",
+        "set": "SET_CHAOS",
+        "boss": "B002",
+        "legend": "对护盾目标伤害提高；元素伤害+8%。"
+      },
+      "EQX008": {
+        "name": "魔猿战印",
+        "slot": "accessory",
+        "score": 435,
+        "rarity": "gold",
+        "set": "SET_YAOLING",
+        "boss": "B008",
+        "legend": "召唤与范围技能伤害提高。"
+      },
+      "EQX009": {
+        "name": "雷瞬勾玉",
+        "slot": "accessory",
+        "score": 440,
+        "rarity": "gold",
+        "set": "SET_NINJABOSS",
+        "boss": "B010",
+        "legend": "闪避后短时间暴击率提高。"
+      },
+      "EQX010": {
+        "name": "万界印记",
+        "slot": "accessory",
+        "score": 475,
+        "rarity": "gold",
+        "set": "SET_RIFT",
+        "legend": "融合/进化技能伤害和范围同时提高。"
+      }
+    },
+    "sets": {
+      "SET_FIRE": {
+        "name": "炎龙",
+        "two": "火系伤害 +18%",
+        "three": "火系范围 +12%，持续强化视为+1级",
+        "bonus2": {
+          "fireDmg": 0.18
+        },
+        "bonus3": {
+          "area": 0.12,
+          "virtual": {
+            "P017": 1
+          }
+        }
+      },
+      "SET_THUNDER": {
+        "name": "九天雷霆",
+        "two": "雷系伤害 +18%",
+        "three": "弹射能力显著提高",
+        "bonus2": {
+          "lightningDmg": 0.18
+        },
+        "bonus3": {
+          "virtual": {
+            "P023": 2
+          }
+        }
+      },
+      "SET_MONKEY": {
+        "name": "斗战",
+        "two": "召唤伤害 +18%，范围 +8%",
+        "three": "召唤数量倾向 +2",
+        "bonus2": {
+          "summonDmg": 0.18,
+          "area": 0.08
+        },
+        "bonus3": {
+          "virtual": {
+            "P039": 2,
+            "P036": 1
+          }
+        }
+      },
+      "SET_BLAZE": {
+        "name": "炎忍爆破",
+        "two": "火系伤害 +12%，冷却 -8%",
+        "three": "分裂/爆炸能力提高",
+        "bonus2": {
+          "fireDmg": 0.12,
+          "cdr": 0.08
+        },
+        "bonus3": {
+          "virtual": {
+            "P024": 1,
+            "P010": 1
+          }
+        }
+      },
+      "SET_SHADOW": {
+        "name": "万影",
+        "two": "暗影伤害 +16%，暴击 +6%",
+        "three": "手里剑分裂 +2级倾向",
+        "bonus2": {
+          "shadowDmg": 0.16,
+          "crit": 0.06
+        },
+        "bonus3": {
+          "virtual": {
+            "P024": 2
+          }
+        }
+      },
+      "SET_KI": {
+        "name": "星河",
+        "two": "气系伤害 +18%，冷却 -8%",
+        "three": "穿透+1级倾向，气功范围 +10%",
+        "bonus2": {
+          "kiDmg": 0.18,
+          "cdr": 0.08
+        },
+        "bonus3": {
+          "virtual": {
+            "P022": 1
+          },
+          "area": 0.1
+        }
+      },
+      "SET_CHAOS": {
+        "name": "乱世混沌",
+        "two": "Boss伤害 +20%",
+        "three": "全元素 +10%，对护盾伤害提高",
+        "bonus2": {
+          "bossDmg": 0.2
+        },
+        "bonus3": {
+          "allElement": 0.1,
+          "shieldDmg": 0.25
+        }
+      },
+      "SET_YAOLING": {
+        "name": "妖王斗战",
+        "two": "精英伤害 +20%，范围 +10%",
+        "three": "召唤/近战伤害 +15%",
+        "bonus2": {
+          "eliteDmg": 0.2,
+          "area": 0.1
+        },
+        "bonus3": {
+          "summonDmg": 0.15,
+          "physicalDmg": 0.15
+        }
+      },
+      "SET_NINJABOSS": {
+        "name": "忍王残响",
+        "two": "火/暗影伤害 +12%",
+        "three": "分裂 +1级、暴击伤害 +18%",
+        "bonus2": {
+          "fireDmg": 0.12,
+          "shadowDmg": 0.12
+        },
+        "bonus3": {
+          "virtual": {
+            "P024": 1
+          },
+          "critDmg": 0.18
+        }
+      },
+      "SET_RIFT": {
+        "name": "万界裂隙",
+        "two": "全伤害 +12%",
+        "three": "进化/融合伤害 +22%，范围 +12%",
+        "bonus2": {
+          "allDamage": 0.12
+        },
+        "bonus3": {
+          "evoFusionDmg": 0.22,
+          "area": 0.12
+        }
+      }
+    },
+    "affixPool": [
+      [
+        "atkPct",
+        "攻击%",
+        0.035,
+        0.085
+      ],
+      [
+        "hpPct",
+        "生命%",
+        0.04,
+        0.1
+      ],
+      [
+        "defPct",
+        "防御%",
+        0.05,
+        0.12
+      ],
+      [
+        "crit",
+        "暴击率",
+        0.018,
+        0.055
+      ],
+      [
+        "critDmg",
+        "暴击伤害",
+        0.06,
+        0.16
+      ],
+      [
+        "cdr",
+        "冷却缩减",
+        0.025,
+        0.07
+      ],
+      [
+        "area",
+        "范围",
+        0.03,
+        0.09
+      ],
+      [
+        "move",
+        "移动速度",
+        0.02,
+        0.06
+      ],
+      [
+        "bossDmg",
+        "Boss伤害",
+        0.04,
+        0.12
+      ],
+      [
+        "eliteDmg",
+        "精英伤害",
+        0.05,
+        0.14
+      ],
+      [
+        "fireDmg",
+        "火系伤害",
+        0.04,
+        0.13
+      ],
+      [
+        "lightningDmg",
+        "雷系伤害",
+        0.04,
+        0.13
+      ],
+      [
+        "shadowDmg",
+        "暗影伤害",
+        0.04,
+        0.13
+      ],
+      [
+        "kiDmg",
+        "气系伤害",
+        0.04,
+        0.13
+      ],
+      [
+        "summonDmg",
+        "召唤伤害",
+        0.05,
+        0.15
+      ],
+      [
+        "lifesteal",
+        "吸血",
+        0.006,
+        0.018
+      ]
+    ],
+    "rarityAffixCounts": {
+      "blue": 2,
+      "purple": 3,
+      "gold": 4,
+      "mythic": 5
+    },
+    "bossDrops": {
+      "B001": [
+        "EQW007",
+        "EQA007",
+        "EQX007"
+      ],
+      "B002": [
+        "EQX007",
+        "EQW007",
+        "EQA007"
+      ],
+      "B003": [
+        "EQA007",
+        "EQW007",
+        "EQX007"
+      ],
+      "B006": [
+        "EQW008",
+        "EQA009",
+        "EQX008"
+      ],
+      "B008": [
+        "EQX008",
+        "EQW008",
+        "EQA009"
+      ],
+      "B009": [
+        "EQA008",
+        "EQW009",
+        "EQX009"
+      ],
+      "B010": [
+        "EQX009",
+        "EQA008",
+        "EQW009"
+      ],
+      "B011": [
+        "EQW009",
+        "EQA008",
+        "EQX009"
+      ]
+    }
+  },
+  "runePetSystem": {
+    "runes": {
+      "R001": {
+        "name": "狂战符文",
+        "type": "offense",
+        "desc": "攻击+8%，低于40%生命时额外+10%。",
+        "bonus": {
+          "atkPct": 0.08
+        }
+      },
+      "R002": {
+        "name": "破军符文",
+        "type": "offense",
+        "desc": "Boss伤害+12%。",
+        "bonus": {
+          "bossDmg": 0.12
+        }
+      },
+      "R003": {
+        "name": "暴君符文",
+        "type": "offense",
+        "desc": "精英伤害+15%，暴击伤害+10%。",
+        "bonus": {
+          "eliteDmg": 0.15,
+          "critDmg": 0.1
+        }
+      },
+      "R004": {
+        "name": "连击符文",
+        "type": "offense",
+        "desc": "连击达到30/60/100时攻击速度逐级提高。",
+        "bonus": {}
+      },
+      "R006": {
+        "name": "杀戮符文",
+        "type": "offense",
+        "desc": "击杀敌人后3秒全伤害+12%。",
+        "bonus": {}
+      },
+      "R011": {
+        "name": "奥术符文",
+        "type": "shape",
+        "desc": "技能伤害+8%，冷却缩减+4%。",
+        "bonus": {
+          "allDamage": 0.08,
+          "cdr": 0.04
+        }
+      },
+      "R012": {
+        "name": "巨化符文",
+        "type": "shape",
+        "desc": "所有技能范围+12%。",
+        "bonus": {
+          "area": 0.12
+        }
+      },
+      "R013": {
+        "name": "分裂符文",
+        "type": "shape",
+        "desc": "分裂能力视为P024+1级。",
+        "virtual": {
+          "P024": 1
+        }
+      },
+      "R015": {
+        "name": "持续符文",
+        "type": "shape",
+        "desc": "持续强化视为P017+1级。",
+        "virtual": {
+          "P017": 1
+        }
+      },
+      "R017": {
+        "name": "多重符文",
+        "type": "shape",
+        "desc": "多重射击视为P021+1级。",
+        "virtual": {
+          "P021": 1
+        }
+      },
+      "R021": {
+        "name": "吸血符文",
+        "type": "survival",
+        "desc": "造成伤害时获得少量生命回复。",
+        "bonus": {
+          "lifesteal": 0.016
+        }
+      },
+      "R022": {
+        "name": "护盾符文",
+        "type": "survival",
+        "desc": "每20秒生成12%最大生命护盾。",
+        "bonus": {}
+      },
+      "R025": {
+        "name": "闪避符文",
+        "type": "survival",
+        "desc": "闪避冷却-12%，闪避后2秒减伤。",
+        "bonus": {}
+      },
+      "R031": {
+        "name": "火神符文",
+        "type": "element",
+        "desc": "火系伤害+16%。",
+        "bonus": {
+          "fireDmg": 0.16
+        }
+      },
+      "R032": {
+        "name": "雷神符文",
+        "type": "element",
+        "desc": "雷系伤害+16%，弹射倾向+1。",
+        "bonus": {
+          "lightningDmg": 0.16
+        },
+        "virtual": {
+          "P023": 1
+        }
+      },
+      "R033": {
+        "name": "冰神符文",
+        "type": "element",
+        "desc": "控制/范围技能额外扩大。",
+        "bonus": {
+          "area": 0.05
+        }
+      },
+      "R035": {
+        "name": "风神符文",
+        "type": "element",
+        "desc": "范围+6%，移动速度+4%。",
+        "bonus": {
+          "area": 0.06,
+          "move": 0.04
+        }
+      },
+      "R041": {
+        "name": "贪婪符文",
+        "type": "economy",
+        "desc": "本局金币收益+18%。",
+        "bonus": {
+          "goldPct": 0.18
+        }
+      },
+      "R043": {
+        "name": "学者符文",
+        "type": "economy",
+        "desc": "经验获取+18%。",
+        "bonus": {
+          "xpPct": 0.18
+        }
+      },
+      "R046": {
+        "name": "磁力符文",
+        "type": "economy",
+        "desc": "宝箱/掉落品质略微提高。",
+        "bonus": {
+          "dropPct": 0.06
+        }
+      }
+    },
+    "pets": {
+      "PET001": {
+        "name": "火灵",
+        "kind": "fire",
+        "passive": "火系伤害+8%。",
+        "skill": "灼炎喷吐：每8秒向最近敌人喷出火焰，留下燃烧区域。",
+        "cd": 8,
+        "bonus": {
+          "fireDmg": 0.08
+        }
+      },
+      "PET002": {
+        "name": "雷狼",
+        "kind": "lightning",
+        "passive": "雷系伤害+7%，移动速度+3%。",
+        "skill": "雷牙链击：每9秒扑击目标并触发4段链雷。",
+        "cd": 9,
+        "bonus": {
+          "lightningDmg": 0.07,
+          "move": 0.03
+        }
+      },
+      "PET007": {
+        "name": "治疗精灵",
+        "kind": "heal",
+        "passive": "最大生命+6%。",
+        "skill": "治愈祷言：生命低于70%时每12秒恢复18%最大生命。",
+        "cd": 12,
+        "bonus": {
+          "hpPct": 0.06
+        }
+      },
+      "PET011": {
+        "name": "招财猫",
+        "kind": "lucky",
+        "passive": "金币+15%，Boss掉落高品质概率提高。",
+        "skill": "招财铃：每15秒获得小额本局金币并提高短时幸运。",
+        "cd": 15,
+        "bonus": {
+          "goldPct": 0.15,
+          "dropPct": 0.1
+        }
+      },
+      "PET015": {
+        "name": "镜像精灵",
+        "kind": "mirror",
+        "passive": "技能冷却-4%。",
+        "skill": "镜像复制：每11秒复制最近一次Build主动技能的弱化版本。",
+        "cd": 11,
+        "bonus": {
+          "cdr": 0.04
+        }
+      }
+    }
+  },
+  "gameModes": {
+    "bossOrder": [
+      "B001",
+      "B002",
+      "B003",
+      "B006",
+      "B008",
+      "B009",
+      "B010",
+      "B011"
+    ],
+    "bossStages": {
+      "B001": "ST001-01",
+      "B002": "ST001-03",
+      "B003": "ST001-04",
+      "B006": "ST003-03",
+      "B008": "ST003-04",
+      "B009": "ST004-01",
+      "B010": "ST004-03",
+      "B011": "ST004-04"
+    },
+    "firstCampaign": {
+      "stage": "ST001-01",
+      "bossId": "B001",
+      "duration": 360,
+      "bossAt": 270,
+      "eventAt": [
+        45,
+        150
+      ],
+      "chestAt": [
+        90,
+        210
+      ],
+      "spawn": 0.88,
+      "hp": 0.9,
+      "dmg": 0.82,
+      "speed": 0.96,
+      "incoming": 0.44,
+      "recoveryAt": [
+        75,
+        165,
+        255,
+        300,
+        330
+      ],
+      "recoveryRatio": 0.22,
+      "telegraphScale": 1.65,
+      "bossHp": 3,
+      "desc": "首战保护已启用：敌潮与承伤更平缓，战意会按战斗节拍恢复。保持移动、及时施放技能，在6分钟内击败黄巾巨将并领取战利品。",
+      "tags": [
+        "6分钟首战",
+        "首战保护",
+        "Boss战利品"
+      ],
+      "target": "在 06:00 前击败黄巾巨将并领取战利品"
+    },
+    "dailyChallenges": [
+      {
+        "name": "雷暴日",
+        "desc": "敌人移动更快，雷系Build获得强化；奖励额外+8%。",
+        "spawn": 1.05,
+        "hp": 1,
+        "dmg": 1.05,
+        "speed": 1.12,
+        "player": {
+          "lightning": 0.18
+        },
+        "reward": 0.08
+      },
+      {
+        "name": "精英潮",
+        "desc": "精英密度显著提高，Boss伤害+10%；奖励额外+12%。",
+        "spawn": 1.12,
+        "hp": 1.06,
+        "dmg": 1.08,
+        "speed": 1.03,
+        "elite": 1.8,
+        "player": {
+          "boss": 0.1
+        },
+        "reward": 0.12
+      },
+      {
+        "name": "玻璃神兵",
+        "desc": "玩家攻击+28%，最大生命-25%，战斗更偏向快速击杀。",
+        "spawn": 1.08,
+        "hp": 1.1,
+        "dmg": 1.12,
+        "speed": 1.03,
+        "player": {
+          "atk": 0.28,
+          "hp": -0.25
+        },
+        "reward": 0.1
+      },
+      {
+        "name": "丰收怪潮",
+        "desc": "刷怪速度提高，金币与高品质掉落倾向增加。",
+        "spawn": 1.32,
+        "hp": 1.04,
+        "dmg": 1.04,
+        "speed": 1.02,
+        "player": {
+          "gold": 0.18,
+          "drop": 0.1
+        },
+        "reward": 0.08
+      }
+    ]
+  },
+  "mode": {
+    "story": {
+      "name": "剧情模式",
+      "icon": "章",
+      "desc": "标准章节推进。20分钟内成长、进化、融合并完成区域Boss目标。",
+      "duration": 1200,
+      "reward": 1,
+      "tokens": 2,
+      "spawn": 1,
+      "hp": 1,
+      "dmg": 1,
+      "speed": 1,
+      "bossAt": 720,
+      "tags": [
+        "章节星",
+        "剧情推进",
+        "标准规则"
+      ]
+    },
+    "clear": {
+      "name": "通关模式",
+      "icon": "破",
+      "desc": "15分钟压缩战斗。刷怪更快，Boss提前登场，适合快速刷装备。",
+      "duration": 900,
+      "reward": 1.22,
+      "tokens": 5,
+      "spawn": 1.18,
+      "hp": 1.08,
+      "dmg": 1.06,
+      "speed": 1.03,
+      "bossAt": 600,
+      "tags": [
+        "15分钟",
+        "加速刷图",
+        "奖励+22%"
+      ]
+    },
+    "endless": {
+      "name": "无尽模式",
+      "icon": "∞",
+      "desc": "没有自动终点。敌人持续增强，每10分钟迎来一名Boss；10分钟后可主动撤离。",
+      "duration": null,
+      "reward": 1.12,
+      "tokens": 0,
+      "spawn": 1.15,
+      "hp": 1.06,
+      "dmg": 1.05,
+      "speed": 1.02,
+      "bossAt": 600,
+      "tags": [
+        "无限生存",
+        "周期Boss",
+        "最佳时间"
+      ]
+    },
+    "bossrush": {
+      "name": "Boss Rush",
+      "icon": "王",
+      "desc": "连续挑战8名首领。普通怪物大幅减少，每名Boss保留三阶段机制与专属掉落。",
+      "duration": 1080,
+      "reward": 1.8,
+      "tokens": 22,
+      "spawn": 0.18,
+      "hp": 1.1,
+      "dmg": 1.08,
+      "speed": 1.04,
+      "bossAt": 2,
+      "tags": [
+        "8 Boss",
+        "连续首领",
+        "专属掉落"
+      ]
+    },
+    "tower": {
+      "name": "万界塔",
+      "icon": "塔",
+      "desc": "按当前层数进行6分钟挑战。层数越高，敌人与Boss倍率持续成长。",
+      "duration": 360,
+      "reward": 1.35,
+      "tokens": 4,
+      "spawn": 1.12,
+      "hp": 1.05,
+      "dmg": 1.04,
+      "speed": 1.02,
+      "bossAt": 270,
+      "tags": [
+        "6分钟",
+        "逐层强化",
+        "永久层数"
+      ]
+    },
+    "daily": {
+      "name": "每日挑战",
+      "icon": "日",
+      "desc": "每天固定一套挑战词缀，12分钟完成；记录当天最高分。",
+      "duration": 720,
+      "reward": 1.55,
+      "tokens": 10,
+      "spawn": 1.22,
+      "hp": 1.16,
+      "dmg": 1.12,
+      "speed": 1.05,
+      "bossAt": 540,
+      "tags": [
+        "每日词缀",
+        "12分钟",
+        "每日记录"
+      ]
+    },
+    "abyss": {
+      "name": "深渊挑战",
+      "icon": "渊",
+      "desc": "15分钟高压终局模式。怪潮攻势更激进，治疗效率降低，Boss与精英更强。",
+      "duration": 900,
+      "reward": 2,
+      "tokens": 18,
+      "spawn": 1.48,
+      "hp": 1.55,
+      "dmg": 1.38,
+      "speed": 1.1,
+      "bossAt": 600,
+      "tags": [
+        "高压终局",
+        "治疗削弱",
+        "奖励×2"
+      ]
+    }
+  }
+}

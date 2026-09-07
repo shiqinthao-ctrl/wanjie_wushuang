@@ -1,0 +1,286 @@
+{
+  "firstStage": {
+    "name": "剧情模式",
+    "icon": "章",
+    "desc": "首战保护已启用：敌潮与承伤更平缓，战意会按战斗节拍恢复。保持移动、及时施放技能，在6分钟内击败黄巾巨将并领取战利品。",
+    "duration": 360,
+    "reward": 1,
+    "tokens": 2,
+    "spawn": 0.88,
+    "hp": 0.9,
+    "dmg": 0.82,
+    "speed": 0.96,
+    "bossAt": 270,
+    "tags": [
+      "6分钟首战",
+      "首战保护",
+      "Boss战利品"
+    ],
+    "budget": 0.64,
+    "beat": "首战保护",
+    "incoming": 0.44,
+    "bossHp": 3,
+    "note": "六分钟教学Boss，低承伤与疏潮换取完整三阶段首领体验。",
+    "target": "在 06:00 前击败黄巾巨将并领取战利品",
+    "storyContract": {
+      "objective": "在 06:00 前击败黄巾巨将并领取战利品",
+      "duration": 360,
+      "bosses": [
+        "B001"
+      ],
+      "bossAt": 270,
+      "unlockAfter": null,
+      "stars": {
+        "clear": 2,
+        "mastery": 3,
+        "masteryHp": 0.55
+      },
+      "reward": {
+        "starGold": 100
+      }
+    },
+    "storyEncounter": {
+      "name": "边境疏火线",
+      "spawn": 0.88,
+      "elite": 0.7,
+      "horde": 0.7,
+      "enemies": [
+        [
+          "EN001",
+          5
+        ],
+        [
+          "EN002",
+          3
+        ],
+        [
+          "EN003",
+          1
+        ]
+      ],
+      "eventAt": [
+        45,
+        150
+      ],
+      "eventPool": [
+        "merchant",
+        "goldChest"
+      ],
+      "chestAt": [
+        90,
+        210
+      ],
+      "hazard": {
+        "type": "fireline",
+        "name": "边境疏火线",
+        "desc": "低频横向火线留出明确闪避窗口。",
+        "interval": 26,
+        "damage": 8,
+        "size": 36,
+        "life": 4
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "步卒接战",
+          "type": "normal",
+          "budget": 0.78,
+          "elite": 0.35,
+          "note": "步卒与弓手建立基础走位"
+        },
+        {
+          "at": 60,
+          "name": "弓手压线",
+          "type": "normal",
+          "budget": 0.88,
+          "elite": 0.45,
+          "note": "远程火力开始夹击"
+        },
+        {
+          "at": 150,
+          "name": "盾阵试锋",
+          "type": "elite",
+          "budget": 0.96,
+          "elite": 0.85,
+          "note": "首名精英检验构筑"
+        },
+        {
+          "at": 270,
+          "name": "巨将压境",
+          "type": "boss",
+          "budget": 0.68,
+          "elite": 0.3,
+          "bosses": [
+            "B001"
+          ],
+          "note": "黄巾巨将登场"
+        },
+        {
+          "at": 360,
+          "name": "边境决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "Boss战利品决定通关"
+        }
+      ]
+    },
+    "storyCurve": {
+      "budget": 0.64,
+      "beat": "首战保护",
+      "hp": 0.9,
+      "dmg": 0.82,
+      "speed": 0.96,
+      "incoming": 0.58,
+      "bossHp": 3,
+      "note": "六分钟教学Boss，低承伤与疏潮换取完整三阶段首领体验。"
+    },
+    "stage": "ST001-01",
+    "bossId": "B001",
+    "eventAt": [
+      45,
+      150
+    ],
+    "chestAt": [
+      90,
+      210
+    ],
+    "recoveryAt": [
+      75,
+      165,
+      255,
+      300,
+      330
+    ],
+    "recoveryRatio": 0.22,
+    "telegraphScale": 1.65,
+    "firstCampaign": true
+  },
+  "difficulties": {
+    "easy": {
+      "name": "休闲",
+      "hp": 0.82,
+      "dmg": 0.78,
+      "speed": 0.94,
+      "budget": 0.82,
+      "elite": 0.65,
+      "gold": 0.9,
+      "drop": 0.9,
+      "xp": 1.08,
+      "desc": "适合首次体验"
+    },
+    "normal": {
+      "name": "标准",
+      "hp": 1,
+      "dmg": 1,
+      "speed": 1,
+      "budget": 1,
+      "elite": 1,
+      "gold": 1,
+      "drop": 1,
+      "xp": 1,
+      "desc": "推荐默认难度"
+    },
+    "hard": {
+      "name": "修罗",
+      "hp": 1.38,
+      "dmg": 1.28,
+      "speed": 1.07,
+      "budget": 1.22,
+      "elite": 1.45,
+      "gold": 1.28,
+      "drop": 1.18,
+      "xp": 0.98,
+      "desc": "高密度高收益"
+    },
+    "nightmare": {
+      "name": "万界劫",
+      "hp": 1.85,
+      "dmg": 1.58,
+      "speed": 1.13,
+      "budget": 1.48,
+      "elite": 2,
+      "gold": 1.6,
+      "drop": 1.4,
+      "xp": 0.95,
+      "desc": "终局挑战"
+    }
+  },
+  "heroStats": {
+    "H001": {
+      "hp": 713,
+      "atk": 130,
+      "def": 31,
+      "move": 4.8,
+      "aspd": 0.95,
+      "crit": 5
+    },
+    "H002": {
+      "hp": 520,
+      "atk": 102,
+      "def": 20,
+      "move": 5.4,
+      "aspd": 1.15,
+      "crit": 8
+    },
+    "H007": {
+      "hp": 560,
+      "atk": 105,
+      "def": 22,
+      "move": 5.4,
+      "aspd": 1.1,
+      "crit": 8
+    },
+    "H010": {
+      "hp": 480,
+      "atk": 130,
+      "def": 15,
+      "move": 5.3,
+      "aspd": 1,
+      "crit": 6
+    },
+    "H012": {
+      "hp": 482,
+      "atk": 123,
+      "def": 15,
+      "move": 5.6,
+      "aspd": 1.2,
+      "crit": 12
+    },
+    "H019": {
+      "hp": 500,
+      "atk": 112,
+      "def": 18,
+      "move": 5.2,
+      "aspd": 1.05,
+      "crit": 8
+    }
+  },
+  "functions": {
+    "updateRun": "function(dt){\n if(!run?.active)return _v30Update(dt);\n if(!run.v30)v30RunInit();\n const stableSpeed=player.speed,slow=run.v30AuraNear?.82:1;run.v30AuraNear=false;player.speed=stableSpeed*slow;\n try{\n   _v30Update(dt);\n   /* story dual boss second phase */\n   if(run?.active&&run?.v29?.id==='story'&&save.selectedStage==='ST004-03'&&run.v30.dualBossPhase===1&&!run.boss&&run.bossDefeated){\n     run.bossDefeated=false;run.v30.dualBossPhase=2;setTimeout(()=>{if(run?.active&&!run.boss){_v30SpawnBoss();if(run.boss&&run.v29)run.v29.lastBossSeen=run.boss.id;hint('炎雷双王 · 雷瞬忍王登场')}},180)\n   }\n   v30ApplyCaps();v30Onboarding()\n }finally{\n   if(run?.active)player.speed=stableSpeed\n }\n}",
+    "startBattle": "function(){\n if(v29LoadingTimer)return;v29Ensure();let [ok,why]=v29Unlocked(save.mode);if(!ok){toast(why);go('modes');return}if(save.mode==='story'&&!storyStageUnlocked(save.selectedStage)){toast('前置关卡未完成');go('world');return}v27EnsureInventory();v26MigrateGear();let si=selectedStageInfo(),screen=document.getElementById('loadingScreen'),fill=document.getElementById('loadingFill'),s=save.heroes[save.hero],rule=v29Rule(),bosses=storyBossNames(si.stage[0]),reward=storyStageReward(si.stage[0],0),encounter=rule.storyEncounter;\n document.getElementById('loadingStage').textContent=WW.config.mode[save.mode].name+' · '+WW.config.stage[si.chapter].name+' · '+si.stage[1]+(encounter?' · '+encounter.name:'');document.getElementById('loadingHero').textContent=WW.config.hero[save.hero].name+' Lv.'+s.level+' · '+s.star+'★ · 奖励×'+rule.reward.toFixed(2);document.getElementById('loadingTip').textContent=save.mode==='daily'?('今日挑战：'+v29Daily().name+' · '+v29Daily().desc):save.mode==='story'?((rule.firstCampaign?rule.desc:rule.target)+' · '+encounter.hazard.name+'：'+encounter.hazard.desc+' · '+(bosses.length?'Boss '+bosses.join(' → '):'普通生存关')+' · 基础 '+reward.base+' + 每星 '+(rule.storyContract?.reward?.starGold||0)+' 金币'):rule.desc;fill.style.width='0%';document.getElementById('loadingProgress').textContent='0%';screen.classList.add('show');let p=0;\n v29LoadingTimer=setInterval(()=>{p=Math.min(100,p+19+Math.floor(Math.random()*14));fill.style.width=p+'%';document.getElementById('loadingProgress').textContent=p+'%';if(p>=100){clearInterval(v29LoadingTimer);v29LoadingTimer=null;setTimeout(()=>{screen.classList.remove('show');_v21_startBattle();if(run?.active){v23Init();v24RuntimeInit();v26ApplyLoadout();v27Apply();v28Apply();v29RuntimeInit();v29ApplyMode();run.v26BossLootShown=false;renderHeroMechanic();renderV24Runtime();v25Ensure();renderV26BattleGear();renderV27Battle();v28Battle();v29BattleUI();hint(WW.config.mode[save.mode].name+' · '+v29ObjectiveText())}V21Audio.tone(240,.1,'triangle',.035,160)},100)}},65)\n}",
+    "finishRun": "function(victory,reason){\n if(!run?.active)return;\n run.v30=run.v30||{};\n if(run.v30.finalizing)return;\n run.v30.finalizing=true;\n try{_v30Finish(victory,reason)}\n catch(err){run.v30.finalizing=false;throw err}\n}",
+    "heroStats": "function(id){v28Ensure();let b=_v28Stats(id),g=v28Growth(id),t=v28TalentBonus();return{hp:Math.round(b.hp*(1+g.hpPct+t.hpPct)),atk:Math.round(b.atk*(1+g.atkPct+t.atkPct)),def:Math.round(b.def*(1+g.defPct+t.defPct)),move:b.move*(1+t.move),aspd:b.aspd,crit:b.crit+t.crit*100}}",
+    "hurtPlayer": "function(dmg){let r=run?.v29?.rule;if(Number.isFinite(r?.incoming))dmg*=r.incoming;_v29HurtPlayer(dmg)}",
+    "damageEnemy": "function(e,dmg,crit=false,source='AUTO'){const was=e?.hp||0;_v27OldDamageEnemy(e,dmg,crit,source);if(was>0&&e&&!enemies.includes(e)&&run?.v27){if(save.runes.includes('R006'))run.v27.killBuff=3;if(save.runes.includes('R043'))run.xp+=Math.round((e.elite?18:4)*.18);if(save.runes.includes('R041'))run.v27.petGold+=e.elite?2:.25}}",
+    "damageBoss": "function(dmg,source='AUTO'){\n const before=run?.boss?.id||null;_v26BossDamageAfter(dmg,source);\n if(before&&!run.boss&&run?.bossDefeated&&!run.v26BossLootShown){run.v26BossLootShown=true;setTimeout(()=>v26ShowBossLoot(before),180)}\n}",
+    "checkLevel": "function checkLevel(){if(run.xp>=run.xpNeed&&!run.paused){run.xp-=run.xpNeed;run.level++;run.xpNeed=Math.round(26+run.level*11);showLevelChoices()}}",
+    "validOptions": "function validOptions(){\n const opts=[];save.build.active.forEach(id=>{const lv=run.skills[id]||0;if(lv>0&&lv<5)opts.push({kind:'active',id,label:skillName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.skills).length<6)opts.push({kind:'active',id,label:'解锁 '+skillName(id)})});\n save.build.passive.forEach(id=>{const lv=run.passives[id]||0;if(lv>0&&lv<5)opts.push({kind:'passive',id,label:skillName(id)+' Lv.'+(lv+1)});else if(lv===0&&Object.keys(run.passives).length<6)opts.push({kind:'passive',id,label:'解锁 '+skillName(id)})});return opts.sort(()=>Math.random()-.5)\n}",
+    "chooseUpgrade": null,
+    "v29Update": "function v29Update(dt){\n if(!run?.active||run.paused||!run.v29)return;let id=run.v29.id,r=run.v29.rule;\n v29RecordActiveBoss();\n if(run.v29.lastBossSeen&&!run.boss&&run.bossDefeated&&run.v29.countedBoss!==run.v29.lastBossSeen){run.v29.countedBoss=run.v29.lastBossSeen;run.v29.bossesKilled++}\n if(r.firstCampaign){\n   if(v337FirstCampaignRecovery(r))v29BattleUI();\n   if(v29FirstCampaignMilestone(r.eventAt,run.events,showEvent)){v29BattleUI();return}\n   if(run.time>=r.bossAt&&!run.boss&&!run.bossDefeated)v29SpawnBossId(r.bossId);\n   if(v29FirstCampaignLootResolved()){\n     if(run.v29.lootResolvedAt==null){run.v29.lootResolvedAt=run.time;hint('Boss战利品已确认 · 正在封存战果');v29BattleUI();return}\n     if(run.time-run.v29.lootResolvedAt<.75){v29BattleUI();return}\n     if(run.v29.settlingAt==null){run.v29.settlingAt=run.time;v29BattleUI();return}\n     if(run.time-run.v29.settlingAt<.25){v29BattleUI();return}\n     return finishRun(true,'黄巾巨将已击败 · Boss战利品已领取并归档')\n   }\n   if(run.bossDefeated&&run.v26BossLootShown===true)return;\n   if(run.time>=r.duration)return finishRun(false,'首战时限到达 · 黄巾巨将未击败');\n }else if(id==='bossrush'){\n   if(!run.boss&&!document.getElementById('v26LootOverlay')?.classList.contains('show')){if(run.v29.bossesKilled>=8)return finishRun(true,'Boss Rush · 8名首领全部击败');v29SpawnBossId(WW.config.gameModes.bossOrder[run.v29.bossesKilled])}\n   if(run.time>=r.duration)return finishRun(false,'Boss Rush超时 · '+run.v29.bossesKilled+'/8')\n }else if(id==='tower'){\n   if(run.time>=r.bossAt&&!run.boss&&!run.bossDefeated)v29SpawnBossId(v29BossForTower());\n   if(run.bossDefeated&&run.v29.bossesKilled>=1)return finishRun(true,'万界塔第'+(save.modeStats.tower.floor||1)+'层通关');\n   if(run.time>=r.duration)return finishRun(false,'守层Boss未能及时击破')\n }else if(id==='endless'){\n   let milestone=Math.floor(run.time/600);if(milestone>=1&&milestone>run.v29.endlessBossMilestone&&!run.boss){run.v29.endlessBossMilestone=milestone;run.bossDefeated=false;run.v29.countedBoss=null;v29SpawnBossId(WW.config.gameModes.bossOrder[(milestone-1)%WW.config.gameModes.bossOrder.length])}\n }else if(id==='story'){\n   let contract=r.storyContract||storyStageContract(save.selectedStage),encounter=r.storyEncounter;if(encounter&&v29FirstCampaignMilestone(encounter.eventAt,run.events,showEvent)){v29BattleUI();return}\n   if(contract?.bosses.length&&r.bossAt!=null&&run.time>=r.bossAt&&!run.boss&&!run.bossDefeated)v29SpawnBossId(v29BossForStage());\n   if(r.duration&&run.time>=r.duration){let victory=storyBossGoalComplete(contract);return finishRun(victory,victory?storyStageSuccess(save.selectedStage):storyStageTimeout(save.selectedStage))}\n }else{\n   if(r.bossAt!=null&&run.time>=r.bossAt&&!run.boss&&!run.bossDefeated)v29SpawnBossId(v29BossForStage());\n   if(r.duration&&run.time>=r.duration){if(run.boss)return finishRun(false,WW.config.mode[id].name+'时间到达但Boss仍存活');return finishRun(true,WW.config.mode[id].name+'目标完成')}\n }\n run.v29.score=Math.round(run.kills+(run.eliteKills||0)*35+run.v29.bossesKilled*600+(run.maxCombo||0)*2+run.time*.15);v29BattleUI()\n}",
+    "storyStageSuccess": "function storyStageSuccess(id){const entry=storyStageEntry(id),bosses=storyBossNames(id);return bosses.length?bosses.join('、')+'已击败 · '+entry.stage[1]+'完成':entry.stage[1]+' · 生存目标完成'}",
+    "storyStageReward": "function storyStageReward(id,stars){const entry=storyStageEntry(id),contract=entry?.stage[5],base=entry?.stage[3]||0,star=(Number(stars)||0)*(contract?.reward?.starGold||0);return {base,star,total:base+star}}"
+  },
+  "pages": [
+    "home",
+    "heroes",
+    "growth",
+    "loadout",
+    "build",
+    "modes",
+    "briefing",
+    "world",
+    "battle",
+    "result"
+  ]
+}

@@ -1,0 +1,3515 @@
+{
+  "commit": "3a7b9f4fca9fe92a53f7cf57390ab946ad044526",
+  "scripts": [
+    "assets/js/config/game-data.js",
+    "assets/js/config/asset-manifest.js",
+    "assets/js/presentation/first-playable-assets.js",
+    "assets/js/ui/heroes.js",
+    "assets/js/ui/loadout.js",
+    "assets/js/ui/build.js",
+    "assets/js/ui/world.js",
+    "assets/js/combat/engine.js",
+    "assets/js/ui/tutorial-settings.js",
+    "assets/js/ui/result.js",
+    "assets/js/systems/director-balance.js",
+    "assets/js/systems/save-slots-start.js",
+    "assets/js/presentation/quality-presentation.js",
+    "assets/js/presentation/art-ui-cinematics.js",
+    "assets/js/combat/hero-identity.js",
+    "assets/js/combat/skill-forms.js",
+    "assets/js/combat/boss-map-interactions.js",
+    "assets/js/systems/gear-affix-loot.js",
+    "assets/js/systems/runes-pets.js",
+    "assets/js/systems/meta-growth.js",
+    "assets/js/systems/game-modes.js",
+    "assets/js/systems/daily-mutators.js",
+    "assets/js/core/stability-v30.js",
+    "assets/js/ui/ui-shell.js",
+    "assets/js/ui/nexus-hub.js",
+    "assets/js/core/v31-project.js"
+  ],
+  "css": [
+    "assets/css/app.css"
+  ],
+  "hashes": {
+    "assets/css/app.css": "507fe90afc815065be2b18b630ac8acc500dd71f034d2c0ac8a07dafae7da022",
+    "assets/game/st001-01/battlefield.svg": "7cec68689f3e334ad6a19c8936b074b1f2e69808537c4de543ade3bd98de0100",
+    "assets/game/st001-01/boss-b001-defeat.svg": "c002205570035d4af9726df7495e0c03314a91d8c4344aef0622e5c8c37fc92e",
+    "assets/game/st001-01/boss-b001-entrance.svg": "7b193313afde2bb053ef74b6cb2c555bf469998119873dd49e2fa6ecf4d0ca87",
+    "assets/game/st001-01/boss-b001-hit.svg": "7b7e38a1d206c7554d6d465aff73d9d2cdc4eda5425ef591186d9b6c4df12a89",
+    "assets/game/st001-01/boss-b001-telegraph.svg": "eb2f9ccace32e3bf18fa3a5cb51094534ae9c0a0efb35fa23a1d787c945a932b",
+    "assets/game/st001-01/boss-b001.svg": "8ff7260c54c3bd3b5a96a30ef47fb31c3747c96fc2732226ae250f14165b2ef9",
+    "assets/game/st001-01/enemy-en001-hit.svg": "b75e707f01e407d9c94315ef9e9abec9d06fcd91e5ed9c45982a0607d7467947",
+    "assets/game/st001-01/enemy-en001.svg": "8f1a1618c61a5be9222ad6e7286c08a0bb0a9660b99eab7384c4ed3676fa5b4e",
+    "assets/game/st001-01/hero-h001-attack.svg": "64ff049cba23e7323b6fa887c2f320a162cde77e596f9401d5defad965f84e76",
+    "assets/game/st001-01/hero-h001.svg": "da322720d5a905a758467361a91cf2af8a656ecfd752a67016513902a598cde4",
+    "assets/js/combat/boss-map-interactions.js": "3577040d3bfef6a6293dacb27a028fea6da25e22081e3bb8819dc85fc51e38f8",
+    "assets/js/combat/engine.js": "3afc58484f76ef51343c07c0690883f073700ef837eca4466d2c1cb7103aeb85",
+    "assets/js/combat/hero-identity.js": "cc2d231cf51120baa6cd5e267b947bf5d0fd22a19a22d69ac45e3b4fc7386ac7",
+    "assets/js/combat/skill-forms.js": "d1eadab8c873850bca95e44505bef3041bbae47eaa13b7cff29a06bd4bc4fea4",
+    "assets/js/config/asset-manifest.js": "d11e4402821840acce4270384e931bd3338a1abaed402741b8cd2981332c6b96",
+    "assets/js/config/game-data.js": "59dc30173ab3015cda54ad2b46ed55872847c01751fbbfd66de829af2f76d94a",
+    "assets/js/core/stability-v30.js": "f311c581bb8299f5e7edeb27957edf09f244c95b71f40a3a3609dba34e44f59f",
+    "assets/js/core/v31-project.js": "b998e89a62b4ee2e258a7d5cb94ec45a6bbb50b5832f0edbb779b84ce4c579a5",
+    "assets/js/presentation/art-ui-cinematics.js": "9deb73a46eafe714c6f5feb29539cc0dda19cc35a7f571c998f8cf8d3db6d0a5",
+    "assets/js/presentation/first-playable-assets.js": "1e9e8bedfc2e01b4c96fb380d11a089905a1e15ef4faba915c641ba7bcbf52e1",
+    "assets/js/presentation/quality-presentation.js": "be08c19a781011d3d8d849c0478698bbaf394f12833b5ef9d0d5f4dfbf2eeab5",
+    "assets/js/systems/daily-mutators.js": "e01a93cb33d09897b8a8494e353586769c1ba9c071712e54426ff96c0a733953",
+    "assets/js/systems/director-balance.js": "8c2142a21256401545673598ba7bef06bccb140cb18d17c4eb8e5b4a2436f341",
+    "assets/js/systems/game-modes.js": "1cd03a891aef0e2671b2cd45bb860f272871d2164f1502437ea3292b024eff3b",
+    "assets/js/systems/gear-affix-loot.js": "22dd6f7d81b02b455224a3ae24b52096356ce135a2a1b16caec07a21a0e54483",
+    "assets/js/systems/meta-growth.js": "90f739848a846ef9c71df601db18e305183ce229578140a724e5b86ee8ccc352",
+    "assets/js/systems/runes-pets.js": "c849b0f538533bf4305e1a3c334342fd07975810929a3b6355162adc206e7168",
+    "assets/js/systems/save-slots-start.js": "a544f7cd47c1d785c25461b8f8aa54ce75cfc79517194bcb243aa73239c889a3",
+    "assets/js/ui/build.js": "208ac77d4dd190ecd07ef0ccebf0244b8e254ab344ed28b40672e492f8f27510",
+    "assets/js/ui/heroes.js": "7e73a2ae403fc7b5eb0a28bd92d3f205f268e0241c31d31acf19309d54032374",
+    "assets/js/ui/loadout.js": "62e3ee0b9b3877b9d19ff7674c7433b5ff34325a5edd93a2cae945972ca4d21e",
+    "assets/js/ui/nexus-hub.js": "e99ab24454d6eccf82bb08eae726e0a1aa4ff3d3d367b3199f936181ef0eaae5",
+    "assets/js/ui/result.js": "df0069d4827cbc2a75cf065b3712afb50ea8fc8f5344fc60a98ac7fd6d2c1a0e",
+    "assets/js/ui/tutorial-settings.js": "c1ccf91e15ae78483398ec27aa6349ca3cfbb50709e62a17448ed4315be1d33a",
+    "assets/js/ui/ui-shell.js": "14ba0e6e62ffb47bdb5a3b140014390d9312dc458c00e426ff59662321366a72",
+    "assets/js/ui/world.js": "7c3bc3d0937abb4df697d4931adab930e9153c44e3d29ac2c2f9aeee53090e31",
+    "index.html": "5a70a8ae5c8cd943a34d7e9ff86cb3216616f5d7f84abe66238fdb7a2ae04d6d",
+    "package.json": "c535e4376dfeffc9ce16c4c37fbe98b480b80f2a71ff00c69560508936391cfe",
+    "scripts/archive-verify.mjs": "feb6ed74d9a54cdd840b5b753d4b4b0f1d269b60ce6ad62af026e6d9c202b601",
+    "scripts/asset-pipeline.mjs": "41f4aafbc58ce14e0e9a1bb67e625d064726a6697f1de50b362c936fb22feba3",
+    "scripts/audit.mjs": "57ffbae7370550eeffb3ce63ba8f5d636a15aed09fe8747a5a766637484454f5",
+    "scripts/campaign-route.mjs": "fdc6a9c2e8296ada1452cc599aad67fe1b8bae03c258fcd21c7fc3a6f93c25c0",
+    "scripts/check.mjs": "cb8be5335d372d3267b795335b1e1540deef8e3390600ee9c2ebf70e98eb10f0",
+    "scripts/context.mjs": "d33523806b550943e72f90c8ebca9eda6988d1790cddf86232cdad90343dbea9",
+    "scripts/doc-budget.mjs": "50df94d8e1b019b1f979f3afb70111c4078b971e3a3f60c03fb2e2ae6bddf8bb",
+    "scripts/playtest-validate.mjs": "ba381c3c662dd280e9ada18373b4ab3467065670bb8958d99eedd7520d1988db",
+    "scripts/serve.mjs": "4a10c8b782a9947447081b898a96782bccb11ba80e1529e9eac03f59d210118b",
+    "scripts/smoke.mjs": "592ed36cefd0bad68a6ba9b5d070f613e15a680dcae4688a46b7a35d15d253ed"
+  },
+  "chains": {
+    "clone": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 231
+      }
+    ],
+    "merge": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 232
+      }
+    ],
+    "loadSave": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 233
+      }
+    ],
+    "persist": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 235
+      },
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 7
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 67
+      }
+    ],
+    "toast": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 236
+      }
+    ],
+    "hint": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 237
+      }
+    ],
+    "log": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 238
+      }
+    ],
+    "fmt": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 239
+      }
+    ],
+    "setMobileNavOpen": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 242
+      }
+    ],
+    "go": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 243
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 29
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 285
+      }
+    ],
+    "storyStageEntry": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 254
+      }
+    ],
+    "storyStageContract": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 255
+      }
+    ],
+    "storyStageEncounter": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 256
+      }
+    ],
+    "storyStageRecord": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 257
+      }
+    ],
+    "storyStageUnlocked": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 258
+      }
+    ],
+    "storyStarAward": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 259
+      }
+    ],
+    "storyBestStars": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 260
+      }
+    ],
+    "storyBossNames": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 261
+      }
+    ],
+    "storyStageReward": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 262
+      }
+    ],
+    "storyStageSchedule": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 263
+      }
+    ],
+    "storyStageSuccess": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 264
+      }
+    ],
+    "storyStageTimeout": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 265
+      }
+    ],
+    "chapterStars": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 266
+      }
+    ],
+    "totalStars": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 267
+      }
+    ],
+    "recomputeWorldUnlocks": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 268
+      }
+    ],
+    "gearScore": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 269
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 128
+      }
+    ],
+    "runeScore": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 270
+      }
+    ],
+    "petScore": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 271
+      }
+    ],
+    "buildScore": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 272
+      }
+    ],
+    "combatPower": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 273
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 29
+      }
+    ],
+    "heroStats": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 274
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 15
+      }
+    ],
+    "skillName": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 275
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 22
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 337
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 294
+      }
+    ],
+    "glyph": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 276
+      }
+    ],
+    "reachableBuildEvos": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 277
+      }
+    ],
+    "reachableBuildFusions": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 278
+      }
+    ],
+    "selectedStageInfo": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 279
+      }
+    ],
+    "worldProgress": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 280
+      }
+    ],
+    "renderTop": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 282
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 253
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 257
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 325
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 66
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 29
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 296
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 227
+      },
+      {
+        "file": "assets/js/core/v31-project.js",
+        "line": 10
+      }
+    ],
+    "continueFlow": [
+      {
+        "file": "assets/js/config/game-data.js",
+        "line": 286
+      }
+    ],
+    "refreshStatus": [
+      {
+        "file": "assets/js/presentation/first-playable-assets.js",
+        "line": 7
+      }
+    ],
+    "snapshot": [
+      {
+        "file": "assets/js/presentation/first-playable-assets.js",
+        "line": 14
+      }
+    ],
+    "load": [
+      {
+        "file": "assets/js/presentation/first-playable-assets.js",
+        "line": 32
+      }
+    ],
+    "drawRole": [
+      {
+        "file": "assets/js/presentation/first-playable-assets.js",
+        "line": 44
+      }
+    ],
+    "v34HeroSelectionPreview": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 13
+      }
+    ],
+    "renderHeroes": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 19
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 112
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 5
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 29
+      }
+    ],
+    "renderHeroHall": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 21
+      }
+    ],
+    "focusHero": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 57
+      }
+    ],
+    "confirmHeroSelection": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 61
+      }
+    ],
+    "v34BuildNames": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 76
+      }
+    ],
+    "v34CancelHeroSelection": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 77
+      }
+    ],
+    "applyHeroSelection": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 78
+      }
+    ],
+    "selectHero": [
+      {
+        "file": "assets/js/ui/heroes.js",
+        "line": 84
+      }
+    ],
+    "loadoutResolve": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 2
+      }
+    ],
+    "loadoutKnown": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 10
+      }
+    ],
+    "renderLoadout": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 11
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 137
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 146
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 44
+      }
+    ],
+    "focusLoadoutBay": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 35
+      }
+    ],
+    "equipGear": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 46
+      }
+    ],
+    "toggleRune": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 47
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 45
+      }
+    ],
+    "setPet": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 48
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 45
+      }
+    ],
+    "autoBest": [
+      {
+        "file": "assets/js/ui/loadout.js",
+        "line": 49
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 176
+      }
+    ],
+    "renderBuild": [
+      {
+        "file": "assets/js/ui/build.js",
+        "line": 2
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 305
+      }
+    ],
+    "renderBuildSlots": [
+      {
+        "file": "assets/js/ui/build.js",
+        "line": 19
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 126
+      }
+    ],
+    "focusBuildLibrary": [
+      {
+        "file": "assets/js/ui/build.js",
+        "line": 20
+      }
+    ],
+    "toggleBuild": [
+      {
+        "file": "assets/js/ui/build.js",
+        "line": 31
+      }
+    ],
+    "applyPreset": [
+      {
+        "file": "assets/js/ui/build.js",
+        "line": 32
+      }
+    ],
+    "clearBuild": [
+      {
+        "file": "assets/js/ui/build.js",
+        "line": 33
+      }
+    ],
+    "renderWorld": [
+      {
+        "file": "assets/js/ui/world.js",
+        "line": 2
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 251
+      }
+    ],
+    "selectWorldChapter": [
+      {
+        "file": "assets/js/ui/world.js",
+        "line": 8
+      },
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 22
+      }
+    ],
+    "selectWorldStage": [
+      {
+        "file": "assets/js/ui/world.js",
+        "line": 9
+      }
+    ],
+    "renderStageList": [
+      {
+        "file": "assets/js/ui/world.js",
+        "line": 10
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 148
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 276
+      }
+    ],
+    "clampValue": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 6
+      }
+    ],
+    "resetBattleWorld": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 7
+      }
+    ],
+    "ensureBattleWorld": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 8
+      }
+    ],
+    "clampWorldPoint": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 9
+      }
+    ],
+    "clampBattleCamera": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 10
+      }
+    ],
+    "snapBattleCamera": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 11
+      }
+    ],
+    "updateBattleCamera": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 12
+      }
+    ],
+    "resizeArena": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 13
+      }
+    ],
+    "v331QueueArenaResize": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 14
+      }
+    ],
+    "setBattleDossierOpen": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 16
+      }
+    ],
+    "toggleBattleDossier": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 17
+      }
+    ],
+    "v32InteractiveKeyTarget": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 18
+      }
+    ],
+    "movementVector": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 25
+      }
+    ],
+    "v34CameraIntent": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 26
+      }
+    ],
+    "resetMovementResponse": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 28
+      }
+    ],
+    "responsiveMovementVector": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 29
+      }
+    ],
+    "startBattle": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 33
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 143
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 52
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 6
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 310
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 290
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 65
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 27
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 279
+      }
+    ],
+    "mapEnemyIds": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 42
+      }
+    ],
+    "weightedEnemyId": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 43
+      }
+    ],
+    "spawnEnemy": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 48
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 111
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 210
+      }
+    ],
+    "nearest": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 54
+      }
+    ],
+    "shootAuto": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 55
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 15
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 26
+      }
+    ],
+    "recordDamage": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 59
+      }
+    ],
+    "v342EffectiveXp": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 61
+      }
+    ],
+    "v342MergeXpCrystals": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 62
+      }
+    ],
+    "v342SpawnXpCrystal": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 63
+      }
+    ],
+    "v342UpdateXpCrystals": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 64
+      }
+    ],
+    "v342CombatVitalsProjection": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 65
+      }
+    ],
+    "damageEnemy": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 66
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 213
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 16
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 208
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 54
+      }
+    ],
+    "checkLevel": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 73
+      }
+    ],
+    "validOptions": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 74
+      }
+    ],
+    "v34ChoiceMeta": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 78
+      }
+    ],
+    "v34ChoiceMarkup": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 92
+      }
+    ],
+    "showLevelChoices": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 93
+      }
+    ],
+    "pickLevel": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 94
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 332
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 134
+      }
+    ],
+    "runReadyEvos": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 95
+      }
+    ],
+    "runReadyFusions": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 96
+      }
+    ],
+    "showChest": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 97
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 230
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 122
+      }
+    ],
+    "pickChest": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 98
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 188
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 333
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 126
+      }
+    ],
+    "forceLevel": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 99
+      }
+    ],
+    "forceChest": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 100
+      }
+    ],
+    "fastForward": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 101
+      }
+    ],
+    "v34TimedRewardTimes": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 103
+      }
+    ],
+    "v34InitRunFeatures": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 114
+      }
+    ],
+    "v34ObjectiveCurrent": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 126
+      }
+    ],
+    "v34ObjectiveProjection": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 133
+      }
+    ],
+    "v34UpdateObjectives": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 136
+      }
+    ],
+    "v34TimedRewardProjection": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 142
+      }
+    ],
+    "v34UpdateTimedRewards": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 145
+      }
+    ],
+    "claimTimedReward": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 151
+      }
+    ],
+    "v34RenderCombatLoop": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 160
+      }
+    ],
+    "tryDodge": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 166
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 19
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 53
+      }
+    ],
+    "castHeroSkill": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 167
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 226
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 17
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 223
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 58
+      }
+    ],
+    "castUltimate": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 168
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 228
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 18
+      }
+    ],
+    "dist": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 169
+      }
+    ],
+    "spawnExplosion": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 170
+      }
+    ],
+    "hurtPlayer": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 171
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 224
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 52
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 22
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 217
+      }
+    ],
+    "spawnEnemyShot": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 173
+      }
+    ],
+    "enemyAI": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 174
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 138
+      }
+    ],
+    "spawnBoss": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 211
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 203
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 251
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 205
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 164
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 144
+      }
+    ],
+    "damageBoss": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 214
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 175
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 213
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 283
+      }
+    ],
+    "bossAI": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 215
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 253
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 188
+      }
+    ],
+    "updateMapMechanic": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 233
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 77
+      }
+    ],
+    "showEvent": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 259
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 124
+      }
+    ],
+    "pickEvent": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 268
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 128
+      }
+    ],
+    "makeGearDrop": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 280
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 129
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 213
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 251
+      }
+    ],
+    "finalizeDrops": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 284
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 255
+      }
+    ],
+    "updateProjectiles": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 288
+      }
+    ],
+    "updateEffects": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 293
+      }
+    ],
+    "v341DirectionLabel": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 297
+      }
+    ],
+    "v341InteractionObjective": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 298
+      }
+    ],
+    "v341NearestInteractionTarget": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 299
+      }
+    ],
+    "v341WorldEdgeState": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 305
+      }
+    ],
+    "v34MinimapSnapshot": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 309
+      }
+    ],
+    "v34DrawTacticalMinimap": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 314
+      }
+    ],
+    "v34UpdateWorldEdgeCue": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 315
+      }
+    ],
+    "updateRun": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 316
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 175
+      },
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 49
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 20
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 329
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 268
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 57
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 259
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 170
+      }
+    ],
+    "shake": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 333
+      }
+    ],
+    "drawRun": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 334
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 178
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 21
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 286
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 267
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 64
+      }
+    ],
+    "v342DrawXpCrystals": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 351
+      }
+    ],
+    "drawBattleFrame": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 352
+      }
+    ],
+    "setMobileActionState": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 353
+      }
+    ],
+    "v341UpdateInteractionRouteGuide": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 354
+      }
+    ],
+    "updateMobileControlsHud": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 355
+      }
+    ],
+    "setDesktopActionState": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 356
+      }
+    ],
+    "updateDesktopActionsHud": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 357
+      }
+    ],
+    "updateHud": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 358
+      }
+    ],
+    "renderHudSlots": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 364
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 158
+      }
+    ],
+    "renderRunSide": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 365
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 22
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 306
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 297
+      }
+    ],
+    "renderDamageList": [
+      {
+        "file": "assets/js/combat/engine.js",
+        "line": 370
+      }
+    ],
+    "showTutorial": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 4
+      }
+    ],
+    "renderTutorial": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 5
+      }
+    ],
+    "nextTutorial": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 6
+      }
+    ],
+    "renderBattleOnboarding": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 7
+      }
+    ],
+    "recordBattleOnboarding": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 8
+      }
+    ],
+    "battleOnboardingActionState": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 9
+      }
+    ],
+    "performBattleAction": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 10
+      }
+    ],
+    "finishBattleOnboarding": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 11
+      }
+    ],
+    "completeBattleOnboarding": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 12
+      }
+    ],
+    "skipTutorial": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 13
+      }
+    ],
+    "togglePause": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 14
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 108
+      }
+    ],
+    "toggleSetting": [
+      {
+        "file": "assets/js/ui/tutorial-settings.js",
+        "line": 15
+      }
+    ],
+    "finishRun": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 2
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 215
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 266
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 280
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 319
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 61
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 28
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 262
+      },
+      {
+        "file": "assets/js/systems/daily-mutators.js",
+        "line": 19
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 188
+      }
+    ],
+    "v34ObjectiveResults": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 8
+      }
+    ],
+    "v34TimedRewardResults": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 12
+      }
+    ],
+    "v34ReplayAdvice": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 16
+      }
+    ],
+    "renderResult": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 22
+      },
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 237
+      },
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 50
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 217
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 287
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 309
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 62
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 28
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 276
+      }
+    ],
+    "renderSettingsToggles": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 29
+      }
+    ],
+    "renderAll": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 30
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 297
+      }
+    ],
+    "loop": [
+      {
+        "file": "assets/js/ui/result.js",
+        "line": 31
+      }
+    ],
+    "v19Difficulty": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 28
+      }
+    ],
+    "v19StoryEncounter": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 29
+      }
+    ],
+    "v19WavePlan": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 30
+      }
+    ],
+    "v19WaveSecond": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 31
+      }
+    ],
+    "v19WaveKey": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 32
+      }
+    ],
+    "v19WaveAt": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 33
+      }
+    ],
+    "v19NextWave": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 39
+      }
+    ],
+    "v19Pressure": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 43
+      }
+    ],
+    "setDifficulty": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 55
+      }
+    ],
+    "renderDifficulty": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 59
+      }
+    ],
+    "renderWaveTable": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 69
+      }
+    ],
+    "renderDirector": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 80
+      }
+    ],
+    "v19SpawnInterval": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 91
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 208
+      }
+    ],
+    "v19EliteChance": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 96
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 209
+      }
+    ],
+    "v19StatCurve": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 100
+      }
+    ],
+    "v19DirectorMilestones": [
+      {
+        "file": "assets/js/systems/director-balance.js",
+        "line": 153
+      }
+    ],
+    "saveV20Slots": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 6
+      }
+    ],
+    "snapshotActiveSlot": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 6
+      }
+    ],
+    "refreshContinueSummary": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 8
+      }
+    ],
+    "continueGame": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 9
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 71
+      }
+    ],
+    "newGameConfirm": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 10
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 75
+      }
+    ],
+    "v32Layer": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 12
+      }
+    ],
+    "v32OpenLayer": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 13
+      }
+    ],
+    "v32CloseLayer": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 14
+      }
+    ],
+    "openSaveManager": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 15
+      }
+    ],
+    "openGlobalSettings": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 15
+      }
+    ],
+    "closeModal": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 15
+      }
+    ],
+    "renderSaveCards": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 16
+      }
+    ],
+    "loadSlot": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 17
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 69
+      }
+    ],
+    "copySlot": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 17
+      }
+    ],
+    "resetSlot": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 17
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 78
+      }
+    ],
+    "createSlot": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 17
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 73
+      }
+    ],
+    "renderGlobalSettings": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 18
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 282
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 218
+      }
+    ],
+    "setPerformance": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 19
+      }
+    ],
+    "toggleGlobal": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 19
+      }
+    ],
+    "applyPerformance": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 19
+      }
+    ],
+    "maybeShowStoryIntro": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 20
+      }
+    ],
+    "closeStoryIntro": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 21
+      }
+    ],
+    "stripDebugUI": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 23
+      }
+    ],
+    "v331JoystickVector": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 27
+      }
+    ],
+    "v331ResetJoystick": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 30
+      }
+    ],
+    "v331ClearInputs": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 33
+      }
+    ],
+    "v331HandleFocusLoss": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 38
+      }
+    ],
+    "v331PositionJoystickBase": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 39
+      }
+    ],
+    "initMobileControls": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 40
+      }
+    ],
+    "movePointer": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 42
+      }
+    ],
+    "resetPointer": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 43
+      }
+    ],
+    "v20Boot": [
+      {
+        "file": "assets/js/systems/save-slots-start.js",
+        "line": 52
+      },
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 284
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 269
+      },
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 22
+      },
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 340
+      },
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 298
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 327
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 66
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 29
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 298
+      },
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 229
+      }
+    ],
+    "toggleAudio": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 41
+      }
+    ],
+    "setMasterVolume": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 42
+      }
+    ],
+    "renderV21AudioSettings": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 43
+      }
+    ],
+    "v21Shadow": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 70
+      }
+    ],
+    "v336ResetPresentation": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 74
+      }
+    ],
+    "v336StageId": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 77
+      }
+    ],
+    "v336ObserveCombatPresentation": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 78
+      }
+    ],
+    "v336BossPresentationState": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 98
+      }
+    ],
+    "v336DrawEnemyImpact": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 107
+      }
+    ],
+    "v336DrawBossOverlay": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 111
+      }
+    ],
+    "v336DrawBossDefeat": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 118
+      }
+    ],
+    "v21DrawHero": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 123
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 232
+      }
+    ],
+    "v21DrawEnemy": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 137
+      },
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 248
+      }
+    ],
+    "v21DrawBoss": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 166
+      }
+    ],
+    "v21Pulse": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 211
+      }
+    ],
+    "v21BossCastName": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 234
+      }
+    ],
+    "v21ShowBossCast": [
+      {
+        "file": "assets/js/presentation/quality-presentation.js",
+        "line": 247
+      }
+    ],
+    "v22Element": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 15
+      }
+    ],
+    "v22SkillIconHTML": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 24
+      }
+    ],
+    "v22HeroAvatarHTML": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 28
+      }
+    ],
+    "v22RarityClass": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 32
+      }
+    ],
+    "v22RarityName": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 33
+      }
+    ],
+    "v336FirstPlayableFlowScope": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 36
+      }
+    ],
+    "v336FlowToast": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 40
+      }
+    ],
+    "v336FlowOverlay": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 46
+      }
+    ],
+    "v336PresentXpPickup": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 52
+      }
+    ],
+    "v336PresentLevelChoices": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 58
+      }
+    ],
+    "v336PresentLevelChoice": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 65
+      }
+    ],
+    "v336PresentChestChoices": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 71
+      }
+    ],
+    "v336PresentChestChoice": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 79
+      }
+    ],
+    "v336PresentRunTransition": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 92
+      }
+    ],
+    "v22EnsureBossPortrait": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 168
+      }
+    ],
+    "v22PlayEvolution": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 175
+      }
+    ],
+    "v22BossIntro": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 197
+      }
+    ],
+    "v22LootToast": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 208
+      }
+    ],
+    "v336DrawHeroAttack": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 225
+      }
+    ],
+    "v22InjectTopAvatar": [
+      {
+        "file": "assets/js/presentation/art-ui-cinematics.js",
+        "line": 251
+      }
+    ],
+    "v23P": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 3
+      }
+    ],
+    "v23Init": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 3
+      }
+    ],
+    "v23Val": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 3
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 23
+      }
+    ],
+    "renderHeroMechanic": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 4
+      }
+    ],
+    "v23A": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 7
+      }
+    ],
+    "v23Shot": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 7
+      }
+    ],
+    "v23Arc": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 7
+      }
+    ],
+    "v23Chain": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 7
+      }
+    ],
+    "v23Clone": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 7
+      }
+    ],
+    "v23Bomb": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 7
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 25
+      }
+    ],
+    "v338FirstBossTarget": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 8
+      }
+    ],
+    "v23AutoTarget": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 14
+      }
+    ],
+    "v23Update": [
+      {
+        "file": "assets/js/combat/hero-identity.js",
+        "line": 20
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 23
+      }
+    ],
+    "v24Desc": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 41
+      }
+    ],
+    "v24Element": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 42
+      }
+    ],
+    "v24Lv": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 43
+      }
+    ],
+    "v24PLv": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 44
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 217
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 49
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 22
+      }
+    ],
+    "v24Has": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 45
+      }
+    ],
+    "v24EvoForBase": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 46
+      }
+    ],
+    "v24IsFusion": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 47
+      }
+    ],
+    "v24Mod": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 48
+      },
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 219
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 50
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 22
+      }
+    ],
+    "v24DamageEnemy": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 61
+      }
+    ],
+    "v24DamageBoss": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 68
+      }
+    ],
+    "v24NearestPoint": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 69
+      }
+    ],
+    "v24RuntimeInit": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 72
+      }
+    ],
+    "v24Ensure": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 75
+      }
+    ],
+    "v24CD": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 76
+      }
+    ],
+    "v24Projectile": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 77
+      }
+    ],
+    "v24Field": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 82
+      }
+    ],
+    "v24Meteor": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 87
+      }
+    ],
+    "v24Vortex": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 91
+      }
+    ],
+    "v24SummonTargetCount": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 95
+      }
+    ],
+    "v24EnsureSummons": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 102
+      }
+    ],
+    "v24Cast": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 109
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 59
+      }
+    ],
+    "v24UpdateProjectiles": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 145
+      }
+    ],
+    "v24Explosion": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 164
+      }
+    ],
+    "v24UpdateFields": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 169
+      }
+    ],
+    "v24UpdateVortices": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 185
+      }
+    ],
+    "v24UpdateMeteors": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 195
+      }
+    ],
+    "v24UpdateOrbit": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 203
+      }
+    ],
+    "v24UpdateSummons": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 218
+      }
+    ],
+    "v24UpdateMirrors": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 230
+      }
+    ],
+    "v24FusionPulse": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 240
+      }
+    ],
+    "v24Update": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 253
+      }
+    ],
+    "v24Draw": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 265
+      }
+    ],
+    "renderBuildForms": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 289
+      }
+    ],
+    "renderV24Runtime": [
+      {
+        "file": "assets/js/combat/skill-forms.js",
+        "line": 297
+      }
+    ],
+    "v25Ensure": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 25
+      }
+    ],
+    "v25SpawnInteractables": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 34
+      }
+    ],
+    "v25RenderInteractLegend": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 42
+      }
+    ],
+    "v25NearestInteract": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 47
+      }
+    ],
+    "v25UseInteractable": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 52
+      }
+    ],
+    "v25AddTelegraph": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 84
+      }
+    ],
+    "v25PointLineDistance": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 87
+      }
+    ],
+    "v25Resolve": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 91
+      }
+    ],
+    "v25Circle": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 102
+      }
+    ],
+    "v25Line": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 103
+      }
+    ],
+    "v25Cone": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 107
+      }
+    ],
+    "v25Ring": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 110
+      }
+    ],
+    "v25MultiCircle": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 111
+      }
+    ],
+    "v25ShowCast": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 114
+      }
+    ],
+    "v337FirstCampaignTelegraph": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 116
+      }
+    ],
+    "v338FirstBossGuideTarget": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 124
+      }
+    ],
+    "v338FirstBossGuideDirection": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 132
+      }
+    ],
+    "v338ClearFirstBossCast": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 136
+      }
+    ],
+    "v25PhaseFor": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 145
+      }
+    ],
+    "v25PhaseCinematic": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 146
+      }
+    ],
+    "v25BeginShrink": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 153
+      }
+    ],
+    "v25PhaseTransition": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 157
+      }
+    ],
+    "v25Update": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 213
+      }
+    ],
+    "v25UpdateInteractUI": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 224
+      }
+    ],
+    "v25UpdateBossUI": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 229
+      }
+    ],
+    "v25DrawTelegraph": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 242
+      }
+    ],
+    "v25DrawInteractable": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 250
+      }
+    ],
+    "v25Draw": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 262
+      }
+    ],
+    "v25RenderWorldBossPreview": [
+      {
+        "file": "assets/js/combat/boss-map-interactions.js",
+        "line": 271
+      }
+    ],
+    "v26Uid": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 65
+      }
+    ],
+    "v26Rand": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 66
+      }
+    ],
+    "v26AffixLabel": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 67
+      }
+    ],
+    "v26AffixValue": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 71
+      }
+    ],
+    "v26CreateInstance": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 75
+      }
+    ],
+    "v26InstanceScore": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 82
+      }
+    ],
+    "v26MigrateGear": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 87
+      }
+    ],
+    "v26Inst": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 98
+      }
+    ],
+    "v26Equipped": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 99
+      }
+    ],
+    "v26SetCounts": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 100
+      }
+    ],
+    "v26MergeBonus": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 101
+      }
+    ],
+    "v26Bonuses": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 106
+      }
+    ],
+    "v26TemplateSetName": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 131
+      }
+    ],
+    "v26GearCard": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 132
+      }
+    ],
+    "v26Equip": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 169
+      }
+    ],
+    "v26Salvage": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 172
+      }
+    ],
+    "v26ApplyLoadout": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 185
+      }
+    ],
+    "v26SourceElement": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 190
+      }
+    ],
+    "v26DamageMult": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 199
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 51
+      },
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 22
+      },
+      {
+        "file": "assets/js/systems/daily-mutators.js",
+        "line": 3
+      }
+    ],
+    "renderV26BattleGear": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 226
+      }
+    ],
+    "v26RarityForSource": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 237
+      },
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 60
+      },
+      {
+        "file": "assets/js/systems/daily-mutators.js",
+        "line": 13
+      }
+    ],
+    "v26DropTemplates": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 243
+      }
+    ],
+    "v26GenerateDrop": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 247
+      }
+    ],
+    "v26BossChoices": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 262
+      }
+    ],
+    "v26ShowBossLoot": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 268
+      }
+    ],
+    "v26PickBossLoot": [
+      {
+        "file": "assets/js/systems/gear-affix-loot.js",
+        "line": 277
+      }
+    ],
+    "v27RuneTypeLabel": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 36
+      }
+    ],
+    "v27RuneTypeClass": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 37
+      }
+    ],
+    "v27EnsureInventory": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 38
+      }
+    ],
+    "v27RuneBonuses": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 39
+      }
+    ],
+    "v27PetBonus": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 40
+      }
+    ],
+    "v27Resonance": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 41
+      }
+    ],
+    "v27CombinedBonus": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 42
+      }
+    ],
+    "v27Apply": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 46
+      }
+    ],
+    "v27B": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 47
+      }
+    ],
+    "renderV27Battle": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 48
+      }
+    ],
+    "v27PetCast": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 55
+      },
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 218
+      }
+    ],
+    "v27Update": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 56
+      }
+    ],
+    "v27Draw": [
+      {
+        "file": "assets/js/systems/runes-pets.js",
+        "line": 63
+      }
+    ],
+    "v28Ensure": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 10
+      }
+    ],
+    "v28S": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 11
+      }
+    ],
+    "v28LevelCost": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 11
+      }
+    ],
+    "v28StarCost": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 11
+      }
+    ],
+    "v28AccountNeed": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 11
+      }
+    ],
+    "v28TalentBonus": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 12
+      }
+    ],
+    "v28Tier": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 13
+      }
+    ],
+    "v28Growth": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 13
+      }
+    ],
+    "v28AwBonus": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 14
+      }
+    ],
+    "v28SetGrowthTab": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 16
+      }
+    ],
+    "v28HeroStep": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 17
+      }
+    ],
+    "v28Render": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 18
+      }
+    ],
+    "v28LevelUp": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 19
+      }
+    ],
+    "v28StarUp": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 19
+      }
+    ],
+    "v28Awaken": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 19
+      }
+    ],
+    "v28Invest": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 19
+      }
+    ],
+    "v28SavePreset": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 19
+      }
+    ],
+    "v28LoadPreset": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 19
+      }
+    ],
+    "v28Apply": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 20
+      }
+    ],
+    "v28Battle": [
+      {
+        "file": "assets/js/systems/meta-growth.js",
+        "line": 21
+      }
+    ],
+    "v337FirstCampaignRecovery": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 17
+      }
+    ],
+    "v29DateKey": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 35
+      }
+    ],
+    "v29Daily": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 36
+      }
+    ],
+    "v29Ensure": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 37
+      }
+    ],
+    "v29IsFirstCampaign": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 42
+      }
+    ],
+    "v29Rule": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 43
+      }
+    ],
+    "v29Unlocked": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 51
+      }
+    ],
+    "v29RecordRows": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 57
+      }
+    ],
+    "v29RenderCampaignCopy": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 58
+      }
+    ],
+    "v29RenderModes": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 59
+      }
+    ],
+    "v29SelectMode": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 69
+      }
+    ],
+    "v29BriefingStatus": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 73
+      }
+    ],
+    "v29BriefingList": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 97
+      }
+    ],
+    "v29RenderBriefing": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 102
+      }
+    ],
+    "v29OpenBriefingFix": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 114
+      }
+    ],
+    "v29SyncBriefingHeroAction": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 116
+      }
+    ],
+    "v29SyncBriefingContext": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 128
+      }
+    ],
+    "v29ClearBriefingContext": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 137
+      }
+    ],
+    "v29BeginBriefing": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 138
+      }
+    ],
+    "v29OpenBriefingEditor": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 139
+      }
+    ],
+    "v29ReturnToBriefing": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 140
+      }
+    ],
+    "v29CompleteBriefingHero": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 141
+      }
+    ],
+    "v29CompleteLoadout": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 142
+      }
+    ],
+    "v29CompleteBuild": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 143
+      }
+    ],
+    "v29ReplayBriefing": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 144
+      }
+    ],
+    "v29CampaignHandoff": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 145
+      }
+    ],
+    "v29ApplyCampaignHandoff": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 155
+      }
+    ],
+    "v29RenderResultHandoff": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 162
+      }
+    ],
+    "v29OpenResultHandoff": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 171
+      }
+    ],
+    "v29ReturnResultHandoff": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 172
+      }
+    ],
+    "v29ConfirmBriefing": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 173
+      }
+    ],
+    "v29BriefingKeydown": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 174
+      }
+    ],
+    "v29QuickStart": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 179
+      }
+    ],
+    "v29StartSelected": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 180
+      }
+    ],
+    "v29RuntimeInit": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 182
+      }
+    ],
+    "v29EncounterSchedule": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 183
+      }
+    ],
+    "v29RecordActiveBoss": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 184
+      }
+    ],
+    "storyBossGoalComplete": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 185
+      }
+    ],
+    "v29FirstCampaignPhase": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 186
+      }
+    ],
+    "v29Progress": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 196
+      }
+    ],
+    "v29ObjectiveText": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 197
+      }
+    ],
+    "v29SyncCampaignStatus": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 198
+      }
+    ],
+    "v29BattleUI": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 199
+      }
+    ],
+    "v29ManualExit": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 206
+      }
+    ],
+    "v29SpawnBossId": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 212
+      }
+    ],
+    "v29BossForTower": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 213
+      }
+    ],
+    "v29BossForStage": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 214
+      }
+    ],
+    "v29ApplyMode": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 215
+      }
+    ],
+    "v29FirstCampaignMilestone": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 220
+      }
+    ],
+    "v29FirstCampaignLootResolved": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 221
+      }
+    ],
+    "v29Update": [
+      {
+        "file": "assets/js/systems/game-modes.js",
+        "line": 223
+      }
+    ],
+    "v30Clone": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 19
+      }
+    ],
+    "v30NormalizeSave": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 20
+      }
+    ],
+    "v30MigrateAll": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 56
+      }
+    ],
+    "v30BlockingOpen": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 104
+      }
+    ],
+    "v30Queue": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 113
+      }
+    ],
+    "v30FlushQueue": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 117
+      }
+    ],
+    "v30Cap": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 157
+      }
+    ],
+    "v30ApplyCaps": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 158
+      }
+    ],
+    "v30RunInit": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 163
+      }
+    ],
+    "v30Onboarding": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 198
+      }
+    ],
+    "v30RecoverHome": [
+      {
+        "file": "assets/js/core/stability-v30.js",
+        "line": 201
+      }
+    ],
+    "sync": [
+      {
+        "file": "assets/js/ui/ui-shell.js",
+        "line": 21
+      }
+    ],
+    "setText": [
+      {
+        "file": "assets/js/ui/nexus-hub.js",
+        "line": 5
+      }
+    ],
+    "render": [
+      {
+        "file": "assets/js/ui/nexus-hub.js",
+        "line": 10
+      }
+    ]
+  },
+  "evidence": "Isolated Chrome; actual new-game button; no personal profile; no phone measurement.",
+  "browser": "152.0.7977.76"
+}

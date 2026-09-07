@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-V3.4.3 Combat Growth Feel Acceptance / Slice 2. A natural browser run proves defeat -> crystal drop -> attraction and collection -> XP growth -> existing three-choice level-up -> upgrade -> same-run resume. Final presentation and Director overrides now retain the V3.4.2 crystal authorities. Crystal contrast, pulse, attraction radius (`240px`), and speed (`540px/s`) were tuned from reproduced pickup-readability issues without changing XP values, `xpNeed`, combat damage, objectives, or settlement.
+Mobile modernization P0 source baseline: immutable legacy hashes, effective config and Schema30 fresh save captured from isolated Chrome. ST001-01 already includes B001; preserve its original 270s Boss and 360s goal.
 
 ## Changed files
-`TASK.md`; `assets/js/combat/engine.js`; `assets/js/presentation/quality-presentation.js`; `assets/js/systems/director-balance.js`; `scripts/smoke.mjs`; `handoff/STATE.md`. No dependency, schema, ordered-script, XP-value, `xpNeed`, enemy/player/skill/Boss balance, stage duration, upgrade authority, objective authority, or settlement change.
+TASK.md; tasks/mobile-modernization/ baseline, capture/verify tools, roadmap, status and inventory; handoff/STATE.md.
 
 ## Tests
-Focused RED -> GREEN guards cover `220px` attraction, render order, final presentation, and final Director updates. Natural `ST001-01` play progressed from Lv.1 / 0 XP through visible pickups to a real three-choice level-up; selection closed the overlay and the same run continued with increasing time, kills, and XP. Desktop `1280x720`, emulated `390x844`, and emulated `320x844` have no horizontal overflow or HUD collision with the visible joystick and five action controls. Browser warnings/errors: 0. Ordered check, smoke, audit, context (under `8192` bytes), and archive (`30/30`, 12 docs) gates pass.
+Isolated Chrome new-game capture: 26 scripts, 1 CSS, 6 heroes, 12 stages; 0 page errors; normalized zero-star Schema30 with gear instances. Hash verification passed. Legacy check, smoke, audit, context (4894/8192 bytes), archive:verify all pass.
 
 ## Unresolved risk
-Physical-phone joystick, safe-area, pickup, and skill-combo feel remain unverified; browser emulation is not physical-device acceptance. Full-stage long-session density through Boss and settlement was not part of this slice. The 130 legacy wrappers remain existing debt.
+Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. New runtime and full parity not yet implemented. No entry switch or deployment.
 
 ## Recommended next task
-Implement V3.4.4 Physical Mobile Combat Feel Acceptance / Slice 1: run one real phone through movement, dodge, skill, ultimate, interaction, crystal pickup, level-up choice, pause/resume, and return to the same run; record obstruction, dead-zone, reach, and safe-area evidence, then tune only reproduced mobile-control issues. Preserve saves, XP and combat values, existing action authorities, objectives, and settlement; do not represent browser emulation as phone acceptance.
+P1: isolated TypeScript/Vite/Phaser/Vue lifecycle and strict verification; no fake legacy host. Explicitly authorize dependencies in TASK.md.
 
 ## After each task
 Replace only these fields:
