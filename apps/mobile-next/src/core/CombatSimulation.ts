@@ -39,6 +39,7 @@ export class CombatSimulation {
   petDamage = 0;
   killBuff = 0;
   evolved: Record<string, boolean> = {};
+  fused: Record<string, boolean> = {};
   readonly enemies: Enemy[] = [];
   readonly projectiles: Projectile[] = [];
   readonly fields: Field[] = [];
@@ -67,6 +68,7 @@ export class CombatSimulation {
   private difficulty: string;
   private runes: readonly string[];
   private baseAspd: number;
+  private fusionClock = 0;
 
   constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random) {
     if (save.hero !== 'H001' || save.pet !== 'PET001') throw new Error('This combat slice supports H001 with PET001 only');
@@ -80,7 +82,7 @@ export class CombatSimulation {
     this.map = new FirstStageMap(this, random);
   }
   state(): CombatState { return { ...this.progression.snapshot(), ...this.player, evolved: this.evolved, killBuff: this.killBuff, mode: 'story' }; }
-  directorState() { return { time: this.time, kills: this.kills, dps: this.dps, level: this.progression.snapshot().level, evolved: Object.keys(this.evolved).length, fused: 0 }; }
+  directorState() { return { time: this.time, kills: this.kills, dps: this.dps, level: this.progression.snapshot().level, evolved: Object.keys(this.evolved).length, fused: Object.keys(this.fused).length }; }
   resize(width: number, height: number): void {
     if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) return;
     this.viewport.width = width; this.viewport.height = height;
@@ -267,6 +269,7 @@ export class CombatSimulation {
         if (d < vortex.r * 1.5) { enemy.x += dx / d * 85 * dt; enemy.y += dy / d * 85 * dt; }
       }
       if (vortex.tick <= 0) { vortex.tick = .28; for (const enemy of [...this.enemies]) if (distance(enemy, vortex) <= vortex.r) this.hit(enemy, vortex.dmg, vortex.id, false, true); }
+      if (this.fused.F001 && vortex.tick < .05 && this.random() < .35) this.field('F001', vortex, 55, vortex.dmg * .55, 1.2);
       if (vortex.life <= 0) this.vortices.splice(i, 1);
     }
   }
@@ -275,10 +278,25 @@ export class CombatSimulation {
       const meteor = this.meteors[i]!; meteor.life -= dt;
       if (meteor.life <= 0) {
         this.explosion(meteor.id, meteor, meteor.r, meteor.dmg);
-        if (skillModifier(this.context, this.state(), meteor.id).evo) this.field(meteor.id, meteor, meteor.r * .8, meteor.dmg * .12, 1.8);
+        if (meteor.id === 'A027' && skillModifier(this.context, this.state(), meteor.id).evo) this.field(meteor.id, meteor, meteor.r * .8, meteor.dmg * .12, 1.8);
         this.meteors.splice(i, 1);
       }
     }
+  }
+  private fusionPulse(): void {
+    const p = this.player, D = p.atk, point = this.nearest() || { x: p.x + 100, y: p.y };
+    if (this.fused.F001) {
+      const angle = this.aim(), life = 5.5;
+      this.vortices.push({ id: 'F001', x: p.x, y: p.y, vx: Math.cos(angle) * 85, vy: Math.sin(angle) * 85, dmg: D * .42, r: 125, life, max: life, tick: 0, follow: false, color: '#82d6b7' }); cap(this.vortices, 10);
+    }
+    if (this.fused.F002) {
+      this.field('F002', p, 165, D * .30, 3.2, true);
+      for (let i = 0; i < 3; i++) {
+        const x = point.x + (this.random() - .5) * 120, y = point.y + (this.random() - .5) * 100, life = .55 + i * .15;
+        this.meteors.push({ id: 'F002', x, y, dmg: D * 1.4, r: 68, life, max: life, color: '#ef7958' }); cap(this.meteors, 28);
+      }
+    }
+    if (this.fused.F004) for (let i = 0; i < 8; i++) this.projectile('F004', p, i / 8 * 6.28, 470, D * .82, 6, { pierce: 2, explode: 35 });
   }
   updateOuter(dt: number): void {
     this.heat = Math.max(0, this.heat - dt * 4.5);
@@ -296,6 +314,8 @@ export class CombatSimulation {
       if (level && base != null && !(this.cool[id]! > 0)) { this.cool[id] = base * skillModifier(this.context, this.state(), id).cd; this.cast(id); }
     }
     this.updateProjectiles(dt); this.updateFields(dt); this.updateVortices(dt); this.updateMeteors(dt);
+    this.fusionClock -= dt;
+    if (this.fusionClock <= 0) { this.fusionClock = 3.4; this.fusionPulse(); }
     const pet = this.pet; pet.angle += dt * .9; pet.x = this.player.x + Math.cos(pet.angle) * 52; pet.y = this.player.y + Math.sin(pet.angle) * 34; pet.cd -= dt;
     this.player.dodgeBuff = Math.max(0, this.player.dodgeBuff - dt); this.killBuff = Math.max(0, this.killBuff - dt);
     if (this.runes.includes('R022')) { this.shieldClock -= dt; if (this.shieldClock <= 0) { this.player.shield = Math.max(this.player.shield, this.player.maxHp * .12); this.shieldClock = 20; } }

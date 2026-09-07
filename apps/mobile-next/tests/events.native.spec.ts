@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import { build } from 'vite';
 import { resolve } from 'node:path';
 import oracle from '../../../tasks/mobile-modernization/baseline/first-events-oracle.json' with { type: 'json' };
+import chestsOracle from '../../../tasks/mobile-modernization/baseline/chests-oracle.json' with { type: 'json' };
 import fresh from '../src/data/freshSave.json' with { type: 'json' };
 import type * as EventModule from './fixtures/eventHarness';
 declare global { interface Window { EventFixture: typeof EventModule } }
@@ -13,6 +14,21 @@ test.beforeAll(async () => {
   bundle = output.output.find(item => item.type === 'chunk')!.code;
 });
 test.beforeEach(async ({ page }) => { await page.goto('./'); await page.addScriptTag({ content: bundle }); });
+
+test('synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count', async ({ page }) => {
+  const result = await page.evaluate(({ fresh, clock }) => {
+    const { calculateStartup, Progression, TimedChests } = window.EventFixture;
+    let state = 12, calls = 0;
+    const random = () => { calls++; state = (Math.imul(state, 1664525) + 1013904223) >>> 0; return state / 4294967296; };
+    const start = calculateStartup(fresh), progression = new Progression(fresh.build, start.skills, start.passives, random);
+    const chests = new TimedChests(progression, { evolved: {}, fused: {} }, 'H001', [], random, () => clock);
+    chests.claim(0, 90); chests.pick(1, 0);
+    return { ...progression.snapshot(), calls, secondClaim: chests.claim(0, 90), duplicatePick: chests.pick(1, 2) };
+  }, { fresh, clock: chestsOracle.clock });
+  expect(result.skills).toEqual(chestsOracle.upgrade.skills); expect(result.passives).toEqual(chestsOracle.upgrade.passives);
+  expect(result.calls).toBe(chestsOracle.upgrade.calls);
+  expect(result.secondClaim).toBe(false); expect(result.duplicatePick).toBe(false);
+});
 
 test('synthetic Chrome oracle: gold gear followed by the exact owned upgrade', async ({ page }) => {
   const item = oracle.choices.find(item => item.code === 'goldOpen')!;

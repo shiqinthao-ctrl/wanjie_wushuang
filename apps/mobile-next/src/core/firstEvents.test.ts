@@ -4,7 +4,7 @@ import fresh from '../data/freshSave.json';
 import { calculateStartup } from './growth';
 import { Progression } from './progression';
 import { FirstStageEvents, eventPayment, type EventCode } from './firstEvents';
-import { generateGoldGear } from './gearDrops';
+import { generateGear } from './gearDrops';
 
 function seeded(seed: number) {
   let calls = 0;
@@ -19,7 +19,7 @@ function setup(seed = 12) {
 describe('first-stage events: isolated effective legacy oracle', () => {
   it.each(oracle.gear)('matches gear and RNG consumption for seed $seed', item => {
     const rng = seeded(item.seed);
-    expect(generateGoldGear('H001', rng.random, () => oracle.clock)).toEqual(item.drop);
+    expect(generateGear('H001', 'gold', rng.random, () => oracle.clock)).toEqual(item.drop);
     expect(rng.calls()).toBe(item.calls);
   });
   it.each(oracle.choices)('matches $code with gold $before.gold', item => {

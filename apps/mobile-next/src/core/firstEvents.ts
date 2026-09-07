@@ -1,5 +1,5 @@
 import { firstStage } from './spawnRules';
-import { generateGoldGear } from './gearDrops';
+import { generateGear } from './gearDrops';
 import type { GearInstance } from './saveTypes';
 import type { Progression } from './progression';
 
@@ -19,8 +19,7 @@ export class FirstStageEvents {
   private offer: EventOffer | undefined;
   private shopBuff = 0;
   private notice = '';
-  readonly drops: GearInstance[] = [];
-  constructor(private player: { hp: number; maxHp: number }, private progression: Progression, private hero: string, private random = Math.random, private now = Date.now) {}
+  constructor(private player: { hp: number; maxHp: number }, private progression: Progression, private hero: string, private random = Math.random, private now = Date.now, readonly drops: GearInstance[] = []) {}
   open(time: number): boolean {
     if (this.offer) return false;
     const index = firstStage.eventAt.findIndex((at, index) => time >= at && !this.fired.has(index));
@@ -40,7 +39,7 @@ export class FirstStageEvents {
     if (code === 'merchantHeal') { this.player.hp = Math.min(this.player.maxHp, this.player.hp + this.player.maxHp * .4); this.notice = '游商：生命恢复。'; }
     if (code === 'goldCash') this.notice = '已获得 500 金币。';
     if (code === 'goldOpen') {
-      const drop = generateGoldGear(this.hero, this.random, this.now); this.drops.push(drop);
+      const drop = generateGear(this.hero, 'gold', this.random, this.now); this.drops.push(drop);
       const upgrade = this.progression.upgradeOwned();
       this.notice = `获得 ${String(drop.name)}${upgrade ? ' · ' + upgrade.label : ''}。装备保留在本局战利品中。`;
     }

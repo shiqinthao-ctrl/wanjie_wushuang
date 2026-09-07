@@ -10,6 +10,7 @@ import { EventSession } from '../storage/EventSession';
 import type { SaveRepository, SaveSlot } from '../storage/SaveRepository';
 import { eventOptions } from '../core/firstEvents';
 import type { EventCode } from '../core/firstEvents';
+import { chestTitle, formName } from '../core/timedChests';
 const props = defineProps<{ slot: SaveSlot; repository: SaveRepository }>();
 const emit = defineEmits<{ exit: [] }>();
 const host = ref<HTMLElement>();
@@ -17,7 +18,10 @@ const pauseDialog = ref<HTMLDialogElement>();
 const choiceDialog = ref<HTMLDialogElement>();
 const endDialog = ref<HTMLDialogElement>();
 const eventDialog = ref<HTMLDialogElement>();
-const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0, hp: 0, maxHp: 0, level: 1, xp: 0, xpNeed: 26, skills: {}, passives: {}, choice: undefined, kills: 0, heat: 0, dodgeCd: 0, skillCd: 0, ult: 0, map: { used: 0, bonusGold: 0, hazardSuppress: 0, target: undefined, notice: '' }, encounter: { offer: undefined, shopBuff: 0, gearCount: 0, notice: '' } });
+const chestDialog = ref<HTMLDialogElement>();
+const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0, hp: 0, maxHp: 0, level: 1, xp: 0, xpNeed: 26, skills: {}, passives: {}, choice: undefined, kills: 0, heat: 0, dodgeCd: 0, skillCd: 0, ult: 0, map: { used: 0, bonusGold: 0, hazardSuppress: 0, target: undefined, notice: '' }, encounter: { offer: undefined, shopBuff: 0, gearCount: 0, notice: '' }, chests: { offer: undefined, notice: '', rewards: [], evolved: [], fused: [] } });
+const chestStates: Record<string, string> = { locked: '未解锁', ready: '领取', choosing: '选择中', claimed: '已领取' };
+const chestCopy = { evo: '术式进化', fusion: '双术式融合', upgrade: '随机强化已拥有且未满级的术式', gear: '获得一件紫色装备，暂存本局战利品' };
 const eventBusy = ref(false), eventError = ref(''), eventGold = ref(Number(props.slot.save.gold));
 const eventSelection = ref<{ token: number; code: EventCode }>();
 let eventSession: EventSession | undefined;
@@ -35,7 +39,7 @@ let handle: BattleHandle | undefined;
 let controls: ReturnType<typeof bindKeyboard> | undefined;
 let cancelled = false;
 function pause() {
-  if (!handle || !['running', 'choosing', 'encounter'].includes(handle.core.snapshot().status)) return;
+  if (!handle || !['running', 'choosing', 'encounter', 'chest'].includes(handle.core.snapshot().status)) return;
   controls?.clear(); handle?.core.pause(); snapshot.value = handle!.core.snapshot();
 }
 function resume() {
@@ -56,6 +60,14 @@ function interact() {
   if (document.hidden || !handle) return;
   handle.core.interact(); snapshot.value = handle.core.snapshot();
 }
+function claimChest(index: number) {
+  if (document.hidden || !handle?.core.claimChest(index)) return;
+  controls?.clear(); snapshot.value = handle.core.snapshot();
+}
+function pickChest(token: number, index: number) {
+  if (document.hidden || !handle?.core.pickChest(token, index)) return;
+  controls?.clear(); snapshot.value = handle.core.snapshot();
+}
 async function chooseEvent(token: number, code: EventCode) {
   if (document.hidden || eventBusy.value || !eventSession || !handle || leaving.value) return;
   eventSelection.value = { token, code }; eventBusy.value = true; eventError.value = '';
@@ -73,11 +85,13 @@ watch(() => snapshot.value.status, status => {
   if (status !== 'paused') pauseDialog.value?.close();
   if (status !== 'choosing') choiceDialog.value?.close();
   if (status !== 'encounter') eventDialog.value?.close();
+  if (status !== 'chest') chestDialog.value?.close();
   if (status === 'running') host.value?.focus();
   if (status === 'paused' && !pauseDialog.value?.open) pauseDialog.value?.showModal();
   if (status === 'choosing' && !choiceDialog.value?.open) choiceDialog.value?.showModal();
   if (status === 'ended' && !endDialog.value?.open) endDialog.value?.showModal();
   if (status === 'encounter' && !eventDialog.value?.open) eventDialog.value?.showModal();
+  if (status === 'chest' && !chestDialog.value?.open) chestDialog.value?.showModal();
 }, { flush: 'post' });
 async function leave() {
   if (leaving.value || eventBusy.value) return;
@@ -112,6 +126,11 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
       <p v-if="snapshot.map.notice" class="map-notice" role="status" aria-label="地图反馈">{{ snapshot.map.notice }}</p>
       <p v-if="snapshot.encounter.notice" class="map-notice" role="status" aria-label="事件反馈">{{ snapshot.encounter.notice }}</p>
     </aside>
+    <aside v-if="ready" class="timed-rewards" aria-label="定时宝箱">
+      <p v-if="snapshot.chests.notice" role="status" aria-label="宝箱反馈">{{ snapshot.chests.notice }}</p>
+      <p v-if="snapshot.chests.evolved.length || snapshot.chests.fused.length" aria-label="已获得形态">{{ [...snapshot.chests.fused, ...snapshot.chests.evolved].map(formName).join(' · ') }}</p>
+      <div><button v-for="reward in snapshot.chests.rewards" :key="reward.index" :class="{ 'reward-ready': reward.state === 'ready' }" :disabled="snapshot.status !== 'running' || reward.state !== 'ready'" @click="claimChest(reward.index)"><small>{{ format(reward.at) }} 宝箱</small><strong>{{ chestStates[reward.state] }}</strong></button></div>
+    </aside>
     <div v-if="ready && snapshot.status === 'running'" class="control-zone"><MovePad @move="(x, y) => handle?.core.move(x, y)" /><div class="action-pad"><button aria-label="闪避" :disabled="snapshot.dodgeCd > 0" @pointerdown.prevent="action('dodge')" @click="event => { if (event.detail === 0) action('dodge'); }"><strong>闪避</strong><small>{{ snapshot.dodgeCd > 0 ? snapshot.dodgeCd.toFixed(1) + 's' : 'Space' }}</small></button><button aria-label="炎龙斩" :disabled="snapshot.skillCd > 0" @pointerdown.prevent="action('skill')" @click="event => { if (event.detail === 0) action('skill'); }"><strong>炎龙斩</strong><small>{{ snapshot.skillCd > 0 ? snapshot.skillCd.toFixed(1) + 's' : 'E / Q' }}</small></button><button aria-label="赤龙降世" :disabled="snapshot.ult < 100" @pointerdown.prevent="action('ultimate')" @click="event => { if (event.detail === 0) action('ultimate'); }"><strong>赤龙降世</strong><small>{{ snapshot.ult < 100 ? Math.floor(snapshot.ult) + '%' : 'R' }}</small></button><button aria-label="地图互动" :disabled="!snapshot.map.target?.canUse" @pointerdown.prevent="interact" @click="event => { if (event.detail === 0) interact(); }"><strong>互动</strong><small>{{ snapshot.map.target?.canUse ? 'F / 互动' : '靠近使用' }}</small></button></div></div>
     <div v-if="!ready || error" class="loading-curtain" role="status"><h2>{{ error ? '战场未能开启' : '正在前往乱世荒原' }}</h2><p>{{ error || '整装，待发。' }}</p><button @click="leave">返回大厅</button></div>
     <dialog ref="pauseDialog" class="pause-dialog" aria-labelledby="pause-title" @cancel.prevent>
@@ -128,6 +147,10 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
       <template v-for="offer in snapshot.encounter.offer ? [snapshot.encounter.offer] : []" :key="offer.token"><button v-for="code in eventOptions[offer.kind]" :key="code" class="level-option" :disabled="eventBusy || !!eventSelection" @click="chooseEvent(offer.token, code)"><strong>{{ eventCopy[code].title }}</strong><span>{{ eventCopy[code].detail }}</span></button></template>
       <p v-if="eventBusy" role="status">正在保存，请稍候…</p>
       <div v-if="eventError" role="alert"><p>{{ eventError }}</p><button v-if="eventSelection" class="primary" :disabled="eventBusy" @click="chooseEvent(eventSelection.token, eventSelection.code)">重试原选择</button><button :disabled="eventBusy || leaving" @click="leave">返回大厅</button></div>
+    </dialog>
+    <dialog ref="chestDialog" class="pause-dialog level-dialog" aria-labelledby="chest-title" @cancel.prevent>
+      <small>荒原馈赠 · 三选一</small><h2 id="chest-title">领取宝箱奖励</h2><p>选择一项奖励后继续战斗。本局装备 {{ snapshot.encounter.gearCount }} 件，结算入库建设中。</p>
+      <template v-for="offer in snapshot.chests.offer ? [snapshot.chests.offer] : []" :key="offer.token"><button v-for="(option, index) in offer.options" :key="index" class="level-option" @click="pickChest(offer.token, index)"><strong>{{ chestTitle(option) }}</strong><span>{{ chestCopy[option.type] }}</span></button></template>
     </dialog>
     <dialog ref="endDialog" class="pause-dialog" aria-labelledby="end-title" @cancel.prevent><small>战斗预览</small><h2 id="end-title">{{ snapshot.endReason === 'defeat' ? '本局生命耗尽' : '本次预览结束' }}</h2><p>击破 {{ snapshot.kills }} · Lv.{{ snapshot.level }}<br />事件金币已保存；本局装备 {{ snapshot.encounter.gearCount }} 件。首领与结算建设中，本局装备及结算奖励尚不入库。</p><button class="primary" @click="leave">返回大厅</button></dialog>
   </section>

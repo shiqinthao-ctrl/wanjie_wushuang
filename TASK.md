@@ -1,31 +1,33 @@
-# TASK.md - Mobile modernization / P2g first-stage events
+# TASK.md - Mobile modernization / P2h timed chests and evolution
 
 Status: complete. Approved roadmap: tasks/mobile-modernization/PLAN.md.
 
 ## Goal and scope
-Migrate ST001-01 merchant/gold-chest events at 45s and 150s using effective
-legacy order and choices. Port required gear generation, run-local gear rewards
-and skill upgrades. Persist event gold spending/awards with the P2f repository;
-pause at choices and storage errors, prevent duplicate rewards and permit retry.
-Show player-facing choices and natural browser event acceptance.
-Timed chests, evolution, B001/Boss Loot and settlement are subsequent slices.
+Migrate effective ST001-01 timed rewards at 90/210/300 seconds. Require explicit
+claim; freeze combat during selection and preserve claim/choice idempotency.
+Port config-ordered fusion/evolution priority, owned upgrades, purple chest
+gear, shared run-local drops, and actual evolution/fusion attacks reachable by
+the supported H001 build (F001/F002/F004). Surface rewards and form names.
+Keep original RNG/clock order and frame timing. B001, Boss Loot and settlement
+remain the next slices; retain a tested Boss-Loot priority guard for integration.
 
 ## Authorized dependencies
-Current app dependencies remain authorized; no additions. Allowed: mobile app
-source/tests, tasks/mobile-modernization fixtures/capture/evidence, five rotating
-handoff sections. Legacy sources/entry/storage and archive stay unchanged.
+No new dependencies. Current app source/data/tests, capture/oracle/evidence under
+tasks/mobile-modernization and five rotating handoff sections are in scope.
+Legacy source/entry/storage, archived files and locked dependencies stay intact.
 
 ## Acceptance
-Capture isolated legacy oracle for schedule, choices, costs/heal/buff/rewards,
-gear RNG/order and skill upgrades. Pure tests compare those rules. Native
-storage integration covers repeated event mutation and stale-save interruption.
-Natural desktop and portrait browser play reaches a scheduled event, chooses
-through visible UI and resumes the same run; no acceleration/state injection.
-Explicit synthetic fixtures may cover branch/fault cases, never natural proof.
+Capture isolated effective legacy schedule, choice ordering/claim guards, gear,
+evolution and supported fusion attack oracles. Add failing rule tests, implement,
+then verify snapshot/input/pause/destroy boundaries and one reward per token.
+Natural desktop and portrait browser play reaches 90 seconds, explicitly opens
+the ready chest, chooses and resumes without core/time injection. Synthetic
+fixtures cover advanced forms and branch cases; distinguish them from natural
+acceptance. Inspect narrow layout and controls.
 Run legacy five gates, 49 baseline hashes, strict app types/tests/build/browser.
 Update handoff and status with precise remaining boundaries.
 
 ## Constraints
-Preserve original encounter parameters, RNG and temporal order; no public Debug
-UI or new gameplay. Gear from events remains run-local until later settlement.
+Preserve original parameters, RNG and temporal order; no public Debug UI or new
+gameplay. Gear from events/chests remains run-local until later settlement.
 Physical-device, PWA and release acceptance remain pending; no deployment/push.

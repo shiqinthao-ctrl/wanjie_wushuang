@@ -1,0 +1,1404 @@
+{
+  "evidence": "Synthetic isolated legacy Chrome chest and form oracle; not natural gameplay.",
+  "clock": 1770000000000,
+  "config": {
+    "evolution": {
+      "E001": [
+        "无双风暴",
+        "A001",
+        "P016"
+      ],
+      "E003": [
+        "炼狱龙斩",
+        "A003",
+        "P026"
+      ],
+      "E005": [
+        "斗战神棍",
+        "A005",
+        "P018"
+      ],
+      "E011": [
+        "炼狱火球",
+        "A011",
+        "P026"
+      ],
+      "E013": [
+        "无限雷链",
+        "A013",
+        "P023"
+      ],
+      "E014": [
+        "星河气弹",
+        "A014",
+        "P032"
+      ],
+      "E015": [
+        "万影手里剑",
+        "A015",
+        "P024"
+      ],
+      "E019": [
+        "连环爆破",
+        "A019",
+        "P010"
+      ],
+      "E021": [
+        "炼狱火海",
+        "A021",
+        "P017"
+      ],
+      "E022": [
+        "九天雷域",
+        "A022",
+        "P027"
+      ],
+      "E026": [
+        "天灾风暴",
+        "A026",
+        "P030"
+      ],
+      "E027": [
+        "天火陨星",
+        "A027",
+        "P026"
+      ],
+      "E028": [
+        "九重爆炎阵",
+        "A028",
+        "P019"
+      ],
+      "E030": [
+        "星环气场",
+        "A030",
+        "P032"
+      ],
+      "E041": [
+        "天罚神雷",
+        "A041",
+        "P027"
+      ],
+      "E049": [
+        "星河弹幕",
+        "A049",
+        "P032"
+      ],
+      "E054": [
+        "炎龙疾走",
+        "A054",
+        "P026"
+      ],
+      "SE001": [
+        "万影军团",
+        "S001",
+        "P039"
+      ],
+      "SE003": [
+        "雷神影军",
+        "S003",
+        "P027"
+      ],
+      "SE018": [
+        "星河幻影",
+        "S018",
+        "P032"
+      ]
+    },
+    "fusions": {
+      "F001": [
+        "焚天龙卷",
+        "E011",
+        "E026"
+      ],
+      "F002": [
+        "天火炼狱",
+        "E021",
+        "E027"
+      ],
+      "F003": [
+        "炎爆地狱",
+        "E028",
+        "E019"
+      ],
+      "F004": [
+        "炎龙乱舞",
+        "E003",
+        "E054"
+      ],
+      "F005": [
+        "雷神万影",
+        "E013",
+        "SE003"
+      ],
+      "F006": [
+        "九天雷劫",
+        "E022",
+        "E041"
+      ],
+      "F020": [
+        "百重气功炮",
+        "E014",
+        "SE018"
+      ],
+      "F021": [
+        "星河冲击",
+        "E030",
+        "E049"
+      ],
+      "F026": [
+        "无限影军",
+        "SE001",
+        "E015"
+      ],
+      "F033": [
+        "斗战风暴",
+        "E005",
+        "E001"
+      ]
+    }
+  },
+  "schedule": [
+    90,
+    210,
+    300
+  ],
+  "selections": [
+    {
+      "ready": [],
+      "evolved": [],
+      "titles": [
+        "随机技能升级",
+        "随机技能升级",
+        "随机装备掉落"
+      ],
+      "evos": [],
+      "fusions": []
+    },
+    {
+      "ready": [],
+      "evolved": [],
+      "titles": [
+        "随机技能升级",
+        "随机技能升级",
+        "随机装备掉落"
+      ],
+      "evos": [],
+      "fusions": []
+    },
+    {
+      "ready": [
+        "E003"
+      ],
+      "evolved": [],
+      "titles": [
+        "炼狱龙斩",
+        "随机技能升级",
+        "随机装备掉落"
+      ],
+      "evos": [
+        "E003"
+      ],
+      "fusions": []
+    },
+    {
+      "ready": [
+        "E003"
+      ],
+      "evolved": [
+        "E003"
+      ],
+      "titles": [
+        "随机技能升级",
+        "随机技能升级",
+        "随机装备掉落"
+      ],
+      "evos": [],
+      "fusions": []
+    },
+    {
+      "ready": [
+        "E003",
+        "E011"
+      ],
+      "evolved": [],
+      "titles": [
+        "炼狱龙斩",
+        "炼狱火球",
+        "随机装备掉落"
+      ],
+      "evos": [
+        "E003",
+        "E011"
+      ],
+      "fusions": []
+    },
+    {
+      "ready": [
+        "E003",
+        "E011"
+      ],
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "titles": [
+        "随机技能升级",
+        "随机技能升级",
+        "随机装备掉落"
+      ],
+      "evos": [],
+      "fusions": []
+    },
+    {
+      "ready": [
+        "E003",
+        "E011",
+        "E021",
+        "E026",
+        "E027",
+        "E054"
+      ],
+      "evolved": [],
+      "titles": [
+        "炼狱龙斩",
+        "炼狱火球",
+        "炼狱火海"
+      ],
+      "evos": [
+        "E003",
+        "E011",
+        "E021",
+        "E026",
+        "E027",
+        "E054"
+      ],
+      "fusions": []
+    },
+    {
+      "ready": [
+        "E003",
+        "E011",
+        "E021",
+        "E026",
+        "E027",
+        "E054"
+      ],
+      "evolved": [
+        "E003",
+        "E011",
+        "E021",
+        "E026",
+        "E027",
+        "E054"
+      ],
+      "titles": [
+        "焚天龙卷",
+        "天火炼狱",
+        "炎龙乱舞"
+      ],
+      "evos": [],
+      "fusions": [
+        "F001",
+        "F002",
+        "F004"
+      ]
+    }
+  ],
+  "guards": [
+    {
+      "time": 89.99,
+      "paused": false,
+      "bossShown": false,
+      "result": false
+    },
+    {
+      "time": 90,
+      "paused": true,
+      "bossShown": false,
+      "result": false
+    },
+    {
+      "time": 90,
+      "paused": false,
+      "bossShown": true,
+      "result": false
+    },
+    {
+      "time": 90,
+      "paused": false,
+      "bossShown": false,
+      "result": true
+    }
+  ],
+  "upgrade": {
+    "skills": {
+      "A011": 1,
+      "A021": 1
+    },
+    "passives": {
+      "P026": 2
+    },
+    "calls": 28,
+    "rewards": [
+      {
+        "id": "reward-1",
+        "index": 0,
+        "at": 90,
+        "state": "claimed"
+      },
+      {
+        "id": "reward-2",
+        "index": 1,
+        "at": 210,
+        "state": "locked"
+      },
+      {
+        "id": "reward-3",
+        "index": 2,
+        "at": 300,
+        "state": "locked"
+      }
+    ],
+    "secondClaim": false,
+    "duplicatePick": false
+  },
+  "gear": [
+    {
+      "seed": 1,
+      "drop": {
+        "uid": "Gml4kasqolbdp8k",
+        "templateId": "EQW006",
+        "id": "EQW006",
+        "name": "星河拳环",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 428,
+        "source": "chest",
+        "affixes": [
+          {
+            "key": "crit",
+            "value": 0.024051154219312594
+          },
+          {
+            "key": "area",
+            "value": 0.059532026415690775
+          },
+          {
+            "key": "fireDmg",
+            "value": 0.05565048409858719
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 49
+    },
+    {
+      "seed": 12,
+      "drop": {
+        "uid": "Gml4kasqouxdej2",
+        "templateId": "EQW006",
+        "id": "EQW006",
+        "name": "星河拳环",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 434,
+        "source": "chest",
+        "affixes": [
+          {
+            "key": "critDmg",
+            "value": 0.10945315290242433
+          },
+          {
+            "key": "crit",
+            "value": 0.030188430906040592
+          },
+          {
+            "key": "lifesteal",
+            "value": 0.007844883961603046
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 47
+    },
+    {
+      "seed": 42,
+      "drop": {
+        "uid": "Gml4kasqoldgmej",
+        "templateId": "EQW006",
+        "id": "EQW006",
+        "name": "星河拳环",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 483,
+        "source": "chest",
+        "affixes": [
+          {
+            "key": "crit",
+            "value": 0.03455300879501738
+          },
+          {
+            "key": "defPct",
+            "value": 0.0588900781236589
+          },
+          {
+            "key": "critDmg",
+            "value": 0.13687648774590344
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 48
+    },
+    {
+      "seed": 999,
+      "drop": {
+        "uid": "Gml4kasqoerteo1",
+        "templateId": "EQA009",
+        "id": "EQA009",
+        "name": "妖王战铠",
+        "slot": "armor",
+        "rarity": "purple",
+        "score": 544,
+        "source": "chest",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.07620218633906917
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07722332527860999
+          },
+          {
+            "key": "move",
+            "value": 0.05311563777737319
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 45
+    }
+  ],
+  "skills": [
+    {
+      "evo": "E003",
+      "id": "A003",
+      "passive": "P026",
+      "seed": 29,
+      "modifier": {
+        "lv": 5,
+        "dmg": 4.0455,
+        "range": 1.5680000000000003,
+        "duration": 1.296,
+        "cd": 1,
+        "count": 2,
+        "crit": 0.1115,
+        "evo": "E003"
+      },
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A003",
+            "x": 1800,
+            "y": 1200,
+            "r": 133.28000000000003,
+            "dmg": 28.0081152,
+            "life": 2.8512000000000004,
+            "max": 2.8512000000000004,
+            "tick": 0,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 1289.7416200535663,
+      "calls": 1
+    },
+    {
+      "evo": "E011",
+      "id": "A011",
+      "passive": "P026",
+      "seed": 29,
+      "modifier": {
+        "lv": 5,
+        "dmg": 4.0455,
+        "range": 1.5680000000000003,
+        "duration": 1.296,
+        "cd": 1,
+        "count": 2,
+        "crit": 0.1115,
+        "evo": "E011"
+      },
+      "runtime": {
+        "cool": {},
+        "projectiles": [
+          {
+            "id": "A011",
+            "x": 1800,
+            "y": 1200,
+            "vx": 386.7091385487673,
+            "vy": -50.55731562168099,
+            "dmg": 166.29818399999996,
+            "r": 10,
+            "life": 2,
+            "pierce": 0,
+            "bounce": 0,
+            "split": 0,
+            "explode": 128.57600000000002,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A011",
+            "x": 1800,
+            "y": 1200,
+            "vx": 390,
+            "vy": 0,
+            "dmg": 166.29818399999996,
+            "r": 10,
+            "life": 2,
+            "pierce": 0,
+            "bounce": 0,
+            "split": 0,
+            "explode": 128.57600000000002,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A011",
+            "x": 1800,
+            "y": 1200,
+            "vx": 386.7091385487673,
+            "vy": 50.55731562168099,
+            "dmg": 166.29818399999996,
+            "r": 10,
+            "life": 2,
+            "pierce": 0,
+            "bounce": 0,
+            "split": 0,
+            "explode": 128.57600000000002,
+            "homing": 0,
+            "color": "#ef694e"
+          }
+        ],
+        "fields": [],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0,
+      "calls": 0
+    },
+    {
+      "evo": "E021",
+      "id": "A021",
+      "passive": "P017",
+      "seed": 29,
+      "modifier": {
+        "lv": 5,
+        "dmg": 3.0411000000000006,
+        "range": 1.5680000000000003,
+        "duration": 1.776,
+        "cd": 1,
+        "count": 2,
+        "crit": 0.1115,
+        "evo": "E021"
+      },
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A021",
+            "x": 1800,
+            "y": 1200,
+            "r": 243.04000000000005,
+            "dmg": 31.509129599999994,
+            "life": 999,
+            "max": 999,
+            "tick": 0,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0,
+      "calls": 0
+    },
+    {
+      "evo": "E026",
+      "id": "A026",
+      "passive": "P030",
+      "seed": 29,
+      "modifier": {
+        "lv": 5,
+        "dmg": 4.0455,
+        "range": 1.5680000000000003,
+        "duration": 1.296,
+        "cd": 1,
+        "count": 2,
+        "crit": 0.1115,
+        "evo": "E026"
+      },
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [
+          {
+            "id": "A026",
+            "x": 1800,
+            "y": 1200,
+            "vx": 85,
+            "vy": 0,
+            "dmg": 35.010144,
+            "r": 169.34400000000002,
+            "life": 8.424,
+            "max": 8.424,
+            "tick": 0,
+            "color": "#82d6b7"
+          }
+        ],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0,
+      "calls": 0
+    },
+    {
+      "evo": "E027",
+      "id": "A027",
+      "passive": "P026",
+      "seed": 29,
+      "modifier": {
+        "lv": 5,
+        "dmg": 4.0455,
+        "range": 1.5680000000000003,
+        "duration": 1.296,
+        "cd": 1,
+        "count": 2,
+        "crit": 0.1115,
+        "evo": "E027"
+      },
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [],
+        "meteors": [
+          {
+            "id": "A027",
+            "x": 1819.5691189169884,
+            "y": 1257.2566537605599,
+            "dmg": 236.31847199999999,
+            "r": 109.76000000000002,
+            "life": 1.0218405117979275,
+            "max": 1.0218405117979275,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1898.6146414652467,
+            "y": 1229.6238384582102,
+            "dmg": 236.31847199999999,
+            "r": 109.76000000000002,
+            "life": 0.8179824479972013,
+            "max": 0.8179824479972013,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1915.0079786032438,
+            "y": 1159.1860100766644,
+            "dmg": 236.31847199999999,
+            "r": 109.76000000000002,
+            "life": 0.7932843342423439,
+            "max": 0.7932843342423439,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1819.6486174687743,
+            "y": 1263.667701324448,
+            "dmg": 236.31847199999999,
+            "r": 109.76000000000002,
+            "life": 0.9784151867381298,
+            "max": 0.9784151867381298,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1930.848776847124,
+            "y": 1198.2957930350676,
+            "dmg": 236.31847199999999,
+            "r": 109.76000000000002,
+            "life": 0.9955226190621034,
+            "max": 0.9955226190621034,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1785.041958577931,
+            "y": 1150.8887053653598,
+            "dmg": 236.31847199999999,
+            "r": 109.76000000000002,
+            "life": 1.0638663245015778,
+            "max": 1.0638663245015778,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1786.8737087398767,
+            "y": 1180.5847291229293,
+            "dmg": 236.31847199999999,
+            "r": 109.76000000000002,
+            "life": 0.961507664481178,
+            "max": 0.961507664481178,
+            "impact": false,
+            "color": "#ef694e"
+          }
+        ],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0,
+      "calls": 21
+    },
+    {
+      "evo": "E054",
+      "id": "A054",
+      "passive": "P026",
+      "seed": 29,
+      "modifier": {
+        "lv": 5,
+        "dmg": 4.0455,
+        "range": 1.5680000000000003,
+        "duration": 1.296,
+        "cd": 1,
+        "count": 2,
+        "crit": 0.1115,
+        "evo": "E054"
+      },
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A054",
+            "x": 1842,
+            "y": 1200,
+            "r": 65.85600000000001,
+            "dmg": 38.5111584,
+            "life": 2.592,
+            "max": 2.592,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1884,
+            "y": 1200,
+            "r": 65.85600000000001,
+            "dmg": 38.5111584,
+            "life": 2.592,
+            "max": 2.592,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1926,
+            "y": 1200,
+            "r": 65.85600000000001,
+            "dmg": 38.5111584,
+            "life": 2.592,
+            "max": 2.592,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1968,
+            "y": 1200,
+            "r": 65.85600000000001,
+            "dmg": 38.5111584,
+            "life": 2.592,
+            "max": 2.592,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 2010,
+            "y": 1200,
+            "r": 65.85600000000001,
+            "dmg": 38.5111584,
+            "life": 2.592,
+            "max": 2.592,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0,
+      "calls": 0
+    }
+  ],
+  "fusions": [
+    {
+      "id": "F001",
+      "seed": 29,
+      "initial": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [
+          {
+            "id": "F001",
+            "x": 1800,
+            "y": 1200,
+            "vx": 85,
+            "vy": 0,
+            "dmg": 73.5213024,
+            "r": 125,
+            "life": 5.5,
+            "max": 5.5,
+            "tick": 0,
+            "color": "#82d6b7"
+          }
+        ],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "after": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [
+          {
+            "id": "F001",
+            "x": 1801.7,
+            "y": 1200,
+            "vx": 85,
+            "vy": 0,
+            "dmg": 73.5213024,
+            "r": 125,
+            "life": 5.48,
+            "max": 5.5,
+            "tick": 0.28,
+            "color": "#82d6b7"
+          }
+        ],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 127.52358126842591,
+      "calls": 0
+    },
+    {
+      "id": "F002",
+      "seed": 29,
+      "initial": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "F002",
+            "x": 1800,
+            "y": 1200,
+            "r": 165,
+            "dmg": 52.515215999999995,
+            "life": 3.2,
+            "max": 3.2,
+            "tick": 0,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [
+          {
+            "id": "F002",
+            "x": 1829.6768391877413,
+            "y": 1240.8976098289713,
+            "dmg": 245.07100799999995,
+            "r": 68,
+            "life": 0.55,
+            "max": 0.55,
+            "impact": false,
+            "color": "#ef7958"
+          },
+          {
+            "id": "F002",
+            "x": 1881.1288389377296,
+            "y": 1224.1341509157792,
+            "dmg": 245.07100799999995,
+            "r": 68,
+            "life": 0.7000000000000001,
+            "max": 0.7000000000000001,
+            "impact": false,
+            "color": "#ef7958"
+          },
+          {
+            "id": "F002",
+            "x": 1885.3918615356088,
+            "y": 1180.5422632722184,
+            "dmg": 245.07100799999995,
+            "r": 68,
+            "life": 0.8500000000000001,
+            "max": 0.8500000000000001,
+            "impact": false,
+            "color": "#ef7958"
+          }
+        ],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "after": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "F002",
+            "x": 1800,
+            "y": 1200,
+            "r": 165,
+            "dmg": 52.515215999999995,
+            "life": 3.18,
+            "max": 3.2,
+            "tick": 0.3,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [
+          {
+            "id": "F002",
+            "x": 1829.6768391877413,
+            "y": 1240.8976098289713,
+            "dmg": 245.07100799999995,
+            "r": 68,
+            "life": 0.53,
+            "max": 0.55,
+            "impact": false,
+            "color": "#ef7958"
+          },
+          {
+            "id": "F002",
+            "x": 1881.1288389377296,
+            "y": 1224.1341509157792,
+            "dmg": 245.07100799999995,
+            "r": 68,
+            "life": 0.68,
+            "max": 0.7000000000000001,
+            "impact": false,
+            "color": "#ef7958"
+          },
+          {
+            "id": "F002",
+            "x": 1885.3918615356088,
+            "y": 1180.5422632722184,
+            "dmg": 245.07100799999995,
+            "r": 68,
+            "life": 0.8300000000000001,
+            "max": 0.8500000000000001,
+            "impact": false,
+            "color": "#ef7958"
+          }
+        ],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 91.08827233458578,
+      "calls": 6
+    },
+    {
+      "id": "F004",
+      "seed": 29,
+      "initial": {
+        "cool": {},
+        "projectiles": [
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": 470,
+            "vy": 0,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": 332.47248650858387,
+            "vy": 332.20783511952203,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": 0.37427355404463375,
+            "vy": 469.99985097796224,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": -331.94297306540244,
+            "vy": 332.7369270647631,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": -469.99940391194355,
+            "vy": 0.7485468707488092,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": -333.0011566203682,
+            "vy": -331.67790051418405,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": -1.1228197127723232,
+            "vy": -469.99865880222745,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800,
+            "y": 1200,
+            "vx": 331.4126176339587,
+            "vy": -333.2651750078419,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 2,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          }
+        ],
+        "fields": [],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "after": {
+        "cool": {},
+        "projectiles": [
+          {
+            "id": "F004",
+            "x": 1809.4,
+            "y": 1200,
+            "vx": 470,
+            "vy": 0,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1806.6494497301717,
+            "y": 1206.6441567023905,
+            "vx": 332.47248650858387,
+            "vy": 332.20783511952203,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1800.0074854710808,
+            "y": 1209.3999970195594,
+            "vx": 0.37427355404463375,
+            "vy": 469.99985097796224,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1793.3611405386919,
+            "y": 1206.6547385412953,
+            "vx": -331.94297306540244,
+            "vy": 332.7369270647631,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1790.600011921761,
+            "y": 1200.014970937415,
+            "vx": -469.99940391194355,
+            "vy": 0.7485468707488092,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1793.3399768675927,
+            "y": 1193.3664419897163,
+            "vx": -333.0011566203682,
+            "vy": -331.67790051418405,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1799.9775436057446,
+            "y": 1190.6000268239554,
+            "vx": -1.1228197127723232,
+            "vy": -469.99865880222745,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          },
+          {
+            "id": "F004",
+            "x": 1806.6282523526793,
+            "y": 1193.3346964998432,
+            "vx": 331.4126176339587,
+            "vy": -333.2651750078419,
+            "dmg": 143.5415904,
+            "r": 6,
+            "life": 1.98,
+            "pierce": 2,
+            "bounce": 0,
+            "split": 0,
+            "explode": 35,
+            "homing": 0,
+            "color": "#ef694e"
+          }
+        ],
+        "fields": [],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0,
+      "calls": 0
+    }
+  ]
+}

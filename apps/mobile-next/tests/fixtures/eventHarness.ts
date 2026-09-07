@@ -4,6 +4,7 @@ export { EventSession } from '../../src/storage/EventSession';
 export { FirstStageEvents, eventPayment } from '../../src/core/firstEvents';
 export { Progression } from '../../src/core/progression';
 export { calculateStartup } from '../../src/core/growth';
+export { TimedChests } from '../../src/core/timedChests';
 import { GameCore } from '../../src/core/GameCore';
 import type { CombatSimulation } from '../../src/core/CombatSimulation';
 import type { GameSave } from '../../src/core/saveTypes';
