@@ -6,6 +6,8 @@ import { bindKeyboard } from '../input/controls';
 import MovePad from './MovePad.vue';
 import type { ChoiceKind } from '../core/progression';
 import type { Action } from '../core/CombatSimulation';
+import type { GameSave } from '../core/saveTypes';
+const props = defineProps<{ save: GameSave }>();
 const emit = defineEmits<{ exit: [] }>();
 const host = ref<HTMLElement>();
 const pauseDialog = ref<HTMLDialogElement>();
@@ -58,7 +60,7 @@ onMounted(async () => {
   try {
     const { mountBattle } = await import('../game/mountBattle');
     if (cancelled || !host.value) return;
-    handle = mountBattle(host.value, value => { snapshot.value = value; }, () => { ready.value = true; host.value?.focus(); }, message => { error.value = message; });
+    handle = mountBattle(host.value, value => { snapshot.value = value; }, () => { ready.value = true; host.value?.focus(); }, message => { error.value = message; }, props.save);
     controls = bindKeyboard(handle.core, pause);
   } catch { error.value = '当前浏览器无法启动战场，请确认已启用图形加速后重试。'; }
 });

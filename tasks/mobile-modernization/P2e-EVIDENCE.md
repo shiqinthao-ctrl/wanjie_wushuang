@@ -39,7 +39,7 @@ This is browser emulation, not real-phone or human-play acceptance.
 
 Legacy check, smoke, audit, context and archive:verify passed (30/30 archives).
 All 49 baseline hashes match. App strict types, 754/754 rule tests, production
-build and all 12/12 browser paths passed. Final context packet is 5222 bytes.
+build and all 12/12 browser paths passed. Final context packet is 5220 bytes.
 The lazy battle chunk is about 373 KB gzip.
 No measured speedup is claimed.
 

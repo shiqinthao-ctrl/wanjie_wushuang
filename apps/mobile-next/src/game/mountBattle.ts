@@ -2,11 +2,12 @@ import Phaser from 'phaser';
 import { GameCore } from '../core/GameCore';
 import type { UiSnapshot } from '../core/GameCore';
 import { MapView } from './MapView';
+import type { GameSave } from '../core/saveTypes';
 
 export interface BattleHandle { core: GameCore; destroy(): Promise<void> }
 
-export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) => void, ready: () => void, fail: (message: string) => void): BattleHandle {
-  const core = new GameCore();
+export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) => void, ready: () => void, fail: (message: string) => void, save: GameSave): BattleHandle {
+  const core = new GameCore(save);
   let removed = false;
   let budget = 0;
   class BattleScene extends Phaser.Scene {

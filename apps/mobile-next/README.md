@@ -32,5 +32,12 @@ TypeScript 5.9.3 passes the strict Vue typecheck. Phaser 4.2.1 / Vite 8.2.2 /
 Vue 3.5.42 have passed a production build. Browser and device evidence must be
 reported separately; viewport emulation does not certify phones.
 
-P1 preview contains movement/lifecycle only. No save keys are read or written.
-Full first-stage combat, progression and settlement require P2 acceptance.
+The preview contains H001 combat, growth, map interactions and isolated local
+save management. The native IndexedDB database is `wanjie-mobile-next`; legacy
+localStorage keys are not read or written. JSON imports create additional slots
+and retain exact UTF-8 source text for export. Unsupported preparation remains
+exportable and cannot start a silently substituted preview run.
+
+Events, evolution, B001/Boss Loot and settlement remain required for P2. The
+receipt-based mutation primitive is not yet a migrated settlement implementation.
+Refreshing an active battle restores saved preparation and returns to the lobby.
