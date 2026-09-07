@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2h timed chests/evolution verified. Explicit 90/210/300s claims, paused one-use choices, original fusion/evolution priority, shared run loot and actual supported forms. P2a-g remains verified.
+P2i first Boss/loot verified. B001 at 270s, original HP/AI/damage/map rules, elite loot, single-use Boss choices, chest priority and guarded victory/timeout. P2a-h remains verified.
 
 ## Changed files
-TASK.md; app TimedChests/gear/events/core/combat and battle UI, fusion data/tests/README; legacy chest oracle/capture, P2h evidence/status and handoff. Legacy unchanged; no added dependencies.
+TASK.md; app FirstBoss/BossView/BossLoot, core/combat/map/gear, UI/art/tests/README; Boss oracle/capture, P2i evidence/screenshots/status and handoff. Legacy unchanged; no added dependencies.
 
 ## Tests
-P2h: legacy 5 gates, 30/30 archives, 49/49 hashes, strict types/build, 836/836 tests and 54/54 Chrome paths pass (12.4m). Natural 90s chest on all three sizes; separate synthetic advanced-form/oracle cases. Ready/choice screenshots viewed. No physical-device acceptance.
+P2i: legacy 5 gates, 30/30 archives, 49/49 hashes, types/build, 874/874 tests pass. 63 distinct Chrome paths: natural Boss 3, regression 59, narrow chest 1 rerun after a test-only dialog/control race fix. Boss/loot screenshots viewed. No physical-device acceptance.
 
 ## Unresolved risk
-Preview lacks Boss/loot/kill gear/settlement, audio/full content. Gear remains run-local. Boss Loot guard tested but not yet connected to core state. Node/Chrome random sort differs; exact upgrades checked in Chrome. Physical phones, endurance and PWA pending. Battle mount 371KB gzip; no measured gain.
+Atomic settlement, natural complete victory/defeat/retry, audio/full content pending. Gear remains run-local. Boss loot delay intentionally uses unpaused battle time. Node/Chrome random sort differs; exact choices checked in Chrome. Physical phones, endurance/PWA pending. Battle mount 373.48KB gzip; no measured gain.
 
 ## Recommended next task
-P2i: original B001 at 270s, Boss map interactions and attacks, Boss Loot priority/choice, kill gear and guarded completion signals. Then atomic settlement and natural complete stage/retry to finish P2; continue approved P3-P5 afterward.
+P2j: atomic rewards/progression/receipt settlement, immutable run result, result/retry UI, effective legacy oracles and natural full-stage victory/defeat/retry. Then continue approved P3-P5; physical-device gates remain separate.
 
 ## After each task
 Replace only these fields:

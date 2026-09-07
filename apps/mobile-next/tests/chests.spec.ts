@@ -16,14 +16,15 @@ test('natural timed chest: claim at 90s, select gear once and resume', async ({ 
     if (await reward.isVisible() && await reward.isEnabled()) break;
     expect(await page.getByRole('dialog', { name: '本局生命耗尽' }).isVisible()).toBe(false);
     if (touch) {
-      const box = await page.getByLabel('拖动摇杆移动').boundingBox();
+      // An upgrade can open after the status check and remove the movement pad.
+      const box = await page.getByLabel('拖动摇杆移动').boundingBox({ timeout: 500 }).catch(() => null);
       if (!box) continue;
       const point = { id: 1, x: box.x + box.width / 2, y: box.y + box.height / 2 };
       const moved = { ...point, x: point.x + [35, 0, -35, 0][step % 4]!, y: point.y + [0, 35, 0, -35][step % 4]! };
       await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point] });
       await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [moved] });
       if (await skill.isEnabled({ timeout: 200 }).catch(() => false)) {
-        const action = await skill.boundingBox();
+        const action = await skill.boundingBox({ timeout: 500 }).catch(() => null);
         if (action) await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [moved, { id: 2, x: action.x + action.width / 2, y: action.y + action.height / 2 }] });
       }
       await page.waitForTimeout(1000);

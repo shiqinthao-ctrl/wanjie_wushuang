@@ -46,6 +46,7 @@ export class FirstStageMap {
     item.used = true; this.used++;
     if (item.type === 'barrel') {
       for (const enemy of [...sim.enemies]) if (Math.hypot(enemy.x - item.x, enemy.y - item.y) < 165) sim.hit(enemy, attack * 7.5, 'MAP_BARREL', true);
+      if (sim.boss && Math.hypot(sim.boss.x - item.x, sim.boss.y - item.y) < 205) sim.hitBoss(attack * 9.5, 'MAP_BARREL');
       this.notice = `${item.name} · 已引爆`;
     } else if (item.type === 'heal') {
       p.hp = Math.min(p.maxHp, p.hp + p.maxHp * .35); this.notice = `${item.name} · 恢复生命`;
@@ -54,6 +55,7 @@ export class FirstStageMap {
     } else if (item.type === 'mechanism') {
       this.hazardSuppress = 25; this.hazards = [];
       for (const enemy of [...sim.enemies].sort((a, b) => Number(b.elite) - Number(a.elite)).slice(0, 10)) sim.hit(enemy, attack * 2.1, 'MAP_MECHANISM');
+      sim.hitBoss(attack * 4, 'MAP_MECHANISM');
       this.notice = `${item.name} · 地图机制压制25秒`;
     } else {
       this.bonusGold += 180;
@@ -87,7 +89,14 @@ export class FirstStageMap {
     return true;
   }
   snapshot() {
-    const { item, distance } = this.nearest(), p = this.combat.player;
+    let { item, distance } = this.nearest();
+    const p = this.combat.player, boss = this.combat.boss;
+    if (boss && distance > 74) {
+      const candidates = this.interactables.filter(candidate => !candidate.used);
+      const guide = candidates.find(candidate => candidate.type === 'barrel' && Math.hypot(candidate.x - boss.x, candidate.y - boss.y) < 205)
+        || candidates.find(candidate => candidate.type === 'mechanism') || candidates.find(candidate => candidate.type === 'barrel');
+      if (guide) { item = guide; distance = Math.hypot(guide.x - p.x, guide.y - p.y); }
+    }
     const target = item ? Object.freeze({ id: item.id, name: item.name, type: item.type, description: descriptions[item.type], distance: Math.round(distance / 25) * 25, direction: direction(item.x - p.x, item.y - p.y), canUse: distance <= 74 }) : undefined;
     return Object.freeze({ used: this.used, bonusGold: this.bonusGold, hazardSuppress: this.hazardSuppress, target, notice: this.notice });
   }

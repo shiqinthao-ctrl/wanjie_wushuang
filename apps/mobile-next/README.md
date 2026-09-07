@@ -33,7 +33,7 @@ Vue 3.5.42 have passed a production build. Browser and device evidence must be
 reported separately; viewport emulation does not certify phones.
 
 The preview contains H001 combat, growth, map interactions, scheduled encounters,
-timed chests, supported evolutions/fusions and isolated local
+timed chests, supported evolutions/fusions, B001 and isolated local
 save management. The native IndexedDB database is `wanjie-mobile-next`; legacy
 localStorage keys are not read or written. JSON imports create additional slots
 and retain exact UTF-8 source text for export. Unsupported preparation remains
@@ -49,6 +49,11 @@ Timed chests at 90/210/300s require explicit claim, pause for a choice, and appl
 one reward per token. Fusion/evolution priority and actual supported attacks
 match isolated legacy oracles. Gear shares the run-local encounter loot array.
 
-B001/Boss Loot and settlement remain required for P2. The
-receipt-based mutation primitive is not yet a migrated settlement implementation.
+B001 appears at 270s with original attacks, map interactions and Boss Loot.
+The delayed loot offer uses 180ms of unpaused battle time, so it cannot open
+after leaving the run. An automatic drop and one selected extra item stay
+run-local. Victory waits for the choice and original completion guards; a
+living Boss at 360s causes timeout. Atomic settlement and full natural
+victory/defeat/retry remain required for P2. The receipt-based mutation
+primitive is not yet a migrated settlement implementation.
 Refreshing an active battle restores saved preparation and returns to the lobby.

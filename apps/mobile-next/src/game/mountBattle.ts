@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { GameCore } from '../core/GameCore';
 import type { UiSnapshot } from '../core/GameCore';
 import { MapView } from './MapView';
+import { BossView } from './BossView';
 import type { GameSave } from '../core/saveTypes';
 
 export interface BattleHandle { core: GameCore; destroy(): Promise<void> }
@@ -15,12 +16,14 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     private crystals?: Phaser.GameObjects.Graphics;
     private combatGraphics?: Phaser.GameObjects.Graphics;
     private mapView?: MapView;
+    private bossView?: BossView;
     private enemySprites: Phaser.GameObjects.Image[] = [];
     private pulses: { x: number; y: number; radius: number; life: number; source: string }[] = [];
     preload() {
       this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
       this.load.image('hero', `${import.meta.env.BASE_URL}art/hero-h001.svg`);
       this.load.image('enemy', `${import.meta.env.BASE_URL}art/enemy-en001.svg`);
+      this.load.image('boss', `${import.meta.env.BASE_URL}art/boss-b001.svg`);
       this.load.on('loaderror', () => fail('战场资源未能载入，请返回后重试。'));
     }
     create() {
@@ -29,6 +32,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       const { world, player } = core.renderState();
       this.add.image(0, 0, 'ground').setOrigin(0).setDisplaySize(world.width, world.height);
       this.mapView = new MapView(this);
+      this.bossView = new BossView(this);
       this.crystals = this.add.graphics();
       this.combatGraphics = this.add.graphics();
       this.hero = this.add.image(player.x, player.y, 'hero').setDisplaySize(66, 81).setOrigin(.5, .84).setDepth(3);
@@ -40,8 +44,9 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       if (removed || !this.hero) return;
       core.resize(this.scale.width, this.scale.height);
       core.advance(delta / 1000);
-      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map } = core.renderState();
+      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs } = core.renderState();
       this.mapView?.draw(map, player);
+      this.bossView?.draw(boss, telegraphs);
       const graphics = this.combatGraphics!; graphics.clear();
       for (const field of fields) graphics.fillStyle(0xef694e, .12).fillCircle(field.x, field.y, field.r).lineStyle(1, 0xffba70, .45).strokeCircle(field.x, field.y, field.r);
       for (const vortex of vortices) {

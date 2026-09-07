@@ -1,13 +1,15 @@
 import { calculateStartup } from './growth';
-import { combatContext, enemyHit, incomingHit, passiveLevel, skillModifier } from './combatMath';
+import { bossHit, combatContext, enemyHit, incomingHit, passiveLevel, skillModifier } from './combatMath';
 import type { CombatState } from './combatMath';
-import type { GameSave } from './saveTypes';
+import type { GameSave, GearInstance } from './saveTypes';
 import { Progression, XpField, effectiveXp } from './progression';
 import { cap, caps, clampPoint, createEnemy, difficultyFor, director, earlyEnemyCap, firstStage, waveAt } from './spawnRules';
 import type { Enemy, Point } from './spawnRules';
 import forms from '../data/skillForms.json';
 import pets from '../data/runePets.json';
 import { FirstStageMap } from './FirstStageMap';
+import { FirstBoss } from './FirstBoss';
+import { generateGear } from './gearDrops';
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
@@ -50,6 +52,8 @@ export class CombatSimulation {
   readonly cool: Record<string, number> = {};
   readonly pet;
   readonly map: FirstStageMap;
+  readonly bossEncounter: FirstBoss;
+  get boss() { return this.bossEncounter.active; }
   private input: Point = { x: 0, y: 0 };
   private response: Point = { x: 0, y: 0 };
   private dodgeDirection: Point = { x: 0, y: -1 };
@@ -70,7 +74,7 @@ export class CombatSimulation {
   private baseAspd: number;
   private fusionClock = 0;
 
-  constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random) {
+  constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random, readonly drops: GearInstance[] = [], private now = Date.now) {
     if (save.hero !== 'H001' || save.pet !== 'PET001') throw new Error('This combat slice supports H001 with PET001 only');
     const startup = calculateStartup(save);
     this.context = combatContext(save, startup);
@@ -80,6 +84,7 @@ export class CombatSimulation {
     const cd = pets.pets.PET001.cd;
     this.pet = { x: 1836, y: 1176, angle: 0, cd: cd * .35, maxCd: cd };
     this.map = new FirstStageMap(this, random);
+    this.bossEncounter = new FirstBoss(this, save.hero, this.difficulty, random, now);
   }
   state(): CombatState { return { ...this.progression.snapshot(), ...this.player, evolved: this.evolved, killBuff: this.killBuff, mode: 'story' }; }
   directorState() { return { time: this.time, kills: this.kills, dps: this.dps, level: this.progression.snapshot().level, evolved: Object.keys(this.evolved).length, fused: Object.keys(this.fused).length }; }
@@ -100,8 +105,16 @@ export class CombatSimulation {
     return best;
   }
   private aim(): number { const target = this.nearest(); return target ? Math.atan2(target.y - this.player.y, target.x - this.player.x) : 0; }
+  private heroAim(): number { const target = this.boss || this.nearest(); return target ? Math.atan2(target.y - this.player.y, target.x - this.player.x) : 0; }
   private ring(point: Point, radius: number, source: string): void { this.events.push({ type: 'ring', x: point.x, y: point.y, radius, source }); }
   hurt(damage: number): void { Object.assign(this.player, incomingHit(this.context, this.player, damage)); }
+  hitBoss(base: number, source: string, skill = false): void {
+    const boss = this.boss; if (!boss) return;
+    const hit = bossHit(this.context, this.state(), source, base, boss, skill);
+    boss.hp = hit.hp; boss.shield = hit.shield; this.damage += hit.damage;
+    this.events.push({ type: 'hit', x: boss.x, y: boss.y, damage: hit.damage, critical: false });
+    if (boss.hp <= 0) this.bossEncounter.defeat();
+  }
   hit(enemy: Enemy, base: number, source: string, critical = false, skill = false): void {
     if (!this.enemies.includes(enemy)) return;
     const hit = enemyHit(this.context, this.state(), source, base, enemy.elite, critical, skill);
@@ -115,23 +128,24 @@ export class CombatSimulation {
     if (enemy.elite) this.eliteKills++;
     if (enemy.volatile) { this.ring(enemy, 58, 'volatile'); if (distance(this.player, enemy) < 58 && this.player.inv <= 0) this.hurt(enemy.damage * 1.2); }
     if (enemy.split) { this.spawn({ id: enemy.id }); this.spawn({ id: enemy.id }); }
-    // Gear drop generation belongs to the reward slice; do not invent a replacement.
+    if (enemy.elite && this.random() < .45) this.drops.push(generateGear('H001', 'elite', this.random, this.now));
     if (this.runes.includes('R006')) this.killBuff = 3;
     if (this.runes.includes('R043')) this.progression.gain(Math.round((enemy.elite ? 18 : 4) * .18));
     if (this.runes.includes('R041')) this.petGold += enemy.elite ? 2 : .25;
     this.events.push({ type: 'kill', x: enemy.x, y: enemy.y, elite: enemy.elite });
   }
   arc(radius: number, damage: number, source: string, angle = Math.PI * 1.35): void {
-    const base = this.aim();
+    const base = this.heroAim();
     for (const enemy of [...this.enemies]) {
       const a = Math.atan2(enemy.y - this.player.y, enemy.x - this.player.x);
       const delta = Math.atan2(Math.sin(a - base), Math.cos(a - base));
       if (distance(enemy, this.player) <= radius && Math.abs(delta) <= angle / 2) this.hit(enemy, damage, source, this.random() < this.player.crit);
     }
+    if (this.boss && distance(this.boss, this.player) <= radius) this.hitBoss(damage, source);
     this.ring(this.player, radius, source);
   }
   basic(): void {
-    if (!this.nearest()) return;
+    if (!this.boss && !this.nearest()) return;
     this.arc(105 + this.heat * .35, this.player.atk * (1.05 + this.heat * .006), 'H001_SLASH', Math.PI * 1.15);
     this.heat = Math.min(100, this.heat + 8);
   }
@@ -147,7 +161,7 @@ export class CombatSimulation {
       if (this.runes.includes('R025')) { p.dodgeCd *= .88; p.dodgeBuff = 2; }
     } else if (action === 'skill') {
       if (p.skillCd > 0) return false;
-      p.skillCd = 6; const angle = this.aim();
+      p.skillCd = 6; const angle = this.heroAim();
       for (let i = 0; i < 5; i++) this.bombs.push({ x: p.x + Math.cos(angle) * i * 36, y: p.y + Math.sin(angle) * i * 36, r: 48, life: .18 + i * .05, max: .18 + i * .05, dmg: p.atk * 1.35, color: '#ef7958' });
       p.x += Math.cos(angle) * 150; p.y += Math.sin(angle) * 150;
       this.arc(135, p.atk * 2.2, 'H001_E'); this.heat = Math.min(100, this.heat + 30);
@@ -195,6 +209,7 @@ export class CombatSimulation {
     cap(this.enemies, { easy: 190, normal: 250, hard: 320, nightmare: 380 }[this.difficulty] || 250);
     this.attackClock += dt; if (this.attackClock > 1 / Math.max(.6, p.aspd)) { this.attackClock = 0; this.basic(); }
     for (const enemy of [...this.enemies]) this.enemyAI(enemy, dt);
+    this.bossEncounter.updateAI(dt);
   }
   finishBaseFrame(dt: number): void {
     for (let i = this.enemyShots.length - 1; i >= 0; i--) {
@@ -239,6 +254,7 @@ export class CombatSimulation {
   private explosion(id: string, point: Point, radius: number, dmg: number): void {
     this.ring(point, radius, id);
     for (const enemy of [...this.enemies]) if (distance(enemy, point) <= radius) this.hit(enemy, dmg, id, false, true);
+    if (this.boss && distance(this.boss, point) <= radius + this.boss.r) this.hitBoss(dmg, id, true);
   }
   private updateProjectiles(dt: number): void {
     for (let i = this.projectiles.length - 1; i >= 0; i--) {
@@ -250,6 +266,11 @@ export class CombatSimulation {
         if (shot.split > 0) for (const off of [-.36, .36]) this.projectile(shot.id, shot, Math.atan2(shot.vy, shot.vx) + off, Math.hypot(shot.vx, shot.vy) * .9, shot.dmg * .55, shot.r * .8, { color: shot.color, pierce: 1, split: shot.split - 1 });
         if (shot.pierce > 0) shot.pierce--; else { this.projectiles.splice(i, 1); continue; }
       }
+      if (this.boss && distance(this.boss, shot) < this.boss.r + shot.r) {
+        this.hitBoss(shot.dmg, shot.id, true);
+        if (shot.explode) this.explosion(shot.id, shot, shot.explode, shot.dmg * .65);
+        if (shot.pierce > 0) shot.pierce--; else { this.projectiles.splice(i, 1); continue; }
+      }
       if (shot.life <= 0 || shot.x < -100 || shot.x > this.world.width + 100 || shot.y < -100 || shot.y > this.world.height + 100) this.projectiles.splice(i, 1);
     }
   }
@@ -257,7 +278,10 @@ export class CombatSimulation {
     for (let i = this.fields.length - 1; i >= 0; i--) {
       const field = this.fields[i]!; field.life -= dt; field.tick -= dt;
       if (field.follow) { field.x = this.player.x; field.y = this.player.y; }
-      if (field.tick <= 0) { field.tick = .30; for (const enemy of this.enemies.filter(enemy => distance(enemy, field) <= field.r)) this.hit(enemy, field.dmg, field.id, false, true); }
+      if (field.tick <= 0) {
+        field.tick = .30; for (const enemy of this.enemies.filter(enemy => distance(enemy, field) <= field.r)) this.hit(enemy, field.dmg, field.id, false, true);
+        if (this.boss && distance(this.boss, field) <= field.r + this.boss.r) this.hitBoss(field.dmg * .8, field.id, true);
+      }
       if (field.life <= 0) this.fields.splice(i, 1);
     }
   }
@@ -268,7 +292,10 @@ export class CombatSimulation {
         const dx = vortex.x - enemy.x, dy = vortex.y - enemy.y, d = Math.hypot(dx, dy) || 1;
         if (d < vortex.r * 1.5) { enemy.x += dx / d * 85 * dt; enemy.y += dy / d * 85 * dt; }
       }
-      if (vortex.tick <= 0) { vortex.tick = .28; for (const enemy of [...this.enemies]) if (distance(enemy, vortex) <= vortex.r) this.hit(enemy, vortex.dmg, vortex.id, false, true); }
+      if (vortex.tick <= 0) {
+        vortex.tick = .28; for (const enemy of [...this.enemies]) if (distance(enemy, vortex) <= vortex.r) this.hit(enemy, vortex.dmg, vortex.id, false, true);
+        if (this.boss && distance(this.boss, vortex) <= vortex.r + this.boss.r) this.hitBoss(vortex.dmg, vortex.id, true);
+      }
       if (this.fused.F001 && vortex.tick < .05 && this.random() < .35) this.field('F001', vortex, 55, vortex.dmg * .55, 1.2);
       if (vortex.life <= 0) this.vortices.splice(i, 1);
     }
@@ -304,6 +331,7 @@ export class CombatSimulation {
       const bomb = this.bombs[i]!; bomb.life -= dt;
       if (bomb.life <= 0) {
         for (const enemy of [...this.enemies]) if (distance(enemy, bomb) <= bomb.r) this.hit(enemy, bomb.dmg, 'H010_BOMB');
+        if (this.boss && distance(this.boss, bomb) <= bomb.r + this.boss.r) this.hitBoss(bomb.dmg, 'H010_BOMB');
         this.ring(bomb, bomb.r, 'H010_BOMB'); this.bombs.splice(i--, 1);
       }
     }
@@ -316,6 +344,7 @@ export class CombatSimulation {
     this.updateProjectiles(dt); this.updateFields(dt); this.updateVortices(dt); this.updateMeteors(dt);
     this.fusionClock -= dt;
     if (this.fusionClock <= 0) { this.fusionClock = 3.4; this.fusionPulse(); }
+    this.bossEncounter.updateTelegraphs(dt);
     const pet = this.pet; pet.angle += dt * .9; pet.x = this.player.x + Math.cos(pet.angle) * 52; pet.y = this.player.y + Math.sin(pet.angle) * 34; pet.cd -= dt;
     this.player.dodgeBuff = Math.max(0, this.player.dodgeBuff - dt); this.killBuff = Math.max(0, this.killBuff - dt);
     if (this.runes.includes('R022')) { this.shieldClock -= dt; if (this.shieldClock <= 0) { this.player.shield = Math.max(this.player.shield, this.player.maxHp * .12); this.shieldClock = 20; } }
@@ -333,7 +362,7 @@ export class CombatSimulation {
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
   renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]) })), projectiles: cloneList(this.projectiles), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }) }; }
   destroy(): void {
-    this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy();
+    this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
     for (const items of [this.enemies, this.projectiles, this.fields, this.vortices, this.meteors, this.bombs, this.enemyShots]) items.length = 0;
   }
 }

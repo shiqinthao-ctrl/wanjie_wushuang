@@ -48,11 +48,11 @@ onBeforeUnmount(() => { disposed = true; repository.value?.close(); });
         <div class="save-summary"><p aria-label="当前存档">{{ active?.label || '正在读取存档' }}<small v-if="active">金币 {{ active.save.gold }}</small></p><button :disabled="!active || busy || !!storageError" @click="page = 'saves'">存档</button></div>
         <p v-if="launchBlocker" class="save-boundary">{{ launchBlocker }}</p>
         <template v-else><div class="mission-line"><span>Lv.{{ active?.save.heroes.H001?.level ?? fresh.heroes.H001.level }}</span><span>赤焰战神</span><span>火灵同行</span></div><dl class="preparation" aria-label="出征属性"><div><dt>生命</dt><dd>{{ Math.round(prepared.player.maxHp) }}</dd></div><div><dt>攻击</dt><dd>{{ Math.round(prepared.player.atk) }}</dd></div><div><dt>暴击</dt><dd>{{ (prepared.player.crit * 100).toFixed(1) }}%</dd></div></dl></template>
-        <button ref="startButton" :disabled="!active || busy || !!storageError || !!launchBlocker" class="primary embark" @click="enter">进入战场预览 <span aria-hidden="true">→</span></button><p class="release-note">移动版建设中，可体验战斗、升级、地图互动与奇遇；首领和结算尚未接入。</p>
+        <button ref="startButton" :disabled="!active || busy || !!storageError || !!launchBlocker" class="primary embark" @click="enter">进入战场预览 <span aria-hidden="true">→</span></button><p class="release-note">移动版建设中，可挑战黄巾巨将并选择首领奖励；本局装备与结算奖励暂不入库。</p>
       </div>
     </section>
     <SavePanel v-else-if="page === 'saves' && repository && active" :repository="repository" :active="active" @selected="slot => active = slot" @busy="value => saveBusy = value" @back="home" />
-    <section v-else class="settings"><small class="eyebrow">行前须知</small><h1>设置与帮助</h1><dl><dt>移动操作</dt><dd>手机拖动左下方摇杆；电脑使用 WASD 或方向键。</dd><dt>战斗操作</dt><dd>普通攻击自动释放。点击右下方按钮使用闪避、炎龙斩和赤龙降世；电脑对应 Space、E / Q、R。跟随地图指引靠近互动点，点击互动或按 F 使用。</dd><dt>暂停与恢复</dt><dd>点击暂停，或按 Esc。离开页面会暂停，返回后手动继续。</dd><dt>当前版本</dt><dd>移动版战斗预览。可体验击杀、拾取、升级、地图互动、奇遇和存档导入导出；首领与奖励结算正在建设中。</dd></dl><button class="primary" @click="home">返回大厅</button></section>
+    <section v-else class="settings"><small class="eyebrow">行前须知</small><h1>设置与帮助</h1><dl><dt>移动操作</dt><dd>手机拖动左下方摇杆；电脑使用 WASD 或方向键。</dd><dt>战斗操作</dt><dd>普通攻击自动释放。点击右下方按钮使用闪避、炎龙斩和赤龙降世；电脑对应 Space、E / Q、R。跟随地图指引靠近互动点，点击互动或按 F 使用。</dd><dt>暂停与恢复</dt><dd>点击暂停，或按 Esc。离开页面会暂停，返回后手动继续。</dd><dt>当前版本</dt><dd>移动版战斗预览。可体验击杀、升级、地图互动、奇遇、首领战和存档导入导出；奖励结算正在建设中。</dd></dl><button class="primary" @click="home">返回大厅</button></section>
     <footer>万界无双 <span>移动版 · 开发预览</span></footer>
   </main>
 </template>

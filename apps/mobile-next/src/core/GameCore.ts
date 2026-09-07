@@ -9,9 +9,10 @@ import type { FirstStageMap } from './FirstStageMap';
 import { FirstStageEvents } from './firstEvents';
 import type { EventCode, EventPayment } from './firstEvents';
 import { TimedChests } from './timedChests';
+import type { FirstBoss } from './FirstBoss';
 
-export type RunStatus = 'idle' | 'running' | 'choosing' | 'encounter' | 'chest' | 'paused' | 'ended' | 'destroyed';
-export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly chests: ReturnType<TimedChests['snapshot']>; readonly endReason?: 'defeat' | 'preview-limit' }
+export type RunStatus = 'idle' | 'running' | 'choosing' | 'encounter' | 'chest' | 'boss-loot' | 'paused' | 'ended' | 'destroyed';
+export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly chests: ReturnType<TimedChests['snapshot']>; readonly boss: ReturnType<FirstBoss['snapshot']>; readonly endReason?: 'defeat' | 'victory' | 'timeout' }
 export interface Point { x: number; y: number }
 export type CoreEvent = CombatEvent | { type: 'xp-pickup'; value: number; x: number; y: number } | { type: 'level-choice'; level: number };
 
@@ -29,7 +30,7 @@ export class GameCore {
   constructor(save: GameSave = fresh, random = Math.random) {
     const startup = calculateStartup(save);
     this.progression = new Progression(save.build, startup.skills, startup.passives, random);
-    this.combat = new CombatSimulation(save, this.progression, random);
+    this.combat = new CombatSimulation(save, this.progression, random, this.drops);
     this.encounters = new FirstStageEvents(this.combat.player, this.progression, save.hero, random, Date.now, this.drops);
     this.chests = new TimedChests(this.progression, this.combat, save.hero, this.drops, random);
   }
@@ -58,10 +59,14 @@ export class GameCore {
     return true;
   }
   clearInput(): void { this.combat.clearInput(); }
-  pause(): void { if (['running', 'choosing', 'encounter', 'chest'].includes(this.status)) { this.status = 'paused'; this.clearInput(); } }
-  resume(): void { if (this.status === 'paused') this.status = this.chests.snapshot(this.combat.time).offer ? 'chest' : this.encounters.snapshot().offer ? 'encounter' : this.progression.snapshot().choice ? 'choosing' : 'running'; }
+  pause(): void { if (['running', 'choosing', 'encounter', 'chest', 'boss-loot'].includes(this.status)) { this.status = 'paused'; this.clearInput(); } }
+  resume(): void { if (this.status === 'paused') this.status = this.combat.bossEncounter.snapshot().offer ? 'boss-loot' : this.chests.snapshot(this.combat.time).offer ? 'chest' : this.encounters.snapshot().offer ? 'encounter' : this.progression.snapshot().choice ? 'choosing' : 'running'; }
+  pickBossLoot(uid: string): boolean {
+    if (this.status !== 'boss-loot' || !this.combat.bossEncounter.pick(uid)) return false;
+    this.clearInput(); this.status = this.progression.snapshot().choice ? 'choosing' : 'running'; return true;
+  }
   claimChest(index: number): boolean {
-    if (this.status !== 'running' || !this.chests.claim(index, this.combat.time)) return false;
+    if (this.status !== 'running' || !this.chests.claim(index, this.combat.time, this.combat.bossEncounter.snapshot().lootShown)) return false;
     this.status = 'chest'; this.clearInput(); return true;
   }
   pickChest(token: number, index: number): boolean {
@@ -81,7 +86,7 @@ export class GameCore {
   advance(elapsed: number): void {
     if (this.status !== 'running' || !Number.isFinite(elapsed) || elapsed <= 0) return;
     // Base order: movement/spawn/attacks/AI, XP, hostile shots/director,
-    // death, hero identity, skill forms, pet, safety caps.
+    // death, hero identity, skill forms, Boss warnings, pet, map, events, objective.
     const dt = Math.min(.034, elapsed);
     this.combat.beginFrame(dt);
     const pickup = this.combat.crystals.advance(this.combat.player, dt);
@@ -94,21 +99,26 @@ export class GameCore {
       }
     }
     this.combat.finishBaseFrame(dt);
-    if (this.combat.player.hp <= 0 || this.combat.time >= 360) {
-      this.endReason = this.combat.player.hp <= 0 ? 'defeat' : 'preview-limit';
+    if (this.combat.player.hp <= 0) {
+      this.endReason = 'defeat';
       this.status = 'ended'; this.clearInput();
     }
     if (this.status === 'running') {
       this.combat.updateOuter(dt); this.combat.map.recover();
       if (this.encounters.open(this.combat.time)) { this.status = 'encounter'; this.clearInput(); }
     }
+    if (this.status === 'running') {
+      const outcome = this.combat.bossEncounter.updateObjective();
+      if (outcome) { this.status = 'ended'; this.endReason = outcome; this.clearInput(); }
+      else if (this.combat.bossEncounter.snapshot().offer) { this.status = 'boss-loot'; this.clearInput(); }
+    }
     this.combat.applyCaps();
   }
   snapshot(): UiSnapshot {
     const { player, time, kills, heat } = this.combat;
-    return Object.freeze({ status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), endReason: this.endReason, ...this.progression.snapshot() });
+    return Object.freeze({ status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
   }
-  renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState() }; }
+  renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState(), boss: this.combat.bossEncounter.snapshot().boss, telegraphs: this.combat.bossEncounter.telegraphs.map(warning => Object.freeze({ ...warning })) }; }
   takeEvents(): readonly CoreEvent[] { const events = [...this.events, ...this.combat.takeEvents()]; this.events = []; return events; }
   destroy(): void { this.combat.destroy(); this.events = []; this.status = 'destroyed'; }
 }

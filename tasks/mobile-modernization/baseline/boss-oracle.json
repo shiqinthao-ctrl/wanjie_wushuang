@@ -1,0 +1,3511 @@
+{
+  "evidence": "Synthetic isolated legacy Chrome Boss oracle. Timers suppressed and outcomes intercepted; not natural gameplay.",
+  "clock": 1770000000000,
+  "config": {
+    "boss": {
+      "name": "黄巾巨将",
+      "map": "ST001",
+      "style": "巨斧冲击",
+      "hp": 7000,
+      "color": "#8f3539",
+      "skills": [
+        "震地斩",
+        "狂暴冲锋",
+        "旋风斧"
+      ]
+    },
+    "mechanics": {
+      "name": "黄巾巨将",
+      "phase": [
+        "巨斧压境",
+        "蛮王狂怒",
+        "震岳绝境"
+      ],
+      "shield": 0,
+      "shrink": false,
+      "skills": [
+        [
+          "circle",
+          "震地斩"
+        ],
+        [
+          "line",
+          "蛮王冲锋"
+        ],
+        [
+          "cone",
+          "旋风断军"
+        ]
+      ]
+    },
+    "pool": [
+      "EQW007",
+      "EQA007",
+      "EQX007"
+    ]
+  },
+  "spawns": [
+    {
+      "difficulty": "easy",
+      "width": 390,
+      "height": 844,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1909.2,
+        "y": 1064.96,
+        "r": 42,
+        "hp": 20539.327199999996,
+        "maxHp": 20539.327199999996,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    },
+    {
+      "difficulty": "easy",
+      "width": 1280,
+      "height": 720,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 2158.4,
+        "y": 1084.8,
+        "r": 42,
+        "hp": 20539.327199999996,
+        "maxHp": 20539.327199999996,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    },
+    {
+      "difficulty": "normal",
+      "width": 390,
+      "height": 844,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1909.2,
+        "y": 1064.96,
+        "r": 42,
+        "hp": 25047.959999999992,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    },
+    {
+      "difficulty": "normal",
+      "width": 1280,
+      "height": 720,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 2158.4,
+        "y": 1084.8,
+        "r": 42,
+        "hp": 25047.959999999992,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "width": 390,
+      "height": 844,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1909.2,
+        "y": 1064.96,
+        "r": 42,
+        "hp": 34566.184799999995,
+        "maxHp": 34566.184799999995,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "width": 1280,
+      "height": 720,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 2158.4,
+        "y": 1084.8,
+        "r": 42,
+        "hp": 34566.184799999995,
+        "maxHp": 34566.184799999995,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    },
+    {
+      "difficulty": "nightmare",
+      "width": 390,
+      "height": 844,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1909.2,
+        "y": 1064.96,
+        "r": 42,
+        "hp": 46338.725999999995,
+        "maxHp": 46338.725999999995,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    },
+    {
+      "difficulty": "nightmare",
+      "width": 1280,
+      "height": 720,
+      "curve": {
+        "hp": 1.5579999999999998,
+        "dmg": 1.3239999999999998,
+        "speed": 1.0315
+      },
+      "boss": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 2158.4,
+        "y": 1084.8,
+        "r": 42,
+        "hp": 46338.725999999995,
+        "maxHp": 46338.725999999995,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 1.7,
+        "castLock": 0.7,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "准备攻击"
+      }
+    }
+  ],
+  "casts": [
+    {
+      "phase": 1,
+      "cast": 0,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 25047.959999999992,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 1,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 1,
+          "v25CastCd": 1.68,
+          "castLock": 0.6799999999999999,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": []
+      },
+      "warning": {
+        "life": 1.4355,
+        "max": 1.4355,
+        "color": "#ef5d58",
+        "damage": 19.549999999999997,
+        "resolved": false,
+        "type": "line",
+        "name": "蛮王冲锋",
+        "x": 1908.6340913922988,
+        "y": 1065.6598195822708,
+        "x2": 1420.39329616137,
+        "y2": 1669.433052072972,
+        "width": 44,
+        "moveBoss": true
+      },
+      "hpLoss": 6.361999999999966,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1420.39329616137,
+        "y": 1669.433052072972,
+        "r": 42,
+        "hp": 25047.959999999992,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 2.62,
+        "castLock": 1.5554999999999999,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 1,
+        "v25Next": "蛮王冲锋 · 横向闪避"
+      }
+    },
+    {
+      "phase": 1,
+      "cast": 1,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 25047.959999999992,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 1,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 1,
+          "v25CastCd": 1.68,
+          "castLock": 0.6799999999999999,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": []
+      },
+      "warning": {
+        "life": 1.4355,
+        "max": 1.4355,
+        "color": "#ef5d58",
+        "damage": 20.74,
+        "resolved": false,
+        "type": "cone",
+        "name": "旋风断军",
+        "x": 1420.9592047690712,
+        "y": 1668.7332324907013,
+        "range": 255,
+        "arc": 1.7278759594743864,
+        "angle": -0.8908036342933583
+      },
+      "hpLoss": 0,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1420.9592047690712,
+        "y": 1668.7332324907013,
+        "r": 42,
+        "hp": 25047.959999999992,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 2.62,
+        "castLock": 1.5554999999999999,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 2,
+        "v25Next": "旋风断军 · 绕至侧后"
+      }
+    },
+    {
+      "phase": 1,
+      "cast": 2,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 25047.959999999992,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 1,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 1,
+          "v25CastCd": 1.68,
+          "castLock": 0.6799999999999999,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": []
+      },
+      "warning": {
+        "life": 1.4355,
+        "max": 1.4355,
+        "color": "#ef5d58",
+        "damage": 21.25,
+        "resolved": false,
+        "type": "circle",
+        "name": "震地斩",
+        "x": 1800,
+        "y": 1200,
+        "r": 70
+      },
+      "hpLoss": 7.110000000000014,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1421.5251133767724,
+        "y": 1668.0334129084306,
+        "r": 42,
+        "hp": 25047.959999999992,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 1,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 1,
+        "v25CastCd": 2.62,
+        "castLock": 1.5554999999999999,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "震地斩 · 离开红圈"
+      }
+    },
+    {
+      "phase": 2,
+      "cast": 0,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 17533.571999999993,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 2,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 2,
+          "v25CastCd": 1.18,
+          "castLock": 1.03,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": []
+      },
+      "warning": {
+        "life": 1.3034999999999999,
+        "max": 1.3034999999999999,
+        "color": "#ef5d58",
+        "damage": 25.62,
+        "resolved": false,
+        "type": "cone",
+        "name": "旋风断军",
+        "x": 1908.5460611644341,
+        "y": 1065.7686804061796,
+        "range": 280,
+        "arc": 1.7278759594743864,
+        "angle": 2.2507890192964344
+      },
+      "hpLoss": 9.032799999999952,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1908.5460611644341,
+        "y": 1065.7686804061796,
+        "r": 42,
+        "hp": 17533.571999999993,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 2,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 2,
+        "v25CastCd": 2.24,
+        "castLock": 1.4234999999999998,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 1,
+        "v25Next": "旋风断军 · 绕至侧后"
+      }
+    },
+    {
+      "phase": 2,
+      "cast": 1,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 17533.571999999993,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 2,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 2,
+          "v25CastCd": 1.18,
+          "castLock": 1.03,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": []
+      },
+      "warning": {
+        "life": 1.3034999999999999,
+        "max": 1.3034999999999999,
+        "color": "#ef5d58",
+        "damage": 26.25,
+        "resolved": false,
+        "type": "circle",
+        "name": "震地斩",
+        "x": 1800,
+        "y": 1200,
+        "r": 70
+      },
+      "hpLoss": 9.309999999999945,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1907.8921223288683,
+        "y": 1066.577360812359,
+        "r": 42,
+        "hp": 17533.571999999993,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 2,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 2,
+        "v25CastCd": 2.24,
+        "castLock": 1.4234999999999998,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 2,
+        "v25Next": "震地斩 · 离开红圈"
+      }
+    },
+    {
+      "phase": 2,
+      "cast": 2,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 17533.571999999993,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 2,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 2,
+          "v25CastCd": 1.18,
+          "castLock": 1.03,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": []
+      },
+      "warning": {
+        "life": 1.3034999999999999,
+        "max": 1.3034999999999999,
+        "color": "#ef5d58",
+        "damage": 24.15,
+        "resolved": false,
+        "type": "line",
+        "name": "蛮王冲锋",
+        "x": 1907.2381834933024,
+        "y": 1067.3860412185386,
+        "x2": 1418.9973882623744,
+        "y2": 1671.1592737092406,
+        "width": 44,
+        "moveBoss": true
+      },
+      "hpLoss": 8.385999999999967,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1418.9973882623744,
+        "y": 1671.1592737092406,
+        "r": 42,
+        "hp": 17533.571999999993,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 2,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 2,
+        "v25CastCd": 2.24,
+        "castLock": 1.4234999999999998,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "蛮王冲锋 · 横向闪避"
+      }
+    },
+    {
+      "phase": 3,
+      "cast": 0,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 8766.785999999996,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 3,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 3,
+          "v25CastCd": 1.18,
+          "castLock": 1.03,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": [
+          {
+            "elite": true
+          },
+          {
+            "elite": false
+          },
+          {
+            "elite": false
+          }
+        ]
+      },
+      "warning": {
+        "life": 1.1715,
+        "max": 1.1715,
+        "color": "#ef5d58",
+        "damage": 31.25,
+        "resolved": false,
+        "type": "circle",
+        "name": "震地斩",
+        "x": 1800,
+        "y": 1200,
+        "r": 86
+      },
+      "hpLoss": 11.509999999999991,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1908.4580309365695,
+        "y": 1065.8775412300884,
+        "r": 42,
+        "hp": 8766.785999999996,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 3,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 3,
+        "v25CastCd": 1.8599999999999999,
+        "castLock": 1.2915,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 1,
+        "v25Next": "震地斩 · 离开红圈"
+      }
+    },
+    {
+      "phase": 3,
+      "cast": 1,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 8766.785999999996,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 3,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 3,
+          "v25CastCd": 1.18,
+          "castLock": 1.03,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": [
+          {
+            "elite": true
+          },
+          {
+            "elite": false
+          },
+          {
+            "elite": false
+          }
+        ]
+      },
+      "warning": {
+        "life": 1.1715,
+        "max": 1.1715,
+        "color": "#ef5d58",
+        "damage": 28.749999999999996,
+        "resolved": false,
+        "type": "line",
+        "name": "蛮王冲锋",
+        "x": 1907.7160618731389,
+        "y": 1066.7950824601767,
+        "x2": 1419.475266642211,
+        "y2": 1670.5683149508786,
+        "width": 54,
+        "moveBoss": true
+      },
+      "hpLoss": 10.409999999999968,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1419.475266642211,
+        "y": 1670.5683149508786,
+        "r": 42,
+        "hp": 8766.785999999996,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 3,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 3,
+        "v25CastCd": 1.8599999999999999,
+        "castLock": 1.2915,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 2,
+        "v25Next": "蛮王冲锋 · 横向闪避"
+      }
+    },
+    {
+      "phase": 3,
+      "cast": 2,
+      "transition": {
+        "boss": {
+          "id": "B001",
+          "name": "黄巾巨将",
+          "x": 1909.2,
+          "y": 1064.96,
+          "r": 42,
+          "hp": 8766.785999999996,
+          "maxHp": 25047.959999999992,
+          "color": "#8f3539",
+          "phase": 3,
+          "attack": 0,
+          "skill": 0,
+          "state": "idle",
+          "v25Phase": 3,
+          "v25CastCd": 1.18,
+          "castLock": 1.03,
+          "shield": 0,
+          "shieldMax": 0,
+          "v25SkillIndex": 0,
+          "v25Next": "准备攻击"
+        },
+        "enemies": [
+          {
+            "elite": true
+          },
+          {
+            "elite": false
+          },
+          {
+            "elite": false
+          }
+        ]
+      },
+      "warning": {
+        "life": 1.1715,
+        "max": 1.1715,
+        "color": "#ef5d58",
+        "damage": 30.5,
+        "resolved": false,
+        "type": "cone",
+        "name": "旋风断军",
+        "x": 1420.2172357056415,
+        "y": 1669.6507737207903,
+        "range": 305,
+        "arc": 2.261946710584651,
+        "angle": -0.89080363429336
+      },
+      "hpLoss": 0,
+      "after": {
+        "id": "B001",
+        "name": "黄巾巨将",
+        "x": 1420.2172357056415,
+        "y": 1669.6507737207903,
+        "r": 42,
+        "hp": 8766.785999999996,
+        "maxHp": 25047.959999999992,
+        "color": "#8f3539",
+        "phase": 3,
+        "attack": 0,
+        "skill": 0,
+        "state": "idle",
+        "v25Phase": 3,
+        "v25CastCd": 1.8599999999999999,
+        "castLock": 1.2915,
+        "shield": 0,
+        "shieldMax": 0,
+        "v25SkillIndex": 0,
+        "v25Next": "旋风断军 · 绕至侧后"
+      }
+    }
+  ],
+  "hits": [
+    {
+      "source": "H001_SLASH",
+      "shield": 0,
+      "hpLoss": 173.45119999999952,
+      "shieldAfter": 0
+    },
+    {
+      "source": "H001_SLASH",
+      "shield": 20,
+      "hpLoss": 0,
+      "shieldAfter": 0
+    },
+    {
+      "source": "A011",
+      "shield": 0,
+      "hpLoss": 189.06180799999856,
+      "shieldAfter": 0
+    },
+    {
+      "source": "A011",
+      "shield": 20,
+      "hpLoss": 0,
+      "shieldAfter": 0
+    },
+    {
+      "source": "MAP_BARREL",
+      "shield": 0,
+      "hpLoss": 104,
+      "shieldAfter": 0
+    },
+    {
+      "source": "MAP_BARREL",
+      "shield": 20,
+      "hpLoss": 0,
+      "shieldAfter": 0
+    },
+    {
+      "source": "MAP_MECHANISM",
+      "shield": 0,
+      "hpLoss": 104,
+      "shieldAfter": 0
+    },
+    {
+      "source": "MAP_MECHANISM",
+      "shield": 20,
+      "hpLoss": 0,
+      "shieldAfter": 0
+    }
+  ],
+  "loot": [
+    {
+      "difficulty": "normal",
+      "seed": 1,
+      "automatic": [
+        {
+          "uid": "Gml4kasqovdw5wg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 533,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.024051154219312594
+            },
+            {
+              "key": "area",
+              "value": 0.059532026415690775
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.05565048409858719
+            },
+            {
+              "key": "hpPct",
+              "value": 0.07552687892690302
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 50
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo022p9z",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03435084829246625
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.08497210580157116
+            },
+            {
+              "key": "move",
+              "value": 0.05362465679645538
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.009389051643200218
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo853r2s",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lightningDmg",
+              "value": 0.11524010520428418
+            },
+            {
+              "key": "crit",
+              "value": 0.02102630346524529
+            },
+            {
+              "key": "defPct",
+              "value": 0.05285676132421941
+            },
+            {
+              "key": "hpPct",
+              "value": 0.09757253234740347
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqoh7p8v8",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "critDmg",
+              "value": 0.12214090064167976
+            },
+            {
+              "key": "crit",
+              "value": 0.020311534038512036
+            },
+            {
+              "key": "move",
+              "value": 0.0437080748565495
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.07867246318841353
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 201,
+      "drops": [
+        {
+          "uid": "Gml4kasqovdw5wg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 533,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.024051154219312594
+            },
+            {
+              "key": "area",
+              "value": 0.059532026415690775
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.05565048409858719
+            },
+            {
+              "key": "hpPct",
+              "value": 0.07552687892690302
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo853r2s",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 573,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lightningDmg",
+              "value": 0.11524010520428418
+            },
+            {
+              "key": "crit",
+              "value": 0.02102630346524529
+            },
+            {
+              "key": "defPct",
+              "value": 0.05285676132421941
+            },
+            {
+              "key": "hpPct",
+              "value": 0.09757253234740347
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 201
+    },
+    {
+      "difficulty": "normal",
+      "seed": 12,
+      "automatic": [
+        {
+          "uid": "Gml4kasqoc2k9t7",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 560,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "critDmg",
+              "value": 0.10945315290242433
+            },
+            {
+              "key": "crit",
+              "value": 0.030188430906040592
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.007844883961603046
+            },
+            {
+              "key": "defPct",
+              "value": 0.1101358507364057
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 48
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo799zwz",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "move",
+              "value": 0.027270667944103478
+            },
+            {
+              "key": "defPct",
+              "value": 0.08150416107615456
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.07456005059182644
+            },
+            {
+              "key": "hpPct",
+              "value": 0.04532259829808027
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo8cyjgp",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lightningDmg",
+              "value": 0.0781178572261706
+            },
+            {
+              "key": "move",
+              "value": 0.03668689296580851
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.13990242048166696
+            },
+            {
+              "key": "atkPct",
+              "value": 0.06149909121682868
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqokf9tdp",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "fireDmg",
+              "value": 0.0563699332321994
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.08831950601190328
+            },
+            {
+              "key": "move",
+              "value": 0.02231495057232678
+            },
+            {
+              "key": "defPct",
+              "value": 0.08945221200585365
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 197,
+      "drops": [
+        {
+          "uid": "Gml4kasqoc2k9t7",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 560,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "critDmg",
+              "value": 0.10945315290242433
+            },
+            {
+              "key": "crit",
+              "value": 0.030188430906040592
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.007844883961603046
+            },
+            {
+              "key": "defPct",
+              "value": 0.1101358507364057
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo8cyjgp",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 600,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lightningDmg",
+              "value": 0.0781178572261706
+            },
+            {
+              "key": "move",
+              "value": 0.03668689296580851
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.13990242048166696
+            },
+            {
+              "key": "atkPct",
+              "value": 0.06149909121682868
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 197
+    },
+    {
+      "difficulty": "normal",
+      "seed": 42,
+      "automatic": [
+        {
+          "uid": "Gml4kasqosyth1b",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 599,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03455300879501738
+            },
+            {
+              "key": "defPct",
+              "value": 0.0588900781236589
+            },
+            {
+              "key": "critDmg",
+              "value": 0.13687648774590344
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.09343484247568995
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 49
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo62kl9k",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "area",
+              "value": 0.03463514538947493
+            },
+            {
+              "key": "crit",
+              "value": 0.04855182137759403
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.12808580870041625
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.12197317789308727
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo1dm52k",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "area",
+              "value": 0.050355544919148086
+            },
+            {
+              "key": "crit",
+              "value": 0.03500188439362682
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.10897117571905254
+            },
+            {
+              "key": "defPct",
+              "value": 0.11806323494995012
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqonlbqb4",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "kiDmg",
+              "value": 0.06518122055800632
+            },
+            {
+              "key": "atkPct",
+              "value": 0.0807752405665815
+            },
+            {
+              "key": "hpPct",
+              "value": 0.092928985231556
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.08995995117817074
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 193,
+      "drops": [
+        {
+          "uid": "Gml4kasqosyth1b",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 599,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03455300879501738
+            },
+            {
+              "key": "defPct",
+              "value": 0.0588900781236589
+            },
+            {
+              "key": "critDmg",
+              "value": 0.13687648774590344
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.09343484247568995
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo1dm52k",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 597,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "area",
+              "value": 0.050355544919148086
+            },
+            {
+              "key": "crit",
+              "value": 0.03500188439362682
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.10897117571905254
+            },
+            {
+              "key": "defPct",
+              "value": 0.11806323494995012
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 193
+    },
+    {
+      "difficulty": "normal",
+      "seed": 999,
+      "automatic": [
+        {
+          "uid": "Gml4kasqo9v4oou",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 578,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "atkPct",
+              "value": 0.07620218633906917
+            },
+            {
+              "key": "hpPct",
+              "value": 0.07722332527860999
+            },
+            {
+              "key": "move",
+              "value": 0.05311563777737319
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.07282820206135511
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 46
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo2j8zh9",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03327533702505753
+            },
+            {
+              "key": "defPct",
+              "value": 0.0709927140804939
+            },
+            {
+              "key": "kiDmg",
+              "value": 0.08362376140430569
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.09269761949544772
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqodjek7o",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "hpPct",
+              "value": 0.045646223300136624
+            },
+            {
+              "key": "move",
+              "value": 0.029335158858448264
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.0694831550307572
+            },
+            {
+              "key": "cdr",
+              "value": 0.040476067527197304
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqovgqf1z",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "summonDmg",
+              "value": 0.09503051107749343
+            },
+            {
+              "key": "crit",
+              "value": 0.030971482952823863
+            },
+            {
+              "key": "kiDmg",
+              "value": 0.07988353438209742
+            },
+            {
+              "key": "area",
+              "value": 0.03754231884609908
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 199,
+      "drops": [
+        {
+          "uid": "Gml4kasqo9v4oou",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 578,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "atkPct",
+              "value": 0.07620218633906917
+            },
+            {
+              "key": "hpPct",
+              "value": 0.07722332527860999
+            },
+            {
+              "key": "move",
+              "value": 0.05311563777737319
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.07282820206135511
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqodjek7o",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 521,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "hpPct",
+              "value": 0.045646223300136624
+            },
+            {
+              "key": "move",
+              "value": 0.029335158858448264
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.0694831550307572
+            },
+            {
+              "key": "cdr",
+              "value": 0.040476067527197304
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 199
+    },
+    {
+      "difficulty": "hard",
+      "seed": 1,
+      "automatic": [
+        {
+          "uid": "Gml4kasqovdw5wg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 537,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "eliteDmg",
+              "value": 0.06471902377670631
+            },
+            {
+              "key": "atkPct",
+              "value": 0.05961002201307565
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.05565048409858719
+            },
+            {
+              "key": "crit",
+              "value": 0.03990824200492352
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 50
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo022p9z",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03435084829246625
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.08497210580157116
+            },
+            {
+              "key": "move",
+              "value": 0.05362465679645538
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.009389051643200218
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqobmxi7h",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "defPct",
+              "value": 0.05572543898830191
+            },
+            {
+              "key": "area",
+              "value": 0.032448652563616634
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.1263587985211052
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.008713928025215863
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqowknwzt",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "cdr",
+              "value": 0.04651740579400212
+            },
+            {
+              "key": "defPct",
+              "value": 0.05855916467728094
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.05014041175600142
+            },
+            {
+              "key": "crit",
+              "value": 0.022162202276522294
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 205,
+      "drops": [
+        {
+          "uid": "Gml4kasqovdw5wg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 537,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "eliteDmg",
+              "value": 0.06471902377670631
+            },
+            {
+              "key": "atkPct",
+              "value": 0.05961002201307565
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.05565048409858719
+            },
+            {
+              "key": "crit",
+              "value": 0.03990824200492352
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqobmxi7h",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 533,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "defPct",
+              "value": 0.05572543898830191
+            },
+            {
+              "key": "area",
+              "value": 0.032448652563616634
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.1263587985211052
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.008713928025215863
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 205
+    },
+    {
+      "difficulty": "hard",
+      "seed": 12,
+      "automatic": [
+        {
+          "uid": "Gml4kasqoh6jsug",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 552,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03040650900732726
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.016423763156868516
+            },
+            {
+              "key": "defPct",
+              "value": 0.1036754297511652
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.09461616624612361
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 52
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo70z2bg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "summonDmg",
+              "value": 0.14837411490734664
+            },
+            {
+              "key": "cdr",
+              "value": 0.0687503268220462
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.012233740056864915
+            },
+            {
+              "key": "atkPct",
+              "value": 0.08083736979402603
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqok6lmz6",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "area",
+              "value": 0.052326416401192545
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.012484854678623376
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.061750634396448734
+            },
+            {
+              "key": "atkPct",
+              "value": 0.08275825910037385
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo9v0iti",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "shadowDmg",
+              "value": 0.12831026343163102
+            },
+            {
+              "key": "cdr",
+              "value": 0.026242326596984642
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.05860380927100778
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.08166483713313936
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 206,
+      "drops": [
+        {
+          "uid": "Gml4kasqoh6jsug",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 552,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03040650900732726
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.016423763156868516
+            },
+            {
+              "key": "defPct",
+              "value": 0.1036754297511652
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.09461616624612361
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqok6lmz6",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 535,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "area",
+              "value": 0.052326416401192545
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.012484854678623376
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.061750634396448734
+            },
+            {
+              "key": "atkPct",
+              "value": 0.08275825910037385
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 206
+    },
+    {
+      "difficulty": "hard",
+      "seed": 42,
+      "automatic": [
+        {
+          "uid": "Gml4kasqoe0odl4",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 528,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lifesteal",
+              "value": 0.007524013392627239
+            },
+            {
+              "key": "crit",
+              "value": 0.04644430046598427
+            },
+            {
+              "key": "move",
+              "value": 0.04374881887808442
+            },
+            {
+              "key": "defPct",
+              "value": 0.10632508417358622
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 50
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqou9vwmo",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "hpPct",
+              "value": 0.05011907242704183
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.0747935502557084
+            },
+            {
+              "key": "cdr",
+              "value": 0.0377427502872888
+            },
+            {
+              "key": "move",
+              "value": 0.039595562815666195
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqopykblz",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "cdr",
+              "value": 0.054028590399539105
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.11679522576741874
+            },
+            {
+              "key": "crit",
+              "value": 0.035307604687521234
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.06038272708654403
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqofvypnr",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lightningDmg",
+              "value": 0.053243669972289354
+            },
+            {
+              "key": "hpPct",
+              "value": 0.05400449499487877
+            },
+            {
+              "key": "atkPct",
+              "value": 0.040162857461255044
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.07081436954904348
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 201,
+      "drops": [
+        {
+          "uid": "Gml4kasqoe0odl4",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 528,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lifesteal",
+              "value": 0.007524013392627239
+            },
+            {
+              "key": "crit",
+              "value": 0.04644430046598427
+            },
+            {
+              "key": "move",
+              "value": 0.04374881887808442
+            },
+            {
+              "key": "defPct",
+              "value": 0.10632508417358622
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqopykblz",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 569,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "cdr",
+              "value": 0.054028590399539105
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.11679522576741874
+            },
+            {
+              "key": "crit",
+              "value": 0.035307604687521234
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.06038272708654403
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 201
+    },
+    {
+      "difficulty": "hard",
+      "seed": 999,
+      "automatic": [
+        {
+          "uid": "Gml4kasqo919ghe",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 564,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "atkPct",
+              "value": 0.04870100934291259
+            },
+            {
+              "key": "hpPct",
+              "value": 0.08125589225441218
+            },
+            {
+              "key": "move",
+              "value": 0.04547923586331308
+            },
+            {
+              "key": "area",
+              "value": 0.08177715017460285
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 50
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqoqgl9ic",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.020605119713116436
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.008148645448498427
+            },
+            {
+              "key": "atkPct",
+              "value": 0.07207490633241834
+            },
+            {
+              "key": "shadowDmg",
+              "value": 0.07647946105105802
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqoyxkqux",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "summonDmg",
+              "value": 0.07333789714612067
+            },
+            {
+              "key": "crit",
+              "value": 0.0316359592017252
+            },
+            {
+              "key": "move",
+              "value": 0.03375650446861982
+            },
+            {
+              "key": "shadowDmg",
+              "value": 0.073847533732187
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqog7lfo2",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lifesteal",
+              "value": 0.01746625643223524
+            },
+            {
+              "key": "cdr",
+              "value": 0.044952557644573975
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.07585865170694887
+            },
+            {
+              "key": "move",
+              "value": 0.05833572254516184
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 195,
+      "drops": [
+        {
+          "uid": "Gml4kasqo919ghe",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 564,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "atkPct",
+              "value": 0.04870100934291259
+            },
+            {
+              "key": "hpPct",
+              "value": 0.08125589225441218
+            },
+            {
+              "key": "move",
+              "value": 0.04547923586331308
+            },
+            {
+              "key": "area",
+              "value": 0.08177715017460285
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqoyxkqux",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 537,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "summonDmg",
+              "value": 0.07333789714612067
+            },
+            {
+              "key": "crit",
+              "value": 0.0316359592017252
+            },
+            {
+              "key": "move",
+              "value": 0.03375650446861982
+            },
+            {
+              "key": "shadowDmg",
+              "value": 0.073847533732187
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 195
+    },
+    {
+      "difficulty": "nightmare",
+      "seed": 1,
+      "automatic": [
+        {
+          "uid": "Gml4kasqovdw5wg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 537,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "eliteDmg",
+              "value": 0.06471902377670631
+            },
+            {
+              "key": "atkPct",
+              "value": 0.05961002201307565
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.05565048409858719
+            },
+            {
+              "key": "crit",
+              "value": 0.03990824200492352
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 50
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo022p9z",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03435084829246625
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.08497210580157116
+            },
+            {
+              "key": "move",
+              "value": 0.05362465679645538
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.009389051643200218
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqobmxi7h",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "defPct",
+              "value": 0.05572543898830191
+            },
+            {
+              "key": "area",
+              "value": 0.032448652563616634
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.1263587985211052
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.008713928025215863
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqowknwzt",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "cdr",
+              "value": 0.04651740579400212
+            },
+            {
+              "key": "defPct",
+              "value": 0.05855916467728094
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.05014041175600142
+            },
+            {
+              "key": "crit",
+              "value": 0.022162202276522294
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 205,
+      "drops": [
+        {
+          "uid": "Gml4kasqovdw5wg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 537,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "eliteDmg",
+              "value": 0.06471902377670631
+            },
+            {
+              "key": "atkPct",
+              "value": 0.05961002201307565
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.05565048409858719
+            },
+            {
+              "key": "crit",
+              "value": 0.03990824200492352
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqobmxi7h",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 533,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "defPct",
+              "value": 0.05572543898830191
+            },
+            {
+              "key": "area",
+              "value": 0.032448652563616634
+            },
+            {
+              "key": "lightningDmg",
+              "value": 0.1263587985211052
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.008713928025215863
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 205
+    },
+    {
+      "difficulty": "nightmare",
+      "seed": 12,
+      "automatic": [
+        {
+          "uid": "Gml4kasqoh6jsug",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 552,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03040650900732726
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.016423763156868516
+            },
+            {
+              "key": "defPct",
+              "value": 0.1036754297511652
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.09461616624612361
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 52
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqo70z2bg",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "summonDmg",
+              "value": 0.14837411490734664
+            },
+            {
+              "key": "cdr",
+              "value": 0.0687503268220462
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.012233740056864915
+            },
+            {
+              "key": "atkPct",
+              "value": 0.08083736979402603
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqok6lmz6",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "area",
+              "value": 0.052326416401192545
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.012484854678623376
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.061750634396448734
+            },
+            {
+              "key": "atkPct",
+              "value": 0.08275825910037385
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo9v0iti",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "shadowDmg",
+              "value": 0.12831026343163102
+            },
+            {
+              "key": "cdr",
+              "value": 0.026242326596984642
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.05860380927100778
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.08166483713313936
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 206,
+      "drops": [
+        {
+          "uid": "Gml4kasqoh6jsug",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 552,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.03040650900732726
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.016423763156868516
+            },
+            {
+              "key": "defPct",
+              "value": 0.1036754297511652
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.09461616624612361
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqok6lmz6",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 535,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "area",
+              "value": 0.052326416401192545
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.012484854678623376
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.061750634396448734
+            },
+            {
+              "key": "atkPct",
+              "value": 0.08275825910037385
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 206
+    },
+    {
+      "difficulty": "nightmare",
+      "seed": 42,
+      "automatic": [
+        {
+          "uid": "Gml4kasqo7rmx7g",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "mythic",
+          "score": 669,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lifesteal",
+              "value": 0.007524013392627239
+            },
+            {
+              "key": "crit",
+              "value": 0.04644430046598427
+            },
+            {
+              "key": "move",
+              "value": 0.04374881887808442
+            },
+            {
+              "key": "defPct",
+              "value": 0.10632508417358622
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.08504702433012426
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 51
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqobdkmh9",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "critDmg",
+              "value": 0.1089889070391655
+            },
+            {
+              "key": "move",
+              "value": 0.05363846569322049
+            },
+            {
+              "key": "bossDmg",
+              "value": 0.11310145352035761
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.06975801384542138
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqouefgci",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "move",
+              "value": 0.030191363543272016
+            },
+            {
+              "key": "critDmg",
+              "value": 0.13211145942565056
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.08554655042011292
+            },
+            {
+              "key": "crit",
+              "value": 0.019267930797534062
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqo5apinz",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "shadowDmg",
+              "value": 0.09898096220800653
+            },
+            {
+              "key": "atkPct",
+              "value": 0.07242522201500834
+            },
+            {
+              "key": "hpPct",
+              "value": 0.07537351645994932
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.06497436325531453
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 197,
+      "drops": [
+        {
+          "uid": "Gml4kasqo7rmx7g",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "mythic",
+          "score": 669,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lifesteal",
+              "value": 0.007524013392627239
+            },
+            {
+              "key": "crit",
+              "value": 0.04644430046598427
+            },
+            {
+              "key": "move",
+              "value": 0.04374881887808442
+            },
+            {
+              "key": "defPct",
+              "value": 0.10632508417358622
+            },
+            {
+              "key": "eliteDmg",
+              "value": 0.08504702433012426
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqouefgci",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 570,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "move",
+              "value": 0.030191363543272016
+            },
+            {
+              "key": "critDmg",
+              "value": 0.13211145942565056
+            },
+            {
+              "key": "fireDmg",
+              "value": 0.08554655042011292
+            },
+            {
+              "key": "crit",
+              "value": 0.019267930797534062
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 197
+    },
+    {
+      "difficulty": "nightmare",
+      "seed": 999,
+      "automatic": [
+        {
+          "uid": "Gml4kasqo919ghe",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 564,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "atkPct",
+              "value": 0.04870100934291259
+            },
+            {
+              "key": "hpPct",
+              "value": 0.08125589225441218
+            },
+            {
+              "key": "move",
+              "value": 0.04547923586331308
+            },
+            {
+              "key": "area",
+              "value": 0.08177715017460285
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "beforeChoice": {
+        "shown": true,
+        "resolved": false,
+        "calls": 50
+      },
+      "choices": [
+        {
+          "uid": "Gml4kasqoqgl9ic",
+          "templateId": "EQX007",
+          "id": "EQX007",
+          "name": "妖师法印",
+          "slot": "accessory",
+          "rarity": "gold",
+          "score": 400,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "crit",
+              "value": 0.020605119713116436
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.008148645448498427
+            },
+            {
+              "key": "atkPct",
+              "value": 0.07207490633241834
+            },
+            {
+              "key": "shadowDmg",
+              "value": 0.07647946105105802
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqoyxkqux",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 410,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "summonDmg",
+              "value": 0.07333789714612067
+            },
+            {
+              "key": "crit",
+              "value": 0.0316359592017252
+            },
+            {
+              "key": "move",
+              "value": 0.03375650446861982
+            },
+            {
+              "key": "shadowDmg",
+              "value": 0.073847533732187
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqog7lfo2",
+          "templateId": "EQW007",
+          "id": "EQW007",
+          "name": "黄天战刃",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 405,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "lifesteal",
+              "value": 0.01746625643223524
+            },
+            {
+              "key": "cdr",
+              "value": 0.044952557644573975
+            },
+            {
+              "key": "summonDmg",
+              "value": 0.07585865170694887
+            },
+            {
+              "key": "move",
+              "value": 0.05833572254516184
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "choiceCalls": 195,
+      "drops": [
+        {
+          "uid": "Gml4kasqo919ghe",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 564,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "atkPct",
+              "value": 0.04870100934291259
+            },
+            {
+              "key": "hpPct",
+              "value": 0.08125589225441218
+            },
+            {
+              "key": "move",
+              "value": 0.04547923586331308
+            },
+            {
+              "key": "area",
+              "value": 0.08177715017460285
+            }
+          ],
+          "acquiredAt": 1770000000000
+        },
+        {
+          "uid": "Gml4kasqoyxkqux",
+          "templateId": "EQA007",
+          "id": "EQA007",
+          "name": "混沌骑甲",
+          "slot": "armor",
+          "rarity": "gold",
+          "score": 537,
+          "source": "boss",
+          "affixes": [
+            {
+              "key": "summonDmg",
+              "value": 0.07333789714612067
+            },
+            {
+              "key": "crit",
+              "value": 0.0316359592017252
+            },
+            {
+              "key": "move",
+              "value": 0.03375650446861982
+            },
+            {
+              "key": "shadowDmg",
+              "value": 0.073847533732187
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "resolved": true,
+      "calls": 195
+    }
+  ],
+  "completion": [
+    {
+      "state": "alive",
+      "steps": [
+        {
+          "time": 360,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.74,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.75,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.99,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 361,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        }
+      ]
+    },
+    {
+      "state": "opening",
+      "steps": [
+        {
+          "time": 360,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.74,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.75,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.99,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 361,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        }
+      ]
+    },
+    {
+      "state": "choosing",
+      "steps": [
+        {
+          "time": 360,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.74,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.75,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.99,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 361,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        }
+      ]
+    },
+    {
+      "state": "selected",
+      "steps": [
+        {
+          "time": 360,
+          "outcome": null,
+          "resolvedAt": 360,
+          "settlingAt": null
+        },
+        {
+          "time": 360.74,
+          "outcome": null,
+          "resolvedAt": 360,
+          "settlingAt": null
+        },
+        {
+          "time": 360.75,
+          "outcome": null,
+          "resolvedAt": 360,
+          "settlingAt": 360.75
+        },
+        {
+          "time": 360.99,
+          "outcome": null,
+          "resolvedAt": 360,
+          "settlingAt": 360.75
+        },
+        {
+          "time": 361,
+          "outcome": {
+            "victory": true,
+            "reason": "黄巾巨将已击败 · Boss战利品已领取并归档"
+          },
+          "resolvedAt": 360,
+          "settlingAt": 360.75
+        }
+      ]
+    },
+    {
+      "state": "missing-drop",
+      "steps": [
+        {
+          "time": 360,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.74,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.75,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.99,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 361,
+          "outcome": null,
+          "resolvedAt": null,
+          "settlingAt": null
+        }
+      ]
+    },
+    {
+      "state": "missing-shown",
+      "steps": [
+        {
+          "time": 360,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.74,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.75,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 360.99,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        },
+        {
+          "time": 361,
+          "outcome": {
+            "victory": false,
+            "reason": "首战时限到达 · 黄巾巨将未击败"
+          },
+          "resolvedAt": null,
+          "settlingAt": null
+        }
+      ]
+    }
+  ]
+}
