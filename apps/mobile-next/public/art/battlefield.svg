@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1600" viewBox="0 0 2400 1600">
+  <defs>
+    <linearGradient id="earth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172018"/>
+      <stop offset="0.46" stop-color="#20261a"/>
+      <stop offset="1" stop-color="#111815"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#5b4a31" stop-opacity="0.7"/>
+      <stop offset="0.5" stop-color="#806846" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#433923" stop-opacity="0.72"/>
+    </linearGradient>
+    <radialGradient id="fire" cx="50%" cy="45%" r="60%">
+      <stop stop-color="#ffd26f" stop-opacity="0.95"/>
+      <stop offset="0.35" stop-color="#e7772f" stop-opacity="0.78"/>
+      <stop offset="1" stop-color="#77251b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grass" width="92" height="92" patternUnits="userSpaceOnUse">
+      <path d="M10 71l8-18m-2 19 15-13M68 25l7-14m-2 16 12-8M45 88l5-11" stroke="#647044" stroke-width="4" stroke-linecap="round" opacity="0.24"/>
+      <circle cx="38" cy="32" r="3" fill="#9c8a58" opacity="0.22"/>
+      <circle cx="82" cy="64" r="2" fill="#c27b3c" opacity="0.2"/>
+    </pattern>
+    <pattern id="ruts" width="220" height="180" patternUnits="userSpaceOnUse">
+      <path d="M-20 38C58 68 132 8 244 44M-40 128C56 162 154 97 248 132" fill="none" stroke="#2a2a1c" stroke-width="10" opacity="0.16"/>
+    </pattern>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="2400" height="1600" fill="url(#earth)"/>
+  <rect width="2400" height="1600" fill="url(#grass)"/>
+  <path d="M-140 1280C250 1190 430 920 780 930c390 12 440 250 770 170 280-68 380-340 980-460l170 480c-480 45-710 350-1100 390-420 42-600-210-960-112-294 80-420 260-610 330z" fill="url(#road)"/>
+  <path d="M-80 1320C310 1190 500 1000 800 1010c330 10 470 220 760 150 340-82 450-344 900-420" fill="none" stroke="#c0a167" stroke-width="20" stroke-dasharray="78 34" opacity="0.14"/>
+  <path d="M0 1460C380 1320 620 1240 980 1270s570 150 910 28 380-226 510-258" fill="none" stroke="url(#ruts)" stroke-width="120" opacity="0.22"/>
+  <g fill="#0c1210" opacity="0.74">
+    <path d="M80 130l62-92 50 100-24-8 12 50H98l13-49zM248 208l48-74 44 80-19-8 9 42h-68l10-43zM2220 240l56-86 50 93-21-8 11 48h-76l10-49zM2088 1260l70-106 57 115-24-9 12 55h-93l16-58z"/>
+    <path d="M1820 130l46-70 41 75-18-7 10 38h-65l9-38zM380 1420l66-101 55 108-22-9 11 52h-88l14-54z"/>
+  </g>
+  <g stroke="#17140f" stroke-width="18" stroke-linecap="round">
+    <path d="M280 510l165-78m-113 142 168-76m-129 141 164-75"/>
+    <path d="M1880 1070l180-70m-132 141 178-68m-130 143 175-70"/>
+  </g>
+  <g fill="#6f5d36" stroke="#251e14" stroke-width="10">
+    <path d="M263 475l32-46 30 23-31 47zM360 435l31-46 30 23-31 47zM448 396l31-45 30 23-31 46z"/>
+    <path d="M1863 1036l32-46 30 23-31 47zM1962 998l31-46 30 23-31 47zM2054 964l31-46 30 23-31 47z"/>
+  </g>
+  <g>
+    <ellipse cx="550" cy="300" rx="205" ry="92" fill="#0b0f0d" opacity="0.46"/>
+    <path d="M390 305l152-176 162 176z" fill="#5b3526" stroke="#201713" stroke-width="16"/>
+    <path d="M542 129v176" stroke="#cdb36e" stroke-width="12"/>
+    <path d="M542 145l76 45-76 39z" fill="#c79b38"/>
+    <path d="M503 305v-88h80v88" fill="#211a15"/>
+  </g>
+  <g>
+    <ellipse cx="1975" cy="430" rx="180" ry="80" fill="#0b0f0d" opacity="0.42"/>
+    <path d="M1840 438l135-160 136 160z" fill="#4c3325" stroke="#211713" stroke-width="15"/>
+    <path d="M1975 278v160" stroke="#b99e60" stroke-width="11"/>
+    <path d="M1975 294l66 39-66 35z" fill="#b88f32"/>
+  </g>
+  <g fill="#2a2419" stroke="#0d1110" stroke-width="8">
+    <path d="M810 310l170 35-22 76-176-34z"/>
+    <circle cx="811" cy="390" r="42"/><circle cx="954" cy="418" r="42"/>
+    <path d="M1490 1270l160-50 28 74-164 54z"/>
+    <circle cx="1520" cy="1340" r="39"/><circle cx="1658" cy="1297" r="39"/>
+  </g>
+  <g opacity="0.72">
+    <circle cx="905" cy="655" r="155" fill="url(#fire)" filter="url(#soft)"/>
+    <circle cx="905" cy="655" r="60" fill="url(#fire)"/>
+    <path d="M842 700l124-90m-113 0 105 94" stroke="#3a2115" stroke-width="19" stroke-linecap="round"/>
+    <circle cx="1740" cy="810" r="130" fill="url(#fire)" filter="url(#soft)"/>
+    <circle cx="1740" cy="810" r="50" fill="url(#fire)"/>
+  </g>
+  <g fill="#8c7650" opacity="0.48">
+    <ellipse cx="1160" cy="340" rx="84" ry="35"/><ellipse cx="1300" cy="410" rx="55" ry="24"/><ellipse cx="360" cy="980" rx="92" ry="38"/><ellipse cx="2150" cy="1380" rx="110" ry="42"/>
+  </g>
+  <rect width="2400" height="1600" fill="url(#ruts)" opacity="0.48"/>
+  <path d="M0 0h2400v1600H0z" fill="none" stroke="#0a0e0c" stroke-width="80" opacity="0.55"/>
+</svg>

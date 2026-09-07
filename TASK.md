@@ -1,28 +1,27 @@
-# TASK.md - Mobile modernization / P0 baseline
+# TASK.md - Mobile modernization / P1 runtime skeleton
 
-Status: P0 source baseline complete; physical-device measurements pending.
+Status: in progress. Approved roadmap: tasks/mobile-modernization/PLAN.md.
 
-## Goal
-Freeze the existing runtime as the migration oracle and establish a traceable
-capability, save, resource and rule inventory for `apps/mobile-next`.
-Full roadmap and evidence: `tasks/mobile-modernization/PLAN.md` and `STATUS.md`.
+## Goal and scope
+Build apps/mobile-next as an independent portrait-first Vite/TypeScript/Phaser 4/
+Vue 3 application. One GameCore, one Phaser frame driver; Vue owns menus and
+commands only. Prove mount, movement, pause, visibility loss and teardown.
+No gameplay parity claim until P2/P3. Preserve legacy entry and its script order.
 
-## Scope
-Add baseline manifests, isolated configuration extraction, Schema30 fixtures,
-and migration documentation. Preserve prior task/handoff snapshots separately.
-Do not modify the legacy entry, CSS, JS, existing tests, saves or archive.
-No runtime dependencies in P0. Later tasks explicitly authorize the new stack.
+## Authorized dependencies
+Only inside apps/mobile-next: phaser, vue; development dependencies vite,
+typescript, @vitejs/plugin-vue, vue-tsc, vitest, @playwright/test, @types/node.
+Pin compatible versions with a local package-lock. PWA/storage dependencies
+will be authorized in their specific slices. No root runtime dependencies.
 
 ## Acceptance
-- Record the baseline commit, source hashes, script order and capabilities.
-- Extract effective configuration and normalized fresh Schema30 data from the
-  actual sources, without reading personal browser data or editing legacy files.
-- Record physical-device evidence as pending until real devices are tested.
-- Run check, smoke, audit, context, archive:verify in that order.
-- Update only the five rotating sections of handoff/STATE.md.
+Strict typecheck, focused core/input tests, production build; isolated browser
+start/pause/resume/exit cycles at desktop, 390x844, 320x844 with no errors or
+remaining canvases. Record WebGL and resource failures truthfully.
+Run legacy check -> smoke -> audit -> context -> archive:verify; then new checks.
+Update five handoff sections; preserve baseline hashes and all save invariants.
 
-## Invariants
-Schema30, fresh 0-star chapters, defeat=0 star, non-story star isolation,
-one settlement per run, dual-Boss routing, Boss Loot precedence, V3.0 safety,
-all existing XP/balance values, objectives and progression authorities.
-No new gameplay, backend, public Debug UI or legacy wrapper layer.
+## Constraints
+No legacy wrapper host, hidden runtime state injection for acceptance, public
+Debug UI, new content/balance, backend, old-save mutation or entry replacement.
+Physical Android/iPhone performance and installation remain pending.

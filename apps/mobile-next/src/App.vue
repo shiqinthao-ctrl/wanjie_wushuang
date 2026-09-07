@@ -1,0 +1,25 @@
+<script setup lang="ts">
+import { defineAsyncComponent, nextTick, ref } from 'vue';
+const BattleView = defineAsyncComponent(() => import('./ui/BattleView.vue'));
+const page = ref<'home' | 'battle' | 'settings'>('home');
+const startButton = ref<HTMLButtonElement>();
+const base = import.meta.env.BASE_URL;
+async function home() { page.value = 'home'; await nextTick(); startButton.value?.focus(); }
+</script>
+
+<template>
+  <BattleView v-if="page === 'battle'" @exit="home" />
+  <main v-else class="app-shell">
+    <header class="masthead"><span class="seal">万</span><div><strong>万界无双</strong><small>乱世之中，自成无双</small></div><button v-if="page === 'home'" @click="page = 'settings'">设置</button><button v-else @click="home">返回</button></header>
+    <section v-if="page === 'home'" class="lobby">
+      <div class="chapter-art" :style="{ backgroundImage: `linear-gradient(180deg, transparent 20%, #122522 100%), url(${base}art/battlefield.svg)` }">
+        <span class="chapter-marker">第一章 / 乱世荒原</span>
+        <img class="hero-portrait" :src="`${base}art/hero-h001.svg`" alt="赤焰战神" />
+        <div class="hero-caption"><small>H001</small><h1>赤焰战神</h1><p>炎龙斩尽乱世，赤火照破荒原。</p></div>
+      </div>
+      <div class="expedition"><span class="eyebrow">下一站 · ST001-01</span><h2>边境清剿</h2><p>在 06:00 前击败黄巾巨将并领取战利品。</p><div class="mission-line"><span>竖屏战场</span><span>赤焰战神</span><span>乱世荒原</span></div><button ref="startButton" class="primary embark" @click="page = 'battle'">进入战场预览 <span aria-hidden="true">→</span></button><p class="release-note">移动版建设中，当前可预览场景与移动操作。</p></div>
+    </section>
+    <section v-else class="settings"><small class="eyebrow">行前须知</small><h1>设置与帮助</h1><dl><dt>移动操作</dt><dd>手机拖动左下方摇杆；电脑使用 WASD 或方向键。</dd><dt>暂停与恢复</dt><dd>点击暂停，或按 Esc。离开页面会暂停，返回后手动继续。</dd><dt>当前版本</dt><dd>移动版场景预览。完整战斗与存档迁移正在建设中。</dd></dl><button class="primary" @click="home">返回大厅</button></section>
+    <footer>万界无双 <span>移动版 · 开发预览</span></footer>
+  </main>
+</template>

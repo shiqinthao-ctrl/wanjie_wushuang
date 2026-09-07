@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-Mobile modernization P0 source baseline: immutable legacy hashes, effective config and Schema30 fresh save captured from isolated Chrome. ST001-01 already includes B001; preserve its original 270s Boss and 360s goal.
+P1 independent Vue/TypeScript/Vite/Phaser 4 WebGL scaffold: lobby, movement, pause, interruption, teardown and asset-failure recovery. P0 confirms ST001-01 has B001 at 270s and a 360s goal.
 
 ## Changed files
-TASK.md; tasks/mobile-modernization/ baseline, capture/verify tools, roadmap, status and inventory; handoff/STATE.md.
+TASK.md; apps/mobile-next source, locked dependencies and tests; tasks/mobile-modernization/STATUS.md; handoff/STATE.md. Legacy runtime unchanged.
 
 ## Tests
-Isolated Chrome new-game capture: 26 scripts, 1 CSS, 6 heroes, 12 stages; 0 page errors; normalized zero-star Schema30 with gear instances. Hash verification passed. Legacy check, smoke, audit, context (4894/8192 bytes), archive:verify all pass.
+P1: legacy check/smoke/audit/context/archive all pass; 49 baseline hashes match; strict typecheck/build and 4 core tests pass; 6 Chrome browser tests pass (1280x720, 390x844, 320x844, 4 mount cycles each, blur pause and asset failure). Not physical-device evidence.
 
 ## Unresolved risk
-Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. New runtime and full parity not yet implemented. No entry switch or deployment.
+Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Combat, storage, content parity and PWA pending. Phaser chunk is 359KB gzip; no measured performance gain. No entry switch/deployment.
 
 ## Recommended next task
-P1: isolated TypeScript/Vite/Phaser/Vue lifecycle and strict verification; no fake legacy host. Explicitly authorize dependencies in TASK.md.
+P2a: migrate typed startup growth/equipment/rune/pet calculations against legacy behavior, then implement H001/ST001-01 combat in bounded slices.
 
 ## After each task
 Replace only these fields:
