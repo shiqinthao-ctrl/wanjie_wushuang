@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2b XP crystals and upgrade choices implemented with core/UI/render integration. Original values, overflow, attraction order and seeded browser pools match. ST001-01 retains existing B001 at 270s and 360s goal.
+P2c skill modifiers, virtual passives and incoming/outgoing damage rules match final legacy functions, including healing, daily bonuses and shield order. ST001-01 retains B001 at 270s and 360s goal.
 
 ## Changed files
-TASK.md; app progression/data, GameCore, battle UI/render and tests; migration progression capture/oracle/verification/evidence; status and handoff. Legacy runtime unchanged; no added dependencies.
+TASK.md; app combatMath rules/tests and skillForms data; migration combat-math capture/oracle/evidence; status and handoff. Legacy runtime unchanged; no added dependencies.
 
 ## Tests
-P2b: 244 tests pass; 34 crystal cases, 15 eligibility pools, 6 choice chains. All 15 exact seeded pools match in Chrome. Legacy 5 gates, 49 hashes, strict build and 6 desktop/portrait browser checks pass.
+P2c: 693 app tests pass; 449 new checks cover 32 modifier matrices and 384 incoming boundaries. Legacy 5 gates, 49 hashes, strict build and 6 desktop/portrait browser checks pass.
 
 ## Unresolved risk
 Natural kill/pickup/choice acceptance awaits combat. Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Storage, content parity and PWA pending. Phaser chunk is 361KB gzip; no measured performance gain.
 
 ## Recommended next task
-P2c: migrate skill modifiers and damage order with isolated old-rule fixtures, then implement H001/ST001-01 combat in bounded slices. Do not replace original Boss objective.
+P2d: connect H001 actions, first-stage enemies, prepared skills and PET001 to the single lifecycle; verify natural kill/pickup/upgrade. Then migrate stage events/Boss/settlement. Preserve original Boss objective.
 
 ## After each task
 Replace only these fields:
