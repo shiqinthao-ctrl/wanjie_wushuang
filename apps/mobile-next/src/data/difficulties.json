@@ -1,0 +1,50 @@
+{
+  "easy": {
+    "name": "休闲",
+    "hp": 0.82,
+    "dmg": 0.78,
+    "speed": 0.94,
+    "budget": 0.82,
+    "elite": 0.65,
+    "gold": 0.9,
+    "drop": 0.9,
+    "xp": 1.08,
+    "desc": "适合首次体验"
+  },
+  "normal": {
+    "name": "标准",
+    "hp": 1,
+    "dmg": 1,
+    "speed": 1,
+    "budget": 1,
+    "elite": 1,
+    "gold": 1,
+    "drop": 1,
+    "xp": 1,
+    "desc": "推荐默认难度"
+  },
+  "hard": {
+    "name": "修罗",
+    "hp": 1.38,
+    "dmg": 1.28,
+    "speed": 1.07,
+    "budget": 1.22,
+    "elite": 1.45,
+    "gold": 1.28,
+    "drop": 1.18,
+    "xp": 0.98,
+    "desc": "高密度高收益"
+  },
+  "nightmare": {
+    "name": "万界劫",
+    "hp": 1.85,
+    "dmg": 1.58,
+    "speed": 1.13,
+    "budget": 1.48,
+    "elite": 2,
+    "gold": 1.6,
+    "drop": 1.4,
+    "xp": 0.95,
+    "desc": "终局挑战"
+  }
+}

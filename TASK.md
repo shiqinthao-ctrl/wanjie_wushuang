@@ -1,13 +1,14 @@
-# TASK.md - Mobile modernization / P2a startup rules
+# TASK.md - Mobile modernization / P2b experience and choices
 
 Status: complete. Approved roadmap: tasks/mobile-modernization/PLAN.md.
 
 ## Goal and scope
-Migrate permanent growth, equipped instance bonuses, sets, rune/pet resonance
-and startup player calculation into independent typed modules. Use the preserved
-legacy runtime as an isolated rule oracle, with fresh Schema30 and explicit test
-variants. Wire H001 stats into the preview and preparation summary. This is a
-prerequisite to P2 combat, not a claim of playable first-stage parity.
+Migrate XP crystals and level choices as pure TypeScript rules. Preserve values,
+collection-before-attraction order, overflow conservation, thresholds, prepared
+pools and legacy random ordering. Capture isolated old-runtime oracle fixtures.
+Connect progression snapshots, choice commands, crystal rendering and upgrade UI
+to the single GameCore lifecycle. Natural kill/pickup acceptance follows combat
+migration; never add fake crystal spawns or public controls to simulate progress.
 
 ## Authorized dependencies
 Current app dependencies remain authorized. No additions in this slice.
@@ -15,10 +16,9 @@ Allowed: apps/mobile-next source/data/tests; tasks/mobile-modernization tools,
 fixtures and evidence; five handoff sections. Old runtime/saves remain unchanged.
 
 ## Acceptance
-Compare all six heroes, level/star/mastery thresholds, 30 equipment templates,
-sets, all rune resonance types and five pets against the legacy oracle. Preserve
-operation order, intermediate rounding, instance identity and virtual passives.
-Strict types, rule tests, production build and preparation/browser acceptance.
+Compare crystal boundaries, overflow, multiple pickups, difficulty XP, upgrade
+pool eligibility, caps and chained choices with legacy outputs. Verify pause and
+stale/repeated choice safety. Strict types, rule tests, build and browser lifecycle.
 Run legacy check -> smoke -> audit -> context -> archive:verify; then new checks.
 Update five handoff sections; preserve baseline hashes and all save invariants.
 

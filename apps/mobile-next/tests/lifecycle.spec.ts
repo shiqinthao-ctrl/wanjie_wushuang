@@ -20,6 +20,7 @@ test('loads real WebGL, pauses, exits and remounts without duplicate canvases', 
     const canvas = page.locator('canvas');
     expect(await canvas.evaluate(node => !!((node as HTMLCanvasElement).getContext('webgl2') || (node as HTMLCanvasElement).getContext('webgl')))).toBe(true);
     await expect(page.getByLabel('本局时间')).not.toHaveText('00:00');
+    await expect(page.getByLabel('战斗状态')).toContainText('生命 763 / 763');
     if (cycle === 0) {
       await page.screenshot({ path: testInfo.outputPath('battle.png') });
       const pad = await page.getByLabel('拖动摇杆移动').boundingBox();

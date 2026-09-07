@@ -1,0 +1,4094 @@
+{
+  "evidence": "Isolated Chrome synthetic rule inputs; not natural play.",
+  "crystals": [
+    {
+      "name": "easy-normal",
+      "difficulty": "easy",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 4.32,
+          "elite": false
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "easy-elite",
+      "difficulty": "easy",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": true
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 19.44,
+          "elite": true
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "normal-normal",
+      "difficulty": "normal",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "normal-elite",
+      "difficulty": "normal",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": true
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 18,
+          "elite": true
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "hard-normal",
+      "difficulty": "hard",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 3.92,
+          "elite": false
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "hard-elite",
+      "difficulty": "hard",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": true
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 17.64,
+          "elite": true
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "nightmare-normal",
+      "difficulty": "nightmare",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 3.8,
+          "elite": false
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "nightmare-elite",
+      "difficulty": "nightmare",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": true
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 17.099999999999998,
+          "elite": true
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "distance-0-dt-0",
+      "enemies": [
+        {
+          "x": 0,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0,
+        0
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-0-dt-0.016",
+      "enemies": [
+        {
+          "x": 0,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.016,
+        0.016
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-0-dt-0.034",
+      "enemies": [
+        {
+          "x": 0,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.034,
+        0.034
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-0-dt--0.1",
+      "enemies": [
+        {
+          "x": 0,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        -0.1,
+        -0.1
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-26-dt-0",
+      "enemies": [
+        {
+          "x": 26,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0,
+        0
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-26-dt-0.016",
+      "enemies": [
+        {
+          "x": 26,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.016,
+        0.016
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-26-dt-0.034",
+      "enemies": [
+        {
+          "x": 26,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.034,
+        0.034
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-26-dt--0.1",
+      "enemies": [
+        {
+          "x": 26,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        -0.1,
+        -0.1
+      ],
+      "expected": [],
+      "collected": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "distance-26.001-dt-0",
+      "enemies": [
+        {
+          "x": 26.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0,
+        0
+      ],
+      "expected": [
+        {
+          "x": 26.001,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-26.001-dt-0.016",
+      "enemies": [
+        {
+          "x": 26.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.016,
+        0.016
+      ],
+      "expected": [],
+      "collected": [
+        0,
+        4
+      ]
+    },
+    {
+      "name": "distance-26.001-dt-0.034",
+      "enemies": [
+        {
+          "x": 26.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.034,
+        0.034
+      ],
+      "expected": [],
+      "collected": [
+        0,
+        4
+      ]
+    },
+    {
+      "name": "distance-26.001-dt--0.1",
+      "enemies": [
+        {
+          "x": 26.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        -0.1,
+        -0.1
+      ],
+      "expected": [
+        {
+          "x": 26.001,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-239.999-dt-0",
+      "enemies": [
+        {
+          "x": 239.999,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0,
+        0
+      ],
+      "expected": [
+        {
+          "x": 239.999,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-239.999-dt-0.016",
+      "enemies": [
+        {
+          "x": 239.999,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.016,
+        0.016
+      ],
+      "expected": [
+        {
+          "x": 222.719,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-239.999-dt-0.034",
+      "enemies": [
+        {
+          "x": 239.999,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.034,
+        0.034
+      ],
+      "expected": [
+        {
+          "x": 203.27899999999997,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-239.999-dt--0.1",
+      "enemies": [
+        {
+          "x": 239.999,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        -0.1,
+        -0.1
+      ],
+      "expected": [
+        {
+          "x": 239.999,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240-dt-0",
+      "enemies": [
+        {
+          "x": 240,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0,
+        0
+      ],
+      "expected": [
+        {
+          "x": 240,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240-dt-0.016",
+      "enemies": [
+        {
+          "x": 240,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.016,
+        0.016
+      ],
+      "expected": [
+        {
+          "x": 240,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240-dt-0.034",
+      "enemies": [
+        {
+          "x": 240,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.034,
+        0.034
+      ],
+      "expected": [
+        {
+          "x": 240,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240-dt--0.1",
+      "enemies": [
+        {
+          "x": 240,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        -0.1,
+        -0.1
+      ],
+      "expected": [
+        {
+          "x": 240,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240.001-dt-0",
+      "enemies": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0,
+        0
+      ],
+      "expected": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240.001-dt-0.016",
+      "enemies": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.016,
+        0.016
+      ],
+      "expected": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240.001-dt-0.034",
+      "enemies": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.034,
+        0.034
+      ],
+      "expected": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "distance-240.001-dt--0.1",
+      "enemies": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        -0.1,
+        -0.1
+      ],
+      "expected": [
+        {
+          "x": 240.001,
+          "y": 0,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "overflow-conserves-value-and-elite",
+      "enemies": [
+        {
+          "x": 400,
+          "y": 0,
+          "elite": false
+        },
+        {
+          "x": 401,
+          "y": 1,
+          "elite": false
+        },
+        {
+          "x": 402,
+          "y": 2,
+          "elite": false
+        },
+        {
+          "x": 403,
+          "y": 3,
+          "elite": false
+        },
+        {
+          "x": 404,
+          "y": 4,
+          "elite": false
+        },
+        {
+          "x": 405,
+          "y": 5,
+          "elite": false
+        },
+        {
+          "x": 406,
+          "y": 6,
+          "elite": false
+        },
+        {
+          "x": 407,
+          "y": 7,
+          "elite": false
+        },
+        {
+          "x": 408,
+          "y": 8,
+          "elite": false
+        },
+        {
+          "x": 409,
+          "y": 9,
+          "elite": false
+        },
+        {
+          "x": 410,
+          "y": 10,
+          "elite": false
+        },
+        {
+          "x": 411,
+          "y": 11,
+          "elite": false
+        },
+        {
+          "x": 412,
+          "y": 12,
+          "elite": false
+        },
+        {
+          "x": 413,
+          "y": 13,
+          "elite": false
+        },
+        {
+          "x": 414,
+          "y": 14,
+          "elite": false
+        },
+        {
+          "x": 415,
+          "y": 15,
+          "elite": false
+        },
+        {
+          "x": 416,
+          "y": 16,
+          "elite": false
+        },
+        {
+          "x": 417,
+          "y": 17,
+          "elite": false
+        },
+        {
+          "x": 418,
+          "y": 18,
+          "elite": false
+        },
+        {
+          "x": 419,
+          "y": 19,
+          "elite": false
+        },
+        {
+          "x": 420,
+          "y": 20,
+          "elite": false
+        },
+        {
+          "x": 421,
+          "y": 21,
+          "elite": false
+        },
+        {
+          "x": 422,
+          "y": 22,
+          "elite": false
+        },
+        {
+          "x": 423,
+          "y": 23,
+          "elite": false
+        },
+        {
+          "x": 424,
+          "y": 24,
+          "elite": false
+        },
+        {
+          "x": 425,
+          "y": 25,
+          "elite": false
+        },
+        {
+          "x": 426,
+          "y": 26,
+          "elite": false
+        },
+        {
+          "x": 427,
+          "y": 27,
+          "elite": false
+        },
+        {
+          "x": 428,
+          "y": 28,
+          "elite": false
+        },
+        {
+          "x": 429,
+          "y": 29,
+          "elite": false
+        },
+        {
+          "x": 430,
+          "y": 30,
+          "elite": false
+        },
+        {
+          "x": 431,
+          "y": 31,
+          "elite": false
+        },
+        {
+          "x": 432,
+          "y": 32,
+          "elite": false
+        },
+        {
+          "x": 433,
+          "y": 33,
+          "elite": false
+        },
+        {
+          "x": 434,
+          "y": 34,
+          "elite": false
+        },
+        {
+          "x": 435,
+          "y": 35,
+          "elite": false
+        },
+        {
+          "x": 436,
+          "y": 36,
+          "elite": false
+        },
+        {
+          "x": 437,
+          "y": 37,
+          "elite": false
+        },
+        {
+          "x": 438,
+          "y": 38,
+          "elite": false
+        },
+        {
+          "x": 439,
+          "y": 39,
+          "elite": false
+        },
+        {
+          "x": 440,
+          "y": 40,
+          "elite": false
+        },
+        {
+          "x": 441,
+          "y": 41,
+          "elite": false
+        },
+        {
+          "x": 442,
+          "y": 42,
+          "elite": false
+        },
+        {
+          "x": 443,
+          "y": 43,
+          "elite": false
+        },
+        {
+          "x": 444,
+          "y": 44,
+          "elite": false
+        },
+        {
+          "x": 445,
+          "y": 45,
+          "elite": false
+        },
+        {
+          "x": 446,
+          "y": 46,
+          "elite": false
+        },
+        {
+          "x": 447,
+          "y": 47,
+          "elite": false
+        },
+        {
+          "x": 448,
+          "y": 48,
+          "elite": false
+        },
+        {
+          "x": 449,
+          "y": 49,
+          "elite": false
+        },
+        {
+          "x": 450,
+          "y": 50,
+          "elite": false
+        },
+        {
+          "x": 451,
+          "y": 51,
+          "elite": false
+        },
+        {
+          "x": 452,
+          "y": 52,
+          "elite": false
+        },
+        {
+          "x": 453,
+          "y": 53,
+          "elite": false
+        },
+        {
+          "x": 454,
+          "y": 54,
+          "elite": false
+        },
+        {
+          "x": 455,
+          "y": 55,
+          "elite": false
+        },
+        {
+          "x": 456,
+          "y": 56,
+          "elite": false
+        },
+        {
+          "x": 457,
+          "y": 57,
+          "elite": false
+        },
+        {
+          "x": 458,
+          "y": 58,
+          "elite": false
+        },
+        {
+          "x": 459,
+          "y": 59,
+          "elite": false
+        },
+        {
+          "x": 460,
+          "y": 60,
+          "elite": false
+        },
+        {
+          "x": 461,
+          "y": 61,
+          "elite": false
+        },
+        {
+          "x": 462,
+          "y": 62,
+          "elite": false
+        },
+        {
+          "x": 463,
+          "y": 63,
+          "elite": false
+        },
+        {
+          "x": 464,
+          "y": 64,
+          "elite": false
+        },
+        {
+          "x": 465,
+          "y": 65,
+          "elite": false
+        },
+        {
+          "x": 466,
+          "y": 66,
+          "elite": false
+        },
+        {
+          "x": 467,
+          "y": 67,
+          "elite": false
+        },
+        {
+          "x": 468,
+          "y": 68,
+          "elite": false
+        },
+        {
+          "x": 469,
+          "y": 69,
+          "elite": false
+        },
+        {
+          "x": 470,
+          "y": 70,
+          "elite": false
+        },
+        {
+          "x": 471,
+          "y": 71,
+          "elite": false
+        },
+        {
+          "x": 472,
+          "y": 72,
+          "elite": false
+        },
+        {
+          "x": 473,
+          "y": 73,
+          "elite": false
+        },
+        {
+          "x": 474,
+          "y": 74,
+          "elite": false
+        },
+        {
+          "x": 475,
+          "y": 75,
+          "elite": false
+        },
+        {
+          "x": 476,
+          "y": 76,
+          "elite": false
+        },
+        {
+          "x": 477,
+          "y": 77,
+          "elite": false
+        },
+        {
+          "x": 478,
+          "y": 78,
+          "elite": false
+        },
+        {
+          "x": 479,
+          "y": 79,
+          "elite": false
+        },
+        {
+          "x": 480,
+          "y": 80,
+          "elite": false
+        },
+        {
+          "x": 481,
+          "y": 81,
+          "elite": false
+        },
+        {
+          "x": 482,
+          "y": 82,
+          "elite": false
+        },
+        {
+          "x": 483,
+          "y": 83,
+          "elite": false
+        },
+        {
+          "x": 484,
+          "y": 84,
+          "elite": false
+        },
+        {
+          "x": 485,
+          "y": 85,
+          "elite": false
+        },
+        {
+          "x": 486,
+          "y": 86,
+          "elite": false
+        },
+        {
+          "x": 487,
+          "y": 87,
+          "elite": false
+        },
+        {
+          "x": 488,
+          "y": 88,
+          "elite": false
+        },
+        {
+          "x": 489,
+          "y": 89,
+          "elite": false
+        },
+        {
+          "x": 490,
+          "y": 90,
+          "elite": false
+        },
+        {
+          "x": 491,
+          "y": 91,
+          "elite": false
+        },
+        {
+          "x": 492,
+          "y": 92,
+          "elite": false
+        },
+        {
+          "x": 493,
+          "y": 93,
+          "elite": false
+        },
+        {
+          "x": 494,
+          "y": 94,
+          "elite": false
+        },
+        {
+          "x": 495,
+          "y": 95,
+          "elite": false
+        },
+        {
+          "x": 496,
+          "y": 96,
+          "elite": false
+        },
+        {
+          "x": 497,
+          "y": 97,
+          "elite": false
+        },
+        {
+          "x": 498,
+          "y": 98,
+          "elite": false
+        },
+        {
+          "x": 499,
+          "y": 99,
+          "elite": false
+        },
+        {
+          "x": 500,
+          "y": 100,
+          "elite": false
+        },
+        {
+          "x": 501,
+          "y": 101,
+          "elite": false
+        },
+        {
+          "x": 502,
+          "y": 102,
+          "elite": false
+        },
+        {
+          "x": 503,
+          "y": 103,
+          "elite": false
+        },
+        {
+          "x": 504,
+          "y": 104,
+          "elite": false
+        },
+        {
+          "x": 505,
+          "y": 105,
+          "elite": false
+        },
+        {
+          "x": 506,
+          "y": 106,
+          "elite": false
+        },
+        {
+          "x": 507,
+          "y": 107,
+          "elite": false
+        },
+        {
+          "x": 508,
+          "y": 108,
+          "elite": false
+        },
+        {
+          "x": 509,
+          "y": 109,
+          "elite": false
+        },
+        {
+          "x": 510,
+          "y": 110,
+          "elite": false
+        },
+        {
+          "x": 511,
+          "y": 111,
+          "elite": false
+        },
+        {
+          "x": 512,
+          "y": 112,
+          "elite": false
+        },
+        {
+          "x": 513,
+          "y": 113,
+          "elite": false
+        },
+        {
+          "x": 514,
+          "y": 114,
+          "elite": false
+        },
+        {
+          "x": 515,
+          "y": 115,
+          "elite": false
+        },
+        {
+          "x": 516,
+          "y": 116,
+          "elite": false
+        },
+        {
+          "x": 517,
+          "y": 117,
+          "elite": false
+        },
+        {
+          "x": 518,
+          "y": 118,
+          "elite": false
+        },
+        {
+          "x": 519,
+          "y": 119,
+          "elite": false
+        },
+        {
+          "x": 520,
+          "y": 120,
+          "elite": false
+        },
+        {
+          "x": 521,
+          "y": 121,
+          "elite": false
+        },
+        {
+          "x": 522,
+          "y": 122,
+          "elite": false
+        },
+        {
+          "x": 523,
+          "y": 123,
+          "elite": false
+        },
+        {
+          "x": 524,
+          "y": 124,
+          "elite": false
+        },
+        {
+          "x": 525,
+          "y": 125,
+          "elite": false
+        },
+        {
+          "x": 526,
+          "y": 126,
+          "elite": false
+        },
+        {
+          "x": 527,
+          "y": 127,
+          "elite": false
+        },
+        {
+          "x": 528,
+          "y": 128,
+          "elite": false
+        },
+        {
+          "x": 529,
+          "y": 129,
+          "elite": false
+        },
+        {
+          "x": 530,
+          "y": 130,
+          "elite": false
+        },
+        {
+          "x": 531,
+          "y": 131,
+          "elite": false
+        },
+        {
+          "x": 532,
+          "y": 132,
+          "elite": false
+        },
+        {
+          "x": 533,
+          "y": 133,
+          "elite": false
+        },
+        {
+          "x": 534,
+          "y": 134,
+          "elite": false
+        },
+        {
+          "x": 535,
+          "y": 135,
+          "elite": false
+        },
+        {
+          "x": 536,
+          "y": 136,
+          "elite": false
+        },
+        {
+          "x": 537,
+          "y": 137,
+          "elite": false
+        },
+        {
+          "x": 538,
+          "y": 138,
+          "elite": false
+        },
+        {
+          "x": 539,
+          "y": 139,
+          "elite": false
+        },
+        {
+          "x": 540,
+          "y": 140,
+          "elite": false
+        },
+        {
+          "x": 541,
+          "y": 141,
+          "elite": false
+        },
+        {
+          "x": 542,
+          "y": 142,
+          "elite": false
+        },
+        {
+          "x": 543,
+          "y": 143,
+          "elite": false
+        },
+        {
+          "x": 544,
+          "y": 144,
+          "elite": false
+        },
+        {
+          "x": 545,
+          "y": 145,
+          "elite": false
+        },
+        {
+          "x": 546,
+          "y": 146,
+          "elite": false
+        },
+        {
+          "x": 547,
+          "y": 147,
+          "elite": false
+        },
+        {
+          "x": 548,
+          "y": 148,
+          "elite": false
+        },
+        {
+          "x": 549,
+          "y": 149,
+          "elite": false
+        },
+        {
+          "x": 550,
+          "y": 150,
+          "elite": false
+        },
+        {
+          "x": 551,
+          "y": 151,
+          "elite": false
+        },
+        {
+          "x": 552,
+          "y": 152,
+          "elite": false
+        },
+        {
+          "x": 553,
+          "y": 153,
+          "elite": false
+        },
+        {
+          "x": 554,
+          "y": 154,
+          "elite": false
+        },
+        {
+          "x": 555,
+          "y": 155,
+          "elite": false
+        },
+        {
+          "x": 556,
+          "y": 156,
+          "elite": false
+        },
+        {
+          "x": 557,
+          "y": 157,
+          "elite": false
+        },
+        {
+          "x": 558,
+          "y": 158,
+          "elite": false
+        },
+        {
+          "x": 559,
+          "y": 159,
+          "elite": false
+        },
+        {
+          "x": 560,
+          "y": 160,
+          "elite": false
+        },
+        {
+          "x": 561,
+          "y": 161,
+          "elite": false
+        },
+        {
+          "x": 562,
+          "y": 162,
+          "elite": false
+        },
+        {
+          "x": 563,
+          "y": 163,
+          "elite": false
+        },
+        {
+          "x": 564,
+          "y": 164,
+          "elite": false
+        },
+        {
+          "x": 565,
+          "y": 165,
+          "elite": false
+        },
+        {
+          "x": 566,
+          "y": 166,
+          "elite": false
+        },
+        {
+          "x": 567,
+          "y": 167,
+          "elite": false
+        },
+        {
+          "x": 568,
+          "y": 168,
+          "elite": false
+        },
+        {
+          "x": 569,
+          "y": 169,
+          "elite": false
+        },
+        {
+          "x": 570,
+          "y": 170,
+          "elite": false
+        },
+        {
+          "x": 571,
+          "y": 171,
+          "elite": false
+        },
+        {
+          "x": 572,
+          "y": 172,
+          "elite": false
+        },
+        {
+          "x": 573,
+          "y": 173,
+          "elite": false
+        },
+        {
+          "x": 574,
+          "y": 174,
+          "elite": false
+        },
+        {
+          "x": 575,
+          "y": 175,
+          "elite": false
+        },
+        {
+          "x": 576,
+          "y": 176,
+          "elite": false
+        },
+        {
+          "x": 577,
+          "y": 177,
+          "elite": false
+        },
+        {
+          "x": 578,
+          "y": 178,
+          "elite": false
+        },
+        {
+          "x": 579,
+          "y": 179,
+          "elite": false
+        },
+        {
+          "x": 580,
+          "y": 180,
+          "elite": true
+        },
+        {
+          "x": 581,
+          "y": 181,
+          "elite": true
+        },
+        {
+          "x": 582,
+          "y": 182,
+          "elite": true
+        }
+      ],
+      "steps": [],
+      "expected": [
+        {
+          "x": 400,
+          "y": 0,
+          "value": 58,
+          "elite": true
+        },
+        {
+          "x": 401,
+          "y": 1,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 402,
+          "y": 2,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 403,
+          "y": 3,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 404,
+          "y": 4,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 405,
+          "y": 5,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 406,
+          "y": 6,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 407,
+          "y": 7,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 408,
+          "y": 8,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 409,
+          "y": 9,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 410,
+          "y": 10,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 411,
+          "y": 11,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 412,
+          "y": 12,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 413,
+          "y": 13,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 414,
+          "y": 14,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 415,
+          "y": 15,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 416,
+          "y": 16,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 417,
+          "y": 17,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 418,
+          "y": 18,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 419,
+          "y": 19,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 420,
+          "y": 20,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 421,
+          "y": 21,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 422,
+          "y": 22,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 423,
+          "y": 23,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 424,
+          "y": 24,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 425,
+          "y": 25,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 426,
+          "y": 26,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 427,
+          "y": 27,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 428,
+          "y": 28,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 429,
+          "y": 29,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 430,
+          "y": 30,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 431,
+          "y": 31,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 432,
+          "y": 32,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 433,
+          "y": 33,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 434,
+          "y": 34,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 435,
+          "y": 35,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 436,
+          "y": 36,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 437,
+          "y": 37,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 438,
+          "y": 38,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 439,
+          "y": 39,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 440,
+          "y": 40,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 441,
+          "y": 41,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 442,
+          "y": 42,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 443,
+          "y": 43,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 444,
+          "y": 44,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 445,
+          "y": 45,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 446,
+          "y": 46,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 447,
+          "y": 47,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 448,
+          "y": 48,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 449,
+          "y": 49,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 450,
+          "y": 50,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 451,
+          "y": 51,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 452,
+          "y": 52,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 453,
+          "y": 53,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 454,
+          "y": 54,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 455,
+          "y": 55,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 456,
+          "y": 56,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 457,
+          "y": 57,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 458,
+          "y": 58,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 459,
+          "y": 59,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 460,
+          "y": 60,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 461,
+          "y": 61,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 462,
+          "y": 62,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 463,
+          "y": 63,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 464,
+          "y": 64,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 465,
+          "y": 65,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 466,
+          "y": 66,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 467,
+          "y": 67,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 468,
+          "y": 68,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 469,
+          "y": 69,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 470,
+          "y": 70,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 471,
+          "y": 71,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 472,
+          "y": 72,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 473,
+          "y": 73,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 474,
+          "y": 74,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 475,
+          "y": 75,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 476,
+          "y": 76,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 477,
+          "y": 77,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 478,
+          "y": 78,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 479,
+          "y": 79,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 480,
+          "y": 80,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 481,
+          "y": 81,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 482,
+          "y": 82,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 483,
+          "y": 83,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 484,
+          "y": 84,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 485,
+          "y": 85,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 486,
+          "y": 86,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 487,
+          "y": 87,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 488,
+          "y": 88,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 489,
+          "y": 89,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 490,
+          "y": 90,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 491,
+          "y": 91,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 492,
+          "y": 92,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 493,
+          "y": 93,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 494,
+          "y": 94,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 495,
+          "y": 95,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 496,
+          "y": 96,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 497,
+          "y": 97,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 498,
+          "y": 98,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 499,
+          "y": 99,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 500,
+          "y": 100,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 501,
+          "y": 101,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 502,
+          "y": 102,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 503,
+          "y": 103,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 504,
+          "y": 104,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 505,
+          "y": 105,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 506,
+          "y": 106,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 507,
+          "y": 107,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 508,
+          "y": 108,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 509,
+          "y": 109,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 510,
+          "y": 110,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 511,
+          "y": 111,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 512,
+          "y": 112,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 513,
+          "y": 113,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 514,
+          "y": 114,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 515,
+          "y": 115,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 516,
+          "y": 116,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 517,
+          "y": 117,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 518,
+          "y": 118,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 519,
+          "y": 119,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 520,
+          "y": 120,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 521,
+          "y": 121,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 522,
+          "y": 122,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 523,
+          "y": 123,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 524,
+          "y": 124,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 525,
+          "y": 125,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 526,
+          "y": 126,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 527,
+          "y": 127,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 528,
+          "y": 128,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 529,
+          "y": 129,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 530,
+          "y": 130,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 531,
+          "y": 131,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 532,
+          "y": 132,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 533,
+          "y": 133,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 534,
+          "y": 134,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 535,
+          "y": 135,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 536,
+          "y": 136,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 537,
+          "y": 137,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 538,
+          "y": 138,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 539,
+          "y": 139,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 540,
+          "y": 140,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 541,
+          "y": 141,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 542,
+          "y": 142,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 543,
+          "y": 143,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 544,
+          "y": 144,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 545,
+          "y": 145,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 546,
+          "y": 146,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 547,
+          "y": 147,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 548,
+          "y": 148,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 549,
+          "y": 149,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 550,
+          "y": 150,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 551,
+          "y": 151,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 552,
+          "y": 152,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 553,
+          "y": 153,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 554,
+          "y": 154,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 555,
+          "y": 155,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 556,
+          "y": 156,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 557,
+          "y": 157,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 558,
+          "y": 158,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 559,
+          "y": 159,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 560,
+          "y": 160,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 561,
+          "y": 161,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 562,
+          "y": 162,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 563,
+          "y": 163,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 564,
+          "y": 164,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 565,
+          "y": 165,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 566,
+          "y": 166,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 567,
+          "y": 167,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 568,
+          "y": 168,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 569,
+          "y": 169,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 570,
+          "y": 170,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 571,
+          "y": 171,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 572,
+          "y": 172,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 573,
+          "y": 173,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 574,
+          "y": 174,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 575,
+          "y": 175,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 576,
+          "y": 176,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 577,
+          "y": 177,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 578,
+          "y": 178,
+          "value": 4,
+          "elite": false
+        },
+        {
+          "x": 579,
+          "y": 179,
+          "value": 4,
+          "elite": false
+        }
+      ],
+      "collected": []
+    },
+    {
+      "name": "aggregate-pickups",
+      "enemies": [
+        {
+          "x": 0,
+          "y": 0,
+          "elite": false
+        },
+        {
+          "x": 26,
+          "y": 0,
+          "elite": true
+        },
+        {
+          "x": -26,
+          "y": 0,
+          "elite": false
+        }
+      ],
+      "steps": [
+        0.016
+      ],
+      "expected": [],
+      "collected": [
+        26
+      ]
+    }
+  ],
+  "pools": [
+    {
+      "name": "fresh",
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "seed": 1,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P026",
+          "label": "火神祝福 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "解锁 范围强化"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "解锁 龙卷风"
+        },
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "解锁 烈焰刀"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "解锁 陨石雨"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "解锁 技能倍率"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "解锁 冷却缩减"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "解锁 持续强化"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "解锁 风神祝福"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "解锁 火焰冲刺"
+        },
+        {
+          "kind": "active",
+          "id": "A011",
+          "label": "火球术 Lv.2"
+        }
+      ]
+    },
+    {
+      "name": "fresh",
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "seed": 42,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "解锁 烈焰刀"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "解锁 陨石雨"
+        },
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "解锁 龙卷风"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "解锁 风神祝福"
+        },
+        {
+          "kind": "active",
+          "id": "A011",
+          "label": "火球术 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P026",
+          "label": "火神祝福 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "解锁 持续强化"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "解锁 冷却缩减"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "解锁 范围强化"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "解锁 技能倍率"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "解锁 火焰冲刺"
+        }
+      ]
+    },
+    {
+      "name": "fresh",
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "seed": 999,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A011",
+          "label": "火球术 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "解锁 持续强化"
+        },
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "解锁 烈焰刀"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "解锁 龙卷风"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "解锁 风神祝福"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "解锁 陨石雨"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "解锁 技能倍率"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "解锁 火焰冲刺"
+        },
+        {
+          "kind": "passive",
+          "id": "P026",
+          "label": "火神祝福 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "解锁 冷却缩减"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "解锁 范围强化"
+        }
+      ]
+    },
+    {
+      "name": "all-slots-full",
+      "skills": {
+        "A011": 1,
+        "A021": 1,
+        "A026": 1,
+        "A027": 1,
+        "A003": 1,
+        "A054": 1
+      },
+      "passives": {
+        "P026": 1,
+        "P017": 1,
+        "P030": 1,
+        "P019": 1,
+        "P016": 1,
+        "P018": 1
+      },
+      "seed": 1,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P026",
+          "label": "火神祝福 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "范围强化 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "龙卷风 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "烈焰刀 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "陨石雨 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "技能倍率 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "冷却缩减 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "持续强化 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "风神祝福 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "火焰冲刺 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A011",
+          "label": "火球术 Lv.2"
+        }
+      ]
+    },
+    {
+      "name": "all-slots-full",
+      "skills": {
+        "A011": 1,
+        "A021": 1,
+        "A026": 1,
+        "A027": 1,
+        "A003": 1,
+        "A054": 1
+      },
+      "passives": {
+        "P026": 1,
+        "P017": 1,
+        "P030": 1,
+        "P019": 1,
+        "P016": 1,
+        "P018": 1
+      },
+      "seed": 42,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "烈焰刀 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "陨石雨 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "龙卷风 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "风神祝福 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A011",
+          "label": "火球术 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P026",
+          "label": "火神祝福 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "持续强化 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "冷却缩减 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "范围强化 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "技能倍率 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "火焰冲刺 Lv.2"
+        }
+      ]
+    },
+    {
+      "name": "all-slots-full",
+      "skills": {
+        "A011": 1,
+        "A021": 1,
+        "A026": 1,
+        "A027": 1,
+        "A003": 1,
+        "A054": 1
+      },
+      "passives": {
+        "P026": 1,
+        "P017": 1,
+        "P030": 1,
+        "P019": 1,
+        "P016": 1,
+        "P018": 1
+      },
+      "seed": 999,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A011",
+          "label": "火球术 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "持续强化 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "烈焰刀 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "龙卷风 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "风神祝福 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "陨石雨 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "技能倍率 Lv.2"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "火焰冲刺 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P026",
+          "label": "火神祝福 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "冷却缩减 Lv.2"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "范围强化 Lv.2"
+        }
+      ]
+    },
+    {
+      "name": "all-maxed",
+      "skills": {
+        "A011": 5,
+        "A021": 5,
+        "A026": 5,
+        "A027": 5,
+        "A003": 5,
+        "A054": 5
+      },
+      "passives": {
+        "P026": 5,
+        "P017": 5,
+        "P030": 5,
+        "P019": 5,
+        "P016": 5,
+        "P018": 5
+      },
+      "seed": 1,
+      "expected": []
+    },
+    {
+      "name": "all-maxed",
+      "skills": {
+        "A011": 5,
+        "A021": 5,
+        "A026": 5,
+        "A027": 5,
+        "A003": 5,
+        "A054": 5
+      },
+      "passives": {
+        "P026": 5,
+        "P017": 5,
+        "P030": 5,
+        "P019": 5,
+        "P016": 5,
+        "P018": 5
+      },
+      "seed": 42,
+      "expected": []
+    },
+    {
+      "name": "all-maxed",
+      "skills": {
+        "A011": 5,
+        "A021": 5,
+        "A026": 5,
+        "A027": 5,
+        "A003": 5,
+        "A054": 5
+      },
+      "passives": {
+        "P026": 5,
+        "P017": 5,
+        "P030": 5,
+        "P019": 5,
+        "P016": 5,
+        "P018": 5
+      },
+      "seed": 999,
+      "expected": []
+    },
+    {
+      "name": "at-cap",
+      "skills": {
+        "A011": 5,
+        "A021": 4
+      },
+      "passives": {
+        "P026": 5
+      },
+      "seed": 1,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "解锁 龙卷风"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "解锁 风神祝福"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "解锁 陨石雨"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "解锁 火焰冲刺"
+        },
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "解锁 烈焰刀"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "解锁 冷却缩减"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "解锁 技能倍率"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "解锁 范围强化"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "解锁 持续强化"
+        },
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.5"
+        }
+      ]
+    },
+    {
+      "name": "at-cap",
+      "skills": {
+        "A011": 5,
+        "A021": 4
+      },
+      "passives": {
+        "P026": 5
+      },
+      "seed": 42,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "解锁 火焰冲刺"
+        },
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "解锁 烈焰刀"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "解锁 龙卷风"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "解锁 陨石雨"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "解锁 范围强化"
+        },
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.5"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "解锁 风神祝福"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "解锁 技能倍率"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "解锁 冷却缩减"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "解锁 持续强化"
+        }
+      ]
+    },
+    {
+      "name": "at-cap",
+      "skills": {
+        "A011": 5,
+        "A021": 4
+      },
+      "passives": {
+        "P026": 5
+      },
+      "seed": 999,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A021",
+          "label": "火焰领域 Lv.5"
+        },
+        {
+          "kind": "active",
+          "id": "A026",
+          "label": "解锁 龙卷风"
+        },
+        {
+          "kind": "passive",
+          "id": "P019",
+          "label": "解锁 技能倍率"
+        },
+        {
+          "kind": "active",
+          "id": "A054",
+          "label": "解锁 火焰冲刺"
+        },
+        {
+          "kind": "active",
+          "id": "A027",
+          "label": "解锁 陨石雨"
+        },
+        {
+          "kind": "passive",
+          "id": "P016",
+          "label": "解锁 范围强化"
+        },
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "解锁 烈焰刀"
+        },
+        {
+          "kind": "passive",
+          "id": "P018",
+          "label": "解锁 冷却缩减"
+        },
+        {
+          "kind": "passive",
+          "id": "P017",
+          "label": "解锁 持续强化"
+        },
+        {
+          "kind": "passive",
+          "id": "P030",
+          "label": "解锁 风神祝福"
+        }
+      ]
+    },
+    {
+      "name": "foreign-full-slots",
+      "skills": {
+        "A001": 2,
+        "A002": 2,
+        "A003": 2,
+        "A004": 2,
+        "A005": 2,
+        "A006": 2
+      },
+      "passives": {
+        "P001": 2,
+        "P002": 2,
+        "P003": 2,
+        "P004": 2,
+        "P005": 2,
+        "P006": 2
+      },
+      "seed": 1,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "烈焰刀 Lv.3"
+        }
+      ]
+    },
+    {
+      "name": "foreign-full-slots",
+      "skills": {
+        "A001": 2,
+        "A002": 2,
+        "A003": 2,
+        "A004": 2,
+        "A005": 2,
+        "A006": 2
+      },
+      "passives": {
+        "P001": 2,
+        "P002": 2,
+        "P003": 2,
+        "P004": 2,
+        "P005": 2,
+        "P006": 2
+      },
+      "seed": 42,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "烈焰刀 Lv.3"
+        }
+      ]
+    },
+    {
+      "name": "foreign-full-slots",
+      "skills": {
+        "A001": 2,
+        "A002": 2,
+        "A003": 2,
+        "A004": 2,
+        "A005": 2,
+        "A006": 2
+      },
+      "passives": {
+        "P001": 2,
+        "P002": 2,
+        "P003": 2,
+        "P004": 2,
+        "P005": 2,
+        "P006": 2
+      },
+      "seed": 999,
+      "expected": [
+        {
+          "kind": "active",
+          "id": "A003",
+          "label": "烈焰刀 Lv.3"
+        }
+      ]
+    }
+  ],
+  "chains": [
+    {
+      "xp": 25,
+      "states": [
+        {
+          "level": 1,
+          "xp": 25,
+          "xpNeed": 26,
+          "paused": false,
+          "skills": {
+            "A011": 1,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "xp": 26,
+      "states": [
+        {
+          "level": 2,
+          "xp": 0,
+          "xpNeed": 48,
+          "paused": true,
+          "skills": {
+            "A011": 1,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "xp": 0,
+          "xpNeed": 48,
+          "paused": false,
+          "skills": {
+            "A011": 2,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "xp": 73,
+      "states": [
+        {
+          "level": 2,
+          "xp": 47,
+          "xpNeed": 48,
+          "paused": true,
+          "skills": {
+            "A011": 1,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "xp": 47,
+          "xpNeed": 48,
+          "paused": false,
+          "skills": {
+            "A011": 2,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "xp": 74,
+      "states": [
+        {
+          "level": 2,
+          "xp": 48,
+          "xpNeed": 48,
+          "paused": true,
+          "skills": {
+            "A011": 1,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "xp": 0,
+          "xpNeed": 59,
+          "paused": true,
+          "skills": {
+            "A011": 2,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.3"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "xp": 0,
+          "xpNeed": 59,
+          "paused": false,
+          "skills": {
+            "A011": 3,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "xp": 180,
+      "states": [
+        {
+          "level": 2,
+          "xp": 154,
+          "xpNeed": 48,
+          "paused": true,
+          "skills": {
+            "A011": 1,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "xp": 106,
+          "xpNeed": 59,
+          "paused": true,
+          "skills": {
+            "A011": 2,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.3"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "xp": 47,
+          "xpNeed": 70,
+          "paused": true,
+          "skills": {
+            "A011": 3,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.4"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "xp": 47,
+          "xpNeed": 70,
+          "paused": false,
+          "skills": {
+            "A011": 4,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": []
+        }
+      ]
+    },
+    {
+      "xp": 500,
+      "states": [
+        {
+          "level": 2,
+          "xp": 474,
+          "xpNeed": 48,
+          "paused": true,
+          "skills": {
+            "A011": 1,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "xp": 426,
+          "xpNeed": 59,
+          "paused": true,
+          "skills": {
+            "A011": 2,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.3"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "xp": 367,
+          "xpNeed": 70,
+          "paused": true,
+          "skills": {
+            "A011": 3,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.4"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 5,
+          "xp": 297,
+          "xpNeed": 81,
+          "paused": true,
+          "skills": {
+            "A011": 4,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "火球术 Lv.5"
+            },
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            }
+          ]
+        },
+        {
+          "level": 6,
+          "xp": 216,
+          "xpNeed": 92,
+          "paused": true,
+          "skills": {
+            "A011": 5,
+            "A021": 1
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.2"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            },
+            {
+              "kind": "active",
+              "id": "A027",
+              "label": "解锁 陨石雨"
+            }
+          ]
+        },
+        {
+          "level": 7,
+          "xp": 124,
+          "xpNeed": 103,
+          "paused": true,
+          "skills": {
+            "A011": 5,
+            "A021": 2
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.3"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            },
+            {
+              "kind": "active",
+              "id": "A027",
+              "label": "解锁 陨石雨"
+            }
+          ]
+        },
+        {
+          "level": 8,
+          "xp": 21,
+          "xpNeed": 114,
+          "paused": true,
+          "skills": {
+            "A011": 5,
+            "A021": 3
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": [
+            {
+              "kind": "active",
+              "id": "A021",
+              "label": "火焰领域 Lv.4"
+            },
+            {
+              "kind": "active",
+              "id": "A026",
+              "label": "解锁 龙卷风"
+            },
+            {
+              "kind": "active",
+              "id": "A027",
+              "label": "解锁 陨石雨"
+            }
+          ]
+        },
+        {
+          "level": 8,
+          "xp": 21,
+          "xpNeed": 114,
+          "paused": false,
+          "skills": {
+            "A011": 5,
+            "A021": 4
+          },
+          "passives": {
+            "P026": 1
+          },
+          "choices": []
+        }
+      ]
+    }
+  ]
+}

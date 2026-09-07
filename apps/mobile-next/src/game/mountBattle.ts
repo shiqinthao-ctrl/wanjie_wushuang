@@ -10,6 +10,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
   let budget = 0;
   class BattleScene extends Phaser.Scene {
     private hero?: Phaser.GameObjects.Image;
+    private crystals?: Phaser.GameObjects.Graphics;
     preload() {
       this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
       this.load.image('hero', `${import.meta.env.BASE_URL}art/hero-h001.svg`);
@@ -20,6 +21,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       core.start(this.scale.width, this.scale.height);
       const { world, player } = core.renderState();
       this.add.image(0, 0, 'ground').setOrigin(0).setDisplaySize(world.width, world.height);
+      this.crystals = this.add.graphics();
       this.hero = this.add.image(player.x, player.y, 'hero').setDisplaySize(66, 81).setOrigin(.5, .84);
       this.cameras.main.setBounds(0, 0, world.width, world.height);
       this.cameras.main.centerOn(player.x, player.y);
@@ -29,7 +31,19 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       if (removed || !this.hero) return;
       core.resize(this.scale.width, this.scale.height);
       core.advance(delta / 1000);
-      const { player, world } = core.renderState();
+      const { player, world, crystals } = core.renderState();
+      this.crystals?.clear();
+      for (const crystal of crystals) {
+        const radius = crystal.elite ? 10 : 7;
+        this.crystals?.fillStyle(crystal.elite ? 0xffd47a : 0x74f0cf, 1);
+        this.crystals?.beginPath().moveTo(crystal.x, crystal.y - radius).lineTo(crystal.x + radius, crystal.y).lineTo(crystal.x, crystal.y + radius).lineTo(crystal.x - radius, crystal.y).closePath().fillPath();
+        this.crystals?.lineStyle(2, 0xd9fff2, .8).strokeCircle(crystal.x, crystal.y, radius + 4);
+      }
+      for (const event of core.takeEvents()) {
+        if (event.type !== 'xp-pickup') continue;
+        const label = this.add.text(event.x, event.y - 20, `XP +${Math.round(event.value)}`, { fontSize: '14px', color: '#74f0cf', stroke: '#102720', strokeThickness: 3 }).setOrigin(.5);
+        this.tweens.add({ targets: label, y: label.y - 28, alpha: 0, duration: 700, onComplete: () => label.destroy() });
+      }
       this.hero.setPosition(player.x, player.y);
       this.cameras.main.setBounds(0, 0, world.width, world.height);
       this.cameras.main.centerOn(player.x, player.y);

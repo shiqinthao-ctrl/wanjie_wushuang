@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2a typed startup growth/equipment/rune/pet rules implemented, wired to GameCore and preparation UI. 179 isolated legacy oracle cases match. ST001-01 retains existing B001 at 270s and 360s goal.
+P2b XP crystals and upgrade choices implemented with core/UI/render integration. Original values, overflow, attraction order and seeded browser pools match. ST001-01 retains existing B001 at 270s and 360s goal.
 
 ## Changed files
-TASK.md; app growth/save types/data, GameCore, preparation UI and tests; migration growth capture/oracle/evidence; handoff. Legacy runtime unchanged; no added dependencies.
+TASK.md; app progression/data, GameCore, battle UI/render and tests; migration progression capture/oracle/verification/evidence; status and handoff. Legacy runtime unchanged; no added dependencies.
 
 ## Tests
-P2a: 185 tests pass, including 179 legacy startup cases/no save mutation. Legacy 5 gates, 49 hashes and strict build pass. Six Chrome preparation/lifecycle checks pass across desktop and two portrait sizes.
+P2b: 244 tests pass; 34 crystal cases, 15 eligibility pools, 6 choice chains. All 15 exact seeded pools match in Chrome. Legacy 5 gates, 49 hashes, strict build and 6 desktop/portrait browser checks pass.
 
 ## Unresolved risk
-Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Combat, storage, content parity and PWA pending. Phaser chunk is 359KB gzip; no measured performance gain. No entry switch/deployment.
+Natural kill/pickup/choice acceptance awaits combat. Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Storage, content parity and PWA pending. Phaser chunk is 361KB gzip; no measured performance gain.
 
 ## Recommended next task
-P2b: migrate XP crystals, level options and choice state against existing authority; continue H001/ST001-01 combat in bounded slices. Do not replace original Boss objective.
+P2c: migrate skill modifiers and damage order with isolated old-rule fixtures, then implement H001/ST001-01 combat in bounded slices. Do not replace original Boss objective.
 
 ## After each task
 Replace only these fields:
