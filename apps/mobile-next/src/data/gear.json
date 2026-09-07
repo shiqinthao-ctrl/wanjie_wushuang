@@ -1,0 +1,544 @@
+{
+  "catalog": {
+    "EQW001": {
+      "name": "赤炎刀",
+      "slot": "weapon",
+      "score": 315,
+      "rarity": "purple",
+      "set": "SET_FIRE",
+      "exclusive": "H001",
+      "legend": "烈焰斩击范围+12%，火系伤害+8%。"
+    },
+    "EQW002": {
+      "name": "雷鸣枪",
+      "slot": "weapon",
+      "score": 330,
+      "rarity": "purple",
+      "set": "SET_THUNDER",
+      "exclusive": "H002",
+      "legend": "雷系技能获得额外弹射倾向。"
+    },
+    "EQW003": {
+      "name": "玄铁神棍",
+      "slot": "weapon",
+      "score": 350,
+      "rarity": "gold",
+      "set": "SET_MONKEY",
+      "exclusive": "H007",
+      "legend": "召唤伤害+12%，斗战分身上限提高。"
+    },
+    "EQW004": {
+      "name": "炎忍苦无",
+      "slot": "weapon",
+      "score": 325,
+      "rarity": "purple",
+      "set": "SET_BLAZE",
+      "exclusive": "H010",
+      "legend": "爆炸范围+15%，闪避爆符强化。"
+    },
+    "EQW005": {
+      "name": "万影短刃",
+      "slot": "weapon",
+      "score": 335,
+      "rarity": "purple",
+      "set": "SET_SHADOW",
+      "exclusive": "H012",
+      "legend": "暗器穿透+1，影系暴击+5%。"
+    },
+    "EQW006": {
+      "name": "星河拳环",
+      "slot": "weapon",
+      "score": 345,
+      "rarity": "gold",
+      "set": "SET_KI",
+      "exclusive": "H019",
+      "legend": "气功弹穿透+1，气能蓄积速度提高。"
+    },
+    "EQW007": {
+      "name": "黄天战刃",
+      "slot": "weapon",
+      "score": 405,
+      "rarity": "gold",
+      "set": "SET_CHAOS",
+      "boss": "B001",
+      "legend": "对Boss伤害+12%；击破护盾时提升攻击。"
+    },
+    "EQW008": {
+      "name": "牛魔战棍",
+      "slot": "weapon",
+      "score": 430,
+      "rarity": "gold",
+      "set": "SET_YAOLING",
+      "boss": "B006",
+      "legend": "范围伤害+14%，近身技能对精英伤害提高。"
+    },
+    "EQW009": {
+      "name": "万影妖刀",
+      "slot": "weapon",
+      "score": 455,
+      "rarity": "gold",
+      "set": "SET_NINJABOSS",
+      "boss": "B011",
+      "legend": "暗影技能额外分裂，Boss阶段3伤害提高。"
+    },
+    "EQW010": {
+      "name": "裂界神刃",
+      "slot": "weapon",
+      "score": 480,
+      "rarity": "gold",
+      "set": "SET_RIFT",
+      "legend": "全元素伤害+10%，融合技能伤害+15%。"
+    },
+    "EQA001": {
+      "name": "炎龙战甲",
+      "slot": "armor",
+      "score": 250,
+      "rarity": "purple",
+      "set": "SET_FIRE",
+      "legend": "最大生命+8%，火焰领域范围+8%。"
+    },
+    "EQA002": {
+      "name": "雷神战铠",
+      "slot": "armor",
+      "score": 255,
+      "rarity": "purple",
+      "set": "SET_THUNDER",
+      "legend": "闪避后雷势+12%。"
+    },
+    "EQA003": {
+      "name": "斗战金甲",
+      "slot": "armor",
+      "score": 275,
+      "rarity": "gold",
+      "set": "SET_MONKEY",
+      "legend": "召唤物数量倾向+1，受到近战伤害降低。"
+    },
+    "EQA004": {
+      "name": "炎忍战装",
+      "slot": "armor",
+      "score": 260,
+      "rarity": "purple",
+      "set": "SET_BLAZE",
+      "legend": "英雄技冷却-6%，移动速度+5%。"
+    },
+    "EQA005": {
+      "name": "万影忍装",
+      "slot": "armor",
+      "score": 265,
+      "rarity": "purple",
+      "set": "SET_SHADOW",
+      "legend": "影印衰减减缓，暴击伤害提高。"
+    },
+    "EQA006": {
+      "name": "星河武衣",
+      "slot": "armor",
+      "score": 270,
+      "rarity": "gold",
+      "set": "SET_KI",
+      "legend": "气功技能冷却-6%，最大生命+5%。"
+    },
+    "EQA007": {
+      "name": "混沌骑甲",
+      "slot": "armor",
+      "score": 410,
+      "rarity": "gold",
+      "set": "SET_CHAOS",
+      "boss": "B003",
+      "legend": "Boss预警期间移动速度+10%。"
+    },
+    "EQA008": {
+      "name": "炎狱忍装",
+      "slot": "armor",
+      "score": 425,
+      "rarity": "gold",
+      "set": "SET_NINJABOSS",
+      "boss": "B009",
+      "legend": "火/暗影伤害提高，地图危险伤害降低。"
+    },
+    "EQA009": {
+      "name": "妖王战铠",
+      "slot": "armor",
+      "score": 420,
+      "rarity": "gold",
+      "set": "SET_YAOLING",
+      "legend": "精英伤害+15%，击杀精英恢复生命。"
+    },
+    "EQA010": {
+      "name": "万界神衣",
+      "slot": "armor",
+      "score": 470,
+      "rarity": "gold",
+      "set": "SET_RIFT",
+      "legend": "最大生命+12%，所有冷却缩减提高。"
+    },
+    "EQX001": {
+      "name": "炎龙核心",
+      "slot": "accessory",
+      "score": 265,
+      "rarity": "purple",
+      "set": "SET_FIRE",
+      "legend": "火系爆炸命中有概率扩大燃烧区域。"
+    },
+    "EQX002": {
+      "name": "雷霆勾玉",
+      "slot": "accessory",
+      "score": 270,
+      "rarity": "purple",
+      "set": "SET_THUNDER",
+      "legend": "雷电弹/雷枪弹射次数提高。"
+    },
+    "EQX003": {
+      "name": "斗战战印",
+      "slot": "accessory",
+      "score": 285,
+      "rarity": "gold",
+      "set": "SET_MONKEY",
+      "legend": "分身攻击速度提高，范围强化。"
+    },
+    "EQX004": {
+      "name": "爆炎卷轴",
+      "slot": "accessory",
+      "score": 268,
+      "rarity": "purple",
+      "set": "SET_BLAZE",
+      "legend": "爆符和爆裂弹的爆炸半径提高。"
+    },
+    "EQX005": {
+      "name": "影界勾玉",
+      "slot": "accessory",
+      "score": 275,
+      "rarity": "purple",
+      "set": "SET_SHADOW",
+      "legend": "手里剑分裂层数+1。"
+    },
+    "EQX006": {
+      "name": "星河核心",
+      "slot": "accessory",
+      "score": 282,
+      "rarity": "gold",
+      "set": "SET_KI",
+      "legend": "气功领域范围+12%，穿透伤害提高。"
+    },
+    "EQX007": {
+      "name": "妖师法印",
+      "slot": "accessory",
+      "score": 400,
+      "rarity": "gold",
+      "set": "SET_CHAOS",
+      "boss": "B002",
+      "legend": "对护盾目标伤害提高；元素伤害+8%。"
+    },
+    "EQX008": {
+      "name": "魔猿战印",
+      "slot": "accessory",
+      "score": 435,
+      "rarity": "gold",
+      "set": "SET_YAOLING",
+      "boss": "B008",
+      "legend": "召唤与范围技能伤害提高。"
+    },
+    "EQX009": {
+      "name": "雷瞬勾玉",
+      "slot": "accessory",
+      "score": 440,
+      "rarity": "gold",
+      "set": "SET_NINJABOSS",
+      "boss": "B010",
+      "legend": "闪避后短时间暴击率提高。"
+    },
+    "EQX010": {
+      "name": "万界印记",
+      "slot": "accessory",
+      "score": 475,
+      "rarity": "gold",
+      "set": "SET_RIFT",
+      "legend": "融合/进化技能伤害和范围同时提高。"
+    }
+  },
+  "sets": {
+    "SET_FIRE": {
+      "name": "炎龙",
+      "two": "火系伤害 +18%",
+      "three": "火系范围 +12%，持续强化视为+1级",
+      "bonus2": {
+        "fireDmg": 0.18
+      },
+      "bonus3": {
+        "area": 0.12,
+        "virtual": {
+          "P017": 1
+        }
+      }
+    },
+    "SET_THUNDER": {
+      "name": "九天雷霆",
+      "two": "雷系伤害 +18%",
+      "three": "弹射能力显著提高",
+      "bonus2": {
+        "lightningDmg": 0.18
+      },
+      "bonus3": {
+        "virtual": {
+          "P023": 2
+        }
+      }
+    },
+    "SET_MONKEY": {
+      "name": "斗战",
+      "two": "召唤伤害 +18%，范围 +8%",
+      "three": "召唤数量倾向 +2",
+      "bonus2": {
+        "summonDmg": 0.18,
+        "area": 0.08
+      },
+      "bonus3": {
+        "virtual": {
+          "P039": 2,
+          "P036": 1
+        }
+      }
+    },
+    "SET_BLAZE": {
+      "name": "炎忍爆破",
+      "two": "火系伤害 +12%，冷却 -8%",
+      "three": "分裂/爆炸能力提高",
+      "bonus2": {
+        "fireDmg": 0.12,
+        "cdr": 0.08
+      },
+      "bonus3": {
+        "virtual": {
+          "P024": 1,
+          "P010": 1
+        }
+      }
+    },
+    "SET_SHADOW": {
+      "name": "万影",
+      "two": "暗影伤害 +16%，暴击 +6%",
+      "three": "手里剑分裂 +2级倾向",
+      "bonus2": {
+        "shadowDmg": 0.16,
+        "crit": 0.06
+      },
+      "bonus3": {
+        "virtual": {
+          "P024": 2
+        }
+      }
+    },
+    "SET_KI": {
+      "name": "星河",
+      "two": "气系伤害 +18%，冷却 -8%",
+      "three": "穿透+1级倾向，气功范围 +10%",
+      "bonus2": {
+        "kiDmg": 0.18,
+        "cdr": 0.08
+      },
+      "bonus3": {
+        "virtual": {
+          "P022": 1
+        },
+        "area": 0.1
+      }
+    },
+    "SET_CHAOS": {
+      "name": "乱世混沌",
+      "two": "Boss伤害 +20%",
+      "three": "全元素 +10%，对护盾伤害提高",
+      "bonus2": {
+        "bossDmg": 0.2
+      },
+      "bonus3": {
+        "allElement": 0.1,
+        "shieldDmg": 0.25
+      }
+    },
+    "SET_YAOLING": {
+      "name": "妖王斗战",
+      "two": "精英伤害 +20%，范围 +10%",
+      "three": "召唤/近战伤害 +15%",
+      "bonus2": {
+        "eliteDmg": 0.2,
+        "area": 0.1
+      },
+      "bonus3": {
+        "summonDmg": 0.15,
+        "physicalDmg": 0.15
+      }
+    },
+    "SET_NINJABOSS": {
+      "name": "忍王残响",
+      "two": "火/暗影伤害 +12%",
+      "three": "分裂 +1级、暴击伤害 +18%",
+      "bonus2": {
+        "fireDmg": 0.12,
+        "shadowDmg": 0.12
+      },
+      "bonus3": {
+        "virtual": {
+          "P024": 1
+        },
+        "critDmg": 0.18
+      }
+    },
+    "SET_RIFT": {
+      "name": "万界裂隙",
+      "two": "全伤害 +12%",
+      "three": "进化/融合伤害 +22%，范围 +12%",
+      "bonus2": {
+        "allDamage": 0.12
+      },
+      "bonus3": {
+        "evoFusionDmg": 0.22,
+        "area": 0.12
+      }
+    }
+  },
+  "affixPool": [
+    [
+      "atkPct",
+      "攻击%",
+      0.035,
+      0.085
+    ],
+    [
+      "hpPct",
+      "生命%",
+      0.04,
+      0.1
+    ],
+    [
+      "defPct",
+      "防御%",
+      0.05,
+      0.12
+    ],
+    [
+      "crit",
+      "暴击率",
+      0.018,
+      0.055
+    ],
+    [
+      "critDmg",
+      "暴击伤害",
+      0.06,
+      0.16
+    ],
+    [
+      "cdr",
+      "冷却缩减",
+      0.025,
+      0.07
+    ],
+    [
+      "area",
+      "范围",
+      0.03,
+      0.09
+    ],
+    [
+      "move",
+      "移动速度",
+      0.02,
+      0.06
+    ],
+    [
+      "bossDmg",
+      "Boss伤害",
+      0.04,
+      0.12
+    ],
+    [
+      "eliteDmg",
+      "精英伤害",
+      0.05,
+      0.14
+    ],
+    [
+      "fireDmg",
+      "火系伤害",
+      0.04,
+      0.13
+    ],
+    [
+      "lightningDmg",
+      "雷系伤害",
+      0.04,
+      0.13
+    ],
+    [
+      "shadowDmg",
+      "暗影伤害",
+      0.04,
+      0.13
+    ],
+    [
+      "kiDmg",
+      "气系伤害",
+      0.04,
+      0.13
+    ],
+    [
+      "summonDmg",
+      "召唤伤害",
+      0.05,
+      0.15
+    ],
+    [
+      "lifesteal",
+      "吸血",
+      0.006,
+      0.018
+    ]
+  ],
+  "rarityAffixCounts": {
+    "blue": 2,
+    "purple": 3,
+    "gold": 4,
+    "mythic": 5
+  },
+  "bossDrops": {
+    "B001": [
+      "EQW007",
+      "EQA007",
+      "EQX007"
+    ],
+    "B002": [
+      "EQX007",
+      "EQW007",
+      "EQA007"
+    ],
+    "B003": [
+      "EQA007",
+      "EQW007",
+      "EQX007"
+    ],
+    "B006": [
+      "EQW008",
+      "EQA009",
+      "EQX008"
+    ],
+    "B008": [
+      "EQX008",
+      "EQW008",
+      "EQA009"
+    ],
+    "B009": [
+      "EQA008",
+      "EQW009",
+      "EQX009"
+    ],
+    "B010": [
+      "EQX009",
+      "EQA008",
+      "EQW009"
+    ],
+    "B011": [
+      "EQW009",
+      "EQA008",
+      "EQX009"
+    ]
+  }
+}

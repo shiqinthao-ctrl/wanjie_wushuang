@@ -7,7 +7,7 @@ import MovePad from './MovePad.vue';
 const emit = defineEmits<{ exit: [] }>();
 const host = ref<HTMLElement>();
 const pauseDialog = ref<HTMLDialogElement>();
-const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0 });
+const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0, hp: 0, maxHp: 0 });
 const error = ref('');
 const ready = ref(false);
 const leaving = ref(false);

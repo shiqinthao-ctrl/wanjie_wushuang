@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { defineAsyncComponent, nextTick, ref } from 'vue';
+import fresh from './data/freshSave.json';
+import { calculateStartup } from './core/growth';
+const prepared = calculateStartup(fresh);
 const BattleView = defineAsyncComponent(() => import('./ui/BattleView.vue'));
 const page = ref<'home' | 'battle' | 'settings'>('home');
 const startButton = ref<HTMLButtonElement>();
@@ -17,7 +20,7 @@ async function home() { page.value = 'home'; await nextTick(); startButton.value
         <img class="hero-portrait" :src="`${base}art/hero-h001.svg`" alt="赤焰战神" />
         <div class="hero-caption"><small>H001</small><h1>赤焰战神</h1><p>炎龙斩尽乱世，赤火照破荒原。</p></div>
       </div>
-      <div class="expedition"><span class="eyebrow">下一站 · ST001-01</span><h2>边境清剿</h2><p>在 06:00 前击败黄巾巨将并领取战利品。</p><div class="mission-line"><span>竖屏战场</span><span>赤焰战神</span><span>乱世荒原</span></div><button ref="startButton" class="primary embark" @click="page = 'battle'">进入战场预览 <span aria-hidden="true">→</span></button><p class="release-note">移动版建设中，当前可预览场景与移动操作。</p></div>
+      <div class="expedition"><span class="eyebrow">下一站 · ST001-01</span><h2>边境清剿</h2><p>在 06:00 前击败黄巾巨将并领取战利品。</p><div class="mission-line"><span>Lv.{{ fresh.heroes.H001.level }}</span><span>赤焰战神</span><span>火灵同行</span></div><dl class="preparation" aria-label="出征属性"><div><dt>生命</dt><dd>{{ Math.round(prepared.player.maxHp) }}</dd></div><div><dt>攻击</dt><dd>{{ Math.round(prepared.player.atk) }}</dd></div><div><dt>暴击</dt><dd>{{ (prepared.player.crit * 100).toFixed(1) }}%</dd></div></dl><button ref="startButton" class="primary embark" @click="page = 'battle'">进入战场预览 <span aria-hidden="true">→</span></button><p class="release-note">移动版建设中，当前可预览场景与移动操作。</p></div>
     </section>
     <section v-else class="settings"><small class="eyebrow">行前须知</small><h1>设置与帮助</h1><dl><dt>移动操作</dt><dd>手机拖动左下方摇杆；电脑使用 WASD 或方向键。</dd><dt>暂停与恢复</dt><dd>点击暂停，或按 Esc。离开页面会暂停，返回后手动继续。</dd><dt>当前版本</dt><dd>移动版场景预览。完整战斗与存档迁移正在建设中。</dd></dl><button class="primary" @click="home">返回大厅</button></section>
     <footer>万界无双 <span>移动版 · 开发预览</span></footer>

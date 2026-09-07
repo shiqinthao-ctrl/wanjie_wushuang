@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { GameCore } from './GameCore';
+import oracle from '../../../../tasks/mobile-modernization/baseline/growth-oracle.json';
 
 describe('GameCore lifecycle', () => {
+  it('starts from the migrated fresh equipped stats, without changing the fixture', () => {
+    const core = new GameCore(); core.start();
+    expect(core.renderState().player).toEqual({ x: 1800, y: 1200, ...oracle.cases[0]!.expected.player });
+  });
   it('has one lifetime and never advances before start or after destroy', () => {
     const core = new GameCore();
     core.advance(1);

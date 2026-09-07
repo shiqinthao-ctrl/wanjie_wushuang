@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P1 independent Vue/TypeScript/Vite/Phaser 4 WebGL scaffold: lobby, movement, pause, interruption, teardown and asset-failure recovery. P0 confirms ST001-01 has B001 at 270s and a 360s goal.
+P2a typed startup growth/equipment/rune/pet rules implemented, wired to GameCore and preparation UI. 179 isolated legacy oracle cases match. ST001-01 retains existing B001 at 270s and 360s goal.
 
 ## Changed files
-TASK.md; apps/mobile-next source, locked dependencies and tests; tasks/mobile-modernization/STATUS.md; handoff/STATE.md. Legacy runtime unchanged.
+TASK.md; app growth/save types/data, GameCore, preparation UI and tests; migration growth capture/oracle/evidence; handoff. Legacy runtime unchanged; no added dependencies.
 
 ## Tests
-P1: legacy check/smoke/audit/context/archive all pass; 49 baseline hashes match; strict typecheck/build and 4 core tests pass; 6 Chrome browser tests pass (1280x720, 390x844, 320x844, 4 mount cycles each, blur pause and asset failure). Not physical-device evidence.
+P2a: 185 tests pass, including 179 legacy startup cases/no save mutation. Legacy 5 gates, 49 hashes and strict build pass. Six Chrome preparation/lifecycle checks pass across desktop and two portrait sizes.
 
 ## Unresolved risk
 Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Combat, storage, content parity and PWA pending. Phaser chunk is 359KB gzip; no measured performance gain. No entry switch/deployment.
 
 ## Recommended next task
-P2a: migrate typed startup growth/equipment/rune/pet calculations against legacy behavior, then implement H001/ST001-01 combat in bounded slices.
+P2b: migrate XP crystals, level options and choice state against existing authority; continue H001/ST001-01 combat in bounded slices. Do not replace original Boss objective.
 
 ## After each task
 Replace only these fields:

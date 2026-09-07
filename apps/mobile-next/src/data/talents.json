@@ -1,0 +1,182 @@
+{
+  "T001": {
+    "name": "强攻",
+    "b": "attack",
+    "desc": "攻击+2%/级",
+    "bonus": {
+      "atkPct": 0.02
+    }
+  },
+  "T002": {
+    "name": "致命",
+    "b": "attack",
+    "desc": "暴击+1%/级",
+    "bonus": {
+      "crit": 0.01
+    },
+    "pre": "T001"
+  },
+  "T003": {
+    "name": "破军",
+    "b": "attack",
+    "desc": "Boss伤害+3%/级",
+    "bonus": {
+      "bossDmg": 0.03
+    },
+    "pre": "T001"
+  },
+  "T004": {
+    "name": "猎杀",
+    "b": "attack",
+    "desc": "精英伤害+4%/级",
+    "bonus": {
+      "eliteDmg": 0.04
+    },
+    "pre": "T002"
+  },
+  "T005": {
+    "name": "狂潮",
+    "b": "attack",
+    "desc": "全伤害+2%/级",
+    "bonus": {
+      "allDamage": 0.02
+    },
+    "pre": "T003",
+    "req": 10
+  },
+  "T006": {
+    "name": "体魄",
+    "b": "survival",
+    "desc": "生命+3%/级",
+    "bonus": {
+      "hpPct": 0.03
+    }
+  },
+  "T007": {
+    "name": "铁壁",
+    "b": "survival",
+    "desc": "防御+4%/级",
+    "bonus": {
+      "defPct": 0.04
+    },
+    "pre": "T006"
+  },
+  "T008": {
+    "name": "再生",
+    "b": "survival",
+    "desc": "吸血+0.2%/级",
+    "bonus": {
+      "lifesteal": 0.002
+    },
+    "pre": "T006"
+  },
+  "T009": {
+    "name": "闪身",
+    "b": "survival",
+    "desc": "移动+1%/级",
+    "bonus": {
+      "move": 0.01
+    },
+    "pre": "T007"
+  },
+  "T010": {
+    "name": "不屈",
+    "b": "survival",
+    "desc": "低血量减伤+3%/级",
+    "bonus": {
+      "lowHpDR": 0.03
+    },
+    "pre": "T008",
+    "req": 10
+  },
+  "T011": {
+    "name": "学识",
+    "b": "growth",
+    "desc": "经验+4%/级",
+    "bonus": {
+      "xpPct": 0.04
+    }
+  },
+  "T012": {
+    "name": "贪婪",
+    "b": "growth",
+    "desc": "金币+4%/级",
+    "bonus": {
+      "goldPct": 0.04
+    },
+    "pre": "T011"
+  },
+  "T013": {
+    "name": "寻宝",
+    "b": "growth",
+    "desc": "掉落品质+2%/级",
+    "bonus": {
+      "dropPct": 0.02
+    },
+    "pre": "T011"
+  },
+  "T014": {
+    "name": "精通",
+    "b": "growth",
+    "desc": "熟练度+5%/级",
+    "bonus": {
+      "masteryPct": 0.05
+    },
+    "pre": "T012"
+  },
+  "T015": {
+    "name": "远征",
+    "b": "growth",
+    "desc": "账号经验+6%/级",
+    "bonus": {
+      "accountXpPct": 0.06
+    },
+    "pre": "T013",
+    "req": 15
+  },
+  "T016": {
+    "name": "广域",
+    "b": "tech",
+    "desc": "范围+2%/级",
+    "bonus": {
+      "area": 0.02
+    }
+  },
+  "T017": {
+    "name": "迅捷",
+    "b": "tech",
+    "desc": "冷却-1.5%/级",
+    "bonus": {
+      "cdr": 0.015
+    },
+    "pre": "T016"
+  },
+  "T018": {
+    "name": "多重",
+    "b": "tech",
+    "desc": "每2级多重倾向+1",
+    "virtual": {
+      "P021": 0.5
+    },
+    "pre": "T016"
+  },
+  "T019": {
+    "name": "持续",
+    "b": "tech",
+    "desc": "每2级持续倾向+1",
+    "virtual": {
+      "P017": 0.5
+    },
+    "pre": "T017"
+  },
+  "T020": {
+    "name": "万法",
+    "b": "tech",
+    "desc": "进化/融合伤害+4%/级",
+    "bonus": {
+      "evoFusionDmg": 0.04
+    },
+    "pre": "T018",
+    "req": 20
+  }
+}

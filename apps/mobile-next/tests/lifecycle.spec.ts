@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import oracle from '../../../tasks/mobile-modernization/baseline/growth-oracle.json' with { type: 'json' };
 
 test('loads real WebGL, pauses, exits and remounts without duplicate canvases', async ({ page }, testInfo) => {
   const errors: string[] = [];
@@ -7,6 +8,7 @@ test('loads real WebGL, pauses, exits and remounts without duplicate canvases', 
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
   await page.goto('./');
   await expect(page.getByRole('heading', { name: '赤焰战神' })).toBeVisible();
+  await expect(page.getByLabel('出征属性')).toContainText(String(Math.round(oracle.cases[0]!.expected.player.atk)));
   await expect(page.locator('canvas')).toHaveCount(0);
   await page.getByRole('button', { name: '设置', exact: true }).click();
   await expect(page.getByRole('heading', { name: '设置与帮助' })).toBeVisible();

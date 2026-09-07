@@ -1,23 +1,24 @@
-# TASK.md - Mobile modernization / P1 runtime skeleton
+# TASK.md - Mobile modernization / P2a startup rules
 
-Status: in progress. Approved roadmap: tasks/mobile-modernization/PLAN.md.
+Status: complete. Approved roadmap: tasks/mobile-modernization/PLAN.md.
 
 ## Goal and scope
-Build apps/mobile-next as an independent portrait-first Vite/TypeScript/Phaser 4/
-Vue 3 application. One GameCore, one Phaser frame driver; Vue owns menus and
-commands only. Prove mount, movement, pause, visibility loss and teardown.
-No gameplay parity claim until P2/P3. Preserve legacy entry and its script order.
+Migrate permanent growth, equipped instance bonuses, sets, rune/pet resonance
+and startup player calculation into independent typed modules. Use the preserved
+legacy runtime as an isolated rule oracle, with fresh Schema30 and explicit test
+variants. Wire H001 stats into the preview and preparation summary. This is a
+prerequisite to P2 combat, not a claim of playable first-stage parity.
 
 ## Authorized dependencies
-Only inside apps/mobile-next: phaser, vue; development dependencies vite,
-typescript, @vitejs/plugin-vue, vue-tsc, vitest, @playwright/test, @types/node.
-Pin compatible versions with a local package-lock. PWA/storage dependencies
-will be authorized in their specific slices. No root runtime dependencies.
+Current app dependencies remain authorized. No additions in this slice.
+Allowed: apps/mobile-next source/data/tests; tasks/mobile-modernization tools,
+fixtures and evidence; five handoff sections. Old runtime/saves remain unchanged.
 
 ## Acceptance
-Strict typecheck, focused core/input tests, production build; isolated browser
-start/pause/resume/exit cycles at desktop, 390x844, 320x844 with no errors or
-remaining canvases. Record WebGL and resource failures truthfully.
+Compare all six heroes, level/star/mastery thresholds, 30 equipment templates,
+sets, all rune resonance types and five pets against the legacy oracle. Preserve
+operation order, intermediate rounding, instance identity and virtual passives.
+Strict types, rule tests, production build and preparation/browser acceptance.
 Run legacy check -> smoke -> audit -> context -> archive:verify; then new checks.
 Update five handoff sections; preserve baseline hashes and all save invariants.
 

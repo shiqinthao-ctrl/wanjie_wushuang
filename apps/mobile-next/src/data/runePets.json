@@ -1,0 +1,216 @@
+{
+  "runes": {
+    "R001": {
+      "name": "狂战符文",
+      "type": "offense",
+      "desc": "攻击+8%，低于40%生命时额外+10%。",
+      "bonus": {
+        "atkPct": 0.08
+      }
+    },
+    "R002": {
+      "name": "破军符文",
+      "type": "offense",
+      "desc": "Boss伤害+12%。",
+      "bonus": {
+        "bossDmg": 0.12
+      }
+    },
+    "R003": {
+      "name": "暴君符文",
+      "type": "offense",
+      "desc": "精英伤害+15%，暴击伤害+10%。",
+      "bonus": {
+        "eliteDmg": 0.15,
+        "critDmg": 0.1
+      }
+    },
+    "R004": {
+      "name": "连击符文",
+      "type": "offense",
+      "desc": "连击达到30/60/100时攻击速度逐级提高。",
+      "bonus": {}
+    },
+    "R006": {
+      "name": "杀戮符文",
+      "type": "offense",
+      "desc": "击杀敌人后3秒全伤害+12%。",
+      "bonus": {}
+    },
+    "R011": {
+      "name": "奥术符文",
+      "type": "shape",
+      "desc": "技能伤害+8%，冷却缩减+4%。",
+      "bonus": {
+        "allDamage": 0.08,
+        "cdr": 0.04
+      }
+    },
+    "R012": {
+      "name": "巨化符文",
+      "type": "shape",
+      "desc": "所有技能范围+12%。",
+      "bonus": {
+        "area": 0.12
+      }
+    },
+    "R013": {
+      "name": "分裂符文",
+      "type": "shape",
+      "desc": "分裂能力视为P024+1级。",
+      "virtual": {
+        "P024": 1
+      }
+    },
+    "R015": {
+      "name": "持续符文",
+      "type": "shape",
+      "desc": "持续强化视为P017+1级。",
+      "virtual": {
+        "P017": 1
+      }
+    },
+    "R017": {
+      "name": "多重符文",
+      "type": "shape",
+      "desc": "多重射击视为P021+1级。",
+      "virtual": {
+        "P021": 1
+      }
+    },
+    "R021": {
+      "name": "吸血符文",
+      "type": "survival",
+      "desc": "造成伤害时获得少量生命回复。",
+      "bonus": {
+        "lifesteal": 0.016
+      }
+    },
+    "R022": {
+      "name": "护盾符文",
+      "type": "survival",
+      "desc": "每20秒生成12%最大生命护盾。",
+      "bonus": {}
+    },
+    "R025": {
+      "name": "闪避符文",
+      "type": "survival",
+      "desc": "闪避冷却-12%，闪避后2秒减伤。",
+      "bonus": {}
+    },
+    "R031": {
+      "name": "火神符文",
+      "type": "element",
+      "desc": "火系伤害+16%。",
+      "bonus": {
+        "fireDmg": 0.16
+      }
+    },
+    "R032": {
+      "name": "雷神符文",
+      "type": "element",
+      "desc": "雷系伤害+16%，弹射倾向+1。",
+      "bonus": {
+        "lightningDmg": 0.16
+      },
+      "virtual": {
+        "P023": 1
+      }
+    },
+    "R033": {
+      "name": "冰神符文",
+      "type": "element",
+      "desc": "控制/范围技能额外扩大。",
+      "bonus": {
+        "area": 0.05
+      }
+    },
+    "R035": {
+      "name": "风神符文",
+      "type": "element",
+      "desc": "范围+6%，移动速度+4%。",
+      "bonus": {
+        "area": 0.06,
+        "move": 0.04
+      }
+    },
+    "R041": {
+      "name": "贪婪符文",
+      "type": "economy",
+      "desc": "本局金币收益+18%。",
+      "bonus": {
+        "goldPct": 0.18
+      }
+    },
+    "R043": {
+      "name": "学者符文",
+      "type": "economy",
+      "desc": "经验获取+18%。",
+      "bonus": {
+        "xpPct": 0.18
+      }
+    },
+    "R046": {
+      "name": "磁力符文",
+      "type": "economy",
+      "desc": "宝箱/掉落品质略微提高。",
+      "bonus": {
+        "dropPct": 0.06
+      }
+    }
+  },
+  "pets": {
+    "PET001": {
+      "name": "火灵",
+      "kind": "fire",
+      "passive": "火系伤害+8%。",
+      "skill": "灼炎喷吐：每8秒向最近敌人喷出火焰，留下燃烧区域。",
+      "cd": 8,
+      "bonus": {
+        "fireDmg": 0.08
+      }
+    },
+    "PET002": {
+      "name": "雷狼",
+      "kind": "lightning",
+      "passive": "雷系伤害+7%，移动速度+3%。",
+      "skill": "雷牙链击：每9秒扑击目标并触发4段链雷。",
+      "cd": 9,
+      "bonus": {
+        "lightningDmg": 0.07,
+        "move": 0.03
+      }
+    },
+    "PET007": {
+      "name": "治疗精灵",
+      "kind": "heal",
+      "passive": "最大生命+6%。",
+      "skill": "治愈祷言：生命低于70%时每12秒恢复18%最大生命。",
+      "cd": 12,
+      "bonus": {
+        "hpPct": 0.06
+      }
+    },
+    "PET011": {
+      "name": "招财猫",
+      "kind": "lucky",
+      "passive": "金币+15%，Boss掉落高品质概率提高。",
+      "skill": "招财铃：每15秒获得小额本局金币并提高短时幸运。",
+      "cd": 15,
+      "bonus": {
+        "goldPct": 0.15,
+        "dropPct": 0.1
+      }
+    },
+    "PET015": {
+      "name": "镜像精灵",
+      "kind": "mirror",
+      "passive": "技能冷却-4%。",
+      "skill": "镜像复制：每11秒复制最近一次Build主动技能的弱化版本。",
+      "cd": 11,
+      "bonus": {
+        "cdr": 0.04
+      }
+    }
+  }
+}
