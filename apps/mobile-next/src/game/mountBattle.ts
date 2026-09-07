@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { GameCore } from '../core/GameCore';
 import type { UiSnapshot } from '../core/GameCore';
+import { MapView } from './MapView';
 
 export interface BattleHandle { core: GameCore; destroy(): Promise<void> }
 
@@ -12,6 +13,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     private hero?: Phaser.GameObjects.Image;
     private crystals?: Phaser.GameObjects.Graphics;
     private combatGraphics?: Phaser.GameObjects.Graphics;
+    private mapView?: MapView;
     private enemySprites: Phaser.GameObjects.Image[] = [];
     private pulses: { x: number; y: number; radius: number; life: number; source: string }[] = [];
     preload() {
@@ -25,6 +27,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       core.start(this.scale.width, this.scale.height);
       const { world, player } = core.renderState();
       this.add.image(0, 0, 'ground').setOrigin(0).setDisplaySize(world.width, world.height);
+      this.mapView = new MapView(this);
       this.crystals = this.add.graphics();
       this.combatGraphics = this.add.graphics();
       this.hero = this.add.image(player.x, player.y, 'hero').setDisplaySize(66, 81).setOrigin(.5, .84).setDepth(3);
@@ -36,7 +39,8 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       if (removed || !this.hero) return;
       core.resize(this.scale.width, this.scale.height);
       core.advance(delta / 1000);
-      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet } = core.renderState();
+      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map } = core.renderState();
+      this.mapView?.draw(map, player);
       const graphics = this.combatGraphics!; graphics.clear();
       for (const field of fields) graphics.fillStyle(0xef694e, .12).fillCircle(field.x, field.y, field.r).lineStyle(1, 0xffba70, .45).strokeCircle(field.x, field.y, field.r);
       for (const vortex of vortices) {

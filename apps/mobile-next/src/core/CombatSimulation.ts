@@ -7,6 +7,7 @@ import { cap, caps, clampPoint, createEnemy, difficultyFor, director, earlyEnemy
 import type { Enemy, Point } from './spawnRules';
 import forms from '../data/skillForms.json';
 import pets from '../data/runePets.json';
+import { FirstStageMap } from './FirstStageMap';
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
@@ -47,6 +48,7 @@ export class CombatSimulation {
   readonly enemyShots: HostileShot[] = [];
   readonly cool: Record<string, number> = {};
   readonly pet;
+  readonly map: FirstStageMap;
   private input: Point = { x: 0, y: 0 };
   private response: Point = { x: 0, y: 0 };
   private dodgeDirection: Point = { x: 0, y: -1 };
@@ -75,6 +77,7 @@ export class CombatSimulation {
     this.baseAspd = startup.player.aspd;
     const cd = pets.pets.PET001.cd;
     this.pet = { x: 1836, y: 1176, angle: 0, cd: cd * .35, maxCd: cd };
+    this.map = new FirstStageMap(this, random);
   }
   state(): CombatState { return { ...this.progression.snapshot(), ...this.player, evolved: this.evolved, killBuff: this.killBuff, mode: 'story' }; }
   directorState() { return { time: this.time, kills: this.kills, dps: this.dps, level: this.progression.snapshot().level, evolved: Object.keys(this.evolved).length, fused: 0 }; }
@@ -197,6 +200,7 @@ export class CombatSimulation {
       if (distance(this.player, shot) < this.player.r + shot.r) { this.hurt(shot.dmg); this.enemyShots.splice(i, 1); }
       else if (shot.life <= 0) this.enemyShots.splice(i, 1);
     }
+    this.map.advanceHazards(dt);
     const wave = waveAt(this.time);
     if (this.lastWave !== wave.at) {
       this.lastWave = wave.at;
@@ -309,7 +313,7 @@ export class CombatSimulation {
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
   renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]) })), projectiles: cloneList(this.projectiles), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }) }; }
   destroy(): void {
-    this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear();
+    this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy();
     for (const items of [this.enemies, this.projectiles, this.fields, this.vortices, this.meteors, this.bombs, this.enemyShots]) items.length = 0;
   }
 }

@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2d H001 actions, first-stage enemies, prepared skills and PET001 are connected. Natural kill/XP/choice/resume passes. ST001-01 still requires B001 at 270s and 360s goal; Boss/settlement remain pending.
+P2e map verified. Six interactables, fireline hazards and five timed recoveries connected. P2a-d combat/growth remains verified. ST001-01 B001 at 270s and 360s goal remain required.
 
 ## Changed files
-TASK.md; app CombatSimulation/spawn rules, GameCore, Phaser rendering, touch/keyboard UI and tests; first-combat oracle/capture/verifier/evidence; status and handoff. Legacy unchanged; no added dependencies.
+TASK.md; app FirstStageMap/MapView, combat/core integration, controls/UI/help/tests; first-map oracle/capture/evidence; status and handoff. Legacy unchanged; no added dependencies.
 
 ## Tests
-P2d: 734 app tests, 8 exact Chrome spawns, 9 desktop/portrait browser checks pass (natural growth and 4 scene cycles per size). Legacy 5 gates, 49 hashes, strict types/build pass.
+P2e: legacy 5 gates, 30/30 archives, 49/49 hashes, strict types/build, 754/754 rule tests and 12/12 browser paths pass. Includes natural map interaction on desktop, 390px and 320px widths; not physical-device acceptance.
 
 ## Unresolved risk
-Preview lacks map/events/Boss/loot/settlement, audio and full content. Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Storage/PWA pending. Battle chunk about 372KB gzip; no measured performance gain.
+Preview lacks events/chests/evolution/Boss/loot/settlement, audio and full content. Boss map damage/trap clearing must join with Boss entities. Physical phones, thermal endurance, storage/PWA pending. Battle chunk about 373KB gzip; no measured gain.
 
 ## Recommended next task
-P2e: migrate first-stage map, timed recovery/events and chest interactions with legacy rule fixtures and visible prompts. Then original B001/Boss Loot and atomic settlement to complete P2.
+P2f: migrate first-stage events, timed chests and required gear reward rules with legacy fixtures. Then evolution/fusion, original B001/Boss Loot and atomic settlement to complete P2.
 
 ## After each task
 Replace only these fields:

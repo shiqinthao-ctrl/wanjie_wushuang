@@ -22,7 +22,7 @@ async function home() { page.value = 'home'; await nextTick(); startButton.value
       </div>
       <div class="expedition"><span class="eyebrow">下一站 · ST001-01</span><h2>边境清剿</h2><p>在 06:00 前击败黄巾巨将并领取战利品。</p><div class="mission-line"><span>Lv.{{ fresh.heroes.H001.level }}</span><span>赤焰战神</span><span>火灵同行</span></div><dl class="preparation" aria-label="出征属性"><div><dt>生命</dt><dd>{{ Math.round(prepared.player.maxHp) }}</dd></div><div><dt>攻击</dt><dd>{{ Math.round(prepared.player.atk) }}</dd></div><div><dt>暴击</dt><dd>{{ (prepared.player.crit * 100).toFixed(1) }}%</dd></div></dl><button ref="startButton" class="primary embark" @click="page = 'battle'">进入战场预览 <span aria-hidden="true">→</span></button><p class="release-note">移动版建设中，可体验战斗与升级；首领和结算尚未接入。</p></div>
     </section>
-    <section v-else class="settings"><small class="eyebrow">行前须知</small><h1>设置与帮助</h1><dl><dt>移动操作</dt><dd>手机拖动左下方摇杆；电脑使用 WASD 或方向键。</dd><dt>战斗操作</dt><dd>普通攻击自动释放。点击右下方按钮使用闪避、炎龙斩和赤龙降世；电脑对应 Space、E / Q、R。</dd><dt>暂停与恢复</dt><dd>点击暂停，或按 Esc。离开页面会暂停，返回后手动继续。</dd><dt>当前版本</dt><dd>移动版战斗预览。可体验击杀、拾取和升级；首领、奖励结算与存档迁移正在建设中。</dd></dl><button class="primary" @click="home">返回大厅</button></section>
+    <section v-else class="settings"><small class="eyebrow">行前须知</small><h1>设置与帮助</h1><dl><dt>移动操作</dt><dd>手机拖动左下方摇杆；电脑使用 WASD 或方向键。</dd><dt>战斗操作</dt><dd>普通攻击自动释放。点击右下方按钮使用闪避、炎龙斩和赤龙降世；电脑对应 Space、E / Q、R。跟随地图指引靠近互动点，点击互动或按 F 使用。</dd><dt>暂停与恢复</dt><dd>点击暂停，或按 Esc。离开页面会暂停，返回后手动继续。</dd><dt>当前版本</dt><dd>移动版战斗预览。可体验击杀、拾取、升级和地图互动；首领、奖励结算与存档迁移正在建设中。</dd></dl><button class="primary" @click="home">返回大厅</button></section>
     <footer>万界无双 <span>移动版 · 开发预览</span></footer>
   </main>
 </template>

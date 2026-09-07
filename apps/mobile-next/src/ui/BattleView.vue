@@ -11,7 +11,7 @@ const host = ref<HTMLElement>();
 const pauseDialog = ref<HTMLDialogElement>();
 const choiceDialog = ref<HTMLDialogElement>();
 const endDialog = ref<HTMLDialogElement>();
-const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0, hp: 0, maxHp: 0, level: 1, xp: 0, xpNeed: 26, skills: {}, passives: {}, choice: undefined, kills: 0, heat: 0, dodgeCd: 0, skillCd: 0, ult: 0 });
+const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0, hp: 0, maxHp: 0, level: 1, xp: 0, xpNeed: 26, skills: {}, passives: {}, choice: undefined, kills: 0, heat: 0, dodgeCd: 0, skillCd: 0, ult: 0, map: { used: 0, bonusGold: 0, hazardSuppress: 0, target: undefined, notice: '' } });
 const error = ref('');
 const ready = ref(false);
 const leaving = ref(false);
@@ -35,6 +35,10 @@ function choose(token: number, kind: ChoiceKind, id: string) {
 function action(value: Action) {
   if (document.hidden || !handle) return;
   handle.core.action(value); snapshot.value = handle.core.snapshot();
+}
+function interact() {
+  if (document.hidden || !handle) return;
+  handle.core.interact(); snapshot.value = handle.core.snapshot();
 }
 watch(() => snapshot.value.status, status => {
   if (status !== 'running') controls?.clear();
@@ -69,7 +73,14 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
     <p class="stage-note">战斗预览 · 首领与结算建设中</p>
     <div class="combat-vitals" aria-label="战斗状态"><div><span>生命 {{ Math.ceil(snapshot.hp) }} / {{ Math.ceil(snapshot.maxHp) }}</span><progress aria-label="生命值" :value="snapshot.hp" :max="snapshot.maxHp || 1"></progress></div><div><span>Lv.{{ snapshot.level }} · 经验 {{ Math.floor(snapshot.xp) }} / {{ snapshot.xpNeed }}</span><progress aria-label="经验值" :value="snapshot.xp" :max="snapshot.xpNeed"></progress></div></div>
     <div class="combat-record"><span aria-label="本局击杀">击破 {{ snapshot.kills }}</span><span>炎势 {{ Math.round(snapshot.heat) }}%</span></div>
-    <div v-if="ready && snapshot.status === 'running'" class="control-zone"><MovePad @move="(x, y) => handle?.core.move(x, y)" /><div class="action-pad"><button aria-label="闪避" :disabled="snapshot.dodgeCd > 0" @pointerdown.prevent="action('dodge')" @click="event => { if (event.detail === 0) action('dodge'); }"><strong>闪避</strong><small>{{ snapshot.dodgeCd > 0 ? snapshot.dodgeCd.toFixed(1) + 's' : 'Space' }}</small></button><button aria-label="炎龙斩" :disabled="snapshot.skillCd > 0" @pointerdown.prevent="action('skill')" @click="event => { if (event.detail === 0) action('skill'); }"><strong>炎龙斩</strong><small>{{ snapshot.skillCd > 0 ? snapshot.skillCd.toFixed(1) + 's' : 'E / Q' }}</small></button><button aria-label="赤龙降世" :disabled="snapshot.ult < 100" @pointerdown.prevent="action('ultimate')" @click="event => { if (event.detail === 0) action('ultimate'); }"><strong>赤龙降世</strong><small>{{ snapshot.ult < 100 ? Math.floor(snapshot.ult) + '%' : 'R' }}</small></button></div></div>
+    <aside v-if="ready" class="map-route" aria-label="地图指引">
+      <small aria-label="地图互动进度">地图互动 {{ Math.min(1, snapshot.map.used) }} / 1<span v-if="snapshot.map.hazardSuppress > 0"> · 压制 {{ Math.ceil(snapshot.map.hazardSuppress) }}s</span></small>
+      <p v-if="snapshot.map.target" aria-label="交互目标"><strong>{{ snapshot.map.target.name }}</strong> · {{ snapshot.map.target.canUse ? '可互动' : snapshot.map.target.direction + ' ' + snapshot.map.target.distance + 'm' }}</p>
+      <p v-else>地图互动已完成</p>
+      <small v-if="snapshot.map.target?.canUse">{{ snapshot.map.target.description }}</small>
+      <p v-if="snapshot.map.notice" class="map-notice" role="status" aria-label="地图反馈">{{ snapshot.map.notice }}</p>
+    </aside>
+    <div v-if="ready && snapshot.status === 'running'" class="control-zone"><MovePad @move="(x, y) => handle?.core.move(x, y)" /><div class="action-pad"><button aria-label="闪避" :disabled="snapshot.dodgeCd > 0" @pointerdown.prevent="action('dodge')" @click="event => { if (event.detail === 0) action('dodge'); }"><strong>闪避</strong><small>{{ snapshot.dodgeCd > 0 ? snapshot.dodgeCd.toFixed(1) + 's' : 'Space' }}</small></button><button aria-label="炎龙斩" :disabled="snapshot.skillCd > 0" @pointerdown.prevent="action('skill')" @click="event => { if (event.detail === 0) action('skill'); }"><strong>炎龙斩</strong><small>{{ snapshot.skillCd > 0 ? snapshot.skillCd.toFixed(1) + 's' : 'E / Q' }}</small></button><button aria-label="赤龙降世" :disabled="snapshot.ult < 100" @pointerdown.prevent="action('ultimate')" @click="event => { if (event.detail === 0) action('ultimate'); }"><strong>赤龙降世</strong><small>{{ snapshot.ult < 100 ? Math.floor(snapshot.ult) + '%' : 'R' }}</small></button><button aria-label="地图互动" :disabled="!snapshot.map.target?.canUse" @pointerdown.prevent="interact" @click="event => { if (event.detail === 0) interact(); }"><strong>互动</strong><small>{{ snapshot.map.target?.canUse ? 'F / 互动' : '靠近使用' }}</small></button></div></div>
     <div v-if="!ready || error" class="loading-curtain" role="status"><h2>{{ error ? '战场未能开启' : '正在前往乱世荒原' }}</h2><p>{{ error || '整装，待发。' }}</p><button @click="leave">返回大厅</button></div>
     <dialog ref="pauseDialog" class="pause-dialog" aria-labelledby="pause-title" @cancel.prevent>
       <small>暂停征途</small><h2 id="pause-title">战局已暂停</h2><p>切回页面后，点击继续再出发。</p>

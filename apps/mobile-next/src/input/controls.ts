@@ -10,6 +10,7 @@ export function bindKeyboard(core: GameCore, pause: () => void) {
     if (event.target instanceof Element && event.target.closest('button,input,textarea,select')) return;
     const key = event.key.toLowerCase();
     if (core.snapshot().status !== 'running') return;
+    if (key === 'f') { event.preventDefault(); if (!event.repeat) core.interact(); return; }
     if (['e', 'q', 'r', ' '].includes(key)) {
       event.preventDefault();
       if (!event.repeat) core.action(key === 'r' ? 'ultimate' : key === ' ' ? 'dodge' : 'skill');
