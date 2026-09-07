@@ -1,0 +1,362 @@
+{
+  "rule": {
+    "name": "剧情模式",
+    "icon": "章",
+    "desc": "首战保护已启用：敌潮与承伤更平缓，战意会按战斗节拍恢复。保持移动、及时施放技能，在6分钟内击败黄巾巨将并领取战利品。",
+    "duration": 360,
+    "reward": 1,
+    "tokens": 2,
+    "spawn": 0.88,
+    "hp": 0.9,
+    "dmg": 0.82,
+    "speed": 0.96,
+    "bossAt": 270,
+    "tags": [
+      "6分钟首战",
+      "首战保护",
+      "Boss战利品"
+    ],
+    "budget": 0.64,
+    "beat": "首战保护",
+    "incoming": 0.44,
+    "bossHp": 3,
+    "note": "六分钟教学Boss，低承伤与疏潮换取完整三阶段首领体验。",
+    "target": "在 06:00 前击败黄巾巨将并领取战利品",
+    "storyContract": {
+      "objective": "在 06:00 前击败黄巾巨将并领取战利品",
+      "duration": 360,
+      "bosses": [
+        "B001"
+      ],
+      "bossAt": 270,
+      "unlockAfter": null,
+      "stars": {
+        "clear": 2,
+        "mastery": 3,
+        "masteryHp": 0.55
+      },
+      "reward": {
+        "starGold": 100
+      }
+    },
+    "storyEncounter": {
+      "name": "边境疏火线",
+      "spawn": 0.88,
+      "elite": 0.7,
+      "horde": 0.7,
+      "enemies": [
+        [
+          "EN001",
+          5
+        ],
+        [
+          "EN002",
+          3
+        ],
+        [
+          "EN003",
+          1
+        ]
+      ],
+      "eventAt": [
+        45,
+        150
+      ],
+      "eventPool": [
+        "merchant",
+        "goldChest"
+      ],
+      "chestAt": [
+        90,
+        210
+      ],
+      "hazard": {
+        "type": "fireline",
+        "name": "边境疏火线",
+        "desc": "低频横向火线留出明确闪避窗口。",
+        "interval": 26,
+        "damage": 8,
+        "size": 36,
+        "life": 4
+      },
+      "waves": [
+        {
+          "at": 0,
+          "name": "步卒接战",
+          "type": "normal",
+          "budget": 0.78,
+          "elite": 0.35,
+          "note": "步卒与弓手建立基础走位"
+        },
+        {
+          "at": 60,
+          "name": "弓手压线",
+          "type": "normal",
+          "budget": 0.88,
+          "elite": 0.45,
+          "note": "远程火力开始夹击"
+        },
+        {
+          "at": 150,
+          "name": "盾阵试锋",
+          "type": "elite",
+          "budget": 0.96,
+          "elite": 0.85,
+          "note": "首名精英检验构筑"
+        },
+        {
+          "at": 270,
+          "name": "巨将压境",
+          "type": "boss",
+          "budget": 0.68,
+          "elite": 0.3,
+          "bosses": [
+            "B001"
+          ],
+          "note": "黄巾巨将登场"
+        },
+        {
+          "at": 360,
+          "name": "边境决胜",
+          "type": "end",
+          "budget": 0,
+          "elite": 0,
+          "note": "Boss战利品决定通关"
+        }
+      ]
+    },
+    "storyCurve": {
+      "budget": 0.64,
+      "beat": "首战保护",
+      "hp": 0.9,
+      "dmg": 0.82,
+      "speed": 0.96,
+      "incoming": 0.58,
+      "bossHp": 3,
+      "note": "六分钟教学Boss，低承伤与疏潮换取完整三阶段首领体验。"
+    },
+    "stage": "ST001-01",
+    "bossId": "B001",
+    "eventAt": [
+      45,
+      150
+    ],
+    "chestAt": [
+      90,
+      210
+    ],
+    "recoveryAt": [
+      75,
+      165,
+      255,
+      300,
+      330
+    ],
+    "recoveryRatio": 0.22,
+    "telegraphScale": 1.65,
+    "firstCampaign": true
+  },
+  "enemies": {
+    "EN001": {
+      "name": "黄巾步卒",
+      "map": "ST001",
+      "ai": "melee",
+      "hp": 70,
+      "speed": 68,
+      "damage": 8,
+      "color": "#a84b43"
+    },
+    "EN002": {
+      "name": "黄巾弓手",
+      "map": "ST001",
+      "ai": "ranged",
+      "hp": 55,
+      "speed": 54,
+      "damage": 7,
+      "color": "#9d6a44"
+    },
+    "EN003": {
+      "name": "黄巾盾兵",
+      "map": "ST001",
+      "ai": "shield",
+      "hp": 145,
+      "speed": 45,
+      "damage": 7,
+      "color": "#6e737c"
+    },
+    "EN004": {
+      "name": "黄巾骑兵",
+      "map": "ST001",
+      "ai": "charge",
+      "hp": 105,
+      "speed": 86,
+      "damage": 12,
+      "color": "#8d4b3b"
+    },
+    "EN005": {
+      "name": "火箭兵",
+      "map": "ST001",
+      "ai": "aoe_ranged",
+      "hp": 65,
+      "speed": 48,
+      "damage": 9,
+      "color": "#b45d3d"
+    },
+    "EN006": {
+      "name": "黄巾力士",
+      "map": "ST001",
+      "ai": "brute",
+      "hp": 220,
+      "speed": 38,
+      "damage": 16,
+      "color": "#b2844f"
+    },
+    "EN014": {
+      "name": "猴妖",
+      "map": "ST003",
+      "ai": "melee",
+      "hp": 85,
+      "speed": 76,
+      "damage": 9,
+      "color": "#8e6b40"
+    },
+    "EN015": {
+      "name": "狼妖",
+      "map": "ST003",
+      "ai": "flank",
+      "hp": 72,
+      "speed": 95,
+      "damage": 10,
+      "color": "#6c6f75"
+    },
+    "EN016": {
+      "name": "蛇妖",
+      "map": "ST003",
+      "ai": "poison",
+      "hp": 68,
+      "speed": 66,
+      "damage": 8,
+      "color": "#5e8a58"
+    },
+    "EN017": {
+      "name": "牛妖",
+      "map": "ST003",
+      "ai": "brute",
+      "hp": 260,
+      "speed": 40,
+      "damage": 18,
+      "color": "#825947"
+    },
+    "EN018": {
+      "name": "飞妖",
+      "map": "ST003",
+      "ai": "fly",
+      "hp": 62,
+      "speed": 82,
+      "damage": 8,
+      "color": "#7b6f92"
+    },
+    "EN019": {
+      "name": "妖术师",
+      "map": "ST003",
+      "ai": "summoner",
+      "hp": 90,
+      "speed": 45,
+      "damage": 7,
+      "color": "#77508d"
+    },
+    "EN020": {
+      "name": "石妖",
+      "map": "ST003",
+      "ai": "shield",
+      "hp": 210,
+      "speed": 36,
+      "damage": 12,
+      "color": "#77756b"
+    },
+    "EN021": {
+      "name": "下忍",
+      "map": "ST004",
+      "ai": "melee",
+      "hp": 78,
+      "speed": 84,
+      "damage": 9,
+      "color": "#6d596f"
+    },
+    "EN022": {
+      "name": "暗器忍",
+      "map": "ST004",
+      "ai": "ranged",
+      "hp": 60,
+      "speed": 74,
+      "damage": 8,
+      "color": "#64567b"
+    },
+    "EN023": {
+      "name": "火忍",
+      "map": "ST004",
+      "ai": "aoe_ranged",
+      "hp": 72,
+      "speed": 68,
+      "damage": 10,
+      "color": "#9a4f3d"
+    },
+    "EN024": {
+      "name": "雷忍",
+      "map": "ST004",
+      "ai": "dash",
+      "hp": 74,
+      "speed": 90,
+      "damage": 11,
+      "color": "#5573a1"
+    },
+    "EN025": {
+      "name": "分身忍",
+      "map": "ST004",
+      "ai": "clone",
+      "hp": 82,
+      "speed": 72,
+      "damage": 8,
+      "color": "#705d84"
+    },
+    "EN026": {
+      "name": "爆符忍",
+      "map": "ST004",
+      "ai": "trap",
+      "hp": 65,
+      "speed": 65,
+      "damage": 12,
+      "color": "#8c593d"
+    },
+    "EN027": {
+      "name": "医忍",
+      "map": "ST004",
+      "ai": "healer",
+      "hp": 95,
+      "speed": 55,
+      "damage": 5,
+      "color": "#5b8c76"
+    }
+  },
+  "affixes": [
+    "swift",
+    "tank",
+    "volatile",
+    "vamp",
+    "aura",
+    "split"
+  ],
+  "performance": "balanced",
+  "caps": {
+    "enemies": 230,
+    "shots": 260,
+    "enemyShots": 150,
+    "effects": 160,
+    "numbers": 110,
+    "traps": 80,
+    "v24Projectiles": 220,
+    "v24Fields": 22,
+    "v24Meteors": 28,
+    "v24Summons": 24
+  }
+}

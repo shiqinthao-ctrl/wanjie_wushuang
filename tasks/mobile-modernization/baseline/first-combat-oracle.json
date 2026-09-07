@@ -1,0 +1,2006 @@
+{
+  "evidence": "Isolated legacy synthetic action/spawn oracle, not natural gameplay.",
+  "config": {
+    "rule": {
+      "name": "剧情模式",
+      "icon": "章",
+      "desc": "首战保护已启用：敌潮与承伤更平缓，战意会按战斗节拍恢复。保持移动、及时施放技能，在6分钟内击败黄巾巨将并领取战利品。",
+      "duration": 360,
+      "reward": 1,
+      "tokens": 2,
+      "spawn": 0.88,
+      "hp": 0.9,
+      "dmg": 0.82,
+      "speed": 0.96,
+      "bossAt": 270,
+      "tags": [
+        "6分钟首战",
+        "首战保护",
+        "Boss战利品"
+      ],
+      "budget": 0.64,
+      "beat": "首战保护",
+      "incoming": 0.44,
+      "bossHp": 3,
+      "note": "六分钟教学Boss，低承伤与疏潮换取完整三阶段首领体验。",
+      "target": "在 06:00 前击败黄巾巨将并领取战利品",
+      "storyContract": {
+        "objective": "在 06:00 前击败黄巾巨将并领取战利品",
+        "duration": 360,
+        "bosses": [
+          "B001"
+        ],
+        "bossAt": 270,
+        "unlockAfter": null,
+        "stars": {
+          "clear": 2,
+          "mastery": 3,
+          "masteryHp": 0.55
+        },
+        "reward": {
+          "starGold": 100
+        }
+      },
+      "storyEncounter": {
+        "name": "边境疏火线",
+        "spawn": 0.88,
+        "elite": 0.7,
+        "horde": 0.7,
+        "enemies": [
+          [
+            "EN001",
+            5
+          ],
+          [
+            "EN002",
+            3
+          ],
+          [
+            "EN003",
+            1
+          ]
+        ],
+        "eventAt": [
+          45,
+          150
+        ],
+        "eventPool": [
+          "merchant",
+          "goldChest"
+        ],
+        "chestAt": [
+          90,
+          210
+        ],
+        "hazard": {
+          "type": "fireline",
+          "name": "边境疏火线",
+          "desc": "低频横向火线留出明确闪避窗口。",
+          "interval": 26,
+          "damage": 8,
+          "size": 36,
+          "life": 4
+        },
+        "waves": [
+          {
+            "at": 0,
+            "name": "步卒接战",
+            "type": "normal",
+            "budget": 0.78,
+            "elite": 0.35,
+            "note": "步卒与弓手建立基础走位"
+          },
+          {
+            "at": 60,
+            "name": "弓手压线",
+            "type": "normal",
+            "budget": 0.88,
+            "elite": 0.45,
+            "note": "远程火力开始夹击"
+          },
+          {
+            "at": 150,
+            "name": "盾阵试锋",
+            "type": "elite",
+            "budget": 0.96,
+            "elite": 0.85,
+            "note": "首名精英检验构筑"
+          },
+          {
+            "at": 270,
+            "name": "巨将压境",
+            "type": "boss",
+            "budget": 0.68,
+            "elite": 0.3,
+            "bosses": [
+              "B001"
+            ],
+            "note": "黄巾巨将登场"
+          },
+          {
+            "at": 360,
+            "name": "边境决胜",
+            "type": "end",
+            "budget": 0,
+            "elite": 0,
+            "note": "Boss战利品决定通关"
+          }
+        ]
+      },
+      "storyCurve": {
+        "budget": 0.64,
+        "beat": "首战保护",
+        "hp": 0.9,
+        "dmg": 0.82,
+        "speed": 0.96,
+        "incoming": 0.58,
+        "bossHp": 3,
+        "note": "六分钟教学Boss，低承伤与疏潮换取完整三阶段首领体验。"
+      },
+      "stage": "ST001-01",
+      "bossId": "B001",
+      "eventAt": [
+        45,
+        150
+      ],
+      "chestAt": [
+        90,
+        210
+      ],
+      "recoveryAt": [
+        75,
+        165,
+        255,
+        300,
+        330
+      ],
+      "recoveryRatio": 0.22,
+      "telegraphScale": 1.65,
+      "firstCampaign": true
+    },
+    "enemies": {
+      "EN001": {
+        "name": "黄巾步卒",
+        "map": "ST001",
+        "ai": "melee",
+        "hp": 70,
+        "speed": 68,
+        "damage": 8,
+        "color": "#a84b43"
+      },
+      "EN002": {
+        "name": "黄巾弓手",
+        "map": "ST001",
+        "ai": "ranged",
+        "hp": 55,
+        "speed": 54,
+        "damage": 7,
+        "color": "#9d6a44"
+      },
+      "EN003": {
+        "name": "黄巾盾兵",
+        "map": "ST001",
+        "ai": "shield",
+        "hp": 145,
+        "speed": 45,
+        "damage": 7,
+        "color": "#6e737c"
+      },
+      "EN004": {
+        "name": "黄巾骑兵",
+        "map": "ST001",
+        "ai": "charge",
+        "hp": 105,
+        "speed": 86,
+        "damage": 12,
+        "color": "#8d4b3b"
+      },
+      "EN005": {
+        "name": "火箭兵",
+        "map": "ST001",
+        "ai": "aoe_ranged",
+        "hp": 65,
+        "speed": 48,
+        "damage": 9,
+        "color": "#b45d3d"
+      },
+      "EN006": {
+        "name": "黄巾力士",
+        "map": "ST001",
+        "ai": "brute",
+        "hp": 220,
+        "speed": 38,
+        "damage": 16,
+        "color": "#b2844f"
+      },
+      "EN014": {
+        "name": "猴妖",
+        "map": "ST003",
+        "ai": "melee",
+        "hp": 85,
+        "speed": 76,
+        "damage": 9,
+        "color": "#8e6b40"
+      },
+      "EN015": {
+        "name": "狼妖",
+        "map": "ST003",
+        "ai": "flank",
+        "hp": 72,
+        "speed": 95,
+        "damage": 10,
+        "color": "#6c6f75"
+      },
+      "EN016": {
+        "name": "蛇妖",
+        "map": "ST003",
+        "ai": "poison",
+        "hp": 68,
+        "speed": 66,
+        "damage": 8,
+        "color": "#5e8a58"
+      },
+      "EN017": {
+        "name": "牛妖",
+        "map": "ST003",
+        "ai": "brute",
+        "hp": 260,
+        "speed": 40,
+        "damage": 18,
+        "color": "#825947"
+      },
+      "EN018": {
+        "name": "飞妖",
+        "map": "ST003",
+        "ai": "fly",
+        "hp": 62,
+        "speed": 82,
+        "damage": 8,
+        "color": "#7b6f92"
+      },
+      "EN019": {
+        "name": "妖术师",
+        "map": "ST003",
+        "ai": "summoner",
+        "hp": 90,
+        "speed": 45,
+        "damage": 7,
+        "color": "#77508d"
+      },
+      "EN020": {
+        "name": "石妖",
+        "map": "ST003",
+        "ai": "shield",
+        "hp": 210,
+        "speed": 36,
+        "damage": 12,
+        "color": "#77756b"
+      },
+      "EN021": {
+        "name": "下忍",
+        "map": "ST004",
+        "ai": "melee",
+        "hp": 78,
+        "speed": 84,
+        "damage": 9,
+        "color": "#6d596f"
+      },
+      "EN022": {
+        "name": "暗器忍",
+        "map": "ST004",
+        "ai": "ranged",
+        "hp": 60,
+        "speed": 74,
+        "damage": 8,
+        "color": "#64567b"
+      },
+      "EN023": {
+        "name": "火忍",
+        "map": "ST004",
+        "ai": "aoe_ranged",
+        "hp": 72,
+        "speed": 68,
+        "damage": 10,
+        "color": "#9a4f3d"
+      },
+      "EN024": {
+        "name": "雷忍",
+        "map": "ST004",
+        "ai": "dash",
+        "hp": 74,
+        "speed": 90,
+        "damage": 11,
+        "color": "#5573a1"
+      },
+      "EN025": {
+        "name": "分身忍",
+        "map": "ST004",
+        "ai": "clone",
+        "hp": 82,
+        "speed": 72,
+        "damage": 8,
+        "color": "#705d84"
+      },
+      "EN026": {
+        "name": "爆符忍",
+        "map": "ST004",
+        "ai": "trap",
+        "hp": 65,
+        "speed": 65,
+        "damage": 12,
+        "color": "#8c593d"
+      },
+      "EN027": {
+        "name": "医忍",
+        "map": "ST004",
+        "ai": "healer",
+        "hp": 95,
+        "speed": 55,
+        "damage": 5,
+        "color": "#5b8c76"
+      }
+    },
+    "affixes": [
+      "swift",
+      "tank",
+      "volatile",
+      "vamp",
+      "aura",
+      "split"
+    ],
+    "performance": "balanced",
+    "caps": {
+      "enemies": 230,
+      "shots": 260,
+      "enemyShots": 150,
+      "effects": 160,
+      "numbers": 110,
+      "traps": 80,
+      "v24Projectiles": 220,
+      "v24Fields": 22,
+      "v24Meteors": 28,
+      "v24Summons": 24
+    }
+  },
+  "spawns": [
+    {
+      "time": 0,
+      "elite": false,
+      "seed": 19,
+      "pressure": 0.39615,
+      "interval": 0.8068854222700376,
+      "eliteChance": 0.006106616424999998,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 10,
+        "hp": 63,
+        "maxHp": 63,
+        "speed": 65.28,
+        "damage": 6.56,
+        "color": "#a84b43",
+        "attack": 0.7423557001166046,
+        "skill": 0.09387253690510988,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    },
+    {
+      "time": 0,
+      "elite": true,
+      "seed": 19,
+      "pressure": 0.39615,
+      "interval": 0.8068854222700376,
+      "eliteChance": 0.006106616424999998,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 12.5,
+        "hp": 368.55,
+        "maxHp": 368.55,
+        "speed": 65.28,
+        "damage": 9.0528,
+        "color": "#d5a254",
+        "attack": 1.6579818688333035,
+        "skill": 0.7423557001166046,
+        "elite": true,
+        "affixes": [
+          "tank"
+        ],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    },
+    {
+      "time": 90,
+      "elite": false,
+      "seed": 19,
+      "pressure": 0.41915,
+      "interval": 0.6832655980383252,
+      "eliteChance": 0.0081000002475,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 10,
+        "hp": 71.316,
+        "maxHp": 71.316,
+        "speed": 65.96544,
+        "damage": 7.091359999999999,
+        "color": "#a84b43",
+        "attack": 0.7423557001166046,
+        "skill": 0.09387253690510988,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    },
+    {
+      "time": 90,
+      "elite": true,
+      "seed": 19,
+      "pressure": 0.41915,
+      "interval": 0.6832655980383252,
+      "eliteChance": 0.0081000002475,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 12.5,
+        "hp": 417.1986,
+        "maxHp": 417.1986,
+        "speed": 65.96544,
+        "damage": 9.786076799999998,
+        "color": "#d5a254",
+        "attack": 1.6579818688333035,
+        "skill": 0.7423557001166046,
+        "elite": true,
+        "affixes": [
+          "tank"
+        ],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    },
+    {
+      "time": 240,
+      "elite": false,
+      "seed": 19,
+      "pressure": 0.43755,
+      "interval": 0.5775474525474525,
+      "eliteChance": 0.015980946134999997,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 10,
+        "hp": 92.73599999999999,
+        "maxHp": 92.73599999999999,
+        "speed": 67.10784,
+        "damage": 8.37056,
+        "color": "#a84b43",
+        "attack": 0.7423557001166046,
+        "skill": 0.09387253690510988,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    },
+    {
+      "time": 240,
+      "elite": true,
+      "seed": 19,
+      "pressure": 0.43755,
+      "interval": 0.5775474525474525,
+      "eliteChance": 0.015980946134999997,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 12.5,
+        "hp": 542.5056,
+        "maxHp": 542.5056,
+        "speed": 67.10784,
+        "damage": 11.5513728,
+        "color": "#d5a254",
+        "attack": 1.6579818688333035,
+        "skill": 0.7423557001166046,
+        "elite": true,
+        "affixes": [
+          "tank"
+        ],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    },
+    {
+      "time": 300,
+      "elite": false,
+      "seed": 19,
+      "pressure": 0.37315,
+      "interval": 0.7878151260504201,
+      "eliteChance": 0.005589542699999998,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 10,
+        "hp": 103.95000000000002,
+        "maxHp": 103.95000000000002,
+        "speed": 67.56479999999999,
+        "damage": 9.02,
+        "color": "#a84b43",
+        "attack": 0.7423557001166046,
+        "skill": 0.09387253690510988,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    },
+    {
+      "time": 300,
+      "elite": true,
+      "seed": 19,
+      "pressure": 0.37315,
+      "interval": 0.7878151260504201,
+      "eliteChance": 0.005589542699999998,
+      "enemy": {
+        "id": "EN001",
+        "name": "黄巾步卒",
+        "ai": "melee",
+        "x": 2324.161119745586,
+        "y": 1206.3843987229425,
+        "r": 12.5,
+        "hp": 608.1075000000001,
+        "maxHp": 608.1075000000001,
+        "speed": 67.56479999999999,
+        "damage": 12.4476,
+        "color": "#d5a254",
+        "attack": 1.6579818688333035,
+        "skill": 0.7423557001166046,
+        "elite": true,
+        "affixes": [
+          "tank"
+        ],
+        "flash": 0,
+        "_v29Scaled": true
+      }
+    }
+  ],
+  "actions": [
+    {
+      "action": "basic",
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "heat": 8,
+      "bombs": [],
+      "damage": 318.80895317107206
+    },
+    {
+      "action": "skill",
+      "player": {
+        "x": 1950,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 6,
+        "ult": 0
+      },
+      "heat": 30,
+      "bombs": [
+        {
+          "x": 1800,
+          "y": 1200,
+          "r": 48,
+          "life": 0.18,
+          "max": 0.18,
+          "dmg": 236.31847199999999,
+          "color": "#ef7958"
+        },
+        {
+          "x": 1836,
+          "y": 1200,
+          "r": 48,
+          "life": 0.22999999999999998,
+          "max": 0.22999999999999998,
+          "dmg": 236.31847199999999,
+          "color": "#ef7958"
+        },
+        {
+          "x": 1872,
+          "y": 1200,
+          "r": 48,
+          "life": 0.28,
+          "max": 0.28,
+          "dmg": 236.31847199999999,
+          "color": "#ef7958"
+        },
+        {
+          "x": 1908,
+          "y": 1200,
+          "r": 48,
+          "life": 0.33,
+          "max": 0.33,
+          "dmg": 236.31847199999999,
+          "color": "#ef7958"
+        },
+        {
+          "x": 1944,
+          "y": 1200,
+          "r": 48,
+          "life": 0.38,
+          "max": 0.38,
+          "dmg": 236.31847199999999,
+          "color": "#ef7958"
+        }
+      ],
+      "damage": 667.980663787006
+    },
+    {
+      "action": "dodge",
+      "player": {
+        "x": 1800,
+        "y": 1137.6,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0.35,
+        "dodgeCd": 4.5,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "heat": 0,
+      "bombs": [],
+      "damage": 0
+    }
+  ],
+  "skills": [
+    {
+      "id": "A011",
+      "level": 1,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [
+          {
+            "id": "A011",
+            "x": 1800,
+            "y": 1200,
+            "vx": 390,
+            "vy": 0,
+            "dmg": 166.29818399999996,
+            "r": 7,
+            "life": 2,
+            "pierce": 0,
+            "bounce": 0,
+            "split": 0,
+            "explode": 72.75520000000002,
+            "homing": 0,
+            "color": "#ef694e"
+          }
+        ],
+        "fields": [],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A011",
+      "level": 5,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [
+          {
+            "id": "A011",
+            "x": 1800,
+            "y": 1200,
+            "vx": 390,
+            "vy": 0,
+            "dmg": 166.29818399999996,
+            "r": 7,
+            "life": 2,
+            "pierce": 0,
+            "bounce": 0,
+            "split": 0,
+            "explode": 72.75520000000002,
+            "homing": 0,
+            "color": "#ef694e"
+          }
+        ],
+        "fields": [],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A021",
+      "level": 1,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A021",
+            "x": 1800,
+            "y": 1200,
+            "r": 140.49280000000002,
+            "dmg": 31.509129599999994,
+            "life": 999,
+            "max": 999,
+            "tick": 0,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A021",
+      "level": 5,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A021",
+            "x": 1800,
+            "y": 1200,
+            "r": 140.49280000000002,
+            "dmg": 31.509129599999994,
+            "life": 999,
+            "max": 999,
+            "tick": 0,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A026",
+      "level": 1,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [
+          {
+            "id": "A026",
+            "x": 1800,
+            "y": 1200,
+            "vx": 85,
+            "vy": 0,
+            "dmg": 35.010144,
+            "r": 102.86080000000001,
+            "life": 4.86,
+            "max": 4.86,
+            "tick": 0,
+            "color": "#82d6b7"
+          }
+        ],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A026",
+      "level": 5,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [
+          {
+            "id": "A026",
+            "x": 1800,
+            "y": 1200,
+            "vx": 85,
+            "vy": 0,
+            "dmg": 35.010144,
+            "r": 102.86080000000001,
+            "life": 4.86,
+            "max": 4.86,
+            "tick": 0,
+            "color": "#82d6b7"
+          }
+        ],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A027",
+      "level": 1,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [],
+        "meteors": [
+          {
+            "id": "A027",
+            "x": 1819.5691189169884,
+            "y": 1257.2566537605599,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 1.0218405117979275,
+            "max": 1.0218405117979275,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1898.6146414652467,
+            "y": 1229.6238384582102,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 0.8179824479972013,
+            "max": 0.8179824479972013,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1915.0079786032438,
+            "y": 1159.1860100766644,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 0.7932843342423439,
+            "max": 0.7932843342423439,
+            "impact": false,
+            "color": "#ef694e"
+          }
+        ],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A027",
+      "level": 5,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [],
+        "vortices": [],
+        "meteors": [
+          {
+            "id": "A027",
+            "x": 1819.5691189169884,
+            "y": 1257.2566537605599,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 1.0218405117979275,
+            "max": 1.0218405117979275,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1898.6146414652467,
+            "y": 1229.6238384582102,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 0.8179824479972013,
+            "max": 0.8179824479972013,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1915.0079786032438,
+            "y": 1159.1860100766644,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 0.7932843342423439,
+            "max": 0.7932843342423439,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1819.6486174687743,
+            "y": 1263.667701324448,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 0.9784151867381298,
+            "max": 0.9784151867381298,
+            "impact": false,
+            "color": "#ef694e"
+          },
+          {
+            "id": "A027",
+            "x": 1930.848776847124,
+            "y": 1198.2957930350676,
+            "dmg": 236.31847199999999,
+            "r": 65.2288,
+            "life": 0.9955226190621034,
+            "max": 0.9955226190621034,
+            "impact": false,
+            "color": "#ef694e"
+          }
+        ],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A003",
+      "level": 1,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A003",
+            "x": 1800,
+            "y": 1200,
+            "r": 106.62400000000001,
+            "dmg": 28.0081152,
+            "life": 2.3760000000000003,
+            "max": 2.3760000000000003,
+            "tick": 0,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 347.5017589564668
+    },
+    {
+      "id": "A003",
+      "level": 5,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A003",
+            "x": 1800,
+            "y": 1200,
+            "r": 106.62400000000001,
+            "dmg": 28.0081152,
+            "life": 2.3760000000000003,
+            "max": 2.3760000000000003,
+            "tick": 0,
+            "type": "damage",
+            "follow": true,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 625.503166121649
+    },
+    {
+      "id": "A054",
+      "level": 1,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A054",
+            "x": 1842,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1884,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1926,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1968,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 2010,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    },
+    {
+      "id": "A054",
+      "level": 5,
+      "seed": 29,
+      "runtime": {
+        "cool": {},
+        "projectiles": [],
+        "fields": [
+          {
+            "id": "A054",
+            "x": 1842,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1884,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1926,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 1968,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          },
+          {
+            "id": "A054",
+            "x": 2010,
+            "y": 1200,
+            "r": 52.68480000000001,
+            "dmg": 38.5111584,
+            "life": 2.16,
+            "max": 2.16,
+            "tick": 0,
+            "type": "damage",
+            "follow": false,
+            "color": "#ef694e",
+            "pull": 0,
+            "knock": 0
+          }
+        ],
+        "vortices": [],
+        "meteors": [],
+        "summons": [],
+        "mirrors": [],
+        "orbit": 0,
+        "fieldTick": 0,
+        "fusionTick": 0,
+        "serial": 0
+      },
+      "damage": 0
+    }
+  ],
+  "ai": [
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1820,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1819.6,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 760.7500000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0.28,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1950,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1949.6,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2050,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2049.6,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2150,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2149.6,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "melee"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1820,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1820.2,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 0,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "shots": [
+        {
+          "x": 1820.2,
+          "y": 1200,
+          "vx": -235,
+          "vy": 2.87791997799628e-14,
+          "dmg": 10,
+          "color": "#fff",
+          "r": 5,
+          "life": 5
+        }
+      ],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 760.7500000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0.28,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1950,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1950.2,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 0,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "shots": [
+        {
+          "x": 1950.2,
+          "y": 1200,
+          "vx": -235,
+          "vy": 2.87791997799628e-14,
+          "dmg": 10,
+          "color": "#fff",
+          "r": 5,
+          "life": 5
+        }
+      ],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2050,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2050,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 0,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "shots": [
+        {
+          "x": 2050,
+          "y": 1200,
+          "vx": -235,
+          "vy": 2.87791997799628e-14,
+          "dmg": 10,
+          "color": "#fff",
+          "r": 5,
+          "life": 5
+        }
+      ],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2150,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2149.76,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 0,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "ranged"
+      },
+      "shots": [
+        {
+          "x": 2149.76,
+          "y": 1200,
+          "vx": -235,
+          "vy": 2.87791997799628e-14,
+          "dmg": 10,
+          "color": "#fff",
+          "r": 5,
+          "life": 5
+        }
+      ],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1820,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1819.74,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 760.7500000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0.28,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1950,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 1949.74,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2050,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2049.74,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    },
+    {
+      "initial": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2150,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.79,
+        "skill": 0.2,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "enemy": {
+        "id": "EN001",
+        "name": "fixture",
+        "x": 2149.74,
+        "y": 1200,
+        "hp": 100000,
+        "maxHp": 100000,
+        "r": 10,
+        "elite": false,
+        "affixes": [],
+        "attack": 1.81,
+        "skill": 0.22,
+        "speed": 20,
+        "damage": 10,
+        "color": "#fff",
+        "flash": 0,
+        "ai": "shield"
+      },
+      "shots": [],
+      "player": {
+        "x": 1800,
+        "y": 1200,
+        "r": 15,
+        "hp": 762.9100000000001,
+        "maxHp": 762.9100000000001,
+        "atk": 175.05071999999998,
+        "speed": 249.60000000000002,
+        "aspd": 0.95,
+        "crit": 0.1115,
+        "inv": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0
+      },
+      "dt": 0.02
+    }
+  ]
+}

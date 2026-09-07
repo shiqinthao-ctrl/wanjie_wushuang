@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2c skill modifiers, virtual passives and incoming/outgoing damage rules match final legacy functions, including healing, daily bonuses and shield order. ST001-01 retains B001 at 270s and 360s goal.
+P2d H001 actions, first-stage enemies, prepared skills and PET001 are connected. Natural kill/XP/choice/resume passes. ST001-01 still requires B001 at 270s and 360s goal; Boss/settlement remain pending.
 
 ## Changed files
-TASK.md; app combatMath rules/tests and skillForms data; migration combat-math capture/oracle/evidence; status and handoff. Legacy runtime unchanged; no added dependencies.
+TASK.md; app CombatSimulation/spawn rules, GameCore, Phaser rendering, touch/keyboard UI and tests; first-combat oracle/capture/verifier/evidence; status and handoff. Legacy unchanged; no added dependencies.
 
 ## Tests
-P2c: 693 app tests pass; 449 new checks cover 32 modifier matrices and 384 incoming boundaries. Legacy 5 gates, 49 hashes, strict build and 6 desktop/portrait browser checks pass.
+P2d: 734 app tests, 8 exact Chrome spawns, 9 desktop/portrait browser checks pass (natural growth and 4 scene cycles per size). Legacy 5 gates, 49 hashes, strict types/build pass.
 
 ## Unresolved risk
-Natural kill/pickup/choice acceptance awaits combat. Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Storage, content parity and PWA pending. Phaser chunk is 361KB gzip; no measured performance gain.
+Preview lacks map/events/Boss/loot/settlement, audio and full content. Physical Android/iPhone baseline, thermal endurance and touch acceptance pending. Storage/PWA pending. Battle chunk about 372KB gzip; no measured performance gain.
 
 ## Recommended next task
-P2d: connect H001 actions, first-stage enemies, prepared skills and PET001 to the single lifecycle; verify natural kill/pickup/upgrade. Then migrate stage events/Boss/settlement. Preserve original Boss objective.
+P2e: migrate first-stage map, timed recovery/events and chest interactions with legacy rule fixtures and visible prompts. Then original B001/Boss Loot and atomic settlement to complete P2.
 
 ## After each task
 Replace only these fields:

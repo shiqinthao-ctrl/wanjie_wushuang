@@ -1,13 +1,14 @@
-# TASK.md - Mobile modernization / P2c combat modifiers
+# TASK.md - Mobile modernization / P2d first-stage combat
 
-Status: complete. Approved roadmap: tasks/mobile-modernization/PLAN.md.
+Status: completed and verified. Approved roadmap: tasks/mobile-modernization/PLAN.md.
 
 ## Goal and scope
-Migrate virtual passives, skill modifiers, outgoing and incoming damage as pure
-TypeScript rules. Preserve additive/multiplicative order, caps, elemental source
-mapping, evolution, awakening, healing and shield/invulnerability order. Capture
-isolated old-runtime oracle fixtures before implementation. No enemy/hero action
-simulation in this slice; these rules are the next combat integration foundation.
+Connect H001 actions, first-stage enemy waves, prepared skills and PET001 to the
+single GameCore lifecycle. Capture legacy action/spawn oracles before migration.
+Preserve frame cap, rule order, damage modifiers and entity caps independent of
+visual quality. Verify natural kill -> crystal -> pickup -> choice -> resume.
+Stage events, B001, Boss Loot and persistent settlement follow in later slices;
+ST001-01 still requires its original B001 at 270s and 360s objective.
 
 ## Authorized dependencies
 Current app dependencies remain authorized. No additions in this slice.
@@ -15,9 +16,9 @@ Allowed: apps/mobile-next source/data/tests; tasks/mobile-modernization tools,
 fixtures and evidence; five handoff sections. Old runtime/saves remain unchanged.
 
 ## Acceptance
-Compare all skill/element families, levels, virtual passives, targets, awakened
-heroes, stacked bonuses, critical skill healing and incoming shield/DR boundaries
-with final legacy functions. Strict types, rule tests, build and browser lifecycle.
+Compare hero actions, prepared skill constructs, enemy spawns and kill rewards
+with legacy functions. Verify pause/destroy cancel scheduled actions, input cleanup,
+natural desktop/portrait growth loop, strict types, rule tests and browser lifecycle.
 Run legacy check -> smoke -> audit -> context -> archive:verify; then new checks.
 Update five handoff sections; preserve baseline hashes and all save invariants.
 

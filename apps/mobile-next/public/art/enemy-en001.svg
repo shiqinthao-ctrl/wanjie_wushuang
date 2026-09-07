@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="170" viewBox="0 0 140 170">
+  <defs>
+    <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8f3e36"/><stop offset="1" stop-color="#45252a"/></linearGradient>
+    <linearGradient id="scarf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4bd4d"/><stop offset="1" stop-color="#8b6821"/></linearGradient>
+  </defs>
+  <ellipse cx="67" cy="151" rx="38" ry="10" fill="#050807" opacity="0.55"/>
+  <path d="M43 91q22-27 48 0l5 51-27 15-27-15z" fill="url(#cloth)" stroke="#251a1b" stroke-width="6"/>
+  <path d="M48 105h43M53 124h36" stroke="#c59449" stroke-width="5" opacity="0.65"/>
+  <path d="M48 137l-12 20m51-20 12 20" stroke="#252020" stroke-width="8" stroke-linecap="round"/>
+  <path d="M46 96L24 119l14 14 17-22M91 97l19 18-12 15-16-18" fill="#71322f" stroke="#251a1b" stroke-width="6"/>
+  <path d="M49 65q18-19 36 0l7 23-24 14-25-14z" fill="#b67f5d" stroke="#271a18" stroke-width="6"/>
+  <path d="M42 66q21-26 50-3l-3 14-43 1z" fill="url(#scarf)" stroke="#3b301a" stroke-width="5"/>
+  <path d="M84 67l31-4-23 22" fill="#d4aa3d" stroke="#49381a" stroke-width="4"/>
+  <path d="M55 80l8 3m19-3-8 3" stroke="#351713" stroke-width="4" stroke-linecap="round"/>
+  <path d="M108 119L125 23" stroke="#6b4b2b" stroke-width="7" stroke-linecap="round"/>
+  <path d="M125 22l9 20-14-2z" fill="#d5c5a0" stroke="#403529" stroke-width="4"/>
+  <path d="M22 108q-18 19 1 39 21-5 24-22z" fill="#5c4a32" stroke="#211c16" stroke-width="6"/>
+  <path d="M23 112v31m-14-16h29" stroke="#b69a5e" stroke-width="4" opacity="0.65"/>
+</svg>
