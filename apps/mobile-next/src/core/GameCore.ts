@@ -6,9 +6,11 @@ import type { ChoiceKind } from './progression';
 import { CombatSimulation } from './CombatSimulation';
 import type { Action, CombatEvent } from './CombatSimulation';
 import type { FirstStageMap } from './FirstStageMap';
+import { FirstStageEvents } from './firstEvents';
+import type { EventCode, EventPayment } from './firstEvents';
 
-export type RunStatus = 'idle' | 'running' | 'choosing' | 'paused' | 'ended' | 'destroyed';
-export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly endReason?: 'defeat' | 'preview-limit' }
+export type RunStatus = 'idle' | 'running' | 'choosing' | 'encounter' | 'paused' | 'ended' | 'destroyed';
+export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly endReason?: 'defeat' | 'preview-limit' }
 export interface Point { x: number; y: number }
 export type CoreEvent = CombatEvent | { type: 'xp-pickup'; value: number; x: number; y: number } | { type: 'level-choice'; level: number };
 
@@ -17,13 +19,15 @@ export class GameCore {
   private status: RunStatus = 'idle';
   private progression: Progression;
   private combat: CombatSimulation;
+  private encounters: FirstStageEvents;
   private events: CoreEvent[] = [];
   private endReason: UiSnapshot['endReason'];
 
-  constructor(save: GameSave = fresh) {
+  constructor(save: GameSave = fresh, random = Math.random) {
     const startup = calculateStartup(save);
-    this.progression = new Progression(save.build, startup.skills, startup.passives);
-    this.combat = new CombatSimulation(save, this.progression);
+    this.progression = new Progression(save.build, startup.skills, startup.passives, random);
+    this.combat = new CombatSimulation(save, this.progression, random);
+    this.encounters = new FirstStageEvents(this.combat.player, this.progression, save.hero, random);
   }
 
   start(width = 390, height = 844): void {
@@ -50,8 +54,13 @@ export class GameCore {
     return true;
   }
   clearInput(): void { this.combat.clearInput(); }
-  pause(): void { if (this.status === 'running' || this.status === 'choosing') { this.status = 'paused'; this.clearInput(); } }
-  resume(): void { if (this.status === 'paused') this.status = this.progression.snapshot().choice ? 'choosing' : 'running'; }
+  pause(): void { if (['running', 'choosing', 'encounter'].includes(this.status)) { this.status = 'paused'; this.clearInput(); } }
+  resume(): void { if (this.status === 'paused') this.status = this.encounters.snapshot().offer ? 'encounter' : this.progression.snapshot().choice ? 'choosing' : 'running'; }
+  acceptsEvent(token: number, code: EventCode): boolean { return ['encounter', 'paused'].includes(this.status) && this.encounters.accepts(token, code); }
+  resolveEvent(token: number, code: EventCode, payment: EventPayment): boolean {
+    if (!this.acceptsEvent(token, code) || !this.encounters.resolve(token, code, payment)) return false;
+    this.clearInput(); if (this.status !== 'paused') this.status = 'running'; return true;
+  }
   choose(token: number, kind: ChoiceKind, id: string): boolean {
     if (this.status !== 'choosing' || !this.progression.pick(token, kind, id)) return false;
     this.clearInput(); this.status = this.progression.snapshot().choice ? 'choosing' : 'running';
@@ -77,12 +86,15 @@ export class GameCore {
       this.endReason = this.combat.player.hp <= 0 ? 'defeat' : 'preview-limit';
       this.status = 'ended'; this.clearInput();
     }
-    if (this.status === 'running') { this.combat.updateOuter(dt); this.combat.map.recover(); }
+    if (this.status === 'running') {
+      this.combat.updateOuter(dt); this.combat.map.recover();
+      if (this.encounters.open(this.combat.time)) { this.status = 'encounter'; this.clearInput(); }
+    }
     this.combat.applyCaps();
   }
   snapshot(): UiSnapshot {
     const { player, time, kills, heat } = this.combat;
-    return Object.freeze({ status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
+    return Object.freeze({ status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
   }
   renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState() }; }
   takeEvents(): readonly CoreEvent[] { const events = [...this.events, ...this.combat.takeEvents()]; this.events = []; return events; }

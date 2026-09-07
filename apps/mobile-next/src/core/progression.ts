@@ -68,6 +68,14 @@ export class Progression {
     return options.sort(() => this.random() - .5);
   }
   gain(value: number): void { if (Number.isFinite(value) && value > 0) this.xp += value; }
+  upgradeOwned(): LevelOption | undefined {
+    const option = this.validOptions().find(item => ((item.kind === 'active' ? this.skills : this.passives)[item.id] || 0) > 0);
+    if (option) {
+      const levels = option.kind === 'active' ? this.skills : this.passives;
+      levels[option.id] = (levels[option.id] || 0) + 1;
+    }
+    return option;
+  }
   checkLevel(blocked = false): void {
     if (blocked || this.choice || this.xp < this.xpNeed) return;
     this.xp -= this.xpNeed; this.level++; this.xpNeed = Math.round(26 + this.level * 11);

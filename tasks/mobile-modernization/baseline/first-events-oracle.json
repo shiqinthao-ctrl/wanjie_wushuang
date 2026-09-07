@@ -1,0 +1,696 @@
+{
+  "evidence": "Synthetic isolated Chrome legacy event oracle; injected seed/clock/fixtures, not natural gameplay.",
+  "clock": 1770000000000,
+  "eventAt": [
+    45,
+    150
+  ],
+  "eventPool": [
+    "merchant",
+    "goldChest"
+  ],
+  "schedule": [
+    {
+      "time": 44.99,
+      "fired": false,
+      "shown": 0,
+      "flags": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 45,
+      "fired": true,
+      "shown": 1,
+      "flags": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 45,
+      "fired": false,
+      "shown": 0,
+      "flags": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 149.99,
+      "fired": false,
+      "shown": 0,
+      "flags": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "time": 150,
+      "fired": true,
+      "shown": 1,
+      "flags": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "time": 150,
+      "fired": false,
+      "shown": 0,
+      "flags": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "time": 360,
+      "fired": false,
+      "shown": 0,
+      "flags": [
+        true,
+        true,
+        false
+      ]
+    }
+  ],
+  "choices": [
+    {
+      "code": "merchantAtk",
+      "before": {
+        "gold": 0,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 0,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantAtk",
+      "before": {
+        "gold": 179,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 179,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantAtk",
+      "before": {
+        "gold": 180,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 180,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantAtk",
+      "before": {
+        "gold": 249,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 249,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantAtk",
+      "before": {
+        "gold": 250,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 0,
+      "hp": 100,
+      "buff": 0.18,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantAtk",
+      "before": {
+        "gold": 6000,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 5750,
+      "hp": 100,
+      "buff": 0.18,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantHeal",
+      "before": {
+        "gold": 0,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 0,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantHeal",
+      "before": {
+        "gold": 179,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 179,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantHeal",
+      "before": {
+        "gold": 180,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 0,
+      "hp": 405.16400000000004,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantHeal",
+      "before": {
+        "gold": 249,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 69,
+      "hp": 405.16400000000004,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantHeal",
+      "before": {
+        "gold": 250,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 70,
+      "hp": 405.16400000000004,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "merchantHeal",
+      "before": {
+        "gold": 6000,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 5820,
+      "hp": 405.16400000000004,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "goldCash",
+      "before": {
+        "gold": 6000,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 6500,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    },
+    {
+      "code": "goldOpen",
+      "before": {
+        "gold": 6000,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 6000,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 2
+      },
+      "drops": [
+        {
+          "uid": "Gml4kasqoc2k9t7",
+          "templateId": "EQW006",
+          "id": "EQW006",
+          "name": "星河拳环",
+          "slot": "weapon",
+          "rarity": "gold",
+          "score": 500,
+          "source": "gold",
+          "affixes": [
+            {
+              "key": "critDmg",
+              "value": 0.10945315290242433
+            },
+            {
+              "key": "crit",
+              "value": 0.030188430906040592
+            },
+            {
+              "key": "lifesteal",
+              "value": 0.007844883961603046
+            },
+            {
+              "key": "defPct",
+              "value": 0.1101358507364057
+            }
+          ],
+          "acquiredAt": 1770000000000
+        }
+      ],
+      "calls": 76
+    },
+    {
+      "code": "skip",
+      "before": {
+        "gold": 6000,
+        "hp": 100,
+        "maxHp": 762.9100000000001
+      },
+      "gold": 6000,
+      "hp": 100,
+      "buff": 0,
+      "skills": {
+        "A011": 1,
+        "A021": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "drops": [],
+      "calls": 0
+    }
+  ],
+  "gear": [
+    {
+      "seed": 1,
+      "drop": {
+        "uid": "Gml4kasqovdw5wg",
+        "templateId": "EQW006",
+        "id": "EQW006",
+        "name": "星河拳环",
+        "slot": "weapon",
+        "rarity": "gold",
+        "score": 473,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "crit",
+            "value": 0.024051154219312594
+          },
+          {
+            "key": "area",
+            "value": 0.059532026415690775
+          },
+          {
+            "key": "fireDmg",
+            "value": 0.05565048409858719
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07552687892690302
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 50
+    },
+    {
+      "seed": 2,
+      "drop": {
+        "uid": "Gml4kasqoitr6mb",
+        "templateId": "EQW006",
+        "id": "EQW006",
+        "name": "星河拳环",
+        "slot": "weapon",
+        "rarity": "gold",
+        "score": 559,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "fireDmg",
+            "value": 0.1200270835100673
+          },
+          {
+            "key": "lightningDmg",
+            "value": 0.12242571235168725
+          },
+          {
+            "key": "move",
+            "value": 0.055599248791113484
+          },
+          {
+            "key": "kiDmg",
+            "value": 0.06033268098719418
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 51
+    },
+    {
+      "seed": 12,
+      "drop": {
+        "uid": "Gml4kasqoc2k9t7",
+        "templateId": "EQW006",
+        "id": "EQW006",
+        "name": "星河拳环",
+        "slot": "weapon",
+        "rarity": "gold",
+        "score": 500,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "critDmg",
+            "value": 0.10945315290242433
+          },
+          {
+            "key": "crit",
+            "value": 0.030188430906040592
+          },
+          {
+            "key": "lifesteal",
+            "value": 0.007844883961603046
+          },
+          {
+            "key": "defPct",
+            "value": 0.1101358507364057
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 48
+    },
+    {
+      "seed": 42,
+      "drop": {
+        "uid": "Gml4kasqosyth1b",
+        "templateId": "EQW006",
+        "id": "EQW006",
+        "name": "星河拳环",
+        "slot": "weapon",
+        "rarity": "gold",
+        "score": 539,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "crit",
+            "value": 0.03455300879501738
+          },
+          {
+            "key": "defPct",
+            "value": 0.0588900781236589
+          },
+          {
+            "key": "critDmg",
+            "value": 0.13687648774590344
+          },
+          {
+            "key": "lightningDmg",
+            "value": 0.09343484247568995
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 49
+    },
+    {
+      "seed": 321,
+      "drop": {
+        "uid": "Gml4kasqo5vy9vx",
+        "templateId": "EQA001",
+        "id": "EQA001",
+        "name": "炎龙战甲",
+        "slot": "armor",
+        "rarity": "gold",
+        "score": 427,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "bossDmg",
+            "value": 0.08775424452498554
+          },
+          {
+            "key": "hpPct",
+            "value": 0.094565042052418
+          },
+          {
+            "key": "lightningDmg",
+            "value": 0.056179569147061556
+          },
+          {
+            "key": "move",
+            "value": 0.05492472453042864
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 52
+    },
+    {
+      "seed": 500,
+      "drop": {
+        "uid": "Gml4kasqok7kt6x",
+        "templateId": "EQA003",
+        "id": "EQA003",
+        "name": "斗战金甲",
+        "slot": "armor",
+        "rarity": "gold",
+        "score": 447,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.07093912238720805
+          },
+          {
+            "key": "area",
+            "value": 0.06539395933505147
+          },
+          {
+            "key": "summonDmg",
+            "value": 0.09054375821724533
+          },
+          {
+            "key": "lightningDmg",
+            "value": 0.06047802182612941
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 50
+    },
+    {
+      "seed": 999,
+      "drop": {
+        "uid": "Gml4kasqo9v4oou",
+        "templateId": "EQA009",
+        "id": "EQA009",
+        "name": "妖王战铠",
+        "slot": "armor",
+        "rarity": "gold",
+        "score": 588,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.07620218633906917
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07722332527860999
+          },
+          {
+            "key": "move",
+            "value": 0.05311563777737319
+          },
+          {
+            "key": "bossDmg",
+            "value": 0.07282820206135511
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 46
+    },
+    {
+      "seed": 9999,
+      "drop": {
+        "uid": "Gml4kasqo1bqgr5",
+        "templateId": "EQW003",
+        "id": "EQW003",
+        "name": "玄铁神棍",
+        "slot": "weapon",
+        "rarity": "gold",
+        "score": 511,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "move",
+            "value": 0.03009023849852383
+          },
+          {
+            "key": "area",
+            "value": 0.06551921144127845
+          },
+          {
+            "key": "critDmg",
+            "value": 0.07598062065895647
+          },
+          {
+            "key": "defPct",
+            "value": 0.09634640275966376
+          }
+        ],
+        "acquiredAt": 1770000000000
+      },
+      "calls": 50
+    }
+  ],
+  "buffs": [
+    {
+      "buff": 0,
+      "damage": 318.80895317107206
+    },
+    {
+      "buff": 0.18,
+      "damage": 318.80895317107206
+    },
+    {
+      "buff": 0.36,
+      "damage": 318.80895317107206
+    }
+  ]
+}

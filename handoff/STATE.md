@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2f saves verified. Isolated IndexedDB slots, Schema30 copy import, exact backups, exports and atomic receipts connect to the lobby. Unsupported preparation blocks launch. P2a-e combat/growth/map remains verified.
+P2g encounters verified. Merchant/gold chest at 45s/150s, gold gear and owned upgrades, original-slot atomic currency with retry and interruption UI. H001 ignores merchant attack buff in legacy; preserved and explained. P2a-f remains verified.
 
 ## Changed files
-TASK.md; app storage boundary/repository, SavePanel, lobby and saved battle preparation, tests/README; P2f evidence/status and handoff. Legacy unchanged; no added dependencies.
+TASK.md; app encounter/gear/progression/core/EventSession and battle/lobby UI, tests/README; legacy event oracle/capture, P2g evidence/status and handoff. Legacy unchanged; no added dependencies.
 
 ## Tests
-P2f: legacy 5 gates, 30/30 archives, 49/49 hashes, strict types/build, 775/775 tests and 30/30 browser paths pass. Includes natural save UI, separate synthetic rollback/concurrency/storage-failure fixtures, desktop/390px/320px; not physical-device acceptance.
+P2g: legacy 5 gates, 30/30 archives, 49/49 hashes, strict types/build, 805/805 tests and 48/48 Chrome paths pass. Natural event choices/reload plus labeled synthetic faults/oracles; 320px choice/error screenshots viewed. No physical-device acceptance.
 
 ## Unresolved risk
-Preview lacks events/chests/evolution/Boss/loot/settlement, audio/full content. Atomic storage is a primitive, not settlement parity. Boss map hooks, same-origin legacy discovery, physical phones, thermal endurance and PWA pending. Battle chunk about 373KB gzip; no measured gain.
+Preview lacks timed chests/evolution/Boss/loot/settlement, audio/full content. Event gear remains run-local. Node/Chrome random sort differs; exact event upgrade checked in Chrome. Boss map hooks, physical phones, thermal endurance and PWA pending. Battle mount 371KB gzip; no measured gain.
 
 ## Recommended next task
-P2g: migrate first-stage events and required gear reward rules with legacy fixtures and persisted event currency. Then timed chests/evolution, original B001/Boss Loot and atomic settlement to complete P2.
+P2h: timed chests at effective 90/210/300 seconds, evolution and supported fusion attacks, run-local drops and natural explicit-claim UI. Then original B001/Boss Loot and atomic settlement to complete P2; continue approved P3-P5 afterward.
 
 ## After each task
 Replace only these fields:
