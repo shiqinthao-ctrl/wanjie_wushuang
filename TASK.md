@@ -1,38 +1,41 @@
-# TASK.md - G2 elemental evolution and recorded acceptance
+# TASK.md - G3 combat readability and route decisions
 
-Status: completed, 2026-09-08.
-Specification: tasks/mobile-modernization/G2.md.
-Evidence: tasks/mobile-modernization/G2-EVIDENCE.md.
-Recordings: tasks/mobile-modernization/evidence/G2/index.html.
+Status: implementation and local acceptance completed, 2026-09-08.
+Specification: tasks/mobile-modernization/G3.md.
+Evidence: tasks/mobile-modernization/G3-EVIDENCE.md. Tagged delivery and remote
+verification are recorded under tasks/mobile-modernization/releases/.
 
 ## Goal and scope
-Extend the isolated Evolution Journey with one new form per existing starter:
-frost control, chain lightning and a summon army. Add frost skill, frost/lightning
-routes and three mechanical bonds. Guide signature skill growth without free
-levels or extra slots. Keep classic behavior and G1 branches intact.
-Record natural browser play, including phone touch and one full victory/replay.
+Continue G2 in the isolated mobile-next Evolution Journey. Make frost fields,
+instant frost bursts, real lightning chains and summon roles readable. Explain
+route playstyles/tradeoffs and owned/missing bond skills at normal choice/guide
+surfaces. Record alternate shatter/thunderstrike/hunter/guard natural play,
+including one full victory/save/replay. No new balance or progression rules.
 
-## Authorized dependencies
-No new dependencies. App source/tests, local recordings/reports and migration
-docs are in scope. Preserve prior dirty P2j/G1 work and all evidence.
-Legacy source/entry/storage, 49 baseline hashes, archives and lockfiles unchanged.
+## Authorized dependencies and versioning
+No new dependencies or lockfile changes. App source/tests, migration docs,
+local evidence/report generation and Git hygiene are in scope. Preserve prior
+P2j/G1/G2 work and all raw evidence; checkpoint it before G3. User authorizes
+commits and GitHub upload on codex/mobile-web-modernization. Publish a clearly
+marked development milestone with source, changelog, checks and recording
+assets; do not switch the old entry or deploy the game. Never force push.
 
 ## Acceptance
-Rules: form eligibility, exclusive routes, capped temporary slow and expiry,
-lightning target uniqueness/range, summon limits/expiry, each bond's real effect,
-signature offers/slots, pause/reset and unchanged save/settlement invariants.
-Natural browser: select all three additions, upgrade signature skills, choose
-routes, inspect bonds, pause/resume, exit/re-enter; complete a victory/save/replay.
-Use visible controls only: no injected RNG, time, XP, HP or core state.
-Preserve passing and failed recordings, inspect decoded frames and provide a
-playable local report with results and timestamps. Synthetic fixtures separate.
-Run check, smoke, audit, context, archive:verify in order; verify 49 hashes,
-app types/tests/build and affected browser paths. Context must remain <8192 bytes.
+- Render-only effects consume copied combat events, remain bounded, freeze
+  while paused and clear on teardown. Disabling effects leaves damage, drops,
+  slow, collision and settlement identical; important area boundaries remain.
+- Choices show route benefits/constraints; guide names owned and missing
+  positive-level skills. Native keyboard/touch controls remain reachable at
+  1280x720, 390x844 and 320x844 without overflow or activation carryover.
+- Natural recordings use visible controls, no injected RNG/time/XP/HP/state.
+  Preserve attempts, inspect actual frames and provide a playable local report.
+  Synthetic fixtures remain separate. Check GitHub branch/tag/assets after push.
 
-## Boundaries
-New design applies only to Evolution Journey, ST001-01 story/normal and PET001.
-Three starters, run-only forms/routes; permanent rewards retain atomic once-only
-settlement and Schema30 compatibility. No public debug UI, deployment or push.
-P2j fresh-preparation HP-death gap stays open; retain its assertion/evidence.
-Full verify is not green. No physical-phone/performance/endurance/PWA claim.
-Update five rotating sections of handoff/STATE.md after this slice.
+## Checks and boundaries
+Run check, smoke, audit, context, archive:verify in order; 49 baseline hashes,
+app types/rules/build and affected browser tests. Keep context <8192 bytes.
+Preserve Schema30, original saves, zero-star defeats, non-story isolation,
+atomic once-only settlement, Boss Loot priority and V3.0 fixes.
+P2j fresh-preparation HP-death remains a separate open acceptance gap; retain
+its assertions. No full-suite-green, real-phone, performance, endurance or PWA
+claim. Update the five rotating sections of handoff/STATE.md after this slice.

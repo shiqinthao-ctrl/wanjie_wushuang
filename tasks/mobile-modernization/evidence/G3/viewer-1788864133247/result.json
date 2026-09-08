@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 900,
+      "playback": [
+        {
+          "id": "01-shatter-desktop",
+          "duration": 316.84,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "02-thunderstrike-phone",
+          "duration": 138.84,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "03-hunter-narrow",
+          "duration": 97.24000000000001,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "04-guard-narrow",
+          "duration": 212.64,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        }
+      ],
+      "download": true,
+      "noOverflow": true,
+      "errors": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "playback": [
+        {
+          "id": "01-shatter-desktop",
+          "duration": 316.84,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "02-thunderstrike-phone",
+          "duration": 138.84,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "03-hunter-narrow",
+          "duration": 97.24000000000001,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "04-guard-narrow",
+          "duration": 212.64,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        }
+      ],
+      "download": true,
+      "noOverflow": true,
+      "errors": []
+    },
+    {
+      "name": "narrow",
+      "width": 320,
+      "height": 844,
+      "playback": [
+        {
+          "id": "01-shatter-desktop",
+          "duration": 316.84,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "02-thunderstrike-phone",
+          "duration": 138.84,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "03-hunter-narrow",
+          "duration": 97.24000000000001,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "04-guard-narrow",
+          "duration": 212.64,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        }
+      ],
+      "download": true,
+      "noOverflow": true,
+      "errors": []
+    }
+  ]
+}

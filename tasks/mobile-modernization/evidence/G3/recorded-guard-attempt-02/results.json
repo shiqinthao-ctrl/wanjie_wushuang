@@ -1,0 +1,200 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/readability-recording.spec.ts",
+      "--grep",
+      "guard role",
+      "--project=narrow",
+      "--output=../../tasks/mobile-modernization/evidence/G3/recorded-guard-attempt-02/test-results",
+      "--reporter=list,json,html"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G3/recorded-guard-attempt-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G3/recorded-guard-attempt-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G3/recorded-guard-attempt-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ],
+      [
+        "html"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "readability-recording.spec.ts",
+      "file": "readability-recording.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "G3 recorded guard role and bond requirements",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 420000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 215868,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at playEvolution (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts:163:30)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\readability-recording.spec.ts:17:3",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                      "column": 30,
+                      "line": 163
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mfixtures\\evolutionPlay.ts:163\n\n  161 |   await writeFile(info.outputPath('natural-evolution-choices.json'), JSON.stringify({ hero, choices, evolved, routed, bonded, awaken, errors }, null, 2));\n  162 |   expect(evolved).toBe(true); expect(routed).toBe(true); expect(bonded).toBe(true);\n> 163 |   if (plan) { expect(guided).toBe(true); expect(choices.some(c => c.id === plan.form)).toBe(true); expect(choices.some(c => c.id === plan.route)).toBe(true); }\n      |                              ^\n  164 |   if (complete) {\n  165 |     expect(awaken).toBe(true); expect(guided).toBe(true);\n  166 |     await expect(result.getByText('战果已保存', { exact: true })).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                        "column": 30,
+                        "line": 163
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n   at fixtures\\evolutionPlay.ts:163\n\n  161 |   await writeFile(info.outputPath('natural-evolution-choices.json'), JSON.stringify({ hero, choices, evolved, routed, bonded, awaken, errors }, null, 2));\n  162 |   expect(evolved).toBe(true); expect(routed).toBe(true); expect(bonded).toBe(true);\n> 163 |   if (plan) { expect(guided).toBe(true); expect(choices.some(c => c.id === plan.form)).toBe(true); expect(choices.some(c => c.id === plan.route)).toBe(true); }\n      |                              ^\n  164 |   if (complete) {\n  165 |     expect(awaken).toBe(true); expect(guided).toBe(true);\n  166 |     await expect(result.getByText('战果已保存', { exact: true })).toBeVisible();\n    at playEvolution (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts:163:30)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\readability-recording.spec.ts:17:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T10:17:46.869Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G3\\recorded-guard-attempt-02\\test-results\\readability-recording-G3-r-f7422--role-and-bond-requirements-narrow\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G3\\recorded-guard-attempt-02\\test-results\\readability-recording-G3-r-f7422--role-and-bond-requirements-narrow\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G3\\recorded-guard-attempt-02\\test-results\\readability-recording-G3-r-f7422--role-and-bond-requirements-narrow\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                    "column": 30,
+                    "line": 163
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "65a8752c639adcf80e13-2d4fde4594f12a94afbb",
+          "file": "readability-recording.spec.ts",
+          "line": 15,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T10:17:46.054Z",
+    "duration": 217066.153,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

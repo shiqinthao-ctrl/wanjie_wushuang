@@ -24,6 +24,14 @@ and `../../tasks/mobile-modernization/G1-EVIDENCE.md` for verification.
 The G2 additions and recordings are documented in
 `../../tasks/mobile-modernization/G2.md` and `G2-EVIDENCE.md` beside it.
 
+G3 adds readable lightning hit paths, frost lifetime arcs and distinct guard /
+hunter markings. Route choices explain playstyles, tradeoffs and exclusivity;
+later upgrades retain the selected route's description. Bond conditions name
+the actual skills owned or missing. The pause-menu effects toggle changes
+short-lived visuals only; area boundaries, danger and pickups remain visible.
+See `../../tasks/mobile-modernization/G3-EVIDENCE.md` and the replay viewer at
+`../../tasks/mobile-modernization/evidence/G3/index.html`.
+
 The journey uses each starter's initial skills and the common choice pool;
 the saved loadout remains intact. Hero selection updates only the isolated
 slot's selected hero. Classic preview remains the default entry and supports
@@ -40,6 +48,15 @@ npm run dev
 Open http://127.0.0.1:5178/mobile-next/ . For the production build use
 `npm run build` and `npm run preview` (port 4178). Deploy `dist/` under
 `/mobile-next/`; the directory is intentionally separate from the old entry.
+
+Development milestone: `mobile-next-g3-20260908`, on branch
+`codex/mobile-web-modernization`. The annotated tag identifies the exact source;
+`CHANGELOG.md` records player-visible changes. The GitHub prerelease contains
+the preview build, four recordings, a standalone report and SHA-256 checksums.
+Extract previews into a separate directory and serve them over HTTP; the game
+does not start from `file://`. Export saves before changing origin/port. To
+return to the legacy game, use the preserved root entry and its original saves;
+there is no automatic reverse conversion of new progression.
 
 ## Verify
 From the repository root run `npm test` and
@@ -103,5 +120,5 @@ receipt without a second reward.
 Rule fixtures include eight captured effective legacy settlement outcomes.
 Native fault/concurrency and synthetic component tests are labeled separately
 from natural keyboard/multi-touch acceptance. See the status/evidence files
-for the checks actually completed; none certifies physical phones or release.
+for the checks actually completed; none certifies phones or production readiness.
 Refreshing an active battle restores saved preparation and returns to the lobby.

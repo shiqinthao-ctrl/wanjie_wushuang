@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-G2 complete: three starters, nine forms, five branching skills and six bonds. Added frost control, lightning routes and summon synergy. Three original browser recordings include a full frost victory/save/replay. P2a-i and G1 retained; P2j fresh HP-death gap remains.
+G3 complete: real lightning paths, frost lifetime/bursts, summon role marks, effect toggle and ten-route/bond guidance. Four selected natural recordings include frost victory/save/replay. Three starters, nine forms and six bonds retained; P2j fresh HP-death gap remains.
 
 ## Changed files
-G2 catalog/RunEvolution/EvolutionCombat, progression/combat math/slow, Phaser effects, lobby, focused rules, recorded browser helper/spec and local replay report. G1/P2j dirty work and evidence preserved. TASK/status/README/G2 evidence and five handoff sections updated. No legacy/dependency change.
+G3 copied combat events, bounded Phaser effects, choice/guide components, nine rule cases and recording exit helper. Added replay viewer/package tools, evidence, changelog and release notes. Prior P2j/G1/G2 preserved in 0fc637c; no legacy/dependency change.
 
 ## Tests
-G2: legacy 5 gates, 30/30 archives, 49/49 hashes, types/build and 937/937 rules pass. Recorded natural 3/3 (desktop full victory/replay, two touch viewports), affected browser 87/87 including original G1 routes. Three videos fully decoded; representative frames viewed. See G2-EVIDENCE.md and local evidence/G2/index.html.
+G3: legacy 5 gates, 30/30 archives, 49/49 hashes, types/build, 946/946 rules and 87/87 affected browser cases pass. Selected natural recordings 4/4; all attempts 7 pass/3 fail, preserved with causes. See G3-EVIDENCE.md, recordings.json and viewer-check.json for decoded video/playback evidence.
 
 ## Unresolved risk
-P2j fresh-preparation HP-death remains unverified; supplemental import evidence does not replace it. Full verify is not green. G2 balance, physical phones and endurance unverified; first story stage only. Audio/full parity/PWA pending. Phaser chunk warning remains; no measured performance gain.
+P2j fresh-preparation HP-death stays open; full verify is not green. Physical phones, balance, performance/endurance remain unverified. At map edges some summons approach bottom controls. First stage only; audio/full parity/PWA pending. Phaser chunk warning remains.
 
 ## Recommended next task
-Define one G3 slice for elemental attack readability and alternate build variety, with measured player feedback before tuning. Track P2j fresh HP-death separately without balance/time/state changes. Local G2 recording viewer uses port 4189; app preview uses 4178 when started.
+Define one slice closing P2j fresh HP-death naturally without state/time/balance changes; then gather phone camera/control feedback before more content. G3 viewer: port 4190. Authorized GitHub branch codex/mobile-web-modernization; tag mobile-next-g3-20260908. Upload verification stays in ignored releases folder.
 
 ## After each task
 Replace only these fields:

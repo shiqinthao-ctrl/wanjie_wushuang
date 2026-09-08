@@ -1,0 +1,123 @@
+{
+  "attempts": [
+    {
+      "folder": "recorded-alternates-attempt-01",
+      "stats": {
+        "startTime": "2026-09-08T09:44:38.574Z",
+        "duration": 512059.935,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "project": "desktop",
+          "status": "expected"
+        },
+        {
+          "project": "phone",
+          "status": "expected"
+        },
+        {
+          "project": "narrow",
+          "status": "expected"
+        }
+      ]
+    },
+    {
+      "folder": "recorded-alternates-attempt-02",
+      "stats": {
+        "startTime": "2026-09-08T09:54:03.021Z",
+        "duration": 669926.7740000001,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "project": "desktop",
+          "status": "expected"
+        },
+        {
+          "project": "phone",
+          "status": "expected"
+        },
+        {
+          "project": "narrow",
+          "status": "unexpected"
+        }
+      ]
+    },
+    {
+      "folder": "recorded-guard-attempt-01",
+      "stats": {
+        "startTime": "2026-09-08T10:08:29.508Z",
+        "duration": 421889.07899999997,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "project": "narrow",
+          "status": "unexpected"
+        }
+      ]
+    },
+    {
+      "folder": "recorded-guard-attempt-02",
+      "stats": {
+        "startTime": "2026-09-08T10:17:46.054Z",
+        "duration": 217066.153,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "project": "narrow",
+          "status": "unexpected"
+        }
+      ]
+    },
+    {
+      "folder": "recorded-guard-attempt-03",
+      "stats": {
+        "startTime": "2026-09-08T10:22:17.664Z",
+        "duration": 213218.777,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "project": "narrow",
+          "status": "expected"
+        }
+      ]
+    },
+    {
+      "folder": "recorded-narrow-attempt-03",
+      "stats": {
+        "startTime": "2026-09-08T10:05:38.950Z",
+        "duration": 97862.096,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "tests": [
+        {
+          "project": "narrow",
+          "status": "expected"
+        }
+      ]
+    }
+  ],
+  "note": "Alternates attempt 01 predates the route-layout correction. Alternates attempt 02 narrow reached hunter but did not acquire the requested frost/lightning bond within the unchanged recording budget. Guard attempt 01 completed the route/bond guide but timed out because a level choice intercepted the final Pause click. The helper now resolves pending dialogs before exiting; no game rules, RNG or time injection changed. Guard attempt 02 acquired frost only at the end of the unchanged budget and failed the required guide assertion. All three failed recordings and assertions are retained locally. The viewer selects individually passing recordings and does not claim all attempts passed."
+}
