@@ -1,0 +1,970 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/settlement.native.spec.ts",
+      "tests/lifecycle.spec.ts",
+      "tests/saves.spec.ts",
+      "--config=playwright.p2k.config.ts",
+      "--list"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.p2k.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/config-list-only/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/config-list-only/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/config-list-only/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/P2k/config-list-only/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "lifecycle.spec.ts",
+      "file": "lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1f1785dee40219527314-9f5198853befeecf0778",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1f1785dee40219527314-235935d274b71f37b609",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1f1785dee40219527314-df0090a4ab60b2021df2",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1f1785dee40219527314-e969507f09622e0053e8",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1f1785dee40219527314-01b4ca96bbd454fda7fb",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1f1785dee40219527314-58c1a4a668f3c759f4f9",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "saves.spec.ts",
+      "file": "saves.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-d06fedfd5e2c50d7ca43",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-0fe639bb93c4a4b289b9",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-1994fa1a26085d567ab9",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-d6226a74afb151567f24",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-4cffd98b12226a7ae6dd",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-37f12e4c4a901b44a2af",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-1435658021fda0bddec2",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-03ffa403efaa46c85396",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-b7bb99e3db37194f410f",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "settlement.native.spec.ts",
+      "file": "settlement.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-bb4efac289d22041693e",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-f67fc31a60a5e1b854f5",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c1c0ca417fe48df93ef8",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1251ae83c8d3530930f2",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-79f02bf32b23635a2ddb",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-d196d131dd3de0df0d0d",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-be9ec9f9bbb47c718ca0",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c90abe32eea08dc2ccf9",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6271d8e56032f72aa298",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-b89857a8f23919b441b4",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-dd1bb6e8398197e45444",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-05f97c876faab620c825",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-829bcddd27027898bad6",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-e3a5fc6e8b1e68e59ae0",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1615aae089851b55e38b",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c094ff8c53ee3c3ba431",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-8f174ff992d1d412a79b",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-12fea930c22a6d2d40d2",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6e771bb484726843fc0b",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-d3a9f4da4a5481cd7e21",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-513ca04ec15225b51521",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6c09c2dee100a49c2ccb",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-a608dadd2d580e53496e",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-dd4cc8e039d43589bfa9",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6ac86dd8a404c3f235b2",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-83d21ec194e40e57af6b",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-f6de7968018f204f993d",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T11:27:04.412Z",
+    "duration": 206.03700000000003,
+    "expected": 0,
+    "skipped": 42,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

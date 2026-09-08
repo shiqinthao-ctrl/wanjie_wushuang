@@ -1,0 +1,358 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/settlement.spec.ts",
+      "--config=playwright.p2k.config.ts",
+      "--grep",
+      "natural corner-contact defeat"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.p2k.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/boss-contact-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/boss-contact-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/boss-contact-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/P2k/boss-contact-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "settlement.spec.ts",
+      "file": "settlement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural corner-contact defeat, zero stars, save reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 306142,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:181:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:190:129",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 25,
+                      "line": 181
+                    },
+                    "snippet": "  179 |     expect(errors).toEqual([]);\n  180 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 181 |     expect(actualTitle).toBe(title);\n      |                         ^\n  182 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  183 |   } finally {\n  184 |     const path = info.outputPath('natural-settlement-input.json');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 25,
+                        "line": 181
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n\n  179 |     expect(errors).toEqual([]);\n  180 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 181 |     expect(actualTitle).toBe(title);\n      |                         ^\n  182 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  183 |   } finally {\n  184 |     const path = info.outputPath('natural-settlement-input.json');\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:181:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:190:129"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:13:34.542Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\attachments\\natural-settlement-input-cb4ea4f0358c8f37779fcfa2bf340af524de4cfe.json"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 25,
+                    "line": 181
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-8ffe19a89f7cfaa8f112",
+          "file": "settlement.spec.ts",
+          "line": 190,
+          "column": 1
+        },
+        {
+          "title": "natural corner-contact defeat, zero stars, save reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 314400,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:181:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:190:129",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 25,
+                      "line": 181
+                    },
+                    "snippet": "  179 |     expect(errors).toEqual([]);\n  180 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 181 |     expect(actualTitle).toBe(title);\n      |                         ^\n  182 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  183 |   } finally {\n  184 |     const path = info.outputPath('natural-settlement-input.json');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 25,
+                        "line": 181
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n\n  179 |     expect(errors).toEqual([]);\n  180 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 181 |     expect(actualTitle).toBe(title);\n      |                         ^\n  182 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  183 |   } finally {\n  184 |     const path = info.outputPath('natural-settlement-input.json');\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:181:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:190:129"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:13:34.542Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\\attachments\\natural-settlement-input-69a578bc69b57b3181d91a13069cf453a879165a.json"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 25,
+                    "line": 181
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-7bf01b7de8157d23e7f6",
+          "file": "settlement.spec.ts",
+          "line": 190,
+          "column": 1
+        },
+        {
+          "title": "natural corner-contact defeat, zero stars, save reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 320955,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:181:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:190:129",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 25,
+                      "line": 181
+                    },
+                    "snippet": "  179 |     expect(errors).toEqual([]);\n  180 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 181 |     expect(actualTitle).toBe(title);\n      |                         ^\n  182 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  183 |   } finally {\n  184 |     const path = info.outputPath('natural-settlement-input.json');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 25,
+                        "line": 181
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n\n  179 |     expect(errors).toEqual([]);\n  180 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 181 |     expect(actualTitle).toBe(title);\n      |                         ^\n  182 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  183 |   } finally {\n  184 |     const path = info.outputPath('natural-settlement-input.json');\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:181:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:190:129"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:13:34.524Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-narrow\\attachments\\natural-settlement-input-3475e9daeadaecd935ff038b08d5a95b2bc11469.json"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-narrow\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-narrow\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\boss-contact-01\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-narrow\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 25,
+                    "line": 181
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-c0220a291cce6c71fa08",
+          "file": "settlement.spec.ts",
+          "line": 190,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T11:13:33.732Z",
+    "duration": 322191.81,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/settlement.spec.ts",
+      "--grep",
+      "supplemental",
+      "--config=playwright.p2k.config.ts"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.p2k.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/regression-imported-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/regression-imported-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/regression-imported-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/P2k/regression-imported-02/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "settlement.spec.ts",
+      "file": "settlement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 292570,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:36:18.167Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-imported-02\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop\\attachments\\natural-settlement-input-dd927844ea8e2642b400d983631706a9f6d11499.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-imported-02\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-2d85e1a2faa95984f58c",
+          "file": "settlement.spec.ts",
+          "line": 195,
+          "column": 1
+        },
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 295466,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:36:18.167Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-imported-02\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone\\attachments\\natural-settlement-input-b54dd7fa996bd3c718a4992d7321dba49a274c2d.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-imported-02\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-f88e252a32c45e868330",
+          "file": "settlement.spec.ts",
+          "line": 195,
+          "column": 1
+        },
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 300800,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:36:18.160Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-imported-02\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow\\attachments\\natural-settlement-input-c9f12266fb1a9432f9188e0985fc568af4e3711a.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-imported-02\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-8dfadb32b767eb3c4149",
+          "file": "settlement.spec.ts",
+          "line": 195,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T11:36:17.337Z",
+    "duration": 302049.147,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

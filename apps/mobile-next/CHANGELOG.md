@@ -3,6 +3,32 @@
 Versions are identified by annotated Git tags. These previews are independent
 of the legacy game version and are not full-content production releases.
 
+## mobile-next-p2k-20260908 - 2026-09-08
+
+### Fixed
+- Natural settlement tests now use a wall-time bound so short pixel-targeted
+  inputs cannot exhaust the loop before the six-minute stage objective.
+- Tests export and compare fresh preparation before entry, then verify the
+  observed settlement, persisted rewards and replay before asserting the target.
+- Named attempts preserve original results and reject an existing report path.
+- Supplemental imports wait for the save panel's file input to become enabled;
+  the original three loading-race failures remain in the evidence.
+
+### Investigation
+- Unchanged fresh preparation won in all three Boss-contact browser attempts;
+  the HP-death target remains failed and the original assertion is retained.
+- Separate direct-core diagnostics produced 21 victories and 33 timeouts in
+  54 seeded strategy/layout combinations. They do not establish impossibility.
+- A recording viewer distinguishes requested and actual outcomes, with original
+  videos, timelines, saved results and integrity manifests.
+
+### Scope
+- No game-rule, balance, preparation, dependency or legacy-source changes.
+  G3's three starters, nine forms, ten routes and six bonds remain available.
+- Full-suite, physical-phone, performance and PWA gates remain open.
+
+Evidence: `../../tasks/mobile-modernization/P2k-EVIDENCE.md`.
+
 ## mobile-next-g3-20260908 - 2026-09-08
 
 ### Added

@@ -1,41 +1,34 @@
-# TASK.md - G3 combat readability and route decisions
+# TASK.md - P2k fresh-preparation defeat investigation
 
-Status: implementation and local acceptance completed, 2026-09-08.
-Specification: tasks/mobile-modernization/G3.md.
-Evidence: tasks/mobile-modernization/G3-EVIDENCE.md. Tagged delivery and remote
-verification are recorded under tasks/mobile-modernization/releases/.
+Status: completed investigation, 2026-09-08; fresh HP-death gate remains open.
+Specification and evidence: tasks/mobile-modernization/P2k-EVIDENCE.md.
 
 ## Goal and scope
-Continue G2 in the isolated mobile-next Evolution Journey. Make frost fields,
-instant frost bursts, real lightning chains and summon roles readable. Explain
-route playstyles/tradeoffs and owned/missing bond skills at normal choice/guide
-surfaces. Record alternate shatter/thunderstrike/hunter/guard natural play,
-including one full victory/save/replay. No new balance or progression rules.
+Continue G3 by investigating the remaining P2j natural HP-death gate for
+unchanged fresh H001 / ST001-01 / story / normal preparation. Diagnose input
+strategies, preserve failed attempts and implement only supported test-helper
+or cause-specific fixes. Seek HP-death, zero-star saved settlement, reload and
+replay at 1280x720, 390x844 and 320x844 with original recordings and a viewer.
 
-## Authorized dependencies and versioning
-No new dependencies or lockfile changes. App source/tests, migration docs,
-local evidence/report generation and Git hygiene are in scope. Preserve prior
-P2j/G1/G2 work and all raw evidence; checkpoint it before G3. User authorizes
-commits and GitHub upload on codex/mobile-web-modernization. Publish a clearly
-marked development milestone with source, changelog, checks and recording
-assets; do not switch the old entry or deploy the game. Never force push.
+## Boundaries and acceptance
+- Do not change preparation, balance, time, RNG, damage order or progression to
+  force a pass. No injected battle state in natural browser acceptance.
+- Keep the fresh HP-death assertion. Imported low-growth evidence is separate.
+  Direct-core strategy diagnostics are synthetic, never natural acceptance.
+- If the preserved rules do not yield this path in tested strategies, report
+  measured outcomes and keep the gate open; do not claim impossibility.
+- Preserve legacy sources, entry, Schema30, original saves, fresh zero stars,
+  defeat zero stars, non-story isolation, once-only atomic settlement, Boss
+  Loot priority, V3.0 fixes and all prior evidence. No public debug UI.
 
-## Acceptance
-- Render-only effects consume copied combat events, remain bounded, freeze
-  while paused and clear on teardown. Disabling effects leaves damage, drops,
-  slow, collision and settlement identical; important area boundaries remain.
-- Choices show route benefits/constraints; guide names owned and missing
-  positive-level skills. Native keyboard/touch controls remain reachable at
-  1280x720, 390x844 and 320x844 without overflow or activation carryover.
-- Natural recordings use visible controls, no injected RNG/time/XP/HP/state.
-  Preserve attempts, inspect actual frames and provide a playable local report.
-  Synthetic fixtures remain separate. Check GitHub branch/tag/assets after push.
-
-## Checks and boundaries
+## Verification and delivery
+No new dependencies or lockfile changes. Scope: app tests/helpers, relevant
+cause-specific fixes, task/evidence/report tooling and version documentation.
 Run check, smoke, audit, context, archive:verify in order; 49 baseline hashes,
-app types/rules/build and affected browser tests. Keep context <8192 bytes.
-Preserve Schema30, original saves, zero-star defeats, non-story isolation,
-atomic once-only settlement, Boss Loot priority and V3.0 fixes.
-P2j fresh-preparation HP-death remains a separate open acceptance gap; retain
-its assertions. No full-suite-green, real-phone, performance, endurance or PWA
-claim. Update the five rotating sections of handoff/STATE.md after this slice.
+app types/rules/build and related browser tests. Run the complete browser suite
+if the gate closes; report exact coverage and failures otherwise. Inspect
+recording frames, video decoding and viewer playback. Keep context <8192 bytes;
+update the five rotating handoff sections. User authorizes commits, immutable
+milestone tag and GitHub upload on codex/mobile-web-modernization. No force
+push, main merge, old-entry switch or deployment. Do not claim physical-phone,
+performance, endurance or PWA acceptance.

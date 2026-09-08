@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-G3 complete: real lightning paths, frost lifetime/bursts, summon role marks, effect toggle and ten-route/bond guidance. Four selected natural recordings include frost victory/save/replay. Three starters, nine forms and six bonds retained; P2j fresh HP-death gap remains.
+P2k investigation complete: corrected natural-test wall-time and import readiness; retained three fresh Boss-contact target failures with actual victory/save/replay evidence. Added 54 synthetic strategy diagnostics and 12 complete settlement recordings. Fresh HP-death gate stays open; G3 gameplay unchanged.
 
 ## Changed files
-G3 copied combat events, bounded Phaser effects, choice/guide components, nine rule cases and recording exit helper. Added replay viewer/package tools, evidence, changelog and release notes. Prior P2j/G1/G2 preserved in 0fc637c; no legacy/dependency change.
+P2k settlement test helper/config, diagnostic and viewer/package tools, original evidence, changelog/release notes and TASK. No app runtime, preparation, balance, dependency or legacy-source changes. Each attempt uses its own directory; all failures retained.
 
 ## Tests
-G3: legacy 5 gates, 30/30 archives, 49/49 hashes, types/build, 946/946 rules and 87/87 affected browser cases pass. Selected natural recordings 4/4; all attempts 7 pass/3 fail, preserved with causes. See G3-EVIDENCE.md, recordings.json and viewer-check.json for decoded video/playback evidence.
+P2k: legacy 5 gates, 30/30 archives, 49/49 hashes, types/build and 946/946 rules pass. Browser attempts 51 pass/6 fail; three setup failures fixed on rerun. Latest 54 distinct cases: 51 pass/3 fresh HP-death failures. Native related cases 42/42; complete recordings 9 pass/3 fail. All 12 videos decoded; 36 viewer playback/download checks pass.
 
 ## Unresolved risk
-P2j fresh-preparation HP-death stays open; full verify is not green. Physical phones, balance, performance/endurance remain unverified. At map edges some summons approach bottom controls. First stage only; audio/full parity/PWA pending. Phaser chunk warning remains.
+Fresh HP-death remains open: three contact runs won; 54 synthetic runs had 21 wins/33 timeouts, no HP-death. This does not prove impossibility. Full suite not rerun/green. Physical phones, balance, performance/endurance unverified. Edge HUD/controls can obscure combat; first stage only, audio/full parity/PWA pending. Phaser chunk warning remains.
 
 ## Recommended next task
-Define one slice closing P2j fresh HP-death naturally without state/time/balance changes; then gather phone camera/control feedback before more content. G3 viewer: port 4190. Authorized GitHub branch codex/mobile-web-modernization; tag mobile-next-g3-20260908. Upload verification stays in ignored releases folder.
+Define one narrow phone camera/control-occlusion slice with natural input evidence; keep P2j HP-death tracked separately and never replace it with imported/synthetic evidence. P2k-EVIDENCE.md records tested strategies. Viewer: port 4191. GitHub branch codex/mobile-web-modernization; tag mobile-next-p2k-20260908. Upload verification goes in ignored releases folder.
 
 ## After each task
 Replace only these fields:

@@ -1,0 +1,22 @@
+[
+  {
+    "exitCode": 0,
+    "name": "check"
+  },
+  {
+    "exitCode": 0,
+    "name": "smoke"
+  },
+  {
+    "exitCode": 0,
+    "name": "audit"
+  },
+  {
+    "exitCode": 0,
+    "name": "context"
+  },
+  {
+    "exitCode": 0,
+    "name": "archive:verify"
+  }
+]

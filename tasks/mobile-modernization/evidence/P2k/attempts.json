@@ -1,0 +1,339 @@
+[
+  {
+    "folder": "boss-contact-01",
+    "stats": {
+      "startTime": "2026-09-08T11:13:33.732Z",
+      "duration": 322191.81,
+      "expected": 0,
+      "skipped": 0,
+      "unexpected": 3,
+      "flaky": 0
+    },
+    "tests": [
+      {
+        "title": "natural corner-contact defeat, zero stars, save reload and replay",
+        "project": "desktop",
+        "status": "unexpected"
+      },
+      {
+        "title": "natural corner-contact defeat, zero stars, save reload and replay",
+        "project": "phone",
+        "status": "unexpected"
+      },
+      {
+        "title": "natural corner-contact defeat, zero stars, save reload and replay",
+        "project": "narrow",
+        "status": "unexpected"
+      }
+    ]
+  },
+  {
+    "folder": "regression-natural-01",
+    "stats": {
+      "startTime": "2026-09-08T11:20:40.932Z",
+      "duration": 695145.638,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 3,
+      "flaky": 0
+    },
+    "tests": [
+      {
+        "title": "natural complete first-stage victory, save reload and replay",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "natural first-stage timeout, zero stars, save reload and replay",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+        "project": "desktop",
+        "status": "unexpected"
+      },
+      {
+        "title": "natural complete first-stage victory, save reload and replay",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "natural first-stage timeout, zero stars, save reload and replay",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+        "project": "phone",
+        "status": "unexpected"
+      },
+      {
+        "title": "natural complete first-stage victory, save reload and replay",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "natural first-stage timeout, zero stars, save reload and replay",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+        "project": "narrow",
+        "status": "unexpected"
+      }
+    ]
+  },
+  {
+    "folder": "regression-imported-02",
+    "stats": {
+      "startTime": "2026-09-08T11:36:17.337Z",
+      "duration": 302049.147,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "tests": [
+      {
+        "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+        "project": "narrow",
+        "status": "expected"
+      }
+    ]
+  },
+  {
+    "folder": "regression-native-01",
+    "stats": {
+      "startTime": "2026-09-08T11:41:53.575Z",
+      "duration": 35761.744,
+      "expected": 42,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "tests": [
+      {
+        "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "surfaces missing assets and permits a clean return",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "surfaces missing assets and permits a clean return",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "surfaces missing assets and permits a clean return",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "natural save UI preserves files, switches slots and restores after reload",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "file UI retains unsupported content and explains why launch is unavailable",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "natural save UI preserves files, switches slots and restores after reload",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "file UI retains unsupported content and explains why launch is unavailable",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "natural save UI preserves files, switches slots and restores after reload",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "file UI retains unsupported content and explains why launch is unavailable",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+        "project": "desktop",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+        "project": "phone",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+        "project": "narrow",
+        "status": "expected"
+      },
+      {
+        "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+        "project": "narrow",
+        "status": "expected"
+      }
+    ]
+  }
+]

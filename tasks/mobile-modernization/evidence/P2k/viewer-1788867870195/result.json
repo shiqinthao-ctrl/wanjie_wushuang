@@ -1,0 +1,356 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 900,
+      "playback": [
+        {
+          "id": "fresh-defeat-desktop",
+          "duration": 306.72,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-defeat-narrow",
+          "duration": 321.44,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-defeat-phone",
+          "duration": 314.76,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-desktop",
+          "duration": 311.24,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-narrow",
+          "duration": 314.68,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-phone",
+          "duration": 317.4,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-desktop",
+          "duration": 370.32,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-narrow",
+          "duration": 374.88,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-phone",
+          "duration": 371.2,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-desktop",
+          "duration": 292.96,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-narrow",
+          "duration": 301.4,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-phone",
+          "duration": 296.2,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        }
+      ],
+      "noOverflow": true,
+      "errors": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "playback": [
+        {
+          "id": "fresh-defeat-desktop",
+          "duration": 306.72,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-defeat-narrow",
+          "duration": 321.44,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-defeat-phone",
+          "duration": 314.76,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-desktop",
+          "duration": 311.24,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-narrow",
+          "duration": 314.68,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-phone",
+          "duration": 317.4,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-desktop",
+          "duration": 370.32,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-narrow",
+          "duration": 374.88,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-phone",
+          "duration": 371.2,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-desktop",
+          "duration": 292.96,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-narrow",
+          "duration": 301.4,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-phone",
+          "duration": 296.2,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        }
+      ],
+      "noOverflow": true,
+      "errors": []
+    },
+    {
+      "name": "narrow",
+      "width": 320,
+      "height": 844,
+      "playback": [
+        {
+          "id": "fresh-defeat-desktop",
+          "duration": 306.72,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-defeat-narrow",
+          "duration": 321.44,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-defeat-phone",
+          "duration": 314.76,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-desktop",
+          "duration": 311.24,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-narrow",
+          "duration": 314.68,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-victory-phone",
+          "duration": 317.4,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-desktop",
+          "duration": 370.32,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-narrow",
+          "duration": 374.88,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "fresh-timeout-phone",
+          "duration": 371.2,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-desktop",
+          "duration": 292.96,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-narrow",
+          "duration": 301.4,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        },
+        {
+          "id": "imported-defeat-phone",
+          "duration": 296.2,
+          "statusLabel": true,
+          "seek": true,
+          "playing": true,
+          "speed": true,
+          "downloadSha256": true
+        }
+      ],
+      "noOverflow": true,
+      "errors": []
+    }
+  ]
+}

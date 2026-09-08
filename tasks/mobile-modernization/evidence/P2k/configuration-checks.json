@@ -1,0 +1,7 @@
+{
+  "existingReportRejected": true,
+  "existingAttempt": "boss-contact-01",
+  "listOnlyAttempt": "config-list-only",
+  "listedNativeCases": 42,
+  "note": "The list-only report is configuration validation, not executed test coverage."
+}

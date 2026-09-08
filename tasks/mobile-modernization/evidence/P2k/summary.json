@@ -1,0 +1,365 @@
+{
+  "gateClosed": false,
+  "rules": {
+    "passed": 946,
+    "total": 946
+  },
+  "browser": {
+    "passed": 51,
+    "failed": 6
+  },
+  "natural": {
+    "passed": 9,
+    "failed": 3
+  },
+  "resolvedSetupFailures": [
+    {
+      "project": "desktop",
+      "source": "regression-natural-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop",
+      "failure": "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('status')\nExpected substring: \"已导入\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\n  - waiting for getByRole('status')\n",
+      "resolution": "Wait for import input to become enabled; rerun in regression-imported-02."
+    },
+    {
+      "project": "narrow",
+      "source": "regression-natural-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow",
+      "failure": "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('status')\nExpected substring: \"已导入\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\n  - waiting for getByRole('status')\n",
+      "resolution": "Wait for import input to become enabled; rerun in regression-imported-02."
+    },
+    {
+      "project": "phone",
+      "source": "regression-natural-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone",
+      "failure": "Error: expect(locator).toContainText(expected) failed\n\nLocator: getByRole('status')\nExpected substring: \"已导入\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\n  - waiting for getByRole('status')\n",
+      "resolution": "Wait for import input to become enabled; rerun in regression-imported-02."
+    }
+  ],
+  "synthetic": {
+    "total": 54,
+    "outcomes": {
+      "victory": 21,
+      "timeout": 33
+    },
+    "minimum": {
+      "evidence": "synthetic-direct-core",
+      "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+      "layout": "phone",
+      "width": 390,
+      "height": 844,
+      "strategy": "boss-contact",
+      "seed": 123,
+      "time": 289.26666666673225,
+      "hp": 337.9774286466939,
+      "minHp": 337.61074727025976,
+      "kills": 506,
+      "end": "victory",
+      "ledger": {
+        "incoming": 998.6677122837717,
+        "attackHealing": 127.89622348120201,
+        "recovery": 445.8389174492641,
+        "hits": 756
+      },
+      "choices": [
+        {
+          "time": 16.466666666667013,
+          "id": "P030"
+        },
+        {
+          "time": 30.316666666666226,
+          "id": "P018"
+        },
+        {
+          "time": 41.86666666666557,
+          "id": "P017"
+        },
+        {
+          "time": 56.383333333331414,
+          "id": "P017"
+        },
+        {
+          "time": 67.08333333333081,
+          "id": "P030"
+        },
+        {
+          "time": 83.41666666666322,
+          "id": "P017"
+        },
+        {
+          "time": 96.86666666666245,
+          "id": "P026"
+        },
+        {
+          "time": 113.24999999999486,
+          "id": "A054"
+        },
+        {
+          "time": 133.18333333333146,
+          "id": "P019"
+        },
+        {
+          "time": 153.0000000000139,
+          "id": "P017"
+        },
+        {
+          "time": 177.5000000000334,
+          "id": "A054"
+        },
+        {
+          "time": 196.05000000004816,
+          "id": "P019"
+        },
+        {
+          "time": 216.38333333339767,
+          "id": "P030"
+        },
+        {
+          "time": 240.4333333334168,
+          "id": "P026"
+        },
+        {
+          "time": 268.1833333334181,
+          "id": "A054"
+        },
+        {
+          "time": 270.7833333334157,
+          "id": "P017"
+        },
+        {
+          "time": 282.66666666673825,
+          "id": "A054"
+        }
+      ],
+      "timeline": [
+        {
+          "time": 0,
+          "hp": 762.9100000000001,
+          "incoming": 0,
+          "attackHealing": 0,
+          "recovery": 0,
+          "hits": 0,
+          "kills": 0,
+          "level": 1,
+          "enemies": 0
+        },
+        {
+          "time": 15.000000000000325,
+          "hp": 757.3346380682614,
+          "incoming": 7,
+          "attackHealing": 1.424638068261288,
+          "recovery": 0,
+          "hits": 7,
+          "kills": 11,
+          "level": 1,
+          "enemies": 8
+        },
+        {
+          "time": 30.016666666666243,
+          "hp": 729.2752758066168,
+          "incoming": 40,
+          "attackHealing": 6.365275806616751,
+          "recovery": 0,
+          "hits": 40,
+          "kills": 29,
+          "level": 2,
+          "enemies": 11
+        },
+        {
+          "time": 45.016666666665394,
+          "hp": 702.5478979942861,
+          "incoming": 71,
+          "attackHealing": 10.63789799428605,
+          "recovery": 0,
+          "hits": 71,
+          "kills": 44,
+          "level": 4,
+          "enemies": 18
+        },
+        {
+          "time": 60.01666666666454,
+          "hp": 679.9185463112843,
+          "incoming": 99,
+          "attackHealing": 16.00854631128425,
+          "recovery": 0,
+          "hits": 99,
+          "kills": 65,
+          "level": 5,
+          "enemies": 20
+        },
+        {
+          "time": 75.0166666666637,
+          "hp": 762.9100000000001,
+          "incoming": 132,
+          "attackHealing": 21.84148255073592,
+          "recovery": 110.15851744926408,
+          "hits": 132,
+          "kills": 88,
+          "level": 6,
+          "enemies": 23
+        },
+        {
+          "time": 90.01666666666284,
+          "hp": 733.2206483027456,
+          "incoming": 167.45391923327782,
+          "attackHealing": 27.606050086759296,
+          "recovery": 110.15851744926408,
+          "hits": 167,
+          "kills": 108,
+          "level": 7,
+          "enemies": 32
+        },
+        {
+          "time": 105.01666666666199,
+          "hp": 696.7160880235318,
+          "incoming": 210.9846124972222,
+          "attackHealing": 34.63218307148986,
+          "recovery": 110.15851744926408,
+          "hits": 210,
+          "kills": 132,
+          "level": 8,
+          "enemies": 36
+        },
+        {
+          "time": 120.01666666666114,
+          "hp": 651.8888663149761,
+          "incoming": 262.10738555299974,
+          "attackHealing": 40.92773441871168,
+          "recovery": 110.15851744926408,
+          "hits": 259,
+          "kills": 157,
+          "level": 9,
+          "enemies": 39
+        },
+        {
+          "time": 135.01666666666625,
+          "hp": 603.1574996795002,
+          "incoming": 316.35293166455483,
+          "attackHealing": 46.4419138947909,
+          "recovery": 110.15851744926408,
+          "hits": 309,
+          "kills": 183,
+          "level": 10,
+          "enemies": 41
+        },
+        {
+          "time": 150.0000000000115,
+          "hp": 560.404434312875,
+          "incoming": 367.4757047203324,
+          "attackHealing": 54.81162158394318,
+          "recovery": 110.15851744926408,
+          "hits": 358,
+          "kills": 218,
+          "level": 10,
+          "enemies": 35
+        },
+        {
+          "time": 165.00000000002345,
+          "hp": 696.7071695194632,
+          "incoming": 408.01195912033256,
+          "attackHealing": 63.81041119053157,
+          "recovery": 277.99871744926406,
+          "hits": 397,
+          "kills": 255,
+          "level": 11,
+          "enemies": 29
+        },
+        {
+          "time": 180.00000000003539,
+          "hp": 665.6126236093505,
+          "incoming": 445.01195912033256,
+          "attackHealing": 69.71586528041894,
+          "recovery": 277.99871744926406,
+          "hits": 434,
+          "kills": 281,
+          "level": 12,
+          "enemies": 36
+        },
+        {
+          "time": 195.00000000004732,
+          "hp": 632.2518089398146,
+          "incoming": 487.01195912033256,
+          "attackHealing": 78.35505061088304,
+          "recovery": 277.99871744926406,
+          "hits": 476,
+          "kills": 316,
+          "level": 12,
+          "enemies": 34
+        },
+        {
+          "time": 210.00000000005926,
+          "hp": 598.2616807335384,
+          "incoming": 529.0119591203326,
+          "attackHealing": 86.36492240460677,
+          "recovery": 277.99871744926406,
+          "hits": 518,
+          "kills": 347,
+          "level": 13,
+          "enemies": 35
+        },
+        {
+          "time": 225.0000000000712,
+          "hp": 563.3077304820397,
+          "incoming": 572.0119591203326,
+          "attackHealing": 94.4109721531081,
+          "recovery": 277.99871744926406,
+          "hits": 561,
+          "kills": 382,
+          "level": 14,
+          "enemies": 33
+        },
+        {
+          "time": 240.00000000008313,
+          "hp": 524.8561679653794,
+          "incoming": 618.0119591203326,
+          "attackHealing": 101.95940963644784,
+          "recovery": 277.99871744926406,
+          "hits": 607,
+          "kills": 408,
+          "level": 14,
+          "enemies": 39
+        },
+        {
+          "time": 255.00000000009507,
+          "hp": 653.4971928717663,
+          "incoming": 665.4953993913787,
+          "attackHealing": 110.2436748138806,
+          "recovery": 445.8389174492641,
+          "hits": 652,
+          "kills": 436,
+          "level": 15,
+          "enemies": 44
+        },
+        {
+          "time": 270.0000000000831,
+          "hp": 609.4535001465256,
+          "incoming": 718.3160510497639,
+          "attackHealing": 119.02063374702516,
+          "recovery": 445.8389174492641,
+          "hits": 699,
+          "kills": 464,
+          "level": 16,
+          "enemies": 50
+        },
+        {
+          "time": 285.00000000006946,
+          "hp": 411.7105879535613,
+          "incoming": 922.4276290528453,
+          "attackHealing": 125.38929955714241,
+          "recovery": 445.8389174492641,
+          "hits": 741,
+          "kills": 498,
+          "level": 18,
+          "enemies": 43
+        },
+        {
+          "time": 289.26666666673225,
+          "hp": 337.9774286466939,
+          "incoming": 998.6677122837717,
+          "attackHealing": 127.89622348120201,
+          "recovery": 445.8389174492641,
+          "hits": 756,
+          "kills": 506,
+          "level": 18,
+          "enemies": 41
+        }
+      ]
+    }
+  }
+}

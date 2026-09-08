@@ -1,0 +1,613 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/settlement.spec.ts",
+      "--config=playwright.p2k.config.ts",
+      "--grep",
+      "natural complete|natural first-stage timeout|supplemental imported"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.p2k.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/regression-natural-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/regression-natural-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P2k/regression-natural-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/P2k/regression-natural-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "settlement.spec.ts",
+      "file": "settlement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural complete first-stage victory, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 310866,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:20:41.688Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop\\attachments\\natural-settlement-input-32d8d0f7ffc645c7b5a5f28e902cc8e6554948e6.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-aaa9174004a68676abe3",
+          "file": "settlement.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "natural first-stage timeout, zero stars, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 369601,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:25:52.746Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop\\attachments\\natural-settlement-input-d923c2dfc6290616ba22dc98a5d72fd21cdeb625.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-ce136e9d5b0f11287158",
+          "file": "settlement.spec.ts",
+          "line": 191,
+          "column": 1
+        },
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5862,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:63:44)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:198:3",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 44,
+                      "line": 63
+                    },
+                    "snippet": "  61 |     await page.getByRole('button', { name: '存档', exact: true }).click();\n  62 |     await page.getByLabel('导入存档文件').setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });\n> 63 |     await expect(page.getByRole('status')).toContainText('已导入');\n     |                                            ^\n  64 |     const original = page.waitForEvent('download');\n  65 |     await page.getByRole('button', { name: '导出导入原件' }).click();\n  66 |     expect(await readFile((await (await original).path())!, 'utf8')).toBe(raw);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 44,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  61 |     await page.getByRole('button', { name: '存档', exact: true }).click();\n  62 |     await page.getByLabel('导入存档文件').setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });\n> 63 |     await expect(page.getByRole('status')).toContainText('已导入');\n     |                                            ^\n  64 |     const original = page.waitForEvent('download');\n  65 |     await page.getByRole('button', { name: '导出导入原件' }).click();\n  66 |     expect(await readFile((await (await original).path())!, 'utf8')).toBe(raw);\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:63:44)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:198:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:32:02.357Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 44,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-2d85e1a2faa95984f58c",
+          "file": "settlement.spec.ts",
+          "line": 193,
+          "column": 1
+        },
+        {
+          "title": "natural complete first-stage victory, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 316969,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:20:41.703Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\\attachments\\natural-settlement-input-5e33c856df5312216c3866dbd67976043bac1297.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-c96c378116643a152ad4",
+          "file": "settlement.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "natural first-stage timeout, zero stars, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 370076,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:25:58.862Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone\\attachments\\natural-settlement-input-7b3bb35a7adf06448ddd344f02b0bfeb31cba759.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-2ca69a653f4bf13cf825",
+          "file": "settlement.spec.ts",
+          "line": 191,
+          "column": 1
+        },
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 5952,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:63:44)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:198:3",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 44,
+                      "line": 63
+                    },
+                    "snippet": "  61 |     await page.getByRole('button', { name: '存档', exact: true }).click();\n  62 |     await page.getByLabel('导入存档文件').setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });\n> 63 |     await expect(page.getByRole('status')).toContainText('已导入');\n     |                                            ^\n  64 |     const original = page.waitForEvent('download');\n  65 |     await page.getByRole('button', { name: '导出导入原件' }).click();\n  66 |     expect(await readFile((await (await original).path())!, 'utf8')).toBe(raw);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 44,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  61 |     await page.getByRole('button', { name: '存档', exact: true }).click();\n  62 |     await page.getByLabel('导入存档文件').setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });\n> 63 |     await expect(page.getByRole('status')).toContainText('已导入');\n     |                                            ^\n  64 |     const original = page.waitForEvent('download');\n  65 |     await page.getByRole('button', { name: '导出导入原件' }).click();\n  66 |     expect(await readFile((await (await original).path())!, 'utf8')).toBe(raw);\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:63:44)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:198:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:32:08.948Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 44,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-f88e252a32c45e868330",
+          "file": "settlement.spec.ts",
+          "line": 193,
+          "column": 1
+        },
+        {
+          "title": "natural complete first-stage victory, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 314225,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:20:41.703Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\\attachments\\natural-settlement-input-0e5069df78af45d0e55669ff6b692a037b42fb0c.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-683dc6f088ce41fdf77b",
+          "file": "settlement.spec.ts",
+          "line": 189,
+          "column": 1
+        },
+        {
+          "title": "natural first-stage timeout, zero stars, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 374042,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:25:56.135Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-narrow\\attachments\\natural-settlement-input-a505dcde36a119171048b235592884f7bf73bec9.json"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-eb6e25ef3b803afaa25b",
+          "file": "settlement.spec.ts",
+          "line": 191,
+          "column": 1
+        },
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 5647,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:63:44)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:198:3",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 44,
+                      "line": 63
+                    },
+                    "snippet": "  61 |     await page.getByRole('button', { name: '存档', exact: true }).click();\n  62 |     await page.getByLabel('导入存档文件').setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });\n> 63 |     await expect(page.getByRole('status')).toContainText('已导入');\n     |                                            ^\n  64 |     const original = page.waitForEvent('download');\n  65 |     await page.getByRole('button', { name: '导出导入原件' }).click();\n  66 |     expect(await readFile((await (await original).path())!, 'utf8')).toBe(raw);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 44,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('status')\nExpected substring: \u001b[32m\"已导入\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByRole('status') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('status')\u001b[22m\n\n\n  61 |     await page.getByRole('button', { name: '存档', exact: true }).click();\n  62 |     await page.getByLabel('导入存档文件').setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });\n> 63 |     await expect(page.getByRole('status')).toContainText('已导入');\n     |                                            ^\n  64 |     const original = page.waitForEvent('download');\n  65 |     await page.getByRole('button', { name: '导出导入原件' }).click();\n  66 |     expect(await readFile((await (await original).path())!, 'utf8')).toBe(raw);\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:63:44)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:198:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T11:32:10.186Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P2k\\regression-natural-01\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 44,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-8dfadb32b767eb3c4149",
+          "file": "settlement.spec.ts",
+          "line": 193,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T11:20:40.932Z",
+    "duration": 695145.638,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}
