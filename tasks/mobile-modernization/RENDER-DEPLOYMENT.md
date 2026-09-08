@@ -85,9 +85,61 @@ Do not reset or force-push either branch to perform a rollback.
 
 ## Acceptance status
 
-Deployment and live-browser evidence will be appended after the service is Live.
-The packaging checks and app typecheck/build pass locally. P2k already records
-946/946 rules and 42/42 related browser cases passing; the latest 54 distinct
-browser cases include 51 passes and three fresh natural HP-death target
-failures. Those failures remain open. Physical phones, performance/endurance,
-audio/full parity and PWA are not accepted by this preview deployment.
+Completed on 2026-09-08. Render's deployment page reports
+`Deploy succeeded | Live` for `dep-dag058on74is73bukk40`, source
+`75e139b8d7aa50198471fb4aab3b92d027c97bd5`. It started at 20:42:11 GMT+8,
+took 19.3 seconds, and the log reports Live at 20:42:30. The dashboard confirms
+`Build cache cleared` and Node 24.18.0. Auto-deploy is off.
+
+Deployment tag: `mobile-next-render-20260908`, pointing to that exact source.
+The subsequent documentation-only commit records this acceptance and does not
+change the running version. GitHub branch: `codex/mobile-web-modernization`.
+
+### Deployment retry and public package
+
+The first deployment, `dep-dag03qgu01pc73c9nqrg` at 20:39:06 GMT+8,
+reported Live with the same source and all runtime hashes matched. However,
+HTTP checks found that `/TASK.md` and `/package.json` still returned old
+September 1 content, including with cache-busting queries. Acceptance failed.
+Render's **Clear build cache & deploy** action produced the current deployment
+and resolved those stale files without redirect or header changes.
+
+Final `verify-render-site.mjs https://wjws.onrender.com` passed: all 51 file
+hashes and sizes, both entry asset references, the legacy baseline and four
+repository-only URLs. The latter return 403/404. The remote version record
+matches the local verified build and full source commit. Root checks passed
+in order, archive integrity passed (30 files / 12 documents), migration hashes
+passed 49/49, and the app typecheck/build passed locally and on Render.
+Render's dependency audit reported zero vulnerabilities. The existing Phaser
+chunk warning remains (1,429.18 kB minified / 377.14 kB gzip).
+
+### Browser observations
+
+The following checks used ordinary visible controls in the Codex browser;
+no battle state, save data or game clock was injected.
+
+| Surface | Observed result |
+| --- | --- |
+| Local production package | Both entries load; all three starters selectable. Shadow starter naturally levels up, selects an upgrade, pauses/resumes and returns to lobby. Save page and reload preserve selection and 6,000 gold. |
+| Live desktop | Lobby loads; evolution mode and fire starter selection update the visible hero and attributes. |
+| Live phone layout | 390 x 844 viewport (375 px document width excluding scrollbar). Fire starter enters battle, naturally reaches Lv.2/Lv.3, upgrades fire dash, activates the hero skill and evolves into the lightning form. Lv.4 selects lightning bolt. |
+| Live battle lifecycle | Pause displays the lightning form, three active skills and six bond requirement panels. Continue advances game time. A natural golden-chest event is dismissed through its Leave button; pausing again and returning to lobby succeeds. |
+| Live persistence | Abandoning the run returns to the fire starter and retains 6,000 gold. Save page loads; refresh returns to lobby and preserves the starter/currency. Session mode resets to classic as designed; evolution mode remains selectable. |
+| Live legacy entry | Original start screen and existing progression load at the root URL. |
+| Runtime errors | Local and live game tabs report no console warnings/errors during these checks. |
+
+Phone-layout screenshots were inspected in-session; this is browser emulation,
+not physical-device acceptance. No new complete-match recording was produced
+for this packaging-only update. The 12 complete P2k recordings and evidence
+remain available in the existing GitHub release:
+https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p2k-20260908.
+
+### Open gates
+
+P2k previously recorded 946/946 rules and 42/42 related browser cases passing;
+the latest 54 distinct browser cases include 51 passes and three fresh natural
+HP-death target failures (actual outcome: victory). Those failures remain open.
+The full gameplay suite was not rerun for this packaging-only update. Physical
+phones, performance/endurance, audio/full parity and PWA are not accepted by
+this preview deployment. Phone HUD/control occlusion remains a follow-up.
+The prior deployment's rollback action was observed but not executed.

@@ -1,6 +1,6 @@
 # TASK.md - Publish the mobile preview to the existing Render site
 
-Status: in progress, 2026-09-08.
+Status: completed, 2026-09-08.
 
 ## Goal and authorization
 The user explicitly authorizes GitHub synchronization and updating Render
@@ -28,3 +28,9 @@ Record Render's prior/current commit and deployment status, remote version
 identity, settings and rollback steps. Update the five handoff sections,
 commit/tag/push to GitHub, and verify the named Render deployment is Live.
 Physical phones, performance/endurance, PWA and full parity remain unverified.
+
+## Result
+Render deployment dep-dag058on74is73bukk40 is Live at source 75e139b.
+Both public entries, all 51 runtime hashes, blocked repository paths and
+natural browser startup/evolution/pause/exit/save reload passed. Auto-deploy
+is off. Release identity, evidence and rollback: tasks/mobile-modernization/RENDER-DEPLOYMENT.md.

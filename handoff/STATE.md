@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2k investigation complete: corrected natural-test wall-time and import readiness; retained three fresh Boss-contact target failures with actual victory/save/replay evidence. Added 54 synthetic strategy diagnostics and 12 complete settlement recordings. Fresh HP-death gate stays open; G3 gameplay unchanged.
+Published P2k/G3 preview to the authorized WJWS Render service. Source 75e139b, deployment dep-dag058on74is73bukk40 is Live. Mobile: https://wjws.onrender.com/mobile-next/; legacy root preserved. Clean-cache redeploy resolved old repository-file retention. Auto-deploy is off.
 
 ## Changed files
-P2k settlement test helper/config, diagnostic and viewer/package tools, original evidence, changelog/release notes and TASK. No app runtime, preparation, balance, dependency or legacy-source changes. Each attempt uses its own directory; all failures retained.
+TASK, handoff, .node-version, scripts/build-render-site.mjs, scripts/verify-render-site.mjs and tasks/mobile-modernization/RENDER-DEPLOYMENT.md. Public package is allowlisted; no gameplay, dependency or legacy-source changes. Runtime tag: mobile-next-render-20260908 at 75e139b; later docs commit records acceptance only.
 
 ## Tests
-P2k: legacy 5 gates, 30/30 archives, 49/49 hashes, types/build and 946/946 rules pass. Browser attempts 51 pass/6 fail; three setup failures fixed on rerun. Latest 54 distinct cases: 51 pass/3 fresh HP-death failures. Native related cases 42/42; complete recordings 9 pass/3 fail. All 12 videos decoded; 36 viewer playback/download checks pass.
+Deployment: 5 root gates, 49/49 baseline hashes, types/build and local/HTTPS package verification pass (51 files). Local/live desktop and phone-layout browser checks cover selection, natural upgrades/evolution, pause/continue/exit, save/reload and legacy startup; error/warn logs empty. Prior P2k: 946 rules, 42 related browser cases pass; latest 54 cases = 51 pass/3 fresh HP-death failures. Recordings preserved.
 
 ## Unresolved risk
-Fresh HP-death remains open: three contact runs won; 54 synthetic runs had 21 wins/33 timeouts, no HP-death. This does not prove impossibility. Full suite not rerun/green. Physical phones, balance, performance/endurance unverified. Edge HUD/controls can obscure combat; first stage only, audio/full parity/PWA pending. Phaser chunk warning remains.
+Fresh HP-death gate remains open: three contact runs won; synthetic diagnostics do not replace natural acceptance. Full gameplay suite was not rerun for deployment. Physical phones, balance, performance/endurance unverified. HUD/control occlusion, first-stage-only content, audio/full parity/PWA and Phaser chunk warning remain. Rollback procedure recorded, not executed.
 
 ## Recommended next task
-Define one narrow phone camera/control-occlusion slice with natural input evidence; keep P2j HP-death tracked separately and never replace it with imported/synthetic evidence. P2k-EVIDENCE.md records tested strategies. Viewer: port 4191. GitHub branch codex/mobile-web-modernization; tag mobile-next-p2k-20260908. Upload verification goes in ignored releases folder.
+Define one narrow phone camera/control-occlusion slice with natural input evidence; keep P2j HP-death tracked separately. See P2k-EVIDENCE.md and RENDER-DEPLOYMENT.md. GitHub branch codex/mobile-web-modernization. Recordings: release mobile-next-p2k-20260908; local viewer port 4191. Future deployment requires the same package/HTTPS checks and explicit verified commit.
 
 ## After each task
 Replace only these fields:
