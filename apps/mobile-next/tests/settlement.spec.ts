@@ -45,17 +45,23 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
   const win = outcome === 'victory';
   const baseline: GameSave = imported || fresh;
   const profile = imported ? 'imported-low-growth' : 'fresh-baseline';
+  const contactBoss = !imported && outcome === 'defeat' && process.env.FRESH_DEFEAT_STRATEGY === 'boss-contact';
   const errors: string[] = [], timeline: unknown[] = [];
+  const started = Date.now();
+  let observed: unknown;
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
   await page.goto('./');
+  expect(await exportSave(page)).toEqual(fresh);
   if (imported) {
     // Supplemental fixture imported through the real file UI; never runtime injection.
     const raw = JSON.stringify(imported, null, 2);
     await writeFile(info.outputPath('synthetic-low-growth-input.json'), raw);
     await page.getByRole('button', { name: '存档', exact: true }).click();
-    await page.getByLabel('导入存档文件').setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });
+    const importFile = page.getByLabel('导入存档文件');
+    await expect(importFile).toBeEnabled();
+    await importFile.setInputFiles({ name: '低成长分支测试.json', mimeType: 'application/json', buffer: Buffer.from(raw) });
     await expect(page.getByRole('status')).toContainText('已导入');
     const original = page.waitForEvent('download');
     await page.getByRole('button', { name: '导出导入原件' }).click();
@@ -74,7 +80,10 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
   let lootSeen = false, eventCost = 0;
   let lastDirection = { x: 1, y: -1 }, missingBoss = 0, trackedFrames = 0;
   try {
-    for (let step = 0; step < 540 && !await result.isVisible(); step++) {
+    // Pixel-guided movement uses shorter input intervals. A step count truncated
+    // these runs before the six-minute objective; bound real wall time instead.
+    const deadline = Date.now() + 620_000;
+    for (let step = 0; Date.now() < deadline && !await result.isVisible(); step++) {
       if (await event.isVisible()) {
         const merchant = await event.getByRole('button', { name: '购买回复' }).isVisible();
         const name = !win ? '离开' : merchant ? '购买回复' : '打开黄金宝箱';
@@ -90,13 +99,14 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
       const bossPresent = await page.getByLabel('首领状态').isVisible();
       let direction = win ? { x: [1, 0, -1, 0][step % 4]!, y: [0, 1, 0, -1][step % 4]! } : outcome === 'timeout' ? { x: 0, y: 0 } : { x: -1, y: -1 };
       let duration = 1000;
-      if (win && bossPresent) {
+      if ((win || contactBoss) && bossPresent) {
         const actors = await visibleActors(page);
         duration = 180;
         if (actors.hero && actors.boss) {
           const dx = actors.boss.x - actors.hero.x, dy = actors.boss.y - actors.hero.y, distance = Math.hypot(dx, dy);
-          direction = distance < 65 ? { x: 0, y: 0 } : { x: dx / distance, y: dy / distance };
-          if (distance >= 65) lastDirection = direction;
+          const stopDistance = contactBoss ? 15 : 65;
+          direction = distance < stopDistance ? { x: 0, y: 0 } : { x: dx / distance, y: dy / distance };
+          if (distance >= stopDistance) lastDirection = direction;
           trackedFrames++; missingBoss = 0;
         } else {
           // A charge can leave the viewport on the opposite side of the hero.
@@ -127,15 +137,18 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
         if (win) { await page.keyboard.press('e'); await page.keyboard.press('r'); await page.keyboard.press('f'); }
         await page.waitForTimeout(duration); for (const key of keys) await page.keyboard.up(key);
       }
-      if (step % 10 === 0) timeline.push({ time: await page.getByLabel('本局时间').textContent(), hp: await page.getByLabel('战斗状态').textContent(), boss: await page.getByLabel('首领生命').getAttribute('value', { timeout: 100 }).catch(() => null) });
+      if (step % 10 === 0) timeline.push({ seconds: (Date.now() - started) / 1000, time: await page.getByLabel('本局时间').textContent(), hp: await page.getByLabel('战斗状态').textContent(), boss: await page.getByLabel('首领生命').getAttribute('value', { timeout: 100 }).catch(() => null), direction });
     }
     const title = win ? '黄巾巨将已击败' : outcome === 'timeout' ? '首战时限已到' : '本局生命耗尽';
-    await expect(page.getByRole('dialog', { name: title })).toBeVisible();
+    await expect(result).toBeVisible();
+    const actualTitle = await result.getByRole('heading', { level: 2 }).textContent();
     await expect(result.getByText('战果已保存', { exact: true })).toBeVisible();
-    if (win) expect(lootSeen).toBe(true);
     const stars = await result.getByLabel('本局星级').textContent();
-    expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+    const actualWin = actualTitle === '黄巾巨将已击败';
+    if (actualWin) expect(lootSeen).toBe(true);
+    expect(stars).toMatch(actualWin ? /★{2,3}/ : /^☆☆☆$/);
     const gold = Number((await result.locator('.reward-grid dd').first().textContent())!.replace('+', ''));
+    observed = { title: actualTitle, stars, gold, seconds: (Date.now() - started) / 1000, text: await result.textContent(), persistenceVerified: false };
     const box = await result.boundingBox(); expect(box!.x).toBeGreaterThanOrEqual(0);
     expect(box!.x + box!.width).toBeLessThanOrEqual(info.project.use.viewport!.width);
     expect(await result.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
@@ -152,8 +165,10 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
     expect(save.modeStats.story!.runs).toBe(baseline.modeStats.story!.runs + 1);
     expect(save.chapters.ST001!.stars['ST001-01']).toBe((stars!.match(/★/g) || []).length);
     expect(save.accountXp + save.accountLv * 10000).toBeGreaterThan(baseline.accountXp + baseline.accountLv * 10000);
-    if (win) expect(save.inventory.gearInstances.filter(drop => drop.source === 'boss').length).toBeGreaterThanOrEqual(2);
+    if (actualWin) expect(save.inventory.gearInstances.filter(drop => drop.source === 'boss').length).toBeGreaterThanOrEqual(2);
     await page.reload(); expect(await exportSave(page)).toEqual(save);
+    await writeFile(info.outputPath('saved-result.json'), JSON.stringify(save, null, 2));
+    observed = { ...observed as object, persistenceVerified: true, replayVerified: true, completedSeconds: (Date.now() - started) / 1000 };
     if (imported) {
       await page.getByRole('button', { name: '存档', exact: true }).click();
       const original = page.waitForEvent('download');
@@ -164,9 +179,12 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
       expect(await exportSave(page)).toEqual(fresh);
     }
     expect(errors).toEqual([]);
+    // Preserve the requested outcome gate, after collecting the actual saved result.
+    expect(actualTitle).toBe(title);
+    expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
   } finally {
     const path = info.outputPath('natural-settlement-input.json');
-    await writeFile(path, JSON.stringify({ profile, outcome, timeline, errors, lootSeen, eventCost, trackedFrames }, null, 2));
+    await writeFile(path, JSON.stringify({ profile, outcome, strategy: contactBoss ? 'boss-contact' : win ? 'victory-chase' : outcome === 'timeout' ? 'stationary' : 'corner', observed, timeline, errors, lootSeen, eventCost, trackedFrames }, null, 2));
     await info.attach('natural-settlement-input', { path, contentType: 'application/json' });
   }
 }
