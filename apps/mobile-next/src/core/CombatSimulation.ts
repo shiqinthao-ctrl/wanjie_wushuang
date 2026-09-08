@@ -15,6 +15,7 @@ import { isStarter } from './evolutionCatalog';
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
+  | { type: 'lightning'; points: readonly Readonly<Point>[]; source: string }
   | { type: 'hit'; x: number; y: number; damage: number; critical: boolean }
   | { type: 'kill'; x: number; y: number; elite: boolean };
 interface Projectile extends Point { id: string; vx: number; vy: number; dmg: number; r: number; life: number; pierce: number; split: number; explode: number; color: string; targets?: Set<object> }
@@ -122,6 +123,9 @@ export class CombatSimulation {
   private aim(): number { const target = this.nearest(); return target ? Math.atan2(target.y - this.player.y, target.x - this.player.x) : 0; }
   heroAim(): number { const target = this.boss || this.nearest(); return target ? Math.atan2(target.y - this.player.y, target.x - this.player.x) : 0; }
   ring(point: Point, radius: number, source: string): void { this.events.push({ type: 'ring', x: point.x, y: point.y, radius, source }); }
+  lightningPath(points: readonly Point[], source: string): void {
+    if (points.length > 1) this.events.push({ type: 'lightning', source, points: Object.freeze(points.map(({ x, y }) => Object.freeze({ x, y }))) });
+  }
   hurt(damage: number): void { Object.assign(this.player, incomingHit(this.context, this.player, damage)); }
   hitBoss(base: number, source: string, skill = false): void {
     const boss = this.boss; if (!boss) return;

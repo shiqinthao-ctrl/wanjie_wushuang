@@ -3,15 +3,18 @@ import { GameCore } from '../core/GameCore';
 import type { UiSnapshot } from '../core/GameCore';
 import { MapView } from './MapView';
 import { BossView } from './BossView';
+import { CombatEffects } from './CombatEffects';
 import type { GameSave } from '../core/saveTypes';
 import type { Journey } from '../core/evolutionCatalog';
 
-export interface BattleHandle { core: GameCore; destroy(): Promise<void> }
+export interface BattleHandle { core: GameCore; setEffectsEnabled(value: boolean): void; destroy(): Promise<void> }
 
 export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) => void, ready: () => void, fail: (message: string) => void, save: GameSave, journey: Journey = 'classic'): BattleHandle {
   const core = new GameCore(save, Math.random, journey);
   let removed = false;
   let budget = 0;
+  let effects: CombatEffects | undefined;
+  let effectsEnabled = true;
   class BattleScene extends Phaser.Scene {
     private hero?: Phaser.GameObjects.Image;
     private crystals?: Phaser.GameObjects.Graphics;
@@ -19,7 +22,6 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     private mapView?: MapView;
     private bossView?: BossView;
     private enemySprites: Phaser.GameObjects.Image[] = [];
-    private pulses: { x: number; y: number; radius: number; life: number; source: string }[] = [];
     preload() {
       this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
       this.load.image('hero', `${import.meta.env.BASE_URL}art/hero-${save.hero.toLowerCase()}.svg`);
@@ -34,8 +36,10 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       this.add.image(0, 0, 'ground').setOrigin(0).setDisplaySize(world.width, world.height);
       this.mapView = new MapView(this);
       this.bossView = new BossView(this);
-      this.crystals = this.add.graphics();
+      this.crystals = this.add.graphics().setDepth(3.2);
       this.combatGraphics = this.add.graphics();
+      effects = new CombatEffects(this.add.graphics().setDepth(.5));
+      effects.setEnabled(effectsEnabled);
       this.hero = this.add.image(player.x, player.y, 'hero').setDisplaySize(66, 81).setOrigin(.5, .84).setDepth(3);
       this.cameras.main.setBounds(0, 0, world.width, world.height);
       this.cameras.main.centerOn(player.x, player.y);
@@ -44,6 +48,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     update(_now: number, delta: number) {
       if (removed || !this.hero) return;
       core.resize(this.scale.width, this.scale.height);
+      const previousTime = core.snapshot().time;
       core.advance(delta / 1000);
       const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, summons, journey: evolution } = core.renderState();
       this.mapView?.draw(map, player);
@@ -53,6 +58,8 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         const color = Number.parseInt(unit.color.slice(1), 16);
         graphics.fillStyle(color, .35).fillTriangle(unit.x, unit.y - 36, unit.x - 16, unit.y + 6, unit.x + 16, unit.y + 6).fillCircle(unit.x, unit.y - 38, 8);
         graphics.lineStyle(2, color, .8).strokeCircle(unit.x, unit.y + 4, unit.guard ? 24 : 16);
+        if (unit.guard) graphics.lineStyle(3, color, .9).strokeRect(unit.x - 9, unit.y - 28, 18, 22);
+        else for (const sign of [-1, 1]) graphics.lineStyle(3, color, .9).lineBetween(unit.x + sign * 8, unit.y - 26, unit.x + sign * 22, unit.y - 12);
       }
       if (evolution?.formId) {
         const color = Number.parseInt(evolution.color.slice(1), 16), x = player.x, y = player.y;
@@ -72,6 +79,13 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       for (const field of fields) {
         const color = Number.parseInt(field.color.slice(1), 16);
         graphics.fillStyle(color, .12).fillCircle(field.x, field.y, field.r).lineStyle(field.chill ? 2 : 1, field.chill ? color : 0xffba70, .45).strokeCircle(field.x, field.y, field.r);
+        if (field.chill) {
+          graphics.lineStyle(3, color, .85).beginPath().arc(field.x, field.y, field.r + 5, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * Math.max(0, field.life / field.max)).strokePath();
+          for (let i = 0; i < 6; i++) {
+            const angle = i * Math.PI / 3;
+            graphics.lineStyle(2, color, .6).lineBetween(field.x + Math.cos(angle) * (field.r - 12), field.y + Math.sin(angle) * (field.r - 12), field.x + Math.cos(angle) * field.r, field.y + Math.sin(angle) * field.r);
+          }
+        }
       }
       for (const vortex of vortices) {
         for (let i = 0; i < 3; i++) graphics.lineStyle(4 - i, 0x82d6b7, .55).strokeCircle(vortex.x, vortex.y, vortex.r * (.3 + i * .22));
@@ -91,28 +105,22 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       }
       while (this.enemySprites.length > enemies.length) this.enemySprites.pop()!.destroy();
       for (const shot of projectiles) graphics.fillStyle(evolution ? Number.parseInt(shot.color.slice(1), 16) : 0xffa452, 1).fillCircle(shot.x, shot.y, shot.r).lineStyle(2, 0xffe2a5, .7).strokeCircle(shot.x, shot.y, shot.r + 2);
-      for (const shot of enemyShots) graphics.fillStyle(0xff776e, 1).fillCircle(shot.x, shot.y, shot.r);
       graphics.fillStyle(0xef704c, 1).fillCircle(pet.x, pet.y, 9).lineStyle(2, 0xffd498, .6).strokeCircle(pet.x, pet.y, 15);
       this.crystals?.clear();
+      for (const shot of enemyShots) this.crystals?.fillStyle(0xff776e, 1).fillCircle(shot.x, shot.y, shot.r);
       for (const crystal of crystals) {
         const radius = crystal.elite ? 10 : 7;
         this.crystals?.fillStyle(crystal.elite ? 0xffd47a : 0x74f0cf, 1);
         this.crystals?.beginPath().moveTo(crystal.x, crystal.y - radius).lineTo(crystal.x + radius, crystal.y).lineTo(crystal.x, crystal.y + radius).lineTo(crystal.x - radius, crystal.y).closePath().fillPath();
         this.crystals?.lineStyle(2, 0xd9fff2, .8).strokeCircle(crystal.x, crystal.y, radius + 4);
       }
-      for (const event of core.takeEvents()) {
-        if (event.type === 'ring') { this.pulses.push({ ...event, life: .25 }); continue; }
+      const events = core.takeEvents();
+      effects?.draw(events, core.snapshot().time - previousTime);
+      for (const event of events) {
         if (event.type !== 'xp-pickup') continue;
         const label = this.add.text(event.x, event.y - 20, `XP +${Math.round(event.value)}`, { fontSize: '14px', color: '#74f0cf', stroke: '#102720', strokeThickness: 3 }).setOrigin(.5);
         this.tweens.add({ targets: label, y: label.y - 28, alpha: 0, duration: 700, onComplete: () => label.destroy() });
       }
-      const running = core.snapshot().status === 'running';
-      for (const pulse of this.pulses) {
-        if (running) pulse.life -= Math.min(.034, delta / 1000);
-        const color = pulse.source.startsWith('G2_FROST') ? 0x8de8ff : pulse.source === 'A013' || pulse.source.startsWith('G2_LIGHTNING') ? 0xd9f48e : pulse.source === 'dodge' ? 0x70a9ff : 0xffae6e;
-        graphics.lineStyle(3, color, Math.max(0, pulse.life / .25)).strokeCircle(pulse.x, pulse.y, pulse.radius * (1 - pulse.life / .35));
-      }
-      this.pulses = this.pulses.filter(pulse => pulse.life > 0).slice(-40);
       this.hero.setPosition(player.x, player.y);
       this.cameras.main.setBounds(0, 0, world.width, world.height);
       this.cameras.main.centerOn(player.x, player.y);
@@ -130,9 +138,10 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
   let teardown: Promise<void> | undefined;
   return {
     core,
+    setEffectsEnabled(value) { effectsEnabled = value; effects?.setEnabled(value); },
     destroy() {
       if (teardown) return teardown;
-      removed = true; core.destroy();
+      removed = true; effects?.clear(); core.destroy();
       teardown = new Promise<void>(resolve => {
         game.events.once(Phaser.Core.Events.DESTROY, resolve);
         game.destroy(true);

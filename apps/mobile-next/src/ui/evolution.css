@@ -12,6 +12,17 @@
 .combat-record button { min-height: 36px; padding: 5px 10px; font-size: 11px; pointer-events: auto; }
 .pause-dialog { max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); overflow-y: auto; touch-action: pan-y; }
 .level-option span { line-height: 1.65; }
+.level-option .route-advice { padding: 10px; border-left: 2px solid var(--gold); background: #142e25; }
+.route-advice b { color: #efd39a; font-size: 12px; font-weight: 500; }
+.route-advice b, .route-advice>span, .route-advice>small { display: block; }
+.route-advice>span, .route-advice>small { margin-top: 5px; }
+.route-advice small { font-size: 11px; color: #b9c7bc; }
+.choice-bonds { display: flex; flex-wrap: wrap; gap: 5px; }
+.choice-bonds small { background: #203d31; padding: 4px 7px; border-radius: 4px; color: #b9c7bc; }
+.choice-bonds small.completes { background: #41472b; color: #ffe2a6; }
+.pause-dialog .effects-toggle { margin-top: 12px; min-height: 44px; }
+.effects-toggle[aria-pressed="true"] { border-color: var(--gold); color: #ffe2a6; }
+.pause-dialog .effects-note { font-size: 11px; line-height: 1.7; margin-top: 8px; }
 .run-guide { text-align: left; margin: 20px 0; }
 .run-guide h3 { font-family: "KaiTi", serif; color: var(--gold); font-size: 24px; margin: 8px 0; }
 .run-guide>p { font-size: 12px; line-height: 1.7; }
@@ -20,12 +31,17 @@
 .owned-skills, .bond-list { list-style: none; margin: 0; padding: 0; }
 .owned-skills li { padding: 8px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; font-size: 12px; }
 .owned-skills li span { color: var(--muted); }
+.owned-skills li { flex-direction: column; }
+.owned-skills .owned-route span, .owned-skills .owned-route small { display: block; margin-top: 5px; line-height: 1.6; }
+.owned-route b { color: #efd39a; font-weight: 500; }
 .owned-passives { color: var(--muted); margin-top: 10px; }
 .bond-list li { padding: 12px; margin-top: 6px; background: #10251f; border-left: 2px solid #5b6c58; }
 .bond-list li.active { border-color: #e4c37d; background: linear-gradient(110deg, #42472b, #183329); }
 .bond-list strong { display: flex; justify-content: space-between; font-size: 14px; }
 .bond-list em { font-style: normal; color: var(--gold); font-size: 11px; }
 .bond-list span, .bond-list small { display: block; font-size: 11px; color: #c0cabb; margin-top: 7px; line-height: 1.5; }
+.bond-list .bond-condition { color: #e5b998; }
+.bond-list .bond-condition.met { color: #8ee0be; }
 .result-evolution { padding: 15px; margin: 12px 0; border: 1px solid var(--line); background: linear-gradient(120deg, #41432a, #142c23); }
 .result-evolution strong { font-family: "KaiTi", serif; font-size: 24px; color: var(--gold); }
 .result-evolution p, .result-evolution small { margin-top: 8px; font-size: 12px; line-height: 1.6; }

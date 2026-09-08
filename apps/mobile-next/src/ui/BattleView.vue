@@ -15,6 +15,7 @@ import { availableEventOptions } from '../core/firstEvents';
 import type { EventCode } from '../core/firstEvents';
 import { chestTitle, formName } from '../core/timedChests';
 import RunGuide from './RunGuide.vue';
+import ChoiceDetails from './ChoiceDetails.vue';
 import type { Journey } from '../core/evolutionCatalog';
 import { dialogActivation } from '../input/dialogActivation';
 const choiceActivation = dialogActivation();
@@ -43,6 +44,11 @@ const eventCopy: Record<EventCode, { title: string; detail: string }> = {
 const error = ref('');
 const ready = ref(false);
 const leaving = ref(false);
+const effectsEnabled = ref(true);
+function toggleEffects() {
+  effectsEnabled.value = !effectsEnabled.value;
+  handle?.setEffectsEnabled(effectsEnabled.value);
+}
 let handle: BattleHandle | undefined;
 let controls: ReturnType<typeof bindKeyboard> | undefined;
 let cancelled = false;
@@ -156,12 +162,13 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
     <div v-if="!ready || error" class="loading-curtain" role="status"><h2>{{ error ? '战场未能开启' : '正在前往乱世荒原' }}</h2><p>{{ error || '整装，待发。' }}</p><button @click="leave()">返回大厅</button></div>
     <dialog ref="pauseDialog" class="pause-dialog" aria-labelledby="pause-title" @cancel.prevent>
       <small>暂停征途</small><h2 id="pause-title" tabindex="-1" autofocus>战局已暂停</h2><p>切回页面后，点击继续再出发。</p>
+      <button class="effects-toggle" :aria-pressed="effectsEnabled" @click="toggleEffects">战斗特效 · {{ effectsEnabled ? '开启' : '关闭' }}</button><p class="effects-note">关闭后仍显示寒域边界、危险提示和攻击目标。寒域外圈表示剩余时间；方盾近卫驻守，双刃猎手随行。</p>
       <RunGuide :snapshot="snapshot" />
       <button class="primary" @click="resume">继续战斗</button><button :disabled="leaving || eventBusy" @click="leave()">返回大厅</button>
     </dialog>
     <dialog ref="choiceDialog" class="pause-dialog level-dialog" aria-labelledby="level-title" @cancel.prevent @pointerdown.capture="choiceActivation.press" @pointercancel.capture="choiceActivation.cancel" @click.capture="choiceActivation.click">
       <small>{{ snapshot.choice?.options[0]?.kind === 'hero' ? '命格蜕变' : snapshot.choice?.options[0]?.kind === 'route' ? '开辟路线' : '境界突破' }} · Lv.{{ snapshot.level }}</small><h2 id="level-title" tabindex="-1" autofocus>选择本局强化</h2><p>{{ snapshot.journey ? '进化与分支仅本局生效，同一术式只能选择一条路线。' : '从以下术式中选择一项，继续征途。' }}</p>
-      <template v-for="offer in snapshot.choice ? [snapshot.choice] : []" :key="offer.token"><button v-for="option in offer.options" :key="`${option.kind}-${option.id}`" :data-option="option.id" :data-kind="option.kind" class="level-option" @click="choose(offer.token, option.kind, option.id)"><small>{{ { active: '主动术式', passive: '被动心法', hero: '英雄进化', route: '技能分支' }[option.kind] }} {{ option.tag }}</small><strong>{{ option.label }}</strong><span v-if="option.kind === 'active' || option.kind === 'passive'">Lv.{{ (option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0 }} → Lv.{{ ((option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0) + 1 }}</span><span v-if="option.detail">{{ option.detail }}</span></button></template>
+      <template v-for="offer in snapshot.choice ? [snapshot.choice] : []" :key="offer.token"><button v-for="option in offer.options" :key="`${option.kind}-${option.id}`" :data-option="option.id" :data-kind="option.kind" class="level-option" @click="choose(offer.token, option.kind, option.id)"><small>{{ { active: '主动术式', passive: '被动心法', hero: '英雄进化', route: '技能分支' }[option.kind] }} {{ option.tag }}</small><strong>{{ option.label }}</strong><span v-if="option.kind === 'active' || option.kind === 'passive'">Lv.{{ (option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0 }} → Lv.{{ ((option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0) + 1 }}</span><ChoiceDetails :option="option" :journey="snapshot.journey" :skills="snapshot.skills" /></button></template>
     </dialog>
     <dialog ref="eventDialog" class="pause-dialog level-dialog event-dialog" aria-labelledby="event-title" @cancel.prevent @pointerdown.capture="eventActivation.press" @pointercancel.capture="eventActivation.cancel" @click.capture="eventActivation.click">
       <small>荒原奇遇 · 当前金币 {{ eventGold }}</small><h2 id="event-title" tabindex="-1" autofocus>{{ snapshot.encounter.offer?.kind === 'merchant' ? '万界游商' : '黄金宝箱' }}</h2>

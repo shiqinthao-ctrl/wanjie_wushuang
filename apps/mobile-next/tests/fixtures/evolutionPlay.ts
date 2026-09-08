@@ -12,7 +12,7 @@ export async function exportProgress(page: Page): Promise<GameSave> {
 }
 
 // Natural play uses visible choices and physical input. No RNG, clock or core injection.
-export interface EvolutionPlan { form: string; signature: string; route: string; bonds: string[] }
+export interface EvolutionPlan { form: string; signature: string; route: string; bonds: string[]; readability?: boolean }
 export async function playEvolution(page: Page, info: TestInfo, hero: string, complete = false, plan?: EvolutionPlan) {
   const errors: string[] = [], choices: { id: string; kind: string }[] = [];
   const started = Date.now(), timeline: { seconds: number; event: string }[] = [];
@@ -34,16 +34,42 @@ export async function playEvolution(page: Page, info: TestInfo, hero: string, co
   await page.getByRole('button', { name: '开启进化征途' }).click();
   await mark('开始战斗');
   await expect(page.getByRole('button', { name: '暂停', exact: true })).toBeEnabled();
+  if (plan?.readability) {
+    await page.getByRole('button', { name: '暂停', exact: true }).click();
+    const pause = page.getByRole('dialog', { name: '战局已暂停' });
+    await expect(pause.locator('.bond-condition').filter({ hasText: '还缺' }).first()).toBeVisible();
+    await expect(pause.locator('.bond-condition.met').first()).toContainText('已拥有');
+    const toggle = pause.getByRole('button', { name: /战斗特效/ });
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    await toggle.click(); await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    await pause.getByRole('button', { name: '继续战斗' }).click();
+    await page.waitForTimeout(1800);
+    await page.getByRole('button', { name: '暂停', exact: true }).click();
+    await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    const time = await page.getByLabel('本局时间').textContent();
+    await toggle.click(); await page.waitForTimeout(400);
+    expect(await page.getByLabel('本局时间').textContent()).toBe(time);
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    await pause.getByRole('button', { name: '继续战斗' }).click();
+    await mark('验证羁绊缺项、关闭特效继续战斗、暂停后重新开启');
+  }
   const modal = page.getByRole('dialog', { name: '选择本局强化' }), result = page.getByRole('dialog', { name: /本局生命耗尽|首战时限已到|黄巾巨将已击败/ });
   const touch = info.project.name === 'desktop' ? undefined : await page.context().newCDPSession(page);
   let evolved = false, routed = false, bonded = false, awaken = false, guided = false;
-  for (let step = 0; step < (complete ? 600 : 230); step++) {
+  let reviewUntil = Infinity;
+  for (let step = 0; !complete || step < 600; step++) {
     if (await result.isVisible()) break;
     if (await modal.isVisible()) {
       const buttons = modal.locator('.level-option');
       const options = await buttons.evaluateAll(items => items.map(item => ({ id: item.getAttribute('data-option')!, kind: item.getAttribute('data-kind')!, text: item.textContent || '' })));
       const score = (option: typeof options[number]) => option.kind === 'hero' ? 100 + Number(plan ? option.id === plan.form : complete && option.id === 'bulwark') : option.kind === 'route' ? 90 + Number(plan ? option.id === plan.route : complete && ['nova', 'orbit', 'guard'].includes(option.id)) : plan && option.id === plan.signature ? 85 : plan && ['G2_FROST', 'A013', 'S001'].includes(option.id) ? 82 : ['A011', 'S001'].includes(option.id) ? 80 : ['A015', 'A026', 'A013'].includes(option.id) ? 70 : option.kind === 'active' ? 40 : 10;
       const selected = [...options].sort((a, b) => score(b) - score(a))[0]!;
+      if (plan?.readability && selected.kind === 'route') {
+        await expect(buttons.nth(options.indexOf(selected)).locator('.route-advice')).toContainText('本局选择后不再选择');
+        await expect(buttons.nth(options.indexOf(selected)).locator('.route-advice b')).toHaveCSS('display', 'block');
+        await buttons.nth(options.indexOf(selected)).scrollIntoViewIfNeeded();
+        await page.screenshot({ path: info.outputPath(`route-${selected.id}.png`) });
+      }
       if (plan && ['hero', 'route'].includes(selected.kind)) await page.waitForTimeout(1500);
       await buttons.nth(options.indexOf(selected)).click(); choices.push({ id: selected.id, kind: selected.kind });
       await mark(`选择 ${selected.text.trim()}`);
@@ -60,6 +86,16 @@ export async function playEvolution(page: Page, info: TestInfo, hero: string, co
     if (await loot.isVisible()) { await loot.getByRole('button').first().click(); continue; }
     const chest = page.getByRole('dialog', { name: '领取宝箱奖励' });
     if (await chest.isVisible()) { await chest.locator('.level-option').first().click(); continue; }
+    // Finish pending choices before pausing; an upgrade can open after the last movement.
+    if (!complete && step >= Math.min(230, reviewUntil)) {
+      try {
+        await page.getByRole('button', { name: '暂停', exact: true }).click({ timeout: 1500 });
+        break;
+      } catch (error) {
+        if (await modal.isVisible() || await event.isVisible() || await loot.isVisible() || await chest.isVisible()) continue;
+        throw error;
+      }
+    }
     const guideButton = page.getByRole('button', { name: /本局路线/ });
     bonded ||= /[1-9]\d* 羁绊/.test(await guideButton.textContent() || '');
     if (!guided && evolved && routed && bonded && (!plan || choices.some(c => c.id === plan.route)) && (!complete || awaken) && step % 8 === 0) {
@@ -69,6 +105,11 @@ export async function playEvolution(page: Page, info: TestInfo, hero: string, co
       const form = heroForms.find(form => choices.some(choice => choice.id === form.id))!;
       await expect(guide.getByRole('heading', { name: new RegExp(form.name) })).toBeVisible();
       for (const chosen of choices.filter(choice => choice.kind === 'route')) await expect(guide.getByLabel('本局进化路线')).toContainText(skillRoutes.find(route => route.id === chosen.id)!.name);
+      if (plan?.readability) {
+        await expect(guide.locator('.owned-route').first()).toBeVisible();
+        await expect(guide.locator('.bond-list .active .bond-condition:not(.met)')).toHaveCount(0);
+        expect(await guide.locator('.bond-condition.met').count()).toBeGreaterThan(0);
+      }
       await expect(guide.locator('.bond-list .active').first()).toBeVisible();
       if (plan) {
         const active = await guide.locator('.bond-list .active').allTextContents();
@@ -90,7 +131,11 @@ export async function playEvolution(page: Page, info: TestInfo, hero: string, co
       await guide.getByRole('button', { name: '继续战斗' }).click();
       await page.screenshot({ path: info.outputPath('evolution-battle.png') });
       guided = true;
-      if (!complete) break;
+      if (!complete) {
+        if (!plan?.readability) { reviewUntil = step; continue; }
+        reviewUntil = step + 10;
+        await mark('继续实战展示已选路线');
+      }
     }
     const direction = [{ x: 1, y: 0 }, { x: 0, y: 1 }, { x: -1, y: 0 }, { x: 0, y: -1 }][Math.floor(step / 2) % 4]!;
     if (touch) {
@@ -126,7 +171,7 @@ export async function playEvolution(page: Page, info: TestInfo, hero: string, co
     if (plan) await page.waitForTimeout(3000);
     await result.getByRole('button', { name: '再次挑战本关' }).click();
   } else {
-    await page.getByRole('button', { name: '暂停', exact: true }).click();
+    await expect(page.getByRole('dialog', { name: '战局已暂停' })).toBeVisible();
     await page.getByRole('dialog', { name: '战局已暂停' }).getByRole('button', { name: '返回大厅' }).click();
     expect(await exportProgress(page)).toEqual(before);
     await page.getByRole('button', { name: '开启进化征途' }).click();

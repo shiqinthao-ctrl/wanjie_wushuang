@@ -117,11 +117,14 @@ export class EvolutionCombat {
   }
   private lightning(id: string, count: number, damage: number, range: number) {
     const s = this.sim, remaining = [...s.enemies, ...(s.boss ? [s.boss] : [])]; let from: Point = s.player;
+    const path: Point[] = [{ x: from.x, y: from.y }];
     for (let i = 0; i < Math.min(10, count); i++) {
       remaining.sort((a, b) => distance(a, from) - distance(b, from)); const target = remaining.shift();
       if (!target || distance(target, from) > (i === 0 ? 480 : 220) * range) break;
+      path.push({ x: target.x, y: target.y });
       this.lightningHit(id, target, damage); from = target;
     }
+    s.lightningPath(path, id);
   }
   cast(id: string): boolean {
     const s = this.sim, p = s.player, m = skillModifier(s.context, s.state(), id), route = this.journey.route(id);
