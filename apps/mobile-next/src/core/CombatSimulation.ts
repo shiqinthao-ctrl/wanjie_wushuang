@@ -10,13 +10,15 @@ import pets from '../data/runePets.json';
 import { FirstStageMap } from './FirstStageMap';
 import { FirstBoss } from './FirstBoss';
 import { generateGear } from './gearDrops';
+import { EvolutionCombat } from './EvolutionCombat';
+import { isStarter } from './evolutionCatalog';
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
   | { type: 'hit'; x: number; y: number; damage: number; critical: boolean }
   | { type: 'kill'; x: number; y: number; elite: boolean };
-interface Projectile extends Point { id: string; vx: number; vy: number; dmg: number; r: number; life: number; pierce: number; split: number; explode: number; color: string }
-interface Field extends Point { id: string; r: number; dmg: number; life: number; max: number; tick: number; follow: boolean; color: string }
+interface Projectile extends Point { id: string; vx: number; vy: number; dmg: number; r: number; life: number; pierce: number; split: number; explode: number; color: string; targets?: Set<object> }
+interface Field extends Point { id: string; r: number; dmg: number; life: number; max: number; tick: number; follow: boolean; color: string; chill?: number }
 interface Vortex extends Field { vx: number; vy: number }
 interface Meteor extends Point { id: string; r: number; dmg: number; life: number; max: number; color: string }
 interface Bomb extends Point { r: number; life: number; max: number; dmg: number; color: string }
@@ -39,6 +41,15 @@ export class CombatSimulation {
   heat = 0;
   petGold = 0;
   petDamage = 0;
+  readonly damageBy: Record<string, number> = {};
+  readonly history = {
+    stage: 'ST001-01', name: firstStage.storyEncounter.name,
+    waves: [{ at: 0, name: waveAt(0).name, type: waveAt(0).type }],
+    events: [] as { at: number; id: string; name: string }[], chests: [] as { at: number }[],
+    bosses: [] as { at: number; id: string; name: string }[],
+    hazardName: firstStage.storyEncounter.hazard.name, hazardType: firstStage.storyEncounter.hazard.type,
+    hazardUsed: false, hazardTriggers: 0, hazardPeak: 0,
+  };
   killBuff = 0;
   evolved: Record<string, boolean> = {};
   fused: Record<string, boolean> = {};
@@ -73,9 +84,12 @@ export class CombatSimulation {
   private runes: readonly string[];
   private baseAspd: number;
   private fusionClock = 0;
+  private readonly journeyCombat?: EvolutionCombat;
+  private readonly heroId: string;
 
   constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random, readonly drops: GearInstance[] = [], private now = Date.now) {
-    if (save.hero !== 'H001' || save.pet !== 'PET001') throw new Error('This combat slice supports H001 with PET001 only');
+    if ((progression.journey ? !isStarter(save.hero) || progression.journey.hero !== save.hero : save.hero !== 'H001') || save.pet !== 'PET001') throw new Error('Unsupported combat preparation');
+    this.heroId = save.hero;
     const startup = calculateStartup(save);
     this.context = combatContext(save, startup);
     this.player = { x: 1800, y: 1200, r: 15, ...startup.player, inv: 0, dodgeCd: 0, skillCd: 0, ult: 0, shield: 0, dodgeBuff: 0, incoming: firstStage.incoming };
@@ -85,6 +99,7 @@ export class CombatSimulation {
     this.pet = { x: 1836, y: 1176, angle: 0, cd: cd * .35, maxCd: cd };
     this.map = new FirstStageMap(this, random);
     this.bossEncounter = new FirstBoss(this, save.hero, this.difficulty, random, now);
+    if (progression.journey) this.journeyCombat = new EvolutionCombat(this, progression.journey);
   }
   state(): CombatState { return { ...this.progression.snapshot(), ...this.player, evolved: this.evolved, killBuff: this.killBuff, mode: 'story' }; }
   directorState() { return { time: this.time, kills: this.kills, dps: this.dps, level: this.progression.snapshot().level, evolved: Object.keys(this.evolved).length, fused: Object.keys(this.fused).length }; }
@@ -105,13 +120,14 @@ export class CombatSimulation {
     return best;
   }
   private aim(): number { const target = this.nearest(); return target ? Math.atan2(target.y - this.player.y, target.x - this.player.x) : 0; }
-  private heroAim(): number { const target = this.boss || this.nearest(); return target ? Math.atan2(target.y - this.player.y, target.x - this.player.x) : 0; }
-  private ring(point: Point, radius: number, source: string): void { this.events.push({ type: 'ring', x: point.x, y: point.y, radius, source }); }
+  heroAim(): number { const target = this.boss || this.nearest(); return target ? Math.atan2(target.y - this.player.y, target.x - this.player.x) : 0; }
+  ring(point: Point, radius: number, source: string): void { this.events.push({ type: 'ring', x: point.x, y: point.y, radius, source }); }
   hurt(damage: number): void { Object.assign(this.player, incomingHit(this.context, this.player, damage)); }
   hitBoss(base: number, source: string, skill = false): void {
     const boss = this.boss; if (!boss) return;
     const hit = bossHit(this.context, this.state(), source, base, boss, skill);
     boss.hp = hit.hp; boss.shield = hit.shield; this.damage += hit.damage;
+    this.damageBy[source] = (this.damageBy[source] || 0) + hit.damage;
     this.events.push({ type: 'hit', x: boss.x, y: boss.y, damage: hit.damage, critical: false });
     if (boss.hp <= 0) this.bossEncounter.defeat();
   }
@@ -119,6 +135,7 @@ export class CombatSimulation {
     if (!this.enemies.includes(enemy)) return;
     const hit = enemyHit(this.context, this.state(), source, base, enemy.elite, critical, skill);
     enemy.hp -= hit.damage; this.player.hp = hit.hp; this.damage += hit.damage; enemy.flash = 1;
+    this.damageBy[source] = (this.damageBy[source] || 0) + hit.damage;
     this.events.push({ type: 'hit', x: enemy.x, y: enemy.y, damage: hit.damage, critical });
     if (enemy.hp > 0) return;
     this.enemies.splice(this.enemies.indexOf(enemy), 1);
@@ -128,7 +145,7 @@ export class CombatSimulation {
     if (enemy.elite) this.eliteKills++;
     if (enemy.volatile) { this.ring(enemy, 58, 'volatile'); if (distance(this.player, enemy) < 58 && this.player.inv <= 0) this.hurt(enemy.damage * 1.2); }
     if (enemy.split) { this.spawn({ id: enemy.id }); this.spawn({ id: enemy.id }); }
-    if (enemy.elite && this.random() < .45) this.drops.push(generateGear('H001', 'elite', this.random, this.now));
+    if (enemy.elite && this.random() < .45) this.drops.push(generateGear(this.heroId, 'elite', this.random, this.now));
     if (this.runes.includes('R006')) this.killBuff = 3;
     if (this.runes.includes('R043')) this.progression.gain(Math.round((enemy.elite ? 18 : 4) * .18));
     if (this.runes.includes('R041')) this.petGold += enemy.elite ? 2 : .25;
@@ -145,20 +162,24 @@ export class CombatSimulation {
     this.ring(this.player, radius, source);
   }
   basic(): void {
+    if (this.journeyCombat) { this.journeyCombat.basic(); return; }
     if (!this.boss && !this.nearest()) return;
     this.arc(105 + this.heat * .35, this.player.atk * (1.05 + this.heat * .006), 'H001_SLASH', Math.PI * 1.15);
     this.heat = Math.min(100, this.heat + 8);
   }
   action(action: Action): boolean {
+    if (this.journeyCombat && action !== 'dodge') return this.journeyCombat.action(action);
     const p = this.player;
     if (action === 'dodge') {
       if (p.dodgeCd > 0) return false;
+      const origin = { x: p.x, y: p.y };
       const length = Math.hypot(this.input.x, this.input.y), direction = length ? { x: this.input.x / length, y: this.input.y / length } : this.dodgeDirection;
       const step = Math.min(90, p.speed * .34, Math.min(this.viewport.width, this.viewport.height) * .16);
       this.ring(p, 70, 'dodge'); this.dodgeDirection = direction;
       p.x += direction.x * step; p.y += direction.y * step; clampPoint(p, this.world, 18);
       p.dodgeCd = 4.5; p.inv = .35;
       if (this.runes.includes('R025')) { p.dodgeCd *= .88; p.dodgeBuff = 2; }
+      this.journeyCombat?.afterDodge(origin);
     } else if (action === 'skill') {
       if (p.skillCd > 0) return false;
       p.skillCd = 6; const angle = this.heroAim();
@@ -184,6 +205,7 @@ export class CombatSimulation {
     if (enemy.ai === 'ranged') {
       move = d > 300 ? .6 : d < 190 ? -.5 : 0;
     } else if (enemy.ai === 'shield') move = .65;
+    if (this.journeyCombat && (enemy.chilledUntil || 0) > this.time) move *= .55;
     enemy.x += dx / d * enemy.speed * move * dt; enemy.y += dy / d * enemy.speed * move * dt;
     if (enemy.ai === 'ranged' && enemy.attack > 1.8) {
       enemy.attack = 0; const angle = Math.atan2(this.player.y - enemy.y, this.player.x - enemy.x);
@@ -221,19 +243,21 @@ export class CombatSimulation {
     const wave = waveAt(this.time);
     if (this.lastWave !== wave.at) {
       this.lastWave = wave.at;
+      this.history.waves.push({ at: Math.floor(this.time), name: wave.name, type: wave.type });
       if (wave.type === 'elite') for (let i = 0; i < (this.difficulty === 'nightmare' ? 2 : 1); i++) this.spawn({ elite: true });
     }
     this.dpsClock += dt;
     if (this.dpsClock >= 1) { this.dps = Math.round(this.damage - this.lastDamage); this.lastDamage = this.damage; this.dpsClock = 0; }
     cap(this.enemies, earlyEnemyCap(this.difficulty));
   }
-  private projectile(id: string, point: Point, angle: number, speed: number, dmg: number, r: number, opts: Partial<Projectile> = {}): void {
-    this.projectiles.push({ id, x: point.x, y: point.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, dmg, r, life: 2, pierce: 0, split: 0, explode: 0, color: '#ef694e', ...opts }); cap(this.projectiles, 260);
+  projectile(id: string, point: Point, angle: number, speed: number, dmg: number, r: number, opts: Partial<Projectile> = {}): void {
+    this.projectiles.push({ id, x: point.x, y: point.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, dmg, r, life: 2, pierce: 0, split: 0, explode: 0, color: '#ef694e', ...opts, ...(this.journeyCombat ? { targets: new Set<object>() } : {}) }); cap(this.projectiles, 260);
   }
-  private field(id: string, point: Point, r: number, dmg: number, life: number, follow = false): void {
-    this.fields.push({ id, x: point.x, y: point.y, r, dmg, life, max: life, tick: 0, follow, color: '#ef694e' }); cap(this.fields, 22);
+  field(id: string, point: Point, r: number, dmg: number, life: number, follow = false, options: { color?: string; chill?: number } = {}): void {
+    this.fields.push({ id, x: point.x, y: point.y, r, dmg, life, max: life, tick: 0, follow, color: '#ef694e', ...options }); cap(this.fields, 22);
   }
   cast(id: string): void {
+    if (this.journeyCombat?.cast(id)) return;
     const m = skillModifier(this.context, this.state(), id), p = this.player, target = this.nearest(), angle = this.aim(), R = m.range, D = p.atk;
     if (id === 'A003') { this.arc(118 * R, D * 1.05 * m.dmg, id, Math.PI * 1.15); this.field(id, p, 85 * R, D * .16, 2.2 * m.duration, true); }
     else if (id === 'A011') {
@@ -251,7 +275,7 @@ export class CombatSimulation {
       }
     } else if (id === 'A054') for (let i = 1; i <= 5; i++) this.field(id, { x: p.x + Math.cos(angle) * i * 42, y: p.y + Math.sin(angle) * i * 42 }, 42 * R, D * .22, 2 * m.duration);
   }
-  private explosion(id: string, point: Point, radius: number, dmg: number): void {
+  explosion(id: string, point: Point, radius: number, dmg: number): void {
     this.ring(point, radius, id);
     for (const enemy of [...this.enemies]) if (distance(enemy, point) <= radius) this.hit(enemy, dmg, id, false, true);
     if (this.boss && distance(this.boss, point) <= radius + this.boss.r) this.hitBoss(dmg, id, true);
@@ -259,14 +283,16 @@ export class CombatSimulation {
   private updateProjectiles(dt: number): void {
     for (let i = this.projectiles.length - 1; i >= 0; i--) {
       const shot = this.projectiles[i]!; shot.life -= dt; shot.x += shot.vx * dt; shot.y += shot.vy * dt;
-      const hit = this.enemies.find(enemy => distance(enemy, shot) < enemy.r + shot.r);
+      const hit = this.enemies.find(enemy => !shot.targets?.has(enemy) && distance(enemy, shot) < enemy.r + shot.r);
       if (hit) {
+        shot.targets?.add(hit);
         this.hit(hit, shot.dmg, shot.id, false, true);
         if (shot.explode) this.explosion(shot.id, shot, shot.explode, shot.dmg * .72);
         if (shot.split > 0) for (const off of [-.36, .36]) this.projectile(shot.id, shot, Math.atan2(shot.vy, shot.vx) + off, Math.hypot(shot.vx, shot.vy) * .9, shot.dmg * .55, shot.r * .8, { color: shot.color, pierce: 1, split: shot.split - 1 });
         if (shot.pierce > 0) shot.pierce--; else { this.projectiles.splice(i, 1); continue; }
       }
-      if (this.boss && distance(this.boss, shot) < this.boss.r + shot.r) {
+      if (this.boss && !shot.targets?.has(this.boss) && distance(this.boss, shot) < this.boss.r + shot.r) {
+        shot.targets?.add(this.boss);
         this.hitBoss(shot.dmg, shot.id, true);
         if (shot.explode) this.explosion(shot.id, shot, shot.explode, shot.dmg * .65);
         if (shot.pierce > 0) shot.pierce--; else { this.projectiles.splice(i, 1); continue; }
@@ -279,7 +305,10 @@ export class CombatSimulation {
       const field = this.fields[i]!; field.life -= dt; field.tick -= dt;
       if (field.follow) { field.x = this.player.x; field.y = this.player.y; }
       if (field.tick <= 0) {
-        field.tick = .30; for (const enemy of this.enemies.filter(enemy => distance(enemy, field) <= field.r)) this.hit(enemy, field.dmg, field.id, false, true);
+        field.tick = .30; for (const enemy of this.enemies.filter(enemy => distance(enemy, field) <= field.r)) {
+          this.hit(enemy, field.dmg, field.id, false, true);
+          if (this.journeyCombat && field.chill) enemy.chilledUntil = Math.max(enemy.chilledUntil || 0, this.time + field.chill);
+        }
         if (this.boss && distance(this.boss, field) <= field.r + this.boss.r) this.hitBoss(field.dmg * .8, field.id, true);
       }
       if (field.life <= 0) this.fields.splice(i, 1);
@@ -288,6 +317,7 @@ export class CombatSimulation {
   private updateVortices(dt: number): void {
     for (let i = this.vortices.length - 1; i >= 0; i--) {
       const vortex = this.vortices[i]!; vortex.life -= dt; vortex.tick -= dt; vortex.x += vortex.vx * dt; vortex.y += vortex.vy * dt;
+      if (this.journeyCombat && vortex.follow) { const angle = (vortex.max - vortex.life) * 2; vortex.x = this.player.x + Math.cos(angle) * 100; vortex.y = this.player.y + Math.sin(angle) * 100; }
       for (const enemy of this.enemies) {
         const dx = vortex.x - enemy.x, dy = vortex.y - enemy.y, d = Math.hypot(dx, dy) || 1;
         if (d < vortex.r * 1.5) { enemy.x += dx / d * 85 * dt; enemy.y += dy / d * 85 * dt; }
@@ -295,6 +325,7 @@ export class CombatSimulation {
       if (vortex.tick <= 0) {
         vortex.tick = .28; for (const enemy of [...this.enemies]) if (distance(enemy, vortex) <= vortex.r) this.hit(enemy, vortex.dmg, vortex.id, false, true);
         if (this.boss && distance(this.boss, vortex) <= vortex.r + this.boss.r) this.hitBoss(vortex.dmg, vortex.id, true);
+        if (this.progression.journey?.bond('wildfire', this.state().skills)) this.explosion('H010_WILDFIRE', vortex, vortex.r, vortex.dmg * .55);
       }
       if (this.fused.F001 && vortex.tick < .05 && this.random() < .35) this.field('F001', vortex, 55, vortex.dmg * .55, 1.2);
       if (vortex.life <= 0) this.vortices.splice(i, 1);
@@ -338,9 +369,10 @@ export class CombatSimulation {
     this.heat = Math.min(this.context.awaken.resourceMax || 100, this.heat + dt * this.context.growth.resourceEff * 2);
     for (const id of Object.keys(this.cool)) this.cool[id]! -= dt;
     for (const [id, level] of Object.entries(this.progression.snapshot().skills)) {
-      const base = forms.baseCooldowns[id as keyof typeof forms.baseCooldowns];
+      const base = forms.baseCooldowns[id as keyof typeof forms.baseCooldowns] ?? (this.journeyCombat ? { S001: 7, G2_FROST: 5 }[id] : undefined);
       if (level && base != null && !(this.cool[id]! > 0)) { this.cool[id] = base * skillModifier(this.context, this.state(), id).cd; this.cast(id); }
     }
+    this.journeyCombat?.update(dt);
     this.updateProjectiles(dt); this.updateFields(dt); this.updateVortices(dt); this.updateMeteors(dt);
     this.fusionClock -= dt;
     if (this.fusionClock <= 0) { this.fusionClock = 3.4; this.fusionPulse(); }
@@ -360,9 +392,10 @@ export class CombatSimulation {
   }
   applyCaps(): void { cap(this.enemies, caps.enemies); cap(this.enemyShots, caps.enemyShots); cap(this.projectiles, caps.v24Projectiles); cap(this.fields, caps.v24Fields); cap(this.meteors, caps.v24Meteors); }
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
-  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]) })), projectiles: cloneList(this.projectiles), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }) }; }
+  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills) }; }
   destroy(): void {
     this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
+    this.journeyCombat?.destroy();
     for (const items of [this.enemies, this.projectiles, this.fields, this.vortices, this.meteors, this.bombs, this.enemyShots]) items.length = 0;
   }
 }

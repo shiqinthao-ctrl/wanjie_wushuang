@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>万界无双 · G2 实战回放与测试结果</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23152a25'/%3E%3Cpath d='M6 8l5 16 5-10 5 10 5-16' fill='none' stroke='%23e6bf76' stroke-width='3'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:dark;--bg:#0d1b18;--panel:#152a25;--line:#345147;--ink:#e8efe4;--muted:#a8bfb2;--gold:#e6bf76;--green:#a0dfbe}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,#29443988,transparent 50%),repeating-linear-gradient(120deg,transparent 0 80px,#ffffff02 80px 81px),var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.75}
+    main{max-width:1240px;margin:auto;padding:46px 30px 60px}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:"STSong","Songti SC",serif;font-weight:500}h1{font-size:clamp(28px,4vw,46px);margin:10px 0}h2{font-size:26px}h3{font-size:21px}.eyebrow{color:var(--gold);font:12px/1.6 monospace;letter-spacing:3px}.intro{max-width:850px;color:var(--muted)}a{color:var(--gold);text-underline-offset:4px}button,select{font:inherit;color:inherit}button,a,select{touch-action:manipulation}button{cursor:pointer}button:focus-visible,a:focus-visible,select:focus-visible,video:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0}.stat{padding:18px 20px;background:var(--panel)}.stat strong{display:block;font-size:28px;line-height:1.4;color:var(--green);font-weight:500}.stat span{font-size:13px;color:var(--muted)}
+    .selector{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 20px}.choice{display:block;width:100%;text-align:left;padding:16px 18px;background:#182d2699;border:1px solid var(--line);border-top:3px solid var(--line);border-radius:2px}.choice[aria-pressed=true]{border-color:var(--gold);background:#25372c}.choice small{display:block;color:var(--muted);font-size:12px}.choice strong{font-weight:500;font-size:17px;display:block;margin:5px 0}
+    .player-grid{display:grid;grid-template-columns:minmax(0,1fr) 275px;gap:20px;align-items:start}.screen{background:#060d0b;border:1px solid var(--line);border-radius:3px;overflow:hidden}video{display:block;width:100%;height:570px;max-height:68vh;object-fit:contain}.video-bar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:var(--panel);font-size:13px}select{background:var(--bg);border:1px solid var(--line);padding:4px 10px}.description{color:var(--muted);font-size:14px;margin:12px 0}.timestamps{display:grid;gap:8px;margin-top:12px}.timestamp{background:var(--panel);border:1px solid var(--line);padding:10px;text-align:left;font-size:14px}.timestamp span{color:var(--gold);font:13px monospace;margin-right:12px}.meta{font-size:12px;color:var(--muted);margin:16px 0}.pass{display:inline-block;color:var(--green);font-size:12px;border:1px solid #487157;padding:2px 9px;margin-bottom:10px}.evidence{margin-top:36px;border-top:1px solid var(--line);padding-top:28px}.evidence p{color:var(--muted);margin:12px 0;max-width:980px}.checks{overflow-x:auto;margin:16px 0}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--gold);font-weight:500}td:first-child{white-space:nowrap}.notice{border-left:3px solid var(--gold);padding:10px 18px;background:#b99a3810;color:var(--muted);font-size:14px;margin-top:20px}details{margin-top:20px}summary{cursor:pointer;color:var(--gold)}.full-timeline{display:grid;gap:6px;margin-top:12px}.full-timeline button{background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px;text-align:left;color:var(--muted);font-size:13px}.footer{margin-top:24px;color:var(--muted);font-size:12px}.error{color:#ffc4a3}
+    @media(max-width:800px){main{padding:26px 16px 40px}.stats{grid-template-columns:repeat(2,1fr)}.selector{grid-template-columns:1fr;gap:8px}.choice{padding:10px 14px}.choice strong{margin:2px 0}.player-grid{grid-template-columns:1fr}video{height:520px;max-height:65vh}.timestamps{grid-template-columns:repeat(2,1fr)}.stat{padding:14px}h2{font-size:23px}}
+    @media(max-width:800px){.stat strong{font-size:clamp(19px,5.8vw,28px);white-space:nowrap}.checks table{min-width:640px}}
+    @media(max-width:380px){.timestamps{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:no-preference){main{animation:appear .45s ease-out}@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">万界无双 / G2 / 2026.09.08</div>
+    <h1>三种进化，三段实战。</h1>
+    <p class="intro">冰霜控场、连锁雷击、召唤守阵。本批新增 3 个进化形态、寒霜环、4 条技能分支和 3 个羁绊。下面是自动化操作真实浏览器产生的原速录像，可切换路线、跳转关键步骤或全屏观看。</p>
+  </header>
+  <div class="stats" aria-label="本批验证结果">
+    <div class="stat"><strong>3 / 3</strong><span>新玩法自然操作录屏通过</span></div>
+    <div class="stat"><strong>937 / 937</strong><span>规则与存档自动化测试通过</span></div>
+    <div class="stat"><strong id="browser-count">87 / 87</strong><span>受影响路径的浏览器回归</span></div>
+    <div class="stat"><strong id="baseline-count">49 / 49</strong><span>旧版基线文件校验</span></div>
+  </div>
+  <nav class="selector" aria-label="选择录屏"></nav>
+  <div class="player-grid">
+    <section aria-label="实战录像播放器">
+      <div class="screen">
+        <video controls playsinline preload="metadata" aria-label="自动化测试原速录像"></video>
+        <div class="video-bar"><span id="video-info"></span><label>播放速度 <select id="speed"><option value="1">原速 1×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="4">4×</option></select></label></div>
+      </div>
+      <p class="description" id="description"></p>
+      <p class="error" id="player-error" role="status"></p>
+      <a id="download" download>下载原始录像（WebM）</a>
+    </section>
+    <aside aria-label="录像关键步骤">
+      <span class="pass">本段验收通过 · 浏览器错误 0</span>
+      <h2 id="run-title"></h2>
+      <div class="timestamps"></div>
+      <p class="meta">时间点对应录像播放时间，精确到约 1 秒。倍速只影响回放；录像原件保留正常速度。当前游戏尚未接入音频，录像没有音轨。</p>
+    </aside>
+  </div>
+  <details><summary>展开本段完整操作记录</summary><div class="full-timeline"></div></details>
+  <section class="evidence">
+    <div class="eyebrow">规则与证据</div>
+    <h2>组合带来实际战斗变化</h2>
+    <div class="checks"><table>
+      <thead><tr><th>本批新增</th><th>玩法变化</th><th>验证覆盖</th></tr></thead>
+      <tbody>
+        <tr><td>霜狱剑主</td><td>随身寒域与大范围霜爆；寒霜环可选持续领域或瞬间碎冰。</td><td>临时减速、刷新不叠乘、到期恢复、首领免疫减速；完整胜利与重试。</td></tr>
+        <tr><td>九霄雷君</td><td>跳链普攻与连雷；雷电弹可选更多跳链或首目标周围的范围天罚。</td><td>跳链范围、目标不重复、连锁与范围伤害差异；触屏自然升级。</td></tr>
+        <tr><td>冥契兽王</td><td>驻守近卫与跟随影军；影分身选择守阵或游猎。</td><td>召唤数量上限、到期与退出清理；窄屏操作与重开。</td></tr>
+        <tr><td>3 个新羁绊</td><td>冰雷超导提高对减速目标的雷伤；霜卫契约追加霜环；雷兽共鸣缩短召唤攻击间隔。</td><td>真实技能持有条件、实际伤害与间隔，不由形态或虚拟装备标签免费激活。</td></tr>
+      </tbody>
+    </table></div>
+    <p>自然操作录像使用可见升级卡、键盘或多点触控，没有注入随机种子、战斗时间、生命、经验或核心状态。桌面录像包含完整首领胜利、存档、再次挑战和刷新后持久进度核对；两段手机尺寸录像覆盖路线、羁绊、暂停与重新开局。</p>
+    <p id="gates">旧版五项检查、49 个基线文件校验、新版类型检查与发布构建全部通过；30 份历史归档校验通过。浏览器回归 87 / 87 通过，其中包括 3 条原有进化路线的自然操作流程。</p>
+    <p>存储故障、并发、极端状态等回归使用明确标注的合成测试夹具，与自然游玩录像分开统计。三段录像已完整解码检查，并保留原始报告、截图、操作时间线与 SHA-256 校验值。</p>
+    <div class="notice">验收边界：390 × 844 与 320 × 844 是 Chrome 触屏模拟，不代表 iPhone / Android 真机通过。P2j 原有“初始准备自然生命耗尽”路径仍有验收缺口，完整验证套件不能标为全绿。真机手感、30 分钟稳定性、性能目标、其余关卡、音频和 PWA 继续待验收。</div>
+    <p><a href="recordings.json">录屏清单与校验值</a> · <a href="regressions.json">浏览器回归原始结果</a> · <a href="checks.json">工程检查结果</a></p>
+  </section>
+  <footer class="footer">本地验收交付 · 新版位于 apps/mobile-next · 未发布或切换旧版入口</footer>
+</main>
+<script type="application/json" id="recording-data">[
+  {
+    "id": "01-frost-desktop",
+    "project": "desktop",
+    "folder": "recorded-desktop-pass",
+    "title": "霜狱剑主 · 极寒领域",
+    "viewport": "1280 × 720",
+    "form": "霜狱剑主",
+    "route": "极寒领域",
+    "bond": "霜卫契约",
+    "complete": true,
+    "description": "从赤焰战神开始，正常杀敌升级、觉醒并击败黄巾巨将，完成奖励保存与再次挑战。",
+    "video": "videos/01-frost-desktop.webm",
+    "bytes": 38105118,
+    "sha256": "677812b881b55ef0765b0f46efeaab1df0119b313384dcc953c728d6bd3e91af",
+    "timeline": [
+      {
+        "seconds": 0.8,
+        "event": "开始战斗"
+      },
+      {
+        "seconds": 17,
+        "event": "选择 主动术式 影/召解锁 影分身Lv.0 → Lv.1召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 24.1,
+        "event": "选择 主动术式 炎火球术 Lv.2Lv.1 → Lv.2自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星。"
+      },
+      {
+        "seconds": 25.7,
+        "event": "选择 英雄进化 霜狱剑主霜环减速敌群，技能展开随身寒域。引导寒霜环成长。"
+      },
+      {
+        "seconds": 36.3,
+        "event": "选择 主动术式 冰解锁 寒霜环Lv.0 → Lv.1范围霜环，敌人移速降低 45%，首领免疫减速。Lv.3 可选寒域 / 碎冰。"
+      },
+      {
+        "seconds": 49.6,
+        "event": "选择 主动术式 冰寒霜环 Lv.2Lv.1 → Lv.2范围霜环，敌人移速降低 45%，首领免疫减速。Lv.3 可选寒域 / 碎冰。"
+      },
+      {
+        "seconds": 70.9,
+        "event": "选择 主动术式 冰寒霜环 Lv.3Lv.2 → Lv.3范围霜环，敌人移速降低 45%，首领免疫减速。Lv.3 可选寒域 / 碎冰。"
+      },
+      {
+        "seconds": 72.4,
+        "event": "选择 技能分支 极寒领域霜环变为驻留寒域，持续伤害并减速区域内敌人。"
+      },
+      {
+        "seconds": 82.1,
+        "event": "选择 主动术式 冰寒霜环 Lv.4Lv.3 → Lv.4范围霜环，敌人移速降低 45%，首领免疫减速。Lv.3 可选寒域 / 碎冰。"
+      },
+      {
+        "seconds": 98.9,
+        "event": "选择 主动术式 影/召影分身 Lv.2Lv.1 → Lv.2召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 100.5,
+        "event": "选择 英雄进化 觉醒 · 霜狱剑主扩大寒域并延长持续时间。"
+      },
+      {
+        "seconds": 102.3,
+        "event": "路线与羁绊确认：影火同源 已激活任一炎系技能 + 手里剑或影分身成功闪避在起点留下持续燃烧影印。；霜卫契约 已激活寒霜环 + 影分身召唤单位攻击时追加小范围霜环与减速。"
+      },
+      {
+        "seconds": 113.6,
+        "event": "选择 主动术式 冰寒霜环 Lv.5Lv.4 → Lv.5范围霜环，敌人移速降低 45%，首领免疫减速。Lv.3 可选寒域 / 碎冰。"
+      },
+      {
+        "seconds": 130.4,
+        "event": "选择 主动术式 炎烈焰刀 Lv.2Lv.1 → Lv.2近身扇形斩击，附带短暂火域。"
+      },
+      {
+        "seconds": 145.4,
+        "event": "选择 主动术式 影/召影分身 Lv.3Lv.2 → Lv.3召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 147,
+        "event": "选择 技能分支 游猎影军分身跟随移动，向敌人射出影刃。"
+      },
+      {
+        "seconds": 165.5,
+        "event": "选择 主动术式 炎烈焰刀 Lv.3Lv.2 → Lv.3近身扇形斩击，附带短暂火域。"
+      },
+      {
+        "seconds": 186.9,
+        "event": "选择 主动术式 风解锁 龙卷风Lv.0 → Lv.1牵引附近敌人的龙卷。Lv.3 可选游龙 / 环身。"
+      },
+      {
+        "seconds": 202.8,
+        "event": "选择 主动术式 影/召影分身 Lv.4Lv.3 → Lv.4召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 224.1,
+        "event": "选择 主动术式 影/召影分身 Lv.5Lv.4 → Lv.5召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 237.5,
+        "event": "选择 主动术式 炎烈焰刀 Lv.4Lv.3 → Lv.4近身扇形斩击，附带短暂火域。"
+      },
+      {
+        "seconds": 252.6,
+        "event": "选择 主动术式 风龙卷风 Lv.2Lv.1 → Lv.2牵引附近敌人的龙卷。Lv.3 可选游龙 / 环身。"
+      },
+      {
+        "seconds": 273.9,
+        "event": "选择 主动术式 炎火球术 Lv.3Lv.2 → Lv.3自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星。"
+      },
+      {
+        "seconds": 275.4,
+        "event": "选择 技能分支 连珠火球三道扇射，单发伤害为原来的 65%。"
+      },
+      {
+        "seconds": 295.9,
+        "event": "选择 主动术式 雷解锁 雷电弹Lv.0 → Lv.1雷电在相邻敌人间跳链。Lv.3 可选连锁 / 天罚。"
+      },
+      {
+        "seconds": 309.4,
+        "event": "结算：乱世荒原 · 边境清剿黄巾巨将已击败击破 556 · Lv.19 · 284 秒★★★战果已保存觉醒 · 霜狱剑主极寒领域 · 游猎影军 · 连珠火球风火燎原 · 雷影追猎 · 影火同源 · 冰雷超导 · 霜卫契约 · 雷兽共鸣下一局回到初始英雄，重新探索组合。金币+756账号经验+497英雄熟练度+62万界徽记+2本关最佳 3 星 · 精英击破 7 · 最高连击 556取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 5 件史诗 · 炎龙核心史诗 · 影界勾玉史诗 · 炎忍苦无传说 · 妖师法印传说 · 混沌骑甲再次挑战本关返回大厅"
+      },
+      {
+        "seconds": 312.7,
+        "event": "重新进入：回到初始英雄，局内进化重置"
+      },
+      {
+        "seconds": 313.2,
+        "event": "验收完成：无浏览器错误"
+      }
+    ],
+    "errors": [],
+    "passed": true,
+    "marks": [
+      {
+        "label": "选择英雄进化",
+        "seconds": 24.7
+      },
+      {
+        "label": "选择技能路线",
+        "seconds": 71.4
+      },
+      {
+        "label": "查看路线与羁绊",
+        "seconds": 103.3
+      },
+      {
+        "label": "胜利结算",
+        "seconds": 310.4
+      },
+      {
+        "label": "重新开局",
+        "seconds": 312.7
+      }
+    ],
+    "duration": 313.88,
+    "poster": "frames/01-frost-desktop-combat.png",
+    "fullDecodePassed": true
+  },
+  {
+    "id": "02-lightning-phone",
+    "project": "phone",
+    "folder": "recorded-phone-narrow-pass",
+    "title": "九霄雷君 · 万钧连锁",
+    "viewport": "390 × 844",
+    "form": "九霄雷君",
+    "route": "万钧连锁",
+    "bond": "冰雷超导",
+    "complete": false,
+    "description": "手机尺寸下通过摇杆与技能按钮操作，选择连锁雷电，搭配寒霜环触发超导。",
+    "video": "videos/02-lightning-phone.webm",
+    "bytes": 13607348,
+    "sha256": "26d829a74a3f77bee23e11ea141996f6004b9309b6cdf1075a231083f20c6c76",
+    "timeline": [
+      {
+        "seconds": 1.1,
+        "event": "开始战斗"
+      },
+      {
+        "seconds": 13.8,
+        "event": "选择 主动术式 炎火球术 Lv.2Lv.1 → Lv.2自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星。"
+      },
+      {
+        "seconds": 25,
+        "event": "选择 主动术式 风解锁 龙卷风Lv.0 → Lv.1牵引附近敌人的龙卷。Lv.3 可选游龙 / 环身。"
+      },
+      {
+        "seconds": 26.6,
+        "event": "选择 英雄进化 九霄雷君普攻跳链，技能连锁雷击。引导雷电弹成长。"
+      },
+      {
+        "seconds": 37,
+        "event": "选择 主动术式 雷解锁 雷电弹Lv.0 → Lv.1雷电在相邻敌人间跳链。Lv.3 可选连锁 / 天罚。"
+      },
+      {
+        "seconds": 52.3,
+        "event": "选择 主动术式 雷雷电弹 Lv.2Lv.1 → Lv.2雷电在相邻敌人间跳链。Lv.3 可选连锁 / 天罚。"
+      },
+      {
+        "seconds": 68.4,
+        "event": "选择 主动术式 雷雷电弹 Lv.3Lv.2 → Lv.3雷电在相邻敌人间跳链。Lv.3 可选连锁 / 天罚。"
+      },
+      {
+        "seconds": 70,
+        "event": "选择 技能分支 万钧连锁多跳两个目标，每跳伤害为普通的 72%。"
+      },
+      {
+        "seconds": 84.3,
+        "event": "选择 主动术式 炎火焰冲刺 Lv.2Lv.1 → Lv.2向前铺设持续伤害的火径。"
+      },
+      {
+        "seconds": 103.5,
+        "event": "选择 主动术式 冰解锁 寒霜环Lv.0 → Lv.1范围霜环，敌人移速降低 45%，首领免疫减速。Lv.3 可选寒域 / 碎冰。"
+      },
+      {
+        "seconds": 105,
+        "event": "选择 英雄进化 觉醒 · 九霄雷君普攻与主动技能增加跳链目标。"
+      },
+      {
+        "seconds": 108.1,
+        "event": "路线与羁绊确认：风火燎原 已激活任一炎系技能 + 龙卷风龙卷脉冲追加火焰伤害。；冰雷超导 已激活寒霜环 + 雷电弹雷电命中减速中的敌人，伤害提高 35%。"
+      },
+      {
+        "seconds": 111.4,
+        "event": "查看已激活羁绊：冰雷超导 已激活寒霜环 + 雷电弹雷电命中减速中的敌人，伤害提高 35%。"
+      },
+      {
+        "seconds": 114.5,
+        "event": "重新进入：回到初始英雄，局内进化重置"
+      },
+      {
+        "seconds": 114.5,
+        "event": "验收完成：无浏览器错误"
+      }
+    ],
+    "errors": [],
+    "passed": true,
+    "marks": [
+      {
+        "label": "选择英雄进化",
+        "seconds": 25.6
+      },
+      {
+        "label": "选择技能路线",
+        "seconds": 69
+      },
+      {
+        "label": "查看路线与羁绊",
+        "seconds": 112.4
+      },
+      {
+        "label": "重新开局",
+        "seconds": 114.5
+      }
+    ],
+    "duration": 115.2,
+    "poster": "frames/02-lightning-phone-combat.png",
+    "fullDecodePassed": true
+  },
+  {
+    "id": "03-summon-narrow",
+    "project": "narrow",
+    "folder": "recorded-phone-narrow-pass",
+    "title": "冥契兽王 · 守阵影军",
+    "viewport": "320 × 844",
+    "form": "冥契兽王",
+    "route": "守阵影军",
+    "bond": "霜卫契约",
+    "complete": false,
+    "description": "窄屏下升级影分身、选择驻守路线，搭配寒霜环让召唤物追加霜环，再退出并重开。",
+    "video": "videos/03-summon-narrow.webm",
+    "bytes": 11129764,
+    "sha256": "135087c245afec6180a173ca64872116060e32689c674038f0584747f17ddfe0",
+    "timeline": [
+      {
+        "seconds": 0.6,
+        "event": "开始战斗"
+      },
+      {
+        "seconds": 10.2,
+        "event": "选择 主动术式 炎解锁 火球术Lv.0 → Lv.1自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星。"
+      },
+      {
+        "seconds": 24.3,
+        "event": "选择 主动术式 影/召影分身 Lv.2Lv.1 → Lv.2召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 25.9,
+        "event": "选择 英雄进化 冥契兽王穿透双刃，技能召出驻守近卫。引导影分身成长。"
+      },
+      {
+        "seconds": 44.6,
+        "event": "选择 主动术式 影/召影分身 Lv.3Lv.2 → Lv.3召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 46.1,
+        "event": "选择 技能分支 守阵影军分身留守召唤位置，周期释放范围斩击。"
+      },
+      {
+        "seconds": 59.7,
+        "event": "选择 主动术式 影/召影分身 Lv.4Lv.3 → Lv.4召出定时攻击的分身。Lv.3 可选游猎 / 守阵。"
+      },
+      {
+        "seconds": 77,
+        "event": "选择 主动术式 影手里剑 Lv.2Lv.1 → Lv.2多道穿透手里剑。"
+      },
+      {
+        "seconds": 88.7,
+        "event": "选择 主动术式 冰解锁 寒霜环Lv.0 → Lv.1范围霜环，敌人移速降低 45%，首领免疫减速。Lv.3 可选寒域 / 碎冰。"
+      },
+      {
+        "seconds": 88.8,
+        "event": "路线与羁绊确认：影火同源 已激活任一炎系技能 + 手里剑或影分身成功闪避在起点留下持续燃烧影印。；霜卫契约 已激活寒霜环 + 影分身召唤单位攻击时追加小范围霜环与减速。"
+      },
+      {
+        "seconds": 92,
+        "event": "查看已激活羁绊：霜卫契约 已激活寒霜环 + 影分身召唤单位攻击时追加小范围霜环与减速。"
+      },
+      {
+        "seconds": 94.8,
+        "event": "重新进入：回到初始英雄，局内进化重置"
+      },
+      {
+        "seconds": 94.8,
+        "event": "验收完成：无浏览器错误"
+      }
+    ],
+    "errors": [],
+    "passed": true,
+    "marks": [
+      {
+        "label": "选择英雄进化",
+        "seconds": 24.9
+      },
+      {
+        "label": "选择技能路线",
+        "seconds": 45.1
+      },
+      {
+        "label": "查看路线与羁绊",
+        "seconds": 93
+      },
+      {
+        "label": "重新开局",
+        "seconds": 94.8
+      }
+    ],
+    "duration": 95.68,
+    "poster": "frames/03-summon-narrow-combat.png",
+    "fullDecodePassed": true
+  }
+]
+</script>
+<script>
+const runs=JSON.parse(document.getElementById('recording-data').textContent);
+const video=document.querySelector('video'),nav=document.querySelector('.selector'),speed=document.getElementById('speed');
+const clock=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+function jump(seconds){video.currentTime=seconds;video.play().catch(()=>{document.getElementById('player-error').textContent='请点播放器的播放按钮继续观看。';});}
+function select(index){
+  const run=runs[index];video.pause();document.getElementById('player-error').textContent='';
+  video.src=run.video;video.poster=run.poster;video.load();video.playbackRate=Number(speed.value);
+  document.querySelectorAll('.choice').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
+  document.getElementById('run-title').textContent=run.form;
+  document.getElementById('description').textContent=run.description;
+  document.getElementById('video-info').textContent=`${clock(run.duration)} · ${run.viewport} · ${run.complete?'完整通关':'路线体验'} · 原始录像`;
+  document.getElementById('download').href=run.video;
+  const timestamps=document.querySelector('.timestamps');timestamps.replaceChildren();
+  for(const mark of run.marks){const button=document.createElement('button'),time=document.createElement('span');button.className='timestamp';time.textContent=clock(mark.seconds);button.append(time,mark.label);button.onclick=()=>jump(mark.seconds);timestamps.append(button);}
+  const timeline=document.querySelector('.full-timeline');timeline.replaceChildren();
+  for(const item of run.timeline){const button=document.createElement('button');button.textContent=`${clock(item.seconds)}  ${item.event}`;button.onclick=()=>jump(Math.max(0,item.seconds-1));timeline.append(button);}
+}
+runs.forEach((run,index)=>{const button=document.createElement('button'),label=document.createElement('small'),title=document.createElement('strong'),meta=document.createElement('small');button.className='choice';button.setAttribute('aria-pressed','false');label.textContent=`0${index+1} / ${run.project==='desktop'?'桌面键盘':'手机尺寸 · 多点触控'}`;title.textContent=run.title;meta.textContent=`${run.viewport} · ${clock(run.duration)} · ${run.bond}`;button.append(label,title,meta);button.onclick=()=>select(index);nav.append(button);});
+speed.onchange=()=>{video.playbackRate=Number(speed.value);};
+video.addEventListener('error',()=>{document.getElementById('player-error').textContent='录像未能加载。请保持 videos 文件夹与本页放在一起，或下载原始 WebM 后用 Chrome 播放。';});
+select(0);
+</script>
+</body>
+</html>

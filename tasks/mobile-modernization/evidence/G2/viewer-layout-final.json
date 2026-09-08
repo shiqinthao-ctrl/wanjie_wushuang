@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "width": 390,
+      "noDocumentOverflow": true,
+      "countsSingleLine": true,
+      "tableScrollable": true
+    },
+    {
+      "width": 320,
+      "noDocumentOverflow": true,
+      "countsSingleLine": true,
+      "tableScrollable": true
+    }
+  ]
+}

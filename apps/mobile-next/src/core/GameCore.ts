@@ -10,9 +10,15 @@ import { FirstStageEvents } from './firstEvents';
 import type { EventCode, EventPayment } from './firstEvents';
 import { TimedChests } from './timedChests';
 import type { FirstBoss } from './FirstBoss';
+import { freezeRun } from './settlement';
+import type { FinalRun } from './settlement';
+import { RunEvolution, evolutionBuild } from './RunEvolution';
+import type { EvolutionSnapshot } from './RunEvolution';
+import type { Journey } from './evolutionCatalog';
 
 export type RunStatus = 'idle' | 'running' | 'choosing' | 'encounter' | 'chest' | 'boss-loot' | 'paused' | 'ended' | 'destroyed';
 export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly chests: ReturnType<TimedChests['snapshot']>; readonly boss: ReturnType<FirstBoss['snapshot']>; readonly endReason?: 'defeat' | 'victory' | 'timeout' }
+export interface UiSnapshot { readonly journey?: EvolutionSnapshot }
 export interface Point { x: number; y: number }
 export type CoreEvent = CombatEvent | { type: 'xp-pickup'; value: number; x: number; y: number } | { type: 'level-choice'; level: number };
 
@@ -26,11 +32,19 @@ export class GameCore {
   private drops: GearInstance[] = [];
   private events: CoreEvent[] = [];
   private endReason: UiSnapshot['endReason'];
+  private final: FinalRun | undefined;
+  private preparation: Pick<FinalRun, 'heroId' | 'chapter' | 'stageId' | 'modeId' | 'difficultyId' | 'build'>;
+  private modeScore = 0;
+  private modeBosses = 0;
 
-  constructor(save: GameSave = fresh, random = Math.random) {
-    const startup = calculateStartup(save);
-    this.progression = new Progression(save.build, startup.skills, startup.passives, random);
-    this.combat = new CombatSimulation(save, this.progression, random, this.drops);
+  constructor(save: GameSave = fresh, random = Math.random, journey: Journey = 'classic') {
+    this.preparation = { heroId: save.hero, chapter: String(save.selectedChapter), stageId: String(save.selectedStage), modeId: String(save.mode), difficultyId: String(save.difficulty || 'normal'), build: structuredClone(save.build) };
+    const evolution = journey === 'evolution' ? new RunEvolution(save.hero) : undefined;
+    if (evolution && !save.heroes[save.hero]?.unlocked) throw new Error('此初始英雄尚未解锁。');
+    const battleSave = evolution ? { ...structuredClone(save), build: evolutionBuild(save.hero) } : save;
+    const startup = calculateStartup(battleSave);
+    this.progression = new Progression(battleSave.build, startup.skills, startup.passives, random, evolution);
+    this.combat = new CombatSimulation(battleSave, this.progression, random, this.drops);
     this.encounters = new FirstStageEvents(this.combat.player, this.progression, save.hero, random, Date.now, this.drops);
     this.chests = new TimedChests(this.progression, this.combat, save.hero, this.drops, random);
   }
@@ -67,6 +81,7 @@ export class GameCore {
   }
   claimChest(index: number): boolean {
     if (this.status !== 'running' || !this.chests.claim(index, this.combat.time, this.combat.bossEncounter.snapshot().lootShown)) return false;
+    this.combat.history.chests.push({ at: Math.floor(this.combat.time) });
     this.status = 'chest'; this.clearInput(); return true;
   }
   pickChest(token: number, index: number): boolean {
@@ -85,6 +100,10 @@ export class GameCore {
   }
   advance(elapsed: number): void {
     if (this.status !== 'running' || !Number.isFinite(elapsed) || elapsed <= 0) return;
+    if (this.progression.journey) {
+      this.progression.checkLevel();
+      if (this.progression.snapshot().choice) { this.status = 'choosing'; this.clearInput(); return; }
+    }
     // Base order: movement/spawn/attacks/AI, XP, hostile shots/director,
     // death, hero identity, skill forms, Boss warnings, pet, map, events, objective.
     const dt = Math.min(.034, elapsed);
@@ -105,18 +124,40 @@ export class GameCore {
     }
     if (this.status === 'running') {
       this.combat.updateOuter(dt); this.combat.map.recover();
-      if (this.encounters.open(this.combat.time)) { this.status = 'encounter'; this.clearInput(); }
+      const boss = this.combat.boss;
+      if (boss && this.combat.history.bosses.at(-1)?.id !== boss.id) this.combat.history.bosses.push({ at: Math.floor(this.combat.time), id: boss.id, name: boss.name });
+      if (this.combat.bossEncounter.snapshot().lootShown) this.modeBosses = 1;
+      if (this.encounters.open(this.combat.time)) {
+        const event = this.encounters.snapshot().offer!;
+        this.combat.history.events.push({ at: Math.floor(this.combat.time), id: event.kind, name: event.kind === 'merchant' ? '万界游商' : '黄金宝箱' });
+        this.status = 'encounter'; this.clearInput();
+      }
     }
     if (this.status === 'running') {
       const outcome = this.combat.bossEncounter.updateObjective();
       if (outcome) { this.status = 'ended'; this.endReason = outcome; this.clearInput(); }
       else if (this.combat.bossEncounter.snapshot().offer) { this.status = 'boss-loot'; this.clearInput(); }
+      if (this.status === 'running' && !this.combat.bossEncounter.snapshot().lootShown) this.modeScore = Math.round(this.combat.kills + this.combat.eliteKills * 35 + this.modeBosses * 600 + this.combat.maxCombo * 2 + this.combat.time * .15);
     }
+    if (this.status === 'ended' && !this.final) this.captureFinal();
     this.combat.applyCaps();
   }
+  private captureFinal(): void {
+    const sim = this.combat, map = sim.map.snapshot(), chests = this.chests.snapshot(sim.time);
+    this.final = freezeRun({ ...this.preparation, ...(this.progression.journey ? { journey: this.progression.journey.snapshot(this.progression.snapshot().skills) } : {}), endReason: this.endReason!,
+      reason: this.endReason === 'victory' ? '黄巾巨将已击败 · Boss战利品已领取并归档' : this.endReason === 'timeout' ? '首战时限到达 · 黄巾巨将未击败' : '本局生命耗尽',
+      hp: Math.max(0, sim.player.hp), maxHp: sim.player.maxHp, time: sim.time, level: this.progression.snapshot().level,
+      kills: sim.kills, eliteKills: sim.eliteKills, maxCombo: sim.maxCombo, modeScore: this.modeScore, modeBosses: this.modeBosses,
+      interactionsUsed: map.used, mapGold: map.bonusGold, bossPhaseMax: sim.bossEncounter.maxPhase,
+      petGold: sim.petGold, petDamage: sim.petDamage, petHeals: 0, damageBy: sim.damageBy,
+      evolved: chests.evolved, fused: chests.fused, drops: this.drops,
+      timedRewards: chests.rewards.map(reward => ({ ...reward, id: `reward-${reward.index + 1}` })), encounterEvidence: sim.history,
+    });
+  }
+  finalRun(): FinalRun | undefined { return this.final; }
   snapshot(): UiSnapshot {
     const { player, time, kills, heat } = this.combat;
-    return Object.freeze({ status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
+    return Object.freeze({ journey: this.progression.journey?.snapshot(this.progression.snapshot().skills), status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
   }
   renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState(), boss: this.combat.bossEncounter.snapshot().boss, telegraphs: this.combat.bossEncounter.telegraphs.map(warning => Object.freeze({ ...warning })) }; }
   takeEvents(): readonly CoreEvent[] { const events = [...this.events, ...this.combat.takeEvents()]; this.events = []; return events; }

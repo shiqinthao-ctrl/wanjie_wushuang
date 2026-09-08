@@ -1,0 +1,32 @@
+.journey-switch { display: flex; margin: 20px 0 12px; gap: 6px; }
+.journey-switch button { flex: 1; font-size: 13px; padding: 10px; }
+.journey-switch [aria-pressed="true"], .hero-select [aria-pressed="true"] { border-color: var(--gold); background: #3a4430; color: #ffe2a6; }
+.hero-select { padding: 14px 0; border-block: 1px solid var(--line); }
+.hero-select p { font-family: "KaiTi", serif; font-size: 18px; margin-bottom: 12px; }
+.hero-select>div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.hero-select button { padding: 12px 4px; }
+.hero-select button strong { font-size: 13px; }
+.hero-select button small { font-size: 10px; margin-top: 8px; }
+.hero-select>small { color: var(--muted); line-height: 1.8; margin-top: 14px; font-size: 12px; }
+.combat-record { align-items: center; }
+.combat-record button { min-height: 36px; padding: 5px 10px; font-size: 11px; pointer-events: auto; }
+.pause-dialog { max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); overflow-y: auto; touch-action: pan-y; }
+.level-option span { line-height: 1.65; }
+.run-guide { text-align: left; margin: 20px 0; }
+.run-guide h3 { font-family: "KaiTi", serif; color: var(--gold); font-size: 24px; margin: 8px 0; }
+.run-guide>p { font-size: 12px; line-height: 1.7; }
+.run-guide h4 { margin: 20px 0 10px; font-size: 14px; }
+.run-guide h4 small { font-size: 11px; font-weight: 400; color: var(--muted); margin-top: 6px; }
+.owned-skills, .bond-list { list-style: none; margin: 0; padding: 0; }
+.owned-skills li { padding: 8px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; font-size: 12px; }
+.owned-skills li span { color: var(--muted); }
+.owned-passives { color: var(--muted); margin-top: 10px; }
+.bond-list li { padding: 12px; margin-top: 6px; background: #10251f; border-left: 2px solid #5b6c58; }
+.bond-list li.active { border-color: #e4c37d; background: linear-gradient(110deg, #42472b, #183329); }
+.bond-list strong { display: flex; justify-content: space-between; font-size: 14px; }
+.bond-list em { font-style: normal; color: var(--gold); font-size: 11px; }
+.bond-list span, .bond-list small { display: block; font-size: 11px; color: #c0cabb; margin-top: 7px; line-height: 1.5; }
+.result-evolution { padding: 15px; margin: 12px 0; border: 1px solid var(--line); background: linear-gradient(120deg, #41432a, #142c23); }
+.result-evolution strong { font-family: "KaiTi", serif; font-size: 24px; color: var(--gold); }
+.result-evolution p, .result-evolution small { margin-top: 8px; font-size: 12px; line-height: 1.6; }
+@media(max-width: 360px) { .hero-select button strong { font-size: 12px; } .hero-select button small { font-size: 9px; } .owned-skills li { flex-direction: column; } }

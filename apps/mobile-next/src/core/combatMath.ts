@@ -6,7 +6,7 @@ import type { GameSave } from './saveTypes';
 import type { SkillLevels } from './progression';
 
 export type TargetKind = 'normal' | 'elite' | 'boss';
-type Element = 'physical' | 'fire' | 'lightning' | 'wind' | 'ki' | 'shadow';
+type Element = 'physical' | 'fire' | 'lightning' | 'wind' | 'ki' | 'shadow' | 'frost';
 export interface CombatState {
   readonly skills: SkillLevels; readonly passives: SkillLevels;
   readonly evolved: Readonly<Partial<Record<string, boolean>>>;
@@ -24,6 +24,8 @@ const descriptions: Record<string, string[]> = forms.descriptions;
 const elementPassives: Partial<Record<Element, string>> = forms.elementPassives;
 
 export function sourceElement(source: string): Element {
+  if (source.startsWith('G2_FROST')) return 'frost';
+  if (source.startsWith('G2_LIGHTNING')) return 'lightning';
   if (descriptions[source]) return descriptions[source][0] as Element;
   if (source.startsWith('F')) {
     if (['F005', 'F006'].includes(source)) return 'lightning';
@@ -68,7 +70,7 @@ export function damageMultiplier(context: CombatContext, state: CombatState, sou
   const summon = source.startsWith('S') || source.includes('CLONE'), evolved = source.startsWith('E') || source.startsWith('F');
   let multiplier = 1 + value(gear, 'allDamage') + value(gear, 'allElement');
   const elementKey = { fire: 'fireDmg', lightning: 'lightningDmg', shadow: 'shadowDmg', ki: 'kiDmg', physical: 'physicalDmg' } as const;
-  if (element !== 'wind') multiplier += value(gear, elementKey[element]);
+  if (element !== 'wind' && element !== 'frost') multiplier += value(gear, elementKey[element]);
   if (summon) multiplier += value(gear, 'summonDmg');
   if (evolved) multiplier += value(gear, 'evoFusionDmg');
   if (target === 'boss') multiplier += value(gear, 'bossDmg');

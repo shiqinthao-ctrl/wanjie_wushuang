@@ -1,5 +1,17 @@
 import { expect, test } from '@playwright/test';
+import type { Page } from '@playwright/test';
 import { reachEvent } from './fixtures/naturalPlay';
+
+async function expectCombatResumes(page: Page) {
+  const clock = page.getByLabel('本局时间');
+  const upgrade = page.getByRole('dialog', { name: '选择本局强化' });
+  // XP collected before the encounter can leave a legitimate upgrade pending.
+  for (let attempt = 0; attempt < 20 && await clock.textContent() === '00:45'; attempt++) {
+    if (await upgrade.isVisible()) await upgrade.locator('.level-option').first().click({ timeout: 1000 });
+    await page.waitForTimeout(250);
+  }
+  await expect(clock).not.toHaveText('00:45');
+}
 
 test('natural first event: visible choice commits gold and resumes the same run', async ({ page }, info) => {
   test.setTimeout(170_000);
@@ -10,7 +22,7 @@ test('natural first event: visible choice commits gold and resumes the same run'
   await event.getByRole('button', { name: merchant ? '购买回复' : '换成金币' }).click();
   await expect(event).not.toBeVisible();
   await expect(page.getByLabel('事件反馈')).toContainText(merchant ? '生命恢复' : '500 金币');
-  await expect(page.getByLabel('本局时间')).not.toHaveText('00:45');
+  await expectCombatResumes(page);
   await page.getByRole('button', { name: '暂停', exact: true }).click();
   await page.getByRole('dialog', { name: '战局已暂停' }).getByRole('button', { name: '返回大厅' }).click();
   await expect(page.getByLabel('当前存档')).toContainText(`金币 ${merchant ? 5820 : 6500}`);
@@ -45,7 +57,7 @@ test('synthetic storage abort: visible error pins the choice and retry saves onc
   await page.waitForTimeout(1100); await expect(page.getByLabel('本局时间')).toHaveText('00:45');
   await event.getByRole('button', { name: '重试原选择' }).click();
   await expect(event).not.toBeVisible();
-  await expect(page.getByLabel('本局时间')).not.toHaveText('00:45');
+  await expectCombatResumes(page);
   await page.getByRole('button', { name: '暂停', exact: true }).click();
   await page.getByRole('dialog', { name: '战局已暂停' }).getByRole('button', { name: '返回大厅' }).click();
   await expect(page.getByLabel('当前存档')).toContainText(`金币 ${merchant ? 5820 : 6500}`);

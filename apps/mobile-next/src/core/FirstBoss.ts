@@ -21,6 +21,7 @@ export function insideTelegraph(point: Point, warning: Telegraph): boolean {
 export class FirstBoss {
   active: Boss | undefined;
   readonly telegraphs: Telegraph[] = [];
+  maxPhase = 1;
   private defeatedAt: number | undefined;
   private offer: GearInstance[] | undefined;
   private picked = false;
@@ -47,6 +48,7 @@ export class FirstBoss {
     const ratio = boss.hp / Math.max(1, boss.maxHp), phase = ratio <= .35 ? 3 : ratio <= .70 ? 2 : 1;
     if (phase > boss.phase) {
       boss.phase = phase; boss.castCd = 1.2; boss.castLock = 1.05;
+      this.maxPhase = Math.max(this.maxPhase, phase);
       if (phase === 3) for (let i = 0; i < 3; i++) this.sim.spawn({ elite: i === 0 });
     }
     boss.castLock = Math.max(0, boss.castLock - dt); boss.castCd -= dt;

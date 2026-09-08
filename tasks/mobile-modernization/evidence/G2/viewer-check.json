@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 900,
+      "playback": [
+        {
+          "id": "01-frost-desktop",
+          "duration": 313.88,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "02-lightning-phone",
+          "duration": 115.2,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "03-summon-narrow",
+          "duration": 95.68,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        }
+      ],
+      "download": true,
+      "noOverflow": true,
+      "errors": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "playback": [
+        {
+          "id": "01-frost-desktop",
+          "duration": 313.88,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "02-lightning-phone",
+          "duration": 115.2,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "03-summon-narrow",
+          "duration": 95.68,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        }
+      ],
+      "download": true,
+      "noOverflow": true,
+      "errors": []
+    },
+    {
+      "name": "narrow",
+      "width": 320,
+      "height": 844,
+      "playback": [
+        {
+          "id": "01-frost-desktop",
+          "duration": 313.88,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "02-lightning-phone",
+          "duration": 115.2,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        },
+        {
+          "id": "03-summon-narrow",
+          "duration": 95.68,
+          "seek": true,
+          "playing": true,
+          "speed": true
+        }
+      ],
+      "download": true,
+      "noOverflow": true,
+      "errors": []
+    }
+  ]
+}

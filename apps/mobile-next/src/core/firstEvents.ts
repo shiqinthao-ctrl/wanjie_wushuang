@@ -8,6 +8,10 @@ export type EventCode = 'merchantAtk' | 'merchantHeal' | 'goldOpen' | 'goldCash'
 export interface EventOffer { readonly token: number; readonly kind: EventKind }
 export interface EventPayment { readonly gold: number; readonly affordable: boolean }
 export const eventOptions: Record<EventKind, readonly EventCode[]> = { merchant: ['merchantAtk', 'merchantHeal', 'skip'], goldChest: ['goldOpen', 'goldCash', 'skip'] };
+export function availableEventOptions(kind: EventKind, evolution = false): readonly EventCode[] {
+  // Legacy firepower has no damage authority in the journey, so it is not sold.
+  return evolution && kind === 'merchant' ? ['merchantHeal', 'skip'] : eventOptions[kind];
+}
 export function eventPayment(code: EventCode, gold: number): EventPayment {
   const cost = code === 'merchantAtk' ? 250 : code === 'merchantHeal' ? 180 : 0;
   const affordable = gold >= cost;
@@ -28,7 +32,7 @@ export class FirstStageEvents {
     this.offer = Object.freeze({ token: index + 1, kind: this.random() < .5 ? 'merchant' : 'goldChest' });
     return true;
   }
-  accepts(token: number, code: EventCode): boolean { return this.offer?.token === token && eventOptions[this.offer.kind].includes(code); }
+  accepts(token: number, code: EventCode): boolean { return this.offer?.token === token && availableEventOptions(this.offer.kind, !!this.progression.journey).includes(code); }
   resolve(token: number, code: EventCode, payment: EventPayment): boolean {
     if (!this.accepts(token, code)) return false;
     this.apply(code, payment); this.offer = undefined; return true;

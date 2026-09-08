@@ -1,0 +1,29 @@
+{
+  "build": "index-CGWePfNw.js",
+  "records": [
+    {
+      "width": 1280,
+      "hero": "H010",
+      "launchEnabled": true,
+      "portraitReady": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "hero": "H010",
+      "launchEnabled": true,
+      "portraitReady": true,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "width": 320,
+      "hero": "H010",
+      "launchEnabled": true,
+      "portraitReady": true,
+      "overflow": false,
+      "errors": []
+    }
+  ]
+}

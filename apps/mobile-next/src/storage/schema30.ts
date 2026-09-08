@@ -37,6 +37,17 @@ export function parseSchema30(raw: string): GameSave {
   if (save.schemaVersion !== 30) throw new Error('仅支持 Schema30 存档，请保留原文件。');
   jsonTree(save);
   integer(save.gold, 'gold');
+  integer(save.accountLv, 'accountLv', 1, 200);
+  for (const field of ['accountXp', 'talentPoints', 'modeTokens']) integer(save[field], field);
+  const stats = record(save.stats, 'stats');
+  for (const field of ['runs', 'kills', 'bossKills']) integer(stats[field], `stats.${field}`);
+  const modes = record(save.modeStats, 'modeStats');
+  for (const [id, value] of Object.entries(modes)) {
+    const mode = record(value, `modeStats.${id}`);
+    for (const field of ['runs', 'wins', 'bestKills', 'bestScore']) integer(mode[field], `${id}.${field}`);
+    if (typeof mode.bestTime !== 'number' || !Number.isFinite(mode.bestTime) || mode.bestTime < 0) invalid(`${id}.bestTime`);
+  }
+  if (!Object.hasOwn(modes, 'story')) invalid('modeStats.story');
   for (const field of ['hero', 'pet', 'selectedChapter', 'selectedStage', 'mode']) text(save[field], field);
   if (save.difficulty !== undefined) text(save.difficulty, 'difficulty');
   for (const [id, value] of Object.entries(record(save.heroes, 'heroes'))) {
@@ -72,12 +83,12 @@ export function parseSchema30(raw: string): GameSave {
   return value as GameSave;
 }
 
-export function previewBlocker(save: GameSave): string {
-  if (save.hero !== 'H001' || !save.heroes.H001?.unlocked) return '当前预览仅支持赤焰战神；此存档已保留，可切换到其他存档体验。';
+export function previewBlocker(save: GameSave, journey: 'classic' | 'evolution' = 'classic'): string {
+  if (!(journey === 'evolution' ? ['H001', 'H010', 'H012'].includes(save.hero) : save.hero === 'H001') || !save.heroes[save.hero]?.unlocked) return journey === 'evolution' ? '请选择已解锁的初始英雄：赤焰战神、炎忍或影忍。' : '经典预览仅支持赤焰战神；可切换「进化征途」选择初始英雄，当前存档会保留。';
   if (save.mode !== 'story' || save.selectedChapter !== 'ST001' || save.selectedStage !== 'ST001-01') return '当前预览仅支持剧情首关「边境清剿」，其余关卡和模式正在迁移。';
   if (save.difficulty !== undefined && save.difficulty !== 'normal') return '当前预览仅支持普通难度，其他难度正在迁移。';
   if (save.pet !== 'PET001') return '当前预览仅支持火灵同行，其他宠物正在迁移。';
-  if (save.build.active.some(id => !fresh.build.active.includes(id)) || save.build.passive.some(id => !fresh.build.passive.includes(id))) return '此存档含有尚未迁移的技能，可保留并导出。';
+  if (journey === 'classic' && (save.build.active.some(id => !fresh.build.active.includes(id)) || save.build.passive.some(id => !fresh.build.passive.includes(id)))) return '此存档含有尚未迁移的技能，可保留并导出。';
   if (save.runes.some(id => !Object.hasOwn(runePets.runes, id)) || Object.keys(save.talents).some(id => !Object.hasOwn(talents, id))) return '此存档含有尚未支持的符文或天赋，可保留并导出。';
   for (const [slot, uid] of Object.entries(save.equipInst)) {
     const item = save.inventory.gearInstances.find(item => item.uid === uid);

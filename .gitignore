@@ -5,3 +5,16 @@ coverage/
 dist/
 .vscode/
 .idea/
+.env
+.env.*
+*.pem
+
+# Keep original recordings locally; deliver them as milestone release assets.
+tasks/mobile-modernization/evidence/**/test-results/
+tasks/mobile-modernization/evidence/**/playwright-report/
+tasks/mobile-modernization/evidence/**/pre-g2-preserved/
+tasks/mobile-modernization/evidence/**/*.webm
+tasks/mobile-modernization/evidence/**/*.zip
+tasks/mobile-modernization/evidence/**/error-context.md
+tasks/mobile-modernization/evidence/P2j/failed-*.md
+tasks/mobile-modernization/releases/

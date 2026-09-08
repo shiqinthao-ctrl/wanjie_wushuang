@@ -47,17 +47,17 @@ test('synthetic Chrome oracle: gold gear followed by the exact owned upgrade', a
 
 test('synthetic native event: duplicate receipts, stale run and retry after failed commit', async ({ page }) => {
   const result = await page.evaluate(async () => {
-    const { SaveRepository, EventSession, eventCore } = window.EventFixture;
+    const { SaveRepository, RunSession, eventCore } = window.EventFixture;
     const repo = await SaveRepository.open('test-event-' + crypto.randomUUID()), slot = await repo.initialize();
-    const core = eventCore(slot.save), session = new EventSession(repo, slot, core, 'run-fixture');
+    const core = eventCore(slot.save), session = new RunSession(repo, slot, core, 'run-fixture');
     await Promise.all([session.choose(1, 'goldCash'), session.choose(1, 'goldCash')]);
     const rewarded = await repo.get(slot.id);
     await session.choose(1, 'goldCash');
     const again = await repo.get(slot.id);
-    const staleCore = eventCore(slot.save), stale = new EventSession(repo, slot, staleCore, 'run-stale');
+    const staleCore = eventCore(slot.save), stale = new RunSession(repo, slot, staleCore, 'run-stale');
     let conflict = '';
     try { await stale.choose(1, 'goldCash'); } catch (error) { conflict = String(error); }
-    const interrupted = eventCore(rewarded.save, () => .25), retry = new EventSession(repo, rewarded, interrupted, 'run-retry');
+    const interrupted = eventCore(rewarded.save, () => .25), retry = new RunSession(repo, rewarded, interrupted, 'run-retry');
     const original = repo.transactOnce.bind(repo);
     repo.transactOnce = () => Promise.reject(new Error('synthetic storage failure'));
     let failed = '';
@@ -84,9 +84,9 @@ test('synthetic native event: duplicate receipts, stale run and retry after fail
 
 test('synthetic event: lost commit response, background pause and original slot isolation', async ({ page }) => {
   const result = await page.evaluate(async () => {
-    const { SaveRepository, EventSession, eventCore } = window.EventFixture;
+    const { SaveRepository, RunSession, eventCore } = window.EventFixture;
     const repo = await SaveRepository.open('test-event-receipt-' + crypto.randomUUID()), slot = await repo.initialize();
-    const core = eventCore(slot.save, () => .25), session = new EventSession(repo, slot, core, 'run-lost');
+    const core = eventCore(slot.save, () => .25), session = new RunSession(repo, slot, core, 'run-lost');
     const original = repo.transactOnce.bind(repo);
     repo.transactOnce = async (...args) => { await original(...args); throw new Error('synthetic lost response'); };
     let lost = '';
@@ -107,9 +107,9 @@ test('synthetic event: lost commit response, background pause and original slot 
 
 test('synthetic event: committed receipt followed by another writer does not resume a stale run', async ({ page }) => {
   const result = await page.evaluate(async () => {
-    const { SaveRepository, EventSession, eventCore } = window.EventFixture;
+    const { SaveRepository, RunSession, eventCore } = window.EventFixture;
     const repo = await SaveRepository.open('test-event-stale-receipt-' + crypto.randomUUID()), slot = await repo.initialize();
-    const core = eventCore(slot.save), session = new EventSession(repo, slot, core, 'run-stale-receipt');
+    const core = eventCore(slot.save), session = new RunSession(repo, slot, core, 'run-stale-receipt');
     const original = repo.transactOnce.bind(repo);
     repo.transactOnce = async (...args) => { await original(...args); throw new Error('synthetic lost response'); };
     await session.choose(1, 'goldCash').catch(() => {}); repo.transactOnce = original;

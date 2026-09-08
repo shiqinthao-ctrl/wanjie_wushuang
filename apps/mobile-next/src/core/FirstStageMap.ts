@@ -69,9 +69,11 @@ export class FirstStageMap {
       this.hazardSuppress = Math.max(0, this.hazardSuppress - dt); this.hazards = []; return;
     }
     const { time, player, viewport, world } = this.combat, hazard = firstStage.storyEncounter.hazard;
+    this.combat.history.hazardUsed = true;
     if (Math.floor(time / hazard.interval) !== Math.floor((time - dt) / hazard.interval)) {
       const y = Math.max(80, Math.min(world.height - 80, player.y - viewport.height / 2 + 80 + this.random() * (viewport.height - 160)));
       this.hazards.push({ type: 'fireline', x: 0, y, w: world.width, h: hazard.size, life: hazard.life, max: hazard.life, damage: hazard.damage });
+      this.combat.history.hazardTriggers++;
     }
     for (const line of this.hazards) {
       line.life -= dt;

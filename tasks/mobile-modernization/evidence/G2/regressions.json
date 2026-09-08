@@ -1,0 +1,3197 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/evolution.native.spec.ts",
+      "tests/settlement.native.spec.ts",
+      "tests/boss.native.spec.ts",
+      "tests/events.native.spec.ts",
+      "tests/storage.native.spec.ts",
+      "tests/saves.spec.ts",
+      "tests/lifecycle.spec.ts",
+      "tests/combat.spec.ts",
+      "tests/map.spec.ts",
+      "tests/evolution.spec.ts",
+      "--reporter=list,html,json"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/apps/mobile-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/apps/mobile-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/apps/mobile-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "html"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "boss.native.spec.ts",
+      "file": "boss.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic Chrome Boss loot matches exact legacy items, RNG order and duplicate choice guard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 484,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:21.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-64a3ae607ef0f625f79e",
+          "file": "boss.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic real loot component: three rewards, paused restore, one choice and narrow layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 538,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:22.211Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-b41882965a0ebfbd1ee2",
+          "file": "boss.native.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome Boss loot matches exact legacy items, RNG order and duplicate choice guard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1194,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:56:55.594Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-2a0e7b16b061d0b4aa97",
+          "file": "boss.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic real loot component: three rewards, paused restore, one choice and narrow layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1318,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:56:57.593Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-db2d536ebb9a0e62ef9e",
+          "file": "boss.native.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome Boss loot matches exact legacy items, RNG order and duplicate choice guard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 462,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:21.242Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-cb9315a0e4cf61ab8f6e",
+          "file": "boss.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic real loot component: three rewards, paused restore, one choice and narrow layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 440,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:22.124Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-adbc639033212a8a27a0",
+          "file": "boss.native.spec.ts",
+          "line": 40,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "combat.spec.ts",
+      "file": "combat.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural combat reaches a choice and resumes the same run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:22.769Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-input-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJzZWxlY3RlZCI6ICLooqvliqjlv4Pms5Ug6Kej6ZSBIOiMg+WbtOW8uuWMlkx2LjAg4oaSIEx2LjEiLAogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMiIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDAgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA0IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMSAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDUiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNiIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA4IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMyAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDkiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCA4IC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDQiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMSIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDkgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgNSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEyIiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTAgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEzIiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTEgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgNyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE1IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMjEgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgOSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE2IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMjIgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMTAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNyIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIzIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDExIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTgiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyIC8gNDgiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDEyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTkiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyIC8gNDgiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDEyIgogICAgfQogIF0sCiAgImVycm9ycyI6IFtdCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b51ea54a95aff327696-bd2d0da591562f9e4298",
+          "file": "combat.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "natural combat reaches a choice and resumes the same run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14757,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:56:58.943Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-input-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJzZWxlY3RlZCI6ICLkuLvliqjmnK/lvI8g6Kej6ZSBIOeDiOeEsOWIgEx2LjAg4oaSIEx2LjEiLAogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA0IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMSDCtyDnu4/pqowgMiAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDYiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCA3IC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDMiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNyIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEzIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDUiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIyIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDEgLyA0OCIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgNyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEwIiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMSAvIDQ4IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA3IgogICAgfQogIF0sCiAgImVycm9ycyI6IFtdCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b51ea54a95aff327696-59164ae793e1b681964d",
+          "file": "combat.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "natural combat reaches a choice and resumes the same run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14523,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:22.583Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-input-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJzZWxlY3RlZCI6ICLooqvliqjlv4Pms5Ug6Kej6ZSBIOWGt+WNtOe8qeWHj0x2LjAg4oaSIEx2LjEiLAogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA0IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgNiAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDUiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMSAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDciLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxNiAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDgiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxOCAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTAiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyMyAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA3IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTAiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAxIC8gNDgiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDciCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMSIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDYgLyA0OCIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgOCIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b51ea54a95aff327696-57cd52c1330ecb75d0f8",
+          "file": "combat.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "events.native.spec.ts",
+      "file": "events.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 294,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:44.167Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-077b4f6f77c34ac41054",
+          "file": "events.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: gold gear followed by the exact owned upgrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 312,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:44.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-a79a14c87d4e18263d9a",
+          "file": "events.native.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "synthetic native event: duplicate receipts, stale run and retry after failed commit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 336,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:44.829Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-652a808b26551dcd0e2c",
+          "file": "events.native.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: lost commit response, background pause and original slot isolation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:45.173Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-526be183611322dfe5a1",
+          "file": "events.native.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: committed receipt followed by another writer does not resume a stale run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 312,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:45.495Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-86b65215dcde47480035",
+          "file": "events.native.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 736,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:13.730Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-818d984a8e9200e45c67",
+          "file": "events.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: gold gear followed by the exact owned upgrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 875,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:14.522Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-45ca1005095657e0f170",
+          "file": "events.native.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "synthetic native event: duplicate receipts, stale run and retry after failed commit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:15.410Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-5a89a1e54d582e58ce3e",
+          "file": "events.native.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: lost commit response, background pause and original slot isolation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 926,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:16.221Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-368fe3f515ba236585b7",
+          "file": "events.native.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: committed receipt followed by another writer does not resume a stale run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 918,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:17.170Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-bd1e930e2c0944c03623",
+          "file": "events.native.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 262,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:37.139Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-c40f4eb103ea3c93a6ae",
+          "file": "events.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: gold gear followed by the exact owned upgrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 271,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:37.447Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-58f4f739623ffb75a6f3",
+          "file": "events.native.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "synthetic native event: duplicate receipts, stale run and retry after failed commit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 268,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:37.727Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-214727a44d6a878d9a9f",
+          "file": "events.native.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: lost commit response, background pause and original slot isolation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 288,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:38.003Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-8a79f5aa33afdb544182",
+          "file": "events.native.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: committed receipt followed by another writer does not resume a stale run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 264,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:38.298Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-8c841ae03b9704408cdd",
+          "file": "events.native.spec.ts",
+          "line": 108,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "evolution.native.spec.ts",
+      "file": "evolution.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 315,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:45.823Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-d92f5565592d4a305a98",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 305,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:46.175Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-1f829794c6b73b0b62fd",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 866,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:18.115Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-300fe39c613964652850",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 916,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:19.071Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-923a5f3d978babadbd97",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 270,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:38.578Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-b55e13ab941d526d5dbe",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 269,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:38.888Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-ce79bdc898d308841cbd",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "evolution.spec.ts",
+      "file": "evolution.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural starter, evolution, skill route, bond and run reset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 99797,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:14.828Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bef95681877fac12fa7e-1e5facd6ffd6514af8a1",
+          "file": "evolution.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "natural starter, evolution, skill route, bond and run reset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 76597,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:58:03.932Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bef95681877fac12fa7e-132b9d69261d0f6a01da",
+          "file": "evolution.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "natural starter, evolution, skill route, bond and run reset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 135778,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:07.282Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bef95681877fac12fa7e-14a0599dc417ec2e7531",
+          "file": "evolution.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lifecycle.spec.ts",
+      "file": "lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15510,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:54:46.505Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-9f5198853befeecf0778",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:02.025Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-235935d274b71f37b609",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17651,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:20.018Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-df0090a4ab60b2021df2",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2224,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:37.681Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-e969507f09622e0053e8",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15300,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:39.184Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-01b4ca96bbd454fda7fb",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 617,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:54.490Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-58c1a4a668f3c759f4f9",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "map.spec.ts",
+      "file": "map.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "follows visible map guidance to a one-use interaction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3910,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:02.706Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "visible-map-route",
+                      "contentType": "application/json",
+                      "body": "ewogICJyb3V0ZSI6IFsKICAgICLngavoja/mobYgwrcg5YyXIDYyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgNTc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOWMlyA1MjVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDQ3NW0iLAogICAgIueBq+iNr+ahtiDCtyDkuJzljJcgNDI1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAzNzVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDMyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgMjc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAyMjVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDE1MG0iLAogICAgIueBq+iNr+ahtiDCtyDkuJzljJcgMTAwbSIKICBdLAogICJlcnJvcnMiOiBbXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d8799038d2916f69765-179a00e9247767a354a1",
+          "file": "map.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "follows visible map guidance to a one-use interaction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:39.961Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "visible-map-route",
+                      "contentType": "application/json",
+                      "body": "ewogICJyb3V0ZSI6IFsKICAgICLngavoja/mobYgwrcg5YyXIDYyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgNTc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOWMlyA1MjVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDQ3NW0iLAogICAgIueBq+iNr+ahtiDCtyDkuJzljJcgNDI1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAzNzVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDMwMG0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgMjUwbSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAyMDBtIiwKICAgICLngavoja/mobYgwrcg5YyXIDEyNW0iCiAgXSwKICAiZXJyb3JzIjogW10KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d8799038d2916f69765-7d27fa83f667e74696c6",
+          "file": "map.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "follows visible map guidance to a one-use interaction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4710,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:55.133Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "visible-map-route",
+                      "contentType": "application/json",
+                      "body": "ewogICJyb3V0ZSI6IFsKICAgICLngavoja/mobYgwrcg5YyXIDYyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgNTc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOWMlyA1MjVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDQ3NW0iLAogICAgIueBq+iNr+ahtiDCtyDkuJzljJcgNDI1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOWMlyAzNTBtIiwKICAgICLngavoja/mobYgwrcg5Lic5YyXIDMwMG0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgMjUwbSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAxNzVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDEyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgNzVtIgogIF0sCiAgImVycm9ycyI6IFtdCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d8799038d2916f69765-b5c65aa455f1c4aa1937",
+          "file": "map.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "saves.spec.ts",
+      "file": "saves.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1287,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:06.629Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-d06fedfd5e2c50d7ca43",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:07.922Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-0fe639bb93c4a4b289b9",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:08.613Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-1994fa1a26085d567ab9",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2857,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:45.675Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-d6226a74afb151567f24",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1352,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:48.545Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-4cffd98b12226a7ae6dd",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 945,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:49.909Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-37f12e4c4a901b44a2af",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1146,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:59:59.869Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-1435658021fda0bddec2",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 619,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:01.023Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-03ffa403efaa46c85396",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 318,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:01.650Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-b7bb99e3db37194f410f",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "settlement.native.spec.ts",
+      "file": "settlement.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 348,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:09.009Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-bb4efac289d22041693e",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 370,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:09.450Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-f67fc31a60a5e1b854f5",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 354,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:09.829Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c1c0ca417fe48df93ef8",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 373,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:10.192Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1251ae83c8d3530930f2",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:10.573Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-79f02bf32b23635a2ddb",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:10.928Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-d196d131dd3de0df0d0d",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 362,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:11.307Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-be9ec9f9bbb47c718ca0",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 657,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:11.677Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c90abe32eea08dc2ccf9",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 847,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:12.343Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6271d8e56032f72aa298",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 997,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:50.877Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-b89857a8f23919b441b4",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:52.053Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-dd1bb6e8398197e45444",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 934,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:53.081Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-05f97c876faab620c825",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 943,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:54.026Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-829bcddd27027898bad6",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 923,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:54.981Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-e3a5fc6e8b1e68e59ae0",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 768,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:55.915Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1615aae089851b55e38b",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 951,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:56.692Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c094ff8c53ee3c3ba431",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1539,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:57.680Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-8f174ff992d1d412a79b",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1500,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:57:59.229Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-12fea930c22a6d2d40d2",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 305,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:01.998Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6e771bb484726843fc0b",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 315,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:02.395Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-d3a9f4da4a5481cd7e21",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 324,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:02.717Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-513ca04ec15225b51521",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 317,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:03.048Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6c09c2dee100a49c2ccb",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 321,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:03.375Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-a608dadd2d580e53496e",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 335,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:03.706Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-dd4cc8e039d43589bfa9",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 340,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:04.048Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6ac86dd8a404c3f235b2",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 514,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:04.396Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-83d21ec194e40e57af6b",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 815,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:04.917Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-f6de7968018f204f993d",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "storage.native.spec.ts",
+      "file": "storage.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 315,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:13.213Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-43b0a0d32da078bfa467",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 428,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:13.553Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-99e47867efcc10b6d2bd",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:55:13.988Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-81ee95dc541dcdf7cee8",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 899,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:58:00.750Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-a7f7ffcd7bde38330e55",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1122,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:58:01.729Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-13a3742dc7e55bc6ab76",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 535,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T08:58:02.862Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-3747bbe9c69bc37b0b41",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 271,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:05.752Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-85c50d8392eb15715102",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 373,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:06.050Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-9527b927aab9926e1ca8",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 287,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-08T09:00:06.431Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-4b96fbe477474ba0f6ea",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-08T08:54:19.701Z",
+    "duration": 483757.147,
+    "expected": 87,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

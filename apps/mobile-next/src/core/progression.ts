@@ -1,11 +1,13 @@
 import names from '../data/skills.json';
+import { journeySkillNames } from './evolutionCatalog';
+import type { RunEvolution } from './RunEvolution';
 
 export type SkillLevels = Readonly<Partial<Record<string, number>>>;
-export type ChoiceKind = 'active' | 'passive';
-export interface LevelOption { readonly kind: ChoiceKind; readonly id: string; readonly label: string }
+export type ChoiceKind = 'active' | 'passive' | 'hero' | 'route';
+export interface LevelOption { readonly kind: ChoiceKind; readonly id: string; readonly label: string; readonly detail?: string; readonly tag?: string }
 export interface LevelChoice { readonly token: number; readonly options: readonly LevelOption[] }
 export interface Crystal { x: number; y: number; value: number; elite: boolean }
-export const skillName = (id: string): string => (names as Record<string, string>)[id] ?? id;
+export const skillName = (id: string): string => journeySkillNames[id] ?? (names as Record<string, string>)[id] ?? id;
 export const effectiveXp = (elite: boolean, multiplier = 1): number => (elite ? 18 : 4) * (Number.isFinite(multiplier) ? multiplier : 1);
 
 export class XpField {
@@ -50,7 +52,7 @@ export class Progression {
   private choice: LevelChoice | undefined;
   private sequence = 0;
   private build: { active: readonly string[]; passive: readonly string[] };
-  constructor(build: { active: readonly string[]; passive: readonly string[] }, skills: SkillLevels, passives: SkillLevels, private random: () => number = Math.random) {
+  constructor(build: { active: readonly string[]; passive: readonly string[] }, skills: SkillLevels, passives: SkillLevels, private random: () => number = Math.random, readonly journey?: RunEvolution) {
     this.build = { active: [...build.active], passive: [...build.passive] };
     this.skills = { ...skills }; this.passives = { ...passives };
   }
@@ -63,6 +65,17 @@ export class Progression {
         if (level > 0 && level < 5) options.push({ kind, id, label: `${skillName(id)} Lv.${level + 1}` });
         else if (level === 0 && Object.keys(levels).length < 6) options.push({ kind, id, label: `解锁 ${skillName(id)}` });
       }
+    }
+    if (this.journey) {
+      for (let i = options.length - 1; i > 0; i--) {
+        const j = Math.floor(this.random() * (i + 1)); [options[i], options[j]] = [options[j]!, options[i]!];
+      }
+      const owned = options.findIndex(option => option.kind === 'active' && (this.skills[option.id] || 0) > 0);
+      if (owned > 0) options.unshift(options.splice(owned, 1)[0]!);
+      const signature = this.journey.signature(this.skills);
+      const preferred = options.findIndex(option => option.kind === 'active' && option.id === signature);
+      if (preferred > 0) options.splice(1, 0, options.splice(preferred, 1)[0]!);
+      return options.map(option => this.journey!.decorate(option));
     }
     // Preserve the legacy comparator and its RNG consumption during rule migration.
     return options.sort(() => this.random() - .5);
@@ -77,15 +90,23 @@ export class Progression {
     return option;
   }
   checkLevel(blocked = false): void {
-    if (blocked || this.choice || this.xp < this.xpNeed) return;
+    if (blocked || this.choice) return;
+    const special = this.journey?.special(this.level, this.skills);
+    if (special?.length) { this.offer(special); return; }
+    if (this.xp < this.xpNeed) return;
     this.xp -= this.xpNeed; this.level++; this.xpNeed = Math.round(26 + this.level * 11);
     const options = this.validOptions().slice(0, 3);
-    if (options.length) this.choice = Object.freeze({ token: ++this.sequence, options: Object.freeze(options.map(option => Object.freeze(option))) });
+    if (options.length) this.offer(options);
   }
+  private offer(options: LevelOption[]): void { this.choice = Object.freeze({ token: ++this.sequence, options: Object.freeze(options.map(option => Object.freeze(option))) }); }
   pick(token: number, kind: ChoiceKind, id: string): boolean {
     if (!this.choice || this.choice.token !== token || !this.choice.options.some(option => option.kind === kind && option.id === id)) return false;
-    const levels = kind === 'active' ? this.skills : this.passives;
-    levels[id] = (levels[id] || 0) + 1;
+    if (kind === 'hero' || kind === 'route') {
+      if (!this.journey?.pick(this.level, this.skills, kind, id)) return false;
+    } else {
+      const levels = kind === 'active' ? this.skills : this.passives;
+      levels[id] = (levels[id] || 0) + 1;
+    }
     this.choice = undefined;
     this.checkLevel();
     return true;

@@ -7,6 +7,7 @@ export interface Enemy extends Point {
   speed: number; damage: number; color: string; attack: number; skill: number;
   elite: boolean; affixes: string[]; flash: number;
   volatile?: boolean; vamp?: boolean; aura?: boolean; split?: boolean;
+  chilledUntil?: number;
 }
 export interface DirectorState { time: number; kills: number; dps: number; level: number; evolved: number; fused: number }
 export const firstStage = stage.rule;
