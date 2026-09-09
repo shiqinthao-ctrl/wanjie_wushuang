@@ -170,3 +170,18 @@ Record the new deployment ID and full commit only after verified Live.
 The preferred P4a rollback is `dep-dag058on74is73bukk40` / `75e139b`, which
 preserves the allowlisted mobile preview and legacy entry. Do not reset Git
 or delete saves. The rollback action has not been executed for this slice.
+
+## P4b release preparation - 2026-09-09
+
+The P4b compact portrait HUD slice includes P4a's portrait edge-camera fix.
+All five root gates, 49 legacy hashes, app types/build, 946 rules and 27 latest
+related browser cases pass. All 42 P4b recordings and 35 P4a recordings remain.
+See P4b-EVIDENCE.md for failed attempts and the natural/synthetic distinction.
+
+Early GitHub TLS and Render connection failures recurred. A later read-only
+retry succeeded: remote branch was d2ab258 and the dashboard loaded the
+existing WJWS service, linked to codex/mobile-web-modernization. It still
+showed 75e139b / dep-dag058on74is73bukk40 as the last successful deployment.
+P4a/P4b push, release upload and exact-source clean-cache deployment follow
+local tagged packaging. Their completed outcome will be appended separately.
+No TLS, proxy or service settings have been changed.

@@ -1,0 +1,43 @@
+.battle-overview { display: contents; }
+
+/* Flow layout avoids collisions when boss names, routes or viewport height change. */
+@media (max-width: 600px) and (max-height: 740px) and (orientation: portrait) {
+  .battle-overview {
+    position: absolute;
+    inset: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4px 8px;
+    padding: calc(4px + env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
+    pointer-events: none;
+    background: linear-gradient(#071713ed, #07171399, transparent);
+  }
+  .battle-overview > * { position: static; min-width: 0; width: auto; max-width: none; }
+  .battle-hud, .stage-note, .boss-hud, .combat-vitals { grid-column: 1 / -1; }
+  .battle-overview .battle-hud { padding: 0; gap: 8px; background: none; }
+  .battle-hud > div { min-width: 0; }
+  .battle-hud small { margin-bottom: 2px; font-size: 9px; }
+  .battle-hud strong { font-size: 15px; }
+  .battle-hud button { min-height: 44px; padding: 6px 12px; }
+  .battle-overview .stage-note { padding: 3px 8px; font-size: 11px; line-height: 16px; }
+  .battle-overview .boss-hud { padding: 2px 8px; }
+  .boss-hud strong, .boss-hud span { line-height: 13px; }
+  .boss-hud progress { margin: 2px 0; height: 4px; }
+  .battle-overview .combat-vitals { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; font-size: 10px; line-height: 14px; }
+  .combat-vitals > div + div { margin: 0; }
+  .combat-vitals progress { margin-top: 3px; height: 5px; }
+  .battle-overview .combat-record { display: flex; gap: 4px; justify-content: space-between; text-align: left; font-size: 10px; }
+  .combat-record > span { flex-shrink: 0; }
+  .battle-overview .combat-record button { min-height: 44px; padding: 4px; font-size: 10px; }
+  .battle-overview .map-route { padding: 3px 6px; max-height: 44px; font-size: 10px; overflow-y: auto; touch-action: pan-y; pointer-events: auto; }
+  .map-route > small { font-size: 9px; }
+  .map-route p { margin-top: 0; }
+  .control-zone { padding: 0 max(12px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); }
+  .move-pad { width: 112px; height: 112px; }
+  .action-pad { grid-template-columns: repeat(2, 64px); gap: 6px; }
+  .action-pad button { min-height: 58px; }
+  .timed-rewards { left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right)); bottom: calc(150px + env(safe-area-inset-bottom)); width: auto; }
+  .timed-rewards button { min-height: 44px; padding: 3px; }
+  .timed-rewards strong { margin-top: 2px; }
+  .timed-rewards > p { max-height: 18px; line-height: 14px; padding: 2px 6px; }
+}

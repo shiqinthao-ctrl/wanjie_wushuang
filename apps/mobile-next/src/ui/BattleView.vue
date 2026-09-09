@@ -140,12 +140,13 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
 <template>
   <section class="battle-view" aria-label="边境清剿战场">
     <div ref="host" class="canvas-host" tabindex="-1" aria-label="战场，使用方向键或摇杆移动"></div>
+    <div class="battle-overview">
     <header class="battle-hud"><div><small>乱世荒原 · 边境清剿</small><strong>{{ snapshot.journey?.name || '赤焰战神' }}</strong></div><time aria-label="本局时间">{{ format(snapshot.time) }}</time><button :disabled="!ready || leaving" @click="pause">暂停</button></header>
     <p v-if="!snapshot.boss.boss" class="stage-note">{{ snapshot.boss.phase === 'warning' ? '首领即将登场 · 准备迎战' : snapshot.boss.lootShown ? '首领已击败 · 正在封存战果' : '边境清剿 · 在 06:00 前击败首领' }}</p>
     <aside v-else class="boss-hud" aria-label="首领状态"><strong>{{ snapshot.boss.boss.name }} <small>{{ snapshot.boss.boss.phaseName }}</small></strong><progress aria-label="首领生命" :value="snapshot.boss.boss.hp" :max="snapshot.boss.boss.maxHp"></progress><span aria-label="首领招式">{{ snapshot.boss.boss.next }}</span></aside>
     <div class="combat-vitals" aria-label="战斗状态"><div><span>生命 {{ Math.ceil(snapshot.hp) }} / {{ Math.ceil(snapshot.maxHp) }}</span><progress aria-label="生命值" :value="snapshot.hp" :max="snapshot.maxHp || 1"></progress></div><div><span>Lv.{{ snapshot.level }} · 经验 {{ Math.floor(snapshot.xp) }} / {{ snapshot.xpNeed }}</span><progress aria-label="经验值" :value="snapshot.xp" :max="snapshot.xpNeed"></progress></div></div>
     <div class="combat-record"><span aria-label="本局击杀">击破 {{ snapshot.kills }}</span><button v-if="snapshot.journey" :disabled="snapshot.status !== 'running'" @click="pause">本局路线 · {{ snapshot.journey.bonds.filter(bond => bond.active).length }} 羁绊</button><span v-else>炎势 {{ Math.round(snapshot.heat) }}%</span></div>
-    <aside v-if="ready" class="map-route" aria-label="地图指引">
+    <aside v-if="ready" class="map-route" aria-label="地图指引" tabindex="0">
       <small aria-label="地图互动进度">地图互动 {{ Math.min(1, snapshot.map.used) }} / 1<span v-if="snapshot.map.hazardSuppress > 0"> · 压制 {{ Math.ceil(snapshot.map.hazardSuppress) }}s</span></small>
       <p v-if="snapshot.map.target" aria-label="交互目标"><strong>{{ snapshot.map.target.name }}</strong> · {{ snapshot.map.target.canUse ? '可互动' : snapshot.map.target.direction + ' ' + snapshot.map.target.distance + 'm' }}</p>
       <p v-else>地图互动已完成</p>
@@ -153,6 +154,7 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
       <p v-if="snapshot.map.notice" class="map-notice" role="status" aria-label="地图反馈">{{ snapshot.map.notice }}</p>
       <p v-if="snapshot.encounter.notice" class="map-notice" role="status" aria-label="事件反馈">{{ snapshot.encounter.notice }}</p>
     </aside>
+    </div>
     <aside v-if="ready" class="timed-rewards" aria-label="定时宝箱">
       <p v-if="snapshot.chests.notice" role="status" aria-label="宝箱反馈">{{ snapshot.chests.notice }}</p>
       <p v-if="snapshot.chests.evolved.length || snapshot.chests.fused.length" aria-label="已获得形态">{{ [...snapshot.chests.fused, ...snapshot.chests.evolved].map(formName).join(' · ') }}</p>
@@ -185,3 +187,5 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
     <RunResult :snapshot="snapshot" :result="result" :busy="settling" :error="settlementError" :leaving="leaving" @retry="settle" @exit="leave()" @replay="leave(true)" />
   </section>
 </template>
+
+<style src="./battle-compact.css"></style>

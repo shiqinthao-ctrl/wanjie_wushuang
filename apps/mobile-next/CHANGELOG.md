@@ -3,6 +3,26 @@
 Versions are identified by annotated Git tags. These previews are independent
 of the legacy game version and are not full-content production releases.
 
+## mobile-next-p4b-20260909 - 2026-09-09
+
+### Fixed
+- Short portrait battles separate the stage/Boss HUD, health/experience,
+  map feedback and reward buttons from the hero and touch controls.
+- Reward/action controls retain at least 44 px touch targets; detailed map
+  feedback remains accessible through touch and keyboard scrolling.
+- Safe-area, simultaneous movement/skill, natural upgrade selection and
+  changing browser height have recorded regression coverage.
+
+### Verification and scope
+- 946 rules and 27 latest distinct related browser cases pass. All 45 test
+  executions and 42 original recordings, including failed attempts, remain.
+- Crowded Boss markup is a synthetic layout test, separately labeled from
+  natural play. No combat, save, dependency or legacy-source change.
+- P4a's portrait edge-camera fix is included. Physical phones, landscape HUD,
+  performance/endurance, PWA and three earlier HP-death target failures remain.
+
+Evidence: `../../tasks/mobile-modernization/P4b-EVIDENCE.md`.
+
 ## mobile-next-p4a-20260909 - 2026-09-09
 
 ### Fixed

@@ -1,0 +1,304 @@
+{
+  "recordings": [
+    {
+      "path": "after-01/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-browser-bars/video.webm",
+      "bytes": 138076,
+      "sha256": "9986e90477a123b79da10b67bc4ae7516b333695b23cfcce03a88d0de29d50f9",
+      "duration": 3.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-medium/video.webm",
+      "bytes": 166183,
+      "sha256": "cfe12d50a1e9a823c4fae7e770610ac77f3b44b0831f10ea2a4447140516e256",
+      "duration": 3.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-short/video.webm",
+      "bytes": 167527,
+      "sha256": "bc4fb5cb7fb5139a274c90c1bbec6008f5a6b0637b13427f660df92aaa1282c2",
+      "duration": 3.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-browser-bars/video.webm",
+      "bytes": 134919,
+      "sha256": "3da2a458d6329c99d2aa4b6b9514adbd5e5c503a6660778cfa5615ead792512d",
+      "duration": 3.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-medium/video.webm",
+      "bytes": 148380,
+      "sha256": "1408243d92d74d600dbdf1126c251eb532ebbca226f23d48fb1eeaef39053f61",
+      "duration": 3.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-short/video.webm",
+      "bytes": 136271,
+      "sha256": "591d2061da5ad3bd35b21275b1595349ce3f3b7f3e1d0a7a49029ea8260b7bcd",
+      "duration": 2.96,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-browser-bars/video.webm",
+      "bytes": 121653,
+      "sha256": "7476d4bd7956e8bce9d4ed140a1600803508125998f8db53f088c627ea7db800",
+      "duration": 1.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-medium/video.webm",
+      "bytes": 88922,
+      "sha256": "f914b1ac675b347c6d1db92f1b9f0a3003c20ea3b33497fe4d9dcbde8b000d4f",
+      "duration": 1.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-short/video.webm",
+      "bytes": 89440,
+      "sha256": "4982b022774c3010397aaf84bd3258b186c0736f01bf0485e3a6efbd2c792a23",
+      "duration": 1.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-browser-bars/video.webm",
+      "bytes": 111935,
+      "sha256": "a7314d08bc1db4ce3c3b24b65a57903308dfd06844feaebd1275be1b37bf5e6f",
+      "duration": 1.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-medium/video.webm",
+      "bytes": 113608,
+      "sha256": "8f72c21e17de4ba409b34061c40b1f3f28d2f8979425ba291f94443986ee77d8",
+      "duration": 1.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-short/video.webm",
+      "bytes": 119630,
+      "sha256": "e9f36904ff304caf9cb3474779d3b56e9762e69dacd3d2fa5c057295dbc3e154",
+      "duration": 1.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-browser-bars/video.webm",
+      "bytes": 1563155,
+      "sha256": "94769aa92045a3208c02511cb2c9baa2f4a701082b3a01be03471995142f5759",
+      "duration": 13.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-medium/video.webm",
+      "bytes": 1571827,
+      "sha256": "16adacd1abf4d5aa03128e38a0bb57c7c3e8f50c71822976dc1706cf3858f966",
+      "duration": 13.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-short/video.webm",
+      "bytes": 1435784,
+      "sha256": "5b1e594ca14655805b12d0ffcd1d92c5afcc0e837e52e4f78f7c4b8b979ad0a3",
+      "duration": 12.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-browser-bars/video.webm",
+      "bytes": 145181,
+      "sha256": "248d0c7742ac63f52d309555f9548514ba73f6b7f22852000f9036500c8c65de",
+      "duration": 1.92,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-medium/video.webm",
+      "bytes": 122313,
+      "sha256": "d9979c5e638f7590d35345d790724caf08b1e27c9faf04c57a3f9cebce72292e",
+      "duration": 1.96,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-short/video.webm",
+      "bytes": 138109,
+      "sha256": "81718eadc366b1c131548b66633cbd903038e1abaac1e11bc4302bbe2c621d8a",
+      "duration": 1.96,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "before-02/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-browser-bars/video.webm",
+      "bytes": 144636,
+      "sha256": "264b4499e5bee9c97e993d9a2a089d9cfc9ed09343a321a13c382adf273ab1d1",
+      "duration": 3.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "before-02/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-medium/video.webm",
+      "bytes": 154354,
+      "sha256": "fd6168c3fac78fe65447f71fa224d9e0d575076a52991f43570edde56ff3970d",
+      "duration": 3.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "before-02/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-short/video.webm",
+      "bytes": 142244,
+      "sha256": "d0be580c72d36002e9c8a2cb6c958a2bc980ee3bbd7477637d44984b29453bb0",
+      "duration": 2.96,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-browser-bars/video.webm",
+      "bytes": 223367,
+      "sha256": "c5fe329b83ea5899d31b8b803f7af2a147815ed03077bbcdb82718044e34fa1a",
+      "duration": 2.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-desktop/video.webm",
+      "bytes": 187921,
+      "sha256": "fd290e5fc1210972d93203ef900b4568132fba5fd78716fb36fe7646cc69fc87",
+      "duration": 2.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-medium/video.webm",
+      "bytes": 213604,
+      "sha256": "5075f0c96ecd21a1f38dcdbce73a5fe6d45ea51d8ba587c6a74fa56fd1cd14e5",
+      "duration": 2.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-narrow/video.webm",
+      "bytes": 195915,
+      "sha256": "df371a2a05561eb993dc4c553488d47c2cc695bb42d6b6b2032763534dfbcf7a",
+      "duration": 2.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-phone/video.webm",
+      "bytes": 237563,
+      "sha256": "4a9270722561164e82a26ead98202b9ba214e71dfe049a438f3c4c7905c3753a",
+      "duration": 3.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-short/video.webm",
+      "bytes": 230825,
+      "sha256": "8fc44a098fb19e7d482abbe0f30773acdc45db1ecd6367be5800e6e27e9f3225",
+      "duration": 2.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-browser-bars/video.webm",
+      "bytes": 1075840,
+      "sha256": "d899ca7f74037635a769ba20545500fad2a13bda7e168d482fe4eab06abe63f1",
+      "duration": 16.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-desktop/video.webm",
+      "bytes": 947181,
+      "sha256": "a97470319b83c54dc0ca8e6045eabb254dff97008e21772fda8bfb4b348e4192",
+      "duration": 16.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-medium/video.webm",
+      "bytes": 1104823,
+      "sha256": "d2d263271dff115e9d198fd99370ebb0fbf8b649713eb159ca5702a5dd586c4e",
+      "duration": 17.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-narrow/video.webm",
+      "bytes": 980454,
+      "sha256": "9259c57f166e405dcfd4119f93c81bf4a9a6ec0e08e88d21c4d42242a095f1c5",
+      "duration": 16.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-phone/video.webm",
+      "bytes": 1048153,
+      "sha256": "24d7d9c0cfc6e05e401c410fa43c38fd928c1d8c8dd0f90ed21ba5477473664f",
+      "duration": 17.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-short/video.webm",
+      "bytes": 1003680,
+      "sha256": "3f397ef9cfa25f95c58d633508cf3acd64695dcd2a9e3f729b9b354c9ceb8fee",
+      "duration": 17.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-browser-bars/video.webm",
+      "bytes": 39988,
+      "sha256": "a0ebc372c3b499a88def658ebe5da87b778d7801ca2c61eddca8c648d2db2688",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-desktop/video.webm",
+      "bytes": 62827,
+      "sha256": "14c477466bf89c6da51524ef6d7f962d8dec0ba2edcd81caa6694448894377c7",
+      "duration": 1.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-medium/video.webm",
+      "bytes": 39712,
+      "sha256": "22be21f7252d7ce3271d9e524dbabd0f8e89a1a1e04a3eb2a726de3faa70a926",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-narrow/video.webm",
+      "bytes": 85856,
+      "sha256": "feaa603e7d6c59e21261a0db7206187bca0fbf36bfe5c24a93dbaf7d897b111a",
+      "duration": 1.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-phone/video.webm",
+      "bytes": 46556,
+      "sha256": "7b9c5ed5322f6ba6133afe64b2901e84256dd09ecbd255abe6337cf334d280ce",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-short/video.webm",
+      "bytes": 55952,
+      "sha256": "a4a146225250ee1ccde4e9ed11ad3a31b242480fcfa87226ba331654f3074076",
+      "duration": 1.4,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "scroll-01/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-browser-bars/video.webm",
+      "bytes": 144903,
+      "sha256": "a6f917070e5886dcb94a784fcfb8b264c3143038c0946f4d6c70e61131470c9f",
+      "duration": 2.4,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "scroll-01/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-medium/video.webm",
+      "bytes": 161284,
+      "sha256": "b5d4d0d40a92f4ca36bb8b92a0b304d5b8331f28755370687db914e1be423041",
+      "duration": 2.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "scroll-01/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-short/video.webm",
+      "bytes": 166616,
+      "sha256": "4b0e3429026d0706b652a1807301ea2b4ad5688b2d97ff36c3159d5f1b5b7739",
+      "duration": 2.56,
+      "fullDecodePassed": true
+    }
+  ],
+  "demo": {
+    "source": "after-03/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-short/video.webm",
+    "file": "wanjie-p4b-natural-test.mp4",
+    "sha256": "1dab294f80bdca3364b22bdb35390bc12a12f0a3f32da4d3ce2dfcd828c8eca5",
+    "uneditedFullRecording": true
+  }
+}

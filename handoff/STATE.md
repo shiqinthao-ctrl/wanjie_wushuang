@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P4a local portrait camera slice: hero stays centered at map edges, with a visible world boundary. Local tag mobile-next-p4a-20260909. GitHub/Render delivery is blocked by external HTTPS handshake/EOF failures. Last recorded live runtime 75e139b / dep-dag058on74is73bukk40 (Sep 8), not reverified this turn.
+P4b local short portrait HUD slice accepted: readable top HUD, scrollable map feedback and separated reward/touch controls. Includes P4a's edge-camera fix. GitHub/Render delivery is in progress after external access recovered. Last recorded live 75e139b / dep-dag058on74is73bukk40 awaits new verification.
 
 ## Changed files
-mountBattle.ts, camera tests/vision fixture, P4a Playwright config, Render milestone, changelog, TASK/handoff and P4a evidence/release/packaging documents. Camera padding only; no GameCore, balance, save, dependency or legacy-source changes.
+BattleView.vue, battle-compact.css, P4b Playwright config/tests, Render milestone, changelog, TASK/handoff and P4b evidence/packaging documents. Presentation only; no GameCore, balance, save, dependency or legacy-source changes.
 
 ## Tests
-P4a: 946 rules, 17 latest related browser cases, 5 root gates, 49/49 hashes and types/build pass. Four real corners in 2 phone layouts; touch/cancel/resize and lifecycle in 3 layouts. 35 recordings = 32 pass attempts / 3 failures; all raw videos retained and fully decoded. 12-second comparison visually checked. No new live acceptance.
+P4b: 946 rules, 27 latest related browser cases, 5 ordered root gates, 49/49 hashes and app types/build pass. 45 executions = 35 pass / 10 failed attempts; 42 raw recordings fully decoded. Natural upgrade/touch/resize and synthetic crowded HUD are separate. Full 12.68-second MP4 and comparison visually checked. Logs: evidence/P4b/gates.json.
 
 ## Unresolved risk
-Remote synchronization/deployment incomplete; no service settings changed. P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, short/landscape HUD usability, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. Camera acceptance is browser emulation only.
+Remote synchronization/deployment pending final verification. P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, landscape HUD, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. Compact HUD acceptance is browser emulation only.
 
 ## Recommended next task
-Resume authorized GitHub branch/tag/release sync, then clean-cache deploy the exact P4a tag to WJWS and verify all 51 HTTPS hashes/paths plus both entries in browser. After delivery, define short portrait HUD/control spacing as one slice. See P4a-EVIDENCE.md and RENDER-DEPLOYMENT.md; keep natural HP-death tracked separately.
+Finish P4a/P4b branch/tag/release sync and clean-cache deploy exact P4b source; verify package hashes/public paths and both entries. Then scope landscape HUD/control overlap from a reproducible baseline as one presentation slice. See P4b-EVIDENCE.md and RENDER-DEPLOYMENT.md; keep fresh HP-death acceptance separate.
 
 ## After each task
 Replace only these fields:
