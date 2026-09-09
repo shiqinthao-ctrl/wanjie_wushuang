@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-09-09T06:22:04.362736+00:00",
+  "passed": true,
+  "tag": "mobile-next-p2l-20260909",
+  "sourceCommit": "fe2220c7ea6b2626b3764b4630ade1fda1c110bf",
+  "releaseId": 385268305,
+  "draft": false,
+  "prerelease": true,
+  "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p2l-20260909",
+  "assets": [
+    {
+      "name": "wanjie-p2l-test-evidence.zip",
+      "sha256": "4580170c40b3744c5d1c6289e341b884b3331c44be2c73a2b3486767d0c9e725",
+      "bytes": 480850849,
+      "remoteBytes": 480850849,
+      "remoteDigest": "sha256:4580170c40b3744c5d1c6289e341b884b3331c44be2c73a2b3486767d0c9e725",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p2l-20260909/wanjie-p2l-test-evidence.zip",
+      "passed": true
+    },
+    {
+      "name": "wanjie-p2l-fresh-target-actual-victory.mp4",
+      "sha256": "957783e8a56ae3edbaf253852c36e636bce3dd36fff24853366dbb54f1a48249",
+      "bytes": 25743873,
+      "remoteBytes": 25743873,
+      "remoteDigest": "sha256:957783e8a56ae3edbaf253852c36e636bce3dd36fff24853366dbb54f1a48249",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p2l-20260909/wanjie-p2l-fresh-target-actual-victory.mp4",
+      "passed": true
+    },
+    {
+      "name": "wanjie-p2l-imported-low-growth-defeat.mp4",
+      "sha256": "c68bea83d5f4dca292605badb73937fc9a56ae6016a2ccd787610db4ec7a019a",
+      "bytes": 12253655,
+      "remoteBytes": 12253655,
+      "remoteDigest": "sha256:c68bea83d5f4dca292605badb73937fc9a56ae6016a2ccd787610db4ec7a019a",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p2l-20260909/wanjie-p2l-imported-low-growth-defeat.mp4",
+      "passed": true
+    },
+    {
+      "name": "settlement-comparison.png",
+      "sha256": "3b01039230a1819546eba1a2eb30c520d0470b04551042ab358481e16cb9eac9",
+      "bytes": 119979,
+      "remoteBytes": 119979,
+      "remoteDigest": "sha256:3b01039230a1819546eba1a2eb30c520d0470b04551042ab358481e16cb9eac9",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p2l-20260909/settlement-comparison.png",
+      "passed": true
+    },
+    {
+      "name": "RELEASE-NOTES.md",
+      "sha256": "c7d3f6e958788de9586e16760cf82d3ac1c4ff821d1b303b044407e07f4432ef",
+      "bytes": 9843,
+      "remoteBytes": 9843,
+      "remoteDigest": "sha256:c7d3f6e958788de9586e16760cf82d3ac1c4ff821d1b303b044407e07f4432ef",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p2l-20260909/RELEASE-NOTES.md",
+      "passed": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "f51de6950c5e988550dcb26a33d6f37b801b540abb656548ff00827aac0ddb1b",
+      "bytes": 492,
+      "remoteBytes": 492,
+      "remoteDigest": "sha256:f51de6950c5e988550dcb26a33d6f37b801b540abb656548ff00827aac0ddb1b",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p2l-20260909/SHA256SUMS.txt",
+      "passed": true
+    }
+  ]
+}

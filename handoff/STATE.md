@@ -24,13 +24,13 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2l fresh-death investigation complete locally; evidence release finalization under mobile-next-p2l-20260909. Three fresh attempts still win; actual settlement/reload/retry pass. No runtime defect demonstrated or rules changed. Render retains P4c 649b0b5 / dep-dagdr1142hec73brst60; auto-deploy off.
+P2l investigation delivered: mobile-next-p2l-20260909 / fe2220c, six GitHub release assets verified before/after publication. Three fresh attempts still win; actual settlement/reload/retry pass. No rules changed. Render retains verified P4c 649b0b5 / dep-dagdr1142hec73brst60; auto-deploy off.
 
 ## Changed files
 settlement.spec.ts observations and opt-in input strategy, pressure diagnostics, P2l recording config, packaging script, evidence/report, changelog and TASK/handoff. No runtime, fresh fixture, dependency or legacy changes. Raw failures and recordings remain in the evidence release.
 
 ## Tests
-946 rules; 54 browser executions: 50 pass / 4 failed targets, no retries/skips. All 12 natural actual outcomes pass persistence/retry. 45 synthetic simulations: 28 wins / 17 timeouts / 0 deaths. Five ordered root checks, 49 legacy hashes and app types/build pass. 54 originals and two full MP4s retained. All 51 live hashes and both browser entries verified; zero live console errors.
+946 rules; 54 browser executions: 50 pass / 4 failed targets, no retries/skips. All 12 natural actual outcomes pass persistence/retry. 45 synthetic simulations: 28 wins / 17 timeouts / 0 deaths. Five ordered root checks, 49 legacy hashes and app types/build pass. 54 originals and two full MP4s decoded. Six GitHub asset digests/sizes match. All 51 live hashes and both entries verified; zero live console errors.
 
 ## Unresolved risk
 Fresh HP-death still open: P2l adds 3 victories. Stationary phone timeout also wins at 350 seconds; retained as a failure. Imported deaths do not close the fresh gate. Full suite not rerun/green. Physical phones, performance/endurance, other content/modes, audio/PWA and Phaser chunk remain. Rollback: 4c37125 / dep-dagd7tp42hec73bpec70; older 75e139b / dep-dag058on74is73bukk40.

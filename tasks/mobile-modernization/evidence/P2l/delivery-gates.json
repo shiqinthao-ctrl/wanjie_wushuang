@@ -1,0 +1,32 @@
+[
+  {
+    "name": "check",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:23:02.1349366+08:00",
+    "log": "delivery-gate-check.log"
+  },
+  {
+    "name": "smoke",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:23:02.4758765+08:00",
+    "log": "delivery-gate-smoke.log"
+  },
+  {
+    "name": "audit",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:23:02.7936712+08:00",
+    "log": "delivery-gate-audit.log"
+  },
+  {
+    "name": "context",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:23:03.0517152+08:00",
+    "log": "delivery-gate-context.log"
+  },
+  {
+    "name": "archive:verify",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:23:03.3308983+08:00",
+    "log": "delivery-gate-archive-verify.log"
+  }
+]

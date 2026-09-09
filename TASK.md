@@ -1,10 +1,12 @@
 # TASK.md - P2l fresh defeat investigation and retry evidence
 
-Status: investigation complete; release finalization, 2026-09-09.
+Status: completed with open acceptance targets, 2026-09-09.
 
 Result: 45 diagnostic simulations; 54 browser executions, 50 pass / 4 failed
 targets. Actual settlement/reload/retry pass in all 12 natural runs. Fresh
 HP-death and phone timeout gates remain open. No runtime or balance change.
+GitHub prerelease mobile-next-p2l-20260909 published from fe2220c; all six
+remote assets match. Render P4c retained and verified. See P2l-EVIDENCE.md.
 
 ## Goal
 Investigate the open natural fresh HP-death gate using the unchanged

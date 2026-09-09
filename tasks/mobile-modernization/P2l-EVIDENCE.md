@@ -1,7 +1,7 @@
 # P2l fresh pressure and settlement evidence
 
-Status: investigation complete; fresh death and phone timeout targets remain
-open, 2026-09-09. GitHub publication is recorded after release verification.
+Status: investigation and GitHub delivery complete; fresh death and phone
+timeout targets remain open, 2026-09-09.
 Source baseline: `06daa60e640469d0512fb69c49e86699bef462b4`.
 Runtime baseline: P4c, `649b0b54e16b0016de9ba88dd148516aefd0da8b`.
 
@@ -128,6 +128,20 @@ assets: complete evidence ZIP, two MP4s, result comparison, these release notes
 and SHA256SUMS. The ZIP is checked for CRC and each member's SHA-256. Remote
 size/digest checks are required before and after publication. The playable
 package and immutable P4c tag stay unchanged.
+
+### Delivery verification
+
+Published [GitHub prerelease](https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p2l-20260909)
+from commit `fe2220c7ea6b2626b3764b4630ade1fda1c110bf`. All six remote assets
+match local sizes and SHA-256 digests, verified before and after publication
+at 2026-09-09 06:22 UTC. Release ID: `385268305`. The evidence ZIP is
+480,850,849 bytes and passed CRC plus every member's SHA-256 check.
+See `evidence/P2l/github-verification.json` for the public asset URLs/digests.
+
+The branch and annotated tag were pushed together; remote tag/branch matched
+the source commit. Main remains `30d05f291a4860f653a7d7a1ecbbf5015b2145fc`.
+This follow-up records delivery evidence without moving the release tag or
+replacing any asset. Render remains on the previously verified P4c deployment.
 
 ## Live runtime and rollback
 
