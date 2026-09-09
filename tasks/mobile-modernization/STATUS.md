@@ -1,5 +1,10 @@
 # Mobile modernization status
 
+Current pointer (2026-09-09): G5 has superseded the historical G3 snapshot below.
+See `G5-EVIDENCE.md` and `../../handoff/STATE.md` for current release evidence.
+The approved first-chapter remediation is tracked separately in
+`../game-remediation/README.md`. The rows below retain their original evidence dates.
+
 Baseline: 3a7b9f4; hashes and effective state captured. Legacy remains the reference.
 
 | Slice | Source | Automated evidence | Browser evidence | Physical device |

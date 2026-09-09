@@ -18,3 +18,9 @@ tasks/mobile-modernization/evidence/**/*.zip
 tasks/mobile-modernization/evidence/**/error-context.md
 tasks/mobile-modernization/evidence/P2j/failed-*.md
 tasks/mobile-modernization/releases/
+
+# Remediation originals stay local and are indexed for milestone delivery.
+tasks/game-remediation/evidence/**/*.webm
+tasks/game-remediation/evidence/**/*.mp4
+tasks/game-remediation/evidence/**/test-results/
+tasks/game-remediation/evidence/**/playwright-report/

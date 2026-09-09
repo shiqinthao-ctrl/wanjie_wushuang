@@ -1,0 +1,17 @@
+{
+  "main_skill": "zbn-agent-workbench:software-delivery-lifecycle",
+  "task_type": "software-implementation",
+  "product_scope": "wanjie_wushuang mobile-next remediation R0",
+  "agent_role": "engineering",
+  "mode": "write-authorized",
+  "selected_subskills": ["agent-skills:using-agent-skills", "agent-skills:incremental-implementation", "agent-skills:git-workflow-and-versioning"],
+  "workflow_stages": [
+    {"stage": 1, "name": "Context and baseline", "subskills": ["agent-skills:using-agent-skills"]},
+    {"stage": 2, "name": "Bounded delivery and evidence", "subskills": ["agent-skills:incremental-implementation"]},
+    {"stage": 3, "name": "Version and handoff", "subskills": ["agent-skills:git-workflow-and-versioning"]}
+  ],
+  "evidence_required": ["rules and source inventory", "asset reconciliation", "cold-context recordings and errors", "legacy and mobile checks"],
+  "acceptance_status": "passed",
+  "stop_reason": "accepted",
+  "next_action": "R1a isolated run and persistence contracts"
+}

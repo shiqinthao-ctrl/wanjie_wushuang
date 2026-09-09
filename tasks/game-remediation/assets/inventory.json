@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "status": "quotation-spec-only",
+  "iconCount": 85,
+  "animationClasses": 112,
+  "directionalClipsUpTo": 336,
+  "groups": [
+    {
+      "id": "PORTRAIT-START",
+      "name": "初始英雄立绘",
+      "quantity": 3,
+      "unit": "张",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "PORTRAIT-FORM",
+      "name": "进化立绘",
+      "quantity": 11,
+      "unit": "张",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "AWAKEN",
+      "name": "觉醒增补",
+      "quantity": 11,
+      "unit": "套",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "COMBAT",
+      "name": "战斗角色外观",
+      "quantity": 14,
+      "unit": "套",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ANIMATION",
+      "name": "角色八类动作三朝向",
+      "quantity": 14,
+      "unit": "套(8类;三朝向)",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ENEMY",
+      "name": "普通敌人含动作",
+      "quantity": 6,
+      "unit": "套",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ELITE",
+      "name": "精英含独立外观动作",
+      "quantity": 2,
+      "unit": "套",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "BOSS",
+      "name": "首领三阶段及招式转阶段死亡",
+      "quantity": 2,
+      "unit": "套",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "THEME",
+      "name": "章节场景主题",
+      "quantity": 1,
+      "unit": "套",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "MAP",
+      "name": "关卡布局",
+      "quantity": 3,
+      "unit": "张",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "PROP",
+      "name": "场景装饰",
+      "quantity": 24,
+      "unit": "件",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "INTERACT",
+      "name": "交互物与状态",
+      "quantity": 8,
+      "unit": "类",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ICON-HERO",
+      "name": "英雄形态图标",
+      "quantity": 14,
+      "unit": "枚",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ICON-SKILL",
+      "name": "术式心法路线图标",
+      "quantity": 33,
+      "unit": "枚",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ICON-BOND",
+      "name": "羁绊图标",
+      "quantity": 8,
+      "unit": "枚",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ICON-CHARM",
+      "name": "战备图标",
+      "quantity": 6,
+      "unit": "枚",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "ICON-UI",
+      "name": "通用图标",
+      "quantity": 24,
+      "unit": "枚",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "VFX-SKILL",
+      "name": "术式主体",
+      "quantity": 10,
+      "unit": "项",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "VFX-ROUTE",
+      "name": "路线变化",
+      "quantity": 12,
+      "unit": "项",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "VFX-FORM",
+      "name": "形态主动或必杀",
+      "quantity": 22,
+      "unit": "包",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "VFX-BOND",
+      "name": "羁绊特效",
+      "quantity": 8,
+      "unit": "项",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "VFX-COMMON",
+      "name": "通用反馈",
+      "quantity": 8,
+      "unit": "类",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "MUSIC",
+      "name": "循环音乐",
+      "quantity": 5,
+      "unit": "首",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "AMBIENCE",
+      "name": "环境音",
+      "quantity": 3,
+      "unit": "组",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    },
+    {
+      "id": "SFX",
+      "name": "音效",
+      "quantity": 40,
+      "unit": "项",
+      "status": "not-commissioned",
+      "sampleApproved": false,
+      "files": [],
+      "license": null
+    }
+  ]
+}

@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-G5 delivered: frostflame, ringfire, thermalshock; 11 forms/12 routes/8 bonds. Runtime 821b90c, tag mobile-next-g5-20260909, Render dep-dagi1c740ujc73f9nikg. GitHub prerelease published with 7 verified assets. See G5-EVIDENCE.md.
+R0 remediation baseline complete: 14 issues, chapter rules, outsourced sample brief, 25 quote groups/85 icons and 18 acceptance groups. See tasks/game-remediation/evidence/R0/RESULTS.md. G5 runtime 821b90c and Render dep-dagi1c740ujc73f9nikg remain the deployed baseline.
 
 ## Changed files
-Evolution catalog/combat/math, advice/presentation, rules/natural tests, G5 packaging, changelog and Render milestone. Final delivery reports are evidence-only; not redeployed. No dependency, schema, classic or legacy-source change.
+Added tasks/game-remediation roadmap/contracts/inventory and repeatable cold-start evidence. Updated TASK, INDEX and stale modernization status pointer. No runtime, dependency, save, legacy or archive change.
 
 ## Tests
-974 rules; 54/54 local browser cases. Public first run 2/3; phone won without target route, retained as failed. Unchanged phone rerun 1/1 passed. Awakening/victory/retry/reload verified. Five root gates, 49 legacy hashes, types/build, 51 public hashes pass. 61 raw videos and 2 full MP4s decode.
+Five root gates, 49 legacy hashes, types, 974/974 rules and build pass. Cold Chrome contexts: desktop/360/390/430 x3 =12/12; battle readiness 202-259ms after click, no browser/resource errors. 12 raw videos+1 MP4 fully decoded and hashed. Desktop emulation only.
 
 ## Unresolved risk
-P2l fresh HP-death/phone timeout and G4 initial readiness timeout remain open. Natural target builds are not guaranteed each run. Full browser suite not rerun; real phones, performance/endurance, parity/audio/PWA, legacy favicon404 and large chunk remain. Rollback: 05b82ac / dep-daggvhbl550s73bkiq30; auto-deploy Off.
+P2l natural HP-death and G4 public cold readiness timeout remain open; successful local samples do not explain historical failure. Real phones, performance/endurance, full parity/audio/PWA, legacy favicon404 and large chunk remain. Outsourcing/human playtests pending. G4 rollback 05b82ac / dep-daggvhbl550s73bkiq30; auto-deploy Off.
 
 ## Recommended next task
-Scope startup readiness diagnosis with repeated cold-load evidence before more content expansion. Preserve current thresholds, natural acceptance, classic/Schema30, immutable releases and auto-deploy Off. Do not treat G5's passing startup samples as a fix for G4's unexplained timeout.
+R1a: versioned preparation and independent CH001 progress/atomic settlement. Preserve unknown Schema30 fields, reject future-extension writes, isolate old stats/stars, test native IDB abort/retry/conflicts. Keep incomplete chapter gameplay unavailable; then R1b growth/selection.
 
 ## After each task
 Replace only these fields:

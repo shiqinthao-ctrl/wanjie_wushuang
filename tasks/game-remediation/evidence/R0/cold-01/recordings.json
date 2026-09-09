@@ -1,0 +1,200 @@
+{
+  "verifiedAt": "2026-09-09T10:42:06.661Z",
+  "records": [
+    {
+      "file": "390-startup.mp4",
+      "bytes": 191430,
+      "sha256": "dfafb526863ee4f90f571e918baa07bf186b7c3e18a47d27b704e66d151ea3e4",
+      "durationSeconds": 3.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "430-3/page@53a025721478a30634eab387dc42224b.webm",
+      "bytes": 215298,
+      "sha256": "47bccb776f52a0531febb661cc38018be40ee7a070fef79eef264f6419fede0c",
+      "durationSeconds": 3.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 430,
+          "height": 932
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "430-2/page@4f65ff0227fbc326ff5658372681dc21.webm",
+      "bytes": 203520,
+      "sha256": "9c9d40d6b99acd2663a259c2d41a98457b8dbfbc9d1a449cec860aed16c350ed",
+      "durationSeconds": 3.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 430,
+          "height": 932
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "430-1/page@f813e1cc1c651b0296c98ce5c21a453a.webm",
+      "bytes": 216756,
+      "sha256": "18bb145904b9824f57518de52ab69d279e0cc7e23d32319b387b094418841a6f",
+      "durationSeconds": 3.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 430,
+          "height": 932
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "390-3/page@5d4a9db9dba6d6cacf0be314f9a6451e.webm",
+      "bytes": 197992,
+      "sha256": "f6be061f775148cf208fa83d1b4c7f5420594b6634d678d02fddfc4c66b66d14",
+      "durationSeconds": 3.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "390-2/page@85ce9c11d79c05cbf591c24bfc119c59.webm",
+      "bytes": 213222,
+      "sha256": "f8b68969bb48fe41f2511280fff88c840f9d41596cb6685ca97f6d1afe14d6d6",
+      "durationSeconds": 3.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "390-1/page@a99ba20fb0cfd2c86e6075cb2c620f78.webm",
+      "bytes": 216376,
+      "sha256": "fbccd2a2a7a2047442ee95ad6327a201aee406e754f7d9f26befade67b878f09",
+      "durationSeconds": 3.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "360-3/page@cc75333b000c3bdacf099d09ab251301.webm",
+      "bytes": 167320,
+      "sha256": "a1ec94e0271a549727bf866328845f9e11c0e5de4c0ed80771e18fe1cf532a24",
+      "durationSeconds": 3.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 360,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "360-2/page@9b101dfa099ddedce6a21760a85ae8da.webm",
+      "bytes": 192501,
+      "sha256": "7018341eb66fca9b0469cd75364e519653c258ab577ff054d0a93b70bb1a0b46",
+      "durationSeconds": 3.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 360,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "360-1/page@c09a141343b4df349582ed2057772006.webm",
+      "bytes": 174735,
+      "sha256": "c023ddc846e1ca62f2d20c33d6223c7354c38a829dad29344172dea13e8744e6",
+      "durationSeconds": 3.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 360,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "1280-3/page@7adaed12facbeccd2960b8f360422edb.webm",
+      "bytes": 309345,
+      "sha256": "429ffec78a4e2b20257a38176c3c2ef04ab3a11df76c4c091e4a4f4a9e10ec5d",
+      "durationSeconds": 3.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 1280,
+          "height": 720
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "1280-2/page@ffb505d74bfc50958b6b6ad0bd989d7b.webm",
+      "bytes": 307091,
+      "sha256": "1b7f0ebc4134a999a483441a55de3f04e83d69af8ea6b0641b04a2ac864fe4d7",
+      "durationSeconds": 3.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 1280,
+          "height": 720
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "1280-1/page@103d6965c11d7526fdac445ac91ca904.webm",
+      "bytes": 303969,
+      "sha256": "ab20aa77cd7f82d530dd6bcac31b4a48e0c8ff3c81f5ea0587dd70c0a78089ef",
+      "durationSeconds": 3.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 1280,
+          "height": 720
+        }
+      ],
+      "fullDecode": "passed"
+    }
+  ]
+}

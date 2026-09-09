@@ -11,6 +11,7 @@
 | 当前脚本架构 | `reference/ARCHITECTURE.md` |
 | 全局配置/状态与包装链审计 | `GLOBAL_RUNTIME_AUDIT.md` |
 | 后续路线 | `reference/ROADMAP.md` |
+| 精品首章整改 | `../tasks/game-remediation/README.md` |
 | Codex工作习惯 | `reference/CODEX_WORKFLOW.md` |
 | 完整项目对话过程 | `../archive/conversation/PROJECT_CONVERSATION_FULL.md` |
 | 版本历史 | `../archive/conversation/VERSION_CHANGELOG_FULL.md` |
