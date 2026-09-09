@@ -98,6 +98,37 @@ existing Render dashboard. Publishing and exact-commit live verification are
 recorded separately in RENDER-DEPLOYMENT.md after they actually complete.
 No network, certificate, TLS verification or service settings were changed.
 
+Delivery completed on 2026-09-09. Runtime commit:
+`4c371250af4822575c230bf47063e35510b4a168`; Render deployment:
+`dep-dagd7tp42hec73bpec70`. Both immutable tags are pushed, and both GitHub
+prereleases have six assets with matching remote sizes and SHA-256 digests:
+
+- https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p4a-20260909
+- https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p4b-20260909
+
+The first live HTTP check failed during TLS connection setup; a normal retry
+passed every one of the 51 published file hashes, both entry references,
+legacy baseline and repository-only URL exclusions. Render reports cleared
+build cache and live source 4c37125. The original packaged release notes and
+checksums retain their preparation-time state; final evidence is recorded here.
+
+Visible-browser checks of the production package passed local classic entry,
+pause/resume/exit and the legacy start screen. Live 320 x 568 evolution entry
+used the existing Flame Ninja save: natural Lv.2, Tornado selection and active
+Wind/Fire bond, hero skill, pause/resume/exit. Reload retained the starter and
+6,000 gold and returned to the lobby. Session mode reset to classic as before;
+evolution remained selectable. The live legacy Continue action opened its
+existing lobby. No game console warnings/errors were observed. The temporary
+viewport override was reset. No save, game state, RNG or clock was injected.
+One browser locator attempt made no change and was retried with the observed
+accessibility-tree control; it is not one of the automated suite's 45 executions.
+
+Additional delivery records (outside the immutable test ZIP): `delivery.json`,
+`github-p4a.json`, `github-p4b.json`, `render-deploy.txt`, live screenshots and
+`delivery-gates.json`, under `evidence/P4b/`. The short live screenshot and
+comparison were visually inspected. The final documentation-only commit
+records delivery; auto-deploy is off and the runtime tag is not moved.
+
 P2k's three fresh natural HP-death target failures remain open (actual outcome:
 victory). The full gameplay suite was not rerun here. Physical phones,
 landscape HUD usability, performance, 30-minute endurance, other stages/modes,

@@ -185,3 +185,51 @@ showed 75e139b / dep-dag058on74is73bukk40 as the last successful deployment.
 P4a/P4b push, release upload and exact-source clean-cache deployment follow
 local tagged packaging. Their completed outcome will be appended separately.
 No TLS, proxy or service settings have been changed.
+
+## P4b verified delivery - 2026-09-09
+
+P4a and P4b are pushed to `codex/mobile-web-modernization`, with immutable
+annotated tags at `212c4fc2fc899371aff3d98e35d2cba045df6951` and
+`4c371250af4822575c230bf47063e35510b4a168` respectively. Both GitHub
+prereleases are published; each of the six uploaded assets matches its local
+size and SHA-256 digest. Reports: `evidence/P4b/github-p4a.json` and
+`evidence/P4b/github-p4b.json`. The P4a attachment's network-blocked note is
+historical packaging evidence; the GitHub release body records the recovery.
+
+The existing service settings were freshly verified: same branch, Node 24.18.0,
+empty root, recorded build command, publish `dist/render`, auto-deploy Off.
+The selected Off option was inspected and the editor cancelled without changes.
+Manual **Clear build cache & deploy** produced:
+
+- Deployment: `dep-dagd7tp42hec73bpec70`
+- Source: `4c371250af4822575c230bf47063e35510b4a168`
+- Started: 2026-09-09 11:35:19 GMT+8; duration 18.2 seconds
+- Live log: 11:35:37 GMT+8; dashboard `Deploy succeeded`
+- Notice: `Build cache cleared`; dependency audit: zero vulnerabilities
+- Build/typecheck passed; existing Phaser chunk-size warning remains.
+
+The first HTTPS verification failed with transient TLS `ECONNRESET`. A normal
+retry of `node scripts/verify-render-site.mjs https://wjws.onrender.com`
+passed: exact source/version manifest, 51 file hashes/sizes, both entry asset
+references, unchanged legacy baseline and four blocked repository-only URLs.
+No network, TLS or proxy settings were changed. All 52 public package files
+are the 51 runtime files plus `version.json`; no repository material is added.
+
+Natural browser acceptance used the local production package and public site.
+Local classic battle enters, pauses, resumes and exits; legacy start loads.
+Live 320 x 568 evolution battle naturally reaches Lv.2, selects Tornado,
+activates Wind/Fire bond, uses the hero skill, pauses/resumes and returns to
+lobby. Reload retains Flame Ninja and 6,000 gold; session mode resets to
+classic. The legacy Continue button loads the existing lobby. Local/live game
+tabs report no console warnings/errors. Viewport override reset afterward.
+See `evidence/P4b/delivery.json`, live PNGs and `render-deploy.txt`.
+
+This is a browser-emulated presentation acceptance. P2k's three fresh natural
+HP-death failures, physical phones, landscape HUD, performance/endurance,
+remaining gameplay parity and PWA remain open. No full match was recorded in
+this live smoke check; the release contains the 42 original P4b recordings.
+
+Preferred rollback remains `dep-dag058on74is73bukk40` / `75e139b` with its
+allowlisted mobile and legacy package. No rollback was executed. Keep saves,
+both runtime tags and auto-deploy Off. The final documentation-only commit
+records this deployment without changing the running 4c37125 build.

@@ -1,8 +1,7 @@
 # TASK.md - P4b short portrait battle layout
 
-Status: local acceptance complete; remote delivery, 2026-09-09.
-P4a delivery remains pending; GitHub and Render access recovered on a later retry.
-Retain both releases and publish the latest verified P4b preview.
+Status: complete, 2026-09-09. P4a/P4b tags and verified prerelease assets are
+on GitHub. Render P4b is live at 4c37125 / dep-dagd7tp42hec73bpec70.
 
 ## Goal
 Keep the short portrait battle HUD readable, preserve a clear central hero area
@@ -40,5 +39,9 @@ endurance and natural fresh HP-death remain separate follow-ups.
 recordings retained. Natural upgrades and synthetic Boss layout are separate.
 Five ordered root gates, 49/49 legacy hashes and app types/build pass.
 See tasks/mobile-modernization/P4b-EVIDENCE.md and its gates.json for evidence.
-Preserve P4a's 35 recordings and immutable tag 212c4fc. Complete authorized
-remote delivery and record exact source/deployment verification separately.
+P4a's 35 recordings and immutable tag 212c4fc are preserved. P4b's runtime
+tag is fixed at 4c37125; the final documentation commit does not redeploy it.
+Both releases have six SHA-256-verified assets. Live HTTPS verifies all 51
+runtime hashes, both entries and repository-only path exclusions. Short-screen
+natural upgrade/bond/skill/pause/exit and reload checks pass; legacy lobby loads.
+Delivery evidence: evidence/P4b/delivery.json and RENDER-DEPLOYMENT.md.

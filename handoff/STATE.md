@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P4b local short portrait HUD slice accepted: readable top HUD, scrollable map feedback and separated reward/touch controls. Includes P4a's edge-camera fix. GitHub/Render delivery is in progress after external access recovered. Last recorded live 75e139b / dep-dag058on74is73bukk40 awaits new verification.
+P4b short portrait HUD and P4a edge-camera fix delivered. Both tagged GitHub prereleases have six verified assets. Render 4c37125 / dep-dagd7tp42hec73bpec70 is live, with 51 HTTPS file hashes and both entries verified. Auto-deploy stays off; the final evidence commit does not change the deployed runtime.
 
 ## Changed files
-BattleView.vue, battle-compact.css, P4b Playwright config/tests, Render milestone, changelog, TASK/handoff and P4b evidence/packaging documents. Presentation only; no GameCore, balance, save, dependency or legacy-source changes.
+BattleView.vue, battle-compact.css, P4b Playwright config/tests, Render milestone, changelog, TASK/handoff and P4b evidence/packaging documents. Final delivery adds release hash reports, live screenshots and deployment evidence. No GameCore, balance, save, dependency or legacy-source changes.
 
 ## Tests
-P4b: 946 rules, 27 latest related browser cases, 5 ordered root gates, 49/49 hashes and app types/build pass. 45 executions = 35 pass / 10 failed attempts; 42 raw recordings fully decoded. Natural upgrade/touch/resize and synthetic crowded HUD are separate. Full 12.68-second MP4 and comparison visually checked. Logs: evidence/P4b/gates.json.
+946 rules, 27 latest related browser cases, 5 ordered root gates, 49/49 hashes and app types/build pass. 45 executions = 35 pass / 10 failed attempts; 42 raw recordings decoded. Natural and synthetic checks stay separate. Live 320x568: upgrade, bond, skill, pause/resume/exit and reload retain hero/gold; legacy lobby passes, no console errors. See evidence/P4b/delivery.json and delivery-gates.json.
 
 ## Unresolved risk
-Remote synchronization/deployment pending final verification. P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, landscape HUD, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. Compact HUD acceptance is browser emulation only.
+P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, landscape HUD, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. Compact HUD acceptance is browser emulation only. One transient HTTPS TLS failure passed on retry without network/security changes. Rollback target: 75e139b / dep-dag058on74is73bukk40.
 
 ## Recommended next task
-Finish P4a/P4b branch/tag/release sync and clean-cache deploy exact P4b source; verify package hashes/public paths and both entries. Then scope landscape HUD/control overlap from a reproducible baseline as one presentation slice. See P4b-EVIDENCE.md and RENDER-DEPLOYMENT.md; keep fresh HP-death acceptance separate.
+Scope landscape HUD/control overlap from a reproducible baseline as one presentation slice; replace TASK.md before implementation. Preserve immutable P4a/P4b tags and evidence. Keep fresh HP-death acceptance separate; do not alter balance to force that outcome. See P4b-EVIDENCE.md and RENDER-DEPLOYMENT.md.
 
 ## After each task
 Replace only these fields:

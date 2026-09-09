@@ -1,0 +1,91 @@
+{
+  "recordedAt": "2026-09-09T03:42:18.866976+00:00",
+  "evidenceSource": "Observed tool outputs and visible browser actions; not an additional automated gameplay suite",
+  "runtimeCommit": "4c371250af4822575c230bf47063e35510b4a168",
+  "runtimeTag": "mobile-next-p4b-20260909",
+  "serviceId": "srv-d9v8cm1t0dsc73ch79k0",
+  "deploymentId": "dep-dagd7tp42hec73bpec70",
+  "deployStartedAt": "2026-09-09T11:35:19+08:00",
+  "liveLogAt": "2026-09-09T11:35:37+08:00",
+  "durationSeconds": 18.2,
+  "dashboardStatus": "Deploy succeeded",
+  "buildCacheCleared": true,
+  "autoDeploy": "off",
+  "httpVerification": {
+    "command": "node scripts/verify-render-site.mjs https://wjws.onrender.com",
+    "attempts": [
+      {
+        "exitCode": 1,
+        "error": "TypeError: fetch failed; Client network socket disconnected before secure TLS connection was established; ECONNRESET; wjws.onrender.com:443"
+      },
+      {
+        "exitCode": 0,
+        "output": "Render HTTP verification passed: 51 file hashes, both entries, legacy baseline, public allowlist; source 4c371250af4822575c230bf47063e35510b4a168"
+      }
+    ],
+    "runtimeFileCount": 51,
+    "totalPublicFiles": 52,
+    "networkOrSecuritySettingsChanged": false
+  },
+  "browser": {
+    "tool": "Codex browser via CUA",
+    "liveViewport": {
+      "width": 320,
+      "height": 568
+    },
+    "viewportOverrideReset": true,
+    "localPackage": [
+      "Mobile classic entry",
+      "Pause/resume/exit",
+      "Legacy start screen"
+    ],
+    "liveMobile": [
+      "Existing Flame Ninja save retained",
+      "Evolution entry",
+      "Natural Lv.2 upgrade",
+      "Tornado selected",
+      "Wind/Fire bond active",
+      "Hero skill activated",
+      "Pause/resume/exit",
+      "Reload returns to lobby and retains Flame Ninja and 6000 gold"
+    ],
+    "liveLegacy": "Continue button opens existing lobby",
+    "sessionModeAfterReload": "classic; evolution can be selected again",
+    "consoleWarningsOrErrors": [],
+    "gameStateSaveRngOrClockInjection": false,
+    "harnessRetry": "Initial role locator for evolution option had no match; observed AX control used successfully. No app mutation from failed locator.",
+    "completeMatch": false,
+    "physicalPhone": false
+  },
+  "releaseReports": [
+    "github-p4a.json",
+    "github-p4b.json"
+  ],
+  "screenshotsAndDeploymentLog": [
+    {
+      "path": "live-short-battle.png",
+      "bytes": 32935,
+      "sha256": "5ac83f87bef46fbbd0b6e07e68de5459ea5995fc1384ff1cd142d4f1711fa772"
+    },
+    {
+      "path": "live-legacy-lobby.png",
+      "bytes": 71501,
+      "sha256": "7e84e7349ceb3405694af4bb22e0d93adec2ddf843667e2050b7f366f25be4e9"
+    },
+    {
+      "path": "render-deploy.txt",
+      "bytes": 9758,
+      "sha256": "c576ae5def2e6ad2fb656cfe1c383b49d6b1ecd8cd731fdd5a6337b567c8612d"
+    }
+  ],
+  "rollbackDeploymentId": "dep-dag058on74is73bukk40",
+  "rollbackExecuted": false,
+  "openGates": [
+    "P2k three fresh natural HP-death targets (actual victory)",
+    "Physical phones",
+    "Landscape HUD",
+    "Performance and endurance",
+    "Remaining stages/modes and full parity",
+    "Audio and PWA"
+  ]
+}

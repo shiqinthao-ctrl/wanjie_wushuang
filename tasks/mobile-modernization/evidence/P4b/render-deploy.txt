@@ -1,0 +1,242 @@
+- banner:
+  - link "Render":
+    - /url: /
+    - img "Render"
+  - button "M My Workspace":
+    - generic: M
+    - generic "My Workspace"
+  - navigation:
+    - list:
+      - link "WJWS":
+        - /url: /static/srv-d9v8cm1t0dsc73ch79k0
+        - generic: WJWS
+      - button:
+      - text: /
+      - button "dep-dagd7tp42hec73bpec70":
+        - generic: dep-dagd7tp42hec73bpec70
+  - button "Search Ctrl + K":
+    - text: Search
+    - generic: Ctrl
+    - generic: +
+    - generic: K
+    - generic: K
+  - button "New":
+    - generic: New
+  - button "Upgrade":
+    - generic: Upgrade
+  - button "Help":
+    - img "Help"
+  - button "s":
+    - generic: s
+- navigation:
+  - separator
+  - link "Dashboard":
+    - /url: /
+    - generic: Dashboard
+  - generic: WJWS
+  - list:
+    - link "Deploys":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/deploys
+      - generic: Deploys
+    - link "Settings":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/settings
+      - generic: Settings
+  - generic: Monitor
+  - list "Monitor":
+    - link "Events":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/events
+      - generic: Events
+    - link "Metrics":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/metrics
+      - generic: Metrics
+  - generic: Manage
+  - list "Manage":
+    - link "Environment":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/env
+      - generic: Environment
+    - link "Previews":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/previews
+      - generic: Previews
+    - link "Redirects/Rewrites":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/redirects
+      - generic: Redirects/Rewrites
+    - link "Headers":
+      - /url: /static/srv-d9v8cm1t0dsc73ch79k0/headers
+      - generic: Headers
+  - alert:
+    - generic: Introducing Workflows
+    - generic: An orchestration and execution engine for long-running, distributed tasks.
+    - link "Learn more":
+      - /url: https://render.com/workflows
+      - text: Learn more
+    - button "Close notification":
+    - img "workflows-red"
+  - button "Collapse items" [expanded]:
+  - list "Footer navigation":
+    - link "Changelog":
+      - /url: https://render.com/changelog
+      - generic: Changelog
+    - link "Invite a friend":
+      - /url: /invites
+      - generic: Invite a friend
+    - button "Contact support":
+      - generic: Contact support
+  - link "Render Status":
+    - /url: https://status.render.com
+    - generic: Render Status
+- main:
+  - 'heading "fix(mobile): separate battle HUD and controls on short phones" [level=1]'
+  - term: Status
+  - definition: Deploy succeeded|Live
+  - term: Duration
+  - definition:
+    - time: 18.2s
+  - term: Deployed
+  - definition:
+    - paragraph:
+      - generic: Sep 9, 2026
+      - generic: at
+      - generic: 11:35:19 AM
+      - generic: GMT+8
+  - term: Trigger
+  - definition: Manually deployed by you via Dashboard
+  - term: Source
+  - definition:
+    - link "4c37125":
+      - /url: https://github.com/shiqinthao-ctrl/wanjie_wushuang/commit/4c371250af4822575c230bf47063e35510b4a168
+  - heading "Notices" [level=2]
+  - list:
+    - listitem: Build cache cleared
+  - generic: Search
+  - searchbox "Search"
+  - button "Sep 9, 11:34 AM - 11:36 AM GMT+8":
+    - generic: Sep 9, 11:34 AM - 11:36 AM
+    - generic: GMT+8
+  - button "Maximize":
+    - img "Maximize"
+  - button "Options":
+    - img "Options"
+  - button "Return to Bottom":
+  - listbox:
+    - generic: Sep 9
+    - option "11:35:25 AM ==> Using Node.js version 24.18.0 via /opt/render/project/src/.node-version":
+      - time: 11:35:25 AM
+      - generic: ==> Using Node.js version 24.18.0 via /opt/render/project/src/.node-version
+    - 'option "==> Docs on specifying a Node.js version: https://render.com/docs/node-version"':
+      - text: ==>
+      - text: "Docs on specifying a Node.js version:"
+      - link "https://render.com/docs/node-version":
+        - /url: https://render.com/docs/node-version
+    - option "==> Installing Node.js version 24.18.0...":
+      - generic: ==> Installing Node.js version 24.18.0...
+    - option "11:35:26 AM":
+      - time: 11:35:26 AM
+    - option "up to date, audited 1 package in 245ms":
+      - generic: up to date, audited 1 package in 245ms
+    - option:
+    - option "found 0 vulnerabilities":
+      - generic: found 0 vulnerabilities
+    - option:
+    - option "up to date, audited 1 package in 170ms":
+      - generic: up to date, audited 1 package in 170ms
+    - option:
+    - option "found 0 vulnerabilities":
+      - generic: found 0 vulnerabilities
+    - option "==> Running build command 'npm --prefix apps/mobile-next ci --include=dev && npm --prefix apps/mobile-next run build && node scripts/build-render-site.mjs'...":
+      - generic: ==> Running build command 'npm --prefix apps/mobile-next ci --include=dev && npm --prefix apps/mobile-next run build && node scripts/build-render-site.mjs'...
+    - option "11:35:29 AM":
+      - time: 11:35:29 AM
+    - option "added 74 packages, and audited 75 packages in 3s":
+      - generic: added 74 packages, and audited 75 packages in 3s
+    - option:
+    - option "13 packages are looking for funding":
+      - generic: 13 packages are looking for funding
+    - 'option "run `npm fund` for details"':
+      - generic: "run `npm fund` for details"
+    - option:
+    - option "found 0 vulnerabilities":
+      - generic: found 0 vulnerabilities
+    - option:
+    - option "> @wanjie/mobile-next@0.1.0 build":
+      - generic: "> @wanjie/mobile-next@0.1.0 build"
+    - option "> npm run typecheck && vite build":
+      - generic: "> npm run typecheck && vite build"
+    - option:
+    - option:
+    - option "> @wanjie/mobile-next@0.1.0 typecheck":
+      - generic: "> @wanjie/mobile-next@0.1.0 typecheck"
+    - option "> vue-tsc --noEmit":
+      - generic: "> vue-tsc --noEmit"
+    - option:
+    - option "11:35:34 AM vite v8.2.2 building client environment for production...":
+      - time: 11:35:34 AM
+      - generic: vite v8.2.2 building client environment for production...
+    - option "transforming...":
+      - generic: transforming...
+    - option "11:35:35 AM ✓ 72 modules transformed.":
+      - time: 11:35:35 AM
+      - generic: ✓ 72 modules transformed.
+    - option "rendering chunks...":
+      - generic: rendering chunks...
+    - option "computing gzip size...":
+      - generic: computing gzip size...
+    - 'option "dist/index.html 0.57 kB │ gzip: 0.38 kB"':
+      - generic: "dist/index.html 0.57 kB │ gzip: 0.38 kB"
+    - 'option "dist/assets/BattleView-Bl4l9rM5.css 3.32 kB │ gzip: 1.12 kB"':
+      - generic: "dist/assets/BattleView-Bl4l9rM5.css 3.32 kB │ gzip: 1.12 kB"
+    - 'option "dist/assets/index-CYsg_X8v.css 15.78 kB │ gzip: 4.16 kB"':
+      - generic: "dist/assets/index-CYsg_X8v.css 15.78 kB │ gzip: 4.16 kB"
+    - 'option "dist/assets/BattleView-Bc42IBtv.js 49.85 kB │ gzip: 19.57 kB"':
+      - generic: "dist/assets/BattleView-Bc42IBtv.js 49.85 kB │ gzip: 19.57 kB"
+    - 'option "dist/assets/index-BZ8ANNOM.js 115.55 kB │ gzip: 44.21 kB"':
+      - generic: "dist/assets/index-BZ8ANNOM.js 115.55 kB │ gzip: 44.21 kB"
+    - 'option "dist/assets/mountBattle-BbTmE8Sg.js 1,429.70 kB │ gzip: 377.35 kB"':
+      - generic: "dist/assets/mountBattle-BbTmE8Sg.js 1,429.70 kB │ gzip: 377.35 kB"
+    - option:
+    - option "✓ built in 981ms":
+      - generic: ✓ built in 981ms
+    - option "[plugin builtin:vite-reporter]":
+      - generic: "[plugin builtin:vite-reporter]"
+    - option "(!) Some chunks are larger than 500 kB after minification. Consider:":
+      - generic: "(!) Some chunks are larger than 500 kB after minification. Consider:"
+    - option "- Using dynamic import() to code-split the application":
+      - generic: "- Using dynamic import() to code-split the application"
+    - 'option "- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting"':
+      - text: "- Use build.rolldownOptions.output.codeSplitting to improve chunking:"
+      - link "https://rolldown.rs/reference/OutputOptions.codeSplitting":
+        - /url: https://rolldown.rs/reference/OutputOptions.codeSplitting
+    - option "- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.":
+      - generic: "- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit."
+    - 'option "Render package: 51 game files + version.json; source 4c371250af4822575c230bf47063e35510b4a168; dist/render"':
+      - generic: "Render package: 51 game files + version.json; source 4c371250af4822575c230bf47063e35510b4a168; dist/render"
+    - option "==> Using Node.js version 24.18.0 via /opt/render/project/src/.node-version":
+      - generic: ==> Using Node.js version 24.18.0 via /opt/render/project/src/.node-version
+    - 'option "==> Docs on specifying a Node.js version: https://render.com/docs/node-version"':
+      - text: ==>
+      - text: "Docs on specifying a Node.js version:"
+      - link "https://render.com/docs/node-version":
+        - /url: https://render.com/docs/node-version
+    - option "11:35:36 AM ==> Uploading build...":
+      - time: 11:35:36 AM
+      - generic: ==> Uploading build...
+    - option "11:35:37 AM ==> Your site is live 🎉":
+      - time: 11:35:37 AM
+      - generic: ==> Your site is live 🎉
+  - paragraph:
+    - text: Need better ways to work with logs? Try the
+    - link "Render CLI":
+      - /url: https://render.com/docs/cli
+      - text: Render CLI
+    - text: ","
+    - link "Render MCP Server":
+      - /url: https://render.com/docs/mcp-server
+    - text: ", or set up a"
+    - link "log stream integration":
+      - /url: https://render.com/docs/log-streams
+      - text: log stream integration
+- generic: "0 services selected:"
+- button:
+  - generic: Move
+- separator
+- button:
+- iframe [id="intercom-frame"]

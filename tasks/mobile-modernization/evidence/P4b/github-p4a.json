@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-09-09T03:36:13.840201+00:00",
+  "passed": true,
+  "tag": "mobile-next-p4a-20260909",
+  "sourceCommit": "212c4fc2fc899371aff3d98e35d2cba045df6951",
+  "releaseId": 385207771,
+  "draft": false,
+  "prerelease": true,
+  "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p4a-20260909",
+  "assets": [
+    {
+      "name": "wanjie-p4a-test-recordings.zip",
+      "sha256": "59ffe925c8c9f1cb25f981780eccb15f0d8b4a347c0ba41d8a95cd97ab0e6257",
+      "bytes": 91312227,
+      "remoteBytes": 91312227,
+      "remoteDigest": "sha256:59ffe925c8c9f1cb25f981780eccb15f0d8b4a347c0ba41d8a95cd97ab0e6257",
+      "remoteState": "uploaded",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4a-20260909/wanjie-p4a-test-recordings.zip",
+      "passed": true
+    },
+    {
+      "name": "wanjie-p4a-render-package.zip",
+      "sha256": "27554ef3ce7910e6c10bbe29daf84a5ac1c038d25ad08f35cf721f340ac49b5c",
+      "bytes": 685812,
+      "remoteBytes": 685812,
+      "remoteDigest": "sha256:27554ef3ce7910e6c10bbe29daf84a5ac1c038d25ad08f35cf721f340ac49b5c",
+      "remoteState": "uploaded",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4a-20260909/wanjie-p4a-render-package.zip",
+      "passed": true
+    },
+    {
+      "name": "wanjie-p4a-before-after.mp4",
+      "sha256": "f70ebe6cd891f78566a94bc5b86f446dd329f52195eb3f2e436725affa7b16f4",
+      "bytes": 849700,
+      "remoteBytes": 849700,
+      "remoteDigest": "sha256:f70ebe6cd891f78566a94bc5b86f446dd329f52195eb3f2e436725affa7b16f4",
+      "remoteState": "uploaded",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4a-20260909/wanjie-p4a-before-after.mp4",
+      "passed": true
+    },
+    {
+      "name": "comparison.png",
+      "sha256": "9bcbf79eb7f9129151ca86ba2a22723eafda3cd007eb72b21d983a82985bf99c",
+      "bytes": 375129,
+      "remoteBytes": 375129,
+      "remoteDigest": "sha256:9bcbf79eb7f9129151ca86ba2a22723eafda3cd007eb72b21d983a82985bf99c",
+      "remoteState": "uploaded",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4a-20260909/comparison.png",
+      "passed": true
+    },
+    {
+      "name": "RELEASE-NOTES.md",
+      "sha256": "0f4b1e6a2233cba1a5bf3cd0a3dee687faa99dd17b38f09b6794e7c4ad102888",
+      "bytes": 2351,
+      "remoteBytes": 2351,
+      "remoteDigest": "sha256:0f4b1e6a2233cba1a5bf3cd0a3dee687faa99dd17b38f09b6794e7c4ad102888",
+      "remoteState": "uploaded",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4a-20260909/RELEASE-NOTES.md",
+      "passed": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "cdc6b6707910babc2772039df4a8e8299688fc6c21c761a45ff6d61b34ab17ac",
+      "bytes": 456,
+      "remoteBytes": 456,
+      "remoteDigest": "sha256:cdc6b6707910babc2772039df4a8e8299688fc6c21c761a45ff6d61b34ab17ac",
+      "remoteState": "uploaded",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4a-20260909/SHA256SUMS.txt",
+      "passed": true
+    }
+  ]
+}
