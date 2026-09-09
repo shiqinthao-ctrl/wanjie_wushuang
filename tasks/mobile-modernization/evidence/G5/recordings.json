@@ -1,0 +1,423 @@
+{
+  "recordings": [
+    {
+      "path": "natural-01/test-results/frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-desktop/video.webm",
+      "bytes": 38318026,
+      "sha256": "40f49598f89a272d6717fa6907c9e62e0c7721d7ea6ca4674a6ce06570b8294e",
+      "duration": 314.84,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-01/test-results/frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-narrow/video.webm",
+      "bytes": 6735274,
+      "sha256": "c06a430eee226365afe5ded94dffad4c99c4329cf096ecd48f1a8ae166c4d7f6",
+      "duration": 59.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-01/test-results/frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-phone/video.webm",
+      "bytes": 38764374,
+      "sha256": "1e283498f966d2387a26b2c49b8c75c2aaa21470ab96a7a0d76f91d956c2e412",
+      "duration": 319.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-desktop/video.webm",
+      "bytes": 193906,
+      "sha256": "c282e6727d72913eb02c1ac872e17104c10bbc7b91d09e2b0677ba2dfa170e9c",
+      "duration": 2.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-narrow/video.webm",
+      "bytes": 210120,
+      "sha256": "ecbc60986f0a34711827109f668fa1f83f97290af82b7ae28e97ae687e618555",
+      "duration": 2.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-phone/video.webm",
+      "bytes": 258218,
+      "sha256": "76b599b06840a12479bc5a552fd029b775ca9233c88453e348b46fbd04fb227e",
+      "duration": 3.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/evolution.native-synthetic-1c8ae-ions-never-overwrite-a-slot-desktop/video.webm",
+      "bytes": 76853,
+      "sha256": "b1379d0a8fceae780a15cb6dfe681b2f7f4e89f9e59db308e571c8cbd05b3fd7",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/evolution.native-synthetic-1c8ae-ions-never-overwrite-a-slot-narrow/video.webm",
+      "bytes": 58409,
+      "sha256": "0f0e1262dd997242d09beb6bb93f2702e4364a4352dad1caa9d3cc8187278638",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/evolution.native-synthetic-1c8ae-ions-never-overwrite-a-slot-phone/video.webm",
+      "bytes": 79616,
+      "sha256": "c17c68f5804b1544950a0bc37be7005700497fd50ebd75339d3a275f9fea3236",
+      "duration": 1.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/evolution.native-synthetic-9aabd-s-once-and-fresh-run-resets-desktop/video.webm",
+      "bytes": 86043,
+      "sha256": "829f0ff88b25cbd41548f1611ce8876a81b0d6f925841f922fcbbfce47ea52fb",
+      "duration": 1.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/evolution.native-synthetic-9aabd-s-once-and-fresh-run-resets-narrow/video.webm",
+      "bytes": 52595,
+      "sha256": "0e1246443da86ca7a6fb35b60b0cac83c08c83cf878d6404de3899ca23542ed4",
+      "duration": 1.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/evolution.native-synthetic-9aabd-s-once-and-fresh-run-resets-phone/video.webm",
+      "bytes": 82577,
+      "sha256": "b417229671162ce3e6928499eb6e8fbb13759178d16043f2a87eb2ee0bdfbb21",
+      "duration": 1.84,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-desktop/video.webm",
+      "bytes": 907700,
+      "sha256": "2e4220a110f01c46cd00a0f85a09d95fc1493ed3f5c7b49f90cf0e406c628544",
+      "duration": 16.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-narrow/video.webm",
+      "bytes": 968080,
+      "sha256": "92d6c728da8fb7ca86a7b60765ff873c4b6c1f3a56ed46f2af4049968dfef0bb",
+      "duration": 16.2,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-phone/video.webm",
+      "bytes": 1115124,
+      "sha256": "d906a2850742b6aee08ef1a81db084889586610fdef677b3a3b9c550edfcc64f",
+      "duration": 17.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-desktop/video.webm",
+      "bytes": 66383,
+      "sha256": "bf7b98b625b24c4bf10ccd83786d2b313f5679877abdb8ab673af149d5d27b4a",
+      "duration": 1.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-narrow/video.webm",
+      "bytes": 60458,
+      "sha256": "cb0141b547698d0b6c54ca7d927d1eee91ebcd1ce52e206332775b50cf800999",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-phone/video.webm",
+      "bytes": 99562,
+      "sha256": "9e3e68332dbba17db1343fc6ef30115635fa675e839e265706de0a11c119c96c",
+      "duration": 2.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-27d61-uest-rolls-back-and-retries-desktop/video.webm",
+      "bytes": 61656,
+      "sha256": "657761224787d58dc9b258fc7c6c7fd592bac78177f6a286f0c1ae3a005e75d7",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-27d61-uest-rolls-back-and-retries-narrow/video.webm",
+      "bytes": 63980,
+      "sha256": "f921d59dc3ed17979ad62073265521a1ad12664a1d3869281f5de711ddcdcab4",
+      "duration": 1.2,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-27d61-uest-rolls-back-and-retries-phone/video.webm",
+      "bytes": 84728,
+      "sha256": "ca3f430a4942a8f9ef7214531e87d6897c510c9d586ff7351a0376c816208e9a",
+      "duration": 1.84,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-477c2-ds-share-one-revision-owner-desktop/video.webm",
+      "bytes": 58713,
+      "sha256": "2d1349e38a5f47a5b662a3f3b0808255e36414728e501465d9981daeec5f69dc",
+      "duration": 1.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-477c2-ds-share-one-revision-owner-narrow/video.webm",
+      "bytes": 57307,
+      "sha256": "3dbb4e96203b6f0c4903b4ef0f321791130adebc7c6573640fa3cb249c1c7ce5",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-477c2-ds-share-one-revision-owner-phone/video.webm",
+      "bytes": 91827,
+      "sha256": "09d682630817564ad776f7e247174b8713f3b308238d4f683428df8233ce823c",
+      "duration": 1.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-75703-eipt-rolls-back-and-retries-desktop/video.webm",
+      "bytes": 76682,
+      "sha256": "4b099a02a6c2a1727a6e79ae0211b8c4f353d7ec01f3c51bf431164c93c7ae29",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-75703-eipt-rolls-back-and-retries-narrow/video.webm",
+      "bytes": 58780,
+      "sha256": "eb521f0d2bc8f5a80bfab7da2da8baadd71d3327c35bfd7fe93422c79b0d84d7",
+      "duration": 1.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-75703-eipt-rolls-back-and-retries-phone/video.webm",
+      "bytes": 81323,
+      "sha256": "de487408a3745be3b59a284c0d50c082e01feda6a6c07c4d3258ce875be6e11b",
+      "duration": 1.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-952e4-not-activate-the-new-result-desktop/video.webm",
+      "bytes": 107221,
+      "sha256": "5516f408b7d73e8425ba8e4c1ae0869dc7d340807536fa032faf094f3331abb8",
+      "duration": 1.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-952e4-not-activate-the-new-result-narrow/video.webm",
+      "bytes": 103520,
+      "sha256": "e65787c4cdd6262fdaea4f2cb433d5ed8360062c023ba577bf9f3e184981e968",
+      "duration": 1.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-952e4-not-activate-the-new-result-phone/video.webm",
+      "bytes": 117914,
+      "sha256": "2df1103174dfbea8e3acf14605c8f3abcfc59064f849d0fbd899fc6e45fd2279",
+      "duration": 1.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-b8bb2--overwriting-a-later-writer-desktop/video.webm",
+      "bytes": 77744,
+      "sha256": "6113228710fbd328dc881dfa051fce1724a391d3f933bad308b92b8597e21ae6",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-b8bb2--overwriting-a-later-writer-narrow/video.webm",
+      "bytes": 58515,
+      "sha256": "1fd36c776f51ba7d47f0f2416fc96c5509b73541dd97d55824edbacf1cd7c902",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-b8bb2--overwriting-a-later-writer-phone/video.webm",
+      "bytes": 91537,
+      "sha256": "02114db390a3a6791fc0e71b8deb66bfff4d5a8717878928f9e8605e2f52b701",
+      "duration": 1.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-c1bf1-ps-abort-before-persistence-desktop/video.webm",
+      "bytes": 77493,
+      "sha256": "393446424610214e927ee8ebc0fec88ff2c153a5dba4591efde0b4b40bdab0c4",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-c1bf1-ps-abort-before-persistence-narrow/video.webm",
+      "bytes": 66822,
+      "sha256": "24aead80b0d64a677964720d4f91a6818c69110223637a3196b17ac465518986",
+      "duration": 1.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-c1bf1-ps-abort-before-persistence-phone/video.webm",
+      "bytes": 82605,
+      "sha256": "358964f19591f4c6f44595f234ea354e8cbf87ca44121680502cdd4bc0d9f2d0",
+      "duration": 1.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-c5ca5--and-concurrent-connections-desktop/video.webm",
+      "bytes": 73571,
+      "sha256": "79b3d347068762a95ffdae6b4ba28b1d2d37df619ce72d0a33f505bc5aec5af8",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-c5ca5--and-concurrent-connections-narrow/video.webm",
+      "bytes": 61296,
+      "sha256": "9cf2dd626dfe4a5b878a10a81fd23a625d91b3510970de8d481cbd5ac75c0b0c",
+      "duration": 1.2,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-c5ca5--and-concurrent-connections-phone/video.webm",
+      "bytes": 81323,
+      "sha256": "ffac2464800e195b7605a6152889992f7eb43fe61385cac43c318f550b801d91",
+      "duration": 1.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-e1252-run-retry-and-saved-rewards-desktop/video.webm",
+      "bytes": 91368,
+      "sha256": "8a88d1767037f5268c1d292cffab5b06a09f025b39cd32c3b480f9e28b3dc16e",
+      "duration": 1.72,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-e1252-run-retry-and-saved-rewards-narrow/video.webm",
+      "bytes": 91869,
+      "sha256": "5aadf9697e5568ef83c20c3ed55b1ce455e24276e200d4fa2970b6403547ab52",
+      "duration": 1.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-e1252-run-retry-and-saved-rewards-phone/video.webm",
+      "bytes": 123839,
+      "sha256": "46782c790e25afe4b2816a346b85c5cebd0f04f8248d9c043a6a54e1d86fc84a",
+      "duration": 1.72,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-ed893--without-rewards-or-receipt-desktop/video.webm",
+      "bytes": 77176,
+      "sha256": "2e35a04b91b2a3391f25fb2567d245afcccd335b34396345fc2af500eba4f991",
+      "duration": 1.28,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-ed893--without-rewards-or-receipt-narrow/video.webm",
+      "bytes": 65752,
+      "sha256": "31edda4bff59d36404009c84b0b2002df15479266f617ad7948a9bfc47aadd78",
+      "duration": 1.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/settlement.native-syntheti-ed893--without-rewards-or-receipt-phone/video.webm",
+      "bytes": 80093,
+      "sha256": "ff94902c9f75abf222e1ff3fe51f64cc114d7f98e6fd6da9cf6bb258ca282e91",
+      "duration": 1.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-desktop/video-1.webm",
+      "bytes": 67614,
+      "sha256": "31802a0c4becb2016d18963c52b94c9b100222ebb3a107a5a7ebf5c107dbff58",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-desktop/video.webm",
+      "bytes": 89442,
+      "sha256": "6ee4b7d1e90a9d26ad69a6bcf7c035f977305cb19be99dc5a773f64c94a1cf82",
+      "duration": 1.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-narrow/video-1.webm",
+      "bytes": 56465,
+      "sha256": "d49a86fe1d034f68bcbb7b87c53e3fa0f1a04dbf3d0d96ff60ffd85d61dbc547",
+      "duration": 1.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-narrow/video.webm",
+      "bytes": 62778,
+      "sha256": "20d87e01d4ba9c9e0e080c65455c48cf974c1a2e93565c4d5e3151230e1b2f2d",
+      "duration": 1.28,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-phone/video-1.webm",
+      "bytes": 62066,
+      "sha256": "d30aee06c8ab4f289725a148e0386fc9facfdc2c4d133342e3046b92f7d5f531",
+      "duration": 1.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-phone/video.webm",
+      "bytes": 101808,
+      "sha256": "839c437b2a4442278fcd102bb95ca786f849964e820ecba606129773a80dd18f",
+      "duration": 1.96,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-5157e-ackup-and-independent-slots-desktop/video.webm",
+      "bytes": 76250,
+      "sha256": "d7acdb37c762ecda6376e81e4e024a8ac0a4b263ff5ae3a3d1753463f5439a5a",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-5157e-ackup-and-independent-slots-narrow/video.webm",
+      "bytes": 58875,
+      "sha256": "04b349d6091bf5da3bfad84f169cffb66119b2bd5f6b3ffed680e1c6415ba22a",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-5157e-ackup-and-independent-slots-phone/video.webm",
+      "bytes": 71645,
+      "sha256": "fd3d8ca131fdc86c5f4f072e73625a46f1fd374392a504f71d7defb406c2ec9d",
+      "duration": 1.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-c87ae-nt-connections-and-rollback-desktop/video.webm",
+      "bytes": 77091,
+      "sha256": "936a393f66a900675033450afd4b69e5d0e60739e24afe8f1d25bbeff67d463d",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-c87ae-nt-connections-and-rollback-narrow/video.webm",
+      "bytes": 53155,
+      "sha256": "9399a152d22c2ab7b1cae9c864a45c24577442401b5619d45e6b4598a5893e7e",
+      "duration": 1.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/storage.native-synthetic-n-c87ae-nt-connections-and-rollback-phone/video.webm",
+      "bytes": 83380,
+      "sha256": "772e16beeb3b586ab95a67913ea30efc0a6aa816f57f8566d441ba5d5b43dee1",
+      "duration": 1.4,
+      "fullDecodePassed": true
+    }
+  ],
+  "demos": [
+    {
+      "source": "natural-01/test-results/frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-desktop/video.webm",
+      "file": "wanjie-g5-desktop-full.mp4",
+      "uneditedFullRecording": true,
+      "bytes": 59030207,
+      "sha256": "54ae32e520fd20bbba9e5e4b9710d71aa9a6725397f3e3e5fb28648495b3ba57",
+      "duration": 314.84,
+      "fullDecodePassed": true
+    },
+    {
+      "source": "natural-01/test-results/frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-phone/video.webm",
+      "file": "wanjie-g5-phone-full.mp4",
+      "uneditedFullRecording": true,
+      "bytes": 46074921,
+      "sha256": "8da01ff4cde4d12f1df5d992ad4295746903900f894679a61e08b4865b009ecc",
+      "duration": 319.0,
+      "fullDecodePassed": true
+    }
+  ]
+}

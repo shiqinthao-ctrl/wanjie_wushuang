@@ -24,6 +24,8 @@ const descriptions: Record<string, string[]> = forms.descriptions;
 const elementPassives: Partial<Record<Element, string>> = forms.elementPassives;
 
 export function sourceElement(source: string): Element {
+  if (source.startsWith('G5_FROST')) return 'frost';
+  if (source.startsWith('G5_FIRE')) return 'fire';
   if (source.startsWith('G4_WIND')) return 'wind';
   if (source === 'G4_SHADOW_BOND') return 'shadow';
   if (source.startsWith('G2_FROST')) return 'frost';
@@ -50,7 +52,7 @@ export function passiveLevel(context: CombatContext, state: Pick<CombatState, 'p
 export function skillModifier(context: CombatContext, state: CombatState, id: string) {
   const level = state.skills[id === 'G4_SHADOW_BOND' ? 'A026' : id] || 1, p = (key: string) => passiveLevel(context, state, key);
   // Skill modifiers use the skill-form element, which differs from damage source fallback.
-  const element = (id.startsWith('G4_') ? sourceElement(id) : descriptions[id]?.[0] || 'physical') as Element;
+  const element = (id.startsWith('G4_') || id.startsWith('G5_') ? sourceElement(id) : descriptions[id]?.[0] || 'physical') as Element;
   let dmg = 1 + (level - 1) * .20, range = 1, duration = 1, cd = 1, count = 1;
   if (p('P019')) dmg *= 1 + p('P019') * .08;
   if (p('P016')) range *= 1 + p('P016') * .07;

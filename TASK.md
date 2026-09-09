@@ -1,60 +1,55 @@
-# TASK.md - G4 wind-shadow evolution
+# TASK.md - G5 frost-flame evolution
 
-Status: completed, 2026-09-09; GitHub prerelease published and Render verified.
-Runtime: 05b82ac / mobile-next-g4-20260909. Live deploy: dep-daggvhbl550s73bkiq30.
-Baseline bc0c9d2; rollback P4c 649b0b5. Evidence: G4-EVIDENCE.md.
+Status: local acceptance passed; delivery in progress, 2026-09-09.
+Baseline 6aec45b; prior runtime G4 05b82ac.
+Deliver one H001 form, one A011 branch and one matching bond in opt-in
+Evolution Journey. Evidence: tasks/mobile-modernization/G5-EVIDENCE.md.
 
-Deliver one new H012 form, one tornado branch and one wind-shadow bond in
-opt-in Evolution Journey. Retain the nine existing forms and ten routes.
-
-## Goal
-H012 windwarden (岚影剑尊), Lv.3: three shadow blades, 65% attack each,
-one pierce; awakening raises pierce to three. Skill plants a fixed wind vortex
-toward the nearest enemy/Boss within 180 units (forward if empty): radius120,
-35% attack per pulse, life4s; awakening radius160/life6s. Keep gear-adjusted
-6s cooldown. Ultimate costs100, plants radius200/65% attack/life6s wind vortex
-and retains H012's 4/5 shadow companions. Paid A026 signature guidance to Lv.3;
-existing Lv.8 + active Lv.3 awakening gate. Identity never grants a bond.
-
-A026 Lv.3 ambush (伏阵风暴): third exclusive branch alongside roaming/orbit.
-Fixed nearest-target placement within220 units; radius110 (145 evolved), 80%
-ordinary pulse damage, same range/duration modifiers. Clamp world placement;
-no following, movement or Boss displacement. Explain both forgone branches.
-
-galephantom (风影合袭): owned positive-level A026 + A015 or S001. Each live
-vortex pulse emits one shadow blade toward nearest enemy/Boss within300 units
-of its center; speed420, one pierce, base damage75% vortex pulse. Scale using
-A026 level and shadow passives/bonuses. No target/expired vortex means no shot.
-Reuse pulse clock and existing budgets. No second loop or per-frame Vue state.
+## Exact rules
+- H001 frostflame (霜焰剑皇), Lv.3: basic frost pulse radius125, 55% attack,
+  chill1.2s, then one forward fire blade, 80% attack, pierce1. Awakening
+  raises frost radius to155 and fire pierce to3. Skill: frost radius180,
+  60% attack, chill2s, then fixed fire field radius130, 30% attack/pulse,
+  life3s; awakened frost radius220 and field radius180/life5s. Retain
+  gear-adjusted6s cooldown. Ultimate costs100: frost radius260, 200% attack,
+  chill3s, then fire burst radius260, 400% attack. Distinct elemental sources.
+  Paid G2_FROST signature guidance toLv.3; existing Lv.8 + activeLv.3 gate.
+- A011 Lv.3 ringfire (八方焰轮): third exclusive route alongside volley/nova.
+  Eight evenly spaced radial fireballs, speed300, 45% ordinary fireball
+  damage each, radius9, explosion28 times range, existing split passive.
+  First ray uses existing heroAim. Same cooldown/level/evolution modifiers.
+  Describe both forgone choices. No new projectile type or resource.
+- thermalshock (霜火淬炼): positive-level G2_FROST + any fire-tag active skill.
+  Fire damage to living, currently chilled normal/elite enemies is multiplied
+  by1.30 before existing damage resolution. No consumption/extension of chill,
+  no proc recursion, no bonus at expiry, no Boss bonus or displacement. Applies
+  to all fire sources while this bond is owned, including hero/fire fields.
+  Form identity alone never grants a bond. Classic mode remains unchanged.
 
 ## Scope and invariants
-- Runtime, UI advice, tests and delivery for this one build only. No classic
-  balance, legacy entry or save migration changes. Ten forms/11 routes/7 bonds.
-- No new dependencies, public debug UI, save edits, clock acceleration,
-  forced RNG, balance changes or injected battle state in natural acceptance.
-- Preserve the fresh fixture hash and P2k's requested HP-death assertions.
-  Label simulations/imported preparations separately; preserve all attempts.
-- Carry P2l fresh HP-death and phone timeout targets forward without weakening
-  assertions or changing balance to force those outcomes.
-- Preserve legacy order, Schema30, zero-star fresh/defeat chapters, non-story
-  isolation, once-only settlement, Boss Loot priority and V3.0 safety fixes.
-- Continue authorized GitHub release delivery. Update the existing Render
-  service for this verified runtime change. Keep main, old tags and auto-deploy
-  Off unchanged. Rollback deployment: dep-dagdr1142hec73brst60.
+- 3 fixed starters,11 forms,12 routes,8 bonds. Runtime, advice, presentation,
+  focused rules/browser tests, recordings, versioned delivery for this build.
+- No new dependencies, schema/save/legacy/classic balance changes, public debug
+  UI, forced RNG, save/core injection or time acceleration in natural tests.
+- Preserve legacy order, Schema30, fresh/defeat zero stars, non-story isolation,
+  once-only settlement, Boss Loot precedence, V3.0 fixes and fresh fixture hash.
+- Carry P2l HP-death/phone-timeout targets and G4 startup timeout forward;
+  do not weaken assertions or change balance to force acceptance.
+- Continue authorized GitHub prerelease and existing Render delivery. Keep main,
+  prior tags/assets and Auto-Deploy Off. Rollback G4:05b82ac /
+  dep-daggvhbl550s73bkiq30. Do not deploy final evidence-only follow-up.
 
 ## Acceptance and delivery
-1. Fail then pass tests: gates, paid signature, route exclusivity, placement,
-   awakening, pulse cadence/targets, elements, expiry/caps/destroy, Boss
-   immunity, classic isolation and UI alternatives/bond advice.
-2. Desktop/phone natural full form/route/bond/awakening/victory/reload/retry;
-   narrow-screen choices, guide and touch. No injected state, time or RNG.
-3. Run related native regressions, then check, smoke, audit, context and
-   archive:verify in order; verify legacy hashes, app types, rules and build.
-4. Decode recordings and provide a full normal-speed test video plus evidence
-   distinguishing passed behavior, failed target and unverified acceptance.
-5. Review changes, update the five handoff sections and changelog, commit/tag,
-   push and publish a GitHub prerelease with verified assets. Deploy existing
-   Render service; verify live source commit, asset hashes and both entries.
+1. Red/green focused tests: paid/gated form, awakening, elemental separation,
+   radial route/exclusivity, live chill/expiry/Boss/classic isolation, limits,
+   destruction, UI alternatives and bond advice.
+2. Desktop/phone natural form/route/bond/awakening/victory/retry/reload;
+   narrow choices, guide, touch and exit/reentry. Preserve every attempt.
+3. Relevant browser regressions; check, smoke, audit, context, archive:verify
+   in order; legacy hashes, app types, full rules and production build.
+4. Review; decode raw recordings and provide full original-speed MP4s.
+   Update only five rotating handoff sections, changelog and evidence.
+5. Commit/tag/push, publish verified GitHub assets; deploy existing Render
+   service and verify source, hashes, both public entries and natural flow.
 
-Physical devices, performance/endurance, full gameplay parity and PWA remain
-separate work. Preserve every attempt and recording, including failures.
+Physical phones, performance/endurance, full parity/audio and PWA remain open.

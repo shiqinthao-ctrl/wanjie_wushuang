@@ -2,7 +2,7 @@ import type { CombatSimulation, Action } from './CombatSimulation';
 import type { RunEvolution } from './RunEvolution';
 import type { Enemy, Point } from './spawnRules';
 import { cap, clampPoint } from './spawnRules';
-import { passiveLevel, skillModifier } from './combatMath';
+import { passiveLevel, skillModifier, sourceElement } from './combatMath';
 
 interface Summon extends Point { id: string; life: number; tick: number; angle: number; guard: boolean; dmg: number; color: string }
 const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -20,6 +20,10 @@ export class EvolutionCombat {
     const s = this.sim, p = s.player, v = this.view, id = `${v.heroId}_BASIC`;
     if (!s.boss && !s.nearest()) return;
     switch (v.formId) {
+      case 'frostflame':
+        this.frost('G5_FROST_BASIC', p, v.rank === 2 ? 155 : 125, p.atk * .55, 1.2);
+        s.projectile('G5_FIRE_BASIC', p, s.heroAim(), 440, p.atk * .8, 7, { pierce: v.rank === 2 ? 3 : 1, color: '#ffae78' });
+        break;
       case 'windwarden': this.fan('H012_BASIC', 3, p.atk * .65, v.rank === 2 ? 3 : 1); break;
       case 'frostlord': this.frost('G2_FROST_BASIC', p, v.rank === 2 ? 145 : 120, p.atk, 1.2); break;
       case 'thunderlord': this.lightning('G2_LIGHTNING_BASIC', v.rank === 2 ? 3 : 2, p.atk * .8, 1); break;
@@ -50,7 +54,10 @@ export class EvolutionCombat {
     if (action === 'skill') {
       if (p.skillCd > 0) return false;
       p.skillCd = 6 * Math.max(.55, 1 - (s.context.gear.cdr || 0));
-      if (v.formId === 'windwarden') this.fixedVortex('G4_WIND_E', v.rank === 2 ? 160 : 120, p.atk * .35, v.rank === 2 ? 6 : 4, 180);
+      if (v.formId === 'frostflame') {
+        this.frost('G5_FROST_E', p, v.rank === 2 ? 220 : 180, p.atk * .6, 2);
+        s.field('G5_FIRE_E', p, v.rank === 2 ? 180 : 130, p.atk * .3, v.rank === 2 ? 5 : 3);
+      } else if (v.formId === 'windwarden') this.fixedVortex('G4_WIND_E', v.rank === 2 ? 160 : 120, p.atk * .35, v.rank === 2 ? 6 : 4, 180);
       else if (v.formId === 'frostlord') this.frostField('G2_FROST_E', v.rank === 2 ? 200 : 160, p.atk * .28, v.rank === 2 ? 5 : 3, true);
       else if (v.formId === 'thunderlord') this.lightning('G2_LIGHTNING_E', v.rank === 2 ? 7 : 5, p.atk * 1.7, 1);
       else if (v.formId === 'beastlord') this.summon('H012_CLONE', v.rank === 2 ? 4 : 3, v.rank === 2 ? 8 : 6, true, p.atk * .8);
@@ -68,7 +75,10 @@ export class EvolutionCombat {
       if (p.ult < 100) return false;
       p.ult = 0;
       if (v.heroId === 'H012' || v.formId === 'legion') this.summon(`${v.heroId}_R_CLONE`, v.formId === 'beastlord' ? 6 : v.rank === 2 ? 5 : 4, 7, false, p.atk);
-      if (v.formId === 'windwarden') this.fixedVortex('G4_WIND_R', 200, p.atk * .65, 6, 180);
+      if (v.formId === 'frostflame') {
+        this.frost('G5_FROST_R', p, 260, p.atk * 2, 3);
+        s.explosion('G5_FIRE_R', p, 260, p.atk * 4);
+      } else if (v.formId === 'windwarden') this.fixedVortex('G4_WIND_R', 200, p.atk * .65, 6, 180);
       else if (v.formId === 'frostlord') this.frost('G2_FROST_R', p, 300, p.atk * 6, 3);
       else if (v.formId === 'thunderlord') this.lightningArea('G2_LIGHTNING_R', p, 330, p.atk * 6);
       else if (v.formId === 'beastlord') s.ring(p, 180, 'H012_R_CLONE');
@@ -82,6 +92,10 @@ export class EvolutionCombat {
     const s = this.sim;
     if (this.journey.bond('shadowfire', s.state().skills)) s.field('H010_BOND', origin, 85, s.player.atk * .35, 3);
     if (this.view.formId === 'reaper' && this.view.rank === 2) this.fan('H012_DODGE', 3, s.player.atk, 2);
+  }
+  incomingEnemyDamage(enemy: Enemy, damage: number, source: string): number {
+    return enemy.hp > 0 && (enemy.chilledUntil || 0) > this.sim.time && sourceElement(source) === 'fire'
+      && this.journey.bond('thermalshock', this.sim.state().skills) ? damage * 1.3 : damage;
   }
   private vortex(id: string, r: number, dmg: number, life: number, orbit: boolean, position?: Point) {
     const s = this.sim, angle = s.heroAim();
@@ -153,6 +167,9 @@ export class EvolutionCombat {
     if (id === 'G2_FROST') {
       if (route === 'glacier') this.frostField(id, 155 * m.range, p.atk * .18, 3 * m.duration, false);
       else this.frost(id, p, (route === 'shatter' ? 200 : 135) * m.range, p.atk * (route === 'shatter' ? 1.7 : .9), (route === 'shatter' ? 2 : 1.5) * m.duration);
+    } else if (id === 'A011' && route === 'ringfire') {
+      const angle = s.heroAim();
+      for (let i = 0; i < 8; i++) s.projectile(id, p, angle + i * Math.PI / 4, 300, p.atk * .95 * .45, 9, { explode: 28 * m.range, split: passiveLevel(s.context, s.state(), 'P024') ? 1 : 0 });
     } else if (id === 'A011' && route) {
       const count = route === 'volley' ? 3 : 1;
       for (let i = 0; i < count; i++) s.projectile(id, p, s.heroAim() + (i - (count - 1) / 2) * .23, route === 'volley' ? 390 : 260, p.atk * .95 * (route === 'volley' ? .65 : 1.45), 9, { explode: (route === 'volley' ? 58 : 110) * m.range, split: passiveLevel(s.context, s.state(), 'P024') ? 1 : 0 });

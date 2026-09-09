@@ -17,7 +17,7 @@ function setup(hero = 'H001', skills: Record<string, number> = {}) {
 describe('G2 elemental evolution', () => {
   it.each([['H001', 'frostlord', 'G2_FROST'], ['H010', 'thunderlord', 'A013'], ['H012', 'beastlord', 'S001']])('offers a paid signature growth path for %s', (hero, form, signature) => {
     const { journey, progression } = setup(hero, { A011: 1 });
-    expect(journey.special(3, {})).toHaveLength(hero === 'H012' ? 4 : 3);
+    expect(journey.special(3, {})).toHaveLength(hero === 'H010' ? 3 : 4);
     expect(journey.pick(3, {}, 'hero', form)).toBe(true);
     expect(progression.snapshot().skills[signature]).toBeUndefined();
     progression.gain(26); progression.checkLevel();

@@ -94,6 +94,10 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         if (evolution.formId === 'thunderlord') graphics.lineStyle(4, color, .9).lineBetween(x + 8, y - 75, x - 8, y - 47).lineBetween(x - 8, y - 47, x + 12, y - 47).lineBetween(x + 12, y - 47, x - 7, y - 24);
         if (evolution.formId === 'beastlord') for (const sign of [-1, 1]) graphics.fillStyle(color, .7).fillTriangle(x + sign * 14, y - 35, x + sign * 36, y - 64, x + sign * 29, y - 19);
         if (evolution.formId === 'windwarden') for (const offset of [-22, 0, 22]) graphics.lineStyle(3, color, .85).lineBetween(x + offset - 8, y - 30, x + offset + 8, y - 65);
+        if (evolution.formId === 'frostflame') {
+          graphics.lineStyle(4, 0xa8e7ee, .9).lineBetween(x - 28, y - 18, x + 20, y - 64);
+          graphics.lineStyle(4, 0xffae78, .9).lineBetween(x + 28, y - 18, x - 20, y - 64);
+        }
       }
       for (const field of fields) {
         const color = Number.parseInt(field.color.slice(1), 16);

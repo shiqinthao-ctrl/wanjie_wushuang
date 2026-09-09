@@ -26,7 +26,7 @@ export class CombatEffects {
         }
         continue;
       }
-      const frost = event.source.startsWith('G2_FROST');
+      const frost = event.source.startsWith('G2_FROST') || event.source.startsWith('G5_FROST');
       const thunder = event.source === 'A013' || event.source.startsWith('G2_LIGHTNING');
       const summon = event.source === 'S001';
       const wind = event.source.startsWith('G4_WIND') || event.source === 'A026';

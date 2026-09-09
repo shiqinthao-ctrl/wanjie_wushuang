@@ -46,7 +46,7 @@ describe('run evolution contract', () => {
     }
     expect(p.snapshot()).toMatchObject({ level: 3, xp: 0 });
     const form = p.snapshot().choice!;
-    expect(form.options.map(o => o.id)).toEqual(['dragon', 'bulwark', 'frostlord']);
+    expect(form.options.map(o => o.id)).toEqual(['dragon', 'bulwark', 'frostlord', 'frostflame']);
     p.pick(form.token, 'hero', 'dragon');
     expect(journey.snapshot({}).formId).toBe('dragon');
     expect(p.snapshot().level).toBe(3);

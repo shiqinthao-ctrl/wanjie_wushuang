@@ -7,6 +7,7 @@ import type { LevelOption, SkillLevels } from '../core/progression';
 const routeStyles: Record<RouteId, { style: string; tradeoff: string }> = {
   volley: { style: '扇射清场 · 拉开距离覆盖前方', tradeoff: '单发伤害降低，需要多发命中发挥优势。' },
   nova: { style: '爆炸破群 · 将敌人引到一起', tradeoff: '弹速较慢，远处快速移动的敌人更难命中。' },
+  ringfire: { style: '八方清场 · 配合寒霜控制周围敌人', tradeoff: '单发伤害和爆炸范围降低，目标集中在一侧时会浪费其他方向的火球。' },
   roaming: { style: '前方牵引 · 跟着风暴推进', tradeoff: '风暴离开身边，仍需处理近身威胁。' },
   orbit: { style: '环身防线 · 绕行近处敌群', tradeoff: '围绕自身运转，难以覆盖远处敌群。' },
   ambush: { style: '前置伏阵 · 绕着风阵牵引敌群', tradeoff: '单次伤害降低，风阵留在原地；移动过远会脱离火力。' },

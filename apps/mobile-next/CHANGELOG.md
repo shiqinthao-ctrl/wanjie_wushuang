@@ -3,6 +3,27 @@
 Versions are identified by annotated Git tags. These previews are independent
 of the legacy game version and are not full-content production releases.
 
+## mobile-next-g5-20260909 - 2026-09-09
+
+### Added
+- H001 gains Frostflame: frost pulses followed by piercing flame blades,
+  a fixed fire field and a dual-element ultimate, with a distinct crest.
+- A011 gains Ringfire: eight radial fireballs with lower individual damage
+  and smaller explosions. All three routes explain both alternatives.
+- Thermalshock combines owned frost and fire skills: fire damage to currently
+  chilled normal/elite enemies gains30%; Bosses retain their existing rules.
+- Journey now offers eleven forms, twelve routes and eight bonds.
+
+### Verification
+- 974 rules and 54 related browser cases pass without retries or skips.
+- Desktop/phone natural form, route, bond, awakening, victory, rewards, retry
+  and reload are recorded; narrow controls and guide flow also pass.
+- Classic combat, Schema30 and49 legacy hashes are preserved. Physical phones,
+  endurance/performance, P2l outcome targets and PWA remain open. The earlier
+  G4 live startup timeout has not been explained or weakened.
+
+Evidence: `../../tasks/mobile-modernization/G5-EVIDENCE.md`.
+
 ## mobile-next-g4-20260909 - 2026-09-09
 
 ### Added

@@ -44,8 +44,8 @@ export class RunEvolution {
   snapshot(skills: SkillLevels) {
     const base = starter(this.hero), form = heroForms.find(form => form.id === this.form);
     return Object.freeze({ heroId: this.hero, formId: this.form, rank: this.rank, name: form ? `${this.rank === 2 ? '觉醒 · ' : ''}${form.name}` : base.name,
-      color: form?.color || base.color, skill: form?.id === 'windwarden' ? '岚影伏阵' : form?.id === 'frostlord' ? '随身寒域' : form?.id === 'thunderlord' ? '九霄连雷' : form?.id === 'beastlord' ? '冥契近卫' : form?.id === 'bulwark' ? '焚城火域' : form?.id === 'legion' ? '焰影号令' : form?.id === 'void' ? '虚空牵引' : base.skill,
-      ult: form?.id === 'windwarden' ? '千岚影阵' : form?.id === 'frostlord' ? '霜狱降临' : form?.id === 'thunderlord' ? '万雷天劫' : form?.id === 'beastlord' ? '百兽夜行' : base.ult,
+      color: form?.color || base.color, skill: form?.id === 'frostflame' ? '霜焰剑域' : form?.id === 'windwarden' ? '岚影伏阵' : form?.id === 'frostlord' ? '随身寒域' : form?.id === 'thunderlord' ? '九霄连雷' : form?.id === 'beastlord' ? '冥契近卫' : form?.id === 'bulwark' ? '焚城火域' : form?.id === 'legion' ? '焰影号令' : form?.id === 'void' ? '虚空牵引' : base.skill,
+      ult: form?.id === 'frostflame' ? '冰火天倾' : form?.id === 'windwarden' ? '千岚影阵' : form?.id === 'frostlord' ? '霜狱降临' : form?.id === 'thunderlord' ? '万雷天劫' : form?.id === 'beastlord' ? '百兽夜行' : base.ult,
       next: !this.form ? 'Lv.3 选择英雄进化' : this.rank === 1 ? 'Lv.8 + 任一主动 Lv.3 解锁觉醒' : '英雄已觉醒，继续组合技能与羁绊',
       routes: Object.freeze({ ...this.routes }),
       bonds: Object.freeze(bonds.map(bond => Object.freeze({ ...bond, tags: Object.freeze([...bond.tags]), active: this.bond(bond.id, skills), count: bond.tags.filter(tag => Object.entries(skills).some(([id, level]) => (level || 0) > 0 && hasSkillTag(id, tag))).length }))),

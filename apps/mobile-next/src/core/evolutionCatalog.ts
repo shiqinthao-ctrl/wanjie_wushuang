@@ -22,11 +22,13 @@ export const heroForms = [
   { id: 'thunderlord', hero: 'H010', name: '九霄雷君', detail: '普攻跳链，技能连锁雷击。引导雷电弹成长。', awakening: '普攻与主动技能增加跳链目标。', color: '#d9f48e' },
   { id: 'beastlord', hero: 'H012', name: '冥契兽王', detail: '穿透双刃，技能召出驻守近卫。引导影分身成长。', awakening: '四名近卫，延长驻守时间。', color: '#9ce7bb' },
   { id: 'windwarden', hero: 'H012', name: '岚影剑尊', detail: '三道穿透影刃；技能在前方布下固定风阵。引导龙卷风成长，围绕风阵牵引敌群。', awakening: '影刃穿透提升至三次；风阵扩大并延长至六秒。', color: '#a4edd5' },
+  { id: 'frostflame', hero: 'H001', name: '霜焰剑皇', detail: '霜环减速后射出穿透火刃；技能先降霜、再留下火域。引导寒霜环成长，组合冰火羁绊。', awakening: '扩大霜环与剑域，火刃穿透提升至三次，火域延长至五秒。', color: '#a8e7ee' },
 ] as const;
 export type FormId = typeof heroForms[number]['id'];
 export const skillRoutes = [
   { id: 'volley', skill: 'A011', name: '连珠火球', detail: '三道扇射，单发伤害为原来的 65%。' },
   { id: 'nova', skill: 'A011', name: '爆星火球', detail: '单发速度降低，爆炸范围扩大，伤害为原来的 145%。' },
+  { id: 'ringfire', skill: 'A011', name: '八方焰轮', detail: '向八个方向同时射出火球，每发伤害为普通的 45%，爆炸范围缩小。适合敌群围绕时清场。' },
   { id: 'roaming', skill: 'A026', name: '游龙风暴', detail: '龙卷向目标游走，持续牵引前方敌人。' },
   { id: 'orbit', skill: 'A026', name: '环身风暴', detail: '龙卷围绕自身旋转，清理近身敌人。' },
   { id: 'ambush', skill: 'A026', name: '伏阵风暴', detail: '在最近目标方向布下固定风阵，最多前置 220 距离。范围扩大，单次伤害为普通龙卷的 80%。' },
@@ -40,12 +42,12 @@ export const skillRoutes = [
 export type RouteId = typeof skillRoutes[number]['id'];
 export const activeSkills = ['A003', 'A011', 'A021', 'A026', 'A027', 'A054', 'A013', 'A015', 'S001', 'G2_FROST'] as const;
 export const journeySkillNames: Record<string, string> = { G2_FROST: '寒霜环' };
-export const signatureSkills: Partial<Record<FormId, string>> = { frostlord: 'G2_FROST', thunderlord: 'A013', beastlord: 'S001', windwarden: 'A026' };
+export const signatureSkills: Partial<Record<FormId, string>> = { frostlord: 'G2_FROST', thunderlord: 'A013', beastlord: 'S001', windwarden: 'A026', frostflame: 'G2_FROST' };
 export const passiveSkills = ['P026', 'P016', 'P017', 'P018', 'P019', 'P030', 'P033', 'P023', 'P024', 'P036', 'P039'] as const;
 export const skillTags: Record<string, string> = { A003: '炎', A011: '炎', A021: '炎', A027: '炎', A054: '炎', A026: '风', A013: '雷', A015: '影', S001: '影/召', G2_FROST: '冰' };
 export const hasSkillTag = (id: string, tag: string) => skillTags[id]?.split('/').includes(tag) || false;
 export const skillDetails: Record<string, string> = {
-  A003: '近身扇形斩击，附带短暂火域。', A011: '自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星。',
+  A003: '近身扇形斩击，附带短暂火域。', A011: '自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星 / 焰轮。',
   A021: '跟随角色的持续燃烧领域。', A026: '牵引附近敌人的龙卷。Lv.3 可选游龙 / 环身 / 伏阵。',
   A027: '在敌群上空召唤多颗陨石。', A054: '向前铺设持续伤害的火径。',
   A013: '雷电在相邻敌人间跳链。Lv.3 可选连锁 / 天罚。', A015: '多道穿透手里剑。', S001: '召出定时攻击的分身。Lv.3 可选游猎 / 守阵。',
@@ -62,4 +64,5 @@ export const bonds = [
   { id: 'winterlegion', name: '霜卫契约', tags: ['冰', '召'], detail: '召唤单位攻击时追加小范围霜环与减速。', needs: '寒霜环 + 影分身' },
   { id: 'thunderlegion', name: '雷兽共鸣', tags: ['雷', '召'], detail: '召唤单位攻击间隔缩短至 0.6 秒。', needs: '雷电弹 + 影分身' },
   { id: 'galephantom', name: '风影合袭', tags: ['风', '影'], detail: '风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。', needs: '龙卷风 + 手里剑或影分身' },
+  { id: 'thermalshock', name: '霜火淬炼', tags: ['冰', '炎'], detail: '火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。', needs: '寒霜环 + 任一炎系技能' },
 ] as const;

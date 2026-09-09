@@ -137,6 +137,7 @@ export class CombatSimulation {
   }
   hit(enemy: Enemy, base: number, source: string, critical = false, skill = false): void {
     if (!this.enemies.includes(enemy)) return;
+    base = this.journeyCombat?.incomingEnemyDamage(enemy, base, source) ?? base;
     const hit = enemyHit(this.context, this.state(), source, base, enemy.elite, critical, skill);
     enemy.hp -= hit.damage; this.player.hp = hit.hp; this.damage += hit.damage; enemy.flash = 1;
     this.damageBy[source] = (this.damageBy[source] || 0) + hit.damage;
