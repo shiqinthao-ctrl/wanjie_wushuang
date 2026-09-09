@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-09-09T06:18:13.055938+00:00",
+  "originalRecordingsFullyDecoded": 54,
+  "mp4FullyDecoded": 2,
+  "freshPhoneDurationSeconds": 347.88,
+  "importedLowGrowthPhoneDurationSeconds": 230.16,
+  "visualReview": "Full result comparison and six sampled frames: visible portrait play, actual outcomes, save UI/retry; no blank or cropped video. Normal speed, full recordings.",
+  "limitations": "Imported low-growth death is separate from unchanged-fresh acceptance; visual QA is sampled, not full manual viewing."
+}

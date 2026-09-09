@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P4c landscape HUD/control slice delivered. GitHub tag mobile-next-p4c-20260909 has six verified release assets. Render 649b0b5 / dep-dagdr1142hec73brst60 is live with all 51 hashes and both entries verified. P4a/P4b tags remain immutable; auto-deploy off.
+P2l fresh-death investigation complete locally; evidence release finalization under mobile-next-p2l-20260909. Three fresh attempts still win; actual settlement/reload/retry pass. No runtime defect demonstrated or rules changed. Render retains P4c 649b0b5 / dep-dagdr1142hec73brst60; auto-deploy off.
 
 ## Changed files
-battle-compact.css, P4c Playwright config/tests, Render milestone, changelog, TASK/handoff and P4c evidence/packaging documents. Final follow-up records GitHub hashes, Render delivery, three live tests and screenshots. Runtime: 39 CSS lines and version label only; no core, camera, save, dependency or legacy changes.
+settlement.spec.ts observations and opt-in input strategy, pressure diagnostics, P2l recording config, packaging script, evidence/report, changelog and TASK/handoff. No runtime, fresh fixture, dependency or legacy changes. Raw failures and recordings remain in the evidence release.
 
 ## Tests
-946 rules, 45 latest local browser cases, 5 ordered root gates, 49/49 hashes and app types/build pass. 57 local recordings retained, including 7 failures; one setup failure. Three extra live natural upgrade/touch/rotation cases pass, with 3 decoded recordings. Six GitHub assets and 51 HTTPS runtime hashes match. Visible live entry/skill/pause/exit and legacy lobby pass, no console errors.
+946 rules; 54 browser executions: 50 pass / 4 failed targets, no retries/skips. All 12 natural actual outcomes pass persistence/retry. 45 synthetic simulations: 28 wins / 17 timeouts / 0 deaths. Five ordered root checks, 49 legacy hashes and app types/build pass. 54 originals and two full MP4s retained. All 51 live hashes and both browser entries verified; zero live console errors.
 
 ## Unresolved risk
-P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. HUD acceptance is browser emulation only. Prior runtime: 4c37125 / dep-dagd7tp42hec73bpec70; older rollback: 75e139b / dep-dag058on74is73bukk40. No rollback executed.
+Fresh HP-death still open: P2l adds 3 victories. Stationary phone timeout also wins at 350 seconds; retained as a failure. Imported deaths do not close the fresh gate. Full suite not rerun/green. Physical phones, performance/endurance, other content/modes, audio/PWA and Phaser chunk remain. Rollback: 4c37125 / dep-dagd7tp42hec73bpec70; older 75e139b / dep-dag058on74is73bukk40.
 
 ## Recommended next task
-Scope fresh natural defeat/retry investigation from preserved P2k evidence; replace TASK.md before implementation and do not alter balance to force defeat. Preserve P4c runtime tag/assets and auto-deploy off. See P4c-EVIDENCE.md and RENDER-DEPLOYMENT.md.
+Scope one cross-element evolution route for an existing starter, one skill branch and a matching bond in opt-in evolution journey. Replace TASK.md with exact rules and natural acceptance first. Carry fresh-death/phone-timeout gaps forward without weakening assertions. Preserve classic rules, P4c runtime/assets and auto-deploy off. See P2l-EVIDENCE.md.
 
 ## After each task
 Replace only these fields:

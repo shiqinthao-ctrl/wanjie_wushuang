@@ -1,0 +1,420 @@
+{
+  "recordings": [
+    {
+      "path": "inset-contact-01/test-results/settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop/video.webm",
+      "bytes": 42418499,
+      "sha256": "e3bf9438e3d390f3704a3c9d4f1800ae009a590425cb54fe39cb9794c5619ee1",
+      "duration": 347.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "inset-contact-01/test-results/settlement-natural-corner--0b096-tars-save-reload-and-replay-narrow/video.webm",
+      "bytes": 39314024,
+      "sha256": "bc18c024fdf2b0e3cb24fe7c94fea0c3ef42afe7cca9fac7e37c2acd6806ac26",
+      "duration": 329.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "inset-contact-01/test-results/settlement-natural-corner--0b096-tars-save-reload-and-replay-phone/video.webm",
+      "bytes": 41598007,
+      "sha256": "b6d2d9d91cc4b808ecfac62dd5922e176bd3402700268c2e8d7e9d75f8076961",
+      "duration": 347.88,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-desktop/video.webm",
+      "bytes": 928835,
+      "sha256": "b50a7074e7c2f2d81e3c31c90db8312bed1c481020650f983869c0ddf1b4ef6f",
+      "duration": 16.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-narrow/video.webm",
+      "bytes": 942164,
+      "sha256": "e27febde6f8c71ab6780dfa42cc9cccba49a649be50eb131fa0238bda7339b0c",
+      "duration": 16.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-phone/video.webm",
+      "bytes": 1035500,
+      "sha256": "121330ab6c30654e1ff8a95708451f482702f97f0c1bef72484ad3b524970275",
+      "duration": 17.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-desktop/video.webm",
+      "bytes": 72257,
+      "sha256": "7b4b8aceb5c9e741389dafa2cd0c3243aca63d036afc94e5209364141c9de191",
+      "duration": 1.72,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-narrow/video.webm",
+      "bytes": 67901,
+      "sha256": "0b0dc7acedada189cc9715bd470a2505d009f1a28777e8a2a28e7ba80fbc8ad2",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-phone/video.webm",
+      "bytes": 47386,
+      "sha256": "fc53769ff0a0b3ec9735307390e4c932324bde8c941d726b93ec365fc5316987",
+      "duration": 1.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-file-UI-retains-unsu-817c7-s-why-launch-is-unavailable-desktop/video.webm",
+      "bytes": 88647,
+      "sha256": "28717f6ad2931eef0c31d506224ec30dca296318bc71327a6e9a158616630aac",
+      "duration": 1.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-file-UI-retains-unsu-817c7-s-why-launch-is-unavailable-narrow/video.webm",
+      "bytes": 110298,
+      "sha256": "4b68327921874988f50879b000a5aefeee287e27c931deb66a2affb60a29145a",
+      "duration": 1.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-file-UI-retains-unsu-817c7-s-why-launch-is-unavailable-phone/video.webm",
+      "bytes": 122485,
+      "sha256": "b8c97f8a4173dd243aedfefcee83379b88b033c2c6a6bcd28f0006d00b97697d",
+      "duration": 2.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-natural-save-UI-pres-91ea9-s-and-restores-after-reload-desktop/video.webm",
+      "bytes": 156243,
+      "sha256": "b3914da5ffe654bfad111955fa2c2b61d5486658150ec077b621993c58cf2956",
+      "duration": 2.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-natural-save-UI-pres-91ea9-s-and-restores-after-reload-narrow/video.webm",
+      "bytes": 182292,
+      "sha256": "a992c719d80e5e80376ec4f34ad0f7caac8c5f9c7dc7e0da0bca356c74da33eb",
+      "duration": 2.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-natural-save-UI-pres-91ea9-s-and-restores-after-reload-phone/video.webm",
+      "bytes": 177802,
+      "sha256": "0ea278a5effd0844f8abe2ddae69a238eb42ea91e0f61a54c833000542c90d93",
+      "duration": 2.88,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-synthetic-storage-de-c8d9f-never-starts-an-unsaved-run-desktop/video.webm",
+      "bytes": 95095,
+      "sha256": "d16b487bba3d22682213bf2b0782c5a98267f0498b1621da241fb92eecffac35",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-synthetic-storage-de-c8d9f-never-starts-an-unsaved-run-narrow/video.webm",
+      "bytes": 95695,
+      "sha256": "fe7eab5707ede9c06d87962813f6aa4c39bf7e92b8b9b19762d6dff27ec88899",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/saves-synthetic-storage-de-c8d9f-never-starts-an-unsaved-run-phone/video.webm",
+      "bytes": 79523,
+      "sha256": "4f27e07935f755043239e79463377e543f80aa221812c12ca1d524df4dc40e35",
+      "duration": 1.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-27d61-uest-rolls-back-and-retries-desktop/video.webm",
+      "bytes": 80183,
+      "sha256": "85594fd2cc187a44f08bf9b3279da0574fcbe1e00a3ccfb708290d55441ddaac",
+      "duration": 1.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-27d61-uest-rolls-back-and-retries-narrow/video.webm",
+      "bytes": 63833,
+      "sha256": "e458065217277fe5dfb426add0edba8b7c7fd4fe439236e7afef45d7bb8196e4",
+      "duration": 1.2,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-27d61-uest-rolls-back-and-retries-phone/video.webm",
+      "bytes": 86813,
+      "sha256": "41402ba981a6850b91fdaf007e7b02045d58ec97c4010a9440f2b70b05494e92",
+      "duration": 1.84,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-477c2-ds-share-one-revision-owner-desktop/video.webm",
+      "bytes": 78439,
+      "sha256": "35d5c7de06ed2b9dee589042069f5ffe08dad9cb3357d6251eb6f69716504185",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-477c2-ds-share-one-revision-owner-narrow/video.webm",
+      "bytes": 58430,
+      "sha256": "ac8515e715614f62ac6e45ab6fc534097e5402716f28c312908675cb61cc3504",
+      "duration": 1.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-477c2-ds-share-one-revision-owner-phone/video.webm",
+      "bytes": 79932,
+      "sha256": "d68e76adde6c19c460ffc08c7f44af26465f6541030be0f2398717e173881be4",
+      "duration": 1.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-75703-eipt-rolls-back-and-retries-desktop/video.webm",
+      "bytes": 76952,
+      "sha256": "39ea72ca6f99f5cb2ba3abb37498f0b0ef710a8aa6dda0447450599033177c52",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-75703-eipt-rolls-back-and-retries-narrow/video.webm",
+      "bytes": 57223,
+      "sha256": "48312e8c85257f6f20274bc011e1abd586e9fc89124d588a9acbbd51cda9456f",
+      "duration": 1.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-75703-eipt-rolls-back-and-retries-phone/video.webm",
+      "bytes": 84728,
+      "sha256": "8389e0f22cc934e5caa9feaa203a95597c31bd001e9ae39afa4b9491896ae5b3",
+      "duration": 1.84,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-952e4-not-activate-the-new-result-desktop/video.webm",
+      "bytes": 109353,
+      "sha256": "c16e8e995c2f59be42c075ae6927ab12184c5dd19bdd973c5862b99583fe7dbe",
+      "duration": 1.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-952e4-not-activate-the-new-result-narrow/video.webm",
+      "bytes": 104662,
+      "sha256": "320a8f969add337a3caeb5b68b92e9b005c84a06550b29b304621c9f93bf4077",
+      "duration": 1.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-952e4-not-activate-the-new-result-phone/video.webm",
+      "bytes": 113918,
+      "sha256": "dda0bb09668efd9812f0692a5cbf05e529673c2abd6ea4245d2a5ed889863bc3",
+      "duration": 1.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-b8bb2--overwriting-a-later-writer-desktop/video.webm",
+      "bytes": 60742,
+      "sha256": "40da7453468002f09f2eaa288f77598a7d163100fa6a28ec21ed8ed25d935d78",
+      "duration": 1.28,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-b8bb2--overwriting-a-later-writer-narrow/video.webm",
+      "bytes": 65117,
+      "sha256": "4621f860d8ce1bfa331981326588f8d98485e4e1c9f402332d787f1bd955a552",
+      "duration": 1.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-b8bb2--overwriting-a-later-writer-phone/video.webm",
+      "bytes": 59178,
+      "sha256": "f28f684cb2a4decb075dbcb585a6f51c17f7c62eaec6e70ef1faea66a29c41c7",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-c1bf1-ps-abort-before-persistence-desktop/video.webm",
+      "bytes": 76310,
+      "sha256": "267cae62f2a5a3d9d59bc55a24a304e65b74db84f69f7cb925ccd1e413112ac1",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-c1bf1-ps-abort-before-persistence-narrow/video.webm",
+      "bytes": 57501,
+      "sha256": "c30095243c4bf143b726a01089109fde435dab84cf785a16133aae0196727849",
+      "duration": 1.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-c1bf1-ps-abort-before-persistence-phone/video.webm",
+      "bytes": 85857,
+      "sha256": "33f6917eaf08f0d2e7e791dd3817bf444bc30f0e50df05618e47cf2a527287e9",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-c5ca5--and-concurrent-connections-desktop/video.webm",
+      "bytes": 49525,
+      "sha256": "e375c8cd8c1b7f9a27eb0a05f7c7d7ce146f922e58cfa42a1b9e1277d7fa7d66",
+      "duration": 1.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-c5ca5--and-concurrent-connections-narrow/video.webm",
+      "bytes": 56751,
+      "sha256": "ee337c2251b15c74b7a3b6677c62955eb1cc0c02f74120a77c0e5e185cb0c259",
+      "duration": 1.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-c5ca5--and-concurrent-connections-phone/video.webm",
+      "bytes": 58495,
+      "sha256": "ea42b1d2dd5e98ed60e0f2382278b98d8a4debe49cd9d1cfc6f9dd0a0498f303",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-e1252-run-retry-and-saved-rewards-desktop/video.webm",
+      "bytes": 84629,
+      "sha256": "2221c11062dbbe0e15b3bd92891e88939ad6603e8b6c869bcf6dbdff60061753",
+      "duration": 1.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-e1252-run-retry-and-saved-rewards-narrow/video.webm",
+      "bytes": 87680,
+      "sha256": "e718ba15996f0774dc2c55975f4997c06261e42e7644072394ce71e12971b856",
+      "duration": 1.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-e1252-run-retry-and-saved-rewards-phone/video.webm",
+      "bytes": 129779,
+      "sha256": "5001e56dd5235477ca285aba466f1aa12b2927835f28ca053408099efa3e834a",
+      "duration": 2.28,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-ed893--without-rewards-or-receipt-desktop/video.webm",
+      "bytes": 60317,
+      "sha256": "0377dfaf9795318b4a18ab5af78725625557ebb7044be43d84b267890d80afce",
+      "duration": 1.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-ed893--without-rewards-or-receipt-narrow/video.webm",
+      "bytes": 56904,
+      "sha256": "fb731d4d1b68dac678f3a49f826f08a5504274d9f41e2f5bb2c094a787d504b4",
+      "duration": 1.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "native-01/test-results/settlement.native-syntheti-ed893--without-rewards-or-receipt-phone/video.webm",
+      "bytes": 84728,
+      "sha256": "9a29f0ecf77047e037a066846d3610b1c6946c3c2817d891e35a7c71d5926570",
+      "duration": 1.84,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop/video.webm",
+      "bytes": 39638593,
+      "sha256": "ba6693fa33f95d053bf4dd5df02b57033112ea07a6449fe3543cb1160ad7f9e5",
+      "duration": 318.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow/video.webm",
+      "bytes": 38608054,
+      "sha256": "f007a2042bb421257ed45dd85f8d161896e5e76875618c08ec1e5defcdcb3de5",
+      "duration": 311.2,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-natural-complet-f336b-tory-save-reload-and-replay-phone/video.webm",
+      "bytes": 38072142,
+      "sha256": "8cdd41a48d0bab0708f8dd9c182639a0f9778e8cea9f3c72ae62f3e46aecc293",
+      "duration": 307.72,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop/video.webm",
+      "bytes": 46141632,
+      "sha256": "4803b13ca700b4987bd1de3a5e702b042f6c931276bb9713b6bb475b828b70c4",
+      "duration": 378.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-natural-first-s-90eb1-tars-save-reload-and-replay-narrow/video.webm",
+      "bytes": 44929701,
+      "sha256": "706a94158d7e066e9811fb3180231317e1a05acd78474aa24d3facce1d0c785b",
+      "duration": 371.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone/video.webm",
+      "bytes": 43642859,
+      "sha256": "3d575eadd5bc57a91df3577e26bc8b1b44b2532bf11141b66af2060dfca36300",
+      "duration": 366.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop/video.webm",
+      "bytes": 34149786,
+      "sha256": "ce0848a042ba33ea4cabcbfd039fe4f837d5c9bd2dd6c941c374aa145073078b",
+      "duration": 294.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow/video.webm",
+      "bytes": 27525308,
+      "sha256": "dcaa0f289ae6438c1852e19cc45e593b93a8986931f4b6808bce736dc6aade88",
+      "duration": 241.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "natural-regression-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone/video.webm",
+      "bytes": 26382313,
+      "sha256": "301dd739b33fc60f3999a67eedd031323f5cf72036f8141650dc7861b6d4ab0d",
+      "duration": 230.16,
+      "fullDecodePassed": true
+    }
+  ],
+  "demos": [
+    {
+      "source": "inset-contact-01/test-results/settlement-natural-corner--0b096-tars-save-reload-and-replay-phone/video.webm",
+      "file": "wanjie-p2l-fresh-target-actual-victory.mp4",
+      "sha256": "957783e8a56ae3edbaf253852c36e636bce3dd36fff24853366dbb54f1a48249",
+      "uneditedFullRecording": true,
+      "requested": "defeat",
+      "profile": "fresh-baseline",
+      "observed": {
+        "title": "黄巾巨将已击败",
+        "stars": "★★★",
+        "gold": 756,
+        "seconds": 345.883,
+        "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 569 · Lv.20 · 329 秒★★★战果已保存金币+756账号经验+486英雄熟练度+64万界徽记+2本关最佳 3 星 · 精英击破 5 · 最高连击 502取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 4 件史诗 · 玄铁神棍史诗 · 炎龙战甲传说 · 黄天战刃传说 · 混沌骑甲再次挑战本关返回大厅",
+        "persistenceVerified": true,
+        "replayVerified": true,
+        "completedSeconds": 346.819
+      }
+    },
+    {
+      "source": "natural-regression-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone/video.webm",
+      "file": "wanjie-p2l-imported-low-growth-defeat.mp4",
+      "sha256": "c68bea83d5f4dca292605badb73937fc9a56ae6016a2ccd787610db4ec7a019a",
+      "uneditedFullRecording": true,
+      "requested": "defeat",
+      "profile": "imported-low-growth",
+      "observed": {
+        "title": "本局生命耗尽",
+        "stars": "☆☆☆",
+        "gold": 93,
+        "seconds": 224.771,
+        "text": "乱世荒原 · 边境清剿本局生命耗尽击破 272 · Lv.13 · 220 秒☆☆☆战果已保存金币+93账号经验+292英雄熟练度+31万界徽记+0本关最佳 0 星 · 精英击破 7 · 最高连击 21取得 Boss 战利品0 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 4 件史诗 · 炎忍战装史诗 · 万界神衣史诗 · 斗战战印史诗 · 玄铁神棍再次挑战本关返回大厅",
+        "persistenceVerified": true,
+        "replayVerified": true,
+        "completedSeconds": 227.107
+      }
+    }
+  ]
+}

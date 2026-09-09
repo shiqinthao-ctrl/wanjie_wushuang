@@ -1,36 +1,43 @@
-# TASK.md - P4c landscape battle layout
+# TASK.md - P2l fresh defeat investigation and retry evidence
 
-Status: completed and deployed; final evidence recorded, 2026-09-09.
+Status: investigation complete; release finalization, 2026-09-09.
+
+Result: 45 diagnostic simulations; 54 browser executions, 50 pass / 4 failed
+targets. Actual settlement/reload/retry pass in all 12 natural runs. Fresh
+HP-death and phone timeout gates remain open. No runtime or balance change.
 
 ## Goal
-Keep landscape battle information, the central hero and both touch control
-areas readable and separate, including safe areas and rotation.
+Investigate the open natural fresh HP-death gate using the unchanged
+H001 / ST001-01 / story / normal preparation. Deliver reproducible pressure
+diagnostics, browser input evidence and complete settlement/retry recordings.
 
 ## Scope and invariants
-- Mobile-next presentation CSS and directly related browser tests/evidence.
-  No new dependencies; retain the established visual language.
-- Reproduce at 568x320, 640x360 and 844x390; test left/right safe areas,
-  changing browser height, portrait rotation, natural upgrade/pause dialogs,
-  simultaneous movement/skill and repeated entry. Touch targets >= 44px.
-- Keep all feedback available, using bounded scrolling where necessary.
-- Preserve GameCore, viewport/world coordinates, camera, RNG, collisions,
-  progression, balance and settlement. Preserve P4a/P4b fixes and evidence.
-- Preserve legacy sources, Schema30, fresh/defeat zero stars, non-story
-  isolation, once-only settlement, Boss Loot priority and V3.0 fixes.
-- Keep P2k's three fresh HP-death target failures separately open.
-- Continue authorized GitHub and Render delivery to srv-d9v8cm1t0dsc73ch79k0;
-  preserve legacy root, auto-deploy off, immutable old tags and main.
+- Test helpers, isolated diagnostics, evidence and release packaging only.
+  Runtime changes require a demonstrated defect against retained rule evidence.
+- No new dependencies, public debug UI, save edits, clock acceleration,
+  forced RNG, balance changes or injected battle state in natural acceptance.
+- Preserve the fresh fixture hash and P2k's requested HP-death assertions.
+  Label simulations/imported preparations separately; preserve all attempts.
+- Compare contact targeting and upgrade choices before repeating long runs.
+  Record sampled minimum HP, choices and actual persisted outcomes even when
+  the requested outcome fails. Do not claim a simulation proves impossibility.
+- Preserve legacy order, Schema30, zero-star fresh/defeat chapters, non-story
+  isolation, once-only settlement, Boss Loot priority and V3.0 safety fixes.
+- Continue authorized GitHub release delivery. Update the existing Render
+  service only for a verified runtime/package change; otherwise verify and
+  retain its P4c runtime. Keep main, old tags and auto-deploy Off unchanged.
 
 ## Acceptance and delivery
-1. Record the failing baseline using natural lobby/battle input.
-2. Assert HUD/rewards/controls separation, central hero clearance and touch
-   target sizes. Separate synthetic crowded Boss HUD checks from natural play.
-3. Run related browser regressions with recordings, then root check, smoke,
-   audit, context, archive:verify in order, 49 legacy hashes and app rules/build.
-4. Review video/screenshots; record evidence and changelog, replace the five
-   handoff sections, commit/tag/push, package the release and deploy Render.
-5. Verify live commit, runtime hashes, excluded repository paths and both
-   entries, then record the actual delivery in a documentation follow-up.
+1. Diagnose fresh pressure with replayable strategies and HP accounting.
+2. Run an evidence-based natural browser attempt on desktop and phone sizes;
+   verify actual settlement, reload, retry and once-only persisted rewards.
+3. Run related native regressions, then check, smoke, audit, context and
+   archive:verify in order; verify legacy hashes, app types, rules and build.
+4. Decode recordings and provide a full normal-speed test video plus evidence
+   distinguishing passed behavior, failed target and unverified acceptance.
+5. Review changes, update the five handoff sections and changelog, commit/tag,
+   push and publish a versioned GitHub evidence release with verified assets.
 
-Physical phones, performance/endurance, full parity, PWA and natural fresh
-HP-death remain separate acceptance work.
+Physical devices, performance/endurance, full gameplay parity and PWA remain
+separate work. If the fresh target still does not die, retain the open gate
+and give a bounded next decision instead of changing rules to force a pass.

@@ -45,8 +45,11 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
   const win = outcome === 'victory';
   const baseline: GameSave = imported || fresh;
   const profile = imported ? 'imported-low-growth' : 'fresh-baseline';
-  const contactBoss = !imported && outcome === 'defeat' && process.env.FRESH_DEFEAT_STRATEGY === 'boss-contact';
+  const insetContact = !imported && outcome === 'defeat' && process.env.FRESH_DEFEAT_STRATEGY === 'inset-boss-contact';
+  const contactBoss = !imported && outcome === 'defeat' && (insetContact || process.env.FRESH_DEFEAT_STRATEGY === 'boss-contact');
   const errors: string[] = [], timeline: unknown[] = [];
+  const choices: { time: string | null; offered: string[]; picked: string }[] = [];
+  let sampledMinHp: { hp: number; time: string | null } | undefined;
   const started = Date.now();
   let observed: unknown;
   page.on('pageerror', error => errors.push(error.message));
@@ -84,6 +87,10 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
     // these runs before the six-minute objective; bound real wall time instead.
     const deadline = Date.now() + 620_000;
     for (let step = 0; Date.now() < deadline && !await result.isVisible(); step++) {
+      const time = await page.getByLabel('本局时间').textContent();
+      const hp = await page.getByLabel('战斗状态').textContent();
+      const hpMatch = hp?.match(/(\d+)\s*\/\s*(\d+)/);
+      if (hpMatch && (!sampledMinHp || Number(hpMatch[1]) < sampledMinHp.hp)) sampledMinHp = { hp: Number(hpMatch[1]), time };
       if (await event.isVisible()) {
         const merchant = await event.getByRole('button', { name: '购买回复' }).isVisible();
         const name = !win ? '离开' : merchant ? '购买回复' : '打开黄金宝箱';
@@ -91,7 +98,14 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
         if (win && merchant) eventCost += 180;
         await expect(event).toBeHidden(); continue;
       }
-      if (await level.isVisible()) { await level.locator('.level-option').first().click(); continue; }
+      if (await level.isVisible()) {
+        const options = level.locator('.level-option'), offered = await options.allTextContents();
+        const priorities = ['风神祝福', '持续强化', '范围强化', '冷却缩减', '火神祝福', '技能倍率', '火焰冲刺', '陨石雨', '龙卷风', '烈焰刀', '火球术', '火焰领域'];
+        const rank = (label: string) => { const index = priorities.findIndex(name => label.includes(name)); return index < 0 ? priorities.length : index; };
+        const index = insetContact ? offered.map((label, index) => ({ index, rank: rank(label) })).sort((a, b) => a.rank - b.rank)[0]!.index : 0;
+        choices.push({ time, offered, picked: offered[index]! });
+        await options.nth(index).click(); continue;
+      }
       if (await chest.isVisible()) { await chest.locator('.level-option').first().click(); continue; }
       if (await loot.isVisible()) { lootSeen = true; await loot.getByRole('button').first().click(); continue; }
       const reward = page.getByRole('button', { name: /宝箱 领取$/ }).first();
@@ -99,6 +113,10 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
       const bossPresent = await page.getByLabel('首领状态').isVisible();
       let direction = win ? { x: [1, 0, -1, 0][step % 4]!, y: [0, 1, 0, -1][step % 4]! } : outcome === 'timeout' ? { x: 0, y: 0 } : { x: -1, y: -1 };
       let duration = 1000;
+      if (insetContact && !bossPresent) {
+        const [minutes, seconds] = time!.split(':').map(Number), elapsed = minutes! * 60 + seconds!;
+        direction = elapsed < 12 ? { x: -1, y: -1 } : elapsed < 14 ? { x: 1, y: 1 } : { x: 0, y: 0 };
+      }
       if ((win || contactBoss) && bossPresent) {
         const actors = await visibleActors(page);
         duration = 180;
@@ -137,7 +155,7 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
         if (win) { await page.keyboard.press('e'); await page.keyboard.press('r'); await page.keyboard.press('f'); }
         await page.waitForTimeout(duration); for (const key of keys) await page.keyboard.up(key);
       }
-      if (step % 10 === 0) timeline.push({ seconds: (Date.now() - started) / 1000, time: await page.getByLabel('本局时间').textContent(), hp: await page.getByLabel('战斗状态').textContent(), boss: await page.getByLabel('首领生命').getAttribute('value', { timeout: 100 }).catch(() => null), direction });
+      timeline.push({ seconds: (Date.now() - started) / 1000, time, hp, boss: await page.getByLabel('首领生命').getAttribute('value', { timeout: 100 }).catch(() => null), direction });
     }
     const title = win ? '黄巾巨将已击败' : outcome === 'timeout' ? '首战时限已到' : '本局生命耗尽';
     await expect(result).toBeVisible();
@@ -184,7 +202,7 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
   } finally {
     const path = info.outputPath('natural-settlement-input.json');
-    await writeFile(path, JSON.stringify({ profile, outcome, strategy: contactBoss ? 'boss-contact' : win ? 'victory-chase' : outcome === 'timeout' ? 'stationary' : 'corner', observed, timeline, errors, lootSeen, eventCost, trackedFrames }, null, 2));
+    await writeFile(path, JSON.stringify({ profile, outcome, strategy: insetContact ? 'inset-boss-contact' : contactBoss ? 'boss-contact' : win ? 'victory-chase' : outcome === 'timeout' ? 'stationary' : 'corner', observed, sampledMinHp, choices, timeline, errors, lootSeen, eventCost, trackedFrames }, null, 2));
     await info.attach('natural-settlement-input', { path, contentType: 'application/json' });
   }
 }

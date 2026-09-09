@@ -3,6 +3,24 @@
 Versions are identified by annotated Git tags. These previews are independent
 of the legacy game version and are not full-content production releases.
 
+## mobile-next-p2l-20260909 - 2026-09-09
+
+### Investigation and evidence
+- Add bounded contact-pressure diagnostics and HP accounting: 45 synthetic
+  simulations produce 28 victories, 17 timeouts and no HP deaths.
+- Preserve natural-input upgrade choices, sampled HP and actual settlement
+  outcomes. The additional fresh-death strategy wins at all three sizes.
+- 54 browser executions: 50 pass, 4 fail their requested outcome (three fresh
+  deaths and one phone timeout actually win). All 12 natural runs verify the
+  actual saved rewards, reload and retry; requested assertions are retained.
+- 946 rules, five root checks, baseline hashes and app types/build pass. All
+  54 original recordings and two full normal-speed MP4 exports are retained.
+- Evidence-only release; unchanged runtime and fresh fixture. Render retains
+  P4c. Fresh natural death, stable phone timeout, physical devices, endurance,
+  remaining content parity and PWA remain open; full browser suite not green.
+
+Evidence: `../../tasks/mobile-modernization/P2l-EVIDENCE.md`.
+
 ## mobile-next-p4c-20260909 - 2026-09-09
 
 ### Fixed

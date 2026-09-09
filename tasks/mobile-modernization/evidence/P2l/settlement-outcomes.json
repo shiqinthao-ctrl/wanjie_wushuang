@@ -1,0 +1,1697 @@
+[
+  {
+    "source": "inset-contact-01/test-results/settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop/natural-settlement-input.json",
+    "layout": "desktop",
+    "viewport": [
+      1280,
+      720
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "defeat",
+    "strategy": "inset-boss-contact",
+    "observed": {
+      "title": "黄巾巨将已击败",
+      "stars": "★★★",
+      "gold": 756,
+      "seconds": 345.764,
+      "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 608 · Lv.17 · 336 秒★★★战果已保存金币+756账号经验+500英雄熟练度+67万界徽记+2本关最佳 3 星 · 精英击破 6 · 最高连击 555取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 5 件史诗 · 万影忍装史诗 · 雷鸣枪史诗 · 斗战金甲传说 · 黄天战刃传说 · 混沌骑甲再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 346.636
+    },
+    "sampledMinHp": {
+      "hp": 591,
+      "time": "05:22"
+    },
+    "choices": [
+      {
+        "time": "00:14",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:25",
+        "offered": [
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 持续强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:41",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:55",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:07",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:22",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "被动心法 风神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 风神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:43",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:11",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:31",
+        "offered": [
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+          "被动心法 风神祝福 Lv.3Lv.2 → Lv.3",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 风神祝福 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:56",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "04:31",
+        "offered": [
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "04:32",
+        "offered": [
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 风神祝福 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 风神祝福 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "04:33",
+        "offered": [
+          "被动心法 风神祝福 Lv.5Lv.4 → Lv.5",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 风神祝福 Lv.5Lv.4 → Lv.5"
+      },
+      {
+        "time": "04:35",
+        "offered": [
+          "主动术式 陨石雨 Lv.3Lv.2 → Lv.3",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 陨石雨 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "04:43",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "05:21",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": false
+  },
+  {
+    "source": "inset-contact-01/test-results/settlement-natural-corner--0b096-tars-save-reload-and-replay-narrow/natural-settlement-input.json",
+    "layout": "narrow",
+    "viewport": [
+      320,
+      844
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "defeat",
+    "strategy": "inset-boss-contact",
+    "observed": {
+      "title": "黄巾巨将已击败",
+      "stars": "★★★",
+      "gold": 756,
+      "seconds": 327.235,
+      "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 593 · Lv.20 · 314 秒★★★战果已保存金币+756账号经验+496英雄熟练度+65万界徽记+2本关最佳 3 星 · 精英击破 6 · 最高连击 529取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 6 件史诗 · 炎龙核心史诗 · 炎龙战甲史诗 · 万界印记史诗 · 斗战金甲传说 · 妖师法印传说 · 黄天战刃再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 328.03
+    },
+    "sampledMinHp": {
+      "hp": 522,
+      "time": "04:52"
+    },
+    "choices": [
+      {
+        "time": "00:10",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:23",
+        "offered": [
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 持续强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:39",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:51",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:08",
+        "offered": [
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:19",
+        "offered": [
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:34",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:51",
+        "offered": [
+          "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:12",
+        "offered": [
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:34",
+        "offered": [
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 火神祝福 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 持续强化 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:52",
+        "offered": [
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:16",
+        "offered": [
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 冷却缩减 Lv.4Lv.3 → Lv.4",
+          "被动心法 持续强化 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 持续强化 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "03:37",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 冷却缩减 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "03:56",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "被动心法 持续强化 Lv.5Lv.4 → Lv.5"
+        ],
+        "picked": "被动心法 持续强化 Lv.5Lv.4 → Lv.5"
+      },
+      {
+        "time": "04:20",
+        "offered": [
+          "被动心法 火神祝福 Lv.3Lv.2 → Lv.3",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 火神祝福 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "04:31",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 冷却缩减 Lv.5Lv.4 → Lv.5"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.5Lv.4 → Lv.5"
+      },
+      {
+        "time": "04:34",
+        "offered": [
+          "被动心法 火神祝福 Lv.4Lv.3 → Lv.4",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 火神祝福 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "04:36",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 风神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 风神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "04:53",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": false
+  },
+  {
+    "source": "inset-contact-01/test-results/settlement-natural-corner--0b096-tars-save-reload-and-replay-phone/natural-settlement-input.json",
+    "layout": "phone",
+    "viewport": [
+      390,
+      844
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "defeat",
+    "strategy": "inset-boss-contact",
+    "observed": {
+      "title": "黄巾巨将已击败",
+      "stars": "★★★",
+      "gold": 756,
+      "seconds": 345.883,
+      "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 569 · Lv.20 · 329 秒★★★战果已保存金币+756账号经验+486英雄熟练度+64万界徽记+2本关最佳 3 星 · 精英击破 5 · 最高连击 502取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 4 件史诗 · 玄铁神棍史诗 · 炎龙战甲传说 · 黄天战刃传说 · 混沌骑甲再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 346.819
+    },
+    "sampledMinHp": {
+      "hp": 448,
+      "time": "05:28"
+    },
+    "choices": [
+      {
+        "time": "00:13",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:22",
+        "offered": [
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "被动心法 风神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 风神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:38",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:53",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 持续强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:07",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:21",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:36",
+        "offered": [
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:54",
+        "offered": [
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 风神祝福 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 风神祝福 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:15",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:34",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 风神祝福 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 风神祝福 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "02:51",
+        "offered": [
+          "被动心法 风神祝福 Lv.5Lv.4 → Lv.5",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 风神祝福 Lv.5Lv.4 → Lv.5"
+      },
+      {
+        "time": "03:11",
+        "offered": [
+          "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 持续强化 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:32",
+        "offered": [
+          "被动心法 技能倍率 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      },
+      {
+        "time": "03:57",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 持续强化 Lv.4Lv.3 → Lv.4",
+          "被动心法 范围强化 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 持续强化 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "04:20",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "04:31",
+        "offered": [
+          "被动心法 持续强化 Lv.5Lv.4 → Lv.5",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 持续强化 Lv.5Lv.4 → Lv.5"
+      },
+      {
+        "time": "04:35",
+        "offered": [
+          "被动心法 技能倍率 Lv.2Lv.1 → Lv.2",
+          "被动心法 火神祝福 Lv.3Lv.2 → Lv.3",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 火神祝福 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "04:47",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 技能倍率 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 技能倍率 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "05:16",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "被动心法 技能倍率 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 技能倍率 Lv.3Lv.2 → Lv.3"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": false
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop/natural-settlement-input.json",
+    "layout": "desktop",
+    "viewport": [
+      1280,
+      720
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "victory",
+    "strategy": "victory-chase",
+    "observed": {
+      "title": "黄巾巨将已击败",
+      "stars": "★★★",
+      "gold": 756,
+      "seconds": 316.51,
+      "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 577 · Lv.20 · 302 秒★★★战果已保存金币+756账号经验+501英雄熟练度+63万界徽记+2本关最佳 3 星 · 精英击破 7 · 最高连击 557取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动1 / 1本局装备已入库 · 6 件史诗 · 雷神战铠史诗 · 雷神战铠史诗 · 裂界神刃史诗 · 炎龙战甲传说 · 混沌骑甲传说 · 黄天战刃再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 317.33
+    },
+    "sampledMinHp": {
+      "hp": 588,
+      "time": "04:57"
+    },
+    "choices": [
+      {
+        "time": "00:19",
+        "offered": [
+          "被动心法 解锁 范围强化Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:28",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:38",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:47",
+        "offered": [
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:06",
+        "offered": [
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:16",
+        "offered": [
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 持续强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:25",
+        "offered": [
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:37",
+        "offered": [
+          "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:48",
+        "offered": [
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:03",
+        "offered": [
+          "主动术式 陨石雨 Lv.3Lv.2 → Lv.3",
+          "主动术式 烈焰刀 Lv.3Lv.2 → Lv.3",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 陨石雨 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:16",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 烈焰刀 Lv.3Lv.2 → Lv.3",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:38",
+        "offered": [
+          "被动心法 风神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2",
+          "主动术式 烈焰刀 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 风神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:50",
+        "offered": [
+          "被动心法 风神祝福 Lv.3Lv.2 → Lv.3",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 风神祝福 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:06",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "03:26",
+        "offered": [
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "03:49",
+        "offered": [
+          "主动术式 火焰领域 Lv.4Lv.3 → Lv.4",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 火焰领域 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "04:02",
+        "offered": [
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "主动术式 龙卷风 Lv.3Lv.2 → Lv.3",
+          "主动术式 陨石雨 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+      },
+      {
+        "time": "04:23",
+        "offered": [
+          "被动心法 风神祝福 Lv.4Lv.3 → Lv.4",
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 风神祝福 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "04:45",
+        "offered": [
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3",
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": true
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow/natural-settlement-input.json",
+    "layout": "narrow",
+    "viewport": [
+      320,
+      844
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "victory",
+    "strategy": "victory-chase",
+    "observed": {
+      "title": "黄巾巨将已击败",
+      "stars": "★★★",
+      "gold": 756,
+      "seconds": 309.255,
+      "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 559 · Lv.20 · 289 秒★★★战果已保存金币+756账号经验+489英雄熟练度+62万界徽记+2本关最佳 3 星 · 精英击破 6 · 最高连击 559取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 5 件史诗 · 星河武衣史诗 · 雷霆勾玉史诗 · 星河拳环传说 · 混沌骑甲传说 · 妖师法印再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 310.092
+    },
+    "sampledMinHp": {
+      "hp": 626,
+      "time": "04:47"
+    },
+    "choices": [
+      {
+        "time": "00:09",
+        "offered": [
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 持续强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:20",
+        "offered": [
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:27",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:41",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:54",
+        "offered": [
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:07",
+        "offered": [
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2",
+          "被动心法 技能倍率 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:16",
+        "offered": [
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:32",
+        "offered": [
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:37",
+        "offered": [
+          "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2",
+          "被动心法 持续强化 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:56",
+        "offered": [
+          "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 持续强化 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:11",
+        "offered": [
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:31",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "被动心法 持续强化 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:46",
+        "offered": [
+          "主动术式 陨石雨 Lv.4Lv.3 → Lv.4",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1",
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 陨石雨 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "03:03",
+        "offered": [
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.5Lv.4 → Lv.5",
+          "主动术式 火焰领域 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "03:18",
+        "offered": [
+          "被动心法 火神祝福 Lv.3Lv.2 → Lv.3",
+          "被动心法 持续强化 Lv.4Lv.3 → Lv.4",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 火神祝福 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:35",
+        "offered": [
+          "被动心法 持续强化 Lv.4Lv.3 → Lv.4",
+          "主动术式 烈焰刀 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 持续强化 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "03:54",
+        "offered": [
+          "主动术式 火焰领域 Lv.4Lv.3 → Lv.4",
+          "被动心法 火神祝福 Lv.4Lv.3 → Lv.4",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰领域 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "04:12",
+        "offered": [
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2",
+          "主动术式 烈焰刀 Lv.3Lv.2 → Lv.3",
+          "主动术式 火焰领域 Lv.5Lv.4 → Lv.5"
+        ],
+        "picked": "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "04:26",
+        "offered": [
+          "主动术式 火焰冲刺 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰冲刺 Lv.3Lv.2 → Lv.3"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": true
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-natural-complet-f336b-tory-save-reload-and-replay-phone/natural-settlement-input.json",
+    "layout": "phone",
+    "viewport": [
+      390,
+      844
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "victory",
+    "strategy": "victory-chase",
+    "observed": {
+      "title": "黄巾巨将已击败",
+      "stars": "★★★",
+      "gold": 756,
+      "seconds": 305.139,
+      "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 580 · Lv.19 · 287 秒★★★战果已保存金币+756账号经验+516英雄熟练度+63万界徽记+2本关最佳 3 星 · 精英击破 9 · 最高连击 580取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动1 / 1本局装备已入库 · 7 件传说 · 玄铁神棍史诗 · 万界印记史诗 · 炎龙核心史诗 · 星河核心史诗 · 裂界神刃传说 · 混沌骑甲传说 · 黄天战刃再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 306.095
+    },
+    "sampledMinHp": {
+      "hp": 596,
+      "time": "04:46"
+    },
+    "choices": [
+      {
+        "time": "00:11",
+        "offered": [
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:19",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:29",
+        "offered": [
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 龙卷风 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:41",
+        "offered": [
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:53",
+        "offered": [
+          "被动心法 解锁 范围强化Lv.0 → Lv.1",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:04",
+        "offered": [
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "01:17",
+        "offered": [
+          "主动术式 龙卷风 Lv.3Lv.2 → Lv.3",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 龙卷风 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "01:33",
+        "offered": [
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:49",
+        "offered": [
+          "被动心法 火神祝福 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 火神祝福 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "02:00",
+        "offered": [
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "主动术式 龙卷风 Lv.5Lv.4 → Lv.5",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:18",
+        "offered": [
+          "主动术式 火焰领域 Lv.4Lv.3 → Lv.4",
+          "主动术式 龙卷风 Lv.5Lv.4 → Lv.5",
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 火焰领域 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "02:34",
+        "offered": [
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:57",
+        "offered": [
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3",
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:14",
+        "offered": [
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+      },
+      {
+        "time": "03:31",
+        "offered": [
+          "主动术式 龙卷风 Lv.5Lv.4 → Lv.5",
+          "被动心法 风神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 龙卷风 Lv.5Lv.4 → Lv.5"
+      },
+      {
+        "time": "03:45",
+        "offered": [
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 风神祝福 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "04:02",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 火焰冲刺 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "04:27",
+        "offered": [
+          "主动术式 火焰冲刺 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 火焰冲刺 Lv.3Lv.2 → Lv.3"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": true
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop/natural-settlement-input.json",
+    "layout": "desktop",
+    "viewport": [
+      1280,
+      720
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "timeout",
+    "strategy": "stationary",
+    "observed": {
+      "title": "首战时限已到",
+      "stars": "☆☆☆",
+      "gold": 123,
+      "seconds": 376.72,
+      "text": "乱世荒原 · 边境清剿首战时限已到击破 599 · Lv.16 · 360 秒☆☆☆战果已保存金币+123账号经验+381英雄熟练度+55万界徽记+0本关最佳 0 星 · 精英击破 11 · 最高连击 572取得 Boss 战利品0 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 5 件史诗 · 玄铁神棍史诗 · 雷霆勾玉史诗 · 雷神战铠史诗 · 雷神战铠史诗 · 万界印记再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 377.673
+    },
+    "sampledMinHp": {
+      "hp": 462,
+      "time": "04:14"
+    },
+    "choices": [
+      {
+        "time": "00:30",
+        "offered": [
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:43",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:52",
+        "offered": [
+          "被动心法 解锁 范围强化Lv.0 → Lv.1",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:09",
+        "offered": [
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:20",
+        "offered": [
+          "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2",
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:36",
+        "offered": [
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "01:51",
+        "offered": [
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:10",
+        "offered": [
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:28",
+        "offered": [
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:47",
+        "offered": [
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "被动心法 火神祝福 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:03",
+        "offered": [
+          "主动术式 火焰冲刺 Lv.3Lv.2 → Lv.3",
+          "主动术式 火焰领域 Lv.4Lv.3 → Lv.4",
+          "被动心法 范围强化 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "主动术式 火焰冲刺 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:22",
+        "offered": [
+          "主动术式 火焰领域 Lv.4Lv.3 → Lv.4",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰领域 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "03:50",
+        "offered": [
+          "主动术式 火焰领域 Lv.5Lv.4 → Lv.5",
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火焰领域 Lv.5Lv.4 → Lv.5"
+      },
+      {
+        "time": "04:16",
+        "offered": [
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+      },
+      {
+        "time": "04:38",
+        "offered": [
+          "被动心法 风神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "主动术式 火焰冲刺 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "被动心法 风神祝福 Lv.2Lv.1 → Lv.2"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": true
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-natural-first-s-90eb1-tars-save-reload-and-replay-narrow/natural-settlement-input.json",
+    "layout": "narrow",
+    "viewport": [
+      320,
+      844
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "timeout",
+    "strategy": "stationary",
+    "observed": {
+      "title": "首战时限已到",
+      "stars": "☆☆☆",
+      "gold": 123,
+      "seconds": 369.526,
+      "text": "乱世荒原 · 边境清剿首战时限已到击破 663 · Lv.12 · 360 秒☆☆☆战果已保存金币+123账号经验+334英雄熟练度+59万界徽记+0本关最佳 0 星 · 精英击破 4 · 最高连击 460取得 Boss 战利品0 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 3 件史诗 · 斗战战印史诗 · 雷霆勾玉史诗 · 炎忍苦无再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 370.418
+    },
+    "sampledMinHp": {
+      "hp": 639,
+      "time": "04:14"
+    },
+    "choices": [
+      {
+        "time": "00:17",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:24",
+        "offered": [
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:40",
+        "offered": [
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 持续强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:58",
+        "offered": [
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:12",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:28",
+        "offered": [
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:51",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:09",
+        "offered": [
+          "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:31",
+        "offered": [
+          "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 冷却缩减 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:53",
+        "offered": [
+          "主动术式 龙卷风 Lv.2Lv.1 → Lv.2",
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 龙卷风 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "03:15",
+        "offered": [
+          "被动心法 持续强化 Lv.2Lv.1 → Lv.2",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "被动心法 冷却缩减 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 持续强化 Lv.2Lv.1 → Lv.2"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": true
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone/natural-settlement-input.json",
+    "layout": "phone",
+    "viewport": [
+      390,
+      844
+    ],
+    "profile": "fresh-baseline",
+    "outcome": "timeout",
+    "strategy": "stationary",
+    "observed": {
+      "title": "黄巾巨将已击败",
+      "stars": "★★★",
+      "gold": 756,
+      "seconds": 363.835,
+      "text": "乱世荒原 · 边境清剿黄巾巨将已击败击破 634 · Lv.15 · 350 秒★★★战果已保存金币+756账号经验+545英雄熟练度+68万界徽记+2本关最佳 3 星 · 精英击破 11 · 最高连击 634取得 Boss 战利品1 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 7 件史诗 · 雷霆勾玉史诗 · 星河武衣史诗 · 炎龙核心史诗 · 赤炎刀史诗 · 炎忍战装传说 · 黄天战刃传说 · 黄天战刃再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 364.84
+    },
+    "sampledMinHp": {
+      "hp": 544,
+      "time": "04:14"
+    },
+    "choices": [
+      {
+        "time": "00:20",
+        "offered": [
+          "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "被动心法 解锁 范围强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:28",
+        "offered": [
+          "被动心法 解锁 范围强化Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      },
+      {
+        "time": "00:38",
+        "offered": [
+          "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "00:50",
+        "offered": [
+          "被动心法 范围强化 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "被动心法 范围强化 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "01:09",
+        "offered": [
+          "主动术式 火焰领域 Lv.3Lv.2 → Lv.3",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 火焰领域 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "01:23",
+        "offered": [
+          "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:39",
+        "offered": [
+          "主动术式 解锁 火焰冲刺Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 解锁 火焰冲刺Lv.0 → Lv.1"
+      },
+      {
+        "time": "01:56",
+        "offered": [
+          "主动术式 火焰领域 Lv.4Lv.3 → Lv.4",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3"
+        ],
+        "picked": "主动术式 火焰领域 Lv.4Lv.3 → Lv.4"
+      },
+      {
+        "time": "02:12",
+        "offered": [
+          "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+      },
+      {
+        "time": "02:35",
+        "offered": [
+          "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+          "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1"
+        ],
+        "picked": "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "02:50",
+        "offered": [
+          "被动心法 范围强化 Lv.3Lv.2 → Lv.3",
+          "主动术式 陨石雨 Lv.3Lv.2 → Lv.3",
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2"
+        ],
+        "picked": "被动心法 范围强化 Lv.3Lv.2 → Lv.3"
+      },
+      {
+        "time": "03:09",
+        "offered": [
+          "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+          "主动术式 陨石雨 Lv.3Lv.2 → Lv.3",
+          "被动心法 范围强化 Lv.4Lv.3 → Lv.4"
+        ],
+        "picked": "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+      },
+      {
+        "time": "03:33",
+        "offered": [
+          "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+          "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1"
+        ],
+        "picked": "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      },
+      {
+        "time": "03:54",
+        "offered": [
+          "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2",
+          "被动心法 解锁 持续强化Lv.0 → Lv.1",
+          "主动术式 火焰领域 Lv.5Lv.4 → Lv.5"
+        ],
+        "picked": "主动术式 火焰冲刺 Lv.2Lv.1 → Lv.2"
+      }
+    ],
+    "errors": [],
+    "requestedOutcomePassed": false
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop/natural-settlement-input.json",
+    "layout": "desktop",
+    "viewport": [
+      1280,
+      720
+    ],
+    "profile": "imported-low-growth",
+    "outcome": "defeat",
+    "strategy": "corner",
+    "observed": {
+      "title": "本局生命耗尽",
+      "stars": "☆☆☆",
+      "gold": 105,
+      "seconds": 292.565,
+      "text": "乱世荒原 · 边境清剿本局生命耗尽击破 391 · Lv.15 · 289 秒☆☆☆战果已保存金币+105账号经验+290英雄熟练度+40万界徽记+0本关最佳 0 星 · 精英击破 4 · 最高连击 74取得 Boss 战利品0 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 1 件史诗 · 斗战金甲再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 293.364
+    },
+    "sampledMinHp": {
+      "hp": 4,
+      "time": "04:49"
+    },
+    "choices": [],
+    "errors": [],
+    "requestedOutcomePassed": true
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-narrow/natural-settlement-input.json",
+    "layout": "narrow",
+    "viewport": [
+      320,
+      844
+    ],
+    "profile": "imported-low-growth",
+    "outcome": "defeat",
+    "strategy": "corner",
+    "observed": {
+      "title": "本局生命耗尽",
+      "stars": "☆☆☆",
+      "gold": 98,
+      "seconds": 234.741,
+      "text": "乱世荒原 · 边境清剿本局生命耗尽击破 308 · Lv.13 · 230 秒☆☆☆战果已保存金币+98账号经验+258英雄熟练度+34万界徽记+0本关最佳 0 星 · 精英击破 2 · 最高连击 60取得 Boss 战利品0 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 2 件史诗 · 炎龙核心史诗 · 影界勾玉再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 238.921
+    },
+    "sampledMinHp": {
+      "hp": 15,
+      "time": "03:48"
+    },
+    "choices": [],
+    "errors": [],
+    "requestedOutcomePassed": true
+  },
+  {
+    "source": "natural-regression-01/test-results/settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone/natural-settlement-input.json",
+    "layout": "phone",
+    "viewport": [
+      390,
+      844
+    ],
+    "profile": "imported-low-growth",
+    "outcome": "defeat",
+    "strategy": "corner",
+    "observed": {
+      "title": "本局生命耗尽",
+      "stars": "☆☆☆",
+      "gold": 93,
+      "seconds": 224.771,
+      "text": "乱世荒原 · 边境清剿本局生命耗尽击破 272 · Lv.13 · 220 秒☆☆☆战果已保存金币+93账号经验+292英雄熟练度+31万界徽记+0本关最佳 0 星 · 精英击破 7 · 最高连击 21取得 Boss 战利品0 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 4 件史诗 · 炎忍战装史诗 · 万界神衣史诗 · 斗战战印史诗 · 玄铁神棍再次挑战本关返回大厅",
+      "persistenceVerified": true,
+      "replayVerified": true,
+      "completedSeconds": 227.107
+    },
+    "sampledMinHp": {
+      "hp": 0,
+      "time": "03:40"
+    },
+    "choices": [],
+    "errors": [],
+    "requestedOutcomePassed": true
+  }
+]

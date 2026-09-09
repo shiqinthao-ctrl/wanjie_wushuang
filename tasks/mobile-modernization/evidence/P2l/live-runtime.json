@@ -1,0 +1,94 @@
+{
+  "checkedAt": "2026-09-09T06:06:03.883157+00:00",
+  "origin": "https://wjws.onrender.com",
+  "sourceCommit": "649b0b54e16b0016de9ba88dd148516aefd0da8b",
+  "deployment": "dep-dagdr1142hec73brst60",
+  "httpVerification": {
+    "exitCode": 0,
+    "files": 51,
+    "bothEntries": true,
+    "legacyBaseline": true,
+    "publicAllowlist": true
+  },
+  "dashboard": {
+    "live": true,
+    "autoDeploy": "Off",
+    "publishDirectory": "dist/render",
+    "branch": "codex/mobile-web-modernization"
+  },
+  "currentBuildMatchesLiveManifest": [
+    {
+      "path": "mobile-next/art/battlefield.svg",
+      "sha256": "7cec68689f3e334ad6a19c8936b074b1f2e69808537c4de543ade3bd98de0100",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/art/boss-b001.svg",
+      "sha256": "8ff7260c54c3bd3b5a96a30ef47fb31c3747c96fc2732226ae250f14165b2ef9",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/art/enemy-en001.svg",
+      "sha256": "8f1a1618c61a5be9222ad6e7286c08a0bb0a9660b99eab7384c4ed3676fa5b4e",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/art/hero-h001-attack.svg",
+      "sha256": "64ff049cba23e7323b6fa887c2f320a162cde77e596f9401d5defad965f84e76",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/art/hero-h001.svg",
+      "sha256": "da322720d5a905a758467361a91cf2af8a656ecfd752a67016513902a598cde4",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/art/hero-h010.svg",
+      "sha256": "11c0170228635ec83d1c1ccc50fe25a80b92d73ee824a10739dd0abf3e4c0882",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/art/hero-h012.svg",
+      "sha256": "e5715d312e3053805229ae92dbf98fe8506d54ae4410c15729db001137622ada",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/assets/BattleView-BkB4uafU.js",
+      "sha256": "da83f12e80f220404bac5efd85c96d09bb6cac21b855ca15639777d63a8d8c2d",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/assets/BattleView-CUEaiFz3.css",
+      "sha256": "1a64616e805e09baa806d6fa9553828b3708b028e67c5013498b9a76e751b3ac",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/assets/index-CYsg_X8v.css",
+      "sha256": "36a7057f2774f30d4ba04a36e3e660853a72f36f0e257f0dff8c4315f7c72f35",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/assets/index-D3WW8OUC.js",
+      "sha256": "d3a582c32fadf6355a1a951e5eeeb1554ec835d92ec464d55dacceab78ce16d1",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/assets/mountBattle-CMymwagV.js",
+      "sha256": "7ccfbc87016c933ec961729e9ffe45f02b6be0b74d249d778e25660ebc0732bf",
+      "passed": true
+    },
+    {
+      "path": "mobile-next/index.html",
+      "sha256": "5c2617d7cd58de577db1c94f91ddf6c46cdf03506632c28491d457f557aaa6b5",
+      "passed": true
+    }
+  ],
+  "browserSmoke": {
+    "mobile": "Existing H010 profile: switch to evolution, enter, use skill, pause, return, restore classic selection; lobby visible and zero canvases after exit",
+    "legacy": "Existing save start screen and lobby loaded",
+    "errors": [],
+    "evidenceType": "manual visible-browser smoke, not natural fresh settlement acceptance",
+    "setupCorrection": "Initial accessibility snapshot described toggle buttons as checkboxes; fresh DOM resolved correct button roles before action"
+  },
+  "action": "retain verified P4c runtime; evidence-only changes"
+}

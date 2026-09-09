@@ -1,0 +1,813 @@
+[
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "desktop",
+    "width": 1280,
+    "height": 720,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 123,
+    "initialHp": 762.9100000000001,
+    "time": 288.1833333333999,
+    "hp": 495.59310330031326,
+    "minHp": 495.59310330031326,
+    "minHpAt": 287.65000000006705,
+    "kills": 533,
+    "end": "victory",
+    "ledger": {
+      "incoming": 904.9792522460693,
+      "attackHealing": 164.3480424069861,
+      "recovery": 473.3143131393962,
+      "hits": 687,
+      "ignored": 1542,
+      "maxHit": 6.560000000000002
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 624.1054284060599,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 558.6064245828474,
+        "after": 726.4466245828473
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 596.2404584545441,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "desktop",
+    "width": 1280,
+    "height": 720,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 456,
+    "initialHp": 762.9100000000001,
+    "time": 287.5333333334005,
+    "hp": 547.5454397946248,
+    "minHp": 514.6433155309186,
+    "minHpAt": 254.86666666676163,
+    "kills": 521,
+    "end": "victory",
+    "ledger": {
+      "incoming": 851.889236552228,
+      "attackHealing": 177.229024310157,
+      "recovery": 459.29565203669574,
+      "hits": 751,
+      "ignored": 3328,
+      "maxHit": 6.559999999999945
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 639.2947479633043,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 559.6856682948804,
+        "after": 727.5258682948804
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 514.6433155309186,
+        "after": 682.4835155309186
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "desktop",
+    "width": 1280,
+    "height": 720,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 789,
+    "initialHp": 762.9100000000001,
+    "time": 287.10000000006755,
+    "hp": 542.3825511545579,
+    "minHp": 541.5867622836794,
+    "minHpAt": 286.3666666667349,
+    "kills": 541,
+    "end": "victory",
+    "ledger": {
+      "incoming": 819.163861754001,
+      "attackHealing": 182.1936506616414,
+      "recovery": 416.44276224691737,
+      "hits": 634,
+      "ignored": 1016,
+      "maxHit": 11.509999999999991
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 648.5078583514238,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 620.8170126283021,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 602.962366773357,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "desktop",
+    "width": 1280,
+    "height": 720,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 123,
+    "initialHp": 762.9100000000001,
+    "time": 341.61666666668464,
+    "hp": 747.4854225717207,
+    "minHp": 557.5179511565792,
+    "minHpAt": 164.7000000000232,
+    "kills": 626,
+    "end": "victory",
+    "ledger": {
+      "incoming": 827.5775774602914,
+      "attackHealing": 199.85861983909217,
+      "recovery": 612.2943801929199,
+      "hits": 691,
+      "ignored": 1614,
+      "maxHit": 11.17999999999995
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 624.1054284060599,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 558.6064245828474,
+        "after": 726.4466245828473
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 596.2404584545441,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 685.7361987432964,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 330.00000000002854,
+        "before": 701.10373420318,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "desktop",
+    "width": 1280,
+    "height": 720,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 456,
+    "initialHp": 762.9100000000001,
+    "time": 305.0666666667179,
+    "hp": 759.0450512035391,
+    "minHp": 514.6433155309186,
+    "minHpAt": 254.86666666676163,
+    "kills": 559,
+    "end": "victory",
+    "ledger": {
+      "incoming": 788.9271782332955,
+      "attackHealing": 186.89821551028695,
+      "recovery": 598.1640139265476,
+      "hits": 753,
+      "ignored": 3342,
+      "maxHit": 10.409999999999968
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 639.2947479633043,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 559.6856682948804,
+        "after": 727.5258682948804
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 514.6433155309186,
+        "after": 682.4835155309186
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 624.0416381101483,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "desktop",
+    "width": 1280,
+    "height": 720,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 789,
+    "initialHp": 762.9100000000001,
+    "time": 306.18333333338353,
+    "hp": 762.9100000000001,
+    "minHp": 602.962366773357,
+    "minHpAt": 254.900000000095,
+    "kills": 583,
+    "end": "victory",
+    "ledger": {
+      "incoming": 689.6363008645219,
+      "attackHealing": 197.7064889444042,
+      "recovery": 491.9298119201177,
+      "hits": 625,
+      "ignored": 991,
+      "maxHit": 11.509999999999991
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 648.5078583514238,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 620.8170126283021,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 602.962366773357,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 687.4229503267998,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "phone",
+    "width": 390,
+    "height": 844,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 123,
+    "initialHp": 762.9100000000001,
+    "time": 285.06666666673607,
+    "hp": 554.196886639823,
+    "minHp": 553.2889320327924,
+    "minHpAt": 284.6833333334031,
+    "kills": 542,
+    "end": "victory",
+    "ledger": {
+      "incoming": 751.2332200710146,
+      "attackHealing": 138.2898666798235,
+      "recovery": 404.230240031014,
+      "hits": 577,
+      "ignored": 1229,
+      "maxHit": 11.17999999999995
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 649.1899166213046,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 584.5363155333391,
+        "after": 752.3765155333391
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 640.2400433476815,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "phone",
+    "width": 390,
+    "height": 844,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 456,
+    "initialHp": 762.9100000000001,
+    "time": 286.2333333334017,
+    "hp": 496.71470629480615,
+    "minHp": 496.1342662896256,
+    "minHpAt": 285.500000000069,
+    "kills": 497,
+    "end": "victory",
+    "ledger": {
+      "incoming": 906.1211248183796,
+      "attackHealing": 175.6791868709803,
+      "recovery": 464.2466442422054,
+      "hits": 786,
+      "ignored": 3781,
+      "maxHit": 6.560000000000002
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 634.3437557577947,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 558.5010239345104,
+        "after": 726.3412239345104
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 507.4405759590979,
+        "after": 675.2807759590979
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "phone",
+    "width": 390,
+    "height": 844,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 789,
+    "initialHp": 762.9100000000001,
+    "time": 286.7833333334012,
+    "hp": 532.7602360007346,
+    "minHp": 532.6785136431733,
+    "minHpAt": 286.600000000068,
+    "kills": 547,
+    "end": "victory",
+    "ledger": {
+      "incoming": 871.0886229952848,
+      "attackHealing": 174.46407810954577,
+      "recovery": 466.4747808864736,
+      "hits": 682,
+      "ignored": 1816,
+      "maxHit": 9.032799999999952
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 632.1156191135265,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 561.1206410467761,
+        "after": 728.9608410467761
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 589.559834344329,
+        "after": 757.400034344329
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "phone",
+    "width": 390,
+    "height": 844,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 123,
+    "initialHp": 762.9100000000001,
+    "time": 306.016666666717,
+    "hp": 732.6588347621052,
+    "minHp": 584.5363155333391,
+    "minHpAt": 164.81666666668997,
+    "kills": 578,
+    "end": "victory",
+    "ledger": {
+      "incoming": 713.5377027666054,
+      "attackHealing": 153.11983401886937,
+      "recovery": 530.1667035098412,
+      "hits": 579,
+      "ignored": 1280,
+      "maxHit": 11.509999999999991
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 649.1899166213046,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 584.5363155333391,
+        "after": 752.3765155333391
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 640.2400433476815,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 636.9735365211728,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "phone",
+    "width": 390,
+    "height": 844,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 456,
+    "initialHp": 762.9100000000001,
+    "time": 300.6333333333886,
+    "hp": 743.3706570067634,
+    "minHp": 507.4405759590979,
+    "minHpAt": 254.78333333342823,
+    "kills": 557,
+    "end": "victory",
+    "ledger": {
+      "incoming": 854.0979413924757,
+      "attackHealing": 202.47175415703362,
+      "recovery": 632.0868442422054,
+      "hits": 811,
+      "ignored": 3949,
+      "maxHit": 11.17999999999995
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 634.3437557577947,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 558.5010239345104,
+        "after": 726.3412239345104
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 507.4405759590979,
+        "after": 675.2807759590979
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 575.3662425145018,
+        "after": 743.2064425145018
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "phone",
+    "width": 390,
+    "height": 844,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 789,
+    "initialHp": 762.9100000000001,
+    "time": 317.2000000000402,
+    "hp": 702.9507323456188,
+    "minHp": 560.5795428720113,
+    "minHpAt": 164.23333333335617,
+    "kills": 600,
+    "end": "victory",
+    "ledger": {
+      "incoming": 803.489698781428,
+      "attackHealing": 196.46234457026833,
+      "recovery": 547.0680865567784,
+      "hits": 688,
+      "ignored": 1785,
+      "maxHit": 11.509999999999991
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 632.1156191135265,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 561.1206410467761,
+        "after": 728.9608410467761
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 589.559834344329,
+        "after": 757.400034344329
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 682.3166943296952,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "narrow",
+    "width": 320,
+    "height": 844,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 123,
+    "initialHp": 762.9100000000001,
+    "time": 284.3666666667367,
+    "hp": 565.0285162297356,
+    "minHp": 564.6539162446679,
+    "minHpAt": 283.9500000000704,
+    "kills": 537,
+    "end": "victory",
+    "ledger": {
+      "incoming": 740.4714137145284,
+      "attackHealing": 138.3596899132499,
+      "recovery": 404.230240031014,
+      "hits": 580,
+      "ignored": 1231,
+      "maxHit": 9.032799999999952
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 649.1899166213046,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 584.5363155333391,
+        "after": 752.3765155333391
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 640.2400433476815,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "narrow",
+    "width": 320,
+    "height": 844,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 456,
+    "initialHp": 762.9100000000001,
+    "time": 284.9500000000695,
+    "hp": 486.8444298179836,
+    "minHp": 484.9167478302124,
+    "minHpAt": 283.86666666673716,
+    "kills": 519,
+    "end": "victory",
+    "ledger": {
+      "incoming": 926.0636911059764,
+      "attackHealing": 185.75147668175566,
+      "recovery": 464.2466442422054,
+      "hits": 787,
+      "ignored": 3800,
+      "maxHit": 9.032799999999952
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 634.3437557577947,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 558.5010239345104,
+        "after": 726.3412239345104
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 507.4405759590979,
+        "after": 675.2807759590979
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "narrow",
+    "width": 320,
+    "height": 844,
+    "strategy": "boss-contact",
+    "choicePolicy": "first",
+    "seed": 789,
+    "initialHp": 762.9100000000001,
+    "time": 287.00000000006764,
+    "hp": 592.5662285935189,
+    "minHp": 560.5795428720113,
+    "minHpAt": 164.23333333335617,
+    "kills": 549,
+    "end": "victory",
+    "ledger": {
+      "incoming": 813.6765848839266,
+      "attackHealing": 176.8580325909718,
+      "recovery": 466.4747808864736,
+      "hits": 675,
+      "ignored": 1788,
+      "maxHit": 6.559999999999945
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 632.1156191135265,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 561.1206410467761,
+        "after": 728.9608410467761
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 589.559834344329,
+        "after": 757.400034344329
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "narrow",
+    "width": 320,
+    "height": 844,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 123,
+    "initialHp": 762.9100000000001,
+    "time": 315.583333333375,
+    "hp": 704.3687680095247,
+    "minHp": 584.5363155333391,
+    "minHpAt": 164.81666666668997,
+    "kills": 594,
+    "end": "victory",
+    "ledger": {
+      "incoming": 734.4148469688149,
+      "attackHealing": 159.36597509410342,
+      "recovery": 516.5076398842361,
+      "hits": 596,
+      "ignored": 1255,
+      "maxHit": 11.509999999999991
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 649.1899166213046,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 584.5363155333391,
+        "after": 752.3765155333391
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 640.2400433476815,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 650.6326001467779,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "narrow",
+    "width": 320,
+    "height": 844,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 456,
+    "initialHp": 762.9100000000001,
+    "time": 336.1666666666896,
+    "hp": 729.697114516584,
+    "minHp": 507.4405759590979,
+    "minHpAt": 254.78333333342823,
+    "kills": 617,
+    "end": "victory",
+    "ledger": {
+      "incoming": 1043.5997726673331,
+      "attackHealing": 229.6501143482684,
+      "recovery": 780.7367728356488,
+      "hits": 841,
+      "ignored": 3904,
+      "maxHit": 11.509999999999991
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 634.3437557577947,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 558.5010239345104,
+        "after": 726.3412239345104
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 507.4405759590979,
+        "after": 675.2807759590979
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 564.7287024195736,
+        "after": 732.5689024195735
+      },
+      {
+        "time": 330.00000000002854,
+        "before": 614.2600714065567,
+        "after": 762.9100000000001
+      }
+    ]
+  },
+  {
+    "evidence": "synthetic-direct-core",
+    "sha256": "c4903f476644792538691fef91d9d8da168c312d0b6aaadd21a637c4fb72c685",
+    "layout": "narrow",
+    "width": 320,
+    "height": 844,
+    "strategy": "boss-gap",
+    "choicePolicy": "first",
+    "seed": 789,
+    "initialHp": 762.9100000000001,
+    "time": 316.76666666670724,
+    "hp": 710.327988848473,
+    "minHp": 560.5795428720113,
+    "minHpAt": 164.23333333335617,
+    "kills": 600,
+    "end": "victory",
+    "ledger": {
+      "incoming": 788.9027185744097,
+      "attackHealing": 202.20576398351238,
+      "recovery": 534.1149434393702,
+      "hits": 683,
+      "ignored": 1780,
+      "maxHit": 11.17999999999995
+    },
+    "recoveries": [
+      {
+        "time": 75.0166666666637,
+        "before": 632.1156191135265,
+        "after": 762.9100000000001
+      },
+      {
+        "time": 165.00000000002345,
+        "before": 561.1206410467761,
+        "after": 728.9608410467761
+      },
+      {
+        "time": 255.00000000009507,
+        "before": 589.559834344329,
+        "after": 757.400034344329
+      },
+      {
+        "time": 300.0000000000558,
+        "before": 695.2698374471034,
+        "after": 762.9100000000001
+      }
+    ]
+  }
+]

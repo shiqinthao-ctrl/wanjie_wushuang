@@ -1,0 +1,12 @@
+[
+  {
+    "check": "typecheck",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T13:55:35.6096875+08:00"
+  },
+  {
+    "check": "build",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T13:55:40.4901585+08:00"
+  }
+]

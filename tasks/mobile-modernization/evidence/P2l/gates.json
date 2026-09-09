@@ -1,0 +1,32 @@
+[
+  {
+    "name": "check",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:18:14.6720726+08:00",
+    "log": "final-gate-check.log"
+  },
+  {
+    "name": "smoke",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:18:15.0061602+08:00",
+    "log": "final-gate-smoke.log"
+  },
+  {
+    "name": "audit",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:18:15.3422030+08:00",
+    "log": "final-gate-audit.log"
+  },
+  {
+    "name": "context",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:18:15.6023280+08:00",
+    "log": "final-gate-context.log"
+  },
+  {
+    "name": "archive:verify",
+    "exitCode": 0,
+    "checkedAt": "2026-09-09T14:18:15.8725557+08:00",
+    "log": "final-gate-archive-verify.log"
+  }
+]
