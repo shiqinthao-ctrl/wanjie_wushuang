@@ -17,6 +17,9 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
   let effectsEnabled = true;
   class BattleScene extends Phaser.Scene {
     private hero?: Phaser.GameObjects.Image;
+    private ground?: Phaser.GameObjects.Image;
+    private boundary?: Phaser.GameObjects.Graphics;
+    private viewSize = { width: 0, height: 0, worldWidth: 0, worldHeight: 0 };
     private crystals?: Phaser.GameObjects.Graphics;
     private combatGraphics?: Phaser.GameObjects.Graphics;
     private mapView?: MapView;
@@ -33,7 +36,8 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       if (removed) return;
       core.start(this.scale.width, this.scale.height);
       const { world, player } = core.renderState();
-      this.add.image(0, 0, 'ground').setOrigin(0).setDisplaySize(world.width, world.height);
+      this.ground = this.add.image(0, 0, 'ground').setOrigin(0);
+      this.boundary = this.add.graphics().setDepth(.1);
       this.mapView = new MapView(this);
       this.bossView = new BossView(this);
       this.crystals = this.add.graphics().setDepth(3.2);
@@ -41,9 +45,23 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       effects = new CombatEffects(this.add.graphics().setDepth(.5));
       effects.setEnabled(effectsEnabled);
       this.hero = this.add.image(player.x, player.y, 'hero').setDisplaySize(66, 81).setOrigin(.5, .84).setDepth(3);
-      this.cameras.main.setBounds(0, 0, world.width, world.height);
-      this.cameras.main.centerOn(player.x, player.y);
+      this.positionCamera(world, player);
       ready(); publish(core.snapshot());
+    }
+    private positionCamera(world: { width: number; height: number }, player: { x: number; y: number }) {
+      const { width, height } = this.scale;
+      const previous = this.viewSize;
+      if (width !== previous.width || height !== previous.height || world.width !== previous.worldWidth || world.height !== previous.worldHeight) {
+        // Portrait padding belongs to the camera only; combat keeps its full viewport.
+        const portrait = width <= 600 && height > width;
+        const padX = portrait ? width / 2 : 0, padY = portrait ? height / 2 : 0;
+        this.cameras.main.setBounds(-padX, -padY, world.width + padX * 2, world.height + padY * 2);
+        this.ground?.setDisplaySize(world.width, world.height);
+        this.boundary?.clear().lineStyle(12, 0x496259, .55).strokeRect(0, 0, world.width, world.height)
+          .lineStyle(2, 0xaaa379, 1).strokeRect(0, 0, world.width, world.height);
+        this.viewSize = { width, height, worldWidth: world.width, worldHeight: world.height };
+      }
+      this.cameras.main.centerOn(player.x, player.y);
     }
     update(_now: number, delta: number) {
       if (removed || !this.hero) return;
@@ -122,8 +140,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         this.tweens.add({ targets: label, y: label.y - 28, alpha: 0, duration: 700, onComplete: () => label.destroy() });
       }
       this.hero.setPosition(player.x, player.y);
-      this.cameras.main.setBounds(0, 0, world.width, world.height);
-      this.cameras.main.centerOn(player.x, player.y);
+      this.positionCamera(world, player);
       // UI gets a small snapshot at 10Hz. Entity transforms remain in Phaser.
       budget += delta;
       if (budget >= 100) { budget = 0; publish(core.snapshot()); }

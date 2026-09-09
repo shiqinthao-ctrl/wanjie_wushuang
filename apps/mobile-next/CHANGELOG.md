@@ -3,6 +3,27 @@
 Versions are identified by annotated Git tags. These previews are independent
 of the legacy game version and are not full-content production releases.
 
+## mobile-next-p4a-20260909 - 2026-09-09
+
+### Fixed
+- Portrait phones keep the hero centered at world edges, clear of the HUD and
+  touch controls. A visible boundary distinguishes the arena from camera padding.
+- Camera bounds and ground sizing update when the viewport/world changes;
+  desktop and landscape retain their existing camera clamp.
+- Natural camera regression tests retain screenshots, world-corner geometry,
+  multitouch/cancellation, resize, pause/exit and remount evidence.
+
+### Verification and scope
+- 946 rules and 17 distinct related browser cases pass at their latest attempt.
+  All 35 browser recordings, including three failed attempts, are preserved.
+- No core rules, balance, saves, dependencies or legacy-source changes.
+- Physical phones, short/landscape HUD layout, performance/endurance, PWA and
+  the earlier three fresh HP-death target failures remain open.
+- Local release prepared; GitHub/Render synchronization depends on restoring
+  the external HTTPS connection. See P4a-EVIDENCE.md for delivery status.
+
+Evidence: `../../tasks/mobile-modernization/P4a-EVIDENCE.md`.
+
 ## mobile-next-p2k-20260908 - 2026-09-08
 
 ### Fixed

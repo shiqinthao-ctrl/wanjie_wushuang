@@ -143,3 +143,30 @@ The full gameplay suite was not rerun for this packaging-only update. Physical
 phones, performance/endurance, audio/full parity and PWA are not accepted by
 this preview deployment. Phone HUD/control occlusion remains a follow-up.
 The prior deployment's rollback action was observed but not executed.
+
+## P4a update attempt - 2026-09-09
+
+The next local preview is `mobile-next-p4a-20260909`, a presentation-only
+portrait edge-camera fix. Packaging/build settings remain those above.
+The user has already authorized this GitHub and existing-service update.
+
+Local rules (946), related browser cases (17 latest), five root gates,
+49 legacy hashes and app types/build pass. See P4a-EVIDENCE.md for failed
+attempt preservation and recordings. Physical-device and full-gameplay
+acceptance are still separate.
+
+Remote delivery is blocked by network access: the selected browser returns
+ERR_QUIC_PROTOCOL_ERROR / ERR_CONNECTION_CLOSED for the dashboard. GitHub
+Git and CLI calls return TLS handshake failure / EOF; independent HTTPS checks
+also fail. No deploy was triggered and no service/network/security settings
+were changed. Last known live remains the Sep 8 deployment recorded above;
+it cannot be freshly verified while the external connection is unavailable.
+
+Resume by pushing the local branch and annotated P4a tag, uploading the assets
+under releases/mobile-next-p4a-20260909, and using Clear build cache & deploy
+for the exact tagged source. Build from that source, run local and HTTPS
+package verification, then check natural startup/pause/exit and legacy root.
+Record the new deployment ID and full commit only after verified Live.
+The preferred P4a rollback is `dep-dag058on74is73bukk40` / `75e139b`, which
+preserves the allowlisted mobile preview and legacy entry. Do not reset Git
+or delete saves. The rollback action has not been executed for this slice.

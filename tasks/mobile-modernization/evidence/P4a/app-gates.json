@@ -1,0 +1,25 @@
+[
+  {
+    "command": [
+      "npm.cmd",
+      "--prefix",
+      "apps/mobile-next",
+      "test"
+    ],
+    "exitCode": 0,
+    "output": "\n> @wanjie/mobile-next@0.1.0 test\n> vitest run\n\n\n RUN  v5.0.0 E:/wanjie_wushuang/apps/mobile-next\n\n\n Test Files  24 passed (24)\n      Tests  946 passed (946)\n   Start at  10:43:00\n   Duration  1.18s (transform 69%, import 15%, tests 14%, worker 2%)\n\n  Transform  transforming modules took 5.09s \u00b7 69% of tracked time, re-done on every run\n             persist transforms across runs with fsModuleCache: true\n             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns\n\n",
+    "at": "2026-09-09T02:43:02.146740+00:00"
+  },
+  {
+    "command": [
+      "npm.cmd",
+      "--prefix",
+      "apps/mobile-next",
+      "run",
+      "build"
+    ],
+    "exitCode": 0,
+    "output": "\n> @wanjie/mobile-next@0.1.0 build\n> npm run typecheck && vite build\n\n\n> @wanjie/mobile-next@0.1.0 typecheck\n> vue-tsc --noEmit\n\nvite v8.2.2 building client environment for production...\ntransforming...\n\u2713 71 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                          0.57 kB \u2502 gzip:   0.38 kB\ndist/assets/BattleView-DADU5nP1.css      1.11 kB \u2502 gzip:   0.50 kB\ndist/assets/index-CYsg_X8v.css          15.78 kB \u2502 gzip:   4.16 kB\ndist/assets/BattleView-Dvj6p4zH.js      49.79 kB \u2502 gzip:  19.55 kB\ndist/assets/index-sbhACibA.js          115.55 kB \u2502 gzip:  44.21 kB\ndist/assets/mountBattle-2ZAUAj1C.js  1,429.70 kB \u2502 gzip: 377.35 kB\n\n\u2713 built in 658ms\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n",
+    "at": "2026-09-09T02:43:06.988194+00:00"
+  }
+]

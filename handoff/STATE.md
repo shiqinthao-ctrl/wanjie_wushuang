@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-Published P2k/G3 preview to the authorized WJWS Render service. Source 75e139b, deployment dep-dag058on74is73bukk40 is Live. Mobile: https://wjws.onrender.com/mobile-next/; legacy root preserved. Clean-cache redeploy resolved old repository-file retention. Auto-deploy is off.
+P4a local portrait camera slice: hero stays centered at map edges, with a visible world boundary. Local tag mobile-next-p4a-20260909. GitHub/Render delivery is blocked by external HTTPS handshake/EOF failures. Last recorded live runtime 75e139b / dep-dag058on74is73bukk40 (Sep 8), not reverified this turn.
 
 ## Changed files
-TASK, handoff, .node-version, scripts/build-render-site.mjs, scripts/verify-render-site.mjs and tasks/mobile-modernization/RENDER-DEPLOYMENT.md. Public package is allowlisted; no gameplay, dependency or legacy-source changes. Runtime tag: mobile-next-render-20260908 at 75e139b; later docs commit records acceptance only.
+mountBattle.ts, camera tests/vision fixture, P4a Playwright config, Render milestone, changelog, TASK/handoff and P4a evidence/release/packaging documents. Camera padding only; no GameCore, balance, save, dependency or legacy-source changes.
 
 ## Tests
-Deployment: 5 root gates, 49/49 baseline hashes, types/build and local/HTTPS package verification pass (51 files). Local/live desktop and phone-layout browser checks cover selection, natural upgrades/evolution, pause/continue/exit, save/reload and legacy startup; error/warn logs empty. Prior P2k: 946 rules, 42 related browser cases pass; latest 54 cases = 51 pass/3 fresh HP-death failures. Recordings preserved.
+P4a: 946 rules, 17 latest related browser cases, 5 root gates, 49/49 hashes and types/build pass. Four real corners in 2 phone layouts; touch/cancel/resize and lifecycle in 3 layouts. 35 recordings = 32 pass attempts / 3 failures; all raw videos retained and fully decoded. 12-second comparison visually checked. No new live acceptance.
 
 ## Unresolved risk
-Fresh HP-death gate remains open: three contact runs won; synthetic diagnostics do not replace natural acceptance. Full gameplay suite was not rerun for deployment. Physical phones, balance, performance/endurance unverified. HUD/control occlusion, first-stage-only content, audio/full parity/PWA and Phaser chunk warning remain. Rollback procedure recorded, not executed.
+Remote synchronization/deployment incomplete; no service settings changed. P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, short/landscape HUD usability, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. Camera acceptance is browser emulation only.
 
 ## Recommended next task
-Define one narrow phone camera/control-occlusion slice with natural input evidence; keep P2j HP-death tracked separately. See P2k-EVIDENCE.md and RENDER-DEPLOYMENT.md. GitHub branch codex/mobile-web-modernization. Recordings: release mobile-next-p2k-20260908; local viewer port 4191. Future deployment requires the same package/HTTPS checks and explicit verified commit.
+Resume authorized GitHub branch/tag/release sync, then clean-cache deploy the exact P4a tag to WJWS and verify all 51 HTTPS hashes/paths plus both entries in browser. After delivery, define short portrait HUD/control spacing as one slice. See P4a-EVIDENCE.md and RENDER-DEPLOYMENT.md; keep natural HP-death tracked separately.
 
 ## After each task
 Replace only these fields:

@@ -1,0 +1,258 @@
+{
+  "recordings": [
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-02647-est-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 3092001,
+      "sha256": "2606d0533f370fc57e606e3ad210df286807f360cba03e382fe826f1a72d939a",
+      "duration": 36.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-02647-est-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2813208,
+      "sha256": "f13b65bae033a8861dc95baee6516c0b37ba902c44cfd0524a6f8550a6147456",
+      "duration": 35.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-68e42-est-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 3139864,
+      "sha256": "367359ed48107ef6e7afe174f8cf9cd4fb66fa6cfa2af29a2b7839ec34dde619",
+      "duration": 35.4,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-68e42-est-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2809633,
+      "sha256": "184f0d95dd9c5f907d9d2e1c0be07d382e979f10b3c226e75318382e6ab01a2a",
+      "duration": 35.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-ef405-ast-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 3333620,
+      "sha256": "a22d23a41a019a086aaca589c8b242aeedb569cc53e48a1bd3331b2d4ba3ad3d",
+      "duration": 36.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-ef405-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2904660,
+      "sha256": "965e1331903974ccc9ef3472202a4d2cfa8f60c1e59b15c6994022dbd6ab2b22",
+      "duration": 34.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 3082402,
+      "sha256": "b47e68cc6898f807bd318574d6aaad028e7e8c07dedbee6183ee7255ba4eb127",
+      "duration": 35.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 3002756,
+      "sha256": "48e81584d086c9bc5b123c6208d228898f849ce0eb0da18075df26a2c53c4b20",
+      "duration": 35.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-02647-est-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 2832288,
+      "sha256": "22e4bd8083af9d4ec963f641c5227dbb0279a3904d75a64d8122dec878d30115",
+      "duration": 35.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-02647-est-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2733939,
+      "sha256": "ea483aa396f1c9ad1a121c18732f487389fa12b25b2fa3bd55572b146880058b",
+      "duration": 36.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-68e42-est-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 2595069,
+      "sha256": "23bc5707375cad13f879663d6aa5ec75aa7e497a1670d49e5b321564ba36035d",
+      "duration": 35.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-68e42-est-edge-with-natural-touch-phone/video.webm",
+      "bytes": 3078525,
+      "sha256": "e3b19aa76d5d2928145ad43c72eb92725d7ffdd3ca9549491b41b8a18e28f012",
+      "duration": 36.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-ef405-ast-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 2886725,
+      "sha256": "b8f3de68b74cee0ea3216061b2bb18af89262de99836d41c3968315d05451b38",
+      "duration": 34.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-ef405-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2863388,
+      "sha256": "a690b8e45f0e414b8dc72f43f5f7892c352e847263ceacecf5389d5683ed58b8",
+      "duration": 35.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 2726822,
+      "sha256": "c7b0660cfbf2dffbb5b603b97f1abf993f2119ccfb6eb56096effcd0578ee2d7",
+      "duration": 35.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2829055,
+      "sha256": "f397e51d395909214d98ac84c5ca0b8054cf831902d7b9a86f962134b5d2d77d",
+      "duration": 35.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-02647-est-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 2535518,
+      "sha256": "d151cc78c210595cdc632131469178043f5d73693acd6de9d923d0b34af48894",
+      "duration": 35.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-02647-est-edge-with-natural-touch-phone/video.webm",
+      "bytes": 3097264,
+      "sha256": "20ae5032fb3ae1c25f90e5c809d285023bfa32a724ef4e4ff8b9972b931dd876",
+      "duration": 35.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-68e42-est-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 2871559,
+      "sha256": "d5411e7027e10589c9864681821c372a8440223ff2366ae619624e1f97c4f7f7",
+      "duration": 35.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-68e42-est-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2602650,
+      "sha256": "69da48c9e90b2f468f62bdcdae4392f1b1f2bc53079a58ec1762378409282f22",
+      "duration": 35.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-ef405-ast-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 2918248,
+      "sha256": "4274aa7f8e6b83c064dcbf8dbb96e8060a061a2bd989cdbd647b44bbb84b4623",
+      "duration": 35.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-ef405-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 3737770,
+      "sha256": "ebf80552c54ad1b3be640517d53e83e45d602b066cf15c4e006794c99bb56a72",
+      "duration": 120.88,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-narrow/video.webm",
+      "bytes": 3048508,
+      "sha256": "1e0151a3aa3a10a4e91133d1d8675070fac8de522690a2c0474f4f865dda7895",
+      "duration": 37.92,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 2918651,
+      "sha256": "130443ac899e48abefbf5af6480a07ac6f040b4c06bec8cc79a019d2b42487c8",
+      "duration": 35.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-04/test-results/camera.native-portrait-her-ef405-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 3334145,
+      "sha256": "53fe5827a1d723ef030061f098f9b7848d7178ab3ac8b39815d3839e32d673bd",
+      "duration": 34.92,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "before-01/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-phone/video.webm",
+      "bytes": 3213262,
+      "sha256": "9027869a92509a51f0d804ee9e93ef624f51587ad4c7d5fbfe9097dd7c58c54a",
+      "duration": 36.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-desktop/video.webm",
+      "bytes": 178573,
+      "sha256": "c9d9583b9c333860d09914c3455dd72fe3bc810f39b6edb707cf8188ec7cb2b8",
+      "duration": 2.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-narrow/video.webm",
+      "bytes": 221585,
+      "sha256": "f96b9304901e6a0cdbdf2b1ffb0901e38a5fb2d9eb0aac9b378b7b4cea01377d",
+      "duration": 2.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-phone/video.webm",
+      "bytes": 254338,
+      "sha256": "66893af58d1db7294a7a662c3239a76cbe3c0d6b916db047e3d8a84bf3f632ef",
+      "duration": 3.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-desktop/video.webm",
+      "bytes": 927954,
+      "sha256": "bf8a2f4045cc50db71475c37f4094f8965b47a68bd1dad64e7c9fe09cc663658",
+      "duration": 16.72,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-narrow/video.webm",
+      "bytes": 944428,
+      "sha256": "ecedbcc5e0f830992813ea3728ed41b7f710c05e8010e500861047577852a94f",
+      "duration": 16.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-phone/video.webm",
+      "bytes": 1107726,
+      "sha256": "ba7d2401b6c2b085c0195bb22297dbc0519ec15d1020fd8ee8efb6163efb4f3a",
+      "duration": 17.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-desktop/video.webm",
+      "bytes": 64758,
+      "sha256": "dfa4fe1f9ee10570689383183c71714908ebfc4f76e4d1d959da1c4b216f7e89",
+      "duration": 1.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-narrow/video.webm",
+      "bytes": 82289,
+      "sha256": "bd3e8bb189e24ac46a7c18f295442f7cab2dbdea5398e68789b3b8fad634fddc",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "controls-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-phone/video.webm",
+      "bytes": 52200,
+      "sha256": "34a2e6bec7adf59ccbf0079f0be47128b4b1a9227540f31abd10fe1c8d8163af",
+      "duration": 1.32,
+      "fullDecodePassed": true
+    }
+  ],
+  "comparison": {
+    "file": "wanjie-p4a-before-after.mp4",
+    "sha256": "f70ebe6cd891f78566a94bc5b86f446dd329f52195eb3f2e436725affa7b16f4",
+    "duration": 12,
+    "sourceStartSeconds": 20,
+    "independentNaturalRuns": true,
+    "before": "before-01/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-phone/video.webm",
+    "after": "after-03/test-results/camera.native-portrait-her-f3ec2-ast-edge-with-natural-touch-phone/video.webm"
+  }
+}
