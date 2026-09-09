@@ -1,0 +1,23 @@
+[
+  {
+    "path": "delivery-live-01/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-medium/video.webm",
+    "bytes": 2047841,
+    "sha256": "7d8b2c7d51934b502891b023d6b44645044e04415aa93d5c57250772473c08e7",
+    "duration": 18.48,
+    "fullDecodePassed": true
+  },
+  {
+    "path": "delivery-live-01/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-short/video.webm",
+    "bytes": 2066685,
+    "sha256": "441e0dde851e8748aa15fa9d92f5f92c64f9c87f5990c80732cb6949024d7393",
+    "duration": 19.64,
+    "fullDecodePassed": true
+  },
+  {
+    "path": "delivery-live-01/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-wide/video.webm",
+    "bytes": 2546768,
+    "sha256": "5bf76f1724aeec5117f847db443c07a188dd286899ca378032fa269e373cd8a3",
+    "duration": 22.32,
+    "fullDecodePassed": true
+  }
+]

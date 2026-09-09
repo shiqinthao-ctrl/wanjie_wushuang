@@ -98,3 +98,39 @@ victory). The full gameplay suite was not rerun. Physical phones, performance,
 separate work. Next recommended slice: investigate fresh natural defeat/retry
 acceptance from preserved evidence, without changing balance to force defeat.
 This preview is not full P4 completion or a replacement for the legacy game.
+
+## Verified delivery - 2026-09-09
+
+Runtime commit: `649b0b54e16b0016de9ba88dd148516aefd0da8b`.
+The annotated tag and branch are pushed; main remains `30d05f2`. GitHub
+prerelease ID 385221073 has six matching remote sizes and SHA-256 digests:
+https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p4c-20260909
+
+Render Clear build cache & deploy completed as `dep-dagdr1142hec73brst60`,
+source 649b0b5, at 12:16:22 GMT+8 (18.1 seconds). Same branch, empty root,
+Node 24.18.0, build command and publish dist/render were confirmed. Auto-deploy
+Off was inspected and the editor cancelled without saving any change.
+The build reports zero dependency vulnerabilities and the existing chunk warning.
+
+Local HTTP and public HTTPS checks pass all 51 runtime hashes/sizes, both
+entry references, legacy baseline and four repository-only URL exclusions.
+The visible live 568 x 320 smoke uses the existing Flame Ninja / 6,000 gold
+save: entry, hero skill, pause, resume and exit pass. Legacy Continue opens
+its existing lobby; neither game tab reports console warnings/errors. The
+temporary viewport is reset. This visible check makes no timing claim.
+
+Three additional tests run against the actual public HTTPS site using the
+unchanged natural evolution test at 568 x 320, 640 x 360 and 844 x 390. All
+three pass: natural upgrade, two-finger skill/movement, cancellation, safe
+areas, rotation, 300 px height and remount. Their three original videos fully
+decode and are separate from the 57 local recordings in the immutable release.
+The first temporary live config had an ESM extension error before any test
+ran; renaming .ts to .mts resolved it. That setup failure is recorded in
+delivery.json. No application source changed during live verification.
+
+Final records under evidence/P4c: github.json, delivery.json, live-http-01.json,
+delivery-live-01/results.json, live-recordings.json and live screenshots.
+The release notes/ZIP/checksums keep their preparation-time state; this final
+documentation-only follow-up records completed delivery without moving the
+runtime tag or triggering another deploy. P2k/full-suite/phone/performance/PWA
+limits above remain open. RENDER-DEPLOYMENT.md records rollback references.

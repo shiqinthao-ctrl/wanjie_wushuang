@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P4c landscape HUD/control slice locally verified at 568x320, 640x360 and 844x390, including safe areas, rotation and natural upgrades. GitHub/Render delivery pending. P4a/P4b tagged releases remain immutable; last verified live is 4c37125 / dep-dagd7tp42hec73bpec70, auto-deploy off.
+P4c landscape HUD/control slice delivered. GitHub tag mobile-next-p4c-20260909 has six verified release assets. Render 649b0b5 / dep-dagdr1142hec73brst60 is live with all 51 hashes and both entries verified. P4a/P4b tags remain immutable; auto-deploy off.
 
 ## Changed files
-battle-compact.css, P4c Playwright config/tests, Render milestone, changelog, TASK/handoff and P4c evidence/packaging documents. Runtime: 39 CSS lines and version label only. No Vue script/markup, GameCore, camera, balance, save, dependency or legacy-source changes.
+battle-compact.css, P4c Playwright config/tests, Render milestone, changelog, TASK/handoff and P4c evidence/packaging documents. Final follow-up records GitHub hashes, Render delivery, three live tests and screenshots. Runtime: 39 CSS lines and version label only; no core, camera, save, dependency or legacy changes.
 
 ## Tests
-946 rules, 45 latest related browser cases, 5 ordered root gates, 49/49 hashes and app types/build pass. 57 executions = 50 pass / 7 failed; one extra setup failure. All 57 recordings fully decoded, with an uncut 18.24s natural test MP4. Synthetic Boss HUD is separate from natural play. Visible local landscape entry/pause/resume/exit passes, no console errors.
+946 rules, 45 latest local browser cases, 5 ordered root gates, 49/49 hashes and app types/build pass. 57 local recordings retained, including 7 failures; one setup failure. Three extra live natural upgrade/touch/rotation cases pass, with 3 decoded recordings. Six GitHub assets and 51 HTTPS runtime hashes match. Visible live entry/skill/pause/exit and legacy lobby pass, no console errors.
 
 ## Unresolved risk
-P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. HUD acceptance is browser emulation only. P4c remote delivery pending; prior rollback: 75e139b / dep-dag058on74is73bukk40.
+P2k's 3 fresh HP-death failures remain open (actual victory); full suite not rerun. Physical phones, performance/endurance, other stages/modes, audio/PWA and Phaser chunk warning remain. HUD acceptance is browser emulation only. Prior runtime: 4c37125 / dep-dagd7tp42hec73bpec70; older rollback: 75e139b / dep-dag058on74is73bukk40. No rollback executed.
 
 ## Recommended next task
-Finish P4c GitHub/Render delivery and record actual remote evidence. Then scope fresh natural defeat/retry investigation from preserved P2k evidence; replace TASK.md before implementation and do not alter balance to force defeat. See P4c-EVIDENCE.md and RENDER-DEPLOYMENT.md.
+Scope fresh natural defeat/retry investigation from preserved P2k evidence; replace TASK.md before implementation and do not alter balance to force defeat. Preserve P4c runtime tag/assets and auto-deploy off. See P4c-EVIDENCE.md and RENDER-DEPLOYMENT.md.
 
 ## After each task
 Replace only these fields:

@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-09-09T04:15:15.811320+00:00",
+  "passed": true,
+  "tag": "mobile-next-p4c-20260909",
+  "sourceCommit": "649b0b54e16b0016de9ba88dd148516aefd0da8b",
+  "releaseId": 385221073,
+  "draft": false,
+  "prerelease": true,
+  "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-p4c-20260909",
+  "assets": [
+    {
+      "name": "wanjie-p4c-render-package.zip",
+      "sha256": "af842b5cc7711e33392fa615f7f22bc8f6f0aefb677fdee20e0f8cde786eb815",
+      "bytes": 686481,
+      "remoteBytes": 686481,
+      "remoteDigest": "sha256:af842b5cc7711e33392fa615f7f22bc8f6f0aefb677fdee20e0f8cde786eb815",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4c-20260909/wanjie-p4c-render-package.zip",
+      "passed": true
+    },
+    {
+      "name": "wanjie-p4c-test-recordings.zip",
+      "sha256": "d8b799ea0038d06209896ba72f96094af01476c0943f892012e3d950c8385b3e",
+      "bytes": 67616305,
+      "remoteBytes": 67616305,
+      "remoteDigest": "sha256:d8b799ea0038d06209896ba72f96094af01476c0943f892012e3d950c8385b3e",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4c-20260909/wanjie-p4c-test-recordings.zip",
+      "passed": true
+    },
+    {
+      "name": "wanjie-p4c-natural-test.mp4",
+      "sha256": "bcf21cd187d9ee915acc7e1e5ecf75d2988ad936733336622aa59f0f34527c83",
+      "bytes": 1268097,
+      "remoteBytes": 1268097,
+      "remoteDigest": "sha256:bcf21cd187d9ee915acc7e1e5ecf75d2988ad936733336622aa59f0f34527c83",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4c-20260909/wanjie-p4c-natural-test.mp4",
+      "passed": true
+    },
+    {
+      "name": "comparison.png",
+      "sha256": "16f9f69f7d539fbc53b239630f82e3cb5b5fc1d52756592cd3dfbb3d07d9c1ce",
+      "bytes": 222279,
+      "remoteBytes": 222279,
+      "remoteDigest": "sha256:16f9f69f7d539fbc53b239630f82e3cb5b5fc1d52756592cd3dfbb3d07d9c1ce",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4c-20260909/comparison.png",
+      "passed": true
+    },
+    {
+      "name": "RELEASE-NOTES.md",
+      "sha256": "1b846040e74aea9f9d8368971bcdf4f7016c835cf4ee5f432e0871fb6b6064b6",
+      "bytes": 5785,
+      "remoteBytes": 5785,
+      "remoteDigest": "sha256:1b846040e74aea9f9d8368971bcdf4f7016c835cf4ee5f432e0871fb6b6064b6",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4c-20260909/RELEASE-NOTES.md",
+      "passed": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "sha256": "9d3c1e2b82de8aa73f81f7f5eaca2370835f1575c6ee3ebbdfd0d9a0caa9e017",
+      "bytes": 456,
+      "remoteBytes": 456,
+      "remoteDigest": "sha256:9d3c1e2b82de8aa73f81f7f5eaca2370835f1575c6ee3ebbdfd0d9a0caa9e017",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-p4c-20260909/SHA256SUMS.txt",
+      "passed": true
+    }
+  ]
+}

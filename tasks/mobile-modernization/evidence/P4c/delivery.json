@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-09-09T04:22:00.914682+00:00",
+  "runtimeCommit": "649b0b54e16b0016de9ba88dd148516aefd0da8b",
+  "tag": "mobile-next-p4c-20260909",
+  "releaseId": 385221073,
+  "githubAssetsVerified": 6,
+  "render": {
+    "serviceId": "srv-d9v8cm1t0dsc73ch79k0",
+    "deploymentId": "dep-dagdr1142hec73brst60",
+    "startedAt": "2026-09-09T12:16:04+08:00",
+    "liveAt": "2026-09-09T12:16:22+08:00",
+    "durationSeconds": 18.1,
+    "cacheCleared": true,
+    "autoDeploy": "Off",
+    "branch": "codex/mobile-web-modernization",
+    "node": "24.18.0",
+    "buildCommand": "npm --prefix apps/mobile-next ci --include=dev && npm --prefix apps/mobile-next run build && node scripts/build-render-site.mjs",
+    "publishDirectory": "dist/render",
+    "rootDirectory": "",
+    "vulnerabilitiesReportedByBuild": 0
+  },
+  "liveHttp": {
+    "fileHashes": 51,
+    "bothEntries": true,
+    "legacyBaseline": true,
+    "repositoryOnlyPathsBlocked": true,
+    "report": "live-http-01.json"
+  },
+  "visibleBrowser": {
+    "viewport": "568x320",
+    "existingHero": "Flame Ninja",
+    "existingGold": 6000,
+    "entrySkillPauseResumeExit": true,
+    "consoleWarningsErrors": [],
+    "viewportReset": true,
+    "legacyContinueLobby": true,
+    "note": "Visible-browser battle time advanced slowly during this check; the cause was not diagnosed. No timing/performance acceptance is inferred. Separate native Playwright live cases verified natural battle/upgrade flow."
+  },
+  "liveAutomation": {
+    "report": "delivery-live-01/results.json",
+    "passed": 3,
+    "failed": 0,
+    "sizes": [
+      "568x320",
+      "640x360",
+      "844x390"
+    ],
+    "naturalUpgradeTouchSafeAreaRotationRemount": true,
+    "recordings": 3,
+    "configSetupFailure": "First temporary .ts config was outside the ESM package and raised SyntaxError: Cannot use import.meta outside a module. Renamed to .mts; no tests ran on that first invocation."
+  },
+  "scope": {
+    "fullGameplaySuiteRerun": false,
+    "freshHpDeathTargetsStillOpen": 3,
+    "physicalPhones": false,
+    "endurancePerformance": false,
+    "pwa": false
+  },
+  "rollback": {
+    "previousRuntime": "4c371250af4822575c230bf47063e35510b4a168",
+    "previousDeployment": "dep-dagd7tp42hec73bpec70",
+    "olderKnownRollback": "dep-dag058on74is73bukk40",
+    "executed": false
+  }
+}

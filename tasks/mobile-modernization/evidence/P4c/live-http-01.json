@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-09T04:16:56.098435+00:00",
+  "command": [
+    "node",
+    "scripts/verify-render-site.mjs",
+    "https://wjws.onrender.com"
+  ],
+  "exitCode": 0,
+  "output": "Render HTTP verification passed: 51 file hashes, both entries, legacy baseline, public allowlist; source 649b0b54e16b0016de9ba88dd148516aefd0da8b\n"
+}

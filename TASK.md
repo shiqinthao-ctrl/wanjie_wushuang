@@ -1,6 +1,6 @@
 # TASK.md - P4c landscape battle layout
 
-Status: locally verified; GitHub/Render delivery pending, 2026-09-09.
+Status: completed and deployed; final evidence recorded, 2026-09-09.
 
 ## Goal
 Keep landscape battle information, the central hero and both touch control

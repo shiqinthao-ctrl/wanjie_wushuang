@@ -233,3 +233,45 @@ Preferred rollback remains `dep-dag058on74is73bukk40` / `75e139b` with its
 allowlisted mobile and legacy package. No rollback was executed. Keep saves,
 both runtime tags and auto-deploy Off. The final documentation-only commit
 records this deployment without changing the running 4c37125 build.
+
+## P4c verified delivery - 2026-09-09
+
+The landscape HUD slice is live at the isolated mobile path. Annotated tag
+`mobile-next-p4c-20260909` points to `649b0b54e16b0016de9ba88dd148516aefd0da8b`.
+The branch and tag are pushed; main remains 30d05f2 and previous tags are
+unchanged. GitHub prerelease 385221073 contains six verified assets (remote
+sizes/SHA-256 match); see evidence/P4c/github.json and P4c-EVIDENCE.md.
+
+The existing service settings were rechecked: codex/mobile-web-modernization,
+empty root, Node 24.18.0, unchanged build command, publish dist/render and
+Auto-Deploy Off. The Off option was inspected, then the editor cancelled.
+Manual **Clear build cache & deploy** produced:
+
+- Deployment: `dep-dagdr1142hec73brst60`
+- Source: `649b0b54e16b0016de9ba88dd148516aefd0da8b`
+- Started: 2026-09-09 12:16:04 GMT+8; duration 18.1 seconds
+- Live log: 12:16:22 GMT+8; dashboard Deploy succeeded / Live
+- Build cache cleared; zero dependency vulnerabilities; existing chunk warning
+
+Local HTTP and public HTTPS verification pass every one of the 51 runtime
+hashes/sizes, entry references, legacy baseline and repository-only path
+exclusions. All 52 public files are the allowlisted runtime plus version.json.
+Visible live landscape entry, skill, pause/resume/exit and legacy Continue
+to lobby pass without game console warnings/errors. Viewport override reset.
+Three additional native Playwright cases against the live URL pass natural
+upgrade/touch/safe-area/rotation/remount at all three landscape sizes; their
+recordings are separate from the 57 original local recordings. The temporary
+live config's initial ESM loading error is preserved in delivery.json; it
+occurred before test execution and required no application change.
+
+P4c has 946 passing rules and 45 latest local related browser cases. P2k's
+three natural fresh HP-death failures remain open; full gameplay, physical
+phones, performance/endurance, other content and PWA are separate gates.
+No full match or real-phone acceptance is claimed for this deployment.
+
+Immediate previous runtime: `4c371250af4822575c230bf47063e35510b4a168` /
+`dep-dagd7tp42hec73bpec70`. Older known rollback: `75e139b8d7aa50198471fb4aab3b92d027c97bd5` /
+`dep-dag058on74is73bukk40`. Use the selected previous deployment's Render
+rollback action to recover its complete package; do not reset Git or saves.
+Rollback has not been executed. Keep auto-deploy Off and immutable runtime
+tags/assets; the final evidence commit does not replace the running build.

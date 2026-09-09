@@ -1,0 +1,12 @@
+import base from '../../../apps/mobile-next/playwright.p4c.config';
+import { resolve } from 'node:path';
+
+const output = resolve(import.meta.dirname, '../evidence/P4c/delivery-live-01');
+export default {
+  ...base,
+  testDir: resolve(import.meta.dirname, '../../../apps/mobile-next/tests'),
+  outputDir: resolve(output, 'test-results'),
+  reporter: [['list'], ['json', { outputFile: resolve(output, 'results.json') }]],
+  use: { ...base.use, baseURL: 'https://wjws.onrender.com/mobile-next/' },
+  webServer: undefined,
+};
