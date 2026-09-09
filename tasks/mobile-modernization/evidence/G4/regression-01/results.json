@@ -1,0 +1,2214 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.g4.config.ts",
+      "tests/evolution.native.spec.ts",
+      "tests/storage.native.spec.ts",
+      "tests/settlement.native.spec.ts",
+      "tests/lifecycle.spec.ts",
+      "tests/camera-controls.native.spec.ts"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.g4.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/regression-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/regression-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/regression-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/G4/regression-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": {
+      "command": "npm run preview -- --port 4189 --strictPort",
+      "url": "http://127.0.0.1:4189/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "camera-controls.native.spec.ts",
+      "file": "camera-controls.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "camera survives simultaneous touch, cancellation and viewport changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2089,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:06.304Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\camera-controls.native-cam-cfc9f-lation-and-viewport-changes-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ac8697b75d56c87d3e01-7986e08900805245b9ba",
+          "file": "camera-controls.native.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "camera survives simultaneous touch, cancellation and viewport changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2862,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:11.885Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\camera-controls.native-cam-cfc9f-lation-and-viewport-changes-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ac8697b75d56c87d3e01-63e68df2ba2961055568",
+          "file": "camera-controls.native.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "camera survives simultaneous touch, cancellation and viewport changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2258,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:26.654Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\camera-controls.native-cam-cfc9f-lation-and-viewport-changes-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ac8697b75d56c87d3e01-a4fd67417cbbf7cea1f9",
+          "file": "camera-controls.native.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "evolution.native.spec.ts",
+      "file": "evolution.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 751,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:06.374Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\evolution.native-synthetic-9aabd-s-once-and-fresh-run-resets-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-d92f5565592d4a305a98",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 585,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:07.486Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\evolution.native-synthetic-1c8ae-ions-never-overwrite-a-slot-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-1f829794c6b73b0b62fd",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 782,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:15.060Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\evolution.native-synthetic-9aabd-s-once-and-fresh-run-resets-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-300fe39c613964652850",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 929,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:15.921Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\evolution.native-synthetic-1c8ae-ions-never-overwrite-a-slot-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-923a5f3d978babadbd97",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 597,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:29.070Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\evolution.native-synthetic-9aabd-s-once-and-fresh-run-resets-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-b55e13ab941d526d5dbe",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 402,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:29.992Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\evolution.native-synthetic-1c8ae-ions-never-overwrite-a-slot-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-ce79bdc898d308841cbd",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lifecycle.spec.ts",
+      "file": "lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 16629,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:06.304Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-9f5198853befeecf0778",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 1203,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:23.116Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\lifecycle-surfaces-missing-assets-and-permits-a-clean-return-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-235935d274b71f37b609",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17275,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:15.951Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-df0090a4ab60b2021df2",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1533,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:33.494Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\lifecycle-surfaces-missing-assets-and-permits-a-clean-return-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-e969507f09622e0053e8",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15802,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:29.106Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-01b4ca96bbd454fda7fb",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 746,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:44.922Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\lifecycle-surfaces-missing-assets-and-permits-a-clean-return-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-58c1a4a668f3c759f4f9",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "settlement.native.spec.ts",
+      "file": "settlement.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 609,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:08.158Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-c5ca5--and-concurrent-connections-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-bb4efac289d22041693e",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 715,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:09.108Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-75703-eipt-rolls-back-and-retries-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-f67fc31a60a5e1b854f5",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:09.838Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-27d61-uest-rolls-back-and-retries-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c1c0ca417fe48df93ef8",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 607,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:10.801Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-b8bb2--overwriting-a-later-writer-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1251ae83c8d3530930f2",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 493,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:11.423Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-ed893--without-rewards-or-receipt-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-79f02bf32b23635a2ddb",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 631,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:11.928Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-477c2-ds-share-one-revision-owner-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-d196d131dd3de0df0d0d",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 584,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:12.569Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-c1bf1-ps-abort-before-persistence-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-be9ec9f9bbb47c718ca0",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1027,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:13.166Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-e1252-run-retry-and-saved-rewards-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c90abe32eea08dc2ccf9",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1116,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:14.205Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-952e4-not-activate-the-new-result-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6271d8e56032f72aa298",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:16.926Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-c5ca5--and-concurrent-connections-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-b89857a8f23919b441b4",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 772,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:18.051Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-75703-eipt-rolls-back-and-retries-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-dd1bb6e8398197e45444",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 869,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:18.834Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-27d61-uest-rolls-back-and-retries-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-05f97c876faab620c825",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 804,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:19.714Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-b8bb2--overwriting-a-later-writer-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-829bcddd27027898bad6",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:20.527Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-ed893--without-rewards-or-receipt-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-e3a5fc6e8b1e68e59ae0",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 852,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:21.341Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-477c2-ds-share-one-revision-owner-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1615aae089851b55e38b",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 946,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:22.205Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-c1bf1-ps-abort-before-persistence-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c094ff8c53ee3c3ba431",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1571,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:23.163Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-e1252-run-retry-and-saved-rewards-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-8f174ff992d1d412a79b",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1267,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:24.745Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-952e4-not-activate-the-new-result-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-12fea930c22a6d2d40d2",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 525,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:30.464Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-c5ca5--and-concurrent-connections-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6e771bb484726843fc0b",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 568,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:31.319Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-75703-eipt-rolls-back-and-retries-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-d3a9f4da4a5481cd7e21",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 480,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:31.903Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-27d61-uest-rolls-back-and-retries-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-513ca04ec15225b51521",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 468,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:32.394Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-b8bb2--overwriting-a-later-writer-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6c09c2dee100a49c2ccb",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 421,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:32.871Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-ed893--without-rewards-or-receipt-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-a608dadd2d580e53496e",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 601,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:33.302Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-477c2-ds-share-one-revision-owner-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-dd4cc8e039d43589bfa9",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 702,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:33.916Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-c1bf1-ps-abort-before-persistence-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6ac86dd8a404c3f235b2",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 808,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:34.636Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-e1252-run-retry-and-saved-rewards-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-83d21ec194e40e57af6b",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 898,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:35.456Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\settlement.native-syntheti-952e4-not-activate-the-new-result-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-f6de7968018f204f993d",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "storage.native.spec.ts",
+      "file": "storage.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 569,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:08.718Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-c87ae-nt-connections-and-rollback-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-43b0a0d32da078bfa467",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1203,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:09.375Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-desktop\\video-1.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-99e47867efcc10b6d2bd",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:10.591Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-5157e-ackup-and-independent-slots-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-81ee95dc541dcdf7cee8",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 904,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:25.020Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-c87ae-nt-connections-and-rollback-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-a7f7ffcd7bde38330e55",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 976,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:26.186Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-phone\\video.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-phone\\video-1.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-13a3742dc7e55bc6ab76",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 790,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:27.175Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-5157e-ackup-and-independent-slots-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-3747bbe9c69bc37b0b41",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 592,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:35.731Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-c87ae-nt-connections-and-rollback-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-85c50d8392eb15715102",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 599,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:36.550Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-narrow\\video.webm"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-1b4e0--two-tabs-apply-one-receipt-narrow\\video-1.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-9527b927aab9926e1ca8",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 334,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:35:37.160Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\regression-01\\test-results\\storage.native-synthetic-n-5157e-ackup-and-independent-slots-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-4b96fbe477474ba0f6ea",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-09T07:35:04.847Z",
+    "duration": 41159.284999999996,
+    "expected": 51,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

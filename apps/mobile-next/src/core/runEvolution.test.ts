@@ -22,11 +22,11 @@ describe('run evolution contract', () => {
     expect(run.pick(2, { A011: 5 }, 'route', 'nova')).toBe(false);
     expect(run.snapshot({}).routes).toEqual({ A011: 'volley' });
   });
-  it('counts distinct owned skills and reports all three mechanical bonds', () => {
+  it('counts distinct owned skills and reports every matching mechanical bond', () => {
     const run = new RunEvolution('H012');
     expect(run.snapshot({ A011: 5 }).bonds.filter(b => b.active)).toHaveLength(0);
     const view = run.snapshot({ A011: 1, A026: 1, A015: 1, A013: 1 });
-    expect(view.bonds.filter(b => b.active).map(b => b.id)).toEqual(['wildfire', 'stormhunt', 'shadowfire']);
+    expect(view.bonds.filter(b => b.active).map(b => b.id)).toEqual(['wildfire', 'stormhunt', 'shadowfire', 'galephantom']);
     expect(Object.isFrozen(view.routes)).toBe(true);
     expect(Object.isFrozen(view.bonds[0]!.tags)).toBe(true);
     expect(Reflect.set(view.bonds[0]!.tags, '0', '影')).toBe(false);

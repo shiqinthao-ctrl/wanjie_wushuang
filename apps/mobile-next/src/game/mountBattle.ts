@@ -93,6 +93,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         }
         if (evolution.formId === 'thunderlord') graphics.lineStyle(4, color, .9).lineBetween(x + 8, y - 75, x - 8, y - 47).lineBetween(x - 8, y - 47, x + 12, y - 47).lineBetween(x + 12, y - 47, x - 7, y - 24);
         if (evolution.formId === 'beastlord') for (const sign of [-1, 1]) graphics.fillStyle(color, .7).fillTriangle(x + sign * 14, y - 35, x + sign * 36, y - 64, x + sign * 29, y - 19);
+        if (evolution.formId === 'windwarden') for (const offset of [-22, 0, 22]) graphics.lineStyle(3, color, .85).lineBetween(x + offset - 8, y - 30, x + offset + 8, y - 65);
       }
       for (const field of fields) {
         const color = Number.parseInt(field.color.slice(1), 16);
@@ -107,6 +108,10 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       }
       for (const vortex of vortices) {
         for (let i = 0; i < 3; i++) graphics.lineStyle(4 - i, 0x82d6b7, .55).strokeCircle(vortex.x, vortex.y, vortex.r * (.3 + i * .22));
+        if (evolution && vortex.vx === 0 && vortex.vy === 0 && !vortex.follow) {
+          graphics.lineStyle(2, 0xa4edd5, .7).strokeCircle(vortex.x, vortex.y, vortex.r);
+          graphics.lineStyle(4, 0xa4edd5, .9).beginPath().arc(vortex.x, vortex.y, vortex.r + 5, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * Math.max(0, vortex.life / vortex.max)).strokePath();
+        }
       }
       for (const marker of [...meteors, ...bombs]) graphics.fillStyle(0xef7958, .2).fillCircle(marker.x, marker.y, marker.r).lineStyle(2, 0xffd5ab, .8).strokeCircle(marker.x, marker.y, marker.r);
       const frameTime = core.snapshot().time;

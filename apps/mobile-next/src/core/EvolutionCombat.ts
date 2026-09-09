@@ -20,6 +20,7 @@ export class EvolutionCombat {
     const s = this.sim, p = s.player, v = this.view, id = `${v.heroId}_BASIC`;
     if (!s.boss && !s.nearest()) return;
     switch (v.formId) {
+      case 'windwarden': this.fan('H012_BASIC', 3, p.atk * .65, v.rank === 2 ? 3 : 1); break;
       case 'frostlord': this.frost('G2_FROST_BASIC', p, v.rank === 2 ? 145 : 120, p.atk, 1.2); break;
       case 'thunderlord': this.lightning('G2_LIGHTNING_BASIC', v.rank === 2 ? 3 : 2, p.atk * .8, 1); break;
       case 'beastlord': this.fan('H012_BASIC', 2, p.atk * .8, 2); break;
@@ -49,7 +50,8 @@ export class EvolutionCombat {
     if (action === 'skill') {
       if (p.skillCd > 0) return false;
       p.skillCd = 6 * Math.max(.55, 1 - (s.context.gear.cdr || 0));
-      if (v.formId === 'frostlord') this.frostField('G2_FROST_E', v.rank === 2 ? 200 : 160, p.atk * .28, v.rank === 2 ? 5 : 3, true);
+      if (v.formId === 'windwarden') this.fixedVortex('G4_WIND_E', v.rank === 2 ? 160 : 120, p.atk * .35, v.rank === 2 ? 6 : 4, 180);
+      else if (v.formId === 'frostlord') this.frostField('G2_FROST_E', v.rank === 2 ? 200 : 160, p.atk * .28, v.rank === 2 ? 5 : 3, true);
       else if (v.formId === 'thunderlord') this.lightning('G2_LIGHTNING_E', v.rank === 2 ? 7 : 5, p.atk * 1.7, 1);
       else if (v.formId === 'beastlord') this.summon('H012_CLONE', v.rank === 2 ? 4 : 3, v.rank === 2 ? 8 : 6, true, p.atk * .8);
       else if (v.formId === 'bulwark') {
@@ -66,7 +68,8 @@ export class EvolutionCombat {
       if (p.ult < 100) return false;
       p.ult = 0;
       if (v.heroId === 'H012' || v.formId === 'legion') this.summon(`${v.heroId}_R_CLONE`, v.formId === 'beastlord' ? 6 : v.rank === 2 ? 5 : 4, 7, false, p.atk);
-      if (v.formId === 'frostlord') this.frost('G2_FROST_R', p, 300, p.atk * 6, 3);
+      if (v.formId === 'windwarden') this.fixedVortex('G4_WIND_R', 200, p.atk * .65, 6, 180);
+      else if (v.formId === 'frostlord') this.frost('G2_FROST_R', p, 300, p.atk * 6, 3);
       else if (v.formId === 'thunderlord') this.lightningArea('G2_LIGHTNING_R', p, 330, p.atk * 6);
       else if (v.formId === 'beastlord') s.ring(p, 180, 'H012_R_CLONE');
       else if (v.formId === 'void') this.vortex(id, 190, p.atk * .8, 6, true);
@@ -80,9 +83,28 @@ export class EvolutionCombat {
     if (this.journey.bond('shadowfire', s.state().skills)) s.field('H010_BOND', origin, 85, s.player.atk * .35, 3);
     if (this.view.formId === 'reaper' && this.view.rank === 2) this.fan('H012_DODGE', 3, s.player.atk, 2);
   }
-  private vortex(id: string, r: number, dmg: number, life: number, orbit: boolean) {
+  private vortex(id: string, r: number, dmg: number, life: number, orbit: boolean, position?: Point) {
     const s = this.sim, angle = s.heroAim();
-    s.vortices.push({ id, x: s.player.x, y: s.player.y, vx: Math.cos(angle) * 85, vy: Math.sin(angle) * 85, r, dmg, life, max: life, tick: 0, follow: orbit, color: '#82d6b7' }); cap(s.vortices, 10);
+    s.vortices.push({ id, ...(position || { x: s.player.x, y: s.player.y }), vx: position ? 0 : Math.cos(angle) * 85, vy: position ? 0 : Math.sin(angle) * 85, r, dmg, life, max: life, tick: 0, follow: orbit, color: position ? '#a4edd5' : '#82d6b7' }); cap(s.vortices, 10);
+  }
+  private nearestFrom(point: Point) {
+    const s = this.sim;
+    return [...s.enemies, ...(s.boss ? [s.boss] : [])].reduce<Enemy | NonNullable<CombatSimulation['boss']> | undefined>(
+      (nearest, candidate) => !nearest || distance(candidate, point) < distance(nearest, point) ? candidate : nearest, undefined);
+  }
+  private fixedVortex(id: string, radius: number, damage: number, life: number, reach: number) {
+    const s = this.sim, p = s.player, target = this.nearestFrom(p);
+    const angle = target ? Math.atan2(target.y - p.y, target.x - p.x) : s.heroAim();
+    const length = target ? Math.min(reach, distance(p, target)) : reach;
+    const point = { x: p.x + Math.cos(angle) * length, y: p.y + Math.sin(angle) * length };
+    clampPoint(point, s.world, 18); this.vortex(id, radius, damage, life, false, point);
+    s.ring(point, radius, id);
+  }
+  vortexPulse(vortex: Point & { dmg: number; life: number }): void {
+    if (vortex.life <= 0 || !this.journey.bond('galephantom', this.sim.state().skills)) return;
+    const target = this.nearestFrom(vortex);
+    if (!target || distance(vortex, target) > 300) return;
+    this.sim.projectile('G4_SHADOW_BOND', vortex, Math.atan2(target.y - vortex.y, target.x - vortex.x), 420, vortex.dmg * .75, 6, { pierce: 1, color: '#a4edd5' });
   }
   private summon(id: string, count: number, life: number, guard: boolean, dmg: number) {
     for (let i = 0; i < count; i++) {
@@ -134,7 +156,11 @@ export class EvolutionCombat {
     } else if (id === 'A011' && route) {
       const count = route === 'volley' ? 3 : 1;
       for (let i = 0; i < count; i++) s.projectile(id, p, s.heroAim() + (i - (count - 1) / 2) * .23, route === 'volley' ? 390 : 260, p.atk * .95 * (route === 'volley' ? .65 : 1.45), 9, { explode: (route === 'volley' ? 58 : 110) * m.range, split: passiveLevel(s.context, s.state(), 'P024') ? 1 : 0 });
-    } else if (id === 'A026') this.vortex(id, (m.evo ? 108 : 82) * m.range, p.atk * .20, (m.evo ? 6.5 : 4.5) * m.duration, route === 'orbit');
+    } else if (id === 'A026') {
+      const life = (m.evo ? 6.5 : 4.5) * m.duration;
+      if (route === 'ambush') this.fixedVortex(id, (m.evo ? 145 : 110) * m.range, p.atk * .16, life, 220);
+      else this.vortex(id, (m.evo ? 108 : 82) * m.range, p.atk * .20, life, route === 'orbit');
+    }
     else if (id === 'A015') this.fan(id, Math.min(7, 3 + Math.floor(passiveLevel(s.context, s.state(), 'P024') / 2)), p.atk * .7, 2 + Math.floor(m.lv / 2));
     else if (id === 'S001') this.summon(id, Math.min(6, 1 + m.count), 4.5 * m.duration, route === 'guard', p.atk * .65);
     else if (id === 'A013') {

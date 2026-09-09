@@ -9,6 +9,7 @@ const routeStyles: Record<RouteId, { style: string; tradeoff: string }> = {
   nova: { style: '爆炸破群 · 将敌人引到一起', tradeoff: '弹速较慢，远处快速移动的敌人更难命中。' },
   roaming: { style: '前方牵引 · 跟着风暴推进', tradeoff: '风暴离开身边，仍需处理近身威胁。' },
   orbit: { style: '环身防线 · 绕行近处敌群', tradeoff: '围绕自身运转，难以覆盖远处敌群。' },
+  ambush: { style: '前置伏阵 · 绕着风阵牵引敌群', tradeoff: '单次伤害降低，风阵留在原地；移动过远会脱离火力。' },
   hunter: { style: '随行游击 · 边移动边集火', tradeoff: '以影刃攻击目标，需要弹道命中。' },
   guard: { style: '定点守阵 · 围绕召唤点拉怪', tradeoff: '近卫留在原位，移动过远会脱离火力。' },
   glacier: { style: '驻留控场 · 将敌人引入寒域', tradeoff: '伤害分段生效，敌人离开寒域后不再受到领域伤害。' },
@@ -19,7 +20,7 @@ const routeStyles: Record<RouteId, { style: string; tradeoff: string }> = {
 
 export function routeAdvice(id: string | undefined) {
   const route = skillRoutes.find(route => route.id === id);
-  return route && { ...route, ...routeStyles[route.id], alternative: skillRoutes.find(other => other.skill === route.skill && other.id !== id)!.name };
+  return route && { ...route, ...routeStyles[route.id], alternative: skillRoutes.filter(other => other.skill === route.skill && other.id !== id).map(other => other.name).join(' / ') };
 }
 
 export function bondRequirements(tags: readonly string[], skills: SkillLevels) {

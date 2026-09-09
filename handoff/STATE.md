@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-P2l investigation delivered: mobile-next-p2l-20260909 / fe2220c, six GitHub release assets verified before/after publication. Three fresh attempts still win; actual settlement/reload/retry pass. No rules changed. Render retains verified P4c 649b0b5 / dep-dagdr1142hec73brst60; auto-deploy off.
+G4 locally verified: H012 windwarden, A026 ambush and galephantom bond. Ten forms, eleven routes, seven bonds. GitHub/Render delivery pending; tag mobile-next-g4-20260909. See G4-EVIDENCE.md.
 
 ## Changed files
-settlement.spec.ts observations and opt-in input strategy, pressure diagnostics, P2l recording config, packaging script, evidence/report, changelog and TASK/handoff. No runtime, fresh fixture, dependency or legacy changes. Raw failures and recordings remain in the evidence release.
+Evolution catalog/combat/math, route advice, form/vortex presentation, focused rules, natural fixture/config, packaging/evidence/changelog and Render milestone. No dependency, save schema, classic or legacy-source change.
 
 ## Tests
-946 rules; 54 browser executions: 50 pass / 4 failed targets, no retries/skips. All 12 natural actual outcomes pass persistence/retry. 45 synthetic simulations: 28 wins / 17 timeouts / 0 deaths. Five ordered root checks, 49 legacy hashes and app types/build pass. 54 originals and two full MP4s decoded. Six GitHub asset digests/sizes match. All 51 live hashes and both entries verified; zero live console errors.
+960 rules; 54/54 related browser executions, no retries/skips. Two complete natural victories/reload/retry and one narrow build; 51 related native cases. Five root gates, 49 legacy hashes and app types/build pass. 57 originals and two full MP4s decode. Remote checks pending.
 
 ## Unresolved risk
-Fresh HP-death still open: P2l adds 3 victories. Stationary phone timeout also wins at 350 seconds; retained as a failure. Imported deaths do not close the fresh gate. Full suite not rerun/green. Physical phones, performance/endurance, other content/modes, audio/PWA and Phaser chunk remain. Rollback: 4c37125 / dep-dagd7tp42hec73bpec70; older 75e139b / dep-dag058on74is73bukk40.
+P2l fresh HP-death and stationary phone timeout still open; no assertions weakened. Full suite not rerun. Physical phones, performance/endurance, remaining parity/audio/PWA and large Phaser chunk remain. G4 rollback: 649b0b5 / dep-dagdr1142hec73brst60; auto-deploy Off.
 
 ## Recommended next task
-Scope one cross-element evolution route for an existing starter, one skill branch and a matching bond in opt-in evolution journey. Replace TASK.md with exact rules and natural acceptance first. Carry fresh-death/phone-timeout gaps forward without weakening assertions. Preserve classic rules, P4c runtime/assets and auto-deploy off. See P2l-EVIDENCE.md.
+Scope one H001 cross-element form, one skill branch and one matching bond, with exact rules in TASK before implementation. Retain natural full-build acceptance and carry P2l gaps forward. Preserve classic/Schema30, immutable releases and auto-deploy Off.
 
 ## After each task
 Replace only these fields:

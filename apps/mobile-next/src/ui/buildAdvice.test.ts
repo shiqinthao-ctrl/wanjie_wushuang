@@ -4,6 +4,16 @@ import { RunEvolution } from '../core/RunEvolution';
 import { skillRoutes } from '../core/evolutionCatalog';
 
 describe('G3 build decisions', () => {
+  it('shows both forgone alternatives when a skill has three routes', () => {
+    expect(routeAdvice('ambush')?.alternative).toBe('游龙风暴 / 环身风暴');
+    expect(routeAdvice('orbit')?.alternative).toBe('游龙风暴 / 伏阵风暴');
+    expect(routeAdvice('roaming')?.alternative).toBe('环身风暴 / 伏阵风暴');
+  });
+  it('previews the new wind-shadow bond from an owned shadow skill', () => {
+    const skills = { S001: 1 }, run = new RunEvolution('H012');
+    expect(choiceAdvice({ kind: 'active', id: 'A026', label: '龙卷风' }, run.snapshot(skills), skills).bonds)
+      .toContainEqual({ name: '风影合袭', completes: true });
+  });
   it('names owned skills and missing candidates, ignoring zero levels', () => {
     const conditions = bondRequirements(['冰', '雷'], { G2_FROST: 0, A013: 2 });
     expect(conditions[0]).toMatchObject({ met: false, skills: ['寒霜环'] });

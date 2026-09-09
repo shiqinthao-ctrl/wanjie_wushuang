@@ -29,7 +29,8 @@ export class CombatEffects {
       const frost = event.source.startsWith('G2_FROST');
       const thunder = event.source === 'A013' || event.source.startsWith('G2_LIGHTNING');
       const summon = event.source === 'S001';
-      const color = frost ? 0x8de8ff : thunder ? 0xd9f48e : summon ? 0xc5b3ef : event.source === 'dodge' ? 0x70a9ff : 0xffae6e;
+      const wind = event.source.startsWith('G4_WIND') || event.source === 'A026';
+      const color = wind ? 0xa4edd5 : frost ? 0x8de8ff : thunder ? 0xd9f48e : summon ? 0xc5b3ef : event.source === 'dodge' ? 0x70a9ff : 0xffae6e;
       const radius = event.radius * (.45 + .55 * (1 - alpha));
       g.lineStyle(2, color, alpha).strokeCircle(event.x, event.y, radius);
       if (frost || thunder || summon) {

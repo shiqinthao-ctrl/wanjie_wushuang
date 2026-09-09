@@ -3,6 +3,28 @@
 Versions are identified by annotated Git tags. These previews are independent
 of the legacy game version and are not full-content production releases.
 
+## mobile-next-g4-20260909 - 2026-09-09
+
+### Added
+- H012 can evolve into Windwarden: three piercing shadow blades, a fixed
+  wind formation and a stronger awakened formation with shadow companions.
+- A026 gains Ambush, a third exclusive route with wider fixed coverage and
+  lower pulse damage. All three choices explain both forgone alternatives.
+- Galephantom combines owned wind and shadow skills: each live vortex pulse
+  can fire one piercing shadow blade at a nearby enemy or Boss.
+- Journey now offers ten forms, eleven skill routes and seven bonds. Classic
+  combat, saves, dependencies and the legacy entry retain their boundaries.
+
+### Verification
+- 960 rules and 54 related browser cases pass: three natural builds plus 51
+  native storage/settlement/lifecycle/control regressions, without retries.
+- Both full desktop/phone victories, awakening, saved rewards and reentry are
+  recorded. All 57 raw videos and two uncut normal-speed MP4s fully decode.
+- P2l fresh HP-death/phone timeout targets, physical phones, performance,
+  endurance, remaining parity and PWA remain open; this is a scoped preview.
+
+Evidence: `../../tasks/mobile-modernization/G4-EVIDENCE.md`.
+
 ## mobile-next-p2l-20260909 - 2026-09-09
 
 ### Investigation and evidence

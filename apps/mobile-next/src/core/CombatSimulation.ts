@@ -330,6 +330,7 @@ export class CombatSimulation {
         vortex.tick = .28; for (const enemy of [...this.enemies]) if (distance(enemy, vortex) <= vortex.r) this.hit(enemy, vortex.dmg, vortex.id, false, true);
         if (this.boss && distance(this.boss, vortex) <= vortex.r + this.boss.r) this.hitBoss(vortex.dmg, vortex.id, true);
         if (this.progression.journey?.bond('wildfire', this.state().skills)) this.explosion('H010_WILDFIRE', vortex, vortex.r, vortex.dmg * .55);
+        this.journeyCombat?.vortexPulse(vortex);
       }
       if (this.fused.F001 && vortex.tick < .05 && this.random() < .35) this.field('F001', vortex, 55, vortex.dmg * .55, 1.2);
       if (vortex.life <= 0) this.vortices.splice(i, 1);

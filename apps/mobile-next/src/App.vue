@@ -7,7 +7,7 @@ import type { SaveSlot } from './storage/SaveRepository';
 import { previewBlocker } from './storage/schema30';
 import SavePanel from './ui/SavePanel.vue';
 import './ui/saves.css';
-import { starters, starter, isStarter } from './core/evolutionCatalog';
+import { starters, starter, isStarter, heroForms } from './core/evolutionCatalog';
 import type { Journey } from './core/evolutionCatalog';
 import { evolutionBuild } from './core/RunEvolution';
 import { prepareHero } from './storage/prepareHero';
@@ -70,7 +70,7 @@ onBeforeUnmount(() => { disposed = true; repository.value?.close(); });
       </div>
       <div class="expedition"><span class="eyebrow">下一站 · ST001-01</span><h2>边境清剿</h2><p>在 06:00 前击败黄巾巨将并领取战利品。</p>
         <div class="journey-switch" aria-label="征途选择"><button :aria-pressed="journey === 'classic'" :disabled="busy" @click="journey = 'classic'">经典征途</button><button :aria-pressed="journey === 'evolution'" :disabled="busy" @click="journey = 'evolution'">进化征途</button></div>
-        <section v-if="journey === 'evolution'" class="hero-select" aria-label="选择初始英雄"><p>三位初始英雄 · 九种进化形态</p><div><button v-for="item in starters" :key="item.id" :aria-pressed="active?.save.hero === item.id" :disabled="busy || !active?.save.heroes[item.id]?.unlocked" @click="selectHero(item.id)"><strong>{{ item.name }}</strong><small>{{ item.style }}</small></button></div><small>Lv.3 进化；Lv.8 且任一主动 Lv.3 时觉醒。冰霜、雷电、召唤等五种术式 Lv.3 开辟分支，组合元素激活羁绊。每局重新选择，永久成长保留。</small></section>
+        <section v-if="journey === 'evolution'" class="hero-select" aria-label="选择初始英雄"><p>三位初始英雄 · {{ heroForms.length }} 种进化形态</p><div><button v-for="item in starters" :key="item.id" :aria-pressed="active?.save.hero === item.id" :disabled="busy || !active?.save.heroes[item.id]?.unlocked" @click="selectHero(item.id)"><strong>{{ item.name }}</strong><small>{{ item.style }}</small></button></div><small>Lv.3 进化；Lv.8 且任一主动 Lv.3 时觉醒。龙卷风可选游龙、环身或伏阵，搭配影系技能激活风影合袭。冰霜、雷电、召唤等路线也可自由组合；每局重新选择，永久成长保留。</small></section>
         <div class="save-summary"><p aria-label="当前存档">{{ active?.label || '正在读取存档' }}<small v-if="active">金币 {{ active.save.gold }}</small></p><button :disabled="!active || busy || !!storageError" @click="page = 'saves'">存档</button></div>
         <p v-if="launchBlocker" class="save-boundary">{{ launchBlocker }}</p>
         <template v-else><div class="mission-line"><span>Lv.{{ active?.save.heroes[hero.id]?.level ?? 1 }}</span><span>{{ hero.name }}</span><span>火灵同行</span></div><dl class="preparation" aria-label="出征属性"><div><dt>生命</dt><dd>{{ Math.round(prepared.player.maxHp) }}</dd></div><div><dt>攻击</dt><dd>{{ Math.round(prepared.player.atk) }}</dd></div><div><dt>暴击</dt><dd>{{ (prepared.player.crit * 100).toFixed(1) }}%</dd></div></dl></template>

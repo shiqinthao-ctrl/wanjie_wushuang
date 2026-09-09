@@ -64,8 +64,20 @@ export async function playEvolution(page: Page, info: TestInfo, hero: string, co
       const options = await buttons.evaluateAll(items => items.map(item => ({ id: item.getAttribute('data-option')!, kind: item.getAttribute('data-kind')!, text: item.textContent || '' })));
       const score = (option: typeof options[number]) => option.kind === 'hero' ? 100 + Number(plan ? option.id === plan.form : complete && option.id === 'bulwark') : option.kind === 'route' ? 90 + Number(plan ? option.id === plan.route : complete && ['nova', 'orbit', 'guard'].includes(option.id)) : plan && option.id === plan.signature ? 85 : plan && ['G2_FROST', 'A013', 'S001'].includes(option.id) ? 82 : ['A011', 'S001'].includes(option.id) ? 80 : ['A015', 'A026', 'A013'].includes(option.id) ? 70 : option.kind === 'active' ? 40 : 10;
       const selected = [...options].sort((a, b) => score(b) - score(a))[0]!;
+      if (plan && selected.id === plan.form) {
+        const form = heroForms.find(form => form.id === plan.form)!;
+        expect(options.map(o => o.id)).toEqual(heroForms.filter(item => item.hero === form.hero).map(item => item.id));
+        await buttons.nth(options.indexOf(selected)).scrollIntoViewIfNeeded();
+        await expect(buttons.nth(options.indexOf(selected))).toBeInViewport();
+        await page.screenshot({ path: info.outputPath(`form-${selected.id}.png`) });
+      }
       if (plan?.readability && selected.kind === 'route') {
+        const route = skillRoutes.find(route => route.id === selected.id)!;
+        expect(options.map(o => o.id)).toEqual(skillRoutes.filter(item => item.skill === route.skill).map(item => item.id));
         await expect(buttons.nth(options.indexOf(selected)).locator('.route-advice')).toContainText('本局选择后不再选择');
+        for (const other of options.filter(o => o.id !== selected.id)) {
+          await expect(buttons.nth(options.indexOf(selected)).locator('.route-advice')).toContainText(skillRoutes.find(route => route.id === other.id)!.name);
+        }
         await expect(buttons.nth(options.indexOf(selected)).locator('.route-advice b')).toHaveCSS('display', 'block');
         await buttons.nth(options.indexOf(selected)).scrollIntoViewIfNeeded();
         await page.screenshot({ path: info.outputPath(`route-${selected.id}.png`) });
