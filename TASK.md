@@ -1,31 +1,32 @@
-# TASK.md - R1a isolated chapter contracts
+# TASK.md - R1b isolated chapter growth
 
-Status: complete. R0 accd764; deployed G5 runtime 821b90c.
-Implement only the first R1 foundation slice from tasks/game-remediation.
+Status: complete. Base/rollback fa8d3a2; live G5 remains 821b90c.
+Execute this slice only; full roadmap: tasks/game-remediation/ROADMAP.md.
 
 ## Scope
-- Add typed chapter1-v1 preparation, CH001 stage catalog, independent H001/
-  H010/H012 startup values and starting skills; no legacy growth calculation.
-- Add optional version-1 mobileChapter data: fresh progress, discoveries,
-  charms and capped reports. Validate known fields, preserve unknown fields;
-  future versions stay importable/exportable but cannot be played or written.
-- First-stage settlement adapter must bind the original slot/run, commit the
-  report/progress/unlocks and receipt together, and reject invalid finals.
-  Duplicate calls, abort/retry, response loss, reload and stale writers tested.
-- Stage 2/3 are catalog contracts only. No chapter gameplay entry yet: actual
-  combat/progression/charms/art/audio/other stages remain separate R1/R3 work.
-- No new dependency, public debug UI, legacy source, archive, old settlement
-  formula, deployment, or immutable release modification.
-- Preserve Schema30, fresh/defeat zero stars, non-story isolation, one settlement,
-  Boss Loot priority, V3.0 safety fixes and ordered scripts.
+- Connect chapter1-v1 preparation to the sole GameCore loop; H001/CH001-01
+  only in this slice. Explicit options and seeded rules, no legacy startup,
+  gear/runes/pet bonuses or old currency events. Preserve preview defaults.
+- Four automatic/four passive slots, three distinct Lv.3 evolution choices,
+  core grant, legal core/owned guarantees, exclusive routes and Lv.8 plus
+  core Lv.3 awakening. Two normal rerolls/one unowned non-core ban per run;
+  no illegal full-slot offers, max-level overflow or stale choice activation.
+- Wire normal BattleView controls and chapter-only atomic settlement. Test
+  fixture mounts real UI and Phaser; no public lobby entry/debug controls yet.
+- Combat/visuals remain transitional G5 mechanics; R1c owns dragon redesign.
+  Map/currency/chest content excluded until new chapter reward rules exist.
+  Keep Boss Loot priority; chapter loot is confirmation, not legacy equipment.
+- No new dependency, legacy source/archive/release edits or Render deployment.
+  Preserve Schema30, fresh/defeat zero stars, non-story isolation and V3.0 fixes.
 
 ## Acceptance
-1. Meaningful unit tests first; real IndexedDB browser tests use clearly labeled
-   synthetic final-run inputs, never claim natural gameplay from these fixtures.
-2. Old saves/import backups and unknown fields survive; rich and fresh legacy
-   accounts receive identical chapter preparation. Failed imports do not replace.
-3. Run check, smoke, audit, context, archive:verify in order; types, full rules,
-   production build and focused browser regression; preserve all attempts.
-4. Record results/recordings and limitations, update five handoff fields,
-   commit and push codex/first-chapter-remediation. Keep G5 live on Render.
-5. Next slice R1b: new progression and GameCore integration, then R1c combat.
+1. Test new behavior before implementation; 200 fixed H001 seeds, bounded
+   slots, replay determinism, core reachability and original preview regression.
+2. Verify rich/fresh legacy saves yield identical chapter combat, no old
+   settlement, and chapter final/report binding. Failure/retry stays atomic.
+3. Record normal-speed UI growth attempts without editing HP/XP/drops/time.
+   Synthetic edge fixtures labeled separately; preserve failures and originals.
+4. Run check, smoke, audit, context, archive:verify in order, then types/full
+   rules/build and focused desktop/phone-size browser regression.
+5. Record evidence/limits, update five handoff fields, commit and push existing
+   codex branch. R1b is a growth foundation, not accepted art/combat sample.

@@ -30,7 +30,7 @@ export class FirstBoss {
   private destroyed = false;
   constructor(private sim: CombatSimulation, private hero: string, private difficulty: string, private random: () => number, private now: () => number) {}
   spawn(): boolean {
-    if (this.destroyed || this.active || this.defeatedAt !== undefined || this.sim.time < firstStage.bossAt) return false;
+    if (this.destroyed || this.active || this.defeatedAt !== undefined || this.sim.time < (this.sim.chapter?.stage.boss.spawnAt ?? firstStage.bossAt)) return false;
     const { player, viewport, time } = this.sim, minutes = time / 60;
     const hp = config.boss.hp * difficultyFor(this.difficulty).hp * (.85 + (1 + .07 * minutes + .012 * minutes * minutes) * .22) * firstStage.bossHp;
     this.active = { id: 'B001', name: config.boss.name, hp, maxHp: hp, r: 42, x: player.x + viewport.width * .28, y: player.y - viewport.height * .16, phase: 1, castCd: 1.7, castLock: .7, shield: 0, skillIndex: 0, next: '准备攻击' };
@@ -39,7 +39,7 @@ export class FirstBoss {
   defeat(): void {
     if (!this.active || this.defeatedAt !== undefined || this.destroyed) return;
     this.active = undefined;
-    this.sim.drops.push(generateGear(this.hero, 'boss', this.random, this.now, this.dropOptions()));
+    if (!this.sim.chapter) this.sim.drops.push(generateGear(this.hero, 'boss', this.random, this.now, this.dropOptions()));
     this.defeatedAt = this.sim.time;
   }
   private dropOptions() { return { difficulty: this.difficulty, dropBonus: this.sim.context.runePet.dropPct || 0 }; }
@@ -57,7 +57,7 @@ export class FirstBoss {
       const speed = (38 + boss.phase * 7) * diff.speed;
       boss.x += dx / distance * speed * dt; boss.y += dy / distance * speed * dt;
     }
-    if (distance < boss.r + player.r + 4 && player.inv <= 0) this.sim.hurt((11 + boss.phase * 3) * diff.dmg);
+    if (distance < boss.r + player.r + 4 && player.inv <= 0) this.sim.hurt((11 + boss.phase * 3) * diff.dmg, 'B001-contact');
     if (boss.castCd > 0 || boss.castLock > 0) return;
     boss.skillIndex = (boss.skillIndex + 1) % 3;
     const [type, name] = config.mechanics.skills[(boss.skillIndex + boss.phase - 1) % 3]!;
@@ -80,7 +80,7 @@ export class FirstBoss {
       if (warning.life > 0) continue;
       if (!warning.resolved) {
         warning.resolved = true;
-        if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg);
+        if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg, `B001-${warning.name}`);
         if (warning.type === 'line' && warning.moveBoss && this.active) { this.active.x = warning.x2; this.active.y = warning.y2; clampPoint(this.active, this.sim.world, 45); }
       }
       this.telegraphs.splice(i, 1);
@@ -91,23 +91,29 @@ export class FirstBoss {
     this.spawn();
     if (this.defeatedAt !== undefined) {
       // The former 180ms timer now uses the paused battle clock and cannot outlive a run.
-      if (!this.offer && !this.picked && this.sim.time - this.defeatedAt >= .18) this.offer = bossGearChoices(this.hero, this.random, this.now, this.dropOptions());
-      if (!this.picked || !this.sim.drops.some(drop => drop.source === 'boss')) return;
+      if (!this.sim.chapter && !this.offer && !this.picked && this.sim.time - this.defeatedAt >= .18) this.offer = bossGearChoices(this.hero, this.random, this.now, this.dropOptions());
+      if (!this.picked || (!this.sim.chapter && !this.sim.drops.some(drop => drop.source === 'boss'))) return;
       if (this.resolvedAt === undefined) { this.resolvedAt = this.sim.time; return; }
       if (this.sim.time - this.resolvedAt < .75) return;
       if (this.settlingAt === undefined) { this.settlingAt = this.sim.time; return; }
       if (this.sim.time - this.settlingAt >= .25) return 'victory';
       return;
     }
-    if (this.sim.time >= firstStage.duration) return 'timeout';
+    if (this.sim.time >= (this.sim.chapter?.stage.duration ?? firstStage.duration)) return 'timeout';
   }
   pick(uid: string): boolean {
     const item = this.offer?.find(item => item.uid === uid);
     if (this.destroyed || !item || this.picked) return false;
     this.sim.drops.push({ ...item, score: instanceScore(item, this.hero) }); this.picked = true; this.offer = undefined; return true;
   }
+  pickChapterLoot(): boolean {
+    if (!this.snapshot().chapterLoot) return false;
+    this.picked = true; return true;
+  }
   snapshot() {
     return Object.freeze({ boss: this.active ? Object.freeze({ ...this.active, phaseName: config.mechanics.phase[this.active.phase - 1]! }) : undefined,
+      chapterLoot: !!this.sim.chapter && !this.destroyed && this.defeatedAt !== undefined && !this.picked && this.sim.time - this.defeatedAt >= .18,
+      lootClaimed: this.picked,
       lootShown: this.defeatedAt !== undefined, offer: this.offer ? Object.freeze(this.offer.map(item => Object.freeze({ ...item, name: String(item.name), affixes: Object.freeze(item.affixes?.map(affix => Object.freeze({ ...affix })) || []) }))) : undefined,
       phase: this.settlingAt !== undefined ? 'settling' : this.resolvedAt !== undefined || this.picked ? 'confirmed' : this.offer ? 'choice' : this.defeatedAt !== undefined ? 'opening' : this.active ? 'fight' : this.sim.time >= 250 ? 'warning' : 'advance' });
   }

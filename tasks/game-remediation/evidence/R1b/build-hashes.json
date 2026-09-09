@@ -1,0 +1,67 @@
+[
+  {
+    "file": "art/battlefield.svg",
+    "bytes": 4802,
+    "sha256": "7cec68689f3e334ad6a19c8936b074b1f2e69808537c4de543ade3bd98de0100"
+  },
+  {
+    "file": "art/boss-b001.svg",
+    "bytes": 2489,
+    "sha256": "8ff7260c54c3bd3b5a96a30ef47fb31c3747c96fc2732226ae250f14165b2ef9"
+  },
+  {
+    "file": "art/enemy-en001.svg",
+    "bytes": 1592,
+    "sha256": "8f1a1618c61a5be9222ad6e7286c08a0bb0a9660b99eab7384c4ed3676fa5b4e"
+  },
+  {
+    "file": "art/hero-h001-attack.svg",
+    "bytes": 1209,
+    "sha256": "64ff049cba23e7323b6fa887c2f320a162cde77e596f9401d5defad965f84e76"
+  },
+  {
+    "file": "art/hero-h001.svg",
+    "bytes": 2574,
+    "sha256": "da322720d5a905a758467361a91cf2af8a656ecfd752a67016513902a598cde4"
+  },
+  {
+    "file": "art/hero-h010.svg",
+    "bytes": 1574,
+    "sha256": "11c0170228635ec83d1c1ccc50fe25a80b92d73ee824a10739dd0abf3e4c0882"
+  },
+  {
+    "file": "art/hero-h012.svg",
+    "bytes": 1465,
+    "sha256": "e5715d312e3053805229ae92dbf98fe8506d54ae4410c15729db001137622ada"
+  },
+  {
+    "file": "assets/BattleView-CUEaiFz3.css",
+    "bytes": 5681,
+    "sha256": "1a64616e805e09baa806d6fa9553828b3708b028e67c5013498b9a76e751b3ac"
+  },
+  {
+    "file": "assets/BattleView-zpjRlaX7.js",
+    "bytes": 60161,
+    "sha256": "aacb9ac629112816c62c08043c1ffd62deb36209a438ebb227251baae1456f87"
+  },
+  {
+    "file": "assets/index-Cjfg12Bz.js",
+    "bytes": 122145,
+    "sha256": "9aa116310b0776ba3a8c6583b2776e55c47222d7a96cad3dbd18715547283106"
+  },
+  {
+    "file": "assets/index-CYsg_X8v.css",
+    "bytes": 15781,
+    "sha256": "36a7057f2774f30d4ba04a36e3e660853a72f36f0e257f0dff8c4315f7c72f35"
+  },
+  {
+    "file": "assets/mountBattle-CCn-oeGo.js",
+    "bytes": 1435649,
+    "sha256": "b6791e49d3f3a4ca3e08d1808401fefe3195e23f64604ad4d94ea3452ba7f244"
+  },
+  {
+    "file": "index.html",
+    "bytes": 579,
+    "sha256": "22af96ae87574b0c611b2851bc378df6b382cbbc25059429dd979abe30c9c080"
+  }
+]

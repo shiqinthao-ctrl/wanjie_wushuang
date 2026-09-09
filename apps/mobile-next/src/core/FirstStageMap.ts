@@ -24,9 +24,9 @@ export class FirstStageMap {
   private hazardSuppress = 0;
   private recoveries = new Set<number>();
   private notice = '';
-  constructor(private combat: CombatSimulation, private random: () => number) { this.placeObjects(); }
+  constructor(private combat: CombatSimulation, private random: () => number, private enabled = true) { this.placeObjects(); }
   placeObjects(): void {
-    if (this.used) return;
+    if (!this.enabled || this.used) return;
     const { width, height } = this.combat.world;
     this.interactables = layout.map(([type, x, y], i) => ({ id: `I${i}`, type, name: names[type], x: width * x, y: height * y, used: false }));
   }
@@ -65,6 +65,7 @@ export class FirstStageMap {
     return true;
   }
   advanceHazards(dt: number): void {
+    if (!this.enabled) return;
     if (this.hazardSuppress > 0) {
       this.hazardSuppress = Math.max(0, this.hazardSuppress - dt); this.hazards = []; return;
     }
@@ -82,6 +83,7 @@ export class FirstStageMap {
     this.hazards = this.hazards.filter(line => line.life > 0);
   }
   recover(): boolean {
+    if (!this.enabled) return false;
     const index = firstStage.recoveryAt.findIndex((time, i) => this.combat.time >= time && !this.recoveries.has(i));
     if (index < 0) return false;
     this.recoveries.add(index);

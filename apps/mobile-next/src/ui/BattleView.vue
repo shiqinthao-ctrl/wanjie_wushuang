@@ -6,6 +6,10 @@ import { bindKeyboard } from '../input/controls';
 import MovePad from './MovePad.vue';
 import BossLoot from './BossLoot.vue';
 import RunResult from './RunResult.vue';
+import ChapterResult from './ChapterResult.vue';
+import type { ChapterResult as ChapterOutcome } from '../chapter/settlement';
+import type { ChapterRunOptions } from '../chapter/prepare';
+import { ChapterRunSession } from '../storage/ChapterRunSession';
 import type { RunResult as Result } from '../core/settlement';
 import type { ChoiceKind } from '../core/progression';
 import type { Action } from '../core/CombatSimulation';
@@ -20,19 +24,21 @@ import type { Journey } from '../core/evolutionCatalog';
 import { dialogActivation } from '../input/dialogActivation';
 const choiceActivation = dialogActivation();
 const eventActivation = dialogActivation(), chestActivation = dialogActivation();
-const props = withDefaults(defineProps<{ slot: SaveSlot; repository: SaveRepository; journey?: Journey }>(), { journey: 'classic' });
+const props = withDefaults(defineProps<{ slot: SaveSlot; repository: SaveRepository; journey?: Journey; chapter?: ChapterRunOptions }>(), { journey: 'classic' });
 const emit = defineEmits<{ exit: []; replay: [slotId: string] }>();
 const host = ref<HTMLElement>();
 const pauseDialog = ref<HTMLDialogElement>();
 const choiceDialog = ref<HTMLDialogElement>();
 const eventDialog = ref<HTMLDialogElement>();
 const chestDialog = ref<HTMLDialogElement>();
-const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0, hp: 0, maxHp: 0, level: 1, xp: 0, xpNeed: 26, skills: {}, passives: {}, choice: undefined, kills: 0, heat: 0, dodgeCd: 0, skillCd: 0, ult: 0, map: { used: 0, bonusGold: 0, hazardSuppress: 0, target: undefined, notice: '' }, encounter: { offer: undefined, shopBuff: 0, gearCount: 0, notice: '' }, chests: { offer: undefined, notice: '', rewards: [], evolved: [], fused: [] }, boss: { boss: undefined, lootShown: false, offer: undefined, phase: 'advance' } });
+const snapshot = shallowRef<UiSnapshot>({ status: 'idle', time: 0, hp: 0, maxHp: 0, level: 1, xp: 0, xpNeed: 26, skills: {}, passives: {}, choice: undefined, kills: 0, heat: 0, dodgeCd: 0, skillCd: 0, ult: 0, map: { used: 0, bonusGold: 0, hazardSuppress: 0, target: undefined, notice: '' }, encounter: { offer: undefined, shopBuff: 0, gearCount: 0, notice: '' }, chests: { offer: undefined, notice: '', rewards: [], evolved: [], fused: [] }, boss: { chapterLoot: false, lootClaimed: false, boss: undefined, lootShown: false, offer: undefined, phase: 'advance' } });
 const chestStates: Record<string, string> = { locked: '未解锁', ready: '领取', choosing: '选择中', claimed: '已领取' };
 const chestCopy = { evo: '术式进化', fusion: '双术式融合', upgrade: '随机强化已拥有且未满级的术式', gear: '获得一件紫色装备，暂存本局战利品' };
 const eventBusy = ref(false), eventError = ref(''), eventGold = ref(Number(props.slot.save.gold));
 const eventSelection = ref<{ token: number; code: EventCode }>();
 let runSession: RunSession | undefined;
+let chapterSession: ChapterRunSession | undefined;
+const chapterResult = shallowRef<ChapterOutcome>();
 const result = shallowRef<Result>(), settling = ref(false), settlementError = ref('');
 const eventCopy: Record<EventCode, { title: string; detail: string }> = {
   merchantAtk: { title: '购买火力', detail: '-250 金币；游商火力 +18%。赤焰战神专属普攻不受此加成。' },
@@ -65,6 +71,15 @@ function choose(token: number, kind: ChoiceKind, id: string) {
   if (document.hidden || !handle?.core.choose(token, kind, id)) return;
   controls?.clear(); snapshot.value = handle.core.snapshot();
   if (snapshot.value.status === 'running') host.value?.focus();
+}
+function redrawChoice(token: number, kind?: ChoiceKind, id?: string) {
+  if (document.hidden || !handle) return;
+  const accepted = kind && id ? handle.core.banish(token, kind, id) : handle.core.reroll(token);
+  if (accepted) { controls?.clear(); snapshot.value = handle.core.snapshot(); }
+}
+function pickChapterLoot() {
+  if (document.hidden || !handle?.core.pickChapterLoot()) return;
+  controls?.clear(); snapshot.value = handle.core.snapshot();
 }
 function action(value: Action) {
   if (document.hidden || !handle) return;
@@ -99,9 +114,15 @@ async function chooseEvent(token: number, code: EventCode) {
   } finally { eventBusy.value = false; }
 }
 async function settle() {
-  if (!runSession || settling.value || result.value) return;
+  if ((!runSession && !chapterSession) || settling.value || result.value || chapterResult.value) return;
   settling.value = true; settlementError.value = '';
-  try { result.value = await runSession.settle(); }
+  try {
+    if (chapterSession) {
+      const final = handle?.core.chapterFinalRun();
+      if (!final) throw new Error('首章战报尚未生成');
+      chapterResult.value = await chapterSession.settle(final);
+    } else result.value = await runSession!.settle();
+  }
   catch (cause) { settlementError.value = cause instanceof Error && cause.message.includes('存档已更新') ? cause.message : '本局战果尚未确认保存。请保持页面打开并重试，同一局不会重复发奖。'; }
   finally { settling.value = false; }
 }
@@ -119,7 +140,7 @@ watch(() => snapshot.value.status, status => {
   if (status === 'chest' && !chestDialog.value?.open) chestDialog.value?.showModal();
 }, { flush: 'post' });
 async function leave(replay = false) {
-  if (leaving.value || eventBusy.value || settling.value || (replay && !result.value)) return;
+  if (leaving.value || eventBusy.value || settling.value || (replay && !result.value && !chapterResult.value)) return;
   leaving.value = true; cancelled = true; controls?.destroy();
   await handle?.destroy();
   if (replay) emit('replay', props.slot.id); else emit('exit');
@@ -128,8 +149,9 @@ onMounted(async () => {
   try {
     const { mountBattle } = await import('../game/mountBattle');
     if (cancelled || !host.value) return;
-    handle = mountBattle(host.value, value => { snapshot.value = value; }, () => { ready.value = true; host.value?.focus(); }, message => { error.value = message; }, props.slot.save, props.journey);
-    runSession = new RunSession(props.repository, props.slot, handle.core);
+    if (props.chapter) chapterSession = new ChapterRunSession(props.repository, props.slot, props.chapter);
+    handle = mountBattle(host.value, value => { snapshot.value = value; }, () => { ready.value = true; host.value?.focus(); }, message => { error.value = message; }, props.slot.save, props.journey, props.chapter);
+    if (!props.chapter) runSession = new RunSession(props.repository, props.slot, handle.core);
     controls = bindKeyboard(handle.core, pause);
   } catch { error.value = '当前浏览器无法启动战场，请确认已启用图形加速后重试。'; }
 });
@@ -138,15 +160,15 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
 </script>
 
 <template>
-  <section class="battle-view" aria-label="边境清剿战场">
+  <section class="battle-view" :aria-label="chapter ? '首章边境破围战场' : '边境清剿战场'">
     <div ref="host" class="canvas-host" tabindex="-1" aria-label="战场，使用方向键或摇杆移动"></div>
     <div class="battle-overview">
-    <header class="battle-hud"><div><small>乱世荒原 · 边境清剿</small><strong>{{ snapshot.journey?.name || '赤焰战神' }}</strong></div><time aria-label="本局时间">{{ format(snapshot.time) }}</time><button :disabled="!ready || leaving" @click="pause">暂停</button></header>
-    <p v-if="!snapshot.boss.boss" class="stage-note">{{ snapshot.boss.phase === 'warning' ? '首领即将登场 · 准备迎战' : snapshot.boss.lootShown ? '首领已击败 · 正在封存战果' : '边境清剿 · 在 06:00 前击败首领' }}</p>
+    <header class="battle-hud"><div><small>{{ chapter ? '首章 · 边境破围' : '乱世荒原 · 边境清剿' }}</small><strong>{{ snapshot.journey?.name || '赤焰战神' }}</strong></div><time aria-label="本局时间">{{ format(snapshot.time) }}</time><button :disabled="!ready || leaving" @click="pause">暂停</button></header>
+    <p v-if="!snapshot.boss.boss" class="stage-note">{{ snapshot.boss.phase === 'warning' ? '首领即将登场 · 准备迎战' : snapshot.boss.lootShown ? '首领已击败 · 正在封存战果' : chapter ? '边境破围 · 在 06:00 前击败首领并领取战利品' : '边境清剿 · 在 06:00 前击败首领' }}</p>
     <aside v-else class="boss-hud" aria-label="首领状态"><strong>{{ snapshot.boss.boss.name }} <small>{{ snapshot.boss.boss.phaseName }}</small></strong><progress aria-label="首领生命" :value="snapshot.boss.boss.hp" :max="snapshot.boss.boss.maxHp"></progress><span aria-label="首领招式">{{ snapshot.boss.boss.next }}</span></aside>
     <div class="combat-vitals" aria-label="战斗状态"><div><span>生命 {{ Math.ceil(snapshot.hp) }} / {{ Math.ceil(snapshot.maxHp) }}</span><progress aria-label="生命值" :value="snapshot.hp" :max="snapshot.maxHp || 1"></progress></div><div><span>Lv.{{ snapshot.level }} · 经验 {{ Math.floor(snapshot.xp) }} / {{ snapshot.xpNeed }}</span><progress aria-label="经验值" :value="snapshot.xp" :max="snapshot.xpNeed"></progress></div></div>
     <div class="combat-record"><span aria-label="本局击杀">击破 {{ snapshot.kills }}</span><button v-if="snapshot.journey" :disabled="snapshot.status !== 'running'" @click="pause">本局路线 · {{ snapshot.journey.bonds.filter(bond => bond.active).length }} 羁绊</button><span v-else>炎势 {{ Math.round(snapshot.heat) }}%</span></div>
-    <aside v-if="ready" class="map-route" aria-label="地图指引" tabindex="0">
+    <aside v-if="ready && !chapter" class="map-route" aria-label="地图指引" tabindex="0">
       <small aria-label="地图互动进度">地图互动 {{ Math.min(1, snapshot.map.used) }} / 1<span v-if="snapshot.map.hazardSuppress > 0"> · 压制 {{ Math.ceil(snapshot.map.hazardSuppress) }}s</span></small>
       <p v-if="snapshot.map.target" aria-label="交互目标"><strong>{{ snapshot.map.target.name }}</strong> · {{ snapshot.map.target.canUse ? '可互动' : snapshot.map.target.direction + ' ' + snapshot.map.target.distance + 'm' }}</p>
       <p v-else>地图互动已完成</p>
@@ -155,12 +177,12 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
       <p v-if="snapshot.encounter.notice" class="map-notice" role="status" aria-label="事件反馈">{{ snapshot.encounter.notice }}</p>
     </aside>
     </div>
-    <aside v-if="ready" class="timed-rewards" aria-label="定时宝箱">
+    <aside v-if="ready && !chapter" class="timed-rewards" aria-label="定时宝箱">
       <p v-if="snapshot.chests.notice" role="status" aria-label="宝箱反馈">{{ snapshot.chests.notice }}</p>
       <p v-if="snapshot.chests.evolved.length || snapshot.chests.fused.length" aria-label="已获得形态">{{ [...snapshot.chests.fused, ...snapshot.chests.evolved].map(formName).join(' · ') }}</p>
       <div><button v-for="reward in snapshot.chests.rewards" :key="reward.index" :class="{ 'reward-ready': reward.state === 'ready' }" :disabled="snapshot.status !== 'running' || snapshot.boss.lootShown || reward.state !== 'ready'" @click="claimChest(reward.index)"><small>{{ format(reward.at) }} 宝箱</small><strong>{{ chestStates[reward.state] }}</strong></button></div>
     </aside>
-    <div v-if="ready && snapshot.status === 'running'" class="control-zone"><MovePad @move="(x, y) => handle?.core.move(x, y)" /><div class="action-pad"><button aria-label="闪避" :disabled="snapshot.dodgeCd > 0" @pointerdown.prevent="action('dodge')" @click="event => { if (event.detail === 0) action('dodge'); }"><strong>闪避</strong><small>{{ snapshot.dodgeCd > 0 ? snapshot.dodgeCd.toFixed(1) + 's' : 'Space' }}</small></button><button :aria-label="snapshot.journey?.skill || '炎龙斩'" :disabled="snapshot.skillCd > 0" @pointerdown.prevent="action('skill')" @click="event => { if (event.detail === 0) action('skill'); }"><strong>{{ snapshot.journey?.skill || '炎龙斩' }}</strong><small>{{ snapshot.skillCd > 0 ? snapshot.skillCd.toFixed(1) + 's' : 'E / Q' }}</small></button><button :aria-label="snapshot.journey?.ult || '赤龙降世'" :disabled="snapshot.ult < 100" @pointerdown.prevent="action('ultimate')" @click="event => { if (event.detail === 0) action('ultimate'); }"><strong>{{ snapshot.journey?.ult || '赤龙降世' }}</strong><small>{{ snapshot.ult < 100 ? Math.floor(snapshot.ult) + '%' : 'R' }}</small></button><button aria-label="地图互动" :disabled="!snapshot.map.target?.canUse" @pointerdown.prevent="interact" @click="event => { if (event.detail === 0) interact(); }"><strong>互动</strong><small>{{ snapshot.map.target?.canUse ? 'F / 互动' : '靠近使用' }}</small></button></div></div>
+    <div v-if="ready && snapshot.status === 'running'" class="control-zone"><MovePad @move="(x, y) => handle?.core.move(x, y)" /><div class="action-pad"><button aria-label="闪避" :disabled="snapshot.dodgeCd > 0" @pointerdown.prevent="action('dodge')" @click="event => { if (event.detail === 0) action('dodge'); }"><strong>闪避</strong><small>{{ snapshot.dodgeCd > 0 ? snapshot.dodgeCd.toFixed(1) + 's' : 'Space' }}</small></button><button :aria-label="snapshot.journey?.skill || '炎龙斩'" :disabled="snapshot.skillCd > 0" @pointerdown.prevent="action('skill')" @click="event => { if (event.detail === 0) action('skill'); }"><strong>{{ snapshot.journey?.skill || '炎龙斩' }}</strong><small>{{ snapshot.skillCd > 0 ? snapshot.skillCd.toFixed(1) + 's' : 'E / Q' }}</small></button><button :aria-label="snapshot.journey?.ult || '赤龙降世'" :disabled="snapshot.ult < 100" @pointerdown.prevent="action('ultimate')" @click="event => { if (event.detail === 0) action('ultimate'); }"><strong>{{ snapshot.journey?.ult || '赤龙降世' }}</strong><small>{{ snapshot.ult < 100 ? Math.floor(snapshot.ult) + '%' : 'R' }}</small></button><button v-if="!chapter" aria-label="地图互动" :disabled="!snapshot.map.target?.canUse" @pointerdown.prevent="interact" @click="event => { if (event.detail === 0) interact(); }"><strong>互动</strong><small>{{ snapshot.map.target?.canUse ? 'F / 互动' : '靠近使用' }}</small></button></div></div>
     <div v-if="!ready || error" class="loading-curtain" role="status"><h2>{{ error ? '战场未能开启' : '正在前往乱世荒原' }}</h2><p>{{ error || '整装，待发。' }}</p><button @click="leave()">返回大厅</button></div>
     <dialog ref="pauseDialog" class="pause-dialog" aria-labelledby="pause-title" @cancel.prevent>
       <small>暂停征途</small><h2 id="pause-title" tabindex="-1" autofocus>战局已暂停</h2><p>切回页面后，点击继续再出发。</p>
@@ -169,8 +191,8 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
       <button class="primary" @click="resume">继续战斗</button><button :disabled="leaving || eventBusy" @click="leave()">返回大厅</button>
     </dialog>
     <dialog ref="choiceDialog" class="pause-dialog level-dialog" aria-labelledby="level-title" @cancel.prevent @pointerdown.capture="choiceActivation.press" @pointercancel.capture="choiceActivation.cancel" @click.capture="choiceActivation.click">
-      <small>{{ snapshot.choice?.options[0]?.kind === 'hero' ? '命格蜕变' : snapshot.choice?.options[0]?.kind === 'route' ? '开辟路线' : '境界突破' }} · Lv.{{ snapshot.level }}</small><h2 id="level-title" tabindex="-1" autofocus>选择本局强化</h2><p>{{ snapshot.journey ? '进化与分支仅本局生效，同一术式只能选择一条路线。' : '从以下术式中选择一项，继续征途。' }}</p>
-      <template v-for="offer in snapshot.choice ? [snapshot.choice] : []" :key="offer.token"><button v-for="option in offer.options" :key="`${option.kind}-${option.id}`" :data-option="option.id" :data-kind="option.kind" class="level-option" @click="choose(offer.token, option.kind, option.id)"><small>{{ { active: '主动术式', passive: '被动心法', hero: '英雄进化', route: '技能分支' }[option.kind] }} {{ option.tag }}</small><strong>{{ option.label }}</strong><span v-if="option.kind === 'active' || option.kind === 'passive'">Lv.{{ (option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0 }} → Lv.{{ ((option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0) + 1 }}</span><ChoiceDetails :option="option" :journey="snapshot.journey" :skills="snapshot.skills" /></button></template>
+      <p v-if="snapshot.growth" class="growth-capacity">自动术式 {{ Object.keys(snapshot.skills).length }}/4 · 心法 {{ Object.keys(snapshot.passives).length }}/4<span v-if="snapshot.growth.coreSkill"> · 核心 Lv.{{ snapshot.skills[snapshot.growth.coreSkill] || 0 }}（觉醒需 Lv.3）</span></p><small>{{ snapshot.choice?.options[0]?.kind === 'hero' ? '命格蜕变' : snapshot.choice?.options[0]?.kind === 'route' ? '开辟路线' : '境界突破' }} · Lv.{{ snapshot.level }}</small><h2 id="level-title" tabindex="-1" autofocus>选择本局强化</h2><p>{{ snapshot.journey ? '进化与分支仅本局生效，同一术式只能选择一条路线。' : '从以下术式中选择一项，继续征途。' }}</p>
+      <template v-for="offer in snapshot.choice ? [snapshot.choice] : []" :key="offer.token"><div v-for="option in offer.options" :key="`${option.kind}-${option.id}`" class="choice-row"><button :data-option="option.id" :data-kind="option.kind" class="level-option" @click="choose(offer.token, option.kind, option.id)"><small>{{ { active: '主动术式', passive: '被动心法', hero: '英雄进化', route: '技能分支', recovery: '即时恢复' }[option.kind] }} {{ option.tag }}</small><strong>{{ option.label }}</strong><span v-if="option.kind === 'active' || option.kind === 'passive'">Lv.{{ (option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0 }} → Lv.{{ ((option.kind === 'active' ? snapshot.skills : snapshot.passives)[option.id] || 0) + 1 }}</span><ChoiceDetails :option="option" :journey="snapshot.journey" :skills="snapshot.skills" /></button><button v-if="snapshot.growth && snapshot.growth.banishes > 0 && ['active', 'passive'].includes(option.kind) && !snapshot.skills[option.id] && !snapshot.passives[option.id] && snapshot.growth.coreSkill !== option.id" class="banish-option" @click="redrawChoice(offer.token, option.kind, option.id)">放逐此项</button></div><button v-if="snapshot.growth && offer.options.every(o => ['active', 'passive', 'recovery'].includes(o.kind))" :disabled="snapshot.growth.rerolls === 0" @click="redrawChoice(offer.token)">重抽 · 剩余 {{ snapshot.growth.rerolls }} 次</button></template>
     </dialog>
     <dialog ref="eventDialog" class="pause-dialog level-dialog event-dialog" aria-labelledby="event-title" @cancel.prevent @pointerdown.capture="eventActivation.press" @pointercancel.capture="eventActivation.cancel" @click.capture="eventActivation.click">
       <small>荒原奇遇 · 当前金币 {{ eventGold }}</small><h2 id="event-title" tabindex="-1" autofocus>{{ snapshot.encounter.offer?.kind === 'merchant' ? '万界游商' : '黄金宝箱' }}</h2>
@@ -183,8 +205,9 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
       <small>荒原馈赠 · 三选一</small><h2 id="chest-title" tabindex="-1" autofocus>领取宝箱奖励</h2><p>选择一项奖励后继续战斗。本局装备 {{ snapshot.encounter.gearCount }} 件，将在战斗结束后入库。</p>
       <template v-for="offer in snapshot.chests.offer ? [snapshot.chests.offer] : []" :key="offer.token"><button v-for="(option, index) in offer.options" :key="index" class="level-option" @click="pickChest(offer.token, index)"><strong>{{ chestTitle(option) }}</strong><span>{{ chestCopy[option.type] }}</span></button></template>
     </dialog>
-    <BossLoot :active="snapshot.status === 'boss-loot'" :offer="snapshot.boss.offer" @choose="pickBossLoot" />
-    <RunResult :snapshot="snapshot" :result="result" :busy="settling" :error="settlementError" :leaving="leaving" @retry="settle" @exit="leave()" @replay="leave(true)" />
+    <BossLoot :active="snapshot.status === 'boss-loot'" :offer="snapshot.boss.offer" :chapter="!!chapter" @choose="pickBossLoot" @chapter="pickChapterLoot" />
+    <ChapterResult v-if="chapter" :snapshot="snapshot" :result="chapterResult" :busy="settling" :error="settlementError" :leaving="leaving" @retry="settle" @exit="leave()" @replay="leave(true)" />
+    <RunResult v-else :snapshot="snapshot" :result="result" :busy="settling" :error="settlementError" :leaving="leaving" @retry="settle" @exit="leave()" @replay="leave(true)" />
   </section>
 </template>
 

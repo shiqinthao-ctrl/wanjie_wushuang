@@ -1,0 +1,246 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/chapter-growth.spec.ts",
+      "--grep",
+      "natural normal",
+      "--project=desktop",
+      "--project=phone",
+      "--output=../../tasks/game-remediation/evidence/R1b/natural-01/test-results",
+      "--reporter=list,html,json"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1b/natural-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1b/natural-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1b/natural-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "html"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "chapter-growth.spec.ts",
+      "file": "chapter-growth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural normal-speed H001 growth: move cast evolve route awaken and pause",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 540000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 145885,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T11:34:50.052Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1b\\natural-01\\test-results\\chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d21cb28766e539cc31c5-3f39e457da63bf620561",
+          "file": "chapter-growth.spec.ts",
+          "line": 69,
+          "column": 1
+        },
+        {
+          "title": "natural normal-speed H001 growth: move cast evolve route awaken and pause",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 540000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 99195,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"awakened\": true,\u001b[22m\n\u001b[2m    \"evolved\": true,\u001b[22m\n\u001b[32m-   \"routed\": true,\u001b[39m\n\u001b[31m+   \"routed\": false,\u001b[39m\n\u001b[2m  }\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"awakened\": true,\u001b[22m\n\u001b[2m    \"evolved\": true,\u001b[22m\n\u001b[32m-   \"routed\": true,\u001b[39m\n\u001b[31m+   \"routed\": false,\u001b[39m\n\u001b[2m  }\u001b[22m\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-growth.spec.ts:114:41",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-growth.spec.ts",
+                      "column": 41,
+                      "line": 114
+                    },
+                    "snippet": "  112 |       const options = await modal.locator('.level-option').evaluateAll(items => items.map(item => ({ id: item.getAttribute('data-option')!, kind: item.getAttribute('data-kind')! })));\n  113 |       const selected = options.find(o => o.id === 'awaken') || options.find(o => o.id === 'dragon') || options.find(o => o.id === coreSkill) || options.find(o => ['nova', 'glacier', 'orbit'].includes(o.id)) || options.find(o => ['A011', 'A026', 'S001'].includes(o.id)) || options[0]!;\n> 114 |       if (selected.kind === 'hero' && selected.id !== 'awaken') {\n      |                                         ^\n  115 |         expect(options).toHaveLength(3); expect(new Set(options.map(o => o.id)).size).toBe(3);\n  116 |         coreSkill = { dragon: 'A003', bulwark: 'A021', frostlord: 'G2_FROST', frostflame: 'G2_FROST' }[selected.id]!; evolved = true;\n  117 |       }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-growth.spec.ts",
+                        "column": 41,
+                        "line": 114
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[2m    \"awakened\": true,\u001b[22m\n\u001b[2m    \"evolved\": true,\u001b[22m\n\u001b[32m-   \"routed\": true,\u001b[39m\n\u001b[31m+   \"routed\": false,\u001b[39m\n\u001b[2m  }\u001b[22m\n\n  112 |       const options = await modal.locator('.level-option').evaluateAll(items => items.map(item => ({ id: item.getAttribute('data-option')!, kind: item.getAttribute('data-kind')! })));\n  113 |       const selected = options.find(o => o.id === 'awaken') || options.find(o => o.id === 'dragon') || options.find(o => o.id === coreSkill) || options.find(o => ['nova', 'glacier', 'orbit'].includes(o.id)) || options.find(o => ['A011', 'A026', 'S001'].includes(o.id)) || options[0]!;\n> 114 |       if (selected.kind === 'hero' && selected.id !== 'awaken') {\n      |                                         ^\n  115 |         expect(options).toHaveLength(3); expect(new Set(options.map(o => o.id)).size).toBe(3);\n  116 |         coreSkill = { dragon: 'A003', bulwark: 'A021', frostlord: 'G2_FROST', frostflame: 'G2_FROST' }[selected.id]!; evolved = true;\n  117 |       }\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-growth.spec.ts:114:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T11:37:17.556Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1b\\natural-01\\test-results\\chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-phone\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1b\\natural-01\\test-results\\chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-phone\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1b\\natural-01\\test-results\\chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-phone\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1b\\natural-01\\test-results\\chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-phone\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-growth.spec.ts",
+                    "column": 41,
+                    "line": 114
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d21cb28766e539cc31c5-d07c4161fa7ebd8a5918",
+          "file": "chapter-growth.spec.ts",
+          "line": 69,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-09T11:34:49.149Z",
+    "duration": 252987.201,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

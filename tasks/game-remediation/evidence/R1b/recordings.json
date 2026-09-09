@@ -1,0 +1,1355 @@
+{
+  "verifiedAt": "2026-09-09T11:50:53.080Z",
+  "records": [
+    {
+      "file": "watch/natural-desktop.mp4",
+      "bytes": 13042196,
+      "sha256": "c3b01b227e0d45d67f337b0d431ed67f910f79202d17b91dddf9caa60ab69f4e",
+      "durationSeconds": 141.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/natural-phone.mp4",
+      "bytes": 8121270,
+      "sha256": "b4cdfd4b6eac28349fd288c440a6bb7aa48c8c95e55cb014cd69d4236246026b",
+      "durationSeconds": 121.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-02/test-results/chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-phone/video.webm",
+      "bytes": 14791059,
+      "sha256": "7b04f93389c8f49026731bf89865e6a4a5dfcd9c91174f01e331e512112c3477",
+      "durationSeconds": 121.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-02/test-results/chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-desktop/video.webm",
+      "bytes": 17227392,
+      "sha256": "56f60734102541fc973586409d67bfe8b1c7e5e47fcacd5ec896401632919bc7",
+      "durationSeconds": 141.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-02/playwright-report/data/4d97b8dd8fa9e71e0d80723eb879cf7efba8ae62.webm",
+      "bytes": 17227392,
+      "sha256": "56f60734102541fc973586409d67bfe8b1c7e5e47fcacd5ec896401632919bc7",
+      "durationSeconds": 141.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-02/playwright-report/data/8257aebc69999b95dc84f7d9d0729331b8c62c72.webm",
+      "bytes": 14791059,
+      "sha256": "7b04f93389c8f49026731bf89865e6a4a5dfcd9c91174f01e331e512112c3477",
+      "durationSeconds": 121.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-01/test-results/chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-phone/video.webm",
+      "bytes": 11763612,
+      "sha256": "e4c31d6a9337365dca7a82bdd660548a4efe4983d57803ed86b937461d864f76",
+      "durationSeconds": 99.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-01/test-results/chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-desktop/video.webm",
+      "bytes": 17896056,
+      "sha256": "1f77600a4977d13c5bf18f659445f72736ae86564e03466835991af5afc314bf",
+      "durationSeconds": 146.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-01/playwright-report/data/31d9f076823b0fdfda353089ef03278de49989a1.webm",
+      "bytes": 11763612,
+      "sha256": "e4c31d6a9337365dca7a82bdd660548a4efe4983d57803ed86b937461d864f76",
+      "durationSeconds": 99.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "natural-01/playwright-report/data/4b679c7cbe7324ac5845c05b5a25d77af5f75f39.webm",
+      "bytes": 17896056,
+      "sha256": "1f77600a4977d13c5bf18f659445f72736ae86564e03466835991af5afc314bf",
+      "durationSeconds": 146.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-ffa7e-eipt-without-granting-again-phone/video.webm",
+      "bytes": 86400,
+      "sha256": "dfd01c0ee5b07dc990811ef09cc22563bce48340351976ee3896797415e8f557",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-ffa7e-eipt-without-granting-again-desktop/video.webm",
+      "bytes": 55989,
+      "sha256": "8df97cd092620dbfc51676b60d16acf6dda9841d2653a48591f00ef8e894d878",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-cb3da-ter-and-changed-active-slot-phone/video.webm",
+      "bytes": 73966,
+      "sha256": "53574c36f7d7fd92a6891b4e5a8d7f6f293ede19778e32b4241cdc4cd4af29e6",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-cb3da-ter-and-changed-active-slot-desktop/video.webm",
+      "bytes": 56182,
+      "sha256": "d3ef894ea8ddbdcfe86d562dd70e474cbb80be590e8287308210d24c84106a6f",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-a0912-nnot-replace-newer-progress-phone/video.webm",
+      "bytes": 81354,
+      "sha256": "d37521c96b288033f8e5c1dab2c065dd017047685885ec0efad78d6fd1a90b22",
+      "durationSeconds": 1.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-a0912-nnot-replace-newer-progress-desktop/video.webm",
+      "bytes": 72630,
+      "sha256": "5205cc294ee16c65c2492379fedefc201605ff3557b22f7e2ef2c805d3ab263c",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-6ddfc--partial-writes-and-retries-phone/video.webm",
+      "bytes": 73796,
+      "sha256": "97cac4ccc36c9cd448af94bfcfc434254f3ead365b309094568066eb20ff418d",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-6ddfc--partial-writes-and-retries-desktop/video.webm",
+      "bytes": 55335,
+      "sha256": "d6613afefa63165ece19497637ac05af4015b25ae2a6d14a56622e39103dc65b",
+      "durationSeconds": 1.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-60e41--partial-writes-and-retries-phone/video.webm",
+      "bytes": 73388,
+      "sha256": "4c0742d64360c44d1d672b1ba213c528cb0b862ca5a04f30eb43bd9abf96fdca",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-60e41--partial-writes-and-retries-desktop/video.webm",
+      "bytes": 71804,
+      "sha256": "52f159ad45599311d09cc020434c297eb2c2de5d7ae21cd44e0912ca3abcaa5c",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-298b5-nnections-share-one-receipt-phone/video.webm",
+      "bytes": 75919,
+      "sha256": "17308f01b2079ed491b408b7afbbcadc6dda9b67ccfd2404d033180254720a7c",
+      "durationSeconds": 1.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-synthetic-c-298b5-nnections-share-one-receipt-desktop/video.webm",
+      "bytes": 48786,
+      "sha256": "3adeec1657e6672b98b14615ec022e32a7f59958d339c9fbf36104ac8aa071eb",
+      "durationSeconds": 1.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-native-chap-9be85-uture-data-cannot-overwrite-phone/video.webm",
+      "bytes": 74401,
+      "sha256": "834fb457a51b780f4d030c03387d0e6b18c90f96cd126f26d51de33577d997de",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/test-results/chapter.native-native-chap-9be85-uture-data-cannot-overwrite-desktop/video.webm",
+      "bytes": 73204,
+      "sha256": "ed83b9305678dc8a00343fd3f537e797931ff65abafe2b38342e7d3971dbb61c",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/08cf4c8ad7c579728ebe25fb059fd64159b32137.webm",
+      "bytes": 71804,
+      "sha256": "52f159ad45599311d09cc020434c297eb2c2de5d7ae21cd44e0912ca3abcaa5c",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/1a5097d136a1e9c9d0140387dee1ad5fbe7ade86.webm",
+      "bytes": 55335,
+      "sha256": "d6613afefa63165ece19497637ac05af4015b25ae2a6d14a56622e39103dc65b",
+      "durationSeconds": 1.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/21cb6bcbef40885ea3f3e764d2f0054f4c91a2bd.webm",
+      "bytes": 73796,
+      "sha256": "97cac4ccc36c9cd448af94bfcfc434254f3ead365b309094568066eb20ff418d",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/243365035067f368b50936a7dbd39d57d31e5e0a.webm",
+      "bytes": 81354,
+      "sha256": "d37521c96b288033f8e5c1dab2c065dd017047685885ec0efad78d6fd1a90b22",
+      "durationSeconds": 1.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/76b3376a819470aa1370f27585ee6864237d0f4d.webm",
+      "bytes": 72630,
+      "sha256": "5205cc294ee16c65c2492379fedefc201605ff3557b22f7e2ef2c805d3ab263c",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/7bcd546ac4180356440fe121c8b85dbf63f16829.webm",
+      "bytes": 75919,
+      "sha256": "17308f01b2079ed491b408b7afbbcadc6dda9b67ccfd2404d033180254720a7c",
+      "durationSeconds": 1.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/7dcbf98777ab4354e735a001c491108304645349.webm",
+      "bytes": 55989,
+      "sha256": "8df97cd092620dbfc51676b60d16acf6dda9841d2653a48591f00ef8e894d878",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/9fe78992dba39b5835bac451796281a3740052e1.webm",
+      "bytes": 73388,
+      "sha256": "4c0742d64360c44d1d672b1ba213c528cb0b862ca5a04f30eb43bd9abf96fdca",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/aee55318e14b208ee9e2e4c96062879c93eb6a50.webm",
+      "bytes": 56182,
+      "sha256": "d3ef894ea8ddbdcfe86d562dd70e474cbb80be590e8287308210d24c84106a6f",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/c7799b41019527a00de80b9603bd277d3101acc1.webm",
+      "bytes": 74401,
+      "sha256": "834fb457a51b780f4d030c03387d0e6b18c90f96cd126f26d51de33577d997de",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/d0ecd9b9c00064410b1a75d5569b51ee16277f96.webm",
+      "bytes": 48786,
+      "sha256": "3adeec1657e6672b98b14615ec022e32a7f59958d339c9fbf36104ac8aa071eb",
+      "durationSeconds": 1.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/d8f7522f57412f66c9dfea2c53a23aa346b0c39e.webm",
+      "bytes": 86400,
+      "sha256": "dfd01c0ee5b07dc990811ef09cc22563bce48340351976ee3896797415e8f557",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/fdd8c3b4cfd6adb3c5557522d8f343b76c060fcf.webm",
+      "bytes": 73966,
+      "sha256": "53574c36f7d7fd92a6891b4e5a8d7f6f293ede19778e32b4241cdc4cd4af29e6",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "compat-final/playwright-report/data/ffc03060bb4a9eb871585a1a882384871c0dd887.webm",
+      "bytes": 73204,
+      "sha256": "ed83b9305678dc8a00343fd3f537e797931ff65abafe2b38342e7d3971dbb61c",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 174474,
+      "sha256": "4c85f312108534dff4371b2685ce780d4e7c36c7a0e993489d1af001f9524d90",
+      "durationSeconds": 3.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 171346,
+      "sha256": "679e246745252bbb7aec551dfb1761d86b29f18489286c34fb016542d5c5dd36",
+      "durationSeconds": 3.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-phone/video.webm",
+      "bytes": 190011,
+      "sha256": "97e16f410e21f1e7a5682dcb45e6a4419e87bdcc7032826001ac24232c7a96a9",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-desktop/video.webm",
+      "bytes": 151507,
+      "sha256": "c9e6320b3faea289091979f5b8a79d2541a9c28271e1a47a5665da5077125182",
+      "durationSeconds": 2.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 132862,
+      "sha256": "cd4068f1c31e35f9e30f50ef4e5c2dfe8a9b789fad62b3a170ba188a8dd3c5ac",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 153244,
+      "sha256": "380fbfd1887892c9fd7180d1bae66ea5f0395b95402ce7b8868f05307dbd34d9",
+      "durationSeconds": 2.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 157013,
+      "sha256": "46b6afd19f432f5a72310f9dc8cd0f8236da8d7e0f39825ae65ce49a9dd6a57a",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 142998,
+      "sha256": "0a187f8365c0cdf2f25598fea997979c200f51c2ff9009c6c0ea6b2414b9788a",
+      "durationSeconds": 2.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-t-03711-cel-and-blur-clear-movement-phone/video.webm",
+      "bytes": 262300,
+      "sha256": "62ab9c75b7e24100783738edfd5a539ef3faf09eee246c1cecc2389695fbd069",
+      "durationSeconds": 3.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/test-results/chapter-growth-synthetic-t-03711-cel-and-blur-clear-movement-desktop/video.webm",
+      "bytes": 205233,
+      "sha256": "fabb1a7291bf9065f23148e3654b8428903300bb1b763be4341957980f7d2f58",
+      "durationSeconds": 3.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/0c4607738b2b136f55f800c522ba7e0124d0d2b6.webm",
+      "bytes": 151507,
+      "sha256": "c9e6320b3faea289091979f5b8a79d2541a9c28271e1a47a5665da5077125182",
+      "durationSeconds": 2.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/2c4fd434d09871d5fafc468de15b3541861dfb62.webm",
+      "bytes": 132862,
+      "sha256": "cd4068f1c31e35f9e30f50ef4e5c2dfe8a9b789fad62b3a170ba188a8dd3c5ac",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/37b2557cff8d56737f6101cbcf5cb015c4730000.webm",
+      "bytes": 153244,
+      "sha256": "380fbfd1887892c9fd7180d1bae66ea5f0395b95402ce7b8868f05307dbd34d9",
+      "durationSeconds": 2.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/464ce38313b67ff31687160f82b6a0aec70ad7a9.webm",
+      "bytes": 262300,
+      "sha256": "62ab9c75b7e24100783738edfd5a539ef3faf09eee246c1cecc2389695fbd069",
+      "durationSeconds": 3.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/4b55dc3410d46c1f80973a55b1e880928b025435.webm",
+      "bytes": 205233,
+      "sha256": "fabb1a7291bf9065f23148e3654b8428903300bb1b763be4341957980f7d2f58",
+      "durationSeconds": 3.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/5ef33176d07a0f3b32d60ceb92d6ea78db9b3a78.webm",
+      "bytes": 174474,
+      "sha256": "4c85f312108534dff4371b2685ce780d4e7c36c7a0e993489d1af001f9524d90",
+      "durationSeconds": 3.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/9c968cf3e975414386d68928703c951ca8621ad0.webm",
+      "bytes": 142998,
+      "sha256": "0a187f8365c0cdf2f25598fea997979c200f51c2ff9009c6c0ea6b2414b9788a",
+      "durationSeconds": 2.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/c8e1146f11e8d298a33d8d10de8caae10431f364.webm",
+      "bytes": 171346,
+      "sha256": "679e246745252bbb7aec551dfb1761d86b29f18489286c34fb016542d5c5dd36",
+      "durationSeconds": 3.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/d38cf9327e43ac3d6b41378c4b39e67c32f05928.webm",
+      "bytes": 157013,
+      "sha256": "46b6afd19f432f5a72310f9dc8cd0f8236da8d7e0f39825ae65ce49a9dd6a57a",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-03/playwright-report/data/de08598ff1d5b0056a5f47272f9fe17b5b46531f.webm",
+      "bytes": 190011,
+      "sha256": "97e16f410e21f1e7a5682dcb45e6a4419e87bdcc7032826001ac24232c7a96a9",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 182035,
+      "sha256": "8820f92cd59c8346c5f0d18dac244628f5c95ba264abfaf9c18ac073c4e8fa60",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 148981,
+      "sha256": "c28c5c5543c9e31a7c1e8f3a9c6f6fe32128c966aca3e5950d09c20f2ba781c5",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-phone/video.webm",
+      "bytes": 183296,
+      "sha256": "1f5cf48557ca0741798e77f78a7fd0234a7d4fbc907a026fb1d35c6d8bdbcc72",
+      "durationSeconds": 2.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-desktop/video.webm",
+      "bytes": 150521,
+      "sha256": "a153e8a5e8ba99c7219e11d652423ebfe448bf419cdd1218fe901176d5d44ade",
+      "durationSeconds": 2.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 125965,
+      "sha256": "812b78ea2dea4b46a47b5dda59e8bd8a52e7681f7c06a5941752e71fe350a8af",
+      "durationSeconds": 2.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 141561,
+      "sha256": "9c977323b656e91722b8c22904570014deacce51c5b38e27ea0d3788a113ebc5",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 168010,
+      "sha256": "a1dad308d8a71f0f8fb0638acc9e146a69b5640a6ab2165aaddb6df55cf37772",
+      "durationSeconds": 2.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 153669,
+      "sha256": "f1082db82d97521f5ab31d5e514292ca2b89408672b224ca6ca47585eca5b2ff",
+      "durationSeconds": 2.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/2b8c803849ea8fb2ba2dfb1206a192b60cbcbc28.webm",
+      "bytes": 153669,
+      "sha256": "f1082db82d97521f5ab31d5e514292ca2b89408672b224ca6ca47585eca5b2ff",
+      "durationSeconds": 2.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/3f571aee8d47543a3e50794b644905f901e06f2e.webm",
+      "bytes": 148981,
+      "sha256": "c28c5c5543c9e31a7c1e8f3a9c6f6fe32128c966aca3e5950d09c20f2ba781c5",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/57bb11185540d9e397a041fcc12bc6c3baba07b9.webm",
+      "bytes": 150521,
+      "sha256": "a153e8a5e8ba99c7219e11d652423ebfe448bf419cdd1218fe901176d5d44ade",
+      "durationSeconds": 2.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/6095ee9db1fa22bda330cb5865678b111068427f.webm",
+      "bytes": 141561,
+      "sha256": "9c977323b656e91722b8c22904570014deacce51c5b38e27ea0d3788a113ebc5",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/657996fb1cdbcf2889cfd14e9dcd224758033b7f.webm",
+      "bytes": 182035,
+      "sha256": "8820f92cd59c8346c5f0d18dac244628f5c95ba264abfaf9c18ac073c4e8fa60",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/6f51d37356dfa0d156ff4426f1cd3e19836b96d4.webm",
+      "bytes": 168010,
+      "sha256": "a1dad308d8a71f0f8fb0638acc9e146a69b5640a6ab2165aaddb6df55cf37772",
+      "durationSeconds": 2.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/819ac15f65468838bb772e000a49ff9b4e64a0f2.webm",
+      "bytes": 125965,
+      "sha256": "812b78ea2dea4b46a47b5dda59e8bd8a52e7681f7c06a5941752e71fe350a8af",
+      "durationSeconds": 2.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-02/playwright-report/data/a4702784c525c3668186fca4be0948cc3f64767c.webm",
+      "bytes": 183296,
+      "sha256": "1f5cf48557ca0741798e77f78a7fd0234a7d4fbc907a026fb1d35c6d8bdbcc72",
+      "durationSeconds": 2.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 72464,
+      "sha256": "726b686d13b9a6f3f9db02f50c3299ff6ba618578baa27d5600f489b266c0b29",
+      "durationSeconds": 2.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 61149,
+      "sha256": "29c3d3cb4f7615a72863a767847e40bbb38f96a028ece79e77de4b00bf68fa10",
+      "durationSeconds": 1.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-phone/video.webm",
+      "bytes": 74027,
+      "sha256": "c773adab6aa7238dbf6fbc05466b97648718d030a7c27f7052fef1b2703b0cc5",
+      "durationSeconds": 2.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-desktop/video.webm",
+      "bytes": 61252,
+      "sha256": "e44293029c43afd59787458409116d9d4aa3f39dc0008187e40787064d633dc5",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 73608,
+      "sha256": "79b45dcc89099962dbe5a94842fee1103e065853adb18811c0f98acd2abb64ac",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 61052,
+      "sha256": "7502e09453903aaba580d85ca1fb4f6178494e959ffd8baac221c6daf843e726",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 96288,
+      "sha256": "00ea49e3470c6a9c40aedc8e522e745369e1fbb691e8c3ba4d88dbe90f075964",
+      "durationSeconds": 2.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 74301,
+      "sha256": "3d01826f3df8ea0499e268b031dbb582f91b2fdf1637caeecc07adccc5854264",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/154c274b9590a2e8a50eec8791421512b127e76e.webm",
+      "bytes": 61052,
+      "sha256": "7502e09453903aaba580d85ca1fb4f6178494e959ffd8baac221c6daf843e726",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/15c5e7b8bc494e1d7549a87d40f32adf8e4d36cb.webm",
+      "bytes": 72464,
+      "sha256": "726b686d13b9a6f3f9db02f50c3299ff6ba618578baa27d5600f489b266c0b29",
+      "durationSeconds": 2.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/25724e0498f6574a6dfaa58ad0ec29053823292a.webm",
+      "bytes": 61149,
+      "sha256": "29c3d3cb4f7615a72863a767847e40bbb38f96a028ece79e77de4b00bf68fa10",
+      "durationSeconds": 1.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/69861a9553694c0c03c6f4350bb127752e5fa8cf.webm",
+      "bytes": 74027,
+      "sha256": "c773adab6aa7238dbf6fbc05466b97648718d030a7c27f7052fef1b2703b0cc5",
+      "durationSeconds": 2.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/7aa4f051a7672aae834a765c0d79a1e431e26d19.webm",
+      "bytes": 74301,
+      "sha256": "3d01826f3df8ea0499e268b031dbb582f91b2fdf1637caeecc07adccc5854264",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/acdbdae46b180953c2d071e4375f054daadee4e3.webm",
+      "bytes": 73608,
+      "sha256": "79b45dcc89099962dbe5a94842fee1103e065853adb18811c0f98acd2abb64ac",
+      "durationSeconds": 2.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/b41a981136b7091844ce57be0ac660a8d21545ec.webm",
+      "bytes": 61252,
+      "sha256": "e44293029c43afd59787458409116d9d4aa3f39dc0008187e40787064d633dc5",
+      "durationSeconds": 1.68,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/d281c4b8d0e6eaad217392ab8b3641bd8f8aaac7.webm",
+      "bytes": 96288,
+      "sha256": "00ea49e3470c6a9c40aedc8e522e745369e1fbb691e8c3ba4d88dbe90f075964",
+      "durationSeconds": 2.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    }
+  ]
+}

@@ -12,6 +12,8 @@ import { FirstBoss } from './FirstBoss';
 import { generateGear } from './gearDrops';
 import { EvolutionCombat } from './EvolutionCombat';
 import { isStarter } from './evolutionCatalog';
+import type { ChapterPreparation } from '../chapter/prepare';
+import { chapterCombatContext } from '../chapter/combat';
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
@@ -43,6 +45,7 @@ export class CombatSimulation {
   petGold = 0;
   petDamage = 0;
   readonly damageBy: Record<string, number> = {};
+  readonly damageTakenBy: Record<string, number> = {};
   readonly history = {
     stage: 'ST001-01', name: firstStage.storyEncounter.name,
     waves: [{ at: 0, name: waveAt(0).name, type: waveAt(0).type }],
@@ -88,18 +91,19 @@ export class CombatSimulation {
   private readonly journeyCombat?: EvolutionCombat;
   private readonly heroId: string;
 
-  constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random, readonly drops: GearInstance[] = [], private now = Date.now) {
-    if ((progression.journey ? !isStarter(save.hero) || progression.journey.hero !== save.hero : save.hero !== 'H001') || save.pet !== 'PET001') throw new Error('Unsupported combat preparation');
-    this.heroId = save.hero;
-    const startup = calculateStartup(save);
-    this.context = combatContext(save, startup);
-    this.player = { x: 1800, y: 1200, r: 15, ...startup.player, inv: 0, dodgeCd: 0, skillCd: 0, ult: 0, shield: 0, dodgeBuff: 0, incoming: firstStage.incoming };
-    this.difficulty = String(save.difficulty || 'normal'); this.runes = [...save.runes];
-    this.baseAspd = startup.player.aspd;
+  constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random, readonly drops: GearInstance[] = [], private now = Date.now, readonly chapter?: ChapterPreparation) {
+    if (!chapter && ((progression.journey ? !isStarter(save.hero) || progression.journey.hero !== save.hero : save.hero !== 'H001') || save.pet !== 'PET001')) throw new Error('Unsupported combat preparation');
+    this.heroId = chapter?.heroId || save.hero;
+    const startup = chapter ? undefined : calculateStartup(save);
+    const player = chapter?.player ?? startup!.player;
+    this.context = chapter ? chapterCombatContext() : combatContext(save, startup!);
+    this.player = { x: 1800, y: 1200, r: 15, ...player, inv: 0, dodgeCd: 0, skillCd: 0, ult: 0, shield: 0, dodgeBuff: 0, incoming: firstStage.incoming };
+    this.difficulty = chapter?.difficulty || String(save.difficulty || 'normal'); this.runes = chapter ? [] : [...save.runes];
+    this.baseAspd = player.aspd;
     const cd = pets.pets.PET001.cd;
-    this.pet = { x: 1836, y: 1176, angle: 0, cd: cd * .35, maxCd: cd };
-    this.map = new FirstStageMap(this, random);
-    this.bossEncounter = new FirstBoss(this, save.hero, this.difficulty, random, now);
+    this.pet = { x: 1836, y: 1176, angle: 0, cd: cd * .35, maxCd: cd, enabled: !chapter };
+    this.map = new FirstStageMap(this, random, !chapter);
+    this.bossEncounter = new FirstBoss(this, this.heroId, this.difficulty, random, now);
     if (progression.journey) this.journeyCombat = new EvolutionCombat(this, progression.journey);
   }
   state(): CombatState { return { ...this.progression.snapshot(), ...this.player, evolved: this.evolved, killBuff: this.killBuff, mode: 'story' }; }
@@ -126,7 +130,12 @@ export class CombatSimulation {
   lightningPath(points: readonly Point[], source: string): void {
     if (points.length > 1) this.events.push({ type: 'lightning', source, points: Object.freeze(points.map(({ x, y }) => Object.freeze({ x, y }))) });
   }
-  hurt(damage: number): void { Object.assign(this.player, incomingHit(this.context, this.player, damage)); }
+  hurt(damage: number, source = 'unknown'): void {
+    const before = Math.max(0, this.player.hp);
+    Object.assign(this.player, incomingHit(this.context, this.player, damage));
+    const lost = Math.max(0, before - Math.max(0, this.player.hp));
+    if (lost > 0) this.damageTakenBy[source] = (this.damageTakenBy[source] || 0) + lost;
+  }
   hitBoss(base: number, source: string, skill = false): void {
     const boss = this.boss; if (!boss) return;
     const hit = bossHit(this.context, this.state(), source, base, boss, skill);
@@ -150,7 +159,7 @@ export class CombatSimulation {
     if (enemy.elite) this.eliteKills++;
     if (enemy.volatile) { this.ring(enemy, 58, 'volatile'); if (distance(this.player, enemy) < 58 && this.player.inv <= 0) this.hurt(enemy.damage * 1.2); }
     if (enemy.split) { this.spawn({ id: enemy.id }); this.spawn({ id: enemy.id }); }
-    if (enemy.elite && this.random() < .45) this.drops.push(generateGear(this.heroId, 'elite', this.random, this.now));
+    if (!this.chapter && enemy.elite && this.random() < .45) this.drops.push(generateGear(this.heroId, 'elite', this.random, this.now));
     if (this.runes.includes('R006')) this.killBuff = 3;
     if (this.runes.includes('R043')) this.progression.gain(Math.round((enemy.elite ? 18 : 4) * .18));
     if (this.runes.includes('R041')) this.petGold += enemy.elite ? 2 : .25;
@@ -217,7 +226,7 @@ export class CombatSimulation {
       this.enemyShots.push({ x: enemy.x, y: enemy.y, vx: Math.cos(angle) * 235, vy: Math.sin(angle) * 235, dmg: enemy.damage, color: enemy.color, r: 5, life: 5 });
     }
     // The original contact test uses distance sampled before movement.
-    if (d < enemy.r + this.player.r + 2) { this.hurt(enemy.damage); if (enemy.vamp) enemy.hp = Math.min(enemy.maxHp, enemy.hp + enemy.maxHp * .05); }
+    if (d < enemy.r + this.player.r + 2) { this.hurt(enemy.damage, enemy.id); if (enemy.vamp) enemy.hp = Math.min(enemy.maxHp, enemy.hp + enemy.maxHp * .05); }
   }
   beginFrame(dt: number): void {
     const p = this.player, slow = this.auraNear ? .82 : 1; this.auraNear = false;
@@ -241,7 +250,7 @@ export class CombatSimulation {
   finishBaseFrame(dt: number): void {
     for (let i = this.enemyShots.length - 1; i >= 0; i--) {
       const shot = this.enemyShots[i]!; shot.x += shot.vx * dt; shot.y += shot.vy * dt; shot.life -= dt;
-      if (distance(this.player, shot) < this.player.r + shot.r) { this.hurt(shot.dmg); this.enemyShots.splice(i, 1); }
+      if (distance(this.player, shot) < this.player.r + shot.r) { this.hurt(shot.dmg, 'hostile-projectile'); this.enemyShots.splice(i, 1); }
       else if (shot.life <= 0) this.enemyShots.splice(i, 1);
     }
     this.map.advanceHazards(dt);
@@ -387,7 +396,7 @@ export class CombatSimulation {
     this.player.dodgeBuff = Math.max(0, this.player.dodgeBuff - dt); this.killBuff = Math.max(0, this.killBuff - dt);
     if (this.runes.includes('R022')) { this.shieldClock -= dt; if (this.shieldClock <= 0) { this.player.shield = Math.max(this.player.shield, this.player.maxHp * .12); this.shieldClock = 20; } }
     if (this.runes.includes('R004')) this.player.aspd = Math.min(4, this.baseAspd * (1 + (this.combo >= 100 ? .24 : this.combo >= 60 ? .16 : this.combo >= 30 ? .08 : 0)));
-    if (pet.cd <= 0) {
+    if (pet.enabled && pet.cd <= 0) {
       const target = this.nearest();
       if (target) {
         this.projectile('PET001', pet, Math.atan2(target.y - pet.y, target.x - pet.x), 430, this.player.atk * .75, 5, { explode: 45, color: '#ef704c' });

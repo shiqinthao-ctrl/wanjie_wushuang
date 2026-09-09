@@ -1,0 +1,2245 @@
+{
+  "hero": "H001",
+  "policy": "Pick first evolution, then prioritize its core; isolated progression simulation, not balance evidence.",
+  "count": 200,
+  "distribution": {
+    "dragon": {
+      "offered": 148,
+      "positions": [
+        50,
+        42,
+        56
+      ],
+      "selected": 50
+    },
+    "bulwark": {
+      "offered": 157,
+      "positions": [
+        44,
+        64,
+        49
+      ],
+      "selected": 44
+    },
+    "frostlord": {
+      "offered": 147,
+      "positions": [
+        45,
+        48,
+        54
+      ],
+      "selected": 45
+    },
+    "frostflame": {
+      "offered": 148,
+      "positions": [
+        61,
+        46,
+        41
+      ],
+      "selected": 61
+    }
+  },
+  "samples": [
+    {
+      "seed": 0,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 1,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 2,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 3,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 4,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 5,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 6,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 7,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 8,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 9,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 10,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 11,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 12,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 13,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 14,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 15,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 16,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 17,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 18,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 19,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 20,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 21,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 22,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 23,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 24,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 25,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 26,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 27,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 28,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 29,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 30,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 31,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 32,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 33,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 34,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 35,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 36,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 37,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 38,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 39,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 40,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 41,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 42,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 43,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 44,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 45,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 46,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 47,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 48,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 49,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 50,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 51,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 52,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 53,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 54,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 55,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 56,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 57,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 58,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 59,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 60,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 61,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 62,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 63,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 64,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 65,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 66,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 67,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 68,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 69,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 70,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 71,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 72,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 73,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 74,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 75,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 76,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 77,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 78,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 79,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 80,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 81,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 82,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 83,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 84,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 85,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 86,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 87,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 88,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 89,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 90,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 91,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 92,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 93,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 94,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 95,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 96,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 97,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 98,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 99,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 100,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 101,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 102,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 103,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 104,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 105,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 106,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 107,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 108,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 109,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 110,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 111,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 112,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 113,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 114,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 115,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 116,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 117,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 118,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 119,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 120,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 121,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 122,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 123,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 124,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 125,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 126,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 127,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 128,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 129,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 130,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 131,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 132,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 133,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 134,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 135,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 136,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 137,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 138,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 139,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 140,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 141,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 142,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 143,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 144,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 145,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 146,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 147,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 148,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 149,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 150,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 151,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 152,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 153,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 154,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 155,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 156,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 157,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 158,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 159,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 160,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 161,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 162,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 163,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 164,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 165,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 166,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 167,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 168,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 169,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 170,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 171,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 172,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 173,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 174,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 175,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 176,
+      "offered": [
+        "bulwark",
+        "dragon",
+        "frostflame"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 177,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 178,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 179,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 180,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 181,
+      "offered": [
+        "frostlord",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 182,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 183,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 184,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 185,
+      "offered": [
+        "bulwark",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 186,
+      "offered": [
+        "bulwark",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "bulwark",
+      "core": "A021",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 187,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 188,
+      "offered": [
+        "frostflame",
+        "dragon",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 189,
+      "offered": [
+        "dragon",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 190,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 191,
+      "offered": [
+        "frostlord",
+        "frostflame",
+        "dragon"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 192,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "frostlord"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 193,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 194,
+      "offered": [
+        "dragon",
+        "bulwark",
+        "frostflame"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 195,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "bulwark"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 196,
+      "offered": [
+        "frostflame",
+        "bulwark",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 197,
+      "offered": [
+        "dragon",
+        "frostflame",
+        "frostlord"
+      ],
+      "selected": "dragon",
+      "core": "A003",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 198,
+      "offered": [
+        "frostflame",
+        "frostlord",
+        "dragon"
+      ],
+      "selected": "frostflame",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    },
+    {
+      "seed": 199,
+      "offered": [
+        "frostlord",
+        "dragon",
+        "bulwark"
+      ],
+      "selected": "frostlord",
+      "core": "G2_FROST",
+      "awakenedAtLevel": 8
+    }
+  ]
+}

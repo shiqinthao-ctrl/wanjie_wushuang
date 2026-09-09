@@ -35,3 +35,4 @@ export function freeze<T>(value: T): T {
   return value;
 }
 freeze(chapterHeroes); freeze(chapterStages); freeze(chapterRouteGroups); freeze(chapterBonds); freeze(chapterCharms);
+export const chapterCoreSkills = Object.freeze({ dragon: 'A003', bulwark: 'A021', frostlord: 'G2_FROST', frostflame: 'G2_FROST', phoenix: 'A054', legion: 'S001', thunderlord: 'A013', void: 'A026', reaper: 'A015', beastlord: 'S001', windwarden: 'A026' } as const);

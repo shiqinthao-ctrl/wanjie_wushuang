@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-R1a isolated chapter preparation, Schema30 extension and atomic settlement complete; no new gameplay entry. R0 accd764 contains baseline and sample brief. See tasks/game-remediation/evidence/R1a/RESULTS.md. G5 runtime 821b90c / Render dep-dagi1c740ujc73f9nikg unchanged.
+R1b H001/CH001-01 growth connects to GameCore and BattleView: 4+4, three-choice evolution, core grant/awakening, reroll/banish and isolated settlement. Normal-speed growth passes on desktop/phone-size Chrome. See tasks/game-remediation/evidence/R1b/RESULTS.md. G5 runtime 821b90c / Render dep-dagi1c740ujc73f9nikg unchanged.
 
 ## Changed files
-Added chapter catalog/preparation/progress/settlement, ChapterRunSession, 60 rule cases and 7 native cases. Parser validates optional mobileChapter. Updated TASK, remediation docs/evidence and handoff. No old combat, dependency, archive or deployment change.
+Added chapter growth/neutral combat context, chapter result UI and 209 rule cases; scoped optional chapter path in core, map, Boss and battle UI. Added real battle fixture with natural and synthetic flows. Updated TASK, contract, evidence and handoff. No legacy source, dependency, archive or deployment change.
 
 ## Tests
-Five root gates, 49 legacy hashes, types, 1034/1034 rules and build pass. Final compatibility: 26/26 desktop/phone-size Chrome; earlier native/compat runs 18/18 and 26/26 overlap. 35 raw synthetic-storage videos plus 35 report copies decoded/hashed. R0 cold 12/12. All attempts retained; no natural chapter battle or real-phone claim.
+Five root gates, 49 legacy hashes, types, 1243/1243 rules and build pass. H001 200 seeded growth cases. Final browsers: 10 synthetic growth + 2 normal-speed growth + 46 compatibility pass. 44 raw videos, 44 report copies and 2 MP4s decoded/hashed. Failed attempts retained; synthetic victory/death are not natural acceptance.
 
 ## Unresolved risk
-R1 gameplay/art sample incomplete; base stats and victory=1 star are engineering baselines. Charms/stages 2-3 not playable. P2l natural HP-death, G4 cold timeout, phones/endurance/PWA/audio/human acceptance remain open. Large chunk and legacy favicon404 remain. R1a code rollback accd764; keep data. G5 stays live, auto-deploy Off.
+R1 gameplay/art sample incomplete; no public chapter entry. Natural awakening about 91/131s is earlier than target 210-270s; balance open. H010/H012, charms/stages 2-3 unavailable. P2l natural HP-death, G4 cold timeout, phones/endurance/PWA/audio/human acceptance remain open. Large chunk/favicon404 remain. R1b rollback fa8d3a2; keep data. G5 stays live, auto-deploy Off.
 
 ## Recommended next task
-R1b: scope TASK first; integrate chapter preparation with GameCore and H001 4+4 growth, 3-choice evolution, core grant/guarantee and core-based awakening. Verify seeded candidates and normal UI selection chain; then R1c dragon combat. Preserve preview-g5 and do not label the foundation as a playable sample.
+R1c: scope TASK first; implement chapter-only dragon frontal arcs/piercing fire blades, weak side and awakened consecutive attacks. Verify crowd/ranged/elite/Boss scenarios and readable feedback; retain G5 behavior. Use R1b timing evidence for later sample tuning; no asset-production or full R1 acceptance claim.
 
 ## After each task
 Replace only these fields:

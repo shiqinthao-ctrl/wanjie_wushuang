@@ -1,6 +1,7 @@
 import { activeSkills, bonds, hasSkillTag, heroForms, passiveSkills, signatureSkills, skillDetails, skillRoutes, skillTags, starter } from './evolutionCatalog';
 import type { FormId, RouteId, StarterId } from './evolutionCatalog';
 import type { ChoiceKind, LevelOption, SkillLevels } from './progression';
+import { chapterCoreSkills } from '../chapter/catalog';
 
 export function evolutionBuild(hero: string) {
   const initial = starter(hero);
@@ -11,10 +12,22 @@ export class RunEvolution {
   private form: FormId | undefined;
   private rank = 0;
   private routes: Partial<Record<string, RouteId>> = {};
-  constructor(hero: string) { this.hero = starter(hero).id; }
+  private evolutionOffer?: LevelOption[];
+  constructor(hero: string, readonly ruleset?: 'chapter1-v1', private random = Math.random) { this.hero = starter(hero).id; }
+  coreSkill(): string | undefined { return this.form ? chapterCoreSkills[this.form] : undefined; }
   special(level: number, skills: SkillLevels): LevelOption[] {
-    if (!this.form && level >= 3) return heroForms.filter(form => form.hero === this.hero).map(form => ({ kind: 'hero', id: form.id, label: form.name, detail: form.detail }));
-    if (this.form && this.rank === 1 && level >= 8 && Object.values(skills).some(lv => (lv || 0) >= 3)) {
+    if (!this.form && level >= 3) {
+      const options: LevelOption[] = heroForms.filter(form => form.hero === this.hero).map(form => ({ kind: 'hero', id: form.id, label: form.name, detail: form.detail }));
+      if (!this.ruleset) return options;
+      if (!this.evolutionOffer) {
+        for (let i = options.length - 1; i > 0; i--) {
+          const j = Math.floor(this.random() * (i + 1)); [options[i], options[j]] = [options[j]!, options[i]!];
+        }
+        this.evolutionOffer = options.slice(0, 3);
+      }
+      return this.evolutionOffer.map(option => ({ ...option }));
+    }
+    if (this.form && this.rank === 1 && level >= 8 && (this.ruleset ? (skills[this.coreSkill()!] || 0) >= 3 : Object.values(skills).some(lv => (lv || 0) >= 3))) {
       const form = heroForms.find(form => form.id === this.form)!;
       return [{ kind: 'hero', id: 'awaken', label: `觉醒 · ${form.name}`, detail: form.awakening }];
     }
@@ -33,7 +46,7 @@ export class RunEvolution {
   }
   route(skill: string): RouteId | undefined { return this.routes[skill]; }
   signature(skills: SkillLevels): string | undefined {
-    const id = this.form && signatureSkills[this.form];
+    const id = this.ruleset ? this.coreSkill() : this.form && signatureSkills[this.form];
     return id && (skills[id] || 0) < 3 ? id : undefined;
   }
   bond(id: typeof bonds[number]['id'], skills: SkillLevels): boolean {
@@ -46,7 +59,7 @@ export class RunEvolution {
     return Object.freeze({ heroId: this.hero, formId: this.form, rank: this.rank, name: form ? `${this.rank === 2 ? '觉醒 · ' : ''}${form.name}` : base.name,
       color: form?.color || base.color, skill: form?.id === 'frostflame' ? '霜焰剑域' : form?.id === 'windwarden' ? '岚影伏阵' : form?.id === 'frostlord' ? '随身寒域' : form?.id === 'thunderlord' ? '九霄连雷' : form?.id === 'beastlord' ? '冥契近卫' : form?.id === 'bulwark' ? '焚城火域' : form?.id === 'legion' ? '焰影号令' : form?.id === 'void' ? '虚空牵引' : base.skill,
       ult: form?.id === 'frostflame' ? '冰火天倾' : form?.id === 'windwarden' ? '千岚影阵' : form?.id === 'frostlord' ? '霜狱降临' : form?.id === 'thunderlord' ? '万雷天劫' : form?.id === 'beastlord' ? '百兽夜行' : base.ult,
-      next: !this.form ? 'Lv.3 选择英雄进化' : this.rank === 1 ? 'Lv.8 + 任一主动 Lv.3 解锁觉醒' : '英雄已觉醒，继续组合技能与羁绊',
+      next: !this.form ? 'Lv.3 选择英雄进化' : this.rank === 1 ? this.ruleset ? 'Lv.8 + 核心术式 Lv.3 解锁觉醒' : 'Lv.8 + 任一主动 Lv.3 解锁觉醒' : '英雄已觉醒，继续组合技能与羁绊',
       routes: Object.freeze({ ...this.routes }),
       bonds: Object.freeze(bonds.map(bond => Object.freeze({ ...bond, tags: Object.freeze([...bond.tags]), active: this.bond(bond.id, skills), count: bond.tags.filter(tag => Object.entries(skills).some(([id, level]) => (level || 0) > 0 && hasSkillTag(id, tag))).length }))),
     });

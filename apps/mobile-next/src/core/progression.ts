@@ -3,7 +3,7 @@ import { journeySkillNames } from './evolutionCatalog';
 import type { RunEvolution } from './RunEvolution';
 
 export type SkillLevels = Readonly<Partial<Record<string, number>>>;
-export type ChoiceKind = 'active' | 'passive' | 'hero' | 'route';
+export type ChoiceKind = 'active' | 'passive' | 'hero' | 'route' | 'recovery';
 export interface LevelOption { readonly kind: ChoiceKind; readonly id: string; readonly label: string; readonly detail?: string; readonly tag?: string }
 export interface LevelChoice { readonly token: number; readonly options: readonly LevelOption[] }
 export interface Crystal { x: number; y: number; value: number; elite: boolean }
@@ -51,6 +51,10 @@ export class Progression {
   private passives: Partial<Record<string, number>>;
   private choice: LevelChoice | undefined;
   private sequence = 0;
+  private pendingNormal = false;
+  private rerolls = 2;
+  private banishes = 1;
+  private banned = new Set<string>();
   private build: { active: readonly string[]; passive: readonly string[] };
   constructor(build: { active: readonly string[]; passive: readonly string[] }, skills: SkillLevels, passives: SkillLevels, private random: () => number = Math.random, readonly journey?: RunEvolution) {
     this.build = { active: [...build.active], passive: [...build.passive] };
@@ -61,9 +65,11 @@ export class Progression {
     for (const kind of ['active', 'passive'] as const) {
       const levels = kind === 'active' ? this.skills : this.passives;
       for (const id of this.build[kind]) {
+        if (this.journey?.ruleset && this.banned.has(id)) continue;
         const level = levels[id] || 0;
         if (level > 0 && level < 5) options.push({ kind, id, label: `${skillName(id)} Lv.${level + 1}` });
-        else if (level === 0 && Object.keys(levels).length < 6) options.push({ kind, id, label: `解锁 ${skillName(id)}` });
+        // Reserve the fourth automatic slot until evolution grants its core.
+        else if (level === 0 && Object.keys(levels).length < (this.journey?.ruleset ? kind === 'active' && !this.journey.coreSkill() ? 3 : 4 : 6)) options.push({ kind, id, label: `解锁 ${skillName(id)}` });
       }
     }
     if (this.journey) {
@@ -75,6 +81,7 @@ export class Progression {
       const signature = this.journey.signature(this.skills);
       const preferred = options.findIndex(option => option.kind === 'active' && option.id === signature);
       if (preferred > 0) options.splice(1, 0, options.splice(preferred, 1)[0]!);
+      if (!options.length && this.journey.ruleset) return [{ kind: 'recovery', id: 'heal', label: '恢复 20% 最大生命' }];
       return options.map(option => this.journey!.decorate(option));
     }
     // Preserve the legacy comparator and its RNG consumption during rule migration.
@@ -93,8 +100,13 @@ export class Progression {
     if (blocked || this.choice) return;
     const special = this.journey?.special(this.level, this.skills);
     if (special?.length) { this.offer(special); return; }
+    if (this.pendingNormal) { this.pendingNormal = false; this.offer(this.validOptions().slice(0, 3)); return; }
     if (this.xp < this.xpNeed) return;
     this.xp -= this.xpNeed; this.level++; this.xpNeed = Math.round(26 + this.level * 11);
+    if (this.journey?.ruleset) {
+      const special = this.journey.special(this.level, this.skills);
+      if (special.length) { this.pendingNormal = true; this.offer(special); return; }
+    }
     const options = this.validOptions().slice(0, 3);
     if (options.length) this.offer(options);
   }
@@ -103,7 +115,12 @@ export class Progression {
     if (!this.choice || this.choice.token !== token || !this.choice.options.some(option => option.kind === kind && option.id === id)) return false;
     if (kind === 'hero' || kind === 'route') {
       if (!this.journey?.pick(this.level, this.skills, kind, id)) return false;
-    } else {
+      if (this.journey.ruleset && kind === 'hero' && id !== 'awaken') {
+        const core = this.journey.coreSkill()!;
+        this.banned.delete(core);
+        this.skills[core] = Math.min(5, (this.skills[core] || 0) + 1);
+      }
+    } else if (kind !== 'recovery') {
       const levels = kind === 'active' ? this.skills : this.passives;
       levels[id] = (levels[id] || 0) + 1;
     }
@@ -111,7 +128,20 @@ export class Progression {
     this.checkLevel();
     return true;
   }
+  private ordinary(token: number): boolean {
+    return !!this.journey?.ruleset && this.choice?.token === token && this.choice.options.every(o => o.kind === 'active' || o.kind === 'passive' || o.kind === 'recovery');
+  }
+  reroll(token: number): boolean {
+    if (!this.ordinary(token) || this.rerolls <= 0) return false;
+    this.rerolls--; this.offer(this.validOptions().slice(0, 3)); return true;
+  }
+  banish(token: number, kind: ChoiceKind, id: string): boolean {
+    if (!this.ordinary(token) || this.banishes <= 0 || !this.choice!.options.some(o => o.kind === kind && o.id === id) ||
+      !['active', 'passive'].includes(kind) || this.skills[id] || this.passives[id] || this.journey!.coreSkill() === id) return false;
+    this.banishes--; this.banned.add(id); this.offer(this.validOptions().slice(0, 3)); return true;
+  }
   snapshot() {
-    return Object.freeze({ level: this.level, xp: this.xp, xpNeed: this.xpNeed, skills: Object.freeze({ ...this.skills }), passives: Object.freeze({ ...this.passives }), choice: this.choice });
+    const growth = this.journey?.ruleset ? Object.freeze({ autoSlots: 4, passiveSlots: 4, rerolls: this.rerolls, banishes: this.banishes, coreSkill: this.journey.coreSkill(), banned: Object.freeze([...this.banned]) }) : undefined;
+    return Object.freeze({ level: this.level, xp: this.xp, xpNeed: this.xpNeed, skills: Object.freeze({ ...this.skills }), passives: Object.freeze({ ...this.passives }), choice: this.choice, ...(growth ? { growth } : {}) });
   }
 }

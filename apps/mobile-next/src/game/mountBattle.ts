@@ -6,11 +6,12 @@ import { BossView } from './BossView';
 import { CombatEffects } from './CombatEffects';
 import type { GameSave } from '../core/saveTypes';
 import type { Journey } from '../core/evolutionCatalog';
+import type { ChapterRunOptions } from '../chapter/prepare';
 
 export interface BattleHandle { core: GameCore; setEffectsEnabled(value: boolean): void; destroy(): Promise<void> }
 
-export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) => void, ready: () => void, fail: (message: string) => void, save: GameSave, journey: Journey = 'classic'): BattleHandle {
-  const core = new GameCore(save, Math.random, journey);
+export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) => void, ready: () => void, fail: (message: string) => void, save: GameSave, journey: Journey = 'classic', chapter?: ChapterRunOptions): BattleHandle {
+  const core = new GameCore(save, Math.random, journey, chapter);
   let removed = false;
   let budget = 0;
   let effects: CombatEffects | undefined;
@@ -27,7 +28,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     private enemySprites: Phaser.GameObjects.Image[] = [];
     preload() {
       this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
-      this.load.image('hero', `${import.meta.env.BASE_URL}art/hero-${save.hero.toLowerCase()}.svg`);
+      this.load.image('hero', `${import.meta.env.BASE_URL}art/hero-${(core.chapter?.heroId || save.hero).toLowerCase()}.svg`);
       this.load.image('enemy', `${import.meta.env.BASE_URL}art/enemy-en001.svg`);
       this.load.image('boss', `${import.meta.env.BASE_URL}art/boss-b001.svg`);
       this.load.on('loaderror', () => fail('战场资源未能载入，请返回后重试。'));
@@ -132,7 +133,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       }
       while (this.enemySprites.length > enemies.length) this.enemySprites.pop()!.destroy();
       for (const shot of projectiles) graphics.fillStyle(evolution ? Number.parseInt(shot.color.slice(1), 16) : 0xffa452, 1).fillCircle(shot.x, shot.y, shot.r).lineStyle(2, 0xffe2a5, .7).strokeCircle(shot.x, shot.y, shot.r + 2);
-      graphics.fillStyle(0xef704c, 1).fillCircle(pet.x, pet.y, 9).lineStyle(2, 0xffd498, .6).strokeCircle(pet.x, pet.y, 15);
+      if (pet.enabled) graphics.fillStyle(0xef704c, 1).fillCircle(pet.x, pet.y, 9).lineStyle(2, 0xffd498, .6).strokeCircle(pet.x, pet.y, 15);
       this.crystals?.clear();
       for (const shot of enemyShots) this.crystals?.fillStyle(0xff776e, 1).fillCircle(shot.x, shot.y, shot.r);
       for (const crystal of crystals) {
