@@ -1,0 +1,162 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.g4-live.mts",
+      "wind-shadow-recording.spec.ts",
+      "--project",
+      "desktop"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.g4-live.mts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/delivery-live-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/delivery-live-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/delivery-live-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/G4/delivery-live-02/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "wind-shadow-recording.spec.ts",
+      "file": "wind-shadow-recording.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "G4 natural wind-shadow form, ambush, bond, awakening and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 323612,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:53:57.136Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\delivery-live-02\\test-results\\wind-shadow-recording-G4-n-6d6f5-h-bond-awakening-and-replay-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3bb82511758f550f682e-5ee175c54734933cdac0",
+          "file": "wind-shadow-recording.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-09T07:53:56.756Z",
+    "duration": 324301.89999999997,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

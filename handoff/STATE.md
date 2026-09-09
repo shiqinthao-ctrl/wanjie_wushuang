@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-G4 locally verified: H012 windwarden, A026 ambush and galephantom bond. Ten forms, eleven routes, seven bonds. GitHub/Render delivery pending; tag mobile-next-g4-20260909. See G4-EVIDENCE.md.
+G4 delivered: H012 windwarden, A026 ambush, galephantom; 10 forms/11 routes/7 bonds. Tag mobile-next-g4-20260909 at 05b82ac; GitHub prerelease 385317014 has seven verified assets. Render dep-daggvhbl550s73bkiq30 live. See G4-EVIDENCE.md.
 
 ## Changed files
-Evolution catalog/combat/math, route advice, form/vortex presentation, focused rules, natural fixture/config, packaging/evidence/changelog and Render milestone. No dependency, save schema, classic or legacy-source change.
+Evolution catalog/combat/math, advice/presentation, focused rules and natural tests; packaging, evidence, changelog and Render milestone. Final follow-up contains delivery records only. No dependency, schema, classic or legacy-source change.
 
 ## Tests
-960 rules; 54/54 related browser executions, no retries/skips. Two complete natural victories/reload/retry and one narrow build; 51 related native cases. Five root gates, 49 legacy hashes and app types/build pass. 57 originals and two full MP4s decode. Remote checks pending.
+960 rules; 54/54 local related browser cases. Live: phone/narrow pass, desktop first readiness timeout then full unchanged rerun pass (3/4 executions); no retries/skips. Five root gates, 49 legacy hashes, types/build and 51 live asset hashes pass. 57 local + 4 live videos and two full MP4s decode.
 
 ## Unresolved risk
-P2l fresh HP-death and stationary phone timeout still open; no assertions weakened. Full suite not rerun. Physical phones, performance/endurance, remaining parity/audio/PWA and large Phaser chunk remain. G4 rollback: 649b0b5 / dep-dagdr1142hec73brst60; auto-deploy Off.
+P2l fresh HP-death/phone timeout open; no assertions weakened. Initial live readiness timeout unexplained; legacy favicon404. Full suite not rerun; physical phones, performance/endurance, parity/audio/PWA and large chunk remain. Rollback: 649b0b5 / dep-dagdr1142hec73brst60; auto-deploy Off.
 
 ## Recommended next task
-Scope one H001 cross-element form, one skill branch and one matching bond, with exact rules in TASK before implementation. Retain natural full-build acceptance and carry P2l gaps forward. Preserve classic/Schema30, immutable releases and auto-deploy Off.
+Scope one H001 cross-element form/skill branch/bond with exact TASK rules. Keep natural full-build acceptance; carry startup and P2l gaps forward. Preserve classic/Schema30, immutable releases and auto-deploy Off.
 
 ## After each task
 Replace only these fields:

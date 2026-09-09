@@ -1,0 +1,19 @@
+Observed in the authenticated Render dashboard on 2026-09-09.
+Service: srv-d9v8cm1t0dsc73ch79k0
+Deployment: dep-daggvhbl550s73bkiq30
+Status: Deploy succeeded | Live
+Source: 05b82accc53bcc2284e0f721922cec9c9185ed7d
+Trigger: Manually deployed via Dashboard; Clear build cache & deploy
+Started: 2026-09-09 15:50:29 GMT+8
+Duration: 20.5 seconds
+Notice: Build cache cleared
+15:50:37 Node 24.18.0
+15:50:39 Build command: npm --prefix apps/mobile-next ci --include=dev && npm --prefix apps/mobile-next run build && node scripts/build-render-site.mjs
+15:50:41 Added 74 packages, audited 75; zero vulnerabilities
+15:50:42 vue-tsc --noEmit
+15:50:47 vite v8.2.2; 72 modules transformed
+15:50:48 Built; existing 500kB chunk warning remains
+15:50:48 Render package: 51 game files + version.json; source 05b82accc53bcc2284e0f721922cec9c9185ed7d; dist/render
+15:50:49 Uploading build; Your site is live
+Build settings: branch codex/mobile-web-modernization; empty root; publish dist/render; Auto-Deploy Off (inspected before deployment; no settings changed).
+Rollback: previous P4c deployment dep-dagdr1142hec73brst60 / 649b0b54e16b0016de9ba88dd148516aefd0da8b. Not executed.

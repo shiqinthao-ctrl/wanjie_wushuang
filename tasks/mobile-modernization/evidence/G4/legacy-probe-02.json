@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-09T07:59:14.378Z",
+  "messages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://wjws.onrender.com/favicon.ico",
+        "line": 0,
+        "column": 0,
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    }
+  ],
+  "responses": []
+}

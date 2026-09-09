@@ -1,0 +1,6 @@
+{
+  "command": "node scripts/verify-render-site.mjs http://127.0.0.1:4190",
+  "exitCode": 1,
+  "error": "TypeError: fetch failed; cause Error: bad port",
+  "analysis": "Node fetch rejects port 4190. This was local verification setup, before any HTTP request. Same package verified at allowed port 4188 in attempt 02."
+}

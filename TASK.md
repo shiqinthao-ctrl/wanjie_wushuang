@@ -1,6 +1,7 @@
 # TASK.md - G4 wind-shadow evolution
 
-Status: implemented and locally verified, 2026-09-09; remote delivery pending.
+Status: completed, 2026-09-09; GitHub prerelease published and Render verified.
+Runtime: 05b82ac / mobile-next-g4-20260909. Live deploy: dep-daggvhbl550s73bkiq30.
 Baseline bc0c9d2; rollback P4c 649b0b5. Evidence: G4-EVIDENCE.md.
 
 Deliver one new H012 form, one tornado branch and one wind-shadow bond in

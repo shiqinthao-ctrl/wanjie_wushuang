@@ -1,0 +1,6 @@
+{
+  "checkedAt": "2026-09-09T07:51:35.233909+00:00",
+  "exitCode": 0,
+  "stdout": "Render HTTP verification passed: 51 file hashes, both entries, legacy baseline, public allowlist; source 05b82accc53bcc2284e0f721922cec9c9185ed7d\n",
+  "stderr": ""
+}

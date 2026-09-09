@@ -1,0 +1,274 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.g4-live.mts",
+      "wind-shadow-recording.spec.ts"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.g4-live.mts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/delivery-live-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/delivery-live-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G4/delivery-live-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/G4/delivery-live-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "wind-shadow-recording.spec.ts",
+      "file": "wind-shadow-recording.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "G4 natural wind-shadow form, ambush, bond, awakening and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7702,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: '暂停', exact: true })\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" getByRole('button', { name: '暂停', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '暂停', exact: true })\u001b[22m\n\u001b[2m    8 × locator resolved to <button disabled>暂停</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: '暂停', exact: true })\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" getByRole('button', { name: '暂停', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '暂停', exact: true })\u001b[22m\n\u001b[2m    8 × locator resolved to <button disabled>暂停</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n\n    at playEvolution (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts:36:71)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\wind-shadow-recording.spec.ts:7:3",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                      "column": 71,
+                      "line": 36
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mfixtures\\evolutionPlay.ts:36\n\n  34 |   await page.getByRole('button', { name: '开启进化征途' }).click();\n  35 |   await mark('开始战斗');\n> 36 |   await expect(page.getByRole('button', { name: '暂停', exact: true })).toBeEnabled();\n     |                                                                       ^\n  37 |   if (plan?.readability) {\n  38 |     await page.getByRole('button', { name: '暂停', exact: true }).click();\n  39 |     const pause = page.getByRole('dialog', { name: '战局已暂停' });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                        "column": 71,
+                        "line": 36
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('button', { name: '暂停', exact: true })\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" getByRole('button', { name: '暂停', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: '暂停', exact: true })\u001b[22m\n\u001b[2m    8 × locator resolved to <button disabled>暂停</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n\n\n   at fixtures\\evolutionPlay.ts:36\n\n  34 |   await page.getByRole('button', { name: '开启进化征途' }).click();\n  35 |   await mark('开始战斗');\n> 36 |   await expect(page.getByRole('button', { name: '暂停', exact: true })).toBeEnabled();\n     |                                                                       ^\n  37 |   if (plan?.readability) {\n  38 |     await page.getByRole('button', { name: '暂停', exact: true }).click();\n  39 |     const pause = page.getByRole('dialog', { name: '战局已暂停' });\n    at playEvolution (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts:36:71)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\wind-shadow-recording.spec.ts:7:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:52:32.107Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\delivery-live-01\\test-results\\wind-shadow-recording-G4-n-6d6f5-h-bond-awakening-and-replay-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\delivery-live-01\\test-results\\wind-shadow-recording-G4-n-6d6f5-h-bond-awakening-and-replay-desktop\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\delivery-live-01\\test-results\\wind-shadow-recording-G4-n-6d6f5-h-bond-awakening-and-replay-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                    "column": 71,
+                    "line": 36
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3bb82511758f550f682e-5ee175c54734933cdac0",
+          "file": "wind-shadow-recording.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "G4 natural wind-shadow form, ambush, bond, awakening and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 319640,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:52:32.093Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\delivery-live-01\\test-results\\wind-shadow-recording-G4-n-6d6f5-h-bond-awakening-and-replay-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3bb82511758f550f682e-f6abf70c5351fe344dcd",
+          "file": "wind-shadow-recording.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "G4 natural wind-shadow form, ambush, bond, awakening and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 93591,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T07:52:32.108Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G4\\delivery-live-01\\test-results\\wind-shadow-recording-G4-n-6d6f5-h-bond-awakening-and-replay-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3bb82511758f550f682e-d9ef57be93ebb5c51311",
+          "file": "wind-shadow-recording.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-09T07:52:31.743Z",
+    "duration": 320303.757,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

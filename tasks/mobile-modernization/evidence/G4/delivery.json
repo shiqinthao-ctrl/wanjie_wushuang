@@ -1,0 +1,115 @@
+{
+  "checkedAt": "2026-09-09T08:01:17.279616+00:00",
+  "sourceCommit": "05b82accc53bcc2284e0f721922cec9c9185ed7d",
+  "runtimeTag": "mobile-next-g4-20260909",
+  "render": {
+    "serviceId": "srv-d9v8cm1t0dsc73ch79k0",
+    "deploymentId": "dep-daggvhbl550s73bkiq30",
+    "status": "Deploy succeeded | Live",
+    "trigger": "Clear build cache & deploy",
+    "startedAt": "2026-09-09T15:50:29+08:00",
+    "durationSeconds": 20.5,
+    "liveLogAt": "2026-09-09T15:50:49+08:00",
+    "autoDeploy": "Off",
+    "configurationChanged": false,
+    "rollbackDeployment": "dep-dagdr1142hec73brst60",
+    "rollbackCommit": "649b0b54e16b0016de9ba88dd148516aefd0da8b",
+    "rollbackExecuted": false
+  },
+  "httpVerification": {
+    "local": "local-http-02.json",
+    "public": "live-http-01.json",
+    "runtimeFiles": 51,
+    "exactSourceAndAllAssetHashesPassed": true,
+    "legacyBaselineAndRepositoryPathExclusionsPassed": true,
+    "initialLocalSetupFailure": "Node fetch rejects port 4190; same package passed on 4188."
+  },
+  "liveBrowser": {
+    "attempts": [
+      {
+        "name": "delivery-live-01",
+        "startTime": "2026-09-09T07:52:31.743Z",
+        "duration": 320303.757,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      {
+        "name": "delivery-live-02",
+        "startTime": "2026-09-09T07:53:56.756Z",
+        "duration": 324301.89999999997,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    ],
+    "latestProfilesPassed": [
+      "desktop",
+      "phone",
+      "narrow"
+    ],
+    "totalExecutions": 4,
+    "passedExecutions": 3,
+    "failedExecutions": 1,
+    "retries": 0,
+    "skipped": 0,
+    "fullVictories": [
+      "phone",
+      "desktop"
+    ],
+    "initialFailure": "Desktop battle not ready within unchanged 5000 ms assertion. Failure screenshot remains loading. Exact cause unproven; a separate unchanged attempt passed the full match. No runtime, time, RNG or save injection.",
+    "recordings": "live-recordings.json",
+    "manualVisibleSmoke": [
+      "mobile evolution lobby",
+      "H012 skill",
+      "pause/resume",
+      "return to lobby",
+      "legacy Continue to lobby"
+    ]
+  },
+  "startupDiagnostic": {
+    "report": "startup-probe.json",
+    "readyAfterClickMs": 2744,
+    "loadAssertionChanged": false,
+    "overallProbePassed": false,
+    "reason": "Legacy favicon 404; confirmed location in legacy-probe-02.json",
+    "legacyMissingResource": "https://wjws.onrender.com/favicon.ico",
+    "legacyRuntimeErrors": 0,
+    "performanceAcceptanceClaimed": false
+  },
+  "uploadAttempts": [
+    {
+      "action": "Initial gh release create, draft with seven assets",
+      "result": "Four small assets and phone MP4 uploaded; remaining large transfers were interrupted after slow progress. Draft and uploaded originals preserved."
+    },
+    {
+      "action": "Resume via command-scoped localhost proxy",
+      "result": "First attempt refused duplicate phone MP4. Requeried existing assets and resumed only missing desktop MP4 and recordings ZIP; no clobber or global configuration change."
+    },
+    {
+      "action": "Resume only missing desktop MP4 and recordings ZIP",
+      "result": "Upload completed successfully; all seven assets verified before and after publication; original files unchanged."
+    }
+  ],
+  "releaseAssets": "See github.json after remote verification.",
+  "acceptanceGaps": [
+    "P2l fresh natural HP-death target",
+    "P2l stationary phone timeout target",
+    "Initial live desktop startup timeout not explained",
+    "Legacy favicon 404",
+    "Physical phone testing",
+    "Performance and 30-minute endurance",
+    "Full historical browser suite not rerun",
+    "Remaining gameplay/audio parity",
+    "PWA/offline"
+  ],
+  "github": {
+    "releaseId": 385317014,
+    "published": true,
+    "verifiedAssets": 7,
+    "evidence": "github.json",
+    "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-g4-20260909"
+  }
+}

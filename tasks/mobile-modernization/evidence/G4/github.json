@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-09-09T08:13:27.162803+00:00",
+  "passed": true,
+  "sourceCommit": "05b82accc53bcc2284e0f721922cec9c9185ed7d",
+  "tag": "mobile-next-g4-20260909",
+  "releaseId": 385317014,
+  "draft": false,
+  "prerelease": true,
+  "publishedAt": "2026-09-09T08:13:25Z",
+  "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-g4-20260909",
+  "assets": [
+    {
+      "name": "g4-build-preview.png",
+      "bytes": 184276,
+      "sha256": "4a49113b6c984279e81fdce7732d00de091860e3d3ed7fa65896e895e7bb1e01",
+      "remoteBytes": 184276,
+      "remoteDigest": "sha256:4a49113b6c984279e81fdce7732d00de091860e3d3ed7fa65896e895e7bb1e01",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-g4-20260909/g4-build-preview.png",
+      "passed": true
+    },
+    {
+      "name": "RELEASE-NOTES.md",
+      "bytes": 6683,
+      "sha256": "e6da0905009741de8e966555df24a7079bca4ef4159298c910883efae80ef994",
+      "remoteBytes": 6683,
+      "remoteDigest": "sha256:e6da0905009741de8e966555df24a7079bca4ef4159298c910883efae80ef994",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-g4-20260909/RELEASE-NOTES.md",
+      "passed": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 551,
+      "sha256": "d568c0e17cde0f945dfa28cbce84014d2c3d6eb144293c071ea44620e81c73a9",
+      "remoteBytes": 551,
+      "remoteDigest": "sha256:d568c0e17cde0f945dfa28cbce84014d2c3d6eb144293c071ea44620e81c73a9",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-g4-20260909/SHA256SUMS.txt",
+      "passed": true
+    },
+    {
+      "name": "wanjie-g4-desktop-full.mp4",
+      "bytes": 50383261,
+      "sha256": "979297fb7d35e5f0c500fcf0ee02b6290e749acfd5556f133bc0278f33ad13aa",
+      "remoteBytes": 50383261,
+      "remoteDigest": "sha256:979297fb7d35e5f0c500fcf0ee02b6290e749acfd5556f133bc0278f33ad13aa",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-g4-20260909/wanjie-g4-desktop-full.mp4",
+      "passed": true
+    },
+    {
+      "name": "wanjie-g4-phone-full.mp4",
+      "bytes": 41550144,
+      "sha256": "f225f268880b1cdfd7ac534fde8fc7d92c60796fb112ebf1ec7417a30c1423eb",
+      "remoteBytes": 41550144,
+      "remoteDigest": "sha256:f225f268880b1cdfd7ac534fde8fc7d92c60796fb112ebf1ec7417a30c1423eb",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-g4-20260909/wanjie-g4-phone-full.mp4",
+      "passed": true
+    },
+    {
+      "name": "wanjie-g4-render-package.zip",
+      "bytes": 687348,
+      "sha256": "9cd75f81708b4f57f048cb385def77d136ba7021ae4c04a471a49d1e06fd2a99",
+      "remoteBytes": 687348,
+      "remoteDigest": "sha256:9cd75f81708b4f57f048cb385def77d136ba7021ae4c04a471a49d1e06fd2a99",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-g4-20260909/wanjie-g4-render-package.zip",
+      "passed": true
+    },
+    {
+      "name": "wanjie-g4-test-recordings.zip",
+      "bytes": 107132226,
+      "sha256": "c06de64a928eb499d7227da7c3d5a1a4c32c2611d9e74133d29504d8460370ae",
+      "remoteBytes": 107132226,
+      "remoteDigest": "sha256:c06de64a928eb499d7227da7c3d5a1a4c32c2611d9e74133d29504d8460370ae",
+      "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/mobile-next-g4-20260909/wanjie-g4-test-recordings.zip",
+      "passed": true
+    }
+  ],
+  "releaseBodyMatched": true
+}

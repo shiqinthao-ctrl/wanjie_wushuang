@@ -1,0 +1,796 @@
+{
+  "checkedAt": "2026-09-09T07:57:20.064Z",
+  "purpose": "Fresh browser startup diagnostic and legacy smoke; no game state injection",
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "requests": [
+    {
+      "url": "https://wjws.onrender.com/mobile-next/",
+      "timing": {
+        "startTime": 1788940640073.0742,
+        "domainLookupStart": 0,
+        "domainLookupEnd": 58.583,
+        "connectStart": 58.654,
+        "secureConnectionStart": 218.699,
+        "connectEnd": 384.681,
+        "requestStart": 384.791,
+        "responseStart": 563.956,
+        "responseEnd": 565.027
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/assets/index-CYsg_X8v.css",
+      "timing": {
+        "startTime": 1788940640647.622,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.094,
+        "responseStart": 178.752,
+        "responseEnd": 385.812
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/assets/index-DS2Kq_cp.js",
+      "timing": {
+        "startTime": 1788940640646.4683,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 1.015,
+        "responseStart": 382.617,
+        "responseEnd": 546.284
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/battlefield.svg",
+      "timing": {
+        "startTime": 1788940641202.6091,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.15,
+        "responseStart": 336.683,
+        "responseEnd": 337.339
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/hero-h001.svg",
+      "timing": {
+        "startTime": 1788940641201.174,
+        "domainLookupStart": 0,
+        "domainLookupEnd": 0,
+        "connectStart": 0,
+        "secureConnectionStart": 0,
+        "connectEnd": 0,
+        "requestStart": 0.274,
+        "responseStart": 341.19,
+        "responseEnd": 341.637
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/hero-h001.svg",
+      "timing": {
+        "startTime": 1788940641544.8452,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.172,
+        "responseStart": 202.343,
+        "responseEnd": 202.724
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/assets/BattleView-CUEaiFz3.css",
+      "timing": {
+        "startTime": 1788940641770.9841,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.146,
+        "responseStart": 203.641,
+        "responseEnd": 204.779
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/hero-h012.svg",
+      "timing": {
+        "startTime": 1788940641736.791,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.393,
+        "responseStart": 333.665,
+        "responseEnd": 334.583
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/assets/BattleView-Dg70o7jr.js",
+      "timing": {
+        "startTime": 1788940641770.248,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.321,
+        "responseStart": 195.29,
+        "responseEnd": 390.564
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/assets/mountBattle-BfWCTzSC.js",
+      "timing": {
+        "startTime": 1788940642164.294,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.147,
+        "responseStart": 192.887,
+        "responseEnd": 1921.647
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/battlefield.svg",
+      "timing": {
+        "startTime": 1788940644157.1362,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.33,
+        "responseStart": 189.061,
+        "responseEnd": 190.17
+      }
+    },
+    {
+      "url": "blob:https://wjws.onrender.com/0866c61e-3cb0-4d57-83b2-5406375abf3d",
+      "timing": {
+        "startTime": 1788940644346.952,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.281,
+        "responseStart": 0.281,
+        "responseEnd": 0.281
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/hero-h012.svg",
+      "timing": {
+        "startTime": 1788940644157.244,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.349,
+        "responseStart": 193.285,
+        "responseEnd": 194.45
+      }
+    },
+    {
+      "url": "blob:https://wjws.onrender.com/82c28d69-56ce-48ee-b57f-a191c92904c5",
+      "timing": {
+        "startTime": 1788940644436.788,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.376,
+        "responseStart": 0.376,
+        "responseEnd": 0.376
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/boss-b001.svg",
+      "timing": {
+        "startTime": 1788940644157.725,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.107,
+        "responseStart": 328.104,
+        "responseEnd": 329.419
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/mobile-next/art/enemy-en001.svg",
+      "timing": {
+        "startTime": 1788940644157.3113,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.129,
+        "responseStart": 329.141,
+        "responseEnd": 330.01
+      }
+    },
+    {
+      "url": "blob:https://wjws.onrender.com/cca663cd-7ebd-4d92-8f05-7685697903ad",
+      "timing": {
+        "startTime": 1788940644487.295,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.56,
+        "responseStart": 0.56,
+        "responseEnd": 0.56
+      }
+    },
+    {
+      "url": "blob:https://wjws.onrender.com/4ce86593-a628-4cee-8ea1-6d45b813b1e1",
+      "timing": {
+        "startTime": 1788940644488.2559,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.41,
+        "responseStart": 0.41,
+        "responseEnd": 0.41
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/",
+      "timing": {
+        "startTime": 1788940644730.005,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.244,
+        "responseStart": 187.803,
+        "responseEnd": 399.672
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/css/app.css",
+      "timing": {
+        "startTime": 1788940644928.041,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.167,
+        "responseStart": 350.364,
+        "responseEnd": 582.282
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/config/asset-manifest.js",
+      "timing": {
+        "startTime": 1788940645130.424,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.209,
+        "responseStart": 492.363,
+        "responseEnd": 493.458
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/presentation/first-playable-assets.js",
+      "timing": {
+        "startTime": 1788940645130.4988,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.203,
+        "responseStart": 492.55,
+        "responseEnd": 493.531
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/heroes.js",
+      "timing": {
+        "startTime": 1788940645130.5698,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.18,
+        "responseStart": 493.19,
+        "responseEnd": 494.336
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/build.js",
+      "timing": {
+        "startTime": 1788940645130.911,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.17,
+        "responseStart": 493.136,
+        "responseEnd": 494.445
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/loadout.js",
+      "timing": {
+        "startTime": 1788940645130.824,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.205,
+        "responseStart": 493.102,
+        "responseEnd": 494.404
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/world.js",
+      "timing": {
+        "startTime": 1788940645130.975,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.142,
+        "responseStart": 493.182,
+        "responseEnd": 494.481
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/tutorial-settings.js",
+      "timing": {
+        "startTime": 1788940645131.329,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.198,
+        "responseStart": 516.493,
+        "responseEnd": 518.043
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/result.js",
+      "timing": {
+        "startTime": 1788940645131.4058,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.176,
+        "responseStart": 516.7,
+        "responseEnd": 547.836
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/combat/engine.js",
+      "timing": {
+        "startTime": 1788940645131.192,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.061,
+        "responseStart": 493.076,
+        "responseEnd": 663.899
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/systems/save-slots-start.js",
+      "timing": {
+        "startTime": 1788940645131.717,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.143,
+        "responseStart": 579.132,
+        "responseEnd": 663.988
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/config/game-data.js",
+      "timing": {
+        "startTime": 1788940645130.188,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.128,
+        "responseStart": 380.09,
+        "responseEnd": 664.026
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/systems/director-balance.js",
+      "timing": {
+        "startTime": 1788940645131.477,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.146,
+        "responseStart": 714.628,
+        "responseEnd": 716.11
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/combat/hero-identity.js",
+      "timing": {
+        "startTime": 1788940645132.3599,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.3,
+        "responseStart": 683.898,
+        "responseEnd": 776.382
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/combat/skill-forms.js",
+      "timing": {
+        "startTime": 1788940645132.813,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.132,
+        "responseStart": 774.117,
+        "responseEnd": 831.788
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/presentation/art-ui-cinematics.js",
+      "timing": {
+        "startTime": 1788940645132.241,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.346,
+        "responseStart": 683.442,
+        "responseEnd": 863.106
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/combat/boss-map-interactions.js",
+      "timing": {
+        "startTime": 1788940645133.096,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.266,
+        "responseStart": 829.253,
+        "responseEnd": 862.663
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/systems/gear-affix-loot.js",
+      "timing": {
+        "startTime": 1788940645133.253,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.206,
+        "responseStart": 860.002,
+        "responseEnd": 914.332
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/systems/runes-pets.js",
+      "timing": {
+        "startTime": 1788940645133.598,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.087,
+        "responseStart": 911.364,
+        "responseEnd": 914.858
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/presentation/quality-presentation.js",
+      "timing": {
+        "startTime": 1788940645132.084,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.387,
+        "responseStart": 662.342,
+        "responseEnd": 1041.411
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/systems/daily-mutators.js",
+      "timing": {
+        "startTime": 1788940645134.197,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.096,
+        "responseStart": 1066.457,
+        "responseEnd": 1070.437
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/core/v31-project.js",
+      "timing": {
+        "startTime": 1788940645134.9778,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.097,
+        "responseStart": 1077.936,
+        "responseEnd": 1082.545
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/ui-shell.js",
+      "timing": {
+        "startTime": 1788940645134.529,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.291,
+        "responseStart": 1078.155,
+        "responseEnd": 1082.486
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/ui/nexus-hub.js",
+      "timing": {
+        "startTime": 1788940645134.639,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.238,
+        "responseStart": 1078.171,
+        "responseEnd": 1082.511
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/core/stability-v30.js",
+      "timing": {
+        "startTime": 1788940645134.404,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.326,
+        "responseStart": 1077.849,
+        "responseEnd": 1082.453
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/systems/meta-growth.js",
+      "timing": {
+        "startTime": 1788940645133.796,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.204,
+        "responseStart": 911.395,
+        "responseEnd": 1167.625
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/js/systems/game-modes.js",
+      "timing": {
+        "startTime": 1788940645133.914,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.174,
+        "responseStart": 996.631,
+        "responseEnd": 1169.369
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/hero-h001.svg",
+      "timing": {
+        "startTime": 1788940646213.3127,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.154,
+        "responseStart": 333.344,
+        "responseEnd": 750.272
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/boss-b001-telegraph.svg",
+      "timing": {
+        "startTime": 1788940646300.632,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.425,
+        "responseStart": 313.762,
+        "responseEnd": 817.85
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/boss-b001.svg",
+      "timing": {
+        "startTime": 1788940646300.314,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.463,
+        "responseStart": 320.715,
+        "responseEnd": 824.638
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/boss-b001-entrance.svg",
+      "timing": {
+        "startTime": 1788940646300.526,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.443,
+        "responseStart": 329.303,
+        "responseEnd": 833.315
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/enemy-en001-hit.svg",
+      "timing": {
+        "startTime": 1788940646298.352,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.689,
+        "responseStart": 351.72,
+        "responseEnd": 853.714
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/enemy-en001.svg",
+      "timing": {
+        "startTime": 1788940646298.328,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.557,
+        "responseStart": 360.854,
+        "responseEnd": 862.809
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/battlefield.svg",
+      "timing": {
+        "startTime": 1788940646213.249,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.137,
+        "responseStart": 539.354,
+        "responseEnd": 956.652
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/hero-h001-attack.svg",
+      "timing": {
+        "startTime": 1788940646298.233,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.19,
+        "responseStart": 558.587,
+        "responseEnd": 1060.44
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/boss-b001-hit.svg",
+      "timing": {
+        "startTime": 1788940646546.974,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.116,
+        "responseStart": 317.501,
+        "responseEnd": 1067.94
+      }
+    },
+    {
+      "url": "https://wjws.onrender.com/assets/game/st001-01/boss-b001-defeat.svg",
+      "timing": {
+        "startTime": 1788940646614.692,
+        "domainLookupStart": -1,
+        "domainLookupEnd": -1,
+        "connectStart": -1,
+        "secureConnectionStart": -1,
+        "connectEnd": -1,
+        "requestStart": 0.114,
+        "responseStart": 324.954,
+        "responseEnd": 1143.266
+      }
+    }
+  ],
+  "readyAfterClickMs": 2744,
+  "passed": false,
+  "elapsedMs": 7259
+}

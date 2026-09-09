@@ -116,3 +116,66 @@ phones, performance/30-minute endurance, remaining content/modes, audio/full
 parity and PWA remain separate work. The preview remains isolated under
 `/mobile-next/`; the root legacy game is retained. Rollback uses the prior
 complete Render deployment above without resetting Git history or saves.
+
+## Verified deployment and additional live acceptance
+
+The runtime commit is `05b82accc53bcc2284e0f721922cec9c9185ed7d`, pushed with
+its immutable annotated G4 tag. Main remains `30d05f2`. Render's manual
+clear-cache deployment `dep-daggvhbl550s73bkiq30` started at 15:50:29 GMT+8
+on 2026-09-09, took20.5s and logged Live at15:50:49. The source, Node24.18.0,
+zero dependency vulnerabilities, build/typecheck and original chunk warning
+were observed in the dashboard. No service settings changed; Auto-Deploy Off.
+
+Local HTTP attempt01 used port4190, which Node fetch rejects before sending
+a request. The identical package passed on4188 in attempt02. Public HTTPS
+verification passed all51 runtime hashes/sizes, source manifest, both entries,
+unchanged legacy baseline and repository-only path exclusions. See
+`evidence/G4/live-http-01.json`, `delivery.json` and `render-deploy.txt`.
+
+Additional natural tests against the public URL preserve four executions:
+
+- `delivery-live-01`: phone and narrow pass; desktop fails the unchanged
+  5s battle-readiness assertion. The screenshot remains on the loading screen.
+- `delivery-live-02`: a separate desktop execution passes the full natural
+  match with the identical assertions and runtime. No retry mode was enabled.
+- The latest desktop/phone runs acquire Windwarden, Ambush, Galephantom and
+  awakening, win, save rewards, replay with reset and reload. Narrow verifies
+  the build, choices, guide, touch and exit/reentry. All three passing runs
+  report no game console, page or response errors.
+
+These are three passes and one preserved failure, not four first-pass
+successes. All four live WebMs fully decode and remain separate from the
+57 local originals and the immutable release MP4s. `live-recordings.json`
+records their hashes and durations. The temporary live `.mts` config changed
+only baseURL to the public mobile path and removed the local webServer; it
+was removed after testing. Set a new G4_ATTEMPT to preserve future attempts.
+
+Visible browser checks also pass mobile entry, H012 skill, pause/resume,
+return to lobby and legacy Continue. A fresh startup diagnostic measured
+2,744ms from start-click completion to readiness; this single observation is
+not a performance acceptance or proof of the first timeout's cause. The
+combined diagnostic is marked failed because legacy `/favicon.ico` returns
+404, confirmed separately with console location in `legacy-probe-02.json`.
+The legacy lobby works and no legacy runtime exception was observed. The
+timeout cause and legacy icon remain follow-up issues; no application,
+legacy or assertion changes were made to hide them.
+
+## Completed GitHub delivery
+
+GitHub prerelease385317014 is published at
+https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-g4-20260909.
+All seven assets match local byte lengths and SHA-256 before and after
+publication; `github-draft.json` and `github.json` preserve both checks. The
+public release body matches `RELEASE-BODY.md` and records the completed live
+deployment and remaining issues. Attached notes retain their packaging-time
+status as immutable historical evidence.
+
+The initial slow upload was interrupted after five assets completed. A resume
+refused the already-uploaded phone MP4, so the remote asset list was read again
+and only the two missing files were uploaded through a command-scoped existing
+local proxy. All uploads finished successfully. No clobber, token exposure,
+global proxy/TLS change, tag move or main-branch change occurred. See
+`delivery.json` and `github-upload-progress.json` for preserved attempts.
+
+The final follow-up commits documentation and evidence only. It is not
+redeployed: the public runtime remains the verified tagged05b82ac package.

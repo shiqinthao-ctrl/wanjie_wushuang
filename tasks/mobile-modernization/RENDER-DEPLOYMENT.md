@@ -275,3 +275,51 @@ Immediate previous runtime: `4c371250af4822575c230bf47063e35510b4a168` /
 rollback action to recover its complete package; do not reset Git or saves.
 Rollback has not been executed. Keep auto-deploy Off and immutable runtime
 tags/assets; the final evidence commit does not replace the running build.
+
+## G4 verified deployment - 2026-09-09
+
+G4 adds Windwarden, the fixed Ambush tornado branch and Galephantom in the
+opt-in Evolution Journey. The immutable runtime tag `mobile-next-g4-20260909`
+points to `05b82accc53bcc2284e0f721922cec9c9185ed7d`. The branch and tag are
+pushed; main remains30d05f2. See G4-EVIDENCE.md and evidence/G4/delivery.json.
+
+Existing service settings were inspected unchanged: branch
+codex/mobile-web-modernization, empty root, Node24.18.0, original combined
+build command, publish dist/render and Auto-Deploy Off. Manual **Clear build
+cache & deploy** produced:
+
+- Deployment: `dep-daggvhbl550s73bkiq30`
+- Source: `05b82accc53bcc2284e0f721922cec9c9185ed7d`
+- Started: 2026-09-09 15:50:29 GMT+8; duration20.5s
+- Live log: 15:50:49 GMT+8; dashboard Deploy succeeded | Live
+- Build cache cleared, zero dependency vulnerabilities, typecheck/build pass
+- Existing Phaser chunk-size warning remains; no performance claim
+
+Local HTTP and live HTTPS verification pass all51 runtime file hashes/sizes,
+source/version manifest, entry references, legacy baseline and repository-only
+URL exclusions. The first local attempt used a fetch-blocked port4190; the
+same package passed on4188. Public contents remain51 game files + version.json.
+
+Additional live natural browser evidence is three passes across four
+executions: first phone and narrow pass; first desktop exceeds the unchanged
+5s readiness assertion, then a separate desktop attempt completes the full
+match successfully. No assertions, game balance, saves, RNG or clocks changed.
+Both successful full runs naturally acquire the G4 build and awakening,
+win, save, replay and reload. Four live recordings, including the failure,
+fully decode and remain separate from the57 original local recordings.
+
+Visible mobile entry/skill/pause/resume/exit and legacy Continue to lobby
+pass. A diagnostic fresh browser becomes ready in2,744ms, but this is one
+sample and does not explain the initial timeout. The combined diagnostic
+also records a legacy `/favicon.ico`404, confirmed by console URL; no legacy
+runtime exception was observed. Preserve both findings as follow-up issues.
+The full historical suite, P2l fresh HP-death/timeout targets, physical phones,
+performance/endurance, remaining parity/audio and PWA remain separate gates.
+
+Immediate rollback: P4c `649b0b54e16b0016de9ba88dd148516aefd0da8b` /
+`dep-dagdr1142hec73brst60`. The existing dashboard offers its rollback action.
+No rollback was executed; preserve saves and immutable tags/assets. Keep
+Auto-Deploy Off so the final documentation-only follow-up does not replace
+the verified runtime. GitHub prerelease385317014 is published with seven
+assets checked by size/SHA-256 both before and after publication; see
+evidence/G4/github.json. The final evidence commit is not redeployed.
