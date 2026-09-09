@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-R0 remediation baseline complete: 14 issues, chapter rules, outsourced sample brief, 25 quote groups/85 icons and 18 acceptance groups. See tasks/game-remediation/evidence/R0/RESULTS.md. G5 runtime 821b90c and Render dep-dagi1c740ujc73f9nikg remain the deployed baseline.
+R1a isolated chapter preparation, Schema30 extension and atomic settlement complete; no new gameplay entry. R0 accd764 contains baseline and sample brief. See tasks/game-remediation/evidence/R1a/RESULTS.md. G5 runtime 821b90c / Render dep-dagi1c740ujc73f9nikg unchanged.
 
 ## Changed files
-Added tasks/game-remediation roadmap/contracts/inventory and repeatable cold-start evidence. Updated TASK, INDEX and stale modernization status pointer. No runtime, dependency, save, legacy or archive change.
+Added chapter catalog/preparation/progress/settlement, ChapterRunSession, 60 rule cases and 7 native cases. Parser validates optional mobileChapter. Updated TASK, remediation docs/evidence and handoff. No old combat, dependency, archive or deployment change.
 
 ## Tests
-Five root gates, 49 legacy hashes, types, 974/974 rules and build pass. Cold Chrome contexts: desktop/360/390/430 x3 =12/12; battle readiness 202-259ms after click, no browser/resource errors. 12 raw videos+1 MP4 fully decoded and hashed. Desktop emulation only.
+Five root gates, 49 legacy hashes, types, 1034/1034 rules and build pass. Final compatibility: 26/26 desktop/phone-size Chrome; earlier native/compat runs 18/18 and 26/26 overlap. 35 raw synthetic-storage videos plus 35 report copies decoded/hashed. R0 cold 12/12. All attempts retained; no natural chapter battle or real-phone claim.
 
 ## Unresolved risk
-P2l natural HP-death and G4 public cold readiness timeout remain open; successful local samples do not explain historical failure. Real phones, performance/endurance, full parity/audio/PWA, legacy favicon404 and large chunk remain. Outsourcing/human playtests pending. G4 rollback 05b82ac / dep-daggvhbl550s73bkiq30; auto-deploy Off.
+R1 gameplay/art sample incomplete; base stats and victory=1 star are engineering baselines. Charms/stages 2-3 not playable. P2l natural HP-death, G4 cold timeout, phones/endurance/PWA/audio/human acceptance remain open. Large chunk and legacy favicon404 remain. R1a code rollback accd764; keep data. G5 stays live, auto-deploy Off.
 
 ## Recommended next task
-R1a: versioned preparation and independent CH001 progress/atomic settlement. Preserve unknown Schema30 fields, reject future-extension writes, isolate old stats/stars, test native IDB abort/retry/conflicts. Keep incomplete chapter gameplay unavailable; then R1b growth/selection.
+R1b: scope TASK first; integrate chapter preparation with GameCore and H001 4+4 growth, 3-choice evolution, core grant/guarantee and core-based awakening. Verify seeded candidates and normal UI selection chain; then R1c dragon combat. Preserve preview-g5 and do not label the foundation as a playable sample.
 
 ## After each task
 Replace only these fields:

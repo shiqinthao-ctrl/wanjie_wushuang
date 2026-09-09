@@ -1,0 +1,24 @@
+{
+  "main_skill": "zbn-agent-workbench:software-delivery-lifecycle",
+  "task_type": "software-implementation",
+  "product_scope": "wanjie_wushuang mobile-next remediation R1a isolated chapter contracts",
+  "agent_role": "engineering",
+  "mode": "write-authorized",
+  "selected_subskills": [
+    "agent-skills:using-agent-skills",
+    "agent-skills:incremental-implementation",
+    "agent-skills:test-driven-development",
+    "agent-skills:code-review-and-quality",
+    "agent-skills:git-workflow-and-versioning"
+  ],
+  "workflow_stages": [
+    {"stage": 1, "name": "Context and bounded slice", "subskills": ["agent-skills:using-agent-skills", "agent-skills:incremental-implementation"]},
+    {"stage": 2, "name": "Contracts and failure tests", "subskills": ["agent-skills:test-driven-development"]},
+    {"stage": 3, "name": "Compatibility and review", "subskills": ["agent-skills:code-review-and-quality"]},
+    {"stage": 4, "name": "Version and handoff", "subskills": ["agent-skills:git-workflow-and-versioning"]}
+  ],
+  "evidence_required": ["independent startup rules", "Schema30 copy and unknown fields", "native transaction failures and receipts", "legacy and mobile regression", "recordings and build hashes"],
+  "acceptance_status": "passed",
+  "stop_reason": "accepted",
+  "next_action": "R1b progression and GameCore integration; R1 gameplay/art sample remains incomplete"
+}

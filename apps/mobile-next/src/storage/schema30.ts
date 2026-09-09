@@ -4,6 +4,7 @@ import { calculateStartup } from '../core/growth';
 import gear from '../data/gear.json';
 import runePets from '../data/runePets.json';
 import talents from '../data/talents.json';
+import { validateMobileChapter } from '../chapter/progress';
 
 export const MAX_IMPORT_BYTES = 5 * 1024 * 1024;
 const invalid = (field: string): never => { throw new Error(`存档字段无效：${field}。原存档未被覆盖。`); };
@@ -80,6 +81,7 @@ export function parseSchema30(raw: string): GameSave {
     const chapter = record(value, id);
     for (const star of Object.values(record(chapter.stars, `${id}.stars`))) integer(star, `${id}.stars`, 0, 3);
   }
+  if (Object.hasOwn(save, 'mobileChapter')) validateMobileChapter(save.mobileChapter);
   return value as GameSave;
 }
 

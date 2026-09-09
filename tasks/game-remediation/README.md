@@ -14,7 +14,11 @@
 | [assets/quote-items.csv](assets/quote-items.csv) | 分项询价空表，金额与供应商未填写 |
 | [ACCEPTANCE.md](ACCEPTANCE.md) | 自动化、录屏、真人与真机验收矩阵 |
 | [evidence/R0/RESULTS.md](evidence/R0/RESULTS.md) | 本轮实际检查结果，和目标分开记录 |
+| [evidence/R1a/RESULTS.md](evidence/R1a/RESULTS.md) | 独立出战/存档/事务切片及测试边界，尚无新章入口 |
 
 当前任务以根目录 TASK.md 为准；大路线不装入日常上下文。
 历史 G5 是对照基线，不等于精品首章完成。研发样板不等于专业外包样板验收。
 本目录不包含已签约供应商、已批准报价或已完成的真人/实体手机试验。
+
+已完成 R0 与 R1a。R1a 新增 60 项规则测试，最终全量 1,034 项通过；
+最终桌面/手机尺寸兼容矩阵 26 项通过。下一切片 R1b 接入成长与 GameCore。

@@ -1,31 +1,31 @@
-# TASK.md - R0 remediation baseline
+# TASK.md - R1a isolated chapter contracts
 
-Status: complete. Baseline 84e0472; deployed G5 runtime 821b90c.
-Implement the approved first-chapter remediation plan one slice at a time.
-This slice delivers evidence, rule differences, outsourced sample specification,
-itemized asset/quote inventory and acceptance matrix.
+Status: complete. R0 accd764; deployed G5 runtime 821b90c.
+Implement only the first R1 foundation slice from tasks/game-remediation.
 
 ## Scope
-- Add tasks/game-remediation documents and diagnostic evidence. Link the new
-  route in docs/INDEX.md and correct the stale modernization status pointer.
-- Add repeatable cold-start browser probes using existing Playwright only;
-  preserve every attempt, readiness thresholds and console/network evidence.
-- No game-rule, public UI, dependency, legacy, archive or save changes.
-- Do not claim historical startup/HP-death issues fixed from passing samples.
-- Record outsourcing, human playtests and physical-device gates as pending.
-- Preserve Schema30, zero-star fresh/defeat, non-story isolation, one settlement,
-  Boss Loot priority, V3.0 fixes, ordered scripts and immutable G5 artifacts.
+- Add typed chapter1-v1 preparation, CH001 stage catalog, independent H001/
+  H010/H012 startup values and starting skills; no legacy growth calculation.
+- Add optional version-1 mobileChapter data: fresh progress, discoveries,
+  charms and capped reports. Validate known fields, preserve unknown fields;
+  future versions stay importable/exportable but cannot be played or written.
+- First-stage settlement adapter must bind the original slot/run, commit the
+  report/progress/unlocks and receipt together, and reject invalid finals.
+  Duplicate calls, abort/retry, response loss, reload and stale writers tested.
+- Stage 2/3 are catalog contracts only. No chapter gameplay entry yet: actual
+  combat/progression/charms/art/audio/other stages remain separate R1/R3 work.
+- No new dependency, public debug UI, legacy source, archive, old settlement
+  formula, deployment, or immutable release modification.
+- Preserve Schema30, fresh/defeat zero stars, non-story isolation, one settlement,
+  Boss Loot priority, V3.0 safety fixes and ordered scripts.
 
 ## Acceptance
-1. All promised chapter content maps to a task and acceptance method.
-2. Asset quantities reconcile; source/rights requirements and quote fields are
-   usable without invented suppliers, budgets or dates.
-3. Fresh browser startups at desktop/360/390/430 widths, recordings, timings
-   and failures retained; desktop emulation is not physical-phone testing.
-4. Run check, smoke, audit, context, archive:verify in order, then app types,
-   rules and production build. Update five handoff fields and commit/push.
-5. Next separate slice: R1a versioned preparation and isolated chapter
-   persistence contracts; keep incomplete boutique gameplay unavailable.
-
-No Render update for a documentation/diagnostic-only slice. Preserve current
-release, Auto-Deploy Off and original recordings. No new public debug surface.
+1. Meaningful unit tests first; real IndexedDB browser tests use clearly labeled
+   synthetic final-run inputs, never claim natural gameplay from these fixtures.
+2. Old saves/import backups and unknown fields survive; rich and fresh legacy
+   accounts receive identical chapter preparation. Failed imports do not replace.
+3. Run check, smoke, audit, context, archive:verify in order; types, full rules,
+   production build and focused browser regression; preserve all attempts.
+4. Record results/recordings and limitations, update five handoff fields,
+   commit and push codex/first-chapter-remediation. Keep G5 live on Render.
+5. Next slice R1b: new progression and GameCore integration, then R1c combat.
