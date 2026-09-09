@@ -54,7 +54,7 @@ for (const input of inputs) {
 }
 await writeFile(resolve(output, 'version.json'), JSON.stringify({
   schemaVersion: 1,
-  milestone: 'mobile-next-p4b-20260909',
+  milestone: 'mobile-next-p4c-20260909',
   sourceCommit,
   builtAt: new Date().toISOString(),
   entries: { legacy: '/', mobile: '/mobile-next/' },

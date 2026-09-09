@@ -1,0 +1,409 @@
+{
+  "recordings": [
+    {
+      "path": "after-01/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-medium/video.webm",
+      "bytes": 151523,
+      "sha256": "fcb41d8310258b5c438548313e00053b3c13302a13da02b5f9ff1705cfd6085a",
+      "duration": 3.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-short/video.webm",
+      "bytes": 128062,
+      "sha256": "4dfd1cde75d728ef92d63a7a5d4d60a4a80ef5986dbe56b4a83e1a97935cdad5",
+      "duration": 3.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-01/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-wide/video.webm",
+      "bytes": 141233,
+      "sha256": "ff8c8f0d4d8e26b5ab1c6d53a1e42d766986bcd5affa1494b33f51cc5ee4fe43",
+      "duration": 3.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-medium/video.webm",
+      "bytes": 1571415,
+      "sha256": "6072079097020b82171152828aa0d1b511e7859e99d059bab7bc0e684ab0908a",
+      "duration": 14.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-short/video.webm",
+      "bytes": 110140,
+      "sha256": "2359849010d5d48c2c2eb66dcdd710045c7ecf88034568f17cd02952f09c2491",
+      "duration": 1.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-wide/video.webm",
+      "bytes": 2437606,
+      "sha256": "391964bab5b31cebe0bcbedda37f9c39c7c4f7ccfddb3a526589d0b332a0e519",
+      "duration": 21.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-medium/video.webm",
+      "bytes": 145082,
+      "sha256": "985031b41f725351e3bb536cd3adb9c69a26fff99879aa79d20db9275212cc65",
+      "duration": 2.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-short/video.webm",
+      "bytes": 114635,
+      "sha256": "09ef134cf34ac2354bbb11442e308ad65d752fdcdfcbe0d90f54dcaadb97349f",
+      "duration": 1.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-02/test-results/landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-wide/video.webm",
+      "bytes": 138102,
+      "sha256": "44a7777a72abc72d79119a95f333fab31fa0bb859da09e716934f61210a56b51",
+      "duration": 2.28,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-medium/video.webm",
+      "bytes": 135566,
+      "sha256": "eee4f66fab24bc701867ebc240a53696f2651ac1b8ae821db7d077fcd859b4b8",
+      "duration": 3.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-short/video.webm",
+      "bytes": 149523,
+      "sha256": "1bc5a0b25503027b3c419a229078b52fd9b4ece9702a05b69ce794918a0f50a0",
+      "duration": 3.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-wide/video.webm",
+      "bytes": 144611,
+      "sha256": "b70c1d94d3f4fcd29b240e02cdcd16904524414da23716da40998847a34926f0",
+      "duration": 3.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-medium/video.webm",
+      "bytes": 1987515,
+      "sha256": "b599359843e051e9d6948bed33d180711d654440e4593d0921c3deb556e356b9",
+      "duration": 17.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-short/video.webm",
+      "bytes": 2087146,
+      "sha256": "a123b80bdf85e9e80857e4d63ec29919c185e0bb84e3b5a915025e4e7b580551",
+      "duration": 18.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-wide/video.webm",
+      "bytes": 2280318,
+      "sha256": "90dd4eaa29a502208134219dbe1fe310865769fb191fff30d5553906ff83ec27",
+      "duration": 19.88,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-medium/video.webm",
+      "bytes": 159323,
+      "sha256": "a7b7173682c57a2858d3ce668ff18e4f76491f21006f5bfd0f1a50fe95e04fdd",
+      "duration": 2.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-short/video.webm",
+      "bytes": 128340,
+      "sha256": "4446ee2ab715bb8868aa69925ceb7f0c037d8aa66bcbd4e0a2a77e5a5f36d1c9",
+      "duration": 2.4,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "after-03/test-results/landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-wide/video.webm",
+      "bytes": 132123,
+      "sha256": "b8fe12db3e1dd6f48ab27542a8c0915a2b0d6e1f9e666b01e0e83ebeb5273087",
+      "duration": 2.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "before-02/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-medium/video.webm",
+      "bytes": 158042,
+      "sha256": "5239599e7e8c7cf89a837de2a9c0361638caaabcb430bcb1d14896848230c18b",
+      "duration": 3.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "before-02/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-short/video.webm",
+      "bytes": 149297,
+      "sha256": "e22aa434c316261a943d42dfb5dd1268aded000d304e9f4719d900030bf49bab",
+      "duration": 3.08,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "before-02/test-results/landscape-layout.native-la-4ea1f--rewards-and-controls-clear-landscape-wide/video.webm",
+      "bytes": 142315,
+      "sha256": "cf177fc5f91069652a5a91bbe81a1bcde8fc0c6e99da00290617741578b55684",
+      "duration": 3.28,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-browser-bars/video.webm",
+      "bytes": 145826,
+      "sha256": "35a07fa8a0cf17b3c879697bf225ada0da7f17fa0fb6d9313bcb4aa98816d941",
+      "duration": 2.96,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-medium/video.webm",
+      "bytes": 155311,
+      "sha256": "817e9ff1498f9951102a358f3005af0c0ca2661000232e745aff57889f91812d",
+      "duration": 3.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-short--48d67-eps-hero-and-controls-clear-short/video.webm",
+      "bytes": 127980,
+      "sha256": "140ca2abe8c0224d656f6e01a859bd93d0511e28cee19ec6d6b4d8c87811dfda",
+      "duration": 3.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-browser-bars/video.webm",
+      "bytes": 1581569,
+      "sha256": "c3ffe75cecb744e6ad4bf228b4c26409ebbbb48e348a8a88907895c82a41a5b1",
+      "duration": 13.68,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-medium/video.webm",
+      "bytes": 1521932,
+      "sha256": "6a75a654e91fbfb88be4040f7ac13e09e7a2d65f8512fb2911498980828f1f63",
+      "duration": 13.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-short--a12f3-fe-areas-and-height-changes-short/video.webm",
+      "bytes": 1531023,
+      "sha256": "01ed1fa56502505f622f32c6c5767b5811abaa9bf671e1a220c210247739b716",
+      "duration": 13.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-browser-bars/video.webm",
+      "bytes": 173041,
+      "sha256": "c925a603151415dcd7be276afb438c190d65bd0e7b1c69c9c83b1a8a5a9ffe29",
+      "duration": 2.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-medium/video.webm",
+      "bytes": 141967,
+      "sha256": "1dc434e5f9687ea34e73a9dab907a0fac5c84b9e39724e474f9a0c35e6991d3d",
+      "duration": 2.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "portrait-01/test-results/short-layout.native-synthe-a133f-rds-inside-short-safe-areas-short/video.webm",
+      "bytes": 178853,
+      "sha256": "d478c538c4cfe597d176a59b2b1975fd8ad2695ea39a20a60e86e66903fc6de6",
+      "duration": 2.48,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-browser-bars/video.webm",
+      "bytes": 220431,
+      "sha256": "8377df6071afef39a16d3e4b051f884e03ee3d70bf3c31999e78877b582500eb",
+      "duration": 2.72,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-desktop/video.webm",
+      "bytes": 134334,
+      "sha256": "0f9594bce271df660db284b74bcb3d2c61a779624ebede311e89fe6229a3f0e0",
+      "duration": 2.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-landscape-medium/video.webm",
+      "bytes": 210113,
+      "sha256": "faf3e63a7e8f7acf0b0211fd43383f62da06b419f41b16960e6abb498fd7d734",
+      "duration": 2.52,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-landscape-short/video.webm",
+      "bytes": 198185,
+      "sha256": "a9bff11d17918bcfa9fc3d78d0b4205dd5377a98a140e62c3648252547351d5e",
+      "duration": 2.6,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-landscape-wide/video.webm",
+      "bytes": 234519,
+      "sha256": "6bccb882a12275202ef2164e00f4857d7304efe04975d8be994ee71649b9f0b1",
+      "duration": 2.8,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-medium/video.webm",
+      "bytes": 214865,
+      "sha256": "642ae73b8a62399a720b72bc8a34991720c694fb3bfab42de3a4b9d5968ba375",
+      "duration": 2.64,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-narrow/video.webm",
+      "bytes": 200619,
+      "sha256": "f6bece5b4ba00bb163cc8c4653de9a27763f0144abfe39c0b95c75a4b95e8300",
+      "duration": 2.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-phone/video.webm",
+      "bytes": 258007,
+      "sha256": "8ec6b394dd3cf71fc4d1728edbe671ec3fd779dc636fef3537d71df8b7da01a8",
+      "duration": 3.16,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/camera-controls.native-cam-cfc9f-lation-and-viewport-changes-short/video.webm",
+      "bytes": 227310,
+      "sha256": "ebb5fa12212eb53a94ff3654830535303353de9ea14d96b4dc3e6b54a06116ab",
+      "duration": 2.76,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-browser-bars/video.webm",
+      "bytes": 1056552,
+      "sha256": "b025cfe0613909701a450d6cf25f3c515896a1cb55450cc4f24f2d2834f612a3",
+      "duration": 16.12,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-desktop/video.webm",
+      "bytes": 913507,
+      "sha256": "06bbbd105b91a1a90df957bdb23a7d514c9dd95c65fb9c7ee143640b64158f48",
+      "duration": 16.24,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-landscape-medium/video.webm",
+      "bytes": 1042151,
+      "sha256": "810f734ecb265d284ee1b549d8d612e2674b062874bc87a670896b54f0be7b18",
+      "duration": 17.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-landscape-short/video.webm",
+      "bytes": 994913,
+      "sha256": "a1bc9f3679499c96508f857ed39f43516592a39936785c44ddef83bd1368a771",
+      "duration": 17.28,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-landscape-wide/video.webm",
+      "bytes": 948688,
+      "sha256": "5a326cff3847f667316376db28701aa2672b4cb237ca507c4153cf8d71d44a45",
+      "duration": 16.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-medium/video.webm",
+      "bytes": 1060319,
+      "sha256": "66f0d6cc85c1f5f93ec3d31b817af1419af281fee0cd5b3705a64029b3912976",
+      "duration": 17.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-narrow/video.webm",
+      "bytes": 982042,
+      "sha256": "ec9b950d4531dc86bc6ed59c7d9b23db10693baf0d6bd5eb7082759a498aa1bd",
+      "duration": 16.04,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-phone/video.webm",
+      "bytes": 1124180,
+      "sha256": "192988e6304aedf14e6bdede776a2bae96a0cf51fbf1d314fbb50c7baa34c31d",
+      "duration": 17.32,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-loads-real-WebGL-7e5c2--without-duplicate-canvases-short/video.webm",
+      "bytes": 1008618,
+      "sha256": "89911fcb170a3c42d094f1bd23ba334796293d9d582f821a6c8cdc0ee228556b",
+      "duration": 16.0,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-browser-bars/video.webm",
+      "bytes": 42126,
+      "sha256": "beded0c044baac3a734b6e10d504304ff9eacb6ebb21d61dd6a6075d03d930d8",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-desktop/video.webm",
+      "bytes": 67573,
+      "sha256": "b2e3e5186936863eceb38b55f8647794720330fa85babee8c1d1beddc14c1e27",
+      "duration": 1.56,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-landscape-medium/video.webm",
+      "bytes": 36842,
+      "sha256": "ee1cdbcd222ea798ce6f643ded7012f5cbaed3e2339cf8def51ff732e10033cb",
+      "duration": 1.4,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-landscape-short/video.webm",
+      "bytes": 38404,
+      "sha256": "491e8019741ecd7a4cf23cc8c707f257a9900c1e97b939f8f4c256594ca1d863",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-landscape-wide/video.webm",
+      "bytes": 56557,
+      "sha256": "5ef91b37dc02e0bf8159dcc4ac4831b65e35b475e0efd4e3a82d562e1e101c4c",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-medium/video.webm",
+      "bytes": 43686,
+      "sha256": "9611c67829a9fecf5d862c0cc8759ea8a01d4ed1d086aaf20272058160485ef3",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-narrow/video.webm",
+      "bytes": 83368,
+      "sha256": "53226b9dd2e114256e5a27d511e58761084d35862b9c168da60ba6e474cd3138",
+      "duration": 1.44,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-phone/video.webm",
+      "bytes": 56664,
+      "sha256": "40b752793ca50ef39863c087397864704199da55baf297462ec7af274167ef0d",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    },
+    {
+      "path": "regression-01/test-results/lifecycle-surfaces-missing-assets-and-permits-a-clean-return-short/video.webm",
+      "bytes": 64050,
+      "sha256": "5abf964e45bebf7019fcc7a55ae270604584907d795107ed8aef4df6ce454e99",
+      "duration": 1.36,
+      "fullDecodePassed": true
+    }
+  ],
+  "demo": {
+    "source": "after-03/test-results/landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-short/video.webm",
+    "file": "wanjie-p4c-natural-test.mp4",
+    "sha256": "bcf21cd187d9ee915acc7e1e5ecf75d2988ad936733336622aa59f0f34527c83",
+    "uneditedFullRecording": true
+  }
+}

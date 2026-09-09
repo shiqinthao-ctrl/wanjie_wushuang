@@ -1,0 +1,556 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "apps/mobile-next/playwright.p4c.config.ts",
+      "landscape-layout.native.spec.ts",
+      "--grep",
+      "evolution|synthetic",
+      "--project",
+      "landscape-short",
+      "--project",
+      "landscape-medium",
+      "--project",
+      "landscape-wide"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.p4c.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P4c/after-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "landscape-short",
+        "name": "landscape-short",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P4c/after-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "landscape-medium",
+        "name": "landscape-medium",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P4c/after-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "landscape-wide",
+        "name": "landscape-wide",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P4c/after-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P4c/after-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/P4c/after-02/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/P4c/after-02/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": {
+      "command": "npm run preview -- --port 4187",
+      "url": "http://127.0.0.1:4187/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "landscape-layout.native.spec.ts",
+      "file": "landscape-layout.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "landscape evolution supports touch, upgrades, safe areas and rotation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 130000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "landscape-short",
+              "projectName": "landscape-short",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1358,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:74:5",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n\n  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:74:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T03:58:27.660Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-short\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-short\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-short\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-9f3782f4e4db97b43e3d",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "synthetic crowded landscape HUD keeps boss, notices and rewards clear",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "landscape-short",
+              "projectName": "landscape-short",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1153,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:159:5",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n\n  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:159:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T03:58:29.701Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-short\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-short\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-short\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-a67f997b6de62883cbeb",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 140,
+          "column": 1
+        },
+        {
+          "title": "landscape evolution supports touch, upgrades, safe areas and rotation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 130000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "landscape-medium",
+              "projectName": "landscape-medium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 13553,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:123:5",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n\n  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:123:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T03:58:27.658Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-medium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-medium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-medium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-10df7fbb92a698ecb691",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "synthetic crowded landscape HUD keeps boss, notices and rewards clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "landscape-medium",
+              "projectName": "landscape-medium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1945,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T03:58:41.809Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-medium\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-2ad1bc0818d4979b7db3",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 140,
+          "column": 1
+        },
+        {
+          "title": "landscape evolution supports touch, upgrades, safe areas and rotation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 130000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "landscape-wide",
+              "projectName": "landscape-wide",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 20547,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:123:5",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBeNull\u001b[2m()\u001b[22m\n\nReceived: \u001b[31mnull\u001b[39m\n\n  29 |     expect.soft(area, `${label}: ${box.selector} overlaps ${other.selector}`).toBe(0);\n  30 |   }\n> 31 |   expect(frame.hero).not.toBeNull();\n     |                          ^\n  32 |   for (const box of boxes) {\n  33 |     const hero = frame.hero!;\n  34 |     expect.soft(hero.x + 33 > box.x && hero.x - 33 < box.x + box.width &&\n    at checkLayout (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:31:26)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts:123:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T03:58:27.658Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-wide\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-wide\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-la-85ca7-des-safe-areas-and-rotation-landscape-wide\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-96dc1bba6b364c5a628c",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "synthetic crowded landscape HUD keeps boss, notices and rewards clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "landscape-wide",
+              "projectName": "landscape-wide",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1924,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T03:58:48.767Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\P4c\\after-02\\test-results\\landscape-layout.native-sy-addbf-s-notices-and-rewards-clear-landscape-wide\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-9f14548923c9495c5a25",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 140,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-09T03:58:26.337Z",
+    "duration": 24717.881,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

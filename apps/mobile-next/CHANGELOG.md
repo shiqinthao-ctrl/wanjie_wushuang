@@ -3,6 +3,26 @@
 Versions are identified by annotated Git tags. These previews are independent
 of the legacy game version and are not full-content production releases.
 
+## mobile-next-p4c-20260909 - 2026-09-09
+
+### Fixed
+- Landscape battles separate vitals, map/objective/Boss feedback, rewards and
+  touch controls while keeping the center clear for the hero.
+- Short landscape dialogs and long feedback remain scrollable; reward/action
+  buttons retain at least 44 px touch targets within browser safe areas.
+- Natural upgrades, simultaneous movement/skill, cancellation, rotation and
+  changing browser height have recorded regression coverage.
+
+### Verification and scope
+- 946 rules and 45 latest distinct related browser cases pass. All 57 raw
+  recordings and failed attempts remain, with an uncut 18.24-second test MP4.
+- Crowded Boss markup is synthetic layout evidence, separate from natural
+  play. Runtime changes are CSS only, plus the deployment milestone.
+- Physical phones, performance/endurance, PWA, remaining content parity and
+  P2k's three fresh HP-death target failures remain open.
+
+Evidence: `../../tasks/mobile-modernization/P4c-EVIDENCE.md`.
+
 ## mobile-next-p4b-20260909 - 2026-09-09
 
 ### Fixed
