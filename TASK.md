@@ -1,6 +1,6 @@
 # TASK.md - G5 frost-flame evolution
 
-Status: local acceptance passed; delivery in progress, 2026-09-09.
+Status: complete; GitHub/Render delivery verified, 2026-09-09.
 Baseline 6aec45b; prior runtime G4 05b82ac.
 Deliver one H001 form, one A011 branch and one matching bond in opt-in
 Evolution Journey. Evidence: tasks/mobile-modernization/G5-EVIDENCE.md.

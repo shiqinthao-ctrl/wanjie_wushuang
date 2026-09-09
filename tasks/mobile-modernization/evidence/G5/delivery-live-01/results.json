@@ -1,0 +1,274 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.g5.config.ts",
+      "frost-flame-recording.spec.ts"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.g5.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G5/delivery-live-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G5/delivery-live-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/mobile-modernization/evidence/G5/delivery-live-01/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tasks/mobile-modernization/evidence/G5/delivery-live-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 3,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "frost-flame-recording.spec.ts",
+      "file": "frost-flame-recording.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "G5 natural frost-flame form, radial route, bond, awakening and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 356457,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T09:07:12.375Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G5\\delivery-live-01\\test-results\\frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-desktop\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d1a229ec4aa97d19f0be-c06e0d3ca362285220fa",
+          "file": "frost-flame-recording.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "G5 natural frost-flame form, radial route, bond, awakening and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 306439,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at playEvolution (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts:175:30)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\frost-flame-recording.spec.ts:7:3",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                      "column": 30,
+                      "line": 175
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mfixtures\\evolutionPlay.ts:175\n\n  173 |   await writeFile(info.outputPath('natural-evolution-choices.json'), JSON.stringify({ hero, choices, evolved, routed, bonded, awaken, errors }, null, 2));\n  174 |   expect(evolved).toBe(true); expect(routed).toBe(true); expect(bonded).toBe(true);\n> 175 |   if (plan) { expect(guided).toBe(true); expect(choices.some(c => c.id === plan.form)).toBe(true); expect(choices.some(c => c.id === plan.route)).toBe(true); }\n      |                              ^\n  176 |   if (complete) {\n  177 |     expect(awaken).toBe(true); expect(guided).toBe(true);\n  178 |     await expect(result.getByText('战果已保存', { exact: true })).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                        "column": 30,
+                        "line": 175
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n   at fixtures\\evolutionPlay.ts:175\n\n  173 |   await writeFile(info.outputPath('natural-evolution-choices.json'), JSON.stringify({ hero, choices, evolved, routed, bonded, awaken, errors }, null, 2));\n  174 |   expect(evolved).toBe(true); expect(routed).toBe(true); expect(bonded).toBe(true);\n> 175 |   if (plan) { expect(guided).toBe(true); expect(choices.some(c => c.id === plan.form)).toBe(true); expect(choices.some(c => c.id === plan.route)).toBe(true); }\n      |                              ^\n  176 |   if (complete) {\n  177 |     expect(awaken).toBe(true); expect(guided).toBe(true);\n  178 |     await expect(result.getByText('战果已保存', { exact: true })).toBeVisible();\n    at playEvolution (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts:175:30)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\frost-flame-recording.spec.ts:7:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T09:07:12.375Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G5\\delivery-live-01\\test-results\\frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-phone\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G5\\delivery-live-01\\test-results\\frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-phone\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G5\\delivery-live-01\\test-results\\frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-phone\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\fixtures\\evolutionPlay.ts",
+                    "column": 30,
+                    "line": 175
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d1a229ec4aa97d19f0be-6aaf88aac61f2bf6ee68",
+          "file": "frost-flame-recording.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "G5 natural frost-flame form, radial route, bond, awakening and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "narrow",
+              "projectName": "narrow",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 239306,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-09T09:07:12.347Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\mobile-modernization\\evidence\\G5\\delivery-live-01\\test-results\\frost-flame-recording-G5-n-0a804-e-bond-awakening-and-replay-narrow\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d1a229ec4aa97d19f0be-dce59262a92824a801ab",
+          "file": "frost-flame-recording.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-09T09:07:11.940Z",
+    "duration": 357223.803,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

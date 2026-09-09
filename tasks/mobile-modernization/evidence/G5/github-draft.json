@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-09-09T09:20:42.252917+00:00",
+  "id": 385363597,
+  "html_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/untagged-e0d28eba8ba1cdf22d4a",
+  "tag_name": "mobile-next-g5-20260909",
+  "draft": true,
+  "prerelease": true,
+  "allRemoteAssetsVerified": true,
+  "assets": [
+    {
+      "id": 552389587,
+      "name": "g5-build-preview.png",
+      "state": "uploaded",
+      "size": 184808,
+      "digest": "sha256:262732484428384334420fcd5569599da56e55895e6cd480c7184488490f6080",
+      "browser_download_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/untagged-e0d28eba8ba1cdf22d4a/g5-build-preview.png"
+    },
+    {
+      "id": 552390513,
+      "name": "RELEASE-NOTES.md",
+      "state": "uploaded",
+      "size": 6640,
+      "digest": "sha256:3e7b030d45bc19513671ac394bd42d5e079587826867f7f58dbf4d635d2ffcae",
+      "browser_download_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/untagged-e0d28eba8ba1cdf22d4a/RELEASE-NOTES.md"
+    },
+    {
+      "id": 552391264,
+      "name": "SHA256SUMS.txt",
+      "state": "uploaded",
+      "size": 551,
+      "digest": "sha256:a7d649be52328a9251df6ff4fa3505cb09713db6e329552dba8ff41d83221103",
+      "browser_download_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/untagged-e0d28eba8ba1cdf22d4a/SHA256SUMS.txt"
+    },
+    {
+      "id": 552389584,
+      "name": "wanjie-g5-desktop-full.mp4",
+      "state": "uploaded",
+      "size": 59030207,
+      "digest": "sha256:54ae32e520fd20bbba9e5e4b9710d71aa9a6725397f3e3e5fb28648495b3ba57",
+      "browser_download_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/untagged-e0d28eba8ba1cdf22d4a/wanjie-g5-desktop-full.mp4"
+    },
+    {
+      "id": 552389575,
+      "name": "wanjie-g5-phone-full.mp4",
+      "state": "uploaded",
+      "size": 46074921,
+      "digest": "sha256:8da01ff4cde4d12f1df5d992ad4295746903900f894679a61e08b4865b009ecc",
+      "browser_download_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/untagged-e0d28eba8ba1cdf22d4a/wanjie-g5-phone-full.mp4"
+    },
+    {
+      "id": 552389572,
+      "name": "wanjie-g5-render-package.zip",
+      "state": "uploaded",
+      "size": 688006,
+      "digest": "sha256:2938a1a3c7ba0cdb82141d4f5dab09356004906cf490afe1702c9960cd57d391",
+      "browser_download_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/untagged-e0d28eba8ba1cdf22d4a/wanjie-g5-render-package.zip"
+    },
+    {
+      "id": 552389576,
+      "name": "wanjie-g5-test-recordings.zip",
+      "state": "uploaded",
+      "size": 103826245,
+      "digest": "sha256:d857bd2b48a8ef87ee08a0aea29e594eeb9bacc9c9be77d50f19a5dab4c6b62c",
+      "browser_download_url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/download/untagged-e0d28eba8ba1cdf22d4a/wanjie-g5-test-recordings.zip"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-09",
+  "runtimeCommit": "821b90ca489e7d2e0ed1ea695f3c56025cedc563",
+  "branch": "codex/mobile-web-modernization",
+  "tag": "mobile-next-g5-20260909",
+  "tagObject": "c44c9a3ab768f687d221f7df92e7ceb3e9632a4d",
+  "render": {
+    "service": "srv-d9v8cm1t0dsc73ch79k0",
+    "deployment": "dep-dagi1c740ujc73f9nikg",
+    "status": "Live",
+    "url": "https://wjws.onrender.com/mobile-next/",
+    "legacyUrl": "https://wjws.onrender.com/",
+    "verifiedFiles": 51,
+    "autoDeploy": "Off",
+    "evidenceOnlyFollowupDeployed": false,
+    "evidence": ["render-deploy.txt", "local-http-01.json", "live-http-01.json"]
+  },
+  "github": {
+    "url": "https://github.com/shiqinthao-ctrl/wanjie_wushuang/releases/tag/mobile-next-g5-20260909",
+    "publishedAt": "2026-09-09T09:24:08Z",
+    "verifiedAssetCount": 7,
+    "evidence": ["github-draft.json", "github.json", "RELEASE-BODY.md"]
+  },
+  "tests": {
+    "rulesPassed": 974,
+    "localNatural": { "passed": 3, "failed": 0 },
+    "localRegression": { "passed": 51, "failed": 0 },
+    "publicFirst": { "passed": 2, "failed": 1 },
+    "publicPhoneRerun": { "passed": 1, "failed": 0 },
+    "publicFailureRetained": "First phone saved an awakened victory but did not acquire A011 Lv.3/ringfire, so the target guide assertion failed. The separate unchanged phone run passed.",
+    "codeAndAssertionsUnchanged": true,
+    "naturalRandomnessPreserved": true,
+    "evidence": ["rules-01.json", "natural-01/results.json", "regression-01/results.json", "delivery-live-01/results.json", "delivery-live-phone-02/results.json", "gates.json", "final-gates.json"]
+  },
+  "recordings": {
+    "localRawDecoded": 57,
+    "publicRawDecoded": 4,
+    "fullUncutMp4Decoded": 2,
+    "releaseArchiveScope": "Original local acceptance only. Public raw recordings remain local; structured reports and timelines are committed.",
+    "evidence": ["recordings.json", "live-recordings-01.json", "live-recordings-02.json"]
+  },
+  "manualBrowserSmoke": {
+    "mobile": "Loaded existing save; selected Evolution Journey; saw 3 starters and 11 forms.",
+    "legacy": "Loaded existing save and start screen; no battle started.",
+    "scope": "Visible lobby check, separate from fresh automated runs."
+  },
+  "rollback": {
+    "sourceCommit": "05b82accc53bcc2284e0f721922cec9c9185ed7d",
+    "deployment": "dep-daggvhbl550s73bkiq30",
+    "executed": false
+  },
+  "openGates": [
+    "P2l fresh natural HP-death and stationary phone timeout",
+    "G4 initial live desktop readiness timeout unexplained",
+    "Natural target builds not guaranteed each run",
+    "Full historical browser suite not rerun",
+    "Legacy favicon404",
+    "Physical phones and performance/30-minute endurance",
+    "Remaining gameplay/audio parity and PWA/offline",
+    "Existing Phaser chunk warning"
+  ]
+}

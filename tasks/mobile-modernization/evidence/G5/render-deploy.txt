@@ -1,0 +1,20 @@
+G5 Render dashboard observation, 2026-09-09
+Service: srv-d9v8cm1t0dsc73ch79k0
+Deployment: dep-dagi1c740ujc73f9nikg
+Source: 821b90ca489e7d2e0ed1ea695f3c56025cedc563
+Branch: codex/mobile-web-modernization
+Trigger: Manual / Clear build cache & deploy; Build cache cleared
+Started: 2026-09-09 17:02:40 GMT+8
+Duration: 18.7s
+Status: Deploy succeeded | Live
+Live log: 05:02:58 PM ==> Your site is live
+Node: 24.18.0
+Dependencies: added74, audited75, found0 vulnerabilities
+Typecheck: vue-tsc --noEmit passed
+Build: vite8.2.2,72 modules,1.01s
+Existing warning: mountBattle-sK7ouJrj.js 1432.36kB / 378.19kB gzip
+Package:51 game files + version.json; dist/render
+Settings observed before deployment: empty root, existing build command,
+Publish Directory dist/render, Auto-Deploy Off selected in editor.
+Settings editor cancelled unchanged. No credentials shown or modified.
+Rollback: G4 05b82ac / dep-daggvhbl550s73bkiq30; not executed.

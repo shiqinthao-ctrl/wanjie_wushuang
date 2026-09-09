@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-G5 local acceptance passed: H001 frostflame, A011 ringfire, thermalshock; 11 forms/12 routes/8 bonds. Tag mobile-next-g5-20260909 prepared; GitHub/Render delivery pending. Prior runtime G4 05b82ac remains live. See G5-EVIDENCE.md.
+G5 delivered: frostflame, ringfire, thermalshock; 11 forms/12 routes/8 bonds. Runtime 821b90c, tag mobile-next-g5-20260909, Render dep-dagi1c740ujc73f9nikg. GitHub prerelease published with 7 verified assets. See G5-EVIDENCE.md.
 
 ## Changed files
-Evolution catalog/combat/math, advice/presentation, focused rules and natural tests; G5 packaging, evidence, changelog and Render milestone. No dependency, schema, classic or legacy-source change.
+Evolution catalog/combat/math, advice/presentation, rules/natural tests, G5 packaging, changelog and Render milestone. Final delivery reports are evidence-only; not redeployed. No dependency, schema, classic or legacy-source change.
 
 ## Tests
-974 rules; 54/54 local related browser cases without retries/skips. Desktop/phone natural victory, awakening, saved rewards/retry/reload; narrow guide/touch/reentry. Five root gates, 49 legacy hashes and types/build pass. 57 raw videos and both full MP4s decode. Remote verification pending.
+974 rules; 54/54 local browser cases. Public first run 2/3; phone won without target route, retained as failed. Unchanged phone rerun 1/1 passed. Awakening/victory/retry/reload verified. Five root gates, 49 legacy hashes, types/build, 51 public hashes pass. 61 raw videos and 2 full MP4s decode.
 
 ## Unresolved risk
-P2l fresh HP-death/phone timeout open; no assertions weakened. G4 initial live readiness timeout unexplained; legacy favicon404. Full suite not rerun; physical phones, performance/endurance, parity/audio/PWA and large chunk remain. Rollback: 05b82ac / dep-daggvhbl550s73bkiq30; auto-deploy Off.
+P2l fresh HP-death/phone timeout and G4 initial readiness timeout remain open. Natural target builds are not guaranteed each run. Full browser suite not rerun; real phones, performance/endurance, parity/audio/PWA, legacy favicon404 and large chunk remain. Rollback: 05b82ac / dep-daggvhbl550s73bkiq30; auto-deploy Off.
 
 ## Recommended next task
-Complete G5 media/GitHub/Render verification. Then scope startup readiness diagnosis with repeated cold-load evidence before further content expansion. Preserve existing assertions, natural acceptance, classic/Schema30, immutable releases and auto-deploy Off.
+Scope startup readiness diagnosis with repeated cold-load evidence before more content expansion. Preserve current thresholds, natural acceptance, classic/Schema30, immutable releases and auto-deploy Off. Do not treat G5's passing startup samples as a fix for G4's unexplained timeout.
 
 ## After each task
 Replace only these fields:
