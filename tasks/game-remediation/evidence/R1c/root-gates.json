@@ -1,0 +1,22 @@
+[
+  {
+    "gate": "check",
+    "exitCode": 0
+  },
+  {
+    "gate": "smoke",
+    "exitCode": 0
+  },
+  {
+    "gate": "audit",
+    "exitCode": 0
+  },
+  {
+    "gate": "context",
+    "exitCode": 0
+  },
+  {
+    "gate": "archive:verify",
+    "exitCode": 0
+  }
+]

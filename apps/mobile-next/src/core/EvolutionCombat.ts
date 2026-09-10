@@ -3,6 +3,7 @@ import type { RunEvolution } from './RunEvolution';
 import type { Enemy, Point } from './spawnRules';
 import { cap, clampPoint } from './spawnRules';
 import { passiveLevel, skillModifier, sourceElement } from './combatMath';
+import { DragonCombat } from '../chapter/DragonCombat';
 
 interface Summon extends Point { id: string; life: number; tick: number; angle: number; guard: boolean; dmg: number; color: string }
 const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -10,7 +11,12 @@ const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
 /** Run-only abilities share the simulation's clock, collisions and damage authority. */
 export class EvolutionCombat {
   readonly summons: Summon[] = [];
-  constructor(private sim: CombatSimulation, private journey: RunEvolution) {}
+  private readonly dragon?: DragonCombat;
+  constructor(private sim: CombatSimulation, private journey: RunEvolution) {
+    if (sim.chapter) this.dragon = new DragonCombat(sim, () => this.journey.awakened);
+  }
+  private get chapterDragon() { return this.dragon && this.journey.formId === 'dragon' ? this.dragon : undefined; }
+  dragonSnapshot() { return this.chapterDragon?.snapshot(); }
   private get view() { return this.journey.snapshot(this.sim.state().skills); }
   private fan(id: string, count: number, damage: number, pierce = 0, explode = 0) {
     const s = this.sim;
@@ -19,6 +25,7 @@ export class EvolutionCombat {
   basic(): void {
     const s = this.sim, p = s.player, v = this.view, id = `${v.heroId}_BASIC`;
     if (!s.boss && !s.nearest()) return;
+    if (this.chapterDragon) { this.chapterDragon.basic(); return; }
     switch (v.formId) {
       case 'frostflame':
         this.frost('G5_FROST_BASIC', p, v.rank === 2 ? 155 : 125, p.atk * .55, 1.2);
@@ -50,6 +57,7 @@ export class EvolutionCombat {
     p.inv = Math.max(p.inv, .25);
   }
   action(action: Exclude<Action, 'dodge'>): boolean {
+    if (this.chapterDragon) return this.chapterDragon.action(action);
     const s = this.sim, p = s.player, v = this.view, id = `${v.heroId}_${action === 'skill' ? 'E' : 'R'}`;
     if (action === 'skill') {
       if (p.skillCd > 0) return false;
@@ -89,6 +97,7 @@ export class EvolutionCombat {
     s.heat = Math.min(100, s.heat + 30); return true;
   }
   afterDodge(origin: Point): void {
+    this.chapterDragon?.cancel();
     const s = this.sim;
     if (this.journey.bond('shadowfire', s.state().skills)) s.field('H010_BOND', origin, 85, s.player.atk * .35, 3);
     if (this.view.formId === 'reaper' && this.view.rank === 2) this.fan('H012_DODGE', 3, s.player.atk, 2);
@@ -163,6 +172,7 @@ export class EvolutionCombat {
     s.lightningPath(path, id);
   }
   cast(id: string): boolean {
+    if (id === 'A003' && this.chapterDragon) { this.chapterDragon.castCore(); return true; }
     const s = this.sim, p = s.player, m = skillModifier(s.context, s.state(), id), route = this.journey.route(id);
     if (id === 'G2_FROST') {
       if (route === 'glacier') this.frostField(id, 155 * m.range, p.atk * .18, 3 * m.duration, false);
@@ -190,6 +200,7 @@ export class EvolutionCombat {
     return true;
   }
   update(dt: number): void {
+    this.chapterDragon?.update(dt);
     const s = this.sim;
     for (let i = this.summons.length - 1; i >= 0; i--) {
       const unit = this.summons[i]!; unit.life -= dt; unit.tick -= dt;
@@ -206,5 +217,5 @@ export class EvolutionCombat {
       }
     }
   }
-  destroy(): void { this.summons.length = 0; }
+  destroy(): void { this.summons.length = 0; this.dragon?.destroy(); }
 }

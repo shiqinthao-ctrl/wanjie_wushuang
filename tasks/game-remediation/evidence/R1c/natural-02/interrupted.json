@@ -1,0 +1,11 @@
+{
+  "status": "interrupted",
+  "project": "phone",
+  "test": "natural normal-speed H001 growth",
+  "reason": "Level-up hid the action buttons after the modal visibility check. The unbounded isEnabled probe waited for a skill button while the evolution choice needed input.",
+  "evidence": ["../highlights/interrupted-choice.jpeg", "../highlights/interrupted-wait.jsonl", "test-results/chapter-growth-natural-nor-fe121-olve-route-awaken-and-pause-phone/natural-timeline.json"],
+  "action": "Runner interrupted after the trace identified the pending call; original screencast and trace retained. Add 400 ms bounds to skill availability and bounding-box probes, then retry in natural-03.",
+  "gameRulesChanged": false,
+  "countAsPassed": false,
+  "recordingComplete": false
+}

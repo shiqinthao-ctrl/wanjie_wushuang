@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-09-10T02:31:30.577Z",
+  "deployed": false,
+  "files": [
+    {
+      "file": "art/battlefield.svg",
+      "bytes": 4802,
+      "sha256": "7cec68689f3e334ad6a19c8936b074b1f2e69808537c4de543ade3bd98de0100"
+    },
+    {
+      "file": "art/boss-b001.svg",
+      "bytes": 2489,
+      "sha256": "8ff7260c54c3bd3b5a96a30ef47fb31c3747c96fc2732226ae250f14165b2ef9"
+    },
+    {
+      "file": "art/enemy-en001.svg",
+      "bytes": 1592,
+      "sha256": "8f1a1618c61a5be9222ad6e7286c08a0bb0a9660b99eab7384c4ed3676fa5b4e"
+    },
+    {
+      "file": "art/hero-h001-attack.svg",
+      "bytes": 1209,
+      "sha256": "64ff049cba23e7323b6fa887c2f320a162cde77e596f9401d5defad965f84e76"
+    },
+    {
+      "file": "art/hero-h001.svg",
+      "bytes": 2574,
+      "sha256": "da322720d5a905a758467361a91cf2af8a656ecfd752a67016513902a598cde4"
+    },
+    {
+      "file": "art/hero-h010.svg",
+      "bytes": 1574,
+      "sha256": "11c0170228635ec83d1c1ccc50fe25a80b92d73ee824a10739dd0abf3e4c0882"
+    },
+    {
+      "file": "art/hero-h012.svg",
+      "bytes": 1465,
+      "sha256": "e5715d312e3053805229ae92dbf98fe8506d54ae4410c15729db001137622ada"
+    },
+    {
+      "file": "assets/BattleView-CN65M-2Z.js",
+      "bytes": 60369,
+      "sha256": "a4e78fde9308fe6005ca5c6951ec11f2b02aa723d5f922b77d22a75d82df7b6e"
+    },
+    {
+      "file": "assets/BattleView-CUEaiFz3.css",
+      "bytes": 5681,
+      "sha256": "1a64616e805e09baa806d6fa9553828b3708b028e67c5013498b9a76e751b3ac"
+    },
+    {
+      "file": "assets/index-CYsg_X8v.css",
+      "bytes": 15781,
+      "sha256": "36a7057f2774f30d4ba04a36e3e660853a72f36f0e257f0dff8c4315f7c72f35"
+    },
+    {
+      "file": "assets/index-DoosUdqG.js",
+      "bytes": 123141,
+      "sha256": "11bc67534f92d83b8947171ccf80882af5f18cb7b584b8784a5c292a21eff437"
+    },
+    {
+      "file": "assets/mountBattle-BKGFxDlZ.js",
+      "bytes": 1443337,
+      "sha256": "b54e747737a955b534dc2a90c620ef1e5ab42ca1a8f0e6c60777d683ecf6c1dd"
+    },
+    {
+      "file": "index.html",
+      "bytes": 579,
+      "sha256": "5c31838d6e5c74599f76b2b7ecd5a4baedb61d194bab9fbf4426c344dc4fd9a9"
+    }
+  ]
+}

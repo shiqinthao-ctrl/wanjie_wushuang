@@ -1,0 +1,103 @@
+{
+  "synthetic": true,
+  "kind": "ranged",
+  "errors": [],
+  "damage": {
+    "H001_DRAGON_E": 178.2,
+    "A003": 96.768,
+    "H001_DRAGON_R": 367.2
+  },
+  "recorded": [
+    {
+      "type": "dragon-slash",
+      "x": 1802.0414345599718,
+      "y": 1200,
+      "facing": 0,
+      "radius": 160,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_E",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1860.4551233421048,
+      "y": 1200,
+      "facing": 0,
+      "radius": 128,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_BASIC",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1860.4551233421048,
+      "y": 1200,
+      "facing": 0,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1860.4551233421048,
+      "y": 1200,
+      "facing": 0,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1860.4551233421048,
+      "y": 1227.0440033239795,
+      "facing": 1.5707963267948966,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1860.4551233421048,
+      "y": 1227.0440033239795,
+      "facing": 1.5707963267948966,
+      "radius": 128,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_BASIC",
+      "phase": "release",
+      "progress": 0
+    }
+  ],
+  "dragon": {
+    "facing": 1.5707963267948966,
+    "awakened": false,
+    "poses": [
+      {
+        "x": 1860.4551233421048,
+        "y": 1227.0440033239795,
+        "facing": 1.5707963267948966,
+        "radius": 128,
+        "angle": 1.9547687622336491,
+        "source": "H001_DRAGON_BASIC",
+        "phase": "windup",
+        "progress": 0
+      }
+    ],
+    "blades": [
+      {
+        "x": 1860.4551233421048,
+        "y": 1497.0278033239795,
+        "facing": 1.5707963267948966,
+        "radius": 9,
+        "source": "A003"
+      }
+    ]
+  }
+}

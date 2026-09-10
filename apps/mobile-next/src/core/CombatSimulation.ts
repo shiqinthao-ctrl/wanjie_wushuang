@@ -14,9 +14,11 @@ import { EvolutionCombat } from './EvolutionCombat';
 import { isStarter } from './evolutionCatalog';
 import type { ChapterPreparation } from '../chapter/prepare';
 import { chapterCombatContext } from '../chapter/combat';
+import type { DragonPose } from '../chapter/DragonCombat';
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
+  | ({ type: 'dragon-slash' } & DragonPose)
   | { type: 'lightning'; points: readonly Readonly<Point>[]; source: string }
   | { type: 'hit'; x: number; y: number; damage: number; critical: boolean }
   | { type: 'kill'; x: number; y: number; elite: boolean };
@@ -72,6 +74,7 @@ export class CombatSimulation {
   private input: Point = { x: 0, y: 0 };
   private response: Point = { x: 0, y: 0 };
   private dodgeDirection: Point = { x: 0, y: -1 };
+  private facing = -Math.PI / 2;
   private events: CombatEvent[] = [];
   private scheduled: { delay: number; wave: number }[] = [];
   private spawnClock = 0;
@@ -117,7 +120,10 @@ export class CombatSimulation {
   move(x: number, y: number): void {
     if (!Number.isFinite(x) || !Number.isFinite(y)) return;
     const length = Math.max(1, Math.hypot(x, y)); this.input = { x: x / length, y: y / length };
+    if (x || y) this.facing = Math.atan2(y, x);
   }
+  movementFacing(): number { return this.facing; }
+  dragonSlash(pose: DragonPose): void { this.events.push({ type: 'dragon-slash', ...pose }); }
   clearInput(): void { this.input = { x: 0, y: 0 }; this.response = { x: 0, y: 0 }; }
   nearest(): Enemy | undefined {
     let best: Enemy | undefined, range = Infinity;
@@ -407,7 +413,7 @@ export class CombatSimulation {
   }
   applyCaps(): void { cap(this.enemies, caps.enemies); cap(this.enemyShots, caps.enemyShots); cap(this.projectiles, caps.v24Projectiles); cap(this.fields, caps.v24Fields); cap(this.meteors, caps.v24Meteors); }
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
-  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills) }; }
+  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
   destroy(): void {
     this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
     this.journeyCombat?.destroy();

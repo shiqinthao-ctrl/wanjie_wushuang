@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-09-10T02:37:07.3451161Z",
+  "rootGates": "passed in required order",
+  "typecheck": "passed after recorder fix",
+  "fullRules": {
+    "passed": 1269,
+    "failed": 0,
+    "source": "rules-final.json"
+  },
+  "build": {
+    "fixtureLeak": false,
+    "status": "passed",
+    "hashesVerified": 13,
+    "deployed": false
+  },
+  "browser": {
+    "startTime": "2026-09-10T02:26:39.14Z",
+    "duration": 138924.781,
+    "expected": 64,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "recordings": {
+    "interruptedPartial": 1,
+    "fullDecodePassed": 92
+  },
+  "scopeReview": "REVIEW.md",
+  "physicalDeviceTested": false,
+  "humanPlaytestCompleted": false
+}

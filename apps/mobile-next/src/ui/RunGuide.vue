@@ -9,6 +9,8 @@ defineProps<{ snapshot: UiSnapshot }>();
 <template>
   <section v-if="snapshot.journey" class="run-guide" aria-label="本局进化路线">
     <h3>{{ snapshot.journey.name }}</h3><p>{{ snapshot.journey.next }}</p>
+    <p v-if="snapshot.journey.combatHint">{{ snapshot.journey.combatHint }}</p>
+    <p v-if="snapshot.journey.awakeningHint">{{ snapshot.journey.awakeningHint }}</p>
     <h4>术式路线 <small>自动 {{ Object.keys(snapshot.skills).length }}/{{ snapshot.growth?.autoSlots || 6 }} · 心法 {{ Object.keys(snapshot.passives).length }}/{{ snapshot.growth?.passiveSlots || 6 }}</small></h4>
     <ul class="owned-skills"><li v-for="(level, id) in snapshot.skills" :key="id"><strong>{{ skillTags[id] }} · {{ skillName(id) }} Lv.{{ level }}</strong><span v-if="routeAdvice(snapshot.journey?.routes[id])" class="owned-route"><b>{{ routeAdvice(snapshot.journey?.routes[id])!.name }}</b><span>{{ routeAdvice(snapshot.journey?.routes[id])!.style }}</span><small>{{ routeAdvice(snapshot.journey?.routes[id])!.tradeoff }}</small></span><span v-else>{{ skillRoutes.some(route => route.skill === id) ? 'Lv.3 选择分支' : '持续强化' }}</span></li></ul>
     <p class="owned-passives">{{ Object.entries(snapshot.passives).map(([id, level]) => `${skillName(id)} Lv.${level}`).join(' · ') }}</p>

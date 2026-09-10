@@ -24,19 +24,19 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-R1b H001/CH001-01 growth connects to GameCore and BattleView: 4+4, three-choice evolution, core grant/awakening, reroll/banish and isolated settlement. Normal-speed growth passes on desktop/phone-size Chrome. See tasks/game-remediation/evidence/R1b/RESULTS.md. G5 runtime 821b90c / Render dep-dagi1c740ujc73f9nikg unchanged.
+R1c chapter-only dragon directional combat: frontal arcs, piercing blades, awakened follow-ups, locked windups and dodge cancellation. Procedural weapon/pose sample and descriptions match rules. See tasks/game-remediation/evidence/R1c/RESULTS.md and RECORDINGS.md. No Render deployment; historical G5 reference 821b90c not reverified.
 
 ## Changed files
-Added chapter growth/neutral combat context, chapter result UI and 209 rule cases; scoped optional chapter path in core, map, Boss and battle UI. Added real battle fixture with natural and synthetic flows. Updated TASK, contract, evidence and handoff. No legacy source, dependency, archive or deployment change.
+Added DragonCombat/DragonView/dragonText and 26 rules; scoped EvolutionCombat, movement-facing/events, render and chapter descriptions. Added four directed browser scenes and bounded natural-recorder button waits. Updated TASK, contract, evidence and handoff. No legacy source, dependencies, archives or release changes.
 
 ## Tests
-Five root gates, 49 legacy hashes, types, 1243/1243 rules and build pass. H001 200 seeded growth cases. Final browsers: 10 synthetic growth + 2 normal-speed growth + 46 compatibility pass. 44 raw videos, 44 report copies and 2 MP4s decoded/hashed. Failed attempts retained; synthetic victory/death are not natural acceptance.
+Five root gates, 49 archive hashes, types, 1269/1269 rules and build pass. Final browsers: 8 dragon + 10 growth + 46 compatibility; 2 natural dragon growth runs. 43 raw WebM, 43 report copies and 6 MP4s decoded/hashed; 1 interrupted partial WebM retained separately. Four directed scenarios are synthetic, not natural Boss victory.
 
 ## Unresolved risk
-R1 gameplay/art sample incomplete; no public chapter entry. Natural awakening about 91/131s is earlier than target 210-270s; balance open. H010/H012, charms/stages 2-3 unavailable. P2l natural HP-death, G4 cold timeout, phones/endurance/PWA/audio/human acceptance remain open. Large chunk/favicon404 remain. R1b rollback fa8d3a2; keep data. G5 stays live, auto-deploy Off.
+Full R1/art sample and public chapter entry incomplete. Dragon awakening at 166s desktop/97s phone-size precedes target 210-270s; balance open. H010/H012, charms/stages 2-3 unavailable. P2l natural HP-death, G4 cold timeout, phones/endurance/PWA/audio/human gates open. Large chunk, mobile shortcut/HUD occlusion remain. R1c rollback e2030f9; keep saves/evidence. Live G5/auto-deploy not reverified.
 
 ## Recommended next task
-R1c: scope TASK first; implement chapter-only dragon frontal arcs/piercing fire blades, weak side and awakened consecutive attacks. Verify crowd/ranged/elite/Boss scenarios and readable feedback; retain G5 behavior. Use R1b timing evidence for later sample tuning; no asset-production or full R1 acceptance claim.
+R1d: scope TASK first; improve chapter step-soldier windup/hit/death and one Boss move's telegraph and response. Test normal/interrupt/low-effects paths and record visible results. Keep chapter/G5 isolation; use R1b/R1c timing for later tuning. No professional asset-production or full R1 acceptance claim.
 
 ## After each task
 Replace only these fields:

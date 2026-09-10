@@ -1,0 +1,4391 @@
+{
+  "seed": 15,
+  "errors": [],
+  "timeline": [
+    {
+      "wallSeconds": 0,
+      "event": "开始：正常速度，无 HP/经验/掉落/时钟修改",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "rank": 0,
+          "name": "赤焰战神",
+          "color": "#ef7958",
+          "skill": "炎龙斩",
+          "ult": "赤龙降世",
+          "next": "Lv.3 选择英雄进化",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 0.059973333333333344,
+        "hp": 620,
+        "maxHp": 620,
+        "kills": 0,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 0,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 1,
+        "xp": 0,
+        "xpNeed": 26,
+        "skills": {
+          "A003": 1
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 1.041,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "rank": 0,
+          "name": "赤焰战神",
+          "color": "#ef7958",
+          "skill": "炎龙斩",
+          "ult": "赤龙降世",
+          "next": "Lv.3 选择英雄进化",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 1.0849066666666682,
+        "hp": 620,
+        "maxHp": 620,
+        "kills": 0,
+        "heat": 33.455239999999996,
+        "dodgeCd": 0,
+        "skillCd": 4.990053333333342,
+        "ult": 0,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 1,
+        "xp": 0,
+        "xpNeed": 26,
+        "skills": {
+          "A003": 1
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 16.907,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "rank": 0,
+          "name": "赤焰战神",
+          "color": "#ef7958",
+          "skill": "炎龙斩",
+          "ult": "赤龙降世",
+          "next": "Lv.3 选择英雄进化",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 16.95007666666659,
+        "hp": 614.5761156345177,
+        "maxHp": 620,
+        "kills": 5,
+        "heat": 95.64998500000021,
+        "dodgeCd": 0,
+        "skillCd": 1.8833100000000127,
+        "ult": 7,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 1,
+        "xp": 20,
+        "xpNeed": 26,
+        "skills": {
+          "A003": 1
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 20.026,
+      "event": "准备选择 active:A003",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "rank": 0,
+          "name": "赤焰战神",
+          "color": "#ef7958",
+          "skill": "炎龙斩",
+          "ult": "赤龙降世",
+          "next": "Lv.3 选择英雄进化",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 19.383406666666726,
+        "hp": 608.7713763886766,
+        "maxHp": 620,
+        "kills": 8,
+        "heat": 99.17506,
+        "dodgeCd": 0,
+        "skillCd": 5.650020000000001,
+        "ult": 11.200000000000001,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 2,
+        "xp": 2,
+        "xpNeed": 48,
+        "skills": {
+          "A003": 1
+        },
+        "passives": {},
+        "choice": {
+          "token": 1,
+          "options": [
+            {
+              "kind": "active",
+              "id": "A003",
+              "label": "烈焰刀 Lv.2",
+              "detail": "近身扇形斩击，附带短暂火域。",
+              "tag": "炎"
+            },
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "解锁 火球术",
+              "detail": "自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星 / 焰轮。",
+              "tag": "炎"
+            },
+            {
+              "kind": "passive",
+              "id": "P039",
+              "label": "解锁 召唤数量",
+              "detail": "增加分身数量。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 31.49,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "rank": 0,
+          "name": "赤焰战神",
+          "color": "#ef7958",
+          "skill": "炎龙斩",
+          "ult": "赤龙降世",
+          "next": "Lv.3 选择英雄进化",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 30.80006666666728,
+        "hp": 596.009549701718,
+        "maxHp": 620,
+        "kills": 18,
+        "heat": 95.72522500000021,
+        "dodgeCd": 0,
+        "skillCd": 0.8500399999999975,
+        "ult": 25.199999999999992,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 2,
+        "xp": 46,
+        "xpNeed": 48,
+        "skills": {
+          "A003": 2
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 32.547,
+      "event": "准备选择 hero:dragon",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "rank": 0,
+          "name": "赤焰战神",
+          "color": "#ef7958",
+          "skill": "炎龙斩",
+          "ult": "赤龙降世",
+          "next": "Lv.3 选择英雄进化",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 31.30007666666729,
+        "hp": 596.009549701718,
+        "maxHp": 620,
+        "kills": 19,
+        "heat": 98.34998500000009,
+        "dodgeCd": 0,
+        "skillCd": 0.35002999999999795,
+        "ult": 26.59999999999999,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 3,
+        "xp": 2,
+        "xpNeed": 59,
+        "skills": {
+          "A003": 2
+        },
+        "passives": {},
+        "choice": {
+          "token": 2,
+          "options": [
+            {
+              "kind": "hero",
+              "id": "frostlord",
+              "label": "霜狱剑主",
+              "detail": "霜环减速敌群，技能展开随身寒域。引导寒霜环成长。"
+            },
+            {
+              "kind": "hero",
+              "id": "bulwark",
+              "label": "焚城炎君",
+              "detail": "环形普攻；技能建立火域并获得护盾。"
+            },
+            {
+              "kind": "hero",
+              "id": "dragon",
+              "label": "赤龙武圣",
+              "detail": "移动决定朝向，短暂蓄势后挥出正面扇斩；核心术式变为穿透火刃。适合迎面破阵，侧后方较弱。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 33.699,
+      "event": "准备选择 active:A003",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 31.30007666666729,
+        "hp": 596.009549701718,
+        "maxHp": 620,
+        "kills": 19,
+        "heat": 98.34998500000009,
+        "dodgeCd": 0,
+        "skillCd": 0.35002999999999795,
+        "ult": 26.59999999999999,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 3,
+        "xp": 2,
+        "xpNeed": 59,
+        "skills": {
+          "A003": 3
+        },
+        "passives": {},
+        "choice": {
+          "token": 3,
+          "options": [
+            {
+              "kind": "active",
+              "id": "A003",
+              "label": "烈焰刀 Lv.4",
+              "detail": "沿蓄势时的朝向发射火刃，贯穿最多 5 个目标；不再生成随身火域。适合把敌群引成一线。",
+              "tag": "炎"
+            },
+            {
+              "kind": "passive",
+              "id": "P039",
+              "label": "解锁 召唤数量",
+              "detail": "增加分身数量。"
+            },
+            {
+              "kind": "passive",
+              "id": "P036",
+              "label": "解锁 召唤强化",
+              "detail": "提高分身伤害。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 46.225,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 43.783376666666946,
+        "hp": 569.7571794351186,
+        "maxHp": 620,
+        "kills": 29,
+        "heat": 42.17513500000083,
+        "dodgeCd": 0,
+        "skillCd": 0.8000300000000091,
+        "ult": 40.59999999999998,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 3,
+        "xp": 42,
+        "xpNeed": 59,
+        "skills": {
+          "A003": 4
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 53.509,
+      "event": "准备选择 active:A003",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 50.433406666666784,
+        "hp": 553.9181434016654,
+        "maxHp": 620,
+        "kills": 34,
+        "heat": 12.325015000000871,
+        "dodgeCd": 0,
+        "skillCd": 0.3999900000000094,
+        "ult": 47.59999999999997,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 4,
+        "xp": 3,
+        "xpNeed": 70,
+        "skills": {
+          "A003": 4
+        },
+        "passives": {},
+        "choice": {
+          "token": 4,
+          "options": [
+            {
+              "kind": "active",
+              "id": "A003",
+              "label": "烈焰刀 Lv.5",
+              "detail": "沿蓄势时的朝向发射火刃，贯穿最多 5 个目标；不再生成随身火域。适合把敌群引成一线。",
+              "tag": "炎"
+            },
+            {
+              "kind": "passive",
+              "id": "P024",
+              "label": "解锁 分裂",
+              "detail": "火球命中后分裂，增加手里剑数量。"
+            },
+            {
+              "kind": "passive",
+              "id": "P018",
+              "label": "解锁 冷却缩减",
+              "detail": "缩短自动技能冷却。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 60.842,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 57.71673666666657,
+        "hp": 548.7427250605126,
+        "maxHp": 620,
+        "kills": 36,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 50.39999999999997,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 4,
+        "xp": 11,
+        "xpNeed": 70,
+        "skills": {
+          "A003": 5
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 68.183,
+      "event": "准备选择 active:S001",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 64.45006666666647,
+        "hp": 522.2512881559541,
+        "maxHp": 620,
+        "kills": 51,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 5.566669999999999,
+        "ult": 71.39999999999999,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 5,
+        "xp": 1,
+        "xpNeed": 81,
+        "skills": {
+          "A003": 5
+        },
+        "passives": {},
+        "choice": {
+          "token": 5,
+          "options": [
+            {
+              "kind": "passive",
+              "id": "P036",
+              "label": "解锁 召唤强化",
+              "detail": "提高分身伤害。"
+            },
+            {
+              "kind": "passive",
+              "id": "P023",
+              "label": "解锁 弹射",
+              "detail": "增加雷电跳链目标。"
+            },
+            {
+              "kind": "active",
+              "id": "S001",
+              "label": "解锁 影分身",
+              "detail": "召出定时攻击的分身。Lv.3 可选游猎 / 守阵。",
+              "tag": "影/召"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 75.475,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 71.70006666666761,
+        "hp": 509.17698394539775,
+        "maxHp": 620,
+        "kills": 80,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 9.8,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 5,
+        "xp": 69,
+        "xpNeed": 81,
+        "skills": {
+          "A003": 5,
+          "S001": 1
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 77.591,
+      "event": "准备选择 active:S001",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 73.46671666666792,
+        "hp": 509.17698394539775,
+        "maxHp": 620,
+        "kills": 86,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 4.283350000000001,
+        "ult": 18.2,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 6,
+        "xp": 0,
+        "xpNeed": 92,
+        "skills": {
+          "A003": 5,
+          "S001": 1
+        },
+        "passives": {},
+        "choice": {
+          "token": 6,
+          "options": [
+            {
+              "kind": "active",
+              "id": "S001",
+              "label": "影分身 Lv.2",
+              "detail": "召出定时攻击的分身。Lv.3 可选游猎 / 守阵。",
+              "tag": "影/召"
+            },
+            {
+              "kind": "passive",
+              "id": "P019",
+              "label": "解锁 技能倍率",
+              "detail": "提高技能伤害。"
+            },
+            {
+              "kind": "passive",
+              "id": "P018",
+              "label": "解锁 冷却缩减",
+              "detail": "缩短自动技能冷却。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 90.017,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 85.86668666666951,
+        "hp": 498.40940451471687,
+        "maxHp": 620,
+        "kills": 111,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 4.966680000000003,
+        "ult": 53.19999999999997,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "locked"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 6,
+        "xp": 64,
+        "xpNeed": 92,
+        "skills": {
+          "A003": 5,
+          "S001": 2
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 105.474,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 101.3166966666717,
+        "hp": 492.9610025799994,
+        "maxHp": 620,
+        "kills": 139,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 1.8833500000000074,
+        "ult": 92.40000000000008,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 6,
+        "xp": 72,
+        "xpNeed": 92,
+        "skills": {
+          "A003": 5,
+          "S001": 2
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 120.976,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 116.81664666667393,
+        "hp": 487.4006422608199,
+        "maxHp": 620,
+        "kills": 167,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 4.983330000000001,
+        "ult": 30.799999999999986,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 6,
+        "xp": 80,
+        "xpNeed": 92,
+        "skills": {
+          "A003": 5,
+          "S001": 2
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 136.667,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 132.5166766666765,
+        "hp": 481.82039864634754,
+        "maxHp": 620,
+        "kills": 196,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 1.8333199999999752,
+        "ult": 71.39999999999999,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 6,
+        "xp": 84,
+        "xpNeed": 92,
+        "skills": {
+          "A003": 5,
+          "S001": 2
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 152.409,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "running",
+        "time": 148.24998666668006,
+        "hp": 470.408222982915,
+        "maxHp": 620,
+        "kills": 222,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 4.983319999999991,
+        "ult": 5.6,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 6,
+        "xp": 88,
+        "xpNeed": 92,
+        "skills": {
+          "A003": 5,
+          "S001": 2
+        },
+        "passives": {},
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 168.077,
+      "event": "战斗采样",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 163.0999166666834,
+        "hp": 464.60189669381106,
+        "maxHp": 620,
+        "kills": 247,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 2.6833599999999627,
+        "ult": 47.19999999999998,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 7,
+        "xp": 0,
+        "xpNeed": 103,
+        "skills": {
+          "A003": 5,
+          "S001": 2
+        },
+        "passives": {},
+        "choice": {
+          "token": 7,
+          "options": [
+            {
+              "kind": "active",
+              "id": "S001",
+              "label": "影分身 Lv.3",
+              "detail": "召出定时攻击的分身。Lv.3 可选游猎 / 守阵。",
+              "tag": "影/召"
+            },
+            {
+              "kind": "passive",
+              "id": "P023",
+              "label": "解锁 弹射",
+              "detail": "增加雷电跳链目标。"
+            },
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "解锁 火球术",
+              "detail": "自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星 / 焰轮。",
+              "tag": "炎"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 168.095,
+      "event": "准备选择 active:S001",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 163.0999166666834,
+        "hp": 464.60189669381106,
+        "maxHp": 620,
+        "kills": 247,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 2.6833599999999627,
+        "ult": 47.19999999999998,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 7,
+        "xp": 0,
+        "xpNeed": 103,
+        "skills": {
+          "A003": 5,
+          "S001": 2
+        },
+        "passives": {},
+        "choice": {
+          "token": 7,
+          "options": [
+            {
+              "kind": "active",
+              "id": "S001",
+              "label": "影分身 Lv.3",
+              "detail": "召出定时攻击的分身。Lv.3 可选游猎 / 守阵。",
+              "tag": "影/召"
+            },
+            {
+              "kind": "passive",
+              "id": "P023",
+              "label": "解锁 弹射",
+              "detail": "增加雷电跳链目标。"
+            },
+            {
+              "kind": "active",
+              "id": "A011",
+              "label": "解锁 火球术",
+              "detail": "自动瞄准火球，命中爆炸。Lv.3 可选连珠 / 爆星 / 焰轮。",
+              "tag": "炎"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 168.167,
+      "event": "准备选择 route:hunter",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {},
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 163.0999166666834,
+        "hp": 464.60189669381106,
+        "maxHp": 620,
+        "kills": 247,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 2.6833599999999627,
+        "ult": 47.19999999999998,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 7,
+        "xp": 0,
+        "xpNeed": 103,
+        "skills": {
+          "A003": 5,
+          "S001": 3
+        },
+        "passives": {},
+        "choice": {
+          "token": 8,
+          "options": [
+            {
+              "kind": "route",
+              "id": "hunter",
+              "label": "游猎影军",
+              "detail": "分身跟随移动，向敌人射出影刃。"
+            },
+            {
+              "kind": "route",
+              "id": "guard",
+              "label": "守阵影军",
+              "detail": "分身留守召唤位置，周期释放范围斩击。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 172.476,
+      "event": "准备选择 hero:awaken",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 1,
+          "name": "赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "next": "Lv.8 + 核心术式 Lv.3 解锁觉醒",
+          "routes": {
+            "S001": "hunter"
+          },
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 166.149936666684,
+        "hp": 464.60189669381106,
+        "maxHp": 620,
+        "kills": 251,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 52.799999999999976,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 8,
+        "xp": 1,
+        "xpNeed": 114,
+        "skills": {
+          "A003": 5,
+          "S001": 3
+        },
+        "passives": {},
+        "choice": {
+          "token": 9,
+          "options": [
+            {
+              "kind": "hero",
+              "id": "awaken",
+              "label": "觉醒 · 赤龙武圣",
+              "detail": "普攻与破阵斩追加第二击，必杀由三斩变为五斩；两击之间移动可转向，闪避中断未出手的攻击。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    },
+    {
+      "wallSeconds": 173.613,
+      "event": "成长验收终点",
+      "battle": {
+        "ruleset": "chapter1-v1",
+        "journey": {
+          "heroId": "H001",
+          "formId": "dragon",
+          "rank": 2,
+          "name": "觉醒 · 赤龙武圣",
+          "color": "#ff9d66",
+          "skill": "赤龙破阵",
+          "ult": "龙焰连斩",
+          "combatHint": "移动决定朝向，停下保留方向；每击蓄势后锁定位置与方向。主动技斩击并发射火刃，必杀连续破阵。侧后较弱，闪避会取消未释放攻击且不返还消耗。",
+          "awakeningHint": "普攻与破阵斩追加第二击，必杀由三斩变为五斩；两击之间移动可转向，闪避中断未出手的攻击。",
+          "next": "英雄已觉醒，继续组合技能与羁绊",
+          "routes": {
+            "S001": "hunter"
+          },
+          "bonds": [
+            {
+              "id": "wildfire",
+              "name": "风火燎原",
+              "tags": [
+                "炎",
+                "风"
+              ],
+              "detail": "龙卷脉冲追加火焰伤害。",
+              "needs": "任一炎系技能 + 龙卷风",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "stormhunt",
+              "name": "雷影追猎",
+              "tags": [
+                "雷",
+                "影"
+              ],
+              "detail": "雷电弹多跳一个目标，首领也可跳链。",
+              "needs": "雷电弹 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "shadowfire",
+              "name": "影火同源",
+              "tags": [
+                "影",
+                "炎"
+              ],
+              "detail": "成功闪避在起点留下持续燃烧影印。",
+              "needs": "任一炎系技能 + 手里剑或影分身",
+              "active": true,
+              "count": 2
+            },
+            {
+              "id": "superconduct",
+              "name": "冰雷超导",
+              "tags": [
+                "冰",
+                "雷"
+              ],
+              "detail": "雷电命中减速中的敌人，伤害提高 35%。",
+              "needs": "寒霜环 + 雷电弹",
+              "active": false,
+              "count": 0
+            },
+            {
+              "id": "winterlegion",
+              "name": "霜卫契约",
+              "tags": [
+                "冰",
+                "召"
+              ],
+              "detail": "召唤单位攻击时追加小范围霜环与减速。",
+              "needs": "寒霜环 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thunderlegion",
+              "name": "雷兽共鸣",
+              "tags": [
+                "雷",
+                "召"
+              ],
+              "detail": "召唤单位攻击间隔缩短至 0.6 秒。",
+              "needs": "雷电弹 + 影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "galephantom",
+              "name": "风影合袭",
+              "tags": [
+                "风",
+                "影"
+              ],
+              "detail": "风暴每次脉冲向附近最近目标射出一枚穿透影刃；无目标时不发射。",
+              "needs": "龙卷风 + 手里剑或影分身",
+              "active": false,
+              "count": 1
+            },
+            {
+              "id": "thermalshock",
+              "name": "霜火淬炼",
+              "tags": [
+                "冰",
+                "炎"
+              ],
+              "detail": "火焰命中寒霜减速中的普通或精英敌人，伤害提高 30%。不消耗减速；首领不触发。",
+              "needs": "寒霜环 + 任一炎系技能",
+              "active": false,
+              "count": 1
+            }
+          ]
+        },
+        "status": "choosing",
+        "time": 166.149936666684,
+        "hp": 464.60189669381106,
+        "maxHp": 620,
+        "kills": 251,
+        "heat": 0,
+        "dodgeCd": 0,
+        "skillCd": 0,
+        "ult": 52.799999999999976,
+        "map": {
+          "used": 0,
+          "bonusGold": 0,
+          "hazardSuppress": 0,
+          "notice": ""
+        },
+        "encounter": {
+          "shopBuff": 0,
+          "gearCount": 0,
+          "notice": ""
+        },
+        "chests": {
+          "notice": "",
+          "rewards": [
+            {
+              "index": 0,
+              "at": 90,
+              "state": "ready"
+            },
+            {
+              "index": 1,
+              "at": 210,
+              "state": "locked"
+            },
+            {
+              "index": 2,
+              "at": 300,
+              "state": "locked"
+            }
+          ],
+          "evolved": [],
+          "fused": []
+        },
+        "boss": {
+          "chapterLoot": false,
+          "lootClaimed": false,
+          "lootShown": false,
+          "phase": "advance"
+        },
+        "level": 8,
+        "xp": 1,
+        "xpNeed": 114,
+        "skills": {
+          "A003": 5,
+          "S001": 3
+        },
+        "passives": {},
+        "choice": {
+          "token": 10,
+          "options": [
+            {
+              "kind": "active",
+              "id": "S001",
+              "label": "影分身 Lv.4",
+              "detail": "召出定时攻击的分身。Lv.3 可选游猎 / 守阵。",
+              "tag": "影/召"
+            },
+            {
+              "kind": "passive",
+              "id": "P026",
+              "label": "解锁 火神祝福",
+              "detail": "提高炎系技能伤害。"
+            },
+            {
+              "kind": "passive",
+              "id": "P023",
+              "label": "解锁 弹射",
+              "detail": "增加雷电跳链目标。"
+            }
+          ]
+        },
+        "growth": {
+          "autoSlots": 4,
+          "passiveSlots": 4,
+          "rerolls": 2,
+          "banishes": 1,
+          "coreSkill": "A003",
+          "banned": []
+        }
+      }
+    }
+  ]
+}

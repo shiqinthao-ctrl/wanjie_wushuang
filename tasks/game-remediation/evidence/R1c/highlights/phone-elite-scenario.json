@@ -1,0 +1,137 @@
+{
+  "synthetic": true,
+  "kind": "elite",
+  "errors": [],
+  "damage": {
+    "A003": 686.448,
+    "H001_DRAGON_E": 972.0000000000001,
+    "H001_DRAGON_BASIC": 356.40000000000003,
+    "H001_DRAGON_R": 2667.6
+  },
+  "recorded": [
+    {
+      "type": "dragon-slash",
+      "x": 1805.1596885230156,
+      "y": 1200,
+      "facing": 0,
+      "radius": 160,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_E",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1200,
+      "facing": 0,
+      "radius": 160,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_E",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1200,
+      "facing": 0,
+      "radius": 128,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_BASIC",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1200,
+      "facing": 0,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1200,
+      "facing": 0,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1220.8585927714669,
+      "facing": 1.5707963267948966,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1220.8585927714669,
+      "facing": 1.5707963267948966,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1220.8585927714669,
+      "facing": 1.5707963267948966,
+      "radius": 180,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_R",
+      "phase": "release",
+      "progress": 0
+    },
+    {
+      "type": "dragon-slash",
+      "x": 1841.714426157743,
+      "y": 1220.8585927714669,
+      "facing": 1.5707963267948966,
+      "radius": 128,
+      "angle": 1.9547687622336491,
+      "source": "H001_DRAGON_BASIC",
+      "phase": "release",
+      "progress": 0
+    }
+  ],
+  "dragon": {
+    "facing": 1.5707963267948966,
+    "awakened": true,
+    "poses": [
+      {
+        "x": 1841.714426157743,
+        "y": 1220.8585927714669,
+        "facing": 1.5707963267948966,
+        "radius": 128,
+        "angle": 1.9547687622336491,
+        "source": "H001_DRAGON_BASIC",
+        "phase": "release",
+        "progress": -8.881784197001252e-16
+      }
+    ],
+    "blades": [
+      {
+        "x": 1841.714426157743,
+        "y": 1549.3621927714669,
+        "facing": 1.5707963267948966,
+        "radius": 9,
+        "source": "A003"
+      }
+    ]
+  }
+}

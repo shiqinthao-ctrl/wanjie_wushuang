@@ -1,0 +1,7 @@
+{"type":"after","callId":"call@563","endTime":34717.268,"result":{"value":false}}
+{"type":"before","callId":"call@565","startTime":34719.401,"title":"Bounding box","class":"Frame","method":"waitForSelector","params":{"selector":"internal:label=\"拖动摇杆移动\"i","strict":true,"state":"attached","timeout":400},"stepId":"pw:api@337"}
+{"type":"log","callId":"call@565","time":34721.634,"message":"waiting for getByLabel('拖动摇杆移动')"}
+{"type":"log","callId":"call@565","time":34724.057,"message":"  locator resolved to visible <div class=\"move-pad\" aria-label=\"拖动摇杆移动\">…</div>"}
+{"type":"after","callId":"call@565","endTime":34725.278,"result":{"element":"<ElementHandle>"}}
+{"type":"before","callId":"call@573","startTime":34809.887,"class":"Frame","method":"isEnabled","params":{"selector":".action-pad button >> nth=1","strict":true},"stepId":"pw:api@340"}
+{"type":"log","callId":"call@573","time":34826.039,"message":"waiting for locator('.action-pad button').nth(1)"}

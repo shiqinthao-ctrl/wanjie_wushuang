@@ -4,6 +4,7 @@ import type { UiSnapshot } from '../core/GameCore';
 import { MapView } from './MapView';
 import { BossView } from './BossView';
 import { CombatEffects } from './CombatEffects';
+import { DragonView } from './DragonView';
 import type { GameSave } from '../core/saveTypes';
 import type { Journey } from '../core/evolutionCatalog';
 import type { ChapterRunOptions } from '../chapter/prepare';
@@ -25,6 +26,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     private combatGraphics?: Phaser.GameObjects.Graphics;
     private mapView?: MapView;
     private bossView?: BossView;
+    private dragonView?: DragonView;
     private enemySprites: Phaser.GameObjects.Image[] = [];
     preload() {
       this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
@@ -41,6 +43,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       this.boundary = this.add.graphics().setDepth(.1);
       this.mapView = new MapView(this);
       this.bossView = new BossView(this);
+      this.dragonView = new DragonView(this);
       this.crystals = this.add.graphics().setDepth(3.2);
       this.combatGraphics = this.add.graphics();
       effects = new CombatEffects(this.add.graphics().setDepth(.5));
@@ -69,7 +72,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       core.resize(this.scale.width, this.scale.height);
       const previousTime = core.snapshot().time;
       core.advance(delta / 1000);
-      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, summons, journey: evolution } = core.renderState();
+      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, summons, dragon, journey: evolution } = core.renderState();
       this.mapView?.draw(map, player);
       this.bossView?.draw(boss, telegraphs);
       const graphics = this.combatGraphics!; graphics.clear();
@@ -80,7 +83,9 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         if (unit.guard) graphics.lineStyle(3, color, .9).strokeRect(unit.x - 9, unit.y - 28, 18, 22);
         else for (const sign of [-1, 1]) graphics.lineStyle(3, color, .9).lineBetween(unit.x + sign * 8, unit.y - 26, unit.x + sign * 22, unit.y - 12);
       }
-      if (evolution?.formId) {
+      this.hero.setVisible(!dragon);
+      this.dragonView?.draw(dragon, player);
+      if (evolution?.formId && !dragon) {
         const color = Number.parseInt(evolution.color.slice(1), 16), x = player.x, y = player.y;
         this.hero.setTint(color);
         graphics.lineStyle(evolution.rank === 2 ? 3 : 1, color, .8).strokeCircle(x, y, evolution.rank === 2 ? 36 : 28);

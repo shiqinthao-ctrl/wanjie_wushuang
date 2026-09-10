@@ -128,8 +128,9 @@ test('natural normal-speed H001 growth: move cast evolve route awaken and pause'
       await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [origin] });
       await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [point] });
       const skill = page.locator('.action-pad button').nth(1);
-      if (await skill.isEnabled().catch(() => false)) {
-        const box = await skill.boundingBox(); if (box) await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point, { id: 2, x: box.x + box.width / 2, y: box.y + box.height / 2 }] });
+      // A level-up can hide the controls between the modal check and this probe.
+      if (await skill.isEnabled({ timeout: 400 }).catch(() => false)) {
+        const box = await skill.boundingBox({ timeout: 400 }).catch(() => null); if (box) await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [point, { id: 2, x: box.x + box.width / 2, y: box.y + box.height / 2 }] });
       }
       await page.waitForTimeout(1000); await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     } else {
