@@ -5,6 +5,8 @@ import { MapView } from './MapView';
 import { BossView } from './BossView';
 import { CombatEffects } from './CombatEffects';
 import { DragonView } from './DragonView';
+import { EnemyView } from './EnemyView';
+import { isSoldier } from '../chapter/SoldierCombat';
 import type { GameSave } from '../core/saveTypes';
 import type { Journey } from '../core/evolutionCatalog';
 import type { ChapterRunOptions } from '../chapter/prepare';
@@ -27,6 +29,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     private mapView?: MapView;
     private bossView?: BossView;
     private dragonView?: DragonView;
+    private enemyView?: EnemyView;
     private enemySprites: Phaser.GameObjects.Image[] = [];
     preload() {
       this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
@@ -44,6 +47,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       this.mapView = new MapView(this);
       this.bossView = new BossView(this);
       this.dragonView = new DragonView(this);
+      if (core.chapter) this.enemyView = new EnemyView(this);
       this.crystals = this.add.graphics().setDepth(3.2);
       this.combatGraphics = this.add.graphics();
       effects = new CombatEffects(this.add.graphics().setDepth(.5));
@@ -73,6 +77,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       const previousTime = core.snapshot().time;
       core.advance(delta / 1000);
       const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, summons, dragon, journey: evolution } = core.renderState();
+      this.positionCamera(world, player);
       this.mapView?.draw(map, player);
       this.bossView?.draw(boss, telegraphs);
       const graphics = this.combatGraphics!; graphics.clear();
@@ -127,6 +132,9 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       const frameTime = core.snapshot().time;
       for (const [index, enemy] of enemies.entries()) {
         const sprite = this.enemySprites[index] ||= this.add.image(enemy.x, enemy.y, 'enemy').setOrigin(.5, .8).setDepth(2);
+        const chapterSoldier = !!core.chapter && isSoldier(enemy);
+        sprite.setVisible(!chapterSoldier);
+        if (chapterSoldier) continue;
         sprite.setPosition(enemy.x, enemy.y).setDisplaySize(enemy.elite ? 48 : 34, enemy.elite ? 58 : 42).setAlpha(enemy.ai === 'melee' ? 1 : .6);
         sprite.setTint((enemy.chilledUntil || 0) > frameTime ? 0x8de8ff : 0xffffff);
         graphics.fillStyle(enemy.elite ? 0xd5a254 : enemy.ai === 'ranged' ? 0x9b735b : 0x6e737c, 1).fillCircle(enemy.x, enemy.y, enemy.r);
@@ -148,6 +156,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         this.crystals?.lineStyle(2, 0xd9fff2, .8).strokeCircle(crystal.x, crystal.y, radius + 4);
       }
       const events = core.takeEvents();
+      this.enemyView?.draw(enemies, events, core.snapshot().time - previousTime, frameTime);
       effects?.draw(events, core.snapshot().time - previousTime);
       for (const event of events) {
         if (event.type !== 'xp-pickup') continue;
@@ -155,7 +164,6 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         this.tweens.add({ targets: label, y: label.y - 28, alpha: 0, duration: 700, onComplete: () => label.destroy() });
       }
       this.hero.setPosition(player.x, player.y);
-      this.positionCamera(world, player);
       // UI gets a small snapshot at 10Hz. Entity transforms remain in Phaser.
       budget += delta;
       if (budget >= 100) { budget = 0; publish(core.snapshot()); }

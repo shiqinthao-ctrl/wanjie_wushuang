@@ -1,0 +1,66 @@
+{
+  "main_skill": "zbn-agent-workbench:software-delivery-lifecycle",
+  "task_type": "software-implementation",
+  "product_scope": "wanjie_wushuang mobile-next R1d chapter soldier and Boss attack readability",
+  "agent_role": "engineering",
+  "mode": "write-authorized",
+  "selected_subskills": [
+    "agent-skills:using-agent-skills",
+    "agent-skills:incremental-implementation",
+    "agent-skills:test-driven-development",
+    "agent-skills:debugging-and-error-recovery",
+    "agent-skills:browser-testing-with-devtools",
+    "agent-skills:code-review-and-quality",
+    "agent-skills:git-workflow-and-versioning"
+  ],
+  "workflow_stages": [
+    {
+      "stage": 1,
+      "name": "Context and bounded slice",
+      "subskills": [
+        "agent-skills:using-agent-skills",
+        "agent-skills:incremental-implementation"
+      ]
+    },
+    {
+      "stage": 2,
+      "name": "Failing rules and combat implementation",
+      "subskills": [
+        "agent-skills:test-driven-development"
+      ]
+    },
+    {
+      "stage": 3,
+      "name": "Browser and recorder diagnosis",
+      "subskills": [
+        "agent-skills:browser-testing-with-devtools",
+        "agent-skills:debugging-and-error-recovery"
+      ]
+    },
+    {
+      "stage": 4,
+      "name": "Scope review and evidence",
+      "subskills": [
+        "agent-skills:code-review-and-quality"
+      ]
+    },
+    {
+      "stage": 5,
+      "name": "Version and handoff",
+      "subskills": [
+        "agent-skills:git-workflow-and-versioning"
+      ]
+    }
+  ],
+  "evidence_required": [
+    "windup and single damage resolution",
+    "death cancellation and effects parity",
+    "desktop and phone directed hit/dodge/kill scenarios",
+    "all raw attempts and normal-speed exports",
+    "compatibility and build hashes"
+  ],
+  "tool_fallback": "Chrome DevTools MCP unavailable; installed Chrome with repository Playwright tests and runtime screenshots used",
+  "acceptance_status": "passed",
+  "stop_reason": "accepted",
+  "next_action": "R1e presentation asset/action/event mapping and audio unlock/mix; full R1 art/gameplay acceptance remains open"
+}

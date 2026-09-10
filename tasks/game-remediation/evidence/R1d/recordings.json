@@ -1,0 +1,2833 @@
+{
+  "verifiedAt": "2026-09-10T03:38:35.246Z",
+  "exports": [
+    {
+      "source": "browser-verified/test-results/chapter-enemy-enemy-soldier-hit-effects-on-phone/video.webm",
+      "file": "watch/soldier-hit.mp4",
+      "kind": "soldier",
+      "action": "hit",
+      "effects": true,
+      "synthetic": true,
+      "speed": 1
+    },
+    {
+      "source": "browser-verified/test-results/chapter-enemy-enemy-soldier-dodge-effects-on-phone/video.webm",
+      "file": "watch/soldier-dodge.mp4",
+      "kind": "soldier",
+      "action": "dodge",
+      "effects": true,
+      "synthetic": true,
+      "speed": 1
+    },
+    {
+      "source": "browser-verified/test-results/chapter-enemy-enemy-soldier-interrupt-effects-on-phone/video.webm",
+      "file": "watch/soldier-interrupt.mp4",
+      "kind": "soldier",
+      "action": "interrupt",
+      "effects": true,
+      "synthetic": true,
+      "speed": 1
+    },
+    {
+      "source": "browser-verified/test-results/chapter-enemy-enemy-boss-hit-effects-on-phone/video.webm",
+      "file": "watch/boss-hit.mp4",
+      "kind": "boss",
+      "action": "hit",
+      "effects": true,
+      "synthetic": true,
+      "speed": 1
+    },
+    {
+      "source": "browser-verified/test-results/chapter-enemy-enemy-boss-dodge-effects-on-phone/video.webm",
+      "file": "watch/boss-dodge.mp4",
+      "kind": "boss",
+      "action": "dodge",
+      "effects": true,
+      "synthetic": true,
+      "speed": 1
+    },
+    {
+      "source": "browser-verified/test-results/chapter-enemy-enemy-boss-interrupt-effects-on-phone/video.webm",
+      "file": "watch/boss-interrupt.mp4",
+      "kind": "boss",
+      "action": "interrupt",
+      "effects": true,
+      "synthetic": true,
+      "speed": 1
+    },
+    {
+      "source": "browser-verified/test-results/chapter-enemy-enemy-boss-hit-effects-off-phone/video.webm",
+      "file": "watch/boss-effects-off.mp4",
+      "kind": "boss",
+      "action": "hit",
+      "effects": false,
+      "synthetic": true,
+      "speed": 1
+    }
+  ],
+  "review": {
+    "file": "watch/r1d-review.mp4",
+    "synthetic": true,
+    "speed": 1,
+    "timeline": [
+      {
+        "file": "watch/soldier-hit.mp4",
+        "startSeconds": 0,
+        "durationSeconds": 3.92,
+        "kind": "soldier",
+        "action": "hit",
+        "effects": true
+      },
+      {
+        "file": "watch/soldier-dodge.mp4",
+        "startSeconds": 3.92,
+        "durationSeconds": 3.92,
+        "kind": "soldier",
+        "action": "dodge",
+        "effects": true
+      },
+      {
+        "file": "watch/soldier-interrupt.mp4",
+        "startSeconds": 7.84,
+        "durationSeconds": 3.92,
+        "kind": "soldier",
+        "action": "interrupt",
+        "effects": true
+      },
+      {
+        "file": "watch/boss-hit.mp4",
+        "startSeconds": 11.76,
+        "durationSeconds": 4.44,
+        "kind": "boss",
+        "action": "hit",
+        "effects": true
+      },
+      {
+        "file": "watch/boss-dodge.mp4",
+        "startSeconds": 16.2,
+        "durationSeconds": 4.56,
+        "kind": "boss",
+        "action": "dodge",
+        "effects": true
+      },
+      {
+        "file": "watch/boss-interrupt.mp4",
+        "startSeconds": 20.759999999999998,
+        "durationSeconds": 5.44,
+        "kind": "boss",
+        "action": "interrupt",
+        "effects": true
+      },
+      {
+        "file": "watch/boss-effects-off.mp4",
+        "startSeconds": 26.2,
+        "durationSeconds": 4.44,
+        "kind": "boss",
+        "action": "hit",
+        "effects": false
+      }
+    ]
+  },
+  "records": [
+    {
+      "file": "attempt-01/playwright-report/data/3f8384b56c3400f828cc8d06ac046fcba1912c5c.webm",
+      "bytes": 350629,
+      "sha256": "fb8ba4ba3ad3789e25b74dd23ac1572b9813fe4d3608304f3b1abb96677c9e42",
+      "durationSeconds": 4.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/468829f1675b7e3a7e9f22d69fb63154155fe241.webm",
+      "bytes": 270589,
+      "sha256": "d5a9a86e2bbdf2b6bdb7488605e7acc21c7ed809977fba2bb04e384f9bb3f221",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/b2b4406509191f564bd48290f69a678488202cbb.webm",
+      "bytes": 228341,
+      "sha256": "a74e047bd3a573396d2ba4254502130a93a9bac243fceee9106fa3b0654c9ada",
+      "durationSeconds": 3.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/bca1b21d4450172f8c80a278d31fb4e7068cf100.webm",
+      "bytes": 273183,
+      "sha256": "3af14f1a25162868f7f751680386adde8ecef6363c6c5b1409763ff7987db01c",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/bf5c9889db55d16cc5ef559bbc255dbcb0145f9b.webm",
+      "bytes": 332903,
+      "sha256": "961980db336ef4ef05c17990dd6d4fb839d7df6e607ab521eab7090c3d171dca",
+      "durationSeconds": 5.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/playwright-report/data/dfa9da9268577851f80cc6d76acebd1d97cb9cce.webm",
+      "bytes": 305811,
+      "sha256": "68c6704812343a86789b86db26620d4dc6958e822e7d9d498096d71afaa39cd1",
+      "durationSeconds": 4.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-enemy-enemy-boss-dodge-effects-on-desktop/video.webm",
+      "bytes": 350629,
+      "sha256": "fb8ba4ba3ad3789e25b74dd23ac1572b9813fe4d3608304f3b1abb96677c9e42",
+      "durationSeconds": 4.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-enemy-enemy-boss-hit-effects-on-desktop/video.webm",
+      "bytes": 305811,
+      "sha256": "68c6704812343a86789b86db26620d4dc6958e822e7d9d498096d71afaa39cd1",
+      "durationSeconds": 4.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-enemy-enemy-boss-interrupt-effects-on-desktop/video.webm",
+      "bytes": 332903,
+      "sha256": "961980db336ef4ef05c17990dd6d4fb839d7df6e607ab521eab7090c3d171dca",
+      "durationSeconds": 5.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-enemy-enemy-soldier-dodge-effects-on-desktop/video.webm",
+      "bytes": 270589,
+      "sha256": "d5a9a86e2bbdf2b6bdb7488605e7acc21c7ed809977fba2bb04e384f9bb3f221",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-enemy-enemy-soldier-hit-effects-on-desktop/video.webm",
+      "bytes": 228341,
+      "sha256": "a74e047bd3a573396d2ba4254502130a93a9bac243fceee9106fa3b0654c9ada",
+      "durationSeconds": 3.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "attempt-01/test-results/chapter-enemy-enemy-soldier-interrupt-effects-on-desktop/video.webm",
+      "bytes": 273183,
+      "sha256": "3af14f1a25162868f7f751680386adde8ecef6363c6c5b1409763ff7987db01c",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/0fbd7cbd1ec24e0702aa665fc13f7209fc8c648f.webm",
+      "bytes": 333996,
+      "sha256": "db726ec6bdf1c77adde6fb74f8c67773bd7ff05806a0b3124ed81766cc4bc1f5",
+      "durationSeconds": 4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/1296b6d503e551f3344626f7cccdc7e7ada27a8e.webm",
+      "bytes": 435456,
+      "sha256": "a4cb0b2f4b2ff4b8736c1476918703c1cc82d303ccf43185826319f1f7b3a120",
+      "durationSeconds": 4.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/14bb9a867ad60a589f38208b33befabd47359caf.webm",
+      "bytes": 293264,
+      "sha256": "dd8be6fddf474834308ca9710a002d1e4ee497f983836fc5ee9375aebe77e08c",
+      "durationSeconds": 3.76,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/17aa67bf3070efa295929c8ee4f15eecec8413c2.webm",
+      "bytes": 401504,
+      "sha256": "c17e850685f7c7b5153159fda305635dd4c11dd896f52879759edc7b5a341646",
+      "durationSeconds": 4.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/1d6c5869b019db6448c74f5fe897ab2fc1fe3310.webm",
+      "bytes": 290754,
+      "sha256": "bcb172219b8b14bd61c410c76650cd8fbc29636934059176661538b4b38636e1",
+      "durationSeconds": 3.96,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/2401a36219c475a225098faabc2700d207817e35.webm",
+      "bytes": 400856,
+      "sha256": "dfd731902aca8293d849869ebaa43fd1e7a0d93fc3476b4d2aaa9a4261076fb0",
+      "durationSeconds": 5.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/3ddf66c469a98443dace8bb60f174d5acd225049.webm",
+      "bytes": 327360,
+      "sha256": "d4f1bfc1291af30483ae223c2e380a3cbf6c865ab7d878325eefb0c6553d6740",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/490e6f2e294db4ae8708add89ff74cd7d3780567.webm",
+      "bytes": 412883,
+      "sha256": "1382b8d675d94923cba7fd31782d37779d6e17efc960f35709dde9a771d84181",
+      "durationSeconds": 4.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/56aeef4387351f7b00006fbfdc6fbfe4c101ccbb.webm",
+      "bytes": 221492,
+      "sha256": "2c45338154e051e782c6951d784fac4826760355d834f8a756c7741567c5c27e",
+      "durationSeconds": 3.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/6295bbbacb6fb22e033440527c72c516a61ab826.webm",
+      "bytes": 318710,
+      "sha256": "6c5468e8a841b405b9ddb8c5b64a360cd0aecfbaa845cda659da7280d11d7d1e",
+      "durationSeconds": 4.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/6b0fc34628c230a8a14956b76ff74d2e4458ab76.webm",
+      "bytes": 268327,
+      "sha256": "cc7ff8ae5b34a6444abe9320005d385b0086345c03c6008211e798aa28844e1c",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/6b353e788bd8171fea0338ee8b9d18b613a2b0b1.webm",
+      "bytes": 366537,
+      "sha256": "33e7eb08624e2660270e35491bcc6bdd20b5bde51d24b7e0c2be3afe9ae24149",
+      "durationSeconds": 5.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/6c789111fe585bcb005f39367030fa9d6a91acdf.webm",
+      "bytes": 358207,
+      "sha256": "b6048c9a9b357f052d883c2c0d2316fe2222cec5f9fcdb35b4e15f0a0d058420",
+      "durationSeconds": 4.04,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/6e852671c7cf47adf04edc67a71a0464fae97ea1.webm",
+      "bytes": 241921,
+      "sha256": "c0a9bfcd5f6a54e2b27df8bbee1fce14cd92573313cfdc8721c3e04ca42df158",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/7a4dce7eb34818beb4b40fa85713f0a989daf022.webm",
+      "bytes": 397053,
+      "sha256": "f48280b88c710869b59a0ac1106df446c279eef97b7472900e2ab69e67dc492a",
+      "durationSeconds": 4.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/8643c371779593bb66511202b1d3d9632e863ee6.webm",
+      "bytes": 345033,
+      "sha256": "2a7d7d9c6431fff6386243ec0977adc1abd2570cf773a2a1e407541742461e75",
+      "durationSeconds": 4.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/b9ce35ee5d7dcd8d4c43c0ffab6bebaf1474cd21.webm",
+      "bytes": 275015,
+      "sha256": "9077796989432af549ab507ac0fea53e90145eef623d1850fd68b95d9d3e915a",
+      "durationSeconds": 3.76,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/bcf8a18f4e4718654e5d2fe2f71d4c23f81a7cfd.webm",
+      "bytes": 355364,
+      "sha256": "4f67ec56c35ce10afd4064a6eb2c3da8fe2794d9098a5bd27b1cfdf472251b11",
+      "durationSeconds": 4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/c1cf4b716d8172b82668314f805df4d65d68756b.webm",
+      "bytes": 361929,
+      "sha256": "b3536e72b580135b89c94f5780bebdb8bcfa9ad9c18e690cbf066e0b66b367af",
+      "durationSeconds": 5.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/c65ab99fd36b62f105790e3f63d4a43bf28240ca.webm",
+      "bytes": 304143,
+      "sha256": "3dba78cd2c283c9862d67498b27b9a065e7b397a6b2dae7fe8b750cd1fb76b4f",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/e7cde033144a140ccdcb2ef030763ee1e39c8cb7.webm",
+      "bytes": 457153,
+      "sha256": "b91f1c5c226b26c240d1468568661225ac09a88f56f3789f82480f2f462b2edd",
+      "durationSeconds": 6.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/ee0b8acb30026b95b217bed94f101a143c7eba7b.webm",
+      "bytes": 319545,
+      "sha256": "f32e2282f1c5e5f1342ba1293de2f2c25d50560f6c5e00e0c66166f81a2c4bee",
+      "durationSeconds": 4.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/efe0f3db1246a49f3e2227098303bc45b76a699a.webm",
+      "bytes": 341035,
+      "sha256": "aaeb6dc5255587be1eebfaf01ccd922ec02fb779d8b53a1edaa7980042a10227",
+      "durationSeconds": 4.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/playwright-report/data/f07b77ebffbe90feef1e72af665b3c8a374f3ebc.webm",
+      "bytes": 364626,
+      "sha256": "1a8c409a72f26ca478a82bdf3ea708927fc37d075c1f85e36d7e4e7d757b6d72",
+      "durationSeconds": 3.96,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-dodge-effects-off-desktop/video.webm",
+      "bytes": 341035,
+      "sha256": "aaeb6dc5255587be1eebfaf01ccd922ec02fb779d8b53a1edaa7980042a10227",
+      "durationSeconds": 4.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-dodge-effects-off-phone/video.webm",
+      "bytes": 412883,
+      "sha256": "1382b8d675d94923cba7fd31782d37779d6e17efc960f35709dde9a771d84181",
+      "durationSeconds": 4.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-dodge-effects-on-desktop/video.webm",
+      "bytes": 345033,
+      "sha256": "2a7d7d9c6431fff6386243ec0977adc1abd2570cf773a2a1e407541742461e75",
+      "durationSeconds": 4.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-dodge-effects-on-phone/video.webm",
+      "bytes": 435456,
+      "sha256": "a4cb0b2f4b2ff4b8736c1476918703c1cc82d303ccf43185826319f1f7b3a120",
+      "durationSeconds": 4.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-hit-effects-off-desktop/video.webm",
+      "bytes": 319545,
+      "sha256": "f32e2282f1c5e5f1342ba1293de2f2c25d50560f6c5e00e0c66166f81a2c4bee",
+      "durationSeconds": 4.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-hit-effects-off-phone/video.webm",
+      "bytes": 397053,
+      "sha256": "f48280b88c710869b59a0ac1106df446c279eef97b7472900e2ab69e67dc492a",
+      "durationSeconds": 4.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-hit-effects-on-desktop/video.webm",
+      "bytes": 318710,
+      "sha256": "6c5468e8a841b405b9ddb8c5b64a360cd0aecfbaa845cda659da7280d11d7d1e",
+      "durationSeconds": 4.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-hit-effects-on-phone/video.webm",
+      "bytes": 401504,
+      "sha256": "c17e850685f7c7b5153159fda305635dd4c11dd896f52879759edc7b5a341646",
+      "durationSeconds": 4.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-interrupt-effects-off-desktop/video.webm",
+      "bytes": 366537,
+      "sha256": "33e7eb08624e2660270e35491bcc6bdd20b5bde51d24b7e0c2be3afe9ae24149",
+      "durationSeconds": 5.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-interrupt-effects-off-phone/video.webm",
+      "bytes": 457153,
+      "sha256": "b91f1c5c226b26c240d1468568661225ac09a88f56f3789f82480f2f462b2edd",
+      "durationSeconds": 6.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-interrupt-effects-on-desktop/video.webm",
+      "bytes": 361929,
+      "sha256": "b3536e72b580135b89c94f5780bebdb8bcfa9ad9c18e690cbf066e0b66b367af",
+      "durationSeconds": 5.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-boss-interrupt-effects-on-phone/video.webm",
+      "bytes": 400856,
+      "sha256": "dfd731902aca8293d849869ebaa43fd1e7a0d93fc3476b4d2aaa9a4261076fb0",
+      "durationSeconds": 5.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-dodge-effects-off-desktop/video.webm",
+      "bytes": 275015,
+      "sha256": "9077796989432af549ab507ac0fea53e90145eef623d1850fd68b95d9d3e915a",
+      "durationSeconds": 3.76,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-dodge-effects-off-phone/video.webm",
+      "bytes": 355364,
+      "sha256": "4f67ec56c35ce10afd4064a6eb2c3da8fe2794d9098a5bd27b1cfdf472251b11",
+      "durationSeconds": 4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-dodge-effects-on-desktop/video.webm",
+      "bytes": 293264,
+      "sha256": "dd8be6fddf474834308ca9710a002d1e4ee497f983836fc5ee9375aebe77e08c",
+      "durationSeconds": 3.76,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-dodge-effects-on-phone/video.webm",
+      "bytes": 358207,
+      "sha256": "b6048c9a9b357f052d883c2c0d2316fe2222cec5f9fcdb35b4e15f0a0d058420",
+      "durationSeconds": 4.04,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-hit-effects-off-desktop/video.webm",
+      "bytes": 268327,
+      "sha256": "cc7ff8ae5b34a6444abe9320005d385b0086345c03c6008211e798aa28844e1c",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-hit-effects-off-phone/video.webm",
+      "bytes": 364626,
+      "sha256": "1a8c409a72f26ca478a82bdf3ea708927fc37d075c1f85e36d7e4e7d757b6d72",
+      "durationSeconds": 3.96,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-hit-effects-on-desktop/video.webm",
+      "bytes": 221492,
+      "sha256": "2c45338154e051e782c6951d784fac4826760355d834f8a756c7741567c5c27e",
+      "durationSeconds": 3.48,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-hit-effects-on-phone/video.webm",
+      "bytes": 327360,
+      "sha256": "d4f1bfc1291af30483ae223c2e380a3cbf6c865ab7d878325eefb0c6553d6740",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-interrupt-effects-off-desktop/video.webm",
+      "bytes": 241921,
+      "sha256": "c0a9bfcd5f6a54e2b27df8bbee1fce14cd92573313cfdc8721c3e04ca42df158",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-interrupt-effects-off-phone/video.webm",
+      "bytes": 333996,
+      "sha256": "db726ec6bdf1c77adde6fb74f8c67773bd7ff05806a0b3124ed81766cc4bc1f5",
+      "durationSeconds": 4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-interrupt-effects-on-desktop/video.webm",
+      "bytes": 290754,
+      "sha256": "bcb172219b8b14bd61c410c76650cd8fbc29636934059176661538b4b38636e1",
+      "durationSeconds": 3.96,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-final/test-results/chapter-enemy-enemy-soldier-interrupt-effects-on-phone/video.webm",
+      "bytes": 304143,
+      "sha256": "3dba78cd2c283c9862d67498b27b9a065e7b397a6b2dae7fe8b750cd1fb76b4f",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/024b957337bb4c402b60e2842bf581bb7f05e2e1.webm",
+      "bytes": 424311,
+      "sha256": "65d88b8720fe655fc88ca30418d84d277690d27069d99c8b67291ee448ff3144",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/069ea0987a2af0fcd3442eabc614b91629b63889.webm",
+      "bytes": 430552,
+      "sha256": "5872d98c7d9a0ab8e2f528f73439d58f1235de5185371cc3b67d35a05f301dd8",
+      "durationSeconds": 4.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/07b51d335726e9757c8e49432a6d0515c95e86c9.webm",
+      "bytes": 127080,
+      "sha256": "757319a965a7ebb1e8c00615991bfeb3eca664de634c2c96901cf67fbe369076",
+      "durationSeconds": 2.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/0b828d0bc32fbac4f6716bfa0c03fc9e0204f3e7.webm",
+      "bytes": 54683,
+      "sha256": "53e495eb1387521487a9f353d8b7e716731fa8c1d0aa486d0978152bfa21e230",
+      "durationSeconds": 1.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/0d51b5e6cf6b50115fa130078f992920d35db910.webm",
+      "bytes": 286394,
+      "sha256": "3d6949d5f9a5a56527b7bf12a57e9e641f57cb0848372c63a11a37e8ec0617cc",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/12f2981e5309dc57a57836acfffcfd2050ee1a63.webm",
+      "bytes": 328118,
+      "sha256": "773273a82642eac49ab2af97f29f991b19be97e3caedd46f11b702856b024d42",
+      "durationSeconds": 3.96,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/138238180466854e92bc793d5d19355c24eb2a2b.webm",
+      "bytes": 300860,
+      "sha256": "f787ab7a3293c4d960afa8373562f2c5c4081578c98b048188f8b3a2e7b018f0",
+      "durationSeconds": 4.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/18653636b1b46bc2d371f120024c7415468b0586.webm",
+      "bytes": 55874,
+      "sha256": "d126e0af69805d0120c38b6b815b78f5f96112024cc4440e4c0d8f863c427303",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/186f83d69b5283fee0abf5b78e43a551524cf230.webm",
+      "bytes": 348589,
+      "sha256": "f02777aa5128614788c65cb15a37d41ccecdbdd18f6ee6f6202131954a200667",
+      "durationSeconds": 5.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/1fabe770a5c74ef816dd59de5ca51cbf86886de4.webm",
+      "bytes": 72222,
+      "sha256": "0349fbeb0f62af2ce150a3aae8ac4c2f5fc1dc375fe18dcb85bece21206d52c3",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/20649b86c5554b3b72c20d02876b7f418679f281.webm",
+      "bytes": 349043,
+      "sha256": "4e542b3e746e41f2585999009f5af9cb4c0e17647ce802546fd5141acb7d1314",
+      "durationSeconds": 5.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/23b6a682878fad3a71b8d82ea05079638bb85929.webm",
+      "bytes": 593486,
+      "sha256": "28562a2e9a5b29f42cfc050b07f059755575085875d0df4f3f376f5eab4b666a",
+      "durationSeconds": 7.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/26138b584109646a3bd2c026a77fb12c93412978.webm",
+      "bytes": 57388,
+      "sha256": "83f6636f5f66aa66397bcb0b7ba15e5aa1f206a4d827895c116cdffbd53289e6",
+      "durationSeconds": 1.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/26d2f4ffb7a5e09e5140758204df1678a8f71c18.webm",
+      "bytes": 357300,
+      "sha256": "84390debe858f636c2a89e0ef1c5b12a865109caef16072bf92739960eb68daf",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/26fedff36ffb5ca4193c6ff3370debe846129526.webm",
+      "bytes": 84956,
+      "sha256": "7c1de33a02e540ac14e0f7a77748b1bd1bc83c99bcdba3b3a514711a83e53539",
+      "durationSeconds": 1.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/2ce3a6f39a9ab6e194ae6cfed6777c9cdcbb55ff.webm",
+      "bytes": 55367,
+      "sha256": "cf7be5751ed00080f3420848dd99e73932424e09d0d5b2bb65e8fb22167fc185",
+      "durationSeconds": 1.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/3493b9ce91af324edc21b09b6ca66cb48846646f.webm",
+      "bytes": 72475,
+      "sha256": "bcb93a33419408bcda608e92a0651a665d84417123cd85de2cddbcc8cb5c476f",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/38a9e815ae71c915fbdb3f9ee2baa881d52fd41c.webm",
+      "bytes": 456628,
+      "sha256": "e034656fb33d430b99cad0af058d8321480e1200784f3985719baaa63d79301b",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/3b187b2bb80d907d33d2f2e2fbe839894da810e7.webm",
+      "bytes": 149736,
+      "sha256": "7aa1f247b1e4ca769f237a34f3d7894e521a8b6def82c2f697b057d133a14036",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/4bd5e137e2cdded6f360df8c97516e4dd1d1d18e.webm",
+      "bytes": 320891,
+      "sha256": "d617506b70f8fa46d92c0d83a18b8f231b2e291e93ac08bf31811ac7af0da771",
+      "durationSeconds": 4.32,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/4dbeb44cd888145c09b032dea98e40ffc3fc9a1c.webm",
+      "bytes": 252620,
+      "sha256": "9192fe020c1bc99fa6349c99f4a2dd7ba9f97a63418de5f349a9013d844dc4a0",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/53198fbf8b87c6c3f6784951ce3e579a1f31873b.webm",
+      "bytes": 243412,
+      "sha256": "7fd55fbe16275ff7af2bb652e0df9362a8f590dbbeaf11d954a1b613d4bfedc8",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/5c1100a0f20d5c8ad90908a7605a1fddb2f042fa.webm",
+      "bytes": 285526,
+      "sha256": "4850393a28dcf37c98a01502f706ffc57134f6e0769b964ddbff098066116781",
+      "durationSeconds": 3.72,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/5eaa097aab3187e9df0eed5548e1ba65beddfdb7.webm",
+      "bytes": 618776,
+      "sha256": "e33db93d07b91a7f5bfc8e9e2cec6c58630e0245c7bdc903c1e4992dc780081b",
+      "durationSeconds": 6.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/5efac4aa379c0b81265531e690bb6314239f5671.webm",
+      "bytes": 259779,
+      "sha256": "46d7233c4f9e19d08b62ea6436a2172909a65db3fe78f0409228e46d1a0bc9e9",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/625746d3400af95cdf72d31015d1b6fac26223dc.webm",
+      "bytes": 313794,
+      "sha256": "ad6efca359e98b91c2b6de93dce8d54c0ff9ae24ee84c97183e26043544bd381",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/65540d1b895bc2402efefef1e135329625f8ce1f.webm",
+      "bytes": 583333,
+      "sha256": "dc87ea93fff60879eb77626fb86d6e2d2c5a2b5d522bb5e343d8faa574a5d707",
+      "durationSeconds": 7.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/6c8639d02237822b83328b64e1989f026c8ad6c2.webm",
+      "bytes": 176385,
+      "sha256": "acadb39f08776bd108d4d82a450e94beef254536a3ee31cadda0c916baf583dc",
+      "durationSeconds": 2.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/6f0e0f67cda16bf0be9efef280083371bd9a5963.webm",
+      "bytes": 495167,
+      "sha256": "6efb8054e01ec0f40cc98f286b00ed6d44e76f29e069fd78ad834bdfafd62c53",
+      "durationSeconds": 7,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/70f7487c612cd8029b309549794e6fae41277160.webm",
+      "bytes": 371883,
+      "sha256": "300b9db38b322e15051665b7224f127c191c3e9cf07a5ac4937127da26e85646",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/72465f8819d66e6039009e8690eb0a13011cc453.webm",
+      "bytes": 142975,
+      "sha256": "9e2b6c03b31c9185dbe1d3c6ddd9f6f8b3bfa5fa6bae00c19446fc312e142289",
+      "durationSeconds": 2.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/7425cd7076beb055b23048a3a4644ac77846e76d.webm",
+      "bytes": 84990,
+      "sha256": "dc7d92534b3baabc0ac899d2bc9904a9cef8144266eb246c5d8159e590f44fbd",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/74a56ec9430846196de67eb5c80826afe482f53f.webm",
+      "bytes": 66738,
+      "sha256": "6448c5843e6eb9ff9fb811ca0a57674888e327d4260ae13f3a06e553328199d6",
+      "durationSeconds": 1.08,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/7a96e1e686d7e9935e8c03ddfa8ae8f43df57e3f.webm",
+      "bytes": 202016,
+      "sha256": "02010febf46fa7132d20d5cb96b5f3b429be2bac318fe8e628b23c421298f0bd",
+      "durationSeconds": 2.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/7ae7d31f8ca9d27ea3e77d29699ad60b3ea1d714.webm",
+      "bytes": 442808,
+      "sha256": "c8aed1566b231f1f5b9742eeccc2446fd580ff08287a1beb049082848409f96d",
+      "durationSeconds": 5.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/89a9a4ecec3fc25e5e3348cb441d90e30abbc186.webm",
+      "bytes": 256294,
+      "sha256": "c02625ad72eac1e5668301a3f5f006542c5e94d94abf79856e4c3497afac684a",
+      "durationSeconds": 3.88,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/8e93c6e6754b8fd3138315dad1bf5b1352f22571.webm",
+      "bytes": 68353,
+      "sha256": "6b6e29bb56456e9525d3d1d8cf70f91a5b8f8669cde7d61652cc42387f935212",
+      "durationSeconds": 1.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/9105a4fa90fd565337f67b98161763b7d416b300.webm",
+      "bytes": 353437,
+      "sha256": "926e28c8a4d447bc628df9fadcdde3b312593fcf4050c2ec7d8760423c9ad053",
+      "durationSeconds": 4.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/953d6b62a2245f3604084a48804cc257bcdbf9b7.webm",
+      "bytes": 288498,
+      "sha256": "d7896bda3f046ebceb329f830674021029bd9b279deffeab5f0511180c430ff5",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/9b3b3501ffdde5a5549372876ff4d02cafebfe13.webm",
+      "bytes": 73192,
+      "sha256": "1b4a6d353fe665ee97c7ae712ffd3b3fd3faf53e964da57e6d5e58c45c4df6e8",
+      "durationSeconds": 1.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/9c6376a247a83c39c00f1f48da86a664dedaf13b.webm",
+      "bytes": 168798,
+      "sha256": "2641e45a2c68ce0bb0fbb7561eb2781f7db5e6200ece36dc2e51b8caabec636c",
+      "durationSeconds": 2.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/a697005622d9bca802105d995c12dd272bb44de4.webm",
+      "bytes": 350414,
+      "sha256": "c00a19bc03fae0da9423a9ac889a6f77beb1a881996556da40c520420465edaa",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/a760a9bbaa70b09514c4943571b2b97d4c41736c.webm",
+      "bytes": 75044,
+      "sha256": "12ff1c6f7be0169cd28ee712c37127cf59df28622a32a7918d428e714f1fa7c6",
+      "durationSeconds": 1.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/a8a31d208169d803eed8a280fa1a0765f862cf67.webm",
+      "bytes": 189773,
+      "sha256": "292d6f88dc258765c344a84221e41b38437cfb06a1e3168ac01361054a2665eb",
+      "durationSeconds": 2.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/ae5aeffe8a9dd035875ddf380b2598eee21f3542.webm",
+      "bytes": 338986,
+      "sha256": "9a49b3cde4d12f2a2a7ae3596a776bcead22ea943959139cdc59c4363b40a2cb",
+      "durationSeconds": 4.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/b7b70aa0cd25c395ba4c1e16d060e6f0d2b91d08.webm",
+      "bytes": 528950,
+      "sha256": "6845c7a755a11cbbafee32a0bd5ed2b70c6412377ddffc98dd901b8c5c52af14",
+      "durationSeconds": 6.88,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/c51633cfa3fcdebec0461f3063277c2c9852fe3d.webm",
+      "bytes": 202257,
+      "sha256": "a41aeeb8e5861c33fe6dbcf036bb296d3871be7a9ae04ca751b061325e3d4426",
+      "durationSeconds": 3.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/cd181c036b9d327a59a0d32310d658be37b799f5.webm",
+      "bytes": 213342,
+      "sha256": "71468090aec35093b441c2a8c15040a30a7fcfd45deed22ec579dd55fb5d74cf",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/d1649e1b889ef42bdf0d776834a1a48d70b7ad60.webm",
+      "bytes": 70887,
+      "sha256": "f0e73ca81db7914c62a0683bf5d180f9525a828ebb3858c8e27f377dd60f309d",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/d388a6e649d67957904de7886e4efcbe417eec0b.webm",
+      "bytes": 85038,
+      "sha256": "19c2a55877fddad59908f1717fbe3f0431e00bfe8cd71c43e6699d1a0538ea89",
+      "durationSeconds": 1.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/dc898b6f427052699cdea0324abcd914299aba52.webm",
+      "bytes": 479054,
+      "sha256": "1b6f6b57fe47d917e54d8d5dfea56c9efec03095556de288dcddc737a2123766",
+      "durationSeconds": 6.76,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/e7f18eadad8249987a158c67aa1e46dfd0e97b87.webm",
+      "bytes": 353461,
+      "sha256": "879eb3e7f518128320b23ba79119dc7b1d163f144440ed3d09c3e5342835aa04",
+      "durationSeconds": 4.04,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/e94a418098ee787edc2926d9c91587da5cbb19a2.webm",
+      "bytes": 310754,
+      "sha256": "8aced902605c81cf03365af309beac8fb77fa27753633578ffe302554b498918",
+      "durationSeconds": 4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/ee4ace102bfb8b1ca4e4e0065cea9881194b1773.webm",
+      "bytes": 610117,
+      "sha256": "7d71b2c4471c6d42a6023878b9fb162afb69de3e4ae415fc0ea2f397dfbc3310",
+      "durationSeconds": 7,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/ee6039e9a2bee6188f9d7437b85241b2b097e05b.webm",
+      "bytes": 445516,
+      "sha256": "40416bd7904230a45fc58a8797610086faf708b925d092fd12370f309a1d7dd3",
+      "durationSeconds": 5.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/playwright-report/data/f7cb01c8ddd577b9edea829ec3e236ba176fe451.webm",
+      "bytes": 727093,
+      "sha256": "aa4cad6b263f91345ed250b143b0aec1f3c7e718ec346b12c88d67166f13d049",
+      "durationSeconds": 7.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-0661f-age-turn-pause-and-teardown-desktop/video.webm",
+      "bytes": 618776,
+      "sha256": "e33db93d07b91a7f5bfc8e9e2cec6c58630e0245c7bdc903c1e4992dc780081b",
+      "durationSeconds": 6.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-0661f-age-turn-pause-and-teardown-phone/video.webm",
+      "bytes": 727093,
+      "sha256": "aa4cad6b263f91345ed250b143b0aec1f3c7e718ec346b12c88d67166f13d049",
+      "durationSeconds": 7.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-4b9b3-age-turn-pause-and-teardown-desktop/video.webm",
+      "bytes": 495167,
+      "sha256": "6efb8054e01ec0f40cc98f286b00ed6d44e76f29e069fd78ad834bdfafd62c53",
+      "durationSeconds": 7,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-4b9b3-age-turn-pause-and-teardown-phone/video.webm",
+      "bytes": 583333,
+      "sha256": "dc87ea93fff60879eb77626fb86d6e2d2c5a2b5d522bb5e343d8faa574a5d707",
+      "durationSeconds": 7.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-c55e0-age-turn-pause-and-teardown-desktop/video.webm",
+      "bytes": 479054,
+      "sha256": "1b6f6b57fe47d917e54d8d5dfea56c9efec03095556de288dcddc737a2123766",
+      "durationSeconds": 6.76,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-c55e0-age-turn-pause-and-teardown-phone/video.webm",
+      "bytes": 610117,
+      "sha256": "7d71b2c4471c6d42a6023878b9fb162afb69de3e4ae415fc0ea2f397dfbc3310",
+      "durationSeconds": 7,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-dc729-age-turn-pause-and-teardown-desktop/video.webm",
+      "bytes": 528950,
+      "sha256": "6845c7a755a11cbbafee32a0bd5ed2b70c6412377ddffc98dd901b8c5c52af14",
+      "durationSeconds": 6.88,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-dragon-directed-dr-dc729-age-turn-pause-and-teardown-phone/video.webm",
+      "bytes": 593486,
+      "sha256": "28562a2e9a5b29f42cfc050b07f059755575085875d0df4f3f376f5eab4b666a",
+      "durationSeconds": 7.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-dodge-effects-off-desktop/video.webm",
+      "bytes": 338986,
+      "sha256": "9a49b3cde4d12f2a2a7ae3596a776bcead22ea943959139cdc59c4363b40a2cb",
+      "durationSeconds": 4.28,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-dodge-effects-off-phone/video.webm",
+      "bytes": 456628,
+      "sha256": "e034656fb33d430b99cad0af058d8321480e1200784f3985719baaa63d79301b",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-dodge-effects-on-desktop/video.webm",
+      "bytes": 353437,
+      "sha256": "926e28c8a4d447bc628df9fadcdde3b312593fcf4050c2ec7d8760423c9ad053",
+      "durationSeconds": 4.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-dodge-effects-on-phone/video.webm",
+      "bytes": 430552,
+      "sha256": "5872d98c7d9a0ab8e2f528f73439d58f1235de5185371cc3b67d35a05f301dd8",
+      "durationSeconds": 4.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-hit-effects-off-desktop/video.webm",
+      "bytes": 320891,
+      "sha256": "d617506b70f8fa46d92c0d83a18b8f231b2e291e93ac08bf31811ac7af0da771",
+      "durationSeconds": 4.32,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-hit-effects-off-phone/video.webm",
+      "bytes": 424311,
+      "sha256": "65d88b8720fe655fc88ca30418d84d277690d27069d99c8b67291ee448ff3144",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-hit-effects-on-desktop/video.webm",
+      "bytes": 300860,
+      "sha256": "f787ab7a3293c4d960afa8373562f2c5c4081578c98b048188f8b3a2e7b018f0",
+      "durationSeconds": 4.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-hit-effects-on-phone/video.webm",
+      "bytes": 371883,
+      "sha256": "300b9db38b322e15051665b7224f127c191c3e9cf07a5ac4937127da26e85646",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-interrupt-effects-off-desktop/video.webm",
+      "bytes": 348589,
+      "sha256": "f02777aa5128614788c65cb15a37d41ccecdbdd18f6ee6f6202131954a200667",
+      "durationSeconds": 5.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-interrupt-effects-off-phone/video.webm",
+      "bytes": 445516,
+      "sha256": "40416bd7904230a45fc58a8797610086faf708b925d092fd12370f309a1d7dd3",
+      "durationSeconds": 5.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-interrupt-effects-on-desktop/video.webm",
+      "bytes": 349043,
+      "sha256": "4e542b3e746e41f2585999009f5af9cb4c0e17647ce802546fd5141acb7d1314",
+      "durationSeconds": 5.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-boss-interrupt-effects-on-phone/video.webm",
+      "bytes": 442808,
+      "sha256": "c8aed1566b231f1f5b9742eeccc2446fd580ff08287a1beb049082848409f96d",
+      "durationSeconds": 5.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-dodge-effects-off-desktop/video.webm",
+      "bytes": 285526,
+      "sha256": "4850393a28dcf37c98a01502f706ffc57134f6e0769b964ddbff098066116781",
+      "durationSeconds": 3.72,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-dodge-effects-off-phone/video.webm",
+      "bytes": 310754,
+      "sha256": "8aced902605c81cf03365af309beac8fb77fa27753633578ffe302554b498918",
+      "durationSeconds": 4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-dodge-effects-on-desktop/video.webm",
+      "bytes": 286394,
+      "sha256": "3d6949d5f9a5a56527b7bf12a57e9e641f57cb0848372c63a11a37e8ec0617cc",
+      "durationSeconds": 3.84,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-dodge-effects-on-phone/video.webm",
+      "bytes": 357300,
+      "sha256": "84390debe858f636c2a89e0ef1c5b12a865109caef16072bf92739960eb68daf",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-hit-effects-off-desktop/video.webm",
+      "bytes": 243412,
+      "sha256": "7fd55fbe16275ff7af2bb652e0df9362a8f590dbbeaf11d954a1b613d4bfedc8",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-hit-effects-off-phone/video.webm",
+      "bytes": 353461,
+      "sha256": "879eb3e7f518128320b23ba79119dc7b1d163f144440ed3d09c3e5342835aa04",
+      "durationSeconds": 4.04,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-hit-effects-on-desktop/video.webm",
+      "bytes": 259779,
+      "sha256": "46d7233c4f9e19d08b62ea6436a2172909a65db3fe78f0409228e46d1a0bc9e9",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-hit-effects-on-phone/video.webm",
+      "bytes": 313794,
+      "sha256": "ad6efca359e98b91c2b6de93dce8d54c0ff9ae24ee84c97183e26043544bd381",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-interrupt-effects-off-desktop/video.webm",
+      "bytes": 288498,
+      "sha256": "d7896bda3f046ebceb329f830674021029bd9b279deffeab5f0511180c430ff5",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-interrupt-effects-off-phone/video.webm",
+      "bytes": 328118,
+      "sha256": "773273a82642eac49ab2af97f29f991b19be97e3caedd46f11b702856b024d42",
+      "durationSeconds": 3.96,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-interrupt-effects-on-desktop/video.webm",
+      "bytes": 256294,
+      "sha256": "c02625ad72eac1e5668301a3f5f006542c5e94d94abf79856e4c3497afac684a",
+      "durationSeconds": 3.88,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-enemy-enemy-soldier-interrupt-effects-on-phone/video.webm",
+      "bytes": 350414,
+      "sha256": "c00a19bc03fae0da9423a9ac889a6f77beb1a881996556da40c520420465edaa",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 142975,
+      "sha256": "9e2b6c03b31c9185dbe1d3c6ddd9f6f8b3bfa5fa6bae00c19446fc312e142289",
+      "durationSeconds": 2.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-02f12-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 168798,
+      "sha256": "2641e45a2c68ce0bb0fbb7561eb2781f7db5e6200ece36dc2e51b8caabec636c",
+      "durationSeconds": 2.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 127080,
+      "sha256": "757319a965a7ebb1e8c00615991bfeb3eca664de634c2c96901cf67fbe369076",
+      "durationSeconds": 2.52,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-30503-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 176385,
+      "sha256": "acadb39f08776bd108d4d82a450e94beef254536a3ee31cadda0c916baf583dc",
+      "durationSeconds": 2.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-desktop/video.webm",
+      "bytes": 189773,
+      "sha256": "292d6f88dc258765c344a84221e41b38437cfb06a1e3168ac01361054a2665eb",
+      "durationSeconds": 2.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-845f0-preserve-tokens-and-budgets-phone/video.webm",
+      "bytes": 202016,
+      "sha256": "02010febf46fa7132d20d5cb96b5f3b429be2bac318fe8e628b23c421298f0bd",
+      "durationSeconds": 2.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-desktop/video.webm",
+      "bytes": 149736,
+      "sha256": "7aa1f247b1e4ca769f237a34f3d7894e521a8b6def82c2f697b057d133a14036",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-U-f2e4a-chapter-replays-and-reloads-phone/video.webm",
+      "bytes": 213342,
+      "sha256": "71468090aec35093b441c2a8c15040a30a7fcfd45deed22ec579dd55fb5d74cf",
+      "durationSeconds": 3.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-t-03711-cel-and-blur-clear-movement-desktop/video.webm",
+      "bytes": 202257,
+      "sha256": "a41aeeb8e5861c33fe6dbcf036bb296d3871be7a9ae04ca751b061325e3d4426",
+      "durationSeconds": 3.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter-growth-synthetic-t-03711-cel-and-blur-clear-movement-phone/video.webm",
+      "bytes": 252620,
+      "sha256": "9192fe020c1bc99fa6349c99f4a2dd7ba9f97a63418de5f349a9013d844dc4a0",
+      "durationSeconds": 3.8,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-native-chap-9be85-uture-data-cannot-overwrite-desktop/video.webm",
+      "bytes": 72222,
+      "sha256": "0349fbeb0f62af2ce150a3aae8ac4c2f5fc1dc375fe18dcb85bece21206d52c3",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-native-chap-9be85-uture-data-cannot-overwrite-phone/video.webm",
+      "bytes": 66738,
+      "sha256": "6448c5843e6eb9ff9fb811ca0a57674888e327d4260ae13f3a06e553328199d6",
+      "durationSeconds": 1.08,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-298b5-nnections-share-one-receipt-desktop/video.webm",
+      "bytes": 57388,
+      "sha256": "83f6636f5f66aa66397bcb0b7ba15e5aa1f206a4d827895c116cdffbd53289e6",
+      "durationSeconds": 1.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-298b5-nnections-share-one-receipt-phone/video.webm",
+      "bytes": 85038,
+      "sha256": "19c2a55877fddad59908f1717fbe3f0431e00bfe8cd71c43e6699d1a0538ea89",
+      "durationSeconds": 1.36,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-60e41--partial-writes-and-retries-desktop/video.webm",
+      "bytes": 55367,
+      "sha256": "cf7be5751ed00080f3420848dd99e73932424e09d0d5b2bb65e8fb22167fc185",
+      "durationSeconds": 1.16,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-60e41--partial-writes-and-retries-phone/video.webm",
+      "bytes": 68353,
+      "sha256": "6b6e29bb56456e9525d3d1d8cf70f91a5b8f8669cde7d61652cc42387f935212",
+      "durationSeconds": 1.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-6ddfc--partial-writes-and-retries-desktop/video.webm",
+      "bytes": 55874,
+      "sha256": "d126e0af69805d0120c38b6b815b78f5f96112024cc4440e4c0d8f863c427303",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-6ddfc--partial-writes-and-retries-phone/video.webm",
+      "bytes": 75044,
+      "sha256": "12ff1c6f7be0169cd28ee712c37127cf59df28622a32a7918d428e714f1fa7c6",
+      "durationSeconds": 1.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-a0912-nnot-replace-newer-progress-desktop/video.webm",
+      "bytes": 70887,
+      "sha256": "f0e73ca81db7914c62a0683bf5d180f9525a828ebb3858c8e27f377dd60f309d",
+      "durationSeconds": 1.2,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-a0912-nnot-replace-newer-progress-phone/video.webm",
+      "bytes": 84956,
+      "sha256": "7c1de33a02e540ac14e0f7a77748b1bd1bc83c99bcdba3b3a514711a83e53539",
+      "durationSeconds": 1.6,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-cb3da-ter-and-changed-active-slot-desktop/video.webm",
+      "bytes": 54683,
+      "sha256": "53e495eb1387521487a9f353d8b7e716731fa8c1d0aa486d0978152bfa21e230",
+      "durationSeconds": 1.12,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-cb3da-ter-and-changed-active-slot-phone/video.webm",
+      "bytes": 73192,
+      "sha256": "1b4a6d353fe665ee97c7ae712ffd3b3fd3faf53e964da57e6d5e58c45c4df6e8",
+      "durationSeconds": 1.4,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-ffa7e-eipt-without-granting-again-desktop/video.webm",
+      "bytes": 72475,
+      "sha256": "bcb93a33419408bcda608e92a0651a665d84417123cd85de2cddbcc8cb5c476f",
+      "durationSeconds": 1.24,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 800,
+          "height": 450
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "browser-verified/test-results/chapter.native-synthetic-c-ffa7e-eipt-without-granting-again-phone/video.webm",
+      "bytes": 84990,
+      "sha256": "dc7d92534b3baabc0ac899d2bc9904a9cef8144266eb246c5d8159e590f44fbd",
+      "durationSeconds": 1.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "vp8",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/boss-dodge.mp4",
+      "bytes": 323262,
+      "sha256": "de119f0004ecd67823caa02ea624650391b5e915aba93747ba24847fd064e50f",
+      "durationSeconds": 4.56,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/boss-effects-off.mp4",
+      "bytes": 298989,
+      "sha256": "b1f10585326b08b1a3cf9d40ebf3538e5196f9c5a9e101f8f8a8d8fca6f0697a",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/boss-hit.mp4",
+      "bytes": 302281,
+      "sha256": "6cb272fb9478cacde8c9aa6572437a6172b4804ece7fcfec26cd49d52d622d19",
+      "durationSeconds": 4.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/boss-interrupt.mp4",
+      "bytes": 297965,
+      "sha256": "efec1fbf12a8dfd515e375b136ff449365be0788ffa3c56d9dbcc45c8cdd7908",
+      "durationSeconds": 5.44,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/r1d-review.mp4",
+      "bytes": 1929640,
+      "sha256": "1310ecffe4866e65bfb11cc8f496a7ffd36f629ea739fe805c1768fedac0b7d4",
+      "durationSeconds": 30.64,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/soldier-dodge.mp4",
+      "bytes": 235669,
+      "sha256": "80290f2b4561b54753001b9ee20f62d5e51c479dba3f676327b18f146e54ed2c",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/soldier-hit.mp4",
+      "bytes": 222157,
+      "sha256": "980229d6b1a67e4fe57f4e07230caed028b6da2aa2d256bdb9ecb95248de2e3b",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "file": "watch/soldier-interrupt.mp4",
+      "bytes": 253613,
+      "sha256": "4ca5ef3034ed5409c4cc14962d67fdaca3f732c4c0485738409e5768e2c9536a",
+      "durationSeconds": 3.92,
+      "streams": [
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "width": 368,
+          "height": 800
+        }
+      ],
+      "fullDecode": "passed"
+    }
+  ]
+}

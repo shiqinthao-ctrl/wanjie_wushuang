@@ -1,0 +1,119 @@
+{
+  "synthetic": true,
+  "kind": "soldier",
+  "action": "dodge",
+  "effects": true,
+  "before": {
+    "time": 0.08985999999999995,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [],
+    "enemies": [
+      {
+        "id": "EN001",
+        "name": "步卒",
+        "ai": "melee",
+        "x": 1760,
+        "y": 1200,
+        "hp": 10000,
+        "maxHp": 10000,
+        "r": 10,
+        "speed": 0,
+        "damage": 30,
+        "attack": 0,
+        "skill": 0,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "color": "#c5a34e"
+      }
+    ],
+    "telegraphs": []
+  },
+  "frozen": {
+    "time": 0.1564199999999999,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [],
+    "enemies": [
+      {
+        "id": "EN001",
+        "name": "步卒",
+        "ai": "melee",
+        "x": 1760,
+        "y": 1200,
+        "hp": 10000,
+        "maxHp": 10000,
+        "r": 10,
+        "speed": 0,
+        "damage": 30,
+        "attack": 0.06655999999999994,
+        "skill": 0.06655999999999994,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "color": "#c5a34e",
+        "soldier": {
+          "x": 1760,
+          "y": 1200,
+          "facing": 0,
+          "phase": "windup",
+          "elapsed": 0.04991999999999995,
+          "range": 62,
+          "arc": 1.7453292519943295
+        }
+      }
+    ],
+    "telegraphs": []
+  },
+  "after": {
+    "time": 1.1380733333333326,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [
+      {
+        "type": "enemy-strike",
+        "x": 1760,
+        "y": 1200,
+        "facing": 0,
+        "range": 62,
+        "arc": 1.7453292519943295,
+        "source": "EN001",
+        "targetX": 1800,
+        "targetY": 1118.4,
+        "outcome": "miss"
+      }
+    ],
+    "enemies": [
+      {
+        "id": "EN001",
+        "name": "步卒",
+        "ai": "melee",
+        "x": 1760,
+        "y": 1200,
+        "hp": 10000,
+        "maxHp": 10000,
+        "r": 10,
+        "speed": 0,
+        "damage": 30,
+        "attack": 1.0482133333333332,
+        "skill": 1.0482133333333332,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "color": "#c5a34e",
+        "soldier": {
+          "x": 1760,
+          "y": 1200,
+          "facing": 0,
+          "phase": "recovery",
+          "elapsed": 0.2661866666666668,
+          "range": 62,
+          "arc": 1.7453292519943295
+        }
+      }
+    ],
+    "telegraphs": []
+  },
+  "errors": []
+}

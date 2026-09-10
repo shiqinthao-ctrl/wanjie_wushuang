@@ -6,8 +6,8 @@ import type { GearInstance } from './saveTypes';
 import { bossGearChoices, generateGear } from './gearDrops';
 import { instanceScore } from './growth';
 
-export interface Boss extends Point { id: string; name: string; hp: number; maxHp: number; r: number; phase: number; castCd: number; castLock: number; shield: number; skillIndex: number; next: string }
-type WarningBase = Point & { name: string; life: number; max: number; color: string; damage: number; resolved: boolean };
+export interface Boss extends Point { id: string; name: string; hp: number; maxHp: number; r: number; phase: number; castCd: number; castLock: number; shield: number; skillIndex: number; next: string; sweepPhase?: 'windup' | 'strike' | 'recovery'; sweepFacing?: number }
+type WarningBase = Point & { name: string; life: number; max: number; color: string; damage: number; resolved: boolean; chapterSweep?: boolean };
 export type Telegraph = WarningBase & ({ type: 'circle'; r: number } | { type: 'line'; x2: number; y2: number; width: number; moveBoss: boolean } | { type: 'cone'; range: number; arc: number; angle: number });
 export function insideTelegraph(point: Point, warning: Telegraph): boolean {
   const dx = point.x - warning.x, dy = point.y - warning.y;
@@ -28,6 +28,7 @@ export class FirstBoss {
   private resolvedAt: number | undefined;
   private settlingAt: number | undefined;
   private destroyed = false;
+  private sweepRecovery = 0;
   constructor(private sim: CombatSimulation, private hero: string, private difficulty: string, private random: () => number, private now: () => number) {}
   spawn(): boolean {
     if (this.destroyed || this.active || this.defeatedAt !== undefined || this.sim.time < (this.sim.chapter?.stage.boss.spawnAt ?? firstStage.bossAt)) return false;
@@ -39,6 +40,7 @@ export class FirstBoss {
   defeat(): void {
     if (!this.active || this.defeatedAt !== undefined || this.destroyed) return;
     this.active = undefined;
+    if (this.sim.chapter) { this.telegraphs.length = 0; this.sweepRecovery = 0; }
     if (!this.sim.chapter) this.sim.drops.push(generateGear(this.hero, 'boss', this.random, this.now, this.dropOptions()));
     this.defeatedAt = this.sim.time;
   }
@@ -47,9 +49,19 @@ export class FirstBoss {
     const boss = this.active; if (!boss || this.destroyed) return;
     const ratio = boss.hp / Math.max(1, boss.maxHp), phase = ratio <= .35 ? 3 : ratio <= .70 ? 2 : 1;
     if (phase > boss.phase) {
+      if (this.sim.chapter) { this.telegraphs.length = 0; this.sweepRecovery = 0; boss.sweepPhase = undefined; boss.sweepFacing = undefined; }
       boss.phase = phase; boss.castCd = 1.2; boss.castLock = 1.05;
       this.maxPhase = Math.max(this.maxPhase, phase);
       if (phase === 3) for (let i = 0; i < 3; i++) this.sim.spawn({ elite: i === 0 });
+    }
+    if (boss.sweepPhase) {
+      if (boss.sweepPhase === 'windup') return;
+      this.sweepRecovery = Math.max(0, this.sweepRecovery - dt);
+      boss.sweepPhase = this.sweepRecovery > .67 ? 'strike' : 'recovery';
+      boss.next = '旋风断军 · 收招，可反击';
+      if (this.sweepRecovery > 0) return;
+      boss.sweepPhase = undefined; boss.sweepFacing = undefined;
+      boss.castCd = .65; boss.castLock = 0; boss.next = '准备攻击';
     }
     boss.castLock = Math.max(0, boss.castLock - dt); boss.castCd -= dt;
     const player = this.sim.player, dx = player.x - boss.x, dy = player.y - boss.y, distance = Math.hypot(dx, dy) || 1, diff = difficultyFor(this.difficulty);
@@ -70,7 +82,9 @@ export class FirstBoss {
       const length = Math.max(this.sim.viewport.width, this.sim.viewport.height) * .92;
       this.telegraphs.push({ ...base, type, x2: boss.x + Math.cos(angle) * length, y2: boss.y + Math.sin(angle) * length, width: boss.phase === 3 ? 54 : 44, damage: damage * 1.15, moveBoss: true }); boss.next = `${name} · 横向闪避`;
     } else {
-      this.telegraphs.push({ ...base, type: 'cone', range: 230 + boss.phase * 25, arc: Math.PI * (boss.phase === 3 ? .72 : .55), angle, damage: damage * 1.22 }); boss.next = `${name} · 绕至侧后`;
+      const chapterSweep = !!this.sim.chapter;
+      this.telegraphs.push({ ...base, ...(chapterSweep ? { life: 1.1, max: 1.1, chapterSweep } : {}), type: 'cone', range: 230 + boss.phase * 25, arc: Math.PI * (boss.phase === 3 ? .72 : .55), angle, damage: damage * 1.22 }); boss.next = `${name} · 绕至侧后`;
+      if (chapterSweep) { boss.sweepPhase = 'windup'; boss.sweepFacing = angle; }
     }
     boss.castLock = delay + .12; boss.castCd = Math.max(.9, (3 - boss.phase * .38) / diff.speed);
   }
@@ -80,9 +94,13 @@ export class FirstBoss {
       if (warning.life > 0) continue;
       if (!warning.resolved) {
         warning.resolved = true;
-        if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg, `B001-${warning.name}`);
+        if (warning.chapterSweep && warning.type === 'cone') {
+          this.sim.enemyStrike({ x: warning.x, y: warning.y, facing: warning.angle, range: warning.range, arc: warning.arc, source: `B001-${warning.name}` }, warning.damage * difficultyFor(this.difficulty).dmg);
+          if (this.active) { this.active.sweepPhase = 'strike'; this.active.next = '旋风断军 · 收招，可反击'; this.sweepRecovery = .85; }
+        } else if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg, `B001-${warning.name}`);
         if (warning.type === 'line' && warning.moveBoss && this.active) { this.active.x = warning.x2; this.active.y = warning.y2; clampPoint(this.active, this.sim.world, 45); }
       }
+      if (warning.chapterSweep && warning.life > -.18) continue;
       this.telegraphs.splice(i, 1);
     }
   }
@@ -117,5 +135,5 @@ export class FirstBoss {
       lootShown: this.defeatedAt !== undefined, offer: this.offer ? Object.freeze(this.offer.map(item => Object.freeze({ ...item, name: String(item.name), affixes: Object.freeze(item.affixes?.map(affix => Object.freeze({ ...affix })) || []) }))) : undefined,
       phase: this.settlingAt !== undefined ? 'settling' : this.resolvedAt !== undefined || this.picked ? 'confirmed' : this.offer ? 'choice' : this.defeatedAt !== undefined ? 'opening' : this.active ? 'fight' : this.sim.time >= 250 ? 'warning' : 'advance' });
   }
-  destroy(): void { this.destroyed = true; this.active = undefined; this.telegraphs.length = 0; this.offer = undefined; }
+  destroy(): void { this.destroyed = true; this.active = undefined; this.telegraphs.length = 0; this.offer = undefined; this.sweepRecovery = 0; }
 }

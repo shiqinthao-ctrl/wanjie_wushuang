@@ -13,7 +13,7 @@ let recorded: CoreEvent[] = [];
 const start = GameCore.prototype.start;
 GameCore.prototype.start = function (...args) { core = this; return start.apply(this, args); };
 const takeEvents = GameCore.prototype.takeEvents;
-GameCore.prototype.takeEvents = function () { const events = takeEvents.call(this); recorded.push(...events.filter(e => e.type === 'dragon-slash')); return events; };
+GameCore.prototype.takeEvents = function () { const events = takeEvents.call(this); recorded.push(...events.filter(e => ['dragon-slash', 'enemy-strike', 'soldier-death'].includes(e.type))); return events; };
 export async function mount(seed = 15) {
   database = `chapter-battle-${crypto.randomUUID()}`;
   repository = await SaveRepository.open(database);
@@ -24,7 +24,7 @@ export async function mount(seed = 15) {
   const root = document.createElement('main'); document.body.replaceChildren(root);
   app = createApp(defineComponent({ setup: () => () => battle.value ? h(BattleView, { key: revision.value, slot: slot.value, repository, chapter: options,
     onExit: () => { battle.value = false; }, onReplay: enter }) : h('section', { style: 'padding:32px;max-width:560px;margin:auto' }, [
-      h('small', 'R1c 自动化验收 · 独立测试存档'), h('h1', '首章成长样板'),
+      h('small', '首章自动化验收 · 独立测试存档'), h('h1', '首章成长样板'),
       h('p', '赤焰战神 · 四术式与四心法 · 进化与觉醒'), h('p', '过渡战斗与美术；尚未通过 R1 样板试玩。'),
       h('button', { onClick: enter, class: 'primary' }, '开始成长样板'),
     ]) }));
@@ -66,4 +66,28 @@ export function dragonScenario(kind: 'crowd' | 'ranged' | 'elite' | 'boss') {
 export function combatEvidence() {
   const sim = (core as unknown as { combat: CombatSimulation }).combat;
   return { damage: { ...sim.damageBy }, recorded, dragon: sim.renderState().dragon };
+}
+
+/** Artificial placements and durability for repeatable attack acceptance, not natural runs. */
+export function enemyScenario(kind: 'soldier' | 'boss', interrupt = false) {
+  const sim = (core as unknown as { combat: CombatSimulation }).combat;
+  sim.enemies.length = 0; sim.fields.length = 0; sim.projectiles.length = 0; sim.crystals.clear();
+  sim.cool.A003 = 999; sim.player.aspd = .0001; sim.player.skillCd = 0; sim.player.inv = 0;
+  Object.assign(sim, { attackClock: -999, spawnClock: -999 });
+  if (kind === 'soldier') sim.enemies.push({ id: 'EN001', name: '步卒', ai: 'melee', x: sim.player.x - 40, y: sim.player.y, hp: interrupt ? 1 : 10000, maxHp: interrupt ? 1 : 10000,
+    r: 10, speed: 0, damage: 30, attack: 0, skill: 0, elite: false, affixes: [], flash: 0, color: '#c5a34e' });
+  else {
+    sim.time = 270; sim.bossEncounter.spawn(); const boss = sim.boss!;
+    Object.assign(boss, { x: sim.player.x - (interrupt ? 90 : 160), y: sim.player.y, hp: interrupt ? 1 : boss.maxHp, maxHp: interrupt ? 1 : boss.maxHp,
+      castCd: 0, castLock: 0, skillIndex: 1 });
+  }
+  recorded = [];
+  const label = document.createElement('p'); label.id = 'directed-enemy';
+  label.textContent = `R1d 定向场景 · ${kind === 'soldier' ? '步卒' : '旋风断军'}${interrupt ? ' · 击杀打断' : ''} · 人工布置 / 延迟自动攻击`;
+  label.style.cssText = 'position:fixed;top:152px;left:8px;right:8px;z-index:20;padding:6px;background:#102720e8;color:#ffe3a3;font:11px serif;pointer-events:none;text-align:center';
+  document.querySelector('#directed-enemy')?.remove(); document.body.append(label);
+}
+export function enemyEvidence() {
+  const sim = (core as unknown as { combat: CombatSimulation }).combat;
+  return { time: sim.time, hp: sim.player.hp, damageTaken: { ...sim.damageTakenBy }, recorded: [...recorded], enemies: sim.renderState().enemies, boss: core.renderState().boss, telegraphs: core.renderState().telegraphs };
 }

@@ -1,0 +1,85 @@
+{
+  "synthetic": true,
+  "kind": "soldier",
+  "action": "interrupt",
+  "effects": true,
+  "before": {
+    "time": 0.07492133333333334,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [],
+    "enemies": [
+      {
+        "id": "EN001",
+        "name": "步卒",
+        "ai": "melee",
+        "x": 1760,
+        "y": 1200,
+        "hp": 1,
+        "maxHp": 1,
+        "r": 10,
+        "speed": 0,
+        "damage": 30,
+        "attack": 0,
+        "skill": 0,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "color": "#c5a34e"
+      }
+    ],
+    "telegraphs": []
+  },
+  "frozen": {
+    "time": 0.14147799999999996,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [],
+    "enemies": [
+      {
+        "id": "EN001",
+        "name": "步卒",
+        "ai": "melee",
+        "x": 1760,
+        "y": 1200,
+        "hp": 1,
+        "maxHp": 1,
+        "r": 10,
+        "speed": 0,
+        "damage": 30,
+        "attack": 0.06655666666666663,
+        "skill": 0.06655666666666663,
+        "elite": false,
+        "affixes": [],
+        "flash": 0,
+        "color": "#c5a34e",
+        "soldier": {
+          "x": 1760,
+          "y": 1200,
+          "facing": 0,
+          "phase": "windup",
+          "elapsed": 0.04990999999999997,
+          "range": 62,
+          "arc": 1.7453292519943295
+        }
+      }
+    ],
+    "telegraphs": []
+  },
+  "after": {
+    "time": 1.2394879999999988,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [
+      {
+        "type": "soldier-death",
+        "x": 1760,
+        "y": 1200,
+        "facing": 0
+      }
+    ],
+    "enemies": [],
+    "telegraphs": []
+  },
+  "errors": []
+}

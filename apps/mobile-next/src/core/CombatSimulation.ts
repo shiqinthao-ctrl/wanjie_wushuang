@@ -15,9 +15,14 @@ import { isStarter } from './evolutionCatalog';
 import type { ChapterPreparation } from '../chapter/prepare';
 import { chapterCombatContext } from '../chapter/combat';
 import type { DragonPose } from '../chapter/DragonCombat';
+import { SoldierCombat, isSoldier } from '../chapter/SoldierCombat';
+
+export interface EnemyStrike extends Point { facing: number; range: number; arc: number; source: string }
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
+  | ({ type: 'enemy-strike'; outcome: 'hit' | 'blocked' | 'miss'; targetX: number; targetY: number } & EnemyStrike)
+  | { type: 'soldier-death'; x: number; y: number; facing: number }
   | ({ type: 'dragon-slash' } & DragonPose)
   | { type: 'lightning'; points: readonly Readonly<Point>[]; source: string }
   | { type: 'hit'; x: number; y: number; damage: number; critical: boolean }
@@ -93,10 +98,12 @@ export class CombatSimulation {
   private fusionClock = 0;
   private readonly journeyCombat?: EvolutionCombat;
   private readonly heroId: string;
+  private readonly soldiers?: SoldierCombat;
 
   constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random, readonly drops: GearInstance[] = [], private now = Date.now, readonly chapter?: ChapterPreparation) {
     if (!chapter && ((progression.journey ? !isStarter(save.hero) || progression.journey.hero !== save.hero : save.hero !== 'H001') || save.pet !== 'PET001')) throw new Error('Unsupported combat preparation');
     this.heroId = chapter?.heroId || save.hero;
+    if (chapter) this.soldiers = new SoldierCombat(this);
     const startup = chapter ? undefined : calculateStartup(save);
     const player = chapter?.player ?? startup!.player;
     this.context = chapter ? chapterCombatContext() : combatContext(save, startup!);
@@ -142,6 +149,14 @@ export class CombatSimulation {
     const lost = Math.max(0, before - Math.max(0, this.player.hp));
     if (lost > 0) this.damageTakenBy[source] = (this.damageTakenBy[source] || 0) + lost;
   }
+  enemyStrike(pose: EnemyStrike, damage: number): void {
+    const dx = this.player.x - pose.x, dy = this.player.y - pose.y;
+    const angle = Math.atan2(Math.sin(Math.atan2(dy, dx) - pose.facing), Math.cos(Math.atan2(dy, dx) - pose.facing));
+    const inside = Math.hypot(dx, dy) <= pose.range && Math.abs(angle) <= pose.arc / 2;
+    const hp = this.player.hp;
+    if (inside) this.hurt(damage, pose.source);
+    this.events.push({ type: 'enemy-strike', x: pose.x, y: pose.y, facing: pose.facing, range: pose.range, arc: pose.arc, source: pose.source, targetX: this.player.x, targetY: this.player.y, outcome: !inside ? 'miss' : this.player.hp < hp ? 'hit' : 'blocked' });
+  }
   hitBoss(base: number, source: string, skill = false): void {
     const boss = this.boss; if (!boss) return;
     const hit = bossHit(this.context, this.state(), source, base, boss, skill);
@@ -158,6 +173,10 @@ export class CombatSimulation {
     this.damageBy[source] = (this.damageBy[source] || 0) + hit.damage;
     this.events.push({ type: 'hit', x: enemy.x, y: enemy.y, damage: hit.damage, critical });
     if (enemy.hp > 0) return;
+    if (this.soldiers && isSoldier(enemy)) {
+      this.events.push({ type: 'soldier-death', x: enemy.x, y: enemy.y, facing: this.soldiers.snapshot(enemy)?.facing ?? Math.atan2(this.player.y - enemy.y, this.player.x - enemy.x) });
+      this.soldiers.forget(enemy);
+    }
     this.enemies.splice(this.enemies.indexOf(enemy), 1);
     this.kills++; this.combo++; this.comboTimer = 2; this.maxCombo = Math.max(this.maxCombo, this.combo);
     this.crystals.spawn(enemy, effectiveXp(enemy.elite, difficultyFor(this.difficulty).xp));
@@ -221,6 +240,7 @@ export class CombatSimulation {
     enemy.attack += dt; enemy.skill += dt; enemy.flash = Math.max(0, enemy.flash - dt * 5);
     const dx = this.player.x - enemy.x, dy = this.player.y - enemy.y, d = Math.hypot(dx, dy) || 1;
     if (enemy.aura && d < 140) this.auraNear = true;
+    if (this.soldiers?.update(enemy, dt)) return;
     let move = 1;
     if (enemy.ai === 'ranged') {
       move = d > 300 ? .6 : d < 190 ? -.5 : 0;
@@ -413,10 +433,11 @@ export class CombatSimulation {
   }
   applyCaps(): void { cap(this.enemies, caps.enemies); cap(this.enemyShots, caps.enemyShots); cap(this.projectiles, caps.v24Projectiles); cap(this.fields, caps.v24Fields); cap(this.meteors, caps.v24Meteors); }
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
-  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
+  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]), soldier: this.soldiers?.snapshot(enemy) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
   destroy(): void {
     this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
     this.journeyCombat?.destroy();
+    this.soldiers?.destroy();
     for (const items of [this.enemies, this.projectiles, this.fields, this.vortices, this.meteors, this.bombs, this.enemyShots]) items.length = 0;
   }
 }

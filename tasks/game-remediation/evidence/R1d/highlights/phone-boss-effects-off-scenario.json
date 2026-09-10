@@ -1,0 +1,114 @@
+{
+  "synthetic": true,
+  "kind": "boss",
+  "action": "hit",
+  "effects": false,
+  "before": {
+    "time": 270,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [],
+    "enemies": [],
+    "boss": {
+      "id": "B001",
+      "name": "黄巾巨将",
+      "hp": 25047.959999999992,
+      "maxHp": 25047.959999999992,
+      "r": 42,
+      "x": 1640,
+      "y": 1200,
+      "phase": 1,
+      "castCd": 0,
+      "castLock": 0,
+      "shield": 0,
+      "skillIndex": 1,
+      "next": "准备攻击",
+      "phaseName": "巨斧压境"
+    },
+    "telegraphs": []
+  },
+  "frozen": {
+    "time": 270.06654000000003,
+    "hp": 620,
+    "damageTaken": {},
+    "recorded": [],
+    "enemies": [],
+    "boss": {
+      "id": "B001",
+      "name": "黄巾巨将",
+      "hp": 25047.959999999992,
+      "maxHp": 25047.959999999992,
+      "r": 42,
+      "x": 1640.7488,
+      "y": 1200,
+      "phase": 1,
+      "castCd": 2.62,
+      "castLock": 1.5554999999999999,
+      "shield": 0,
+      "skillIndex": 2,
+      "next": "旋风断军 · 绕至侧后",
+      "sweepPhase": "windup",
+      "sweepFacing": 0,
+      "phaseName": "巨斧压境"
+    },
+    "telegraphs": [
+      {
+        "name": "旋风断军",
+        "x": 1640.7488,
+        "y": 1200,
+        "damage": 20.74,
+        "life": 1.0334600000000003,
+        "max": 1.1,
+        "color": "#ef5d58",
+        "resolved": false,
+        "chapterSweep": true,
+        "type": "cone",
+        "range": 255,
+        "arc": 1.7278759594743864,
+        "angle": 0
+      }
+    ]
+  },
+  "after": {
+    "time": 271.4972933333335,
+    "hp": 610.8744,
+    "damageTaken": {
+      "B001-旋风断军": 9.125599999999963
+    },
+    "recorded": [
+      {
+        "type": "enemy-strike",
+        "x": 1640.7488,
+        "y": 1200,
+        "facing": 0,
+        "range": 255,
+        "arc": 1.7278759594743864,
+        "source": "B001-旋风断军",
+        "targetX": 1800,
+        "targetY": 1200,
+        "outcome": "hit"
+      }
+    ],
+    "enemies": [],
+    "boss": {
+      "id": "B001",
+      "name": "黄巾巨将",
+      "hp": 25047.959999999992,
+      "maxHp": 25047.959999999992,
+      "r": 42,
+      "x": 1640.7488,
+      "y": 1200,
+      "phase": 1,
+      "castCd": 2.62,
+      "castLock": 1.5554999999999999,
+      "shield": 0,
+      "skillIndex": 2,
+      "next": "旋风断军 · 收招，可反击",
+      "sweepPhase": "recovery",
+      "sweepFacing": 0,
+      "phaseName": "巨斧压境"
+    },
+    "telegraphs": []
+  },
+  "errors": []
+}

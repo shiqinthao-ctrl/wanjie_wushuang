@@ -1,0 +1,7 @@
+file 'soldier-hit.mp4'
+file 'soldier-dodge.mp4'
+file 'soldier-interrupt.mp4'
+file 'boss-hit.mp4'
+file 'boss-dodge.mp4'
+file 'boss-interrupt.mp4'
+file 'boss-effects-off.mp4'
