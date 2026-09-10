@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-09-10T11:14:38.103Z",
+  "deployed": false,
+  "fixtureLeak": false,
+  "files": [
+    {
+      "file": "art/battlefield.svg",
+      "bytes": 4802,
+      "sha256": "7cec68689f3e334ad6a19c8936b074b1f2e69808537c4de543ade3bd98de0100"
+    },
+    {
+      "file": "art/boss-b001.svg",
+      "bytes": 2489,
+      "sha256": "8ff7260c54c3bd3b5a96a30ef47fb31c3747c96fc2732226ae250f14165b2ef9"
+    },
+    {
+      "file": "art/enemy-en001.svg",
+      "bytes": 1592,
+      "sha256": "8f1a1618c61a5be9222ad6e7286c08a0bb0a9660b99eab7384c4ed3676fa5b4e"
+    },
+    {
+      "file": "art/hero-h001-attack.svg",
+      "bytes": 1209,
+      "sha256": "64ff049cba23e7323b6fa887c2f320a162cde77e596f9401d5defad965f84e76"
+    },
+    {
+      "file": "art/hero-h001.svg",
+      "bytes": 2574,
+      "sha256": "da322720d5a905a758467361a91cf2af8a656ecfd752a67016513902a598cde4"
+    },
+    {
+      "file": "art/hero-h010.svg",
+      "bytes": 1574,
+      "sha256": "11c0170228635ec83d1c1ccc50fe25a80b92d73ee824a10739dd0abf3e4c0882"
+    },
+    {
+      "file": "art/hero-h012.svg",
+      "bytes": 1465,
+      "sha256": "e5715d312e3053805229ae92dbf98fe8506d54ae4410c15729db001137622ada"
+    },
+    {
+      "file": "assets/BattleView-Bkc4Ks_Q.js",
+      "bytes": 61900,
+      "sha256": "c9c86802280f1cec8dc91019da3a992e0d244ba949c7fa016ec9d409aac5c3f2"
+    },
+    {
+      "file": "assets/BattleView-Cuu-3tS2.css",
+      "bytes": 5866,
+      "sha256": "952ecdce1a365b3b1134abb90ad25ac2bbbe3a392dc36248cc782c6e97937369"
+    },
+    {
+      "file": "assets/index-CqlR0Y_i.js",
+      "bytes": 124718,
+      "sha256": "09b65660d9c8f98b86582479617d239373880a0d4bd28bb6ec75758dfb3686bb"
+    },
+    {
+      "file": "assets/index-CYsg_X8v.css",
+      "bytes": 15781,
+      "sha256": "36a7057f2774f30d4ba04a36e3e660853a72f36f0e257f0dff8c4315f7c72f35"
+    },
+    {
+      "file": "assets/mountBattle-DoqhUkqB.js",
+      "bytes": 1457961,
+      "sha256": "b562276d95f2fe92751d64905b8dbfc5fd4a6f95034f74433aee4cb5171f2d96"
+    },
+    {
+      "file": "index.html",
+      "bytes": 579,
+      "sha256": "788803a2c3ff942ad615332d2ae69af8b75bc5da29a86f90d919d0de3071a454"
+    }
+  ]
+}

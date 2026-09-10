@@ -117,8 +117,11 @@ export class GameCore {
     this.clearInput(); if (this.status !== 'paused') this.status = 'running'; return true;
   }
   choose(token: number, kind: ChoiceKind, id: string): boolean {
+    const level = this.progression.snapshot().level;
     if (this.status !== 'choosing' || !this.progression.pick(token, kind, id)) return false;
+    if (this.chapter && this.progression.snapshot().level > level) this.events.push({ type: 'level-choice', level: this.progression.snapshot().level });
     if (kind === 'recovery') this.combat.player.hp = Math.min(this.combat.player.maxHp, this.combat.player.hp + this.combat.player.maxHp * .2);
+    if (kind === 'hero') this.combat.feedback(id === 'awaken' ? 'awakening' : 'evolution', id);
     this.clearInput(); this.status = this.progression.snapshot().choice ? 'choosing' : 'running';
     return true;
   }
@@ -128,7 +131,11 @@ export class GameCore {
     if (this.status !== 'running' || !Number.isFinite(elapsed) || elapsed <= 0) return;
     if (this.progression.journey) {
       this.progression.checkLevel();
-      if (this.progression.snapshot().choice) { this.status = 'choosing'; this.clearInput(); return; }
+      if (this.progression.snapshot().choice) {
+        this.status = 'choosing'; this.clearInput();
+        if (this.chapter) this.events.push({ type: 'level-choice', level: this.progression.snapshot().level });
+        return;
+      }
     }
     // Base order: movement/spawn/attacks/AI, XP, hostile shots/director,
     // death, hero identity, skill forms, Boss warnings, pet, map, events, objective.

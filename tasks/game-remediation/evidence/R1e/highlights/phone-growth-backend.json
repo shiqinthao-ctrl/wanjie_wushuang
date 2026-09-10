@@ -1,0 +1,13 @@
+{
+  "played": [
+    "level",
+    "evolve",
+    "level",
+    "awaken",
+    "warning",
+    "boss",
+    "hurt",
+    "warning"
+  ],
+  "failures": []
+}

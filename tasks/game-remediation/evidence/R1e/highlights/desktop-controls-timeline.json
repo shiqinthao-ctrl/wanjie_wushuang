@@ -1,0 +1,22 @@
+[
+  {
+    "seconds": 0.06760000002384185,
+    "label": "skill"
+  },
+  {
+    "seconds": 1.4641000000238418,
+    "label": "paused-silence"
+  },
+  {
+    "seconds": 2.2577999999523164,
+    "label": "muted-combat"
+  },
+  {
+    "seconds": 6.114299999952316,
+    "label": "ultimate-unmuted"
+  },
+  {
+    "seconds": 7.560200000047684,
+    "label": "blur-silence"
+  }
+]

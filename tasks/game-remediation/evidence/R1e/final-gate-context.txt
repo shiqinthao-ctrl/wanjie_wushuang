@@ -1,0 +1,11 @@
+
+> wanjie-wushuang@3.1.3 context
+> node scripts/context.mjs
+
+  689 bytes  AGENTS.md
+ 1875 bytes  TASK.md
+ 2770 bytes  handoff/STATE.md
+ 1041 bytes  docs/INDEX.md
+-----
+6375 bytes  active context packet
+CONTEXT OK: under 8192 bytes. Long references are progressive-disclosure only.

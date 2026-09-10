@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "view": "desktop",
+  "evidence": [
+    {
+      "state": "closed",
+      "starts": 82,
+      "live": 0,
+      "peak": 6,
+      "rms": 0
+    },
+    {
+      "state": "closed",
+      "starts": 0,
+      "live": 0,
+      "peak": 0,
+      "rms": 0
+    }
+  ],
+  "consoleErrors": []
+}

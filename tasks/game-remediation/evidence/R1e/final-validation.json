@@ -1,0 +1,123 @@
+{
+  "createdAt": "2026-09-10T11:19:30.739Z",
+  "scope": "R1e engineering acceptance only",
+  "base": "8505a3d41a3a53bf158f532b8e204e0eeb7ce70f",
+  "rules": {
+    "passed": 1313,
+    "total": 1313,
+    "files": 35
+  },
+  "browser": {
+    "startTime": "2026-09-10T11:02:10.923Z",
+    "duration": 315224.609,
+    "expected": 102,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "recordings": {
+    "files": 246,
+    "uniqueHashes": 136,
+    "acceptedMp4": 9,
+    "rejectedRetainedMp4": 4,
+    "fullDecode": "passed",
+    "soundExports": 4,
+    "silenceWindows": [
+      {
+        "label": "paused-silence",
+        "fromSeconds": 1.5841000000238417,
+        "durationSeconds": 0.25,
+        "rms": 0,
+        "maximum": 0.0001
+      },
+      {
+        "label": "muted-combat",
+        "fromSeconds": 2.3777999999523165,
+        "durationSeconds": 0.25,
+        "rms": 0,
+        "maximum": 0.0001
+      },
+      {
+        "label": "blur-silence",
+        "fromSeconds": 7.680200000047684,
+        "durationSeconds": 0.25,
+        "rms": 0,
+        "maximum": 0.0001
+      },
+      {
+        "label": "paused-silence",
+        "fromSeconds": 1.5930999999046325,
+        "durationSeconds": 0.25,
+        "rms": 0,
+        "maximum": 0.0001
+      },
+      {
+        "label": "muted-combat",
+        "fromSeconds": 2.4547999999523165,
+        "durationSeconds": 0.25,
+        "rms": 0,
+        "maximum": 0.0001
+      },
+      {
+        "label": "blur-silence",
+        "fromSeconds": 7.753099999904633,
+        "durationSeconds": 0.25,
+        "rms": 0,
+        "maximum": 0.0001
+      }
+    ],
+    "review": {
+      "file": "watch/r1e-review.mp4",
+      "speed": 1,
+      "synthetic": true,
+      "canvasOnly": true,
+      "durationSeconds": 13.766016,
+      "expectedSeconds": 13.739008000000002,
+      "marks": [
+        {
+          "seconds": 0.08239999997615814,
+          "label": "skill"
+        },
+        {
+          "seconds": 1.4730999999046326,
+          "label": "paused-silence"
+        },
+        {
+          "seconds": 2.3347999999523164,
+          "label": "muted-combat"
+        },
+        {
+          "seconds": 6.196699999928475,
+          "label": "ultimate-unmuted"
+        },
+        {
+          "seconds": 7.6330999999046325,
+          "label": "blur-silence"
+        },
+        {
+          "seconds": 9.078899999976159,
+          "label": "evolution"
+        },
+        {
+          "seconds": 10.42689999997616,
+          "label": "awakening"
+        },
+        {
+          "seconds": 12.130799999952316,
+          "label": "boss-arrival-warning"
+        }
+      ]
+    }
+  },
+  "build": {
+    "files": 13,
+    "fixtureLeak": false,
+    "deployed": false
+  },
+  "limits": [
+    "synthetic directed scenes",
+    "Chrome phone-size simulation, not physical iPhone",
+    "no professional audio or human-play acceptance",
+    "no Render update"
+  ]
+}

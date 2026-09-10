@@ -4,6 +4,7 @@ import type { BattleHandle } from '../game/mountBattle';
 import type { UiSnapshot } from '../core/GameCore';
 import { bindKeyboard } from '../input/controls';
 import MovePad from './MovePad.vue';
+import AudioSettings from './AudioSettings.vue';
 import BossLoot from './BossLoot.vue';
 import RunResult from './RunResult.vue';
 import ChapterResult from './ChapterResult.vue';
@@ -61,9 +62,11 @@ let cancelled = false;
 function pause() {
   if (!handle || !['running', 'choosing', 'encounter', 'chest', 'boss-loot'].includes(handle.core.snapshot().status)) return;
   controls?.clear(); handle?.core.pause(); snapshot.value = handle!.core.snapshot();
+  handle.pauseAudio();
 }
 function resume() {
   if (document.hidden) return;
+  handle?.resumeAudio();
   handle?.core.resume(); snapshot.value = handle!.core.snapshot();
   host.value?.focus();
 }
@@ -187,6 +190,7 @@ const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, 
     <dialog ref="pauseDialog" class="pause-dialog" aria-labelledby="pause-title" @cancel.prevent>
       <small>暂停征途</small><h2 id="pause-title" tabindex="-1" autofocus>战局已暂停</h2><p>切回页面后，点击继续再出发。</p>
       <button class="effects-toggle" :aria-pressed="effectsEnabled" @click="toggleEffects">战斗特效 · {{ effectsEnabled ? '开启' : '关闭' }}</button><p class="effects-note">关闭后仍显示寒域边界、危险提示和攻击目标。寒域外圈表示剩余时间；方盾近卫驻守，双刃猎手随行。</p>
+      <AudioSettings v-if="chapter" @change="value => handle?.setAudioSettings(value)" />
       <RunGuide :snapshot="snapshot" />
       <button class="primary" @click="resume">继续战斗</button><button :disabled="leaving || eventBusy" @click="leave()">返回大厅</button>
     </dialog>

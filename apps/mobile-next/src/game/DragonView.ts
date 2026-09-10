@@ -1,5 +1,6 @@
 import type Phaser from 'phaser';
 import type { DragonSnapshot } from '../chapter/DragonCombat';
+import { chapterActors } from './chapterPresentation';
 
 /** Engineering silhouette/pose sample. Essential telegraphs remain with effects off. */
 export class DragonView {
@@ -57,7 +58,7 @@ export class DragonView {
     a.lineStyle(5, 0x263635, 1).lineBetween(grip.x - dx * 27, grip.y - dy * 27, grip.x + dx * 47, grip.y + dy * 47);
     a.lineStyle(2, 0xdab878, 1).lineBetween(grip.x - dx * 27, grip.y - dy * 27, grip.x + dx * 47, grip.y + dy * 47);
     const tip = { x: grip.x + dx * 53, y: grip.y + dy * 53 };
-    a.fillStyle(state.awakened ? 0xffe6a3 : 0xd6ebe1, 1).fillTriangle(tip.x + dx * 12, tip.y + dy * 12, tip.x - dx * 23 - dy * 17, tip.y - dy * 23 + dx * 17, tip.x - dx * 20 + dy * 4, tip.y - dy * 20 - dx * 4);
+    a.fillStyle(state.awakened ? chapterActors.dragon.awakenedWeapon : chapterActors.dragon.weapon, 1).fillTriangle(tip.x + dx * 12, tip.y + dy * 12, tip.x - dx * 23 - dy * 17, tip.y - dy * 23 + dx * 17, tip.x - dx * 20 + dy * 4, tip.y - dy * 20 - dx * 4);
     a.fillStyle(0xe77740, 1).fillCircle(grip.x, grip.y, 5);
     // A permanent facing chevron does not depend on cosmetic effects.
     g.lineStyle(3, 0xf8d794, .9).beginPath().moveTo(x + Math.cos(direction - .18) * 39, y + Math.sin(direction - .18) * 39)

@@ -6,15 +6,20 @@ import { BossView } from './BossView';
 import { CombatEffects } from './CombatEffects';
 import { DragonView } from './DragonView';
 import { EnemyView } from './EnemyView';
+import { chapterActors, chapterAssets } from './chapterPresentation';
+import { ChapterAudio } from './audio/ChapterAudio';
+import type { AudioSettings } from './audio/settings';
 import { isSoldier } from '../chapter/SoldierCombat';
 import type { GameSave } from '../core/saveTypes';
 import type { Journey } from '../core/evolutionCatalog';
 import type { ChapterRunOptions } from '../chapter/prepare';
 
-export interface BattleHandle { core: GameCore; setEffectsEnabled(value: boolean): void; destroy(): Promise<void> }
+export interface BattleHandle { core: GameCore; setEffectsEnabled(value: boolean): void; setAudioSettings(value: AudioSettings): void; pauseAudio(): void; resumeAudio(): void; destroy(): Promise<void> }
 
 export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) => void, ready: () => void, fail: (message: string) => void, save: GameSave, journey: Journey = 'classic', chapter?: ChapterRunOptions): BattleHandle {
   const core = new GameCore(save, Math.random, journey, chapter);
+  const audio = chapter ? new ChapterAudio() : undefined;
+  let silentEvents: ReturnType<GameCore['takeEvents']> = [];
   let removed = false;
   let budget = 0;
   let effects: CombatEffects | undefined;
@@ -32,10 +37,13 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
     private enemyView?: EnemyView;
     private enemySprites: Phaser.GameObjects.Image[] = [];
     preload() {
-      this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
-      this.load.image('hero', `${import.meta.env.BASE_URL}art/hero-${(core.chapter?.heroId || save.hero).toLowerCase()}.svg`);
-      this.load.image('enemy', `${import.meta.env.BASE_URL}art/enemy-en001.svg`);
-      this.load.image('boss', `${import.meta.env.BASE_URL}art/boss-b001.svg`);
+      if (core.chapter) for (const asset of chapterAssets) this.load.image(asset.key, `${import.meta.env.BASE_URL}${asset.file}`);
+      else {
+        this.load.image('ground', `${import.meta.env.BASE_URL}art/battlefield.svg`);
+        this.load.image('hero', `${import.meta.env.BASE_URL}art/hero-${save.hero.toLowerCase()}.svg`);
+        this.load.image('enemy', `${import.meta.env.BASE_URL}art/enemy-en001.svg`);
+        this.load.image('boss', `${import.meta.env.BASE_URL}art/boss-b001.svg`);
+      }
       this.load.on('loaderror', () => fail('战场资源未能载入，请返回后重试。'));
     }
     create() {
@@ -53,6 +61,7 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       effects = new CombatEffects(this.add.graphics().setDepth(.5));
       effects.setEnabled(effectsEnabled);
       this.hero = this.add.image(player.x, player.y, 'hero').setDisplaySize(66, 81).setOrigin(.5, .84).setDepth(3);
+      if (core.chapter) { const actor = chapterActors.H001; this.hero.setDisplaySize(actor.width, actor.height).setOrigin(actor.originX, actor.originY); }
       this.positionCamera(world, player);
       ready(); publish(core.snapshot());
     }
@@ -155,7 +164,9 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
         this.crystals?.beginPath().moveTo(crystal.x, crystal.y - radius).lineTo(crystal.x + radius, crystal.y).lineTo(crystal.x, crystal.y + radius).lineTo(crystal.x - radius, crystal.y).closePath().fillPath();
         this.crystals?.lineStyle(2, 0xd9fff2, .8).strokeCircle(crystal.x, crystal.y, radius + 4);
       }
-      const events = core.takeEvents();
+      const currentEvents = core.takeEvents();
+      audio?.present(currentEvents, core.snapshot());
+      const events = [...silentEvents, ...currentEvents]; silentEvents = [];
       this.enemyView?.draw(enemies, events, core.snapshot().time - previousTime, frameTime);
       effects?.draw(events, core.snapshot().time - previousTime);
       for (const event of events) {
@@ -179,13 +190,21 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
   return {
     core,
     setEffectsEnabled(value) { effectsEnabled = value; effects?.setEnabled(value); },
+    setAudioSettings(value) { audio?.configure(value); },
+    pauseAudio() { audio?.pause(); },
+    resumeAudio() {
+      if (!audio) return;
+      // Retain pre-resume events for visuals, without replaying their audio.
+      silentEvents = [...silentEvents, ...core.takeEvents()]; audio.resume();
+    },
     destroy() {
       if (teardown) return teardown;
       removed = true; effects?.clear(); core.destroy();
+      const audioClosed = audio?.destroy();
       teardown = new Promise<void>(resolve => {
         game.events.once(Phaser.Core.Events.DESTROY, resolve);
         game.destroy(true);
-      });
+      }).then(async () => { await audioClosed; });
       return teardown;
     },
   };

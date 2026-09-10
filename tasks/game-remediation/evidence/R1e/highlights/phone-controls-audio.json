@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "view": "phone",
+  "evidence": [
+    {
+      "state": "closed",
+      "starts": 71,
+      "live": 0,
+      "peak": 4,
+      "rms": 0
+    },
+    {
+      "state": "closed",
+      "starts": 0,
+      "live": 0,
+      "peak": 0,
+      "rms": 0
+    }
+  ],
+  "consoleErrors": []
+}

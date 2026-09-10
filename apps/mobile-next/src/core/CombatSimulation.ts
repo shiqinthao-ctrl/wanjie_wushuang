@@ -20,7 +20,9 @@ import { SoldierCombat, isSoldier } from '../chapter/SoldierCombat';
 export interface EnemyStrike extends Point { facing: number; range: number; arc: number; source: string }
 
 export type Action = 'skill' | 'dodge' | 'ultimate';
+export type FeedbackKind = 'player-hurt' | 'boss-arrive' | 'boss-phase' | 'boss-warning' | 'boss-defeat' | 'hero-windup' | 'evolution' | 'awakening';
 export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; source: string }
+  | { type: 'battle-feedback'; kind: FeedbackKind; source: string }
   | ({ type: 'enemy-strike'; outcome: 'hit' | 'blocked' | 'miss'; targetX: number; targetY: number } & EnemyStrike)
   | { type: 'soldier-death'; x: number; y: number; facing: number }
   | ({ type: 'dragon-slash' } & DragonPose)
@@ -130,6 +132,7 @@ export class CombatSimulation {
     if (x || y) this.facing = Math.atan2(y, x);
   }
   movementFacing(): number { return this.facing; }
+  feedback(kind: FeedbackKind, source: string): void { if (this.chapter) this.events.push({ type: 'battle-feedback', kind, source }); }
   dragonSlash(pose: DragonPose): void { this.events.push({ type: 'dragon-slash', ...pose }); }
   clearInput(): void { this.input = { x: 0, y: 0 }; this.response = { x: 0, y: 0 }; }
   nearest(): Enemy | undefined {
@@ -147,7 +150,7 @@ export class CombatSimulation {
     const before = Math.max(0, this.player.hp);
     Object.assign(this.player, incomingHit(this.context, this.player, damage));
     const lost = Math.max(0, before - Math.max(0, this.player.hp));
-    if (lost > 0) this.damageTakenBy[source] = (this.damageTakenBy[source] || 0) + lost;
+    if (lost > 0) { this.damageTakenBy[source] = (this.damageTakenBy[source] || 0) + lost; this.feedback('player-hurt', source); }
   }
   enemyStrike(pose: EnemyStrike, damage: number): void {
     const dx = this.player.x - pose.x, dy = this.player.y - pose.y;

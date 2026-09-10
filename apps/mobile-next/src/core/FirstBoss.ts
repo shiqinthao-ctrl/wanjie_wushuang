@@ -35,11 +35,12 @@ export class FirstBoss {
     const { player, viewport, time } = this.sim, minutes = time / 60;
     const hp = config.boss.hp * difficultyFor(this.difficulty).hp * (.85 + (1 + .07 * minutes + .012 * minutes * minutes) * .22) * firstStage.bossHp;
     this.active = { id: 'B001', name: config.boss.name, hp, maxHp: hp, r: 42, x: player.x + viewport.width * .28, y: player.y - viewport.height * .16, phase: 1, castCd: 1.7, castLock: .7, shield: 0, skillIndex: 0, next: '准备攻击' };
-    clampPoint(this.active, this.sim.world, 45); return true;
+    clampPoint(this.active, this.sim.world, 45); this.sim.feedback('boss-arrive', 'B001'); return true;
   }
   defeat(): void {
     if (!this.active || this.defeatedAt !== undefined || this.destroyed) return;
     this.active = undefined;
+    this.sim.feedback('boss-defeat', 'B001');
     if (this.sim.chapter) { this.telegraphs.length = 0; this.sweepRecovery = 0; }
     if (!this.sim.chapter) this.sim.drops.push(generateGear(this.hero, 'boss', this.random, this.now, this.dropOptions()));
     this.defeatedAt = this.sim.time;
@@ -51,6 +52,7 @@ export class FirstBoss {
     if (phase > boss.phase) {
       if (this.sim.chapter) { this.telegraphs.length = 0; this.sweepRecovery = 0; boss.sweepPhase = undefined; boss.sweepFacing = undefined; }
       boss.phase = phase; boss.castCd = 1.2; boss.castLock = 1.05;
+      this.sim.feedback('boss-phase', 'B001');
       this.maxPhase = Math.max(this.maxPhase, phase);
       if (phase === 3) for (let i = 0; i < 3; i++) this.sim.spawn({ elite: i === 0 });
     }
@@ -87,6 +89,7 @@ export class FirstBoss {
       if (chapterSweep) { boss.sweepPhase = 'windup'; boss.sweepFacing = angle; }
     }
     boss.castLock = delay + .12; boss.castCd = Math.max(.9, (3 - boss.phase * .38) / diff.speed);
+    this.sim.feedback('boss-warning', name!);
   }
   updateTelegraphs(dt: number): void {
     for (let i = this.telegraphs.length - 1; i >= 0; i--) {

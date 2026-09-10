@@ -1,0 +1,19 @@
+file:///E:/wanjie_wushuang/tasks/game-remediation/evidence/R1e/package-evidence.mjs:12
+  if (result.error || result.status !== 0 || result.stderr.toString().trim()) throw new Error(`${command}: ${result.error || result.stderr}`);
+                                                                                    ^
+
+Error: ffmpeg: [null @ 0000013a65ae4bc0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 209 >= 209
+
+[null @ 0000013a65ae4bc0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 217 >= 217
+
+[null @ 0000013a65ae4bc0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 301 >= 301
+
+[null @ 0000013a65ae4bc0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 375 >= 375
+
+[null @ 0000013a65ae4bc0] Application provided invalid, non monotonically increasing dts to muxer in stream 0: 399 >= 399
+
+
+    at run (file:///E:/wanjie_wushuang/tasks/game-remediation/evidence/R1e/package-evidence.mjs:12:85)
+    at file:///E:/wanjie_wushuang/tasks/game-remediation/evidence/R1e/package-evidence.mjs:85:22
+
+Node.js v24.18.0

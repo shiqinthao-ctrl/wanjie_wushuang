@@ -52,6 +52,7 @@ export class DragonCombat {
   private prepare(sequence: Sequence): void {
     const now = this.sim.time;
     sequence.strike = { x: this.sim.player.x, y: this.sim.player.y, facing: this.sim.movementFacing(), started: now, due: now + rules[sequence.kind].windup };
+    this.sim.feedback('hero-windup', rules[sequence.kind].source);
   }
   basic(): void {
     if (!this.destroyed && !this.hero) this.hero = this.begin('basic', this.awakened() ? 2 : 1);

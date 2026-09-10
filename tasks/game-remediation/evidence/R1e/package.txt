@@ -1,0 +1,8 @@
+file:///E:/wanjie_wushuang/tasks/game-remediation/evidence/R1e/package-evidence.mjs:48
+    if (value > .0001) throw new Error(`Unexpected sound: ${project}/${label} RMS ${value}`);
+                             ^
+
+Error: Unexpected sound: desktop/paused-silence RMS 0.014535697167014413
+    at file:///E:/wanjie_wushuang/tasks/game-remediation/evidence/R1e/package-evidence.mjs:48:30
+
+Node.js v24.18.0

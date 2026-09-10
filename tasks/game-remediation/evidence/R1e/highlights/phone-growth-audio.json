@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "growth": [
+    {
+      "state": "running",
+      "starts": 2,
+      "live": 0,
+      "peak": 2,
+      "rms": 0
+    }
+  ],
+  "final": [
+    {
+      "state": "closed",
+      "starts": 8,
+      "live": 0,
+      "peak": 2,
+      "rms": 0
+    }
+  ]
+}
