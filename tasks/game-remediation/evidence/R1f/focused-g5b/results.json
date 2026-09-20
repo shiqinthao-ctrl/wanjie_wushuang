@@ -1,0 +1,2875 @@
+
+Running 62 tests using 1 worker
+
+  ok  1 [desktop] › tests\camera-controls.native.spec.ts:4:1 › camera survives simultaneous touch, cancellation and viewport changes (1.5s)
+  -   2 [desktop] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at north-west edge with natural touch
+  -   3 [desktop] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at south-east edge with natural touch
+  -   4 [desktop] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at north-east edge with natural touch
+  -   5 [desktop] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at south-west edge with natural touch
+  ok  6 [desktop] › tests\evolution.native.spec.ts:13:1 › synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets (322ms)
+  ok  7 [desktop] › tests\evolution.native.spec.ts:28:1 › synthetic native: failed, stale and locked selections never overwrite a slot (313ms)
+  -   8 [desktop] › tests\landscape-layout.native.spec.ts:44:1 › landscape HUD keeps hero, rewards and controls clear
+  -   9 [desktop] › tests\landscape-layout.native.spec.ts:60:1 › landscape evolution supports touch, upgrades, safe areas and rotation
+  -  10 [desktop] › tests\landscape-layout.native.spec.ts:140:1 › synthetic crowded landscape HUD keeps boss, notices and rewards clear
+  ok 11 [desktop] › tests\settlement.native.spec.ts:17:1 › synthetic native settlement: same promise, duplicate receipt and concurrent connections (383ms)
+  ok 12 [desktop] › tests\settlement.native.spec.ts:32:75 › synthetic native settlement: transaction abort before-receipt rolls back and retries (346ms)
+  ok 13 [desktop] › tests\settlement.native.spec.ts:32:75 › synthetic native settlement: transaction abort after-receipt-request rolls back and retries (378ms)
+  ok 14 [desktop] › tests\settlement.native.spec.ts:54:1 › synthetic native settlement: lost response retries original slot without overwriting a later writer (371ms)
+  ok 15 [desktop] › tests\settlement.native.spec.ts:73:1 › synthetic native settlement: stale run is rejected without rewards or receipt (363ms)
+  ok 16 [desktop] › tests\settlement.native.spec.ts:86:1 › synthetic native settlement: event payment and final rewards share one revision owner (367ms)
+  ok 17 [desktop] › tests\settlement.native.spec.ts:103:1 › synthetic native settlement: unsupported content and invalid drops abort before persistence (371ms)
+  ok 18 [desktop] › tests\settlement.native.spec.ts:119:1 › synthetic result component: busy lock, storage error, same-run retry and saved rewards (617ms)
+  ok 19 [desktop] › tests\settlement.native.spec.ts:145:1 › synthetic touch transition: releasing a held joystick cannot activate the new result (864ms)
+  -  20 [desktop] › tests\short-layout.native.spec.ts:45:1 › short portrait HUD keeps hero and controls clear
+  -  21 [desktop] › tests\short-layout.native.spec.ts:61:1 › short portrait evolution supports touch, upgrades, safe areas and height changes
+  -  22 [desktop] › tests\short-layout.native.spec.ts:129:1 › synthetic crowded HUD keeps boss, notices and rewards inside short safe areas
+  ok 23 [desktop] › tests\storage.native.spec.ts:21:1 › synthetic native IndexedDB: atomic receipts, concurrent connections and rollback (314ms)
+  ok 24 [desktop] › tests\storage.native.spec.ts:56:1 › synthetic native IndexedDB: two tabs apply one receipt (407ms)
+  ok 25 [desktop] › tests\storage.native.spec.ts:74:1 › synthetic native IndexedDB: copied imports, exact backup and independent slots (314ms)
+  ok 26 [desktop] › tests\evolution-full.spec.ts:4:1 › natural evolved run finishes, saves once and replays from the starter (5.3m)
+  ok 27 [desktop] › tests\evolution.spec.ts:4:1 › natural starter, evolution, skill route, bond and run reset (2.1m)
+  ok 28 [desktop] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay (5.3m)
+  x  29 [desktop] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay (5.0m)
+  ok 30 [desktop] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay (6.2m)
+  ok 31 [desktop] › tests\settlement.spec.ts:213:1 › supplemental imported low-growth save: natural-input HP defeat, reload and replay (5.0m)
+  ok 32 [phone] › tests\camera-controls.native.spec.ts:4:1 › camera survives simultaneous touch, cancellation and viewport changes (2.0s)
+  ok 33 [phone] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at north-west edge with natural touch (35.2s)
+  ok 34 [phone] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at south-east edge with natural touch (34.2s)
+  ok 35 [phone] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at north-east edge with natural touch (35.1s)
+  ok 36 [phone] › tests\camera.native.spec.ts:18:3 › portrait hero stays clear at south-west edge with natural touch (34.8s)
+  ok 37 [phone] › tests\evolution.native.spec.ts:13:1 › synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets (558ms)
+  ok 38 [phone] › tests\evolution.native.spec.ts:28:1 › synthetic native: failed, stale and locked selections never overwrite a slot (551ms)
+  -  39 [phone] › tests\landscape-layout.native.spec.ts:44:1 › landscape HUD keeps hero, rewards and controls clear
+  -  40 [phone] › tests\landscape-layout.native.spec.ts:60:1 › landscape evolution supports touch, upgrades, safe areas and rotation
+  -  41 [phone] › tests\landscape-layout.native.spec.ts:140:1 › synthetic crowded landscape HUD keeps boss, notices and rewards clear
+  ok 42 [phone] › tests\settlement.native.spec.ts:17:1 › synthetic native settlement: same promise, duplicate receipt and concurrent connections (577ms)
+  ok 43 [phone] › tests\settlement.native.spec.ts:32:75 › synthetic native settlement: transaction abort before-receipt rolls back and retries (622ms)
+  ok 44 [phone] › tests\settlement.native.spec.ts:32:75 › synthetic native settlement: transaction abort after-receipt-request rolls back and retries (620ms)
+  ok 45 [phone] › tests\settlement.native.spec.ts:54:1 › synthetic native settlement: lost response retries original slot without overwriting a later writer (633ms)
+  ok 46 [phone] › tests\settlement.native.spec.ts:73:1 › synthetic native settlement: stale run is rejected without rewards or receipt (610ms)
+  ok 47 [phone] › tests\settlement.native.spec.ts:86:1 › synthetic native settlement: event payment and final rewards share one revision owner (593ms)
+  ok 48 [phone] › tests\settlement.native.spec.ts:103:1 › synthetic native settlement: unsupported content and invalid drops abort before persistence (588ms)
+  ok 49 [phone] › tests\settlement.native.spec.ts:119:1 › synthetic result component: busy lock, storage error, same-run retry and saved rewards (1.0s)
+  ok 50 [phone] › tests\settlement.native.spec.ts:145:1 › synthetic touch transition: releasing a held joystick cannot activate the new result (1.0s)
+  -  51 [phone] › tests\short-layout.native.spec.ts:45:1 › short portrait HUD keeps hero and controls clear
+  -  52 [phone] › tests\short-layout.native.spec.ts:61:1 › short portrait evolution supports touch, upgrades, safe areas and height changes
+  -  53 [phone] › tests\short-layout.native.spec.ts:129:1 › synthetic crowded HUD keeps boss, notices and rewards inside short safe areas
+  ok 54 [phone] › tests\storage.native.spec.ts:21:1 › synthetic native IndexedDB: atomic receipts, concurrent connections and rollback (527ms)
+  ok 55 [phone] › tests\storage.native.spec.ts:56:1 › synthetic native IndexedDB: two tabs apply one receipt (652ms)
+  ok 56 [phone] › tests\storage.native.spec.ts:74:1 › synthetic native IndexedDB: copied imports, exact backup and independent slots (570ms)
+  ok 57 [phone] › tests\evolution-full.spec.ts:4:1 › natural evolved run finishes, saves once and replays from the starter (4.9m)
+  ok 58 [phone] › tests\evolution.spec.ts:4:1 › natural starter, evolution, skill route, bond and run reset (3.0m)
+  ok 59 [phone] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay (5.2m)
+  x  60 [phone] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay (4.9m)
+  ok 61 [phone] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay (6.2m)
+  ok 62 [phone] › tests\settlement.spec.ts:213:1 › supplemental imported low-growth save: natural-input HP defeat, reload and replay (5.0m)
+
+
+  1) [desktop] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "本局生命耗尽"
+    Received: "黄巾巨将已击败"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:210:129
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\focused-g5b\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\attachments\natural-settlement-input-3d4c1e1207796b8f7cea98fcb07796b7da91a4f2.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\focused-g5b\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\tasks\game-remediation\evidence\R1f\focused-g5b\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\error-context.md
+
+  2) [phone] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "本局生命耗尽"
+    Received: "黄巾巨将已击败"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:210:129
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\focused-g5b\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\attachments\natural-settlement-input-3857b95f2c9eb648ab703a12990349c916ecbc8b.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\focused-g5b\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\tasks\game-remediation\evidence\R1f\focused-g5b\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\error-context.md
+
+  Slow test file: [desktop] › tests\evolution-full.spec.ts (5.3m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  2 failed
+    [desktop] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay 
+    [phone] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay 
+  16 skipped
+  44 passed (1.0h)
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/camera-controls.native.spec.ts",
+      "tests/camera.native.spec.ts",
+      "tests/evolution-full.spec.ts",
+      "tests/evolution.native.spec.ts",
+      "tests/evolution.spec.ts",
+      "tests/landscape-layout.native.spec.ts",
+      "tests/settlement.native.spec.ts",
+      "tests/settlement.spec.ts",
+      "tests/short-layout.native.spec.ts",
+      "tests/storage.native.spec.ts",
+      "--project=phone",
+      "--project=desktop",
+      "--output=E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results",
+      "--reporter=list,json"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5b/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5b/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5b/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "camera-controls.native.spec.ts",
+      "file": "camera-controls.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "camera survives simultaneous touch, cancellation and viewport changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1521,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:47.964Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ac8697b75d56c87d3e01-7986e08900805245b9ba",
+          "file": "camera-controls.native.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "camera survives simultaneous touch, cancellation and viewport changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2049,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:00:48.414Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ac8697b75d56c87d3e01-63e68df2ba2961055568",
+          "file": "camera-controls.native.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "camera.native.spec.ts",
+      "file": "camera.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "portrait hero stays clear at north-west edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 118,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:49.672Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-961fea4c52e2edf393ae",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "portrait hero stays clear at south-east edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 126,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:49.797Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-b2614aae4a3584eadbe6",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "portrait hero stays clear at north-east edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 126,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:49.939Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-ab08596862262fb27872",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "portrait hero stays clear at south-west edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                    "line": 19,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 118,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:50.074Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Portrait camera contract; desktop has separate lifecycle coverage",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\camera.native.spec.ts",
+                        "line": 19,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-e51f9a065feb7bd4838c",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "portrait hero stays clear at north-west edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 35186,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:00:50.795Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-e1600ade54af464fe584",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "portrait hero stays clear at south-east edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 34224,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:01:25.991Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-9127ad1991870f5b624b",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "portrait hero stays clear at north-east edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 35150,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:02:00.227Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-9174ade11a6f78d436d7",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        },
+        {
+          "title": "portrait hero stays clear at south-west edge with natural touch",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 34824,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:02:35.386Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bbee2d79b3a600de4aee-e3c2601ce2d5aa4ca7d9",
+          "file": "camera.native.spec.ts",
+          "line": 18,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "evolution-full.spec.ts",
+      "file": "evolution-full.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural evolved run finishes, saves once and replays from the starter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 319404,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:57.913Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e3e25f71155b492dabd7-1b8ef14eacf8a469f1d7",
+          "file": "evolution-full.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "natural evolved run finishes, saves once and replays from the starter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 720000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 293327,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:21.817Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e3e25f71155b492dabd7-94b38be69d57c6d66d04",
+          "file": "evolution-full.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "evolution.native.spec.ts",
+      "file": "evolution.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 322,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:50.282Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-d92f5565592d4a305a98",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 313,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:50.672Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-1f829794c6b73b0b62fd",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: selection preserves progress, concurrent evolution settles once and fresh run resets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 558,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:10.312Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-300fe39c613964652850",
+          "file": "evolution.native.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "synthetic native: failed, stale and locked selections never overwrite a slot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 551,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:10.942Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6fd5efd64afd2ac8426a-923a5f3d978babadbd97",
+          "file": "evolution.native.spec.ts",
+          "line": 28,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "evolution.spec.ts",
+      "file": "evolution.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural starter, evolution, skill route, bond and run reset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 125006,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:37:17.486Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bef95681877fac12fa7e-1e5facd6ffd6514af8a1",
+          "file": "evolution.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "natural starter, evolution, skill route, bond and run reset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 181838,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:08:15.421Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bef95681877fac12fa7e-132b9d69261d0f6a01da",
+          "file": "evolution.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "landscape-layout.native.spec.ts",
+      "file": "landscape-layout.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "landscape HUD keeps hero, rewards and controls clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Landscape slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "line": 45,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 124,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:51.007Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Landscape slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "line": 45,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-fe9ce1a54223123da193",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "landscape evolution supports touch, upgrades, safe areas and rotation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Landscape slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "line": 61,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 127,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:51.139Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Landscape slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "line": 61,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-390584b6294001c2babb",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "synthetic crowded landscape HUD keeps boss, notices and rewards clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Landscape slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "line": 141,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 124,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:51.276Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Landscape slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "line": 141,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-c62adb8f9e4293d9398f",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 140,
+          "column": 1
+        },
+        {
+          "title": "landscape HUD keeps hero, rewards and controls clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Landscape slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "line": 45,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:11.510Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Landscape slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "line": 45,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-834cca44be89f69b7d6a",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 44,
+          "column": 1
+        },
+        {
+          "title": "landscape evolution supports touch, upgrades, safe areas and rotation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Landscape slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "line": 61,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 179,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:11.683Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Landscape slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "line": 61,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-974c48b8aa3811b0f80d",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "synthetic crowded landscape HUD keeps boss, notices and rewards clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Landscape slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                    "line": 141,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 174,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:11.870Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Landscape slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\landscape-layout.native.spec.ts",
+                        "line": 141,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bd0dbe89092387fc9ce7-372e6260de7073867713",
+          "file": "landscape-layout.native.spec.ts",
+          "line": 140,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "settlement.native.spec.ts",
+      "file": "settlement.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 383,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:51.471Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-bb4efac289d22041693e",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:52.121Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-f67fc31a60a5e1b854f5",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 378,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:52.475Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c1c0ca417fe48df93ef8",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:52.861Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1251ae83c8d3530930f2",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 363,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:53.240Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-79f02bf32b23635a2ddb",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 367,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:53.612Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-d196d131dd3de0df0d0d",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 371,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:53.986Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-be9ec9f9bbb47c718ca0",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 617,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:54.365Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c90abe32eea08dc2ccf9",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 864,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:54.992Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-6271d8e56032f72aa298",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: same promise, duplicate receipt and concurrent connections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 577,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:12.115Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-b89857a8f23919b441b4",
+          "file": "settlement.native.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: transaction abort before-receipt rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 622,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:12.961Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-dd1bb6e8398197e45444",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: transaction abort after-receipt-request rolls back and retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 620,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:13.589Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-05f97c876faab620c825",
+          "file": "settlement.native.spec.ts",
+          "line": 32,
+          "column": 75
+        },
+        {
+          "title": "synthetic native settlement: lost response retries original slot without overwriting a later writer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 633,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:14.216Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-829bcddd27027898bad6",
+          "file": "settlement.native.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: stale run is rejected without rewards or receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 610,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:14.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-e3a5fc6e8b1e68e59ae0",
+          "file": "settlement.native.spec.ts",
+          "line": 73,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: event payment and final rewards share one revision owner",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 593,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:15.476Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-1615aae089851b55e38b",
+          "file": "settlement.native.spec.ts",
+          "line": 86,
+          "column": 1
+        },
+        {
+          "title": "synthetic native settlement: unsupported content and invalid drops abort before persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 588,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:16.077Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-c094ff8c53ee3c3ba431",
+          "file": "settlement.native.spec.ts",
+          "line": 103,
+          "column": 1
+        },
+        {
+          "title": "synthetic result component: busy lock, storage error, same-run retry and saved rewards",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1009,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:16.673Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-8f174ff992d1d412a79b",
+          "file": "settlement.native.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "synthetic touch transition: releasing a held joystick cannot activate the new result",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1028,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:17.688Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bfc12c5cc70c7226f177-12fea930c22a6d2d40d2",
+          "file": "settlement.native.spec.ts",
+          "line": 145,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "settlement.spec.ts",
+      "file": "settlement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural complete first-stage victory, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 317533,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:39:22.509Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop\\attachments\\natural-settlement-input-591a5396106bf9388b5169d86efd15ee26a83d20.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-aaa9174004a68676abe3",
+          "file": "settlement.spec.ts",
+          "line": 209,
+          "column": 1
+        },
+        {
+          "title": "natural corner-contact defeat, zero stars, save reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 299561,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:201:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:210:129",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 25,
+                      "line": 201
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 199 |\u001b[39m     expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m 200 |\u001b[39m     \u001b[90m// Preserve the requested outcome gate, after collecting the actual saved result.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 201 |\u001b[39m     expect(actualTitle)\u001b[33m.\u001b[39mtoBe(title)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 202 |\u001b[39m     expect(stars)\u001b[33m.\u001b[39mtoMatch(win \u001b[33m?\u001b[39m \u001b[35m/★{2,3}/\u001b[39m \u001b[33m:\u001b[39m \u001b[35m/^☆☆☆$/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 203 |\u001b[39m   } \u001b[36mfinally\u001b[39m {\n \u001b[90m 204 |\u001b[39m     \u001b[36mconst\u001b[39m path \u001b[33m=\u001b[39m info\u001b[33m.\u001b[39moutputPath(\u001b[32m'natural-settlement-input.json'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 25,
+                        "line": 201
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n\n  199 |     expect(errors).toEqual([]);\n  200 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 201 |     expect(actualTitle).toBe(title);\n      |                         ^\n  202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  203 |   } finally {\n  204 |     const path = info.outputPath('natural-settlement-input.json');\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:201:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:210:129"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:44:40.049Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\attachments\\natural-settlement-input-3d4c1e1207796b8f7cea98fcb07796b7da91a4f2.json"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 25,
+                    "line": 201
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-8ffe19a89f7cfaa8f112",
+          "file": "settlement.spec.ts",
+          "line": 210,
+          "column": 1
+        },
+        {
+          "title": "natural first-stage timeout, zero stars, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 369382,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:49:40.064Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop\\attachments\\natural-settlement-input-b2076de5b1f283ed98cffcbf17e7fa7c08b15fb4.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-ce136e9d5b0f11287158",
+          "file": "settlement.spec.ts",
+          "line": 211,
+          "column": 1
+        },
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 298379,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:55:49.600Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-desktop\\attachments\\natural-settlement-input-bbb8268803cc7c8577eaa1a75a59e28ee742b8df.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-2d85e1a2faa95984f58c",
+          "file": "settlement.spec.ts",
+          "line": 213,
+          "column": 1
+        },
+        {
+          "title": "natural complete first-stage victory, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 311467,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:11:17.300Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\\attachments\\natural-settlement-input-291186751118ff5ecdfcc7f4d9010ef792809a34.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-c96c378116643a152ad4",
+          "file": "settlement.spec.ts",
+          "line": 209,
+          "column": 1
+        },
+        {
+          "title": "natural corner-contact defeat, zero stars, save reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 295932,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:201:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:210:129",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 25,
+                      "line": 201
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 199 |\u001b[39m     expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m 200 |\u001b[39m     \u001b[90m// Preserve the requested outcome gate, after collecting the actual saved result.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 201 |\u001b[39m     expect(actualTitle)\u001b[33m.\u001b[39mtoBe(title)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 202 |\u001b[39m     expect(stars)\u001b[33m.\u001b[39mtoMatch(win \u001b[33m?\u001b[39m \u001b[35m/★{2,3}/\u001b[39m \u001b[33m:\u001b[39m \u001b[35m/^☆☆☆$/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 203 |\u001b[39m   } \u001b[36mfinally\u001b[39m {\n \u001b[90m 204 |\u001b[39m     \u001b[36mconst\u001b[39m path \u001b[33m=\u001b[39m info\u001b[33m.\u001b[39moutputPath(\u001b[32m'natural-settlement-input.json'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 25,
+                        "line": 201
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n\n  199 |     expect(errors).toEqual([]);\n  200 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 201 |     expect(actualTitle).toBe(title);\n      |                         ^\n  202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  203 |   } finally {\n  204 |     const path = info.outputPath('natural-settlement-input.json');\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:201:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:210:129"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:16:28.775Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\\attachments\\natural-settlement-input-3857b95f2c9eb648ab703a12990349c916ecbc8b.json"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-phone\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 25,
+                    "line": 201
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-7bf01b7de8157d23e7f6",
+          "file": "settlement.spec.ts",
+          "line": 210,
+          "column": 1
+        },
+        {
+          "title": "natural first-stage timeout, zero stars, save reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 372551,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:21:25.215Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone\\attachments\\natural-settlement-input-25eba8719923df603a241d740ba8befbd64947e1.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-2ca69a653f4bf13cf825",
+          "file": "settlement.spec.ts",
+          "line": 211,
+          "column": 1
+        },
+        {
+          "title": "supplemental imported low-growth save: natural-input HP defeat, reload and replay",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 297522,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:27:37.930Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5b\\test-results\\settlement-supplemental-im-16ed8-HP-defeat-reload-and-replay-phone\\attachments\\natural-settlement-input-b0e0746e179a01b0d8ac10dbae6639d6ee0c3b69.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-f88e252a32c45e868330",
+          "file": "settlement.spec.ts",
+          "line": 213,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "short-layout.native.spec.ts",
+      "file": "short-layout.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "short portrait HUD keeps hero and controls clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Short portrait slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                    "line": 46,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 135,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:55.883Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Short portrait slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                        "line": 46,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8b526f96777c7f3d5f55-99f90904a758f67f6640",
+          "file": "short-layout.native.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "short portrait evolution supports touch, upgrades, safe areas and height changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Short portrait slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                    "line": 62,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 147,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:56.024Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Short portrait slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                        "line": 62,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8b526f96777c7f3d5f55-34afe2cafe53663d2e44",
+          "file": "short-layout.native.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "synthetic crowded HUD keeps boss, notices and rewards inside short safe areas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Short portrait slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                    "line": 130,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 146,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:56.179Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Short portrait slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                        "line": 130,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8b526f96777c7f3d5f55-8e7bf1691cc76c9c5b10",
+          "file": "short-layout.native.spec.ts",
+          "line": 129,
+          "column": 1
+        },
+        {
+          "title": "short portrait HUD keeps hero and controls clear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Short portrait slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                    "line": 46,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 149,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:18.740Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Short portrait slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                        "line": 46,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8b526f96777c7f3d5f55-1de09bdb3534e4006993",
+          "file": "short-layout.native.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "short portrait evolution supports touch, upgrades, safe areas and height changes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Short portrait slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                    "line": 62,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 163,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:18.896Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Short portrait slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                        "line": 62,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8b526f96777c7f3d5f55-94777497cafd2d1cb430",
+          "file": "short-layout.native.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "synthetic crowded HUD keeps boss, notices and rewards inside short safe areas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Short portrait slice",
+                  "location": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                    "line": 130,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 163,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:19.067Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Short portrait slice",
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\short-layout.native.spec.ts",
+                        "line": 130,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "8b526f96777c7f3d5f55-7fc4293d8e1983d1ff71",
+          "file": "short-layout.native.spec.ts",
+          "line": 129,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "storage.native.spec.ts",
+      "file": "storage.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:56.344Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-43b0a0d32da078bfa467",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 407,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:56.684Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-99e47867efcc10b6d2bd",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:31:57.097Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-81ee95dc541dcdf7cee8",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: atomic receipts, concurrent connections and rollback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 527,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:19.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-a7f7ffcd7bde38330e55",
+          "file": "storage.native.spec.ts",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: two tabs apply one receipt",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 652,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:19.802Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-13a3742dc7e55bc6ab76",
+          "file": "storage.native.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "synthetic native IndexedDB: copied imports, exact backup and independent slots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 570,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:03:20.461Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aaa7dfb32c2ddb305443-3747bbe9c69bc37b0b41",
+          "file": "storage.native.spec.ts",
+          "line": 74,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-20T10:31:47.013Z",
+    "duration": 3648678.455,
+    "expected": 44,
+    "skipped": 16,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

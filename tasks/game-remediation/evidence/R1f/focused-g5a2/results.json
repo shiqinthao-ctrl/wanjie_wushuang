@@ -1,0 +1,167 @@
+
+Running 1 test using 1 worker
+
+  ok 1 [phone] › tests\boss.spec.ts:4:1 › natural first Boss: reach 270s, see health and an attack cue, pause and resume (4.8m)
+
+  1 passed (4.9m)
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/boss.spec.ts",
+      "--project=phone",
+      "--output=E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5a2\\test-results",
+      "--reporter=list,json"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5a2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5a2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5a2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "boss.spec.ts",
+      "file": "boss.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural first Boss: reach 270s, see health and an attack cue, pause and resume",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 650000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 290130,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:26:41.610Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-boss-input",
+                      "contentType": "application/json",
+                      "body": "ewogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDAgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMiAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEwIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTEgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMiAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIzIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMSAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDUgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCA2IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMTEgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAxNiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDIzIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMjggLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAzMyAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDM5IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMzkgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAwIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgMSAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDcgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAxMiAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDIxIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMyDCtyDnu4/pqowgMzAgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAzNyAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjMgwrcg57uP6aqMIDUxIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMyDCtyDnu4/pqowgNTYgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi40IMK3IOe7j+mqjCAyIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuNCDCtyDnu4/pqowgOCAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDE3IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYwIC8gNzYzTHYuNCDCtyDnu4/pqowgMzYgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjMzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi40IMK3IOe7j+mqjCA0MiAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjQgwrcg57uP6aqMIDUxIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuNCDCtyDnu4/pqowgNjAgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi40IMK3IOe7j+mqjCA2MiAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDY4IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNSDCtyDnu4/pqowgMiAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjUgwrcg57uP6aqMIDcgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQxIiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi41IMK3IOe7j+mqjCAxMiAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjUgwrcg57uP6aqMIDIyIC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgMjcgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQ0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCAzNCAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjUgwrcg57uP6aqMIDM0IC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuNSDCtyDnu4/pqowgNzUgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjU1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi42IMK3IOe7j+mqjCAyOSAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjYgwrcg57uP6aqMIDY2IC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNyDCtyDnu4/pqowgMjUgLyAxMDMiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMToxMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNyDCtyDnu4/pqowgODEgLyAxMDMiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMToxNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuOCDCtyDnu4/pqowgMTYgLyAxMTQiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMToyMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuOCDCtyDnu4/pqowgODEgLyAxMTQiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMToyNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuOSDCtyDnu4/pqowgMTYgLyAxMjUiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTozMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuOSDCtyDnu4/pqowgMTA3IC8gMTI1IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MzQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljkgwrcg57uP6aqMIDExOSAvIDEyNSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjM4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xMCDCtyDnu4/pqowgMjkgLyAxMzYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTo0NCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTAgwrcg57uP6aqMIDc0IC8gMTM2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6NDkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjExIMK3IOe7j+mqjCAzIC8gMTQ3IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6NTQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjExIMK3IOe7j+mqjCA1MyAvIDE0NyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjU5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xMSDCtyDnu4/pqowgMTAxIC8gMTQ3IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6MDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEyIMK3IOe7j+mqjCA4IC8gMTU4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6MTAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEyIMK3IOe7j+mqjCA2MCAvIDE1OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAyOjE2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4xMiDCtyDnu4/pqowgODggLyAxNTgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMjoyMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMTMgwrcg57uP6aqMIDQgLyAxNjkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMjoyNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTMgwrcg57uP6aqMIDc2IC8gMTY5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6MzUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjE0IMK3IOe7j+mqjCAyIC8gMTgwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6NDAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjE0IMK3IOe7j+mqjCA3MSAvIDE4MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAyOjQ2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xNCDCtyDnu4/pqowgMTM3IC8gMTgwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6NTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc1OSAvIDc2M0x2LjE1IMK3IOe7j+mqjCA2NiAvIDE5MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjAxIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xNSDCtyDnu4/pqowgMTEyIC8gMTkxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6MDUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjE2IMK3IOe7j+mqjCAxMiAvIDIwMiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjExIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xNiDCtyDnu4/pqowgODIgLyAyMDIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMzoxNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMTYgwrcg57uP6aqMIDEyNCAvIDIwMiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjIyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi4xNyDCtyDnu4/pqowgMSAvIDIxMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjI3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4xNyDCtyDnu4/pqowgNTAgLyAyMTMiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMzozNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTcgwrcg57uP6aqMIDE3OCAvIDIxMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjQyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xNyDCtyDnu4/pqowgMjExIC8gMjEzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6NDYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjE4IMK3IOe7j+mqjCAyNCAvIDIyNCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjUyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xOCDCtyDnu4/pqowgODUgLyAyMjQiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMzo1OCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTggwrcg57uP6aqMIDE1MSAvIDIyNCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjA0OjA0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xOCDCtyDnu4/pqowgMjIyIC8gMjI0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDQ6MDgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjE5IMK3IOe7j+mqjCAyOCAvIDIzNSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjA0OjEzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xOSDCtyDnu4/pqowgNzMgLyAyMzUiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwNDoxOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTkgwrcg57uP6aqMIDE1NiAvIDIzNSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjA0OjI1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4xOSDCtyDnu4/pqowgMjE4IC8gMjM1IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDQ6MjkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIwIMK3IOe7j+mqjCAyOSAvIDI0NiIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXSwKICAiY2FzdFNlZW4iOiB0cnVlCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ca472c3b4b03656f5d9-d8ff3d8ad7ac7041e9ca",
+          "file": "boss.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-20T10:26:40.828Z",
+    "duration": 291742.531,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

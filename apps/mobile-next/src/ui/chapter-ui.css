@@ -1,0 +1,70 @@
+/* Chapter-only layout keeps the published G5 HUD and dialogs intact. */
+.chapter-battle .battle-overview {
+  position: absolute;
+  inset: 0 0 auto;
+  max-width: 680px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  padding: calc(8px + env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 12px max(12px, env(safe-area-inset-left));
+  background: linear-gradient(#071713ed, #071713bb, transparent);
+  pointer-events: none;
+}
+.chapter-battle .battle-overview > * { position: static; width: auto; max-width: none; min-width: 0; grid-column: 1; grid-row: auto; }
+.chapter-battle .battle-overview .battle-hud { padding: 0; gap: 12px; background: none; }
+.chapter-battle .battle-hud > div { min-width: 0; }
+.chapter-battle .battle-hud small { margin-bottom: 3px; font-size: 10px; }
+.chapter-battle .battle-hud strong { font-size: 16px; }
+.chapter-battle .battle-hud button { min-width: 48px; min-height: 48px; padding: 8px 12px; }
+.chapter-battle .battle-overview .combat-vitals { grid-row: 2; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; font-size: 11px; line-height: 16px; }
+.chapter-battle .combat-vitals > div + div { margin: 0; }
+.chapter-battle .combat-vitals progress { height: 5px; margin-top: 3px; }
+.chapter-battle .battle-overview .stage-note { padding: 5px 8px; font-size: 11px; line-height: 16px; }
+.chapter-battle .battle-overview .boss-hud { padding: 5px 8px; }
+.chapter-battle .boss-hud strong, .chapter-battle .boss-hud span { line-height: 15px; }
+.chapter-battle .boss-hud progress { margin: 4px 0; height: 5px; }
+.chapter-battle .control-zone { padding: 12px max(16px, env(safe-area-inset-right)) calc(16px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+.chapter-battle .action-pad { grid-template-columns: repeat(2, 68px); gap: 8px; }
+.chapter-battle .action-pad button { min-height: 60px; }
+.chapter-battle .action-pad button:nth-child(3) { grid-column: 1 / -1; border-radius: 12px; min-height: 48px; }
+.chapter-battle .touch-hint { display: none; }
+@media (max-width: 640px), (pointer: coarse) {
+  .chapter-battle .keyboard-hint { display: none; }
+  .chapter-battle .touch-hint { display: inline; }
+}
+
+/* Only the middle scrolls, so long build guides never displace continuation. */
+.chapter-battle .chapter-pause {
+  width: min(440px, calc(100% - 24px - env(safe-area-inset-left) - env(safe-area-inset-right)));
+  max-height: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  margin: auto;
+  top: env(safe-area-inset-top);
+  bottom: env(safe-area-inset-bottom);
+  padding: 0;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+.chapter-battle .chapter-pause[open] { display: flex; flex-direction: column; }
+.chapter-pause .pause-heading { flex: none; padding: 18px 20px 12px; border-bottom: 1px solid var(--line); }
+.chapter-pause .pause-heading h2 { font-size: 24px; margin: 8px 0; }
+.chapter-pause .pause-heading p { margin: 0; }
+.chapter-pause .pause-content { min-height: 0; padding: 12px 20px; overflow-y: auto; overscroll-behavior: contain; }
+.chapter-pause .pause-content p { margin-bottom: 8px; }
+.chapter-pause .pause-build { border-bottom: 1px solid var(--line); }
+.chapter-pause summary { min-height: 48px; padding: 10px 0; cursor: pointer; color: var(--gold); font-size: 14px; }
+.chapter-pause summary span { display: block; margin: 4px 0 0 18px; color: var(--muted); font-size: 12px; }
+.chapter-pause summary:focus-visible { outline: 3px solid #7eefce; outline-offset: -3px; }
+.chapter-pause .effects-note { margin: 8px 0; font-size: 12px; }
+.chapter-pause .audio-settings label { margin-top: 8px; }
+.chapter-pause .audio-settings p { font-size: 12px; }
+.chapter-pause .pause-actions { flex: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px 20px; border-top: 1px solid var(--line); background: var(--ink); }
+.chapter-pause .pause-actions button { min-width: 48px; min-height: 48px; margin: 0; padding: 10px 8px; }
+@media (max-height: 600px) and (orientation: landscape) {
+  .chapter-battle .battle-overview { max-width: none; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+  .chapter-battle .battle-overview .battle-hud { grid-column: 1 / -1; }
+  .chapter-battle .battle-overview .combat-vitals { grid-column: 1; grid-row: 2; }
+  .chapter-battle .battle-overview .stage-note, .chapter-battle .battle-overview .boss-hud { grid-column: 2; grid-row: 2; }
+  .chapter-pause .pause-heading { padding: 10px 20px; }
+  .chapter-pause .pause-heading h2 { font-size: 20px; margin: 4px 0; }
+}

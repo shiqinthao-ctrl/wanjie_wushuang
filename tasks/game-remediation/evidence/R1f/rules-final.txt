@@ -1,0 +1,50 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.0 [39m[90mE:/wanjie_wushuang/apps/mobile-next[39m
+
+ [32m✓[39m src/chapter/contracts.test.ts [2m([22m[2m60 tests[22m[2m)[22m[32m 76[2mms[22m[39m
+ [32m✓[39m src/core/growth.test.ts [2m([22m[2m180 tests[22m[2m)[22m[32m 137[2mms[22m[39m
+ [32m✓[39m src/core/evolutionCombat.test.ts [2m([22m[2m18 tests[22m[2m)[22m[32m 47[2mms[22m[39m
+ [32m✓[39m src/core/firstCombat.test.ts [2m([22m[2m40 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/chapter/growth.test.ts [2m([22m[2m205 tests[22m[2m)[22m[32m 182[2mms[22m[39m
+ [32m✓[39m src/core/frostFlame.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 60[2mms[22m[39m
+ [32m✓[39m src/core/evolutionFlow.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+ [32m✓[39m src/chapter/core.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+ [32m✓[39m src/chapter/enemyReadability.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 53[2mms[22m[39m
+ [32m✓[39m src/core/combatMath.test.ts [2m([22m[2m449 tests[22m[2m)[22m[32m 211[2mms[22m[39m
+ [32m✓[39m src/core/settlementFlow.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/chapter/dragon.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 53[2mms[22m[39m
+ [32m✓[39m src/core/bossCombat.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/core/eventFlow.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/core/windShadow.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/core/GameCore.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/core/elementalEvolution.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/game/chapterPresentation.test.ts [2m([22m[2m5 tests[22m[2m)[22m[33m 402[2mms[22m[39m
+   [32m✓[39m chapter presentation mapping [2m(3)[22m
+     [33m[2m✓[22m[39m audio on/off consumes the same seeded battle with equal snapshots, entities and choices[33m 395[2mms[22m[39m
+ [32m✓[39m src/storage/schema30.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32m✓[39m src/core/settlement.test.ts [2m([22m[2m18 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/core/evolvedCombat.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/core/firstMap.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/core/progression.test.ts [2m([22m[2m59 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/core/bossLifecycle.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/core/chestFlow.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/core/visualEvents.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/core/timedChests.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/core/runEvolution.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/game/audio/BattleAudio.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/core/firstEvents.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/core/firstBoss.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/ui/buildAdvice.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/chapter/feedback.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/game/audio/ChapterAudio.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/game/EffectTimeline.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 3[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m35 passed[39m[22m[90m (35)[39m
+[2m      Tests [22m [1m[32m1313 passed[39m[22m[90m (1313)[39m
+[2m   Start at [22m 17:50:03
+[2m   Duration [22m 1.60s[2m (transform 61%, tests 20%, import 17%, worker 2%)[22m
+
+[2m  Transform [22m [33mtransforming modules took 5.92s[39m[2m · 61% of tracked time, re-done on every run[22m
+[2m            [22m [2mpersist transforms across runs with [22m[33mfsModuleCache: true[39m
+[2m            [22m [2mlearn more: https://vitest.dev/guide/improving-performance#caching-between-reruns[22m
+

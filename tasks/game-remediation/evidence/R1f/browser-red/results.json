@@ -1,0 +1,229 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/chapter-ui.spec.ts",
+      "--project=phone",
+      "--grep",
+      "mobile layout 360",
+      "--output=../../tasks/game-remediation/evidence/R1f/browser-red/test-results",
+      "--reporter=list,json,html"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/browser-red/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/browser-red/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/browser-red/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ],
+      [
+        "html"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "chapter-ui.spec.ts",
+      "file": "chapter-ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mobile layout 360: readable HUD and reachable pause actions",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 7079,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Space|E \\/ Q/\u001b[39m\nReceived string:      \u001b[31m\"闪避\u001b[39m\n\u001b[31m\u001b[7mSpace\u001b[27m\u001b[39m\n\u001b[31m炎龙斩\u001b[39m\n\u001b[31mE / Q\u001b[39m\n\u001b[31m赤龙降世\u001b[39m\n\u001b[31m0%\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Space|E \\/ Q/\u001b[39m\nReceived string:      \u001b[31m\"闪避\u001b[39m\n\u001b[31m\u001b[7mSpace\u001b[27m\u001b[39m\n\u001b[31m炎龙斩\u001b[39m\n\u001b[31mE / Q\u001b[39m\n\u001b[31m赤龙降世\u001b[39m\n\u001b[31m0%\"\u001b[39m\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts:52:26",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts",
+                      "column": 26,
+                      "line": 52
+                    },
+                    "snippet": "  50 |   await page.screenshot({ path: info.outputPath('battle.png') });\n  51 |   const hints = await page.locator('.action-pad').innerText();\n> 52 |   expect.soft(hints).not.toMatch(/Space|E \\/ Q/);\n     |                          ^\n  53 |   for (const button of await page.locator('.battle-hud button, .action-pad button').all()) {\n  54 |     const box = (await button.boundingBox())!;\n  55 |     expect.soft(box.width).toBeGreaterThanOrEqual(48); expect.soft(box.height).toBeGreaterThanOrEqual(48);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts",
+                        "column": 26,
+                        "line": 52
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoMatch\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected pattern: not \u001b[32m/Space|E \\/ Q/\u001b[39m\nReceived string:      \u001b[31m\"闪避\u001b[39m\n\u001b[31m\u001b[7mSpace\u001b[27m\u001b[39m\n\u001b[31m炎龙斩\u001b[39m\n\u001b[31mE / Q\u001b[39m\n\u001b[31m赤龙降世\u001b[39m\n\u001b[31m0%\"\u001b[39m\n\n  50 |   await page.screenshot({ path: info.outputPath('battle.png') });\n  51 |   const hints = await page.locator('.action-pad').innerText();\n> 52 |   expect.soft(hints).not.toMatch(/Space|E \\/ Q/);\n     |                          ^\n  53 |   for (const button of await page.locator('.battle-hud button, .action-pad button').all()) {\n  54 |     const box = (await button.boundingBox())!;\n  55 |     expect.soft(box.width).toBeGreaterThanOrEqual(48); expect.soft(box.height).toBeGreaterThanOrEqual(48);\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts:52:26"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts",
+                        "column": 80,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m48\u001b[39m\nReceived:    \u001b[31m44\u001b[39m\n\n  53 |   for (const button of await page.locator('.battle-hud button, .action-pad button').all()) {\n  54 |     const box = (await button.boundingBox())!;\n> 55 |     expect.soft(box.width).toBeGreaterThanOrEqual(48); expect.soft(box.height).toBeGreaterThanOrEqual(48);\n     |                                                                                ^\n  56 |   }\n  57 |   await page.getByRole('button', { name: '暂停', exact: true }).click();\n  58 |   const pause = page.getByRole('dialog', { name: '战局已暂停' });\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts:55:80"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts",
+                        "column": 35,
+                        "line": 43
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m606\u001b[39m\nReceived:    \u001b[31m2104.9375\u001b[39m\n\n  41 |   expect.soft(box.x + box.width).toBeLessThanOrEqual(width);\n  42 |   expect.soft(box.y).toBeGreaterThanOrEqual(top);\n> 43 |   expect.soft(box.y + box.height).toBeLessThanOrEqual(height - bottom);\n     |                                   ^\n  44 | }\n  45 |\n  46 | for (const width of [360, 390, 430]) test(`mobile layout ${width}: readable HUD and reachable pause actions`, async ({ page }, info) => {\n    at inside (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts:43:35)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts:60:3"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts",
+                        "column": 49,
+                        "line": 61
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('dialog', { name: '战局已暂停' }).getByLabel('本局进化路线')\nExpected: hidden\nReceived: visible\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toBeHidden\" getByRole('dialog', { name: '战局已暂停' }).getByLabel('本局进化路线') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog', { name: '战局已暂停' }).getByLabel('本局进化路线')\u001b[22m\n\u001b[2m    14 × locator resolved to <section class=\"run-guide\" aria-label=\"本局进化路线\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"visible\"\u001b[22m\n\n\n  59 |   await page.screenshot({ path: info.outputPath('pause.png') });\n  60 |   await inside(pause.getByRole('button', { name: '继续战斗' }), width, 640, 24, 34);\n> 61 |   await expect.soft(pause.getByLabel('本局进化路线')).toBeHidden();\n     |                                                 ^\n  62 | });\n  63 |\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts:61:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-10T11:34:32.610Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-red\\test-results\\chapter-ui-mobile-layout-3-dcd85-and-reachable-pause-actions-phone\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-red\\test-results\\chapter-ui-mobile-layout-3-dcd85-and-reachable-pause-actions-phone\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-red\\test-results\\chapter-ui-mobile-layout-3-dcd85-and-reachable-pause-actions-phone\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-red\\test-results\\chapter-ui-mobile-layout-3-dcd85-and-reachable-pause-actions-phone\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\chapter-ui.spec.ts",
+                    "column": 26,
+                    "line": 52
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-75455c643d4aacb19abc",
+          "file": "chapter-ui.spec.ts",
+          "line": 46,
+          "column": 38
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-10T11:34:31.615Z",
+    "duration": 9496.442000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

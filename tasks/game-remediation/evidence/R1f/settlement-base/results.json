@@ -1,0 +1,230 @@
+
+Running 1 test using 1 worker
+
+  x  1 [desktop] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay (5.0m)
+
+
+  1) [desktop] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "本局生命耗尽"
+    Received: "黄巾巨将已击败"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:210:129
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\settlement-base\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\attachments\natural-settlement-input-bf4b2a2c5d5128bdfddaca2245f6218787efbe6c.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\settlement-base\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\tasks\game-remediation\evidence\R1f\settlement-base\test-results\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\error-context.md
+
+  1 failed
+    [desktop] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay 
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/settlement.spec.ts:210",
+      "--project=desktop",
+      "--output=E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\settlement-base\\test-results",
+      "--reporter=list,json"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/settlement-base/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/settlement-base/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/settlement-base/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "settlement.spec.ts",
+      "file": "settlement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural corner-contact defeat, zero stars, save reload and replay",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 680000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 299756,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:201:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:210:129",
+                    "location": {
+                      "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                      "column": 25,
+                      "line": 201
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 199 |\u001b[39m     expect(errors)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m 200 |\u001b[39m     \u001b[90m// Preserve the requested outcome gate, after collecting the actual saved result.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 201 |\u001b[39m     expect(actualTitle)\u001b[33m.\u001b[39mtoBe(title)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 202 |\u001b[39m     expect(stars)\u001b[33m.\u001b[39mtoMatch(win \u001b[33m?\u001b[39m \u001b[35m/★{2,3}/\u001b[39m \u001b[33m:\u001b[39m \u001b[35m/^☆☆☆$/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 203 |\u001b[39m   } \u001b[36mfinally\u001b[39m {\n \u001b[90m 204 |\u001b[39m     \u001b[36mconst\u001b[39m path \u001b[33m=\u001b[39m info\u001b[33m.\u001b[39moutputPath(\u001b[32m'natural-settlement-input.json'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                        "column": 25,
+                        "line": 201
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"本局生命耗尽\"\u001b[39m\nReceived: \u001b[31m\"黄巾巨将已击败\"\u001b[39m\n\n  199 |     expect(errors).toEqual([]);\n  200 |     // Preserve the requested outcome gate, after collecting the actual saved result.\n> 201 |     expect(actualTitle).toBe(title);\n      |                         ^\n  202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);\n  203 |   } finally {\n  204 |     const path = info.outputPath('natural-settlement-input.json');\n    at finishNaturally (E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:201:25)\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts:210:129"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T11:33:49.831Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-settlement-input",
+                      "contentType": "application/json",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\settlement-base\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\attachments\\natural-settlement-input-bf4b2a2c5d5128bdfddaca2245f6218787efbe6c.json"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\settlement-base\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\settlement-base\\test-results\\settlement-natural-corner--0b096-tars-save-reload-and-replay-desktop\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\settlement.spec.ts",
+                    "column": 25,
+                    "line": 201
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de12aa92550dfc05fc63-8ffe19a89f7cfaa8f112",
+          "file": "settlement.spec.ts",
+          "line": 210,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-20T11:33:49.114Z",
+    "duration": 300878.74,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

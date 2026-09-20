@@ -24,19 +24,57 @@ Legacy version wrappers still exist. Migrate incrementally; do not rewrite the f
 See `../TASK.md`.
 
 ## Last completed
-R1e chapter H001/dragon presentation mapping and 16 original synthesized engineering cues. Added gesture unlock, bounded mix, persisted mute/volume, pause/manual resume and cleanup. See tasks/game-remediation/evidence/R1e/RESULTS.md and RECORDINGS.md. No Render deployment; G5 reference 821b90c not reverified.
+R1f chapter phone HUD and pause controls. Chapter battle HUD compacted to
+title/time/pause + side-by-side life/XP rows; kills and build guide moved into
+the pause dialog with a collapsed summary, scrollable middle and pinned
+continue/exit. Phone actions show readiness/cooldown without persistent
+keyboard hints (desktop keeps them, coarse/narrow switches automatically).
+Real-device fix: pause now activates on pointerdown because browsers emit no
+click while another finger is held. Chapter-only styles in new chapter-ui.css.
+Evidence: tasks/game-remediation/evidence/R1f/RESULTS.md. Rollback 3e840c1;
+G5 reference 821b90c not reverified; no Render deployment.
 
 ## Changed files
-Added chapterPresentation, audio backend/mixer/lifecycle/settings, AudioSettings UI and 23 rules. Core adds confirmed feedback events, including banked XP choices; mountBattle consumes them. Added 7 audio browsers per viewport. Updated TASK, contracts, evidence and handoff. No legacy, dependency, archive or release edits.
+BattleView.vue (chapter HUD/pause restructure, pause pointerdown), new
+chapter-ui.css (chapter-scoped), new tests/chapter-ui.spec.ts (10 tests),
+boss.spec.ts reward-click race fix (1500ms timeout like settlement.spec).
+No legacy layout, dependency, archive, release or rule/balance changes;
+Schema30, fresh/defeat zero stars, non-story isolation, one settlement and
+V3.0 fixes untouched.
 
 ## Tests
-Five root gates, types, 1313/1313 rules across 35 files and build pass. Final browsers: 14 audio + 24 enemy + 8 dragon + 10 growth + 46 compatibility = 102/102. Each viewport closes all contexts after 20 exits. 123 raw WebM, 110 report copies and 13 MP4s decode/hash; 9 accepted MP4s, 4 rejected exports retained. Four sound exports have signal; six silence samples RMS=0. 13.77s directed review, not natural victory.
+Five root gates pass in order; types and 1,313/1,313 rules across 35 files and
+build pass. chapter-ui 10/10 (phone): 360/390/430 widths, pause collapse/
+scroll, 640x360 landscape, mid-run resize, simultaneous move+cast,
+pointercancel, held-finger pause entry, directed upgrade 360 and boss 390
+layouts. Focused chapter regression 92/92 (desktop+phone). Focused G5
+regression 80/98: boss natural race fixed and re-run 1/1; 16 by-spec-guard
+skips (no landscape-* project in config, pre-existing); 2 failures are the
+SAME pre-existing drift at base 3e840c1: settlement natural corner-contact
+defeat instead sees the hero kill the boss (evidence R1f/settlement-base).
+All attempts, browser-errors.json (all empty) and WebM recordings retained;
+inventory and hashes in R1f/recordings.json. Screenshots reviewed by hand at
+360/landscape/upgrade/boss/expanded-guide.
 
 ## Unresolved risk
-Full R1/professional art/audio and public chapter entry incomplete. R1d changed difficulty; old growth timing is not current evidence. H010/H012, charms/stages 2-3 unavailable. P2l natural HP-death, G4 cold timeout, phones/iOS audio/endurance/PWA/human gates open. Large chunk, mobile shortcuts/HUD and long pause menu remain. R1e rollback 8505a3d; keep saves/evidence. Live G5/auto-deploy not reverified.
+Pre-existing since before this slice: natural play now survives to kill the
+first boss, so settlement.spec:210 cannot reach natural defeat on the
+committed base; needs a dedicated balance/test-strategy task, zero-star
+defeat logic itself still covered by rules. Landscape/short-layout native
+specs are dead-skipped under the committed playwright config (no dedicated
+projects). Phones are emulated Chrome only; no iOS Safari, physical device,
+public chapter entry, professional art/audio acceptance, natural Boss victory
+chain or external players. H010/H012, charms, stages 2-3, P2l natural
+HP-death, G4 cold timeout and live G5/auto-deploy remain open. Large chunk
+and long pause menu polish continue; rollback 3e840c1, keep saves/evidence.
 
 ## Recommended next task
-R1f: scope TASK first; simplify chapter phone HUD and pause menu, remove persistent keyboard hints, verify 360/390/430 widths, safe areas, multitouch and modal interruption. Integrate professional samples only when available/accepted. Preserve chapter/G5 isolation. R1g natural Boss chain and external players remain separate; no full R1 tag or mass asset-production claim.
+R1g per roadmap: restore a reachable natural defeat (either rebalance the
+legacy early game or give the settlement harness an explicit hazard-death
+path) and re-verify settlement.spec:210 plus the focused G5 batch to green;
+scope TASK before touching any balance. Then the natural Boss chain and
+external-player tests stay separate; no full R1 tag or asset-production
+claim until those gates close.
 
 ## After each task
 Replace only these fields:

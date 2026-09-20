@@ -1,0 +1,232 @@
+
+> wanjie-wushuang@3.1.3 audit
+> node scripts/audit.mjs
+
+PASS Schema30
+PASS zero stars
+PASS settlement guard
+PASS rift baseline
+PASS Q alias
+PASS bounded directional dodge
+PASS Batch G formal configs
+PASS Batch G config sentinels
+PASS Batch H formal configs
+PASS Batch H config sentinels
+PASS evolution formal config
+PASS world stage config
+PASS Chapter migrated consumers
+PASS skill migrated consumers
+PASS evolution migrated consumers
+PASS rune/pet light-config migrated consumers
+PASS boss migrated consumers
+PASS hero presentation/save migrated consumers
+PASS remaining Hero migrated consumers
+PASS Gear migrated consumers
+PASS hero identity formal configs
+PASS hero identity compatibility aliases removed
+PASS hero identity migrated consumers
+PASS 6 hero combat identities
+PASS 19 hero skill names
+PASS skill forms formal configs
+PASS skill forms compatibility aliases removed
+PASS skill forms migrated consumers
+PASS boss interactions formal configs
+PASS boss interactions compatibility aliases removed
+PASS boss interactions migrated consumers
+PASS gear system formal configs
+PASS gear compatibility aliases removed
+PASS gear system migrated consumers
+PASS gear catalog in-place extension
+PASS rune/pet formal configs
+PASS rune/pet compatibility aliases removed
+PASS rune/pet migrated consumers
+PASS rune projection in-place
+PASS rune index derived
+PASS pet configs remain separate
+PASS 20 rich runes
+PASS 5 rich pets
+PASS mode formal config
+PASS game mode formal configs
+PASS game mode compatibility aliases removed
+PASS 29 removed compatibility aliases absent from loaded runtime
+PASS mode migrated consumers
+PASS config migration audit inventory
+PASS 7 formal modes
+PASS 8 Boss order entries
+PASS 8 Boss stage mappings
+PASS first campaign milestone contract
+PASS first campaign pacing contract
+PASS V3.3.8 first Boss engagement guards
+PASS first campaign B001 stage
+PASS 12-stage Story route order
+PASS distinct Story titles and objectives
+PASS Story duration contract
+PASS Story Boss route
+PASS strict Story unlock chain
+PASS Story stars derived from formal stages
+PASS Story defeat and mastery thresholds
+PASS Story stars remain monotonic
+PASS Story reward contract
+PASS V3.3.4 complete Story pressure budgets
+PASS V3.3.4 progressive adjacent pressure budgets
+PASS V3.3.4 isolated Schema30 route reaches ST004-03 and unlocks ST004-04
+PASS V3.3.4 every Story entry has deterministic pressure and positive Boss margin
+PASS V3.3.4 defeat, retry, replay and one-settlement guards execute
+PASS V3.3.4 dual-Boss, attainable growth and non-Story isolation execute
+PASS V3.3.5 victory, defeat and completed-campaign handoff execute
+PASS V3.3.5 campaign handoff mutates mission selection only
+PASS V3.3.6 Slice 1 base roles remain declared and consumed
+PASS V3.3.6 Slice 2 six combat frames are declared and state-projected
+PASS V3.3.6 Slice 2 layered visual fallbacks remain executable
+PASS V3.3.3 twelve complete encounter profiles
+PASS V3.3.3 adjacent stages differ in two visible dimensions
+PASS V3.3.3 encounter Boss routes match campaign contracts
+PASS V3.3.3 Story Director consumes normal, single-Boss and dual-Boss plans
+PASS V3.3.3 non-Story Director keeps the V19 plan
+PASS V3.3.3 enemy weights and event pools consume the selected Story profile
+PASS V3.3.3 fireline, fog and blast consume encounter hazard parameters
+PASS V3.4 Story events and Boss timing remain authoritative while active timed rewards replace automatic chests
+PASS V3.3.3 encounter evidence records only executed waves, events, chests, hazards and Bosses
+PASS V3.3.3 loading, map, timeline, threat, log and result surfaces use encounter identity
+PASS V3.3.3 first-stage pacing and V3.3.2 progression regression contract
+PASS Story runtime consumes selected-stage contract, encounter and pressure curve
+PASS Story battle entry enforces prerequisite
+PASS ordinary Story stages do not spawn or complete Boss goals
+PASS ST004-03 dual-Boss proxy and accounting
+PASS Story loading and battle copy use stage contract
+PASS Story settlement copy and title remain stage-specific
+PASS Story result reward breakdown reconciles tuned gold
+PASS ordinary Story result hides placeholder Boss phase
+PASS legacy 20-minute settlement excludes Story only
+PASS later Story remains 1200 seconds
+PASS first campaign scope isolation
+PASS first campaign enemy pacing and distinct Boss HP
+PASS Story incoming-damage curve isolation
+PASS first campaign timeout defeat
+PASS Boss loot before first campaign victory
+PASS scoped Boss auto-targeting
+PASS H002 Boss chain accounting isolation
+PASS first campaign truthful copy
+PASS Story pressure beat is visible in battle
+PASS 4 daily challenges
+PASS daily config rotation
+PASS non-story star isolation
+PASS save-manager slot-local total runs
+PASS save-manager slot-local total kills
+PASS save-manager slot-local Boss kills
+PASS save-manager slot-local account XP
+PASS save-manager slot-local account level
+PASS ordered read-only scene lobby projection
+PASS scene entrance and lobby hierarchy
+PASS semantic mobile hub navigation
+PASS desktop sidebar and safe-area five-column phone row
+PASS compact phone top bar and scene lobby action
+PASS mobile progression page overflow containment
+PASS mobile progression one and two column density
+PASS 44px mobile progression actions
+PASS readable phone copy and unchanged desktop progression grids
+PASS scene-led hero hall structure and selected combat dossier
+PASS six native hero preview controls preserve roster states
+PASS hero preview is transient and restores native focus
+PASS explicit hero and build confirmation preserves preview, purchase and route authority
+PASS hero hall survives ordered legacy presentation loading
+PASS desktop first-viewport hero hall
+PASS phone hero rail and safe-area appointment action
+PASS scene-led expedition armory preserves all render bindings
+PASS three native armory category controls target the real same-page bays
+PASS armory category navigation is presentation-only
+PASS desktop first-viewport expedition armory
+PASS phone armory rail, touch targets and safe-area containment
+PASS scene-led build sanctum preserves all render bindings
+PASS three native build codex controls target real same-page sections
+PASS armory and build sanctum use configuration-only handoff paths
+PASS build codex navigation is presentation-only
+PASS real build skills are native selected controls with established mutation delegation
+PASS desktop first-viewport build sanctum
+PASS phone build rail, touch targets and safe-area containment
+PASS scene-led growth court preserves all render bindings
+PASS four native growth paths target real selected panes
+PASS growth and build use preparation-only handoff paths
+PASS growth path navigation is presentation-only
+PASS growth talents are native controls with established mutation delegation
+PASS desktop first-viewport growth court
+PASS phone growth rail, touch targets and safe-area containment
+PASS scene-led mission board structure and selected context
+PASS single selected-rule mission start path
+PASS native select-only mode projections
+PASS semantic expedition briefing preserves all live configuration bindings
+PASS briefing re-derives valid non-empty active and passive builds plus all readiness inputs
+PASS blocked briefing items expose direct preparation and route repair actions
+PASS briefing hero appointment defers mutation and return until explicit build confirmation
+PASS hero, loadout and build pages return to refreshed briefing with visible focus
+PASS only explicit briefing confirmation owns battle launch once
+PASS phone briefing keeps repair and launch controls reachable without blocked clicks
+PASS desktop first-viewport mission console
+PASS phone mission rule rail and safe-area launch action
+PASS scene-led rift atlas structure and selected route context
+PASS single atlas confirmation returns to mission console
+PASS native select-only world projections
+PASS native select-only stage route projections
+PASS atlas selection focus survives synchronous rerender
+PASS desktop first-viewport rift atlas
+PASS phone atlas stage rail and safe-area confirmation
+PASS scene-led Result chamber preserves real bindings
+PASS Result commands delegate without duplicate settlement
+PASS Result and lobby project one authoritative campaign handoff
+PASS Result outcome projection is presentation-only
+PASS desktop first-viewport Result chamber and internal ledger
+PASS distinct Result victory and defeat identities
+PASS phone Result safe-area flow and touch commands
+PASS 44px mobile entry actions
+PASS 44px mobile modal, story, recovery and settings controls
+PASS mobile battle overlay scroll, density and touch targets
+PASS unchanged desktop choice and Start grids
+PASS synchronized navigation state and Escape
+PASS semantic mobile combat controls
+PASS native switch semantics and synchronized state
+PASS performance profile pressed state
+PASS dialog and status semantics
+PASS scene-led Battle Theater with unique live intelligence
+PASS Battle Theater pause delegates to the existing overlay
+PASS Battle Theater dossier has one accessible controller
+PASS Battle Theater preserves arena overlays and mobile controls
+PASS desktop full-width Battle Theater and overlay tactical dossier
+PASS compact desktop drawer and full-screen mobile Battle Theater
+PASS expanded desktop live Arena
+PASS frame-rate-independent movement response and interruption reset
+PASS desktop battle viewport containment
+PASS visible desktop command dock and readiness feedback
+PASS native desktop actions and runtime battle choices
+PASS overlay focus entry and restoration
+PASS interactive-target gameplay key isolation
+PASS dismissible six-action battle onboarding structure
+PASS non-blocking run-local onboarding lifecycle
+PASS successful live action onboarding paths
+PASS existing tutorialSeen persistence only
+PASS legacy timed onboarding removed
+PASS visible pause focus fallback
+PASS non-blocking responsive onboarding presentation
+PASS focus-visible and reduced-motion coverage
+PASS pending human-play acceptance pack
+PASS captured floating-zone Pointer joystick
+PASS shared continuous keyboard and analog movement vector
+PASS independent mobile action pointer ownership
+PASS focus-loss input clearing and safe pause
+PASS mobile actions reuse gameplay functions
+PASS mobile action HUD feedback
+PASS V3.4.1 nearest existing interaction navigation
+PASS V3.4.1 edge and mobile readiness feedback
+PASS V3.4.1 existing interaction objective authority
+PASS V3.4.2 collectible XP authority
+PASS V3.4.2 bounded high-contrast XP crystals
+PASS V3.4.2 persistent combat vitals rail
+PASS persistent world and follow camera
+PASS full-viewport safe-area mobile battle
+PASS 7 modes
+PASS 30 gear
+PASS 20 runes
+PASS 5 pets
+PASS 20 talents
+PASS no permanent aura slow
+INFO legacy wrapper aliases: 130
+AUDIT OK

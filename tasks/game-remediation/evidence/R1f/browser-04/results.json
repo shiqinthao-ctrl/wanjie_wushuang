@@ -1,0 +1,539 @@
+
+Running 10 tests using 1 worker
+
+  ok  1 [phone] › tests\chapter-ui.spec.ts:46:38 › mobile layout 360: readable HUD and reachable pause actions (1.8s)
+  ok  2 [phone] › tests\chapter-ui.spec.ts:46:38 › mobile layout 390: readable HUD and reachable pause actions (1.6s)
+  ok  3 [phone] › tests\chapter-ui.spec.ts:46:38 › mobile layout 430: readable HUD and reachable pause actions (1.6s)
+  ok  4 [phone] › tests\chapter-ui.spec.ts:64:1 › chapter pause 360: collapsed build guide expands scrolls and actions stay pinned (1.8s)
+  ok  5 [phone] › tests\chapter-ui.spec.ts:90:1 › short landscape 640x360: compact HUD rows and pause fit safe areas (1.6s)
+  ok  6 [phone] › tests\chapter-ui.spec.ts:109:1 › resizing mid-run keeps HUD targets usable and pause reachable (2.2s)
+  ok  7 [phone] › tests\chapter-ui.spec.ts:126:1 › normal-speed touch: simultaneous move and cast without altered stats (2.7s)
+  ok  8 [phone] › tests\chapter-ui.spec.ts:148:1 › held finger enters pause modal: run halts and resume returns control (2.5s)
+  ok  9 [phone] › tests\chapter-ui.spec.ts:171:1 › directed upgrade 360: choice cards fit width and stay tappable (1.6s)
+  ok 10 [phone] › tests\chapter-ui.spec.ts:187:1 › directed boss 390: boss HUD stays inside viewport and readable (1.6s)
+
+  10 passed (21.8s)
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/chapter-ui.spec.ts",
+      "--project=phone",
+      "--output=E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results",
+      "--reporter=list,json,html"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/browser-04/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/browser-04/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/browser-04/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ],
+      [
+        "html"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "chapter-ui.spec.ts",
+      "file": "chapter-ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mobile layout 360: readable HUD and reachable pause actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1766,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:44.192Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-mobile-layout-3-dcd85-and-reachable-pause-actions-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-75455c643d4aacb19abc",
+          "file": "chapter-ui.spec.ts",
+          "line": 46,
+          "column": 38
+        },
+        {
+          "title": "mobile layout 390: readable HUD and reachable pause actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1591,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:46.858Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-mobile-layout-3-00dad-and-reachable-pause-actions-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-95e5853e9c5677c05071",
+          "file": "chapter-ui.spec.ts",
+          "line": 46,
+          "column": 38
+        },
+        {
+          "title": "mobile layout 430: readable HUD and reachable pause actions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1611,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:48.460Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-mobile-layout-4-187b6-and-reachable-pause-actions-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-bb4f1eb4fe7bf09e621f",
+          "file": "chapter-ui.spec.ts",
+          "line": 46,
+          "column": 38
+        },
+        {
+          "title": "chapter pause 360: collapsed build guide expands scrolls and actions stay pinned",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1826,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:50.079Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-chapter-pause-3-91a3b-lls-and-actions-stay-pinned-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-1a950583a37efab7b22d",
+          "file": "chapter-ui.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "short landscape 640x360: compact HUD rows and pause fit safe areas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1625,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:51.913Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-short-landscape-92baa-ws-and-pause-fit-safe-areas-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-af5fbf876fe3ffd50dea",
+          "file": "chapter-ui.spec.ts",
+          "line": 90,
+          "column": 1
+        },
+        {
+          "title": "resizing mid-run keeps HUD targets usable and pause reachable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2236,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:53.546Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-resizing-mid-ru-71036--usable-and-pause-reachable-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-f2724aaffc5c653c631c",
+          "file": "chapter-ui.spec.ts",
+          "line": 109,
+          "column": 1
+        },
+        {
+          "title": "normal-speed touch: simultaneous move and cast without altered stats",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2695,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:55.788Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-normal-speed-to-c0c20--cast-without-altered-stats-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-ad2efda5d8b4a24f22c8",
+          "file": "chapter-ui.spec.ts",
+          "line": 126,
+          "column": 1
+        },
+        {
+          "title": "held finger enters pause modal: run halts and resume returns control",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2535,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:47:58.491Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-held-finger-ent-83db3--and-resume-returns-control-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-902e2bf03cbbdf7b97c7",
+          "file": "chapter-ui.spec.ts",
+          "line": 148,
+          "column": 1
+        },
+        {
+          "title": "directed upgrade 360: choice cards fit width and stay tappable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1611,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:48:01.035Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-directed-upgrad-8bae8-fit-width-and-stay-tappable-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-a13b04d2f0aebcee8286",
+          "file": "chapter-ui.spec.ts",
+          "line": 171,
+          "column": 1
+        },
+        {
+          "title": "directed boss 390: boss HUD stays inside viewport and readable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1577,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T09:48:02.653Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\browser-04\\test-results\\chapter-ui-directed-boss-3-8a913-nside-viewport-and-readable-phone\\video.webm"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6df3d6e9518be991d8f6-e18c1c54ba21c5cafdff",
+          "file": "chapter-ui.spec.ts",
+          "line": 187,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-20T09:47:42.713Z",
+    "duration": 21819.171000000002,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

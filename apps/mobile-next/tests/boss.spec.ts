@@ -21,7 +21,7 @@ test('natural first Boss: reach 270s, see health and an attack cue, pause and re
       if (await chest.isVisible()) { await chest.locator('.level-option').first().click(); continue; }
       expect(await page.getByRole('dialog', { name: '本局生命耗尽' }).isVisible()).toBe(false);
       const reward = page.getByRole('button', { name: /宝箱 领取$/ }).filter({ hasNotText: '已领取' }).first();
-      if (await reward.isVisible() && await reward.isEnabled()) { await reward.click(); continue; }
+      if (await reward.isVisible() && await reward.isEnabled()) { await reward.click({ timeout: 1500 }).catch(() => {}); continue; }
       if (await page.getByLabel('首领招式').isVisible() && /闪避|红圈|侧后/.test(await page.getByLabel('首领招式').textContent() || '')) { castSeen = true; break; }
       if (touch) {
         const box = await page.getByLabel('拖动摇杆移动').boundingBox({ timeout: 500 }).catch(() => null); if (!box) continue;

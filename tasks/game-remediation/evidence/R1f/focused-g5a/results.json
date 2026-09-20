@@ -1,0 +1,1601 @@
+
+Running 36 tests using 1 worker
+
+  ok  1 [desktop] › tests\boss.native.spec.ts:18:1 › synthetic Chrome Boss loot matches exact legacy items, RNG order and duplicate choice guard (480ms)
+  ok  2 [desktop] › tests\boss.native.spec.ts:40:1 › synthetic real loot component: three rewards, paused restore, one choice and narrow layout (543ms)
+  ok  3 [desktop] › tests\boss.spec.ts:4:1 › natural first Boss: reach 270s, see health and an attack cue, pause and resume (4.8m)
+  ok  4 [desktop] › tests\chests.spec.ts:4:1 › natural timed chest: claim at 90s, select gear once and resume (1.6m)
+  ok  5 [desktop] › tests\combat.spec.ts:3:1 › natural combat reaches a choice and resumes the same run (24.4s)
+  ok  6 [desktop] › tests\events.native.spec.ts:18:1 › synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count (301ms)
+  ok  7 [desktop] › tests\events.native.spec.ts:33:1 › synthetic Chrome oracle: gold gear followed by the exact owned upgrade (317ms)
+  ok  8 [desktop] › tests\events.native.spec.ts:48:1 › synthetic native event: duplicate receipts, stale run and retry after failed commit (322ms)
+  ok  9 [desktop] › tests\events.native.spec.ts:85:1 › synthetic event: lost commit response, background pause and original slot isolation (313ms)
+  ok 10 [desktop] › tests\events.native.spec.ts:108:1 › synthetic event: committed receipt followed by another writer does not resume a stale run (325ms)
+  ok 11 [desktop] › tests\events.spec.ts:16:1 › natural first event: visible choice commits gold and resumes the same run (49.7s)
+  ok 12 [desktop] › tests\events.spec.ts:35:1 › synthetic storage abort: visible error pins the choice and retry saves once (50.6s)
+  ok 13 [desktop] › tests\lifecycle.spec.ts:4:1 › loads real WebGL, pauses, exits and remounts without duplicate canvases (15.6s)
+  ok 14 [desktop] › tests\lifecycle.spec.ts:58:1 › surfaces missing assets and permits a clean return (662ms)
+  ok 15 [desktop] › tests\map.spec.ts:3:1 › follows visible map guidance to a one-use interaction (3.8s)
+  ok 16 [desktop] › tests\saves.spec.ts:5:1 › natural save UI preserves files, switches slots and restores after reload (1.2s)
+  ok 17 [desktop] › tests\saves.spec.ts:45:1 › file UI retains unsupported content and explains why launch is unavailable (666ms)
+  ok 18 [desktop] › tests\saves.spec.ts:64:1 › synthetic storage-denied environment shows retry and never starts an unsaved run (379ms)
+  ok 19 [phone] › tests\boss.native.spec.ts:18:1 › synthetic Chrome Boss loot matches exact legacy items, RNG order and duplicate choice guard (752ms)
+  ok 20 [phone] › tests\boss.native.spec.ts:40:1 › synthetic real loot component: three rewards, paused restore, one choice and narrow layout (841ms)
+  x  21 [phone] › tests\boss.spec.ts:4:1 › natural first Boss: reach 270s, see health and an attack cue, pause and resume (10.9m)
+  ok 22 [phone] › tests\chests.spec.ts:4:1 › natural timed chest: claim at 90s, select gear once and resume (1.6m)
+  ok 23 [phone] › tests\combat.spec.ts:3:1 › natural combat reaches a choice and resumes the same run (12.1s)
+  ok 24 [phone] › tests\events.native.spec.ts:18:1 › synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count (548ms)
+  ok 25 [phone] › tests\events.native.spec.ts:33:1 › synthetic Chrome oracle: gold gear followed by the exact owned upgrade (505ms)
+  ok 26 [phone] › tests\events.native.spec.ts:48:1 › synthetic native event: duplicate receipts, stale run and retry after failed commit (541ms)
+  ok 27 [phone] › tests\events.native.spec.ts:85:1 › synthetic event: lost commit response, background pause and original slot isolation (543ms)
+  ok 28 [phone] › tests\events.native.spec.ts:108:1 › synthetic event: committed receipt followed by another writer does not resume a stale run (539ms)
+  ok 29 [phone] › tests\events.spec.ts:16:1 › natural first event: visible choice commits gold and resumes the same run (53.4s)
+  ok 30 [phone] › tests\events.spec.ts:35:1 › synthetic storage abort: visible error pins the choice and retry saves once (50.9s)
+  ok 31 [phone] › tests\lifecycle.spec.ts:4:1 › loads real WebGL, pauses, exits and remounts without duplicate canvases (16.0s)
+  ok 32 [phone] › tests\lifecycle.spec.ts:58:1 › surfaces missing assets and permits a clean return (792ms)
+  ok 33 [phone] › tests\map.spec.ts:3:1 › follows visible map guidance to a one-use interaction (4.9s)
+  ok 34 [phone] › tests\saves.spec.ts:5:1 › natural save UI preserves files, switches slots and restores after reload (1.6s)
+  ok 35 [phone] › tests\saves.spec.ts:45:1 › file UI retains unsupported content and explains why launch is unavailable (867ms)
+  ok 36 [phone] › tests\saves.spec.ts:64:1 › synthetic storage-denied environment shows retry and never starts an unsaved run (591ms)
+
+
+  1) [phone] › tests\boss.spec.ts:4:1 › natural first Boss: reach 270s, see health and an attack cue, pause and resume 
+
+    Test timeout of 650000ms exceeded.
+
+    Error: locator.click: Test timeout of 650000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: /宝箱 领取$/ }).filter({ hasNotText: '已领取' }).first()
+        - locator resolved to <button class="reward-ready">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+          - waiting 100ms
+        1042 × waiting for element to be visible, enabled and stable
+             - element is not enabled
+           - retrying click action
+             - waiting 500ms
+
+
+      22 |       expect(await page.getByRole('dialog', { name: '本局生命耗尽' }).isVisible()).toBe(false);
+      23 |       const reward = page.getByRole('button', { name: /宝箱 领取$/ }).filter({ hasNotText: '已领取' }).first();
+    > 24 |       if (await reward.isVisible() && await reward.isEnabled()) { await reward.click(); continue; }
+         |                                                                                ^
+      25 |       if (await page.getByLabel('首领招式').isVisible() && /闪避|红圈|侧后/.test(await page.getByLabel('首领招式').textContent() || '')) { castSeen = true; break; }
+      26 |       if (touch) {
+      27 |         const box = await page.getByLabel('拖动摇杆移动').boundingBox({ timeout: 500 }).catch(() => null); if (!box) continue;
+        at E:\wanjie_wushuang\apps\mobile-next\tests\boss.spec.ts:24:80
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\focused-g5a\test-results\boss-natural-first-Boss-re-03b85-attack-cue-pause-and-resume-phone\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\tasks\game-remediation\evidence\R1f\focused-g5a\test-results\boss-natural-first-Boss-re-03b85-attack-cue-pause-and-resume-phone\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\tasks\game-remediation\evidence\R1f\focused-g5a\test-results\boss-natural-first-Boss-re-03b85-attack-cue-pause-and-resume-phone\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\tasks\game-remediation\evidence\R1f\focused-g5a\test-results\boss-natural-first-Boss-re-03b85-attack-cue-pause-and-resume-phone\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  Slow test file: [phone] › tests\boss.spec.ts (10.9m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  1 failed
+    [phone] › tests\boss.spec.ts:4:1 › natural first Boss: reach 270s, see health and an attack cue, pause and resume 
+  35 passed (24.2m)
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\wanjie_wushuang\\apps\\mobile-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/boss.native.spec.ts",
+      "tests/boss.spec.ts",
+      "tests/combat.spec.ts",
+      "tests/chests.spec.ts",
+      "tests/events.native.spec.ts",
+      "tests/events.spec.ts",
+      "tests/map.spec.ts",
+      "tests/lifecycle.spec.ts",
+      "tests/saves.spec.ts",
+      "--project=phone",
+      "--project=desktop",
+      "--output=E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5a\\test-results",
+      "--reporter=list,json"
+    ],
+    "configFile": "E:\\wanjie_wushuang\\apps\\mobile-next\\playwright.config.ts",
+    "rootDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop",
+        "name": "desktop",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "phone",
+        "name": "phone",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/wanjie_wushuang/tasks/game-remediation/evidence/R1f/focused-g5a/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "narrow",
+        "name": "narrow",
+        "testDir": "E:/wanjie_wushuang/apps/mobile-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://127.0.0.1:4178/mobile-next/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "boss.native.spec.ts",
+      "file": "boss.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic Chrome Boss loot matches exact legacy items, RNG order and duplicate choice guard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 480,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:00:04.005Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-64a3ae607ef0f625f79e",
+          "file": "boss.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic real loot component: three rewards, paused restore, one choice and narrow layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 543,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:00:05.129Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-b41882965a0ebfbd1ee2",
+          "file": "boss.native.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome Boss loot matches exact legacy items, RNG order and duplicate choice guard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 752,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:09:02.599Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-2a0e7b16b061d0b4aa97",
+          "file": "boss.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic real loot component: three rewards, paused restore, one choice and narrow layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 841,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:09:03.816Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "154d8a0c67b396a7678e-db2d536ebb9a0e62ef9e",
+          "file": "boss.native.spec.ts",
+          "line": 40,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "boss.spec.ts",
+      "file": "boss.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural first Boss: reach 270s, see health and an attack cue, pause and resume",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 650000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 288842,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:00:05.693Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-boss-input",
+                      "contentType": "application/json",
+                      "body": "ewogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDAgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMCAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAzIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMyAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDQgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCA0IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgNSAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDYgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjExIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMSAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDE2IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMjAgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4xIMK3IOe7j+mqjCAyMSAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjEgwrcg57uP6aqMIDIyIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMiDCtyDnu4/pqowgMCAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjIgwrcg57uP6aqMIDUgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCA2IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMTQgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4yIMK3IOe7j+mqjCAxOSAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjIgwrcg57uP6aqMIDIwIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMjEgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyMiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDI4IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMzcgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAyIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgMTYgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAyMSAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDI3IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgMzMgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjMwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4zIMK3IOe7j+mqjCAzMyAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDM5IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgNDAgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4zIMK3IOe7j+mqjCA1MyAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDU4IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNCDCtyDnu4/pqowgNCAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDUgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCAxOCAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDI0IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgMzkgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCA0MSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDQ3IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNDggLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQ0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCA1MSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDU2IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0OCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgMTQgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjUzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCAzNiAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjUgwrcg57uP6aqMIDcxIC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNiDCtyDnu4/pqowgMTEgLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjA3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi42IMK3IOe7j+mqjCA2NyAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljcgwrcg57uP6aqMIDIyIC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2Ljcgwrcg57uP6aqMIDY5IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljcgwrcg57uP6aqMIDk0IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDI5IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MzIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDEwMiAvIDExNCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjM2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi45IMK3IOe7j+mqjCAxNiAvIDEyNSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjQxIiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi45IMK3IOe7j+mqjCA3NCAvIDEyNSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjQ3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi45IMK3IOe7j+mqjCAxMTMgLyAxMjUiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTo1MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTAgwrcg57uP6aqMIDE0IC8gMTM2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6NTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEwIMK3IOe7j+mqjCA0OSAvIDEzNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAyOjAxIiwKICAgICAgImhwIjogIueUn+WRvSA3NTggLyA3NjNMdi4xMCDCtyDnu4/pqowgODAgLyAxMzYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMjowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYwIC8gNzYzTHYuMTAgwrcg57uP6aqMIDEzNyAvIDEzNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAyOjA5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi4xMSDCtyDnu4/pqowgMzEgLyAxNDciCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMjoxNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuMTEgwrcg57uP6aqMIDc4IC8gMTQ3IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6MjAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjExIMK3IOe7j+mqjCAxMDkgLyAxNDciCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMjoyNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTIgwrcg57uP6aqMIDQwIC8gMTU4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6MjkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjEyIMK3IOe7j+mqjCA3MiAvIDE1OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAyOjMzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xMiDCtyDnu4/pqowgMTA3IC8gMTU4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6MzgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjEyIMK3IOe7j+mqjCAxMzYgLyAxNTgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMjo0MiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMTMgwrcg57uP6aqMIDYwIC8gMTY5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDI6NDciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc1OSAvIDc2M0x2LjEzIMK3IOe7j+mqjCAxMjIgLyAxNjkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMjo1NiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzU5IC8gNzYzTHYuMTQgwrcg57uP6aqMIDU5IC8gMTgwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6MDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc1NSAvIDc2M0x2LjE0IMK3IOe7j+mqjCA4NyAvIDE4MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjA2IiwKICAgICAgImhwIjogIueUn+WRvSA3NTMgLyA3NjNMdi4xNCDCtyDnu4/pqowgMTQyIC8gMTgwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6MTAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc1NSAvIDc2M0x2LjE1IMK3IOe7j+mqjCA4IC8gMTkxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6MTYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc1NSAvIDc2M0x2LjE1IMK3IOe7j+mqjCA1NiAvIDE5MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjIxIiwKICAgICAgImhwIjogIueUn+WRvSA3NTcgLyA3NjNMdi4xNSDCtyDnu4/pqowgMTY0IC8gMTkxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6MjUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc1NyAvIDc2M0x2LjE2IMK3IOe7j+mqjCA0OCAvIDIwMiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjMwIiwKICAgICAgImhwIjogIueUn+WRvSA3NTYgLyA3NjNMdi4xNiDCtyDnu4/pqowgMTEzIC8gMjAyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6MzMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc1OCAvIDc2M0x2LjE2IMK3IOe7j+mqjCAxNjkgLyAyMDIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMzo0MiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTcgwrcg57uP6aqMIDkxIC8gMjEzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDM6NDgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjE3IMK3IOe7j+mqjCAxNDMgLyAyMTMiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMzo1MyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTcgwrcg57uP6aqMIDE4NSAvIDIxMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAzOjU2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4xOCDCtyDnu4/pqowgMTggLyAyMjQiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwNDowMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTggwrcg57uP6aqMIDEwMCAvIDIyNCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjA0OjA3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi4xOCDCtyDnu4/pqowgMTQ0IC8gMjI0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDQ6MTIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjE4IMK3IOe7j+mqjCAxNzUgLyAyMjQiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwNDoxNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMTkgwrcg57uP6aqMIDYgLyAyMzUiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwNDoyMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzU5IC8gNzYzTHYuMTkgwrcg57uP6aqMIDU0IC8gMjM1IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDQ6MjciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjE5IMK3IOe7j+mqjCAxMDkgLyAyMzUiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwNDozMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMTkgwrcg57uP6aqMIDE4MCAvIDIzNSIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXSwKICAiY2FzdFNlZW4iOiB0cnVlCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3ca472c3b4b03656f5d9-19765234f70ed3914abd",
+          "file": "boss.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "natural first Boss: reach 270s, see health and an attack cue, pause and resume",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 650000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 656473,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 650000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 650000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 650000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\boss.spec.ts",
+                        "column": 80,
+                        "line": 24
+                      },
+                      "message": "Error: locator.click: Test timeout of 650000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: /宝箱 领取$/ }).filter({ hasNotText: '已领取' }).first()\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"reward-ready\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    1042 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m         - element is not enabled\u001b[22m\n\u001b[2m       - retrying click action\u001b[22m\n\u001b[2m         - waiting 500ms\u001b[22m\n\n\n  22 |       expect(await page.getByRole('dialog', { name: '本局生命耗尽' }).isVisible()).toBe(false);\n  23 |       const reward = page.getByRole('button', { name: /宝箱 领取$/ }).filter({ hasNotText: '已领取' }).first();\n> 24 |       if (await reward.isVisible() && await reward.isEnabled()) { await reward.click(); continue; }\n     |                                                                                ^\n  25 |       if (await page.getByLabel('首领招式').isVisible() && /闪避|红圈|侧后/.test(await page.getByLabel('首领招式').textContent() || '')) { castSeen = true; break; }\n  26 |       if (touch) {\n  27 |         const box = await page.getByLabel('拖动摇杆移动').boundingBox({ timeout: 500 }).catch(() => null); if (!box) continue;\n    at E:\\wanjie_wushuang\\apps\\mobile-next\\tests\\boss.spec.ts:24:80"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:09:04.676Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5a\\test-results\\boss-natural-first-Boss-re-03b85-attack-cue-pause-and-resume-phone\\test-failed-1.png"
+                    },
+                    {
+                      "name": "natural-boss-input",
+                      "contentType": "application/json",
+                      "body": "ewogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDAgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgNSAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDYgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCA4IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgOSAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDE0IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTkgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyMCAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIxIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMjIgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAwIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgNSAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDExIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMTUgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAxNiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDI1IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMzEgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAzNiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDMgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAzIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgNCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDEwIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMyDCtyDnu4/pqowgMTQgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAxNyAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjMgwrcg57uP6aqMIDI2IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMyDCtyDnu4/pqowgMjcgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjMwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4zIMK3IOe7j+mqjCA0MCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjMgwrcg57uP6aqMIDUxIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgNTUgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCA1OCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDMgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCAzMiAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDQwIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNDAgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCA0MSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDQ2IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNDcgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi40IMK3IOe7j+mqjCA1NyAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDU4IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0NCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNjYgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQ1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCA5IC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgNjYgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjU1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi42IMK3IOe7j+mqjCAxOCAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjYgwrcg57uP6aqMIDQ0IC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNiDCtyDnu4/pqowgODUgLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjExIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCAzNSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjE3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCA5NCAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjIxIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi44IMK3IOe7j+mqjCAzMiAvIDExNCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjI3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi44IMK3IOe7j+mqjCA4NCAvIDExNCIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXSwKICAiY2FzdFNlZW4iOiBmYWxzZQp9"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5a\\test-results\\boss-natural-first-Boss-re-03b85-attack-cue-pause-and-resume-phone\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "E:\\wanjie_wushuang\\tasks\\game-remediation\\evidence\\R1f\\focused-g5a\\test-results\\boss-natural-first-Boss-re-03b85-attack-cue-pause-and-resume-phone\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3ca472c3b4b03656f5d9-d8ff3d8ad7ac7041e9ca",
+          "file": "boss.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "chests.spec.ts",
+      "file": "chests.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural timed chest: claim at 90s, select gear once and resume",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 260000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 97684,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:04:54.553Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-chest-input",
+                      "contentType": "application/json",
+                      "body": "ewogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDAgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMCAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMyAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDQgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCA0IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgNSAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDYgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjExIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMSAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEyIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTIgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMyAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDE4IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMSDCtyDnu4/pqowgMjMgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMTEgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAxNiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjIgwrcg57uP6aqMIDE3IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMiDCtyDnu4/pqowgMTggLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4yIMK3IOe7j+mqjCAzNSAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjIgwrcg57uP6aqMIDM1IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMiDCtyDnu4/pqowgNDEgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAzIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgNyAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDEyIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgMTMgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAxMyAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjMgwrcg57uP6aqMIDE5IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMyDCtyDnu4/pqowgMTkgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjMyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAyOCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDI5IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgNDMgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCA0OCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDQ4IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgNDkgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi40IMK3IOe7j+mqjCAwIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNCDCtyDnu4/pqowgMSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDEwIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuNCDCtyDnu4/pqowgMjQgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi40IMK3IOe7j+mqjCAyOSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MCAvIDc2M0x2LjQgwrcg57uP6aqMIDM1IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0NSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuNCDCtyDnu4/pqowgNDQgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQ1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCA0OSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDU0IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0OCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNTkgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQ5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCA2MCAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDY0IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1MSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNjkgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjUyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCA1IC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1MiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgNiAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjUgwrcg57uP6aqMIDE0IC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1NSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNSDCtyDnu4/pqowgMjQgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjU2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCAyOSAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjUgwrcg57uP6aqMIDQ0IC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1OCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgNDUgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjU5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCA1NSAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjUgwrcg57uP6aqMIDYwIC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNSDCtyDnu4/pqowgNjUgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCA3NSAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjUgwrcg57uP6aqMIDgwIC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNiDCtyDnu4/pqowgNCAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjYgwrcg57uP6aqMIDE2IC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNiDCtyDnu4/pqowgMzkgLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjA3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi42IMK3IOe7j+mqjCAzOSAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjYgwrcg57uP6aqMIDYwIC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNiDCtyDnu4/pqowgNzkgLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjEwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi42IMK3IOe7j+mqjCA4MCAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjYgwrcg57uP6aqMIDgxIC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMToxMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNyDCtyDnu4/pqowgMCAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjEyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCAxMSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjEzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCAyMCAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjE0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCAyMCAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjE2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCAyOSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjE3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCA0NCAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjE4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCA0OSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjE5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi43IMK3IOe7j+mqjCA1NSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjIwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi43IMK3IOe7j+mqjCA1NiAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjIxIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCA1OCAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjIyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCA3MSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjIzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCA4NSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjI0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi43IMK3IOe7j+mqjCA5NSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjI0IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi44IMK3IOe7j+mqjCAyIC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDE2IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDIwIC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDIxIC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDI2IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDQwIC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MzEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDQ2IC8gMTE0IgogICAgfQogIF0sCiAgImVycm9ycyI6IFtdCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1bc1cec0916a364b5515-553b6a096029e7c7fefd",
+          "file": "chests.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "natural timed chest: claim at 90s, select gear once and resume",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 260000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 98655,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:20:11.247Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-chest-input",
+                      "contentType": "application/json",
+                      "body": "ewogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDAgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMiAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAzIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgNiAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDExIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTYgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxNyAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDE4IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMjMgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyNCAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDMgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCA4IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgOCAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjIgwrcg57uP6aqMIDEzIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMjIgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyOCAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDMyIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMzcgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCA0MiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDQgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCA1IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgOSAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjMgwrcg57uP6aqMIDMxIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuMyDCtyDnu4/pqowgNDEgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi4zIMK3IOe7j+mqjCA0NCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjMgwrcg57uP6aqMIDUzIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuMyDCtyDnu4/pqowgNTQgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjMzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi40IMK3IOe7j+mqjCA0IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuNCDCtyDnu4/pqowgNSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDIwIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgMjUgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi40IMK3IOe7j+mqjCAzMCAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDM1IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNDEgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQxIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCA0MiAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjUgwrcg57uP6aqMIDEgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCAxMSAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjUgwrcg57uP6aqMIDE0IC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0NSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgMjAgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQ2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCAyNSAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjUgwrcg57uP6aqMIDM5IC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0OCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgNDggLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQ5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCA1NiAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjUgwrcg57uP6aqMIDYyIC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1MSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgODAgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjUzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCA4MSAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjYgwrcg57uP6aqMIDUgLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjU1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi42IMK3IOe7j+mqjCAxMiAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjYgwrcg57uP6aqMIDI4IC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo1NyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNiDCtyDnu4/pqowgMjkgLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjU4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi42IMK3IOe7j+mqjCAzNCAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NTkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjYgwrcg57uP6aqMIDM5IC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNiDCtyDnu4/pqowgNDEgLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi42IMK3IOe7j+mqjCA0MiAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjYgwrcg57uP6aqMIDU1IC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNiDCtyDnu4/pqowgNjggLyA5MiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjA1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi42IMK3IOe7j+mqjCA3OCAvIDkyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjYgwrcg57uP6aqMIDgwIC8gOTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMTowNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNyDCtyDnu4/pqowgMSAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjA4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi43IMK3IOe7j+mqjCA4IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MDkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljcgwrcg57uP6aqMIDIzIC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDI4IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDI5IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljcgwrcg57uP6aqMIDM0IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDM3IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDQzIC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDUzIC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDU5IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MTkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljcgwrcg57uP6aqMIDcyIC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDc4IC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljcgwrcg57uP6aqMIDgzIC8gMTAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljcgwrcg57uP6aqMIDEwMCAvIDEwMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAxOjIyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi44IMK3IOe7j+mqjCA0IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDM1IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDM1IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljggwrcg57uP6aqMIDQwIC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDU4IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDgxIC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MjkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2Ljggwrcg57uP6aqMIDg0IC8gMTE0IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDE6MzAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2Ljggwrcg57uP6aqMIDk3IC8gMTE0IgogICAgfQogIF0sCiAgImVycm9ycyI6IFtdCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1bc1cec0916a364b5515-cd2214d00aed1901c4b5",
+          "file": "chests.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "combat.spec.ts",
+      "file": "combat.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural combat reaches a choice and resumes the same run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24419,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:06:32.260Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-input-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJzZWxlY3RlZCI6ICLooqvliqjlv4Pms5Ug54Gr56We56Wd56aPIEx2LjJMdi4xIOKGkiBMdi4yIiwKICAidGltZWxpbmUiOiBbCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAxIiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMCAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDIiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNCIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA1IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMSAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDYiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOCIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDMgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMyIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA5IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgOSAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA1IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTEiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMyAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA1IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTIiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxNSAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA3IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTMiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxNiAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTUiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxNyAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTYiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxOCAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAxMCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE3IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMjAgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMTIiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxOSIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIxIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDEzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjAiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyMyAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAxNSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIwIiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMiAvIDQ4IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAxNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIxIiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMiAvIDQ4IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAxNiIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b51ea54a95aff327696-bd2d0da591562f9e4298",
+          "file": "combat.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "natural combat reaches a choice and resumes the same run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 150000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12074,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:21:50.084Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-input-evidence",
+                      "contentType": "application/json",
+                      "body": "ewogICJzZWxlY3RlZCI6ICLooqvliqjlv4Pms5Ug6Kej6ZSBIOmjjuelnuelneemj0x2LjAg4oaSIEx2LjEiLAogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEgLyAyNiIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgMSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA0IiwKICAgICAgInZpdGFscyI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMiAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAyIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDUiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMSAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCAzIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDciLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxMyAvIDI2IiwKICAgICAgImtpbGxzIjogIuWHu+egtCA1IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDgiLAogICAgICAidml0YWxzIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyIC8gNDgiLAogICAgICAia2lsbHMiOiAi5Ye756C0IDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJ2aXRhbHMiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDIgLyA0OCIsCiAgICAgICJraWxscyI6ICLlh7vnoLQgOCIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b51ea54a95aff327696-59164ae793e1b681964d",
+          "file": "combat.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "events.native.spec.ts",
+      "file": "events.native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 301,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:06:56.705Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-077b4f6f77c34ac41054",
+          "file": "events.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: gold gear followed by the exact owned upgrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 317,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:06:57.062Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-a79a14c87d4e18263d9a",
+          "file": "events.native.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "synthetic native event: duplicate receipts, stale run and retry after failed commit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 322,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:06:57.387Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-652a808b26551dcd0e2c",
+          "file": "events.native.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: lost commit response, background pause and original slot isolation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 313,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:06:57.718Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-526be183611322dfe5a1",
+          "file": "events.native.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: committed receipt followed by another writer does not resume a stale run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 325,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:06:58.041Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-86b65215dcde47480035",
+          "file": "events.native.spec.ts",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: timed chest preserves exact owned upgrade and RNG count",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 548,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:22:02.255Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-818d984a8e9200e45c67",
+          "file": "events.native.spec.ts",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "synthetic Chrome oracle: gold gear followed by the exact owned upgrade",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 505,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:22:02.876Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-45ca1005095657e0f170",
+          "file": "events.native.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "synthetic native event: duplicate receipts, stale run and retry after failed commit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 541,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:22:03.387Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-5a89a1e54d582e58ce3e",
+          "file": "events.native.spec.ts",
+          "line": 48,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: lost commit response, background pause and original slot isolation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 543,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:22:03.935Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-368fe3f515ba236585b7",
+          "file": "events.native.spec.ts",
+          "line": 85,
+          "column": 1
+        },
+        {
+          "title": "synthetic event: committed receipt followed by another writer does not resume a stale run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 539,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:22:04.486Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ec902bcfb5256db825aa-bd1e930e2c0944c03623",
+          "file": "events.native.spec.ts",
+          "line": 108,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "events.spec.ts",
+      "file": "events.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural first event: visible choice commits gold and resumes the same run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 170000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 49660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:06:58.389Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-event-input",
+                      "contentType": "application/json",
+                      "body": "ewogICJzZWxlY3RlZCI6ICJtZXJjaGFudEhlYWwiLAogICJ0aW1lbGluZSI6IFsKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDAgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAwIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowMyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMCAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMiAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDMgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAzIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowOSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgNCAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEzIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTUgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAxNiAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDIwIC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMyAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDQgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE2IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAxMiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTciLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDEzIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMTMgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAxNSAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDIxIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMjEgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyMiAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDI3IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMjggLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4yIMK3IOe7j+mqjCAyOSAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjIgwrcg57uP6aqMIDM0IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuMyDCtyDnu4/pqowgMCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjMgwrcg57uP6aqMIDEgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjEgLyA3NjNMdi4zIMK3IOe7j+mqjCAxNCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzAiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MSAvIDc2M0x2LjMgwrcg57uP6aqMIDE5IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYxIC8gNzYzTHYuMyDCtyDnu4/pqowgMjQgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjMyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi4zIMK3IOe7j+mqjCAyNSAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDM2IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgMzcgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAzOCAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDQ3IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuMyDCtyDnu4/pqowgNDggLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCA1NyAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDU5IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNiAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDcgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQyIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCAyMCAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDMiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDMwIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0NSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgMzkgLyA3MCIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42b677eba564a90dbb18-f475825b592c8b965d0e",
+          "file": "events.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage abort: visible error pins the choice and retry saves once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 170000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 50625,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:07:48.056Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42b677eba564a90dbb18-06b14ede97733f8631f4",
+          "file": "events.spec.ts",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "natural first event: visible choice commits gold and resumes the same run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 170000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 53372,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:22:05.037Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "natural-event-input",
+                      "contentType": "application/json",
+                      "body": "ewogICJzZWxlY3RlZCI6ICJnb2xkQ2FzaCIsCiAgInRpbWVsaW5lIjogWwogICAgewogICAgICAidGltZSI6ICIwMDowMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMCAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDEgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjAzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCA1IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgNyAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDUiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjEgwrcg57uP6aqMIDE2IC8gMjYiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDowNiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMSDCtyDnu4/pqowgMTYgLyAyNiIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4xIMK3IOe7j+mqjCAyMiAvIDI2IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MDgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDEgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjA5IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAxIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMyAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDQgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjEzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCA5IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMjIgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAyMyAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDI0IC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoxNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMiDCtyDnu4/pqowgMjUgLyA0OCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjE4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4yIMK3IOe7j+mqjCAzMCAvIDQ4IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MTkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjIgwrcg57uP6aqMIDQzIC8gNDgiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgMSAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjEiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDExIC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyMiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgMTkgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjIzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCAyMSAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDM1IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyNSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuMyDCtyDnu4/pqowgNDQgLyA1OSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjI3IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi4zIMK3IOe7j+mqjCA0OSAvIDU5IgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjgiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjMgwrcg57uP6aqMIDU2IC8gNTkiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDoyOCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgMSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MjkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDEgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjMwIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCAyIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozMSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgMyAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzIiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MyAvIDc2M0x2LjQgwrcg57uP6aqMIDEwIC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgMjMgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM1IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCAyOCAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzYiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDI5IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDozNyIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgMzkgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjM4IiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi40IMK3IOe7j+mqjCA0NSAvIDcwIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6MzkiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjQgwrcg57uP6aqMIDU0IC8gNzAiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MCIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNCDCtyDnu4/pqowgNjQgLyA3MCIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQxIiwKICAgICAgImhwIjogIueUn+WRvSA3NjIgLyA3NjNMdi41IMK3IOe7j+mqjCAzIC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0MiIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYzIC8gNzYzTHYuNSDCtyDnu4/pqowgMTcgLyA4MSIKICAgIH0sCiAgICB7CiAgICAgICJ0aW1lIjogIjAwOjQzIiwKICAgICAgImhwIjogIueUn+WRvSA3NjMgLyA3NjNMdi41IMK3IOe7j+mqjCAyMyAvIDgxIgogICAgfSwKICAgIHsKICAgICAgInRpbWUiOiAiMDA6NDQiLAogICAgICAiaHAiOiAi55Sf5ZG9IDc2MiAvIDc2M0x2LjUgwrcg57uP6aqMIDMyIC8gODEiCiAgICB9LAogICAgewogICAgICAidGltZSI6ICIwMDo0NSIsCiAgICAgICJocCI6ICLnlJ/lkb0gNzYyIC8gNzYzTHYuNSDCtyDnu4/pqowgMzYgLyA4MSIKICAgIH0KICBdLAogICJlcnJvcnMiOiBbXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42b677eba564a90dbb18-8408cc7da11de5b83934",
+          "file": "events.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage abort: visible error pins the choice and retry saves once",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 170000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 50919,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:22:58.417Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "42b677eba564a90dbb18-5cf217e937c2b3694911",
+          "file": "events.spec.ts",
+          "line": 35,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lifecycle.spec.ts",
+      "file": "lifecycle.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:08:38.707Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-9f5198853befeecf0778",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 662,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:08:54.328Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-235935d274b71f37b609",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "loads real WebGL, pauses, exits and remounts without duplicate canvases",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15980,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:23:49.361Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-df0090a4ab60b2021df2",
+          "file": "lifecycle.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "surfaces missing assets and permits a clean return",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 792,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:24:05.350Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f1785dee40219527314-e969507f09622e0053e8",
+          "file": "lifecycle.spec.ts",
+          "line": 58,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "map.spec.ts",
+      "file": "map.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "follows visible map guidance to a one-use interaction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:08:55.003Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "visible-map-route",
+                      "contentType": "application/json",
+                      "body": "ewogICJyb3V0ZSI6IFsKICAgICLngavoja/mobYgwrcg5YyXIDYyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgNTc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOWMlyA1MjVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDQ3NW0iLAogICAgIueBq+iNr+ahtiDCtyDkuJzljJcgNDI1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAzNzVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDMyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgMjc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAyMDBtIiwKICAgICLngavoja/mobYgwrcg5Lic5YyXIDE1MG0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgMTI1bSIKICBdLAogICJlcnJvcnMiOiBbXQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d8799038d2916f69765-179a00e9247767a354a1",
+          "file": "map.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "follows visible map guidance to a one-use interaction",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4915,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:24:06.163Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "visible-map-route",
+                      "contentType": "application/json",
+                      "body": "ewogICJyb3V0ZSI6IFsKICAgICLngavoja/mobYgwrcg5YyXIDYyNW0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgNTc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOWMlyA1NTBtIiwKICAgICLngavoja/mobYgwrcg5YyXIDUwMG0iLAogICAgIueBq+iNr+ahtiDCtyDkuJzljJcgNDI1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAzNzVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDMwMG0iLAogICAgIueBq+iNr+ahtiDCtyDljJcgMjc1bSIsCiAgICAi54Gr6I2v5qG2IMK3IOS4nOWMlyAyMjVtIiwKICAgICLngavoja/mobYgwrcg5YyXIDE1MG0iLAogICAgIueBq+iNr+ahtiDCtyDkuJzljJcgNzVtIgogIF0sCiAgImVycm9ycyI6IFtdCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d8799038d2916f69765-7d27fa83f667e74696c6",
+          "file": "map.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "saves.spec.ts",
+      "file": "saves.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1225,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:08:58.804Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-d06fedfd5e2c50d7ca43",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 666,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:09:00.036Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-0fe639bb93c4a4b289b9",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 379,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:09:00.709Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-1994fa1a26085d567ab9",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "natural save UI preserves files, switches slots and restores after reload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1587,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:24:11.101Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-d6226a74afb151567f24",
+          "file": "saves.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "file UI retains unsupported content and explains why launch is unavailable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 867,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:24:12.695Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-4cffd98b12226a7ae6dd",
+          "file": "saves.spec.ts",
+          "line": 45,
+          "column": 1
+        },
+        {
+          "title": "synthetic storage-denied environment shows retry and never starts an unsaved run",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "phone",
+              "projectName": "phone",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 591,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T10:24:13.570Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c2ba4071912dc5c892b4-37f12e4c4a901b44a2af",
+          "file": "saves.spec.ts",
+          "line": 64,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-20T10:00:02.390Z",
+    "duration": 1452386.43,
+    "expected": 35,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
