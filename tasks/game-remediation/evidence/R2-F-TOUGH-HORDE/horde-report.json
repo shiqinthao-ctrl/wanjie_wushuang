@@ -1,0 +1,5061 @@
+{
+  "slice": "R2-F-TOUGH-HORDE",
+  "rule": {
+    "horde": {
+      "id": "EN001",
+      "radius": 120,
+      "count": 12,
+      "angularStepDeg": 30
+    },
+    "bodyHp": 63,
+    "frames": 600,
+    "dt": 0.016666666666666666,
+    "ultPerForm": {
+      "bulwark": false,
+      "frostlord": false,
+      "frostflame": false,
+      "phoenix": false,
+      "legion": true,
+      "thunderlord": true,
+      "void": true,
+      "reaper": true,
+      "beastlord": true,
+      "windwarden": true
+    }
+  },
+  "scan": {
+    "cells": 40,
+    "cleanBlind": 17,
+    "cleanSeparable": [
+      "horde",
+      "horde",
+      "horde",
+      "elite"
+    ],
+    "dirtySame": 8,
+    "hordeBlind": [
+      "bulwark",
+      "frostlord",
+      "frostflame",
+      "legion",
+      "reaper",
+      "beastlord",
+      "windwarden"
+    ],
+    "hordeSeparable": [
+      "phoenix",
+      "thunderlord",
+      "void"
+    ],
+    "perForm": [
+      {
+        "form": "bulwark",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "ranged",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "frostlord",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "frostflame",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "phoenix",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": false
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "legion",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": false
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "thunderlord",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": false
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": true
+          }
+        ]
+      },
+      {
+        "form": "void",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": false
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": false
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "reaper",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "beastlord",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": true
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      },
+      {
+        "form": "windwarden",
+        "cells": [
+          {
+            "cell": "horde",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "ranged",
+            "clean": false,
+            "blind": false
+          },
+          {
+            "cell": "elite",
+            "clean": true,
+            "blind": true
+          },
+          {
+            "cell": "boss",
+            "clean": false,
+            "blind": false
+          }
+        ]
+      }
+    ]
+  },
+  "sweep": [
+    {
+      "form": "bulwark",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1821.7654466918402,
+            1821.7654466918402
+          ],
+          "dealtBy": [
+            {
+              "H001_E": 1821.7654466918402
+            },
+            {
+              "H001_E": 1821.7654466918402
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1821.7654466918402,
+            1821.7654466918402
+          ],
+          "dealtBy": [
+            {
+              "H001_E": 1821.7654466918402
+            },
+            {
+              "H001_E": 1821.7654466918402
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1821.7654466918402,
+            1821.7654466918402
+          ],
+          "dealtBy": [
+            {
+              "H001_E": 1821.7654466918402
+            },
+            {
+              "H001_E": 1821.7654466918402
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            3643.5308933836814,
+            3643.5308933836814
+          ],
+          "dealtBy": [
+            {
+              "H001_E": 3643.5308933836814
+            },
+            {
+              "H001_E": 3643.5308933836814
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1821.7654466918402,
+            1821.7654466918402
+          ],
+          "dealtBy": [
+            {
+              "H001_E": 1821.7654466918402
+            },
+            {
+              "H001_E": 1821.7654466918402
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "frostlord",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1223.3944719359995,
+            1223.3944719359995
+          ],
+          "dealtBy": [
+            {
+              "G2_FROST_E": 1223.3944719359995
+            },
+            {
+              "G2_FROST_E": 1223.3944719359995
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1223.3944719359995,
+            1223.3944719359995
+          ],
+          "dealtBy": [
+            {
+              "G2_FROST_E": 1223.3944719359995
+            },
+            {
+              "G2_FROST_E": 1223.3944719359995
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1223.3944719359995,
+            1223.3944719359995
+          ],
+          "dealtBy": [
+            {
+              "G2_FROST_E": 1223.3944719359995
+            },
+            {
+              "G2_FROST_E": 1223.3944719359995
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            2446.788943872,
+            2446.788943872
+          ],
+          "dealtBy": [
+            {
+              "G2_FROST_E": 2446.788943872
+            },
+            {
+              "G2_FROST_E": 2446.788943872
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            611.697235968,
+            611.697235968
+          ],
+          "dealtBy": [
+            {
+              "G2_FROST_E": 611.697235968
+            },
+            {
+              "G2_FROST_E": 611.697235968
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "frostflame",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1310.7797913600004,
+            1310.7797913600004
+          ],
+          "dealtBy": [
+            {
+              "G5_FROST_E": 1310.7797913600004
+            },
+            {
+              "G5_FROST_E": 1310.7797913600004
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1310.7797913600004,
+            1310.7797913600004
+          ],
+          "dealtBy": [
+            {
+              "G5_FROST_E": 1310.7797913600004
+            },
+            {
+              "G5_FROST_E": 1310.7797913600004
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1344.321189798912,
+            1093.0592680151042
+          ],
+          "dealtBy": [
+            {
+              "G5_FIRE_BASIC": 242.902059558912,
+              "G5_FROST_BASIC": 1101.41913024
+            },
+            {
+              "G5_FIRE_E": 1093.0592680151042
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            2403.8390593751046,
+            2403.8390593751046
+          ],
+          "dealtBy": [
+            {
+              "G5_FROST_E": 1310.7797913600004,
+              "G5_FIRE_E": 1093.0592680151042
+            },
+            {
+              "G5_FROST_E": 1310.7797913600004,
+              "G5_FIRE_E": 1093.0592680151042
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1310.7797913600004,
+            1310.7797913600004
+          ],
+          "dealtBy": [
+            {
+              "G5_FROST_E": 1310.7797913600004
+            },
+            {
+              "G5_FROST_E": 1310.7797913600004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "phoenix",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            4105.66785296928,
+            4225.6839764755205
+          ],
+          "dealtBy": [
+            {
+              "H010_E": 3561.40868823168,
+              "H010_BASIC": 544.2591647376
+            },
+            {
+              "H010_E": 3500.00509015872,
+              "H010_BASIC": 725.6788863168
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            3477.6765090412805,
+            3240.43533466848
+          ],
+          "dealtBy": [
+            {
+              "H010_E": 2026.3187364076803,
+              "H010_BASIC": 1451.3577726336002
+            },
+            {
+              "H010_E": 2333.3367267724802,
+              "H010_BASIC": 907.098607896
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": false,
+          "blind": false,
+          "hpMin": [
+            0.9454407678706744,
+            1
+          ],
+          "taken": [
+            28.02162162162159,
+            0
+          ],
+          "kitDealt": [
+            3373.2903923172485,
+            3416.2729109683205
+          ],
+          "dealtBy": [
+            {
+              "H010_E": 1842.1079421888003,
+              "H010_BASIC": 1531.1824501284482
+            },
+            {
+              "H010_E": 1964.9151383347203,
+              "H010_BASIC": 1451.3577726336002
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            5046.817547069377,
+            5118.82722117312
+          ],
+          "dealtBy": [
+            {
+              "H010_E": 3254.39069786688,
+              "H010_BASIC": 1792.4268492024962
+            },
+            {
+              "H010_E": 3377.1978940128,
+              "H010_BASIC": 1741.6293271603201
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": false,
+          "blind": true,
+          "hpMin": [
+            0.9055386506236573,
+            0.9366866647991126
+          ],
+          "taken": [
+            49.03783783783774,
+            32.69189189189183
+          ],
+          "kitDealt": [
+            4340.1179547024,
+            4340.1179547024
+          ],
+          "dealtBy": [
+            {
+              "H010_E": 3070.179903648,
+              "H010_BASIC": 1269.9380510544001
+            },
+            {
+              "H010_E": 3070.179903648,
+              "H010_BASIC": 1269.9380510544001
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "legion",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            6067.980757036224,
+            6067.980757036224
+          ],
+          "dealtBy": [
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R_CLONE": 299.85873340800003,
+              "H010_R": 5573.213846913023
+            },
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R_CLONE": 299.85873340800003,
+              "H010_R": 5573.213846913023
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            7563.339945470398,
+            7563.339945470398
+          ],
+          "dealtBy": [
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R": 7368.4317687551975
+            },
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R": 7368.4317687551975
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            4030.4022733104002,
+            4211.9257522368
+          ],
+          "dealtBy": [
+            {
+              "H010_CLONE": 974.5408835760002,
+              "H010_R": 2009.5723005695997,
+              "H010_BASIC": 446.5716223488,
+              "H010_R_CLONE": 599.7174668160001
+            },
+            {
+              "H010_CLONE": 779.6327068608001,
+              "H010_R": 2009.5723005695997,
+              "H010_R_CLONE": 1199.4349336320001,
+              "H010_BASIC": 223.2858111744
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            6742.9596532172145,
+            6742.9596532172145
+          ],
+          "dealtBy": [
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R_CLONE": 599.7174668160001,
+              "H010_R": 5948.334009686015
+            },
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R_CLONE": 599.7174668160001,
+              "H010_R": 5948.334009686015
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            6250.419375764927,
+            6250.419375764927
+          ],
+          "dealtBy": [
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R": 6055.511199049727
+            },
+            {
+              "H010_CLONE": 194.90817671520003,
+              "H010_R": 6055.511199049727
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "thunderlord",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            8451.20328,
+            7011.988463999999
+          ],
+          "dealtBy": [
+            {
+              "G2_LIGHTNING_E": 1422.47976,
+              "G2_LIGHTNING_R": 7028.72352
+            },
+            {
+              "G2_LIGHTNING_E": 1991.471664,
+              "G2_LIGHTNING_R": 5020.516799999999
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            8451.20328,
+            7011.988463999999
+          ],
+          "dealtBy": [
+            {
+              "G2_LIGHTNING_E": 1422.47976,
+              "G2_LIGHTNING_R": 7028.72352
+            },
+            {
+              "G2_LIGHTNING_E": 1991.471664,
+              "G2_LIGHTNING_R": 5020.516799999999
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            8451.20328,
+            7011.988463999999
+          ],
+          "dealtBy": [
+            {
+              "G2_LIGHTNING_E": 1422.47976,
+              "G2_LIGHTNING_R": 7028.72352
+            },
+            {
+              "G2_LIGHTNING_E": 1991.471664,
+              "G2_LIGHTNING_R": 5020.516799999999
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            8451.20328,
+            7011.988463999999
+          ],
+          "dealtBy": [
+            {
+              "G2_LIGHTNING_E": 1422.47976,
+              "G2_LIGHTNING_R": 7028.72352
+            },
+            {
+              "G2_LIGHTNING_E": 1991.471664,
+              "G2_LIGHTNING_R": 5020.516799999999
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            8451.20328,
+            7011.988463999999
+          ],
+          "dealtBy": [
+            {
+              "G2_LIGHTNING_E": 1422.47976,
+              "G2_LIGHTNING_R": 7028.72352
+            },
+            {
+              "G2_LIGHTNING_E": 1991.471664,
+              "G2_LIGHTNING_R": 5020.516799999999
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "void",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1749.6501048,
+            1408.745428272
+          ],
+          "dealtBy": [
+            {
+              "H012_R": 1374.38578368,
+              "H012_R_CLONE": 375.2643211200001
+            },
+            {
+              "H012_R": 1099.508626944,
+              "H012_E": 309.236801328
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1749.6501048,
+            1468.8748063080002
+          ],
+          "dealtBy": [
+            {
+              "H012_R": 1374.38578368,
+              "H012_R_CLONE": 375.2643211200001
+            },
+            {
+              "H012_R": 1236.947205312,
+              "H012_E": 231.92760099600002
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1639.3271445720002,
+            1689.5207267640003
+          ],
+          "dealtBy": [
+            {
+              "H012_R": 1374.38578368,
+              "H012_R_CLONE": 187.63216056000005,
+              "H012_E": 77.309200332
+            },
+            {
+              "H012_R": 1236.947205312,
+              "H012_E": 77.309200332,
+              "H012_R_CLONE": 375.2643211200001
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            3489.3644137560004,
+            2677.3605087840006
+          ],
+          "dealtBy": [
+            {
+              "H012_R": 2473.894410624,
+              "H012_R_CLONE": 938.1608028000003,
+              "H012_E": 77.309200332
+            },
+            {
+              "H012_R": 1374.38578368,
+              "H012_E": 927.7104039840002,
+              "H012_R_CLONE": 375.2643211200001
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1699.4565226080001,
+            1408.745428272
+          ],
+          "dealtBy": [
+            {
+              "H012_R": 1511.824362048,
+              "H012_R_CLONE": 187.63216056000005
+            },
+            {
+              "H012_R": 1099.508626944,
+              "H012_E": 309.236801328
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "reaper",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            10323.727315200002,
+            10323.727315200002
+          ],
+          "dealtBy": [
+            {
+              "H012_E": 1889.7804525600004,
+              "H012_R": 8246.31470208,
+              "H012_R_CLONE": 187.63216056000005
+            },
+            {
+              "H012_E": 1889.7804525600004,
+              "H012_R": 8246.31470208,
+              "H012_R_CLONE": 187.63216056000005
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            7485.018982272001,
+            7485.018982272001
+          ],
+          "dealtBy": [
+            {
+              "H012_E": 1133.868271536,
+              "H012_R": 5600.622068496001,
+              "H012_R_CLONE": 750.5286422400002
+            },
+            {
+              "H012_E": 1133.868271536,
+              "H012_R": 5600.622068496001,
+              "H012_R_CLONE": 750.5286422400002
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            4942.405282464002,
+            5026.958509248001
+          ],
+          "dealtBy": [
+            {
+              "H012_E": 1133.868271536,
+              "H012_R": 3058.008368688001,
+              "H012_R_CLONE": 750.5286422400002
+            },
+            {
+              "H012_E": 1133.868271536,
+              "H012_R": 2954.929434912001,
+              "H012_R_CLONE": 938.1608028000003
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            8513.116550640001,
+            8513.116550640001
+          ],
+          "dealtBy": [
+            {
+              "H012_E": 1889.7804525600004,
+              "H012_R": 5497.543134720001,
+              "H012_R_CLONE": 1125.7929633600004
+            },
+            {
+              "H012_E": 1889.7804525600004,
+              "H012_R": 5497.543134720001,
+              "H012_R_CLONE": 1125.7929633600004
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": false,
+          "blind": true,
+          "hpMin": [
+            0.9841529201284117,
+            0.9841529201284117
+          ],
+          "taken": [
+            8.172972972972957,
+            8.172972972972957
+          ],
+          "kitDealt": [
+            7950.220068960001,
+            7950.220068960001
+          ],
+          "dealtBy": [
+            {
+              "H012_E": 1889.7804525600004,
+              "H012_R": 5497.543134720001,
+              "H012_R_CLONE": 562.8964816800001
+            },
+            {
+              "H012_E": 1889.7804525600004,
+              "H012_R": 5497.543134720001,
+              "H012_R_CLONE": 562.8964816800001
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "beastlord",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1801.2687413760004,
+            1801.2687413760004
+          ],
+          "dealtBy": [
+            {
+              "H012_CLONE": 1801.2687413760004
+            },
+            {
+              "H012_CLONE": 1801.2687413760004
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1801.2687413760004,
+            1801.2687413760004
+          ],
+          "dealtBy": [
+            {
+              "H012_CLONE": 1801.2687413760004
+            },
+            {
+              "H012_CLONE": 1801.2687413760004
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1876.3216056000006,
+            1838.7951734880005
+          ],
+          "dealtBy": [
+            {
+              "H012_R_CLONE": 375.2643211200001,
+              "H012_CLONE": 1501.0572844800004
+            },
+            {
+              "H012_R_CLONE": 187.63216056000005,
+              "H012_CLONE": 1651.1630129280004
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            3677.5903469760024,
+            3640.0639148640025
+          ],
+          "dealtBy": [
+            {
+              "H012_CLONE": 3302.326025856002,
+              "H012_R_CLONE": 375.2643211200001
+            },
+            {
+              "H012_CLONE": 3452.4317543040024,
+              "H012_R_CLONE": 187.63216056000005
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1801.2687413760004,
+            1801.2687413760004
+          ],
+          "dealtBy": [
+            {
+              "H012_CLONE": 1801.2687413760004
+            },
+            {
+              "H012_CLONE": 1801.2687413760004
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "form": "windwarden",
+      "candidates": [
+        {
+          "label": "EN001@120 (shipped)",
+          "clean": true,
+          "blind": true,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1319.7586989600002,
+            1319.7586989600002
+          ],
+          "dealtBy": [
+            {
+              "G4_WIND_R": 1132.1265384,
+              "H012_R_CLONE": 187.63216056000005
+            },
+            {
+              "G4_WIND_R": 1132.1265384,
+              "H012_R_CLONE": 187.63216056000005
+            }
+          ]
+        },
+        {
+          "label": "EN001@180",
+          "clean": false,
+          "blind": false,
+          "hpMin": [
+            0.9637781031506553,
+            0.9643189389298494
+          ],
+          "taken": [
+            18.68108108108106,
+            18.68108108108106
+          ],
+          "kitDealt": [
+            1421.966766168,
+            1404.47026512
+          ],
+          "dealtBy": [
+            {
+              "G4_WIND_R": 823.3647552000001,
+              "H012_R_CLONE": 375.2643211200001,
+              "H012_BASIC": 223.33768984800002
+            },
+            {
+              "G4_WIND_R": 1029.205944,
+              "H012_R_CLONE": 375.2643211200001
+            }
+          ]
+        },
+        {
+          "label": "EN001@260",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1939.6969408440004,
+            1667.3532141240003
+          ],
+          "dealtBy": [
+            {
+              "G4_WIND_R": 514.602972,
+              "H012_R_CLONE": 1313.4251239200005,
+              "H012_BASIC": 111.66884492400001
+            },
+            {
+              "G4_WIND_R": 617.5235664,
+              "H012_BASIC": 111.66884492400001,
+              "H012_R_CLONE": 938.1608028000003
+            }
+          ]
+        },
+        {
+          "label": "EN006@120 (tough)",
+          "clean": false,
+          "blind": false,
+          "hpMin": [
+            0.9637781031506553,
+            1
+          ],
+          "taken": [
+            18.68108108108106,
+            0
+          ],
+          "kitDealt": [
+            2925.359556444,
+            3281.5835676000006
+          ],
+          "dealtBy": [
+            {
+              "G4_WIND_R": 2161.3324824,
+              "G4_WIND_E": 277.093908,
+              "H012_R_CLONE": 375.2643211200001,
+              "H012_BASIC": 111.66884492400001
+            },
+            {
+              "G4_WIND_R": 1955.4912936000003,
+              "G4_WIND_E": 387.9314712,
+              "H012_R_CLONE": 938.1608028000003
+            }
+          ]
+        },
+        {
+          "label": "EN002@120 (ranged)",
+          "clean": true,
+          "blind": false,
+          "hpMin": [
+            1,
+            1
+          ],
+          "taken": [
+            0,
+            0
+          ],
+          "kitDealt": [
+            1319.7586989600002,
+            1235.0471328
+          ],
+          "dealtBy": [
+            {
+              "G4_WIND_R": 1132.1265384,
+              "H012_R_CLONE": 187.63216056000005
+            },
+            {
+              "G4_WIND_R": 1235.0471328
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "radiusSweep": {
+    "radii": [
+      120,
+      150,
+      180,
+      210,
+      240,
+      260,
+      280,
+      300
+    ],
+    "grid": [
+      {
+        "radius": 120,
+        "clean": 10,
+        "separated": 3,
+        "shown": [],
+        "dirty": []
+      },
+      {
+        "radius": 150,
+        "clean": 10,
+        "separated": 4,
+        "shown": [
+          "windwarden"
+        ],
+        "dirty": []
+      },
+      {
+        "radius": 180,
+        "clean": 9,
+        "separated": 4,
+        "shown": [
+          "windwarden"
+        ],
+        "dirty": [
+          "windwarden"
+        ]
+      },
+      {
+        "radius": 210,
+        "clean": 9,
+        "separated": 6,
+        "shown": [
+          "frostflame",
+          "beastlord",
+          "windwarden"
+        ],
+        "dirty": [
+          "phoenix"
+        ]
+      },
+      {
+        "radius": 240,
+        "clean": 8,
+        "separated": 5,
+        "shown": [
+          "frostflame",
+          "windwarden"
+        ],
+        "dirty": [
+          "phoenix",
+          "windwarden"
+        ]
+      },
+      {
+        "radius": 260,
+        "clean": 9,
+        "separated": 8,
+        "shown": [
+          "frostflame",
+          "legion",
+          "reaper",
+          "beastlord",
+          "windwarden"
+        ],
+        "dirty": [
+          "phoenix"
+        ]
+      },
+      {
+        "radius": 280,
+        "clean": 9,
+        "separated": 6,
+        "shown": [
+          "frostflame",
+          "legion",
+          "windwarden"
+        ],
+        "dirty": [
+          "phoenix"
+        ]
+      },
+      {
+        "radius": 300,
+        "clean": 9,
+        "separated": 5,
+        "shown": [
+          "frostflame",
+          "legion",
+          "windwarden"
+        ],
+        "dirty": [
+          "phoenix"
+        ]
+      }
+    ],
+    "perForm": [
+      {
+        "form": "bulwark",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.31666666666666665,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.6333333333333333,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.2666666666666666,
+              0.6333333333333333
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.5833333333333333,
+              0.95
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.9,
+              1.2666666666666666
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1821.7654466918402,
+              1821.7654466918402
+            ],
+            "dealtBy": [
+              {
+                "H001_E": 1821.7654466918402
+              },
+              {
+                "H001_E": 1821.7654466918402
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              2.216666666666667,
+              1.5833333333333333
+            ]
+          }
+        ]
+      },
+      {
+        "form": "frostlord",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.31666666666666665,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.95,
+              0.31666666666666665
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.2666666666666666,
+              0.6333333333333333
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.5833333333333333,
+              0.95
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.9,
+              1.2666666666666666
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1223.3944719359995,
+              1223.3944719359995
+            ],
+            "dealtBy": [
+              {
+                "G2_FROST_E": 1223.3944719359995
+              },
+              {
+                "G2_FROST_E": 1223.3944719359995
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              2.216666666666667,
+              1.5833333333333333
+            ]
+          }
+        ]
+      },
+      {
+        "form": "frostflame",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1310.7797913600004,
+              1310.7797913600004
+            ],
+            "dealtBy": [
+              {
+                "G5_FROST_E": 1310.7797913600004
+              },
+              {
+                "G5_FROST_E": 1310.7797913600004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1310.7797913600004,
+              1310.7797913600004
+            ],
+            "dealtBy": [
+              {
+                "G5_FROST_E": 1310.7797913600004
+              },
+              {
+                "G5_FROST_E": 1310.7797913600004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1310.7797913600004,
+              1310.7797913600004
+            ],
+            "dealtBy": [
+              {
+                "G5_FROST_E": 1310.7797913600004
+              },
+              {
+                "G5_FROST_E": 1310.7797913600004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1093.0592680151042,
+              1310.7797913600004
+            ],
+            "dealtBy": [
+              {
+                "G5_FIRE_E": 1093.0592680151042
+              },
+              {
+                "G5_FROST_E": 1310.7797913600004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.2666666666666666,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1244.873055239424,
+              1093.0592680151042
+            ],
+            "dealtBy": [
+              {
+                "G5_FIRE_BASIC": 242.902059558912,
+                "G5_FIRE_E": 1001.9709956805121
+              },
+              {
+                "G5_FIRE_E": 1093.0592680151042
+              }
+            ],
+            "basicDealt": [
+              242.902059558912,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.35,
+              0.95
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1344.321189798912,
+              1093.0592680151042
+            ],
+            "dealtBy": [
+              {
+                "G5_FIRE_BASIC": 242.902059558912,
+                "G5_FROST_BASIC": 1101.41913024
+              },
+              {
+                "G5_FIRE_E": 1093.0592680151042
+              }
+            ],
+            "basicDealt": [
+              1344.321189798912,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.3833333333333333,
+              1.2666666666666666
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1396.6868424637441,
+              1244.873055239424
+            ],
+            "dealtBy": [
+              {
+                "G5_FIRE_BASIC": 485.804119117824,
+                "G5_FIRE_E": 910.8827233459201
+              },
+              {
+                "G5_FIRE_BASIC": 242.902059558912,
+                "G5_FIRE_E": 1001.9709956805121
+              }
+            ],
+            "basicDealt": [
+              485.804119117824,
+              242.902059558912
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.4333333333333333,
+              1.4333333333333333
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1396.6868424637441,
+              1244.873055239424
+            ],
+            "dealtBy": [
+              {
+                "G5_FIRE_BASIC": 485.804119117824,
+                "G5_FIRE_E": 910.8827233459201
+              },
+              {
+                "G5_FIRE_BASIC": 242.902059558912,
+                "G5_FIRE_E": 1001.9709956805121
+              }
+            ],
+            "basicDealt": [
+              485.804119117824,
+              242.902059558912
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              1.4666666666666666,
+              1.4666666666666666
+            ]
+          }
+        ]
+      },
+      {
+        "form": "phoenix",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4105.66785296928,
+              4225.6839764755205
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 3561.40868823168,
+                "H010_BASIC": 544.2591647376
+              },
+              {
+                "H010_E": 3500.00509015872,
+                "H010_BASIC": 725.6788863168
+              }
+            ],
+            "basicDealt": [
+              544.2591647376,
+              725.6788863168
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4164.28037840256,
+              4222.89290383584
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 3438.60149208576,
+                "H010_BASIC": 725.6788863168
+              },
+              {
+                "H010_E": 3315.79429593984,
+                "H010_BASIC": 907.098607896
+              }
+            ],
+            "basicDealt": [
+              725.6788863168,
+              907.098607896
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              3477.6765090412805,
+              3240.43533466848
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 2026.3187364076803,
+                "H010_BASIC": 1451.3577726336002
+              },
+              {
+                "H010_E": 2333.3367267724802,
+                "H010_BASIC": 907.098607896
+              }
+            ],
+            "basicDealt": [
+              1451.3577726336002,
+              907.098607896
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": false,
+            "blind": false,
+            "hpMin": [
+              0.9636271785804497,
+              1
+            ],
+            "taken": [
+              18.68108108108106,
+              0
+            ],
+            "kitDealt": [
+              3373.2903923172485,
+              3240.43533466848
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 1842.1079421888003,
+                "H010_BASIC": 1531.1824501284482
+              },
+              {
+                "H010_E": 2333.3367267724802,
+                "H010_BASIC": 907.098607896
+              }
+            ],
+            "basicDealt": [
+              1531.1824501284482,
+              907.098607896
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": false,
+            "blind": false,
+            "hpMin": [
+              0.9818135892902248,
+              1
+            ],
+            "taken": [
+              9.34054054054053,
+              0
+            ],
+            "kitDealt": [
+              3424.0879143594248,
+              3477.6765090412805
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 1842.1079421888003,
+                "H010_BASIC": 1581.9799721706243
+              },
+              {
+                "H010_E": 2026.3187364076803,
+                "H010_BASIC": 1451.3577726336002
+              }
+            ],
+            "basicDealt": [
+              1581.9799721706243,
+              1451.3577726336002
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": false,
+            "blind": false,
+            "hpMin": [
+              0.9454407678706744,
+              1
+            ],
+            "taken": [
+              28.02162162162159,
+              0
+            ],
+            "kitDealt": [
+              3373.2903923172485,
+              3416.2729109683205
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 1842.1079421888003,
+                "H010_BASIC": 1531.1824501284482
+              },
+              {
+                "H010_E": 1964.9151383347203,
+                "H010_BASIC": 1451.3577726336002
+              }
+            ],
+            "basicDealt": [
+              1531.1824501284482,
+              1451.3577726336002
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": false,
+            "blind": false,
+            "hpMin": [
+              0.892970405806635,
+              0.9818135892902248
+            ],
+            "taken": [
+              56.04324324324318,
+              9.34054054054053
+            ],
+            "kitDealt": [
+              2951.2802091976323,
+              3165.0763733971207
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 1289.47555953216,
+                "H010_BASIC": 1661.8046496654722
+              },
+              {
+                "H010_E": 1350.87915760512,
+                "H010_BASIC": 1814.1972157920004
+              }
+            ],
+            "basicDealt": [
+              1661.8046496654722,
+              1814.1972157920004
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": false,
+            "blind": false,
+            "hpMin": [
+              0.9099903046617699,
+              0.9818135892902248
+            ],
+            "taken": [
+              46.70270270270265,
+              9.34054054054053
+            ],
+            "kitDealt": [
+              3805.9066514676483,
+              3416.2729109683205
+            ],
+            "dealtBy": [
+              {
+                "H010_E": 2456.1439229184,
+                "H010_BASIC": 1349.762728549248
+              },
+              {
+                "H010_E": 1964.9151383347203,
+                "H010_BASIC": 1451.3577726336002
+              }
+            ],
+            "basicDealt": [
+              1349.762728549248,
+              1451.3577726336002
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "form": "legion",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              6067.980757036224,
+              6067.980757036224
+            ],
+            "dealtBy": [
+              {
+                "H010_CLONE": 194.90817671520003,
+                "H010_R_CLONE": 299.85873340800003,
+                "H010_R": 5573.213846913023
+              },
+              {
+                "H010_CLONE": 194.90817671520003,
+                "H010_R_CLONE": 299.85873340800003,
+                "H010_R": 5573.213846913023
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.1,
+              0.1
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              6537.808551186431,
+              6537.808551186431
+            ],
+            "dealtBy": [
+              {
+                "H010_R": 6537.808551186431
+              },
+              {
+                "H010_R": 6537.808551186431
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.31666666666666665,
+              0.31666666666666665
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              7563.339945470398,
+              7563.339945470398
+            ],
+            "dealtBy": [
+              {
+                "H010_CLONE": 194.90817671520003,
+                "H010_R": 7368.4317687551975
+              },
+              {
+                "H010_CLONE": 194.90817671520003,
+                "H010_R": 7368.4317687551975
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.21666666666666667,
+              0.21666666666666667
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4763.4479312784,
+              4763.4479312784
+            ],
+            "dealtBy": [
+              {
+                "H010_CLONE": 584.7245301456,
+                "H010_R": 2679.4297340927997,
+                "H010_R_CLONE": 1499.2936670400002
+              },
+              {
+                "H010_CLONE": 584.7245301456,
+                "H010_R": 2679.4297340927997,
+                "H010_R_CLONE": 1499.2936670400002
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.2833333333333333,
+              0.2833333333333333
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4763.4479312784,
+              4763.4479312784
+            ],
+            "dealtBy": [
+              {
+                "H010_CLONE": 584.7245301456,
+                "H010_R": 2679.4297340927997,
+                "H010_R_CLONE": 1499.2936670400002
+              },
+              {
+                "H010_CLONE": 584.7245301456,
+                "H010_R": 2679.4297340927997,
+                "H010_R_CLONE": 1499.2936670400002
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.3333333333333333,
+              0.3333333333333333
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4030.4022733104002,
+              4211.9257522368
+            ],
+            "dealtBy": [
+              {
+                "H010_CLONE": 974.5408835760002,
+                "H010_R": 2009.5723005695997,
+                "H010_BASIC": 446.5716223488,
+                "H010_R_CLONE": 599.7174668160001
+              },
+              {
+                "H010_CLONE": 779.6327068608001,
+                "H010_R": 2009.5723005695997,
+                "H010_R_CLONE": 1199.4349336320001,
+                "H010_BASIC": 223.2858111744
+              }
+            ],
+            "basicDealt": [
+              446.5716223488,
+              223.2858111744
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.35,
+              0.35
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4106.975195544001,
+              4421.8268656224
+            ],
+            "dealtBy": [
+              {
+                "H010_CLONE": 974.5408835760002,
+                "H010_R": 2009.5723005695997,
+                "H010_R_CLONE": 899.5762002240001,
+                "H010_BASIC": 223.2858111744
+              },
+              {
+                "H010_CLONE": 389.81635343040006,
+                "H010_R": 2009.5723005695997,
+                "H010_R_CLONE": 1799.1524004480002,
+                "H010_BASIC": 223.2858111744
+              }
+            ],
+            "basicDealt": [
+              223.2858111744,
+              223.2858111744
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.4,
+              0.4
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4211.9257522368,
+              4316.8763089296
+            ],
+            "dealtBy": [
+              {
+                "H010_CLONE": 779.6327068608001,
+                "H010_R": 2009.5723005695997,
+                "H010_R_CLONE": 1199.4349336320001,
+                "H010_BASIC": 223.2858111744
+              },
+              {
+                "H010_CLONE": 584.7245301456,
+                "H010_R": 2009.5723005695997,
+                "H010_R_CLONE": 1499.2936670400002,
+                "H010_BASIC": 223.2858111744
+              }
+            ],
+            "basicDealt": [
+              223.2858111744,
+              223.2858111744
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.43333333333333335,
+              0.43333333333333335
+            ]
+          }
+        ]
+      },
+      {
+        "form": "thunderlord",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              8451.20328,
+              7011.988463999999
+            ],
+            "dealtBy": [
+              {
+                "G2_LIGHTNING_E": 1422.47976,
+                "G2_LIGHTNING_R": 7028.72352
+              },
+              {
+                "G2_LIGHTNING_E": 1991.471664,
+                "G2_LIGHTNING_R": 5020.516799999999
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "form": "void",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1749.6501048,
+              1408.745428272
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1374.38578368,
+                "H012_R_CLONE": 375.2643211200001
+              },
+              {
+                "H012_R": 1099.508626944,
+                "H012_E": 309.236801328
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1749.6501048,
+              1579.1977665360002
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1374.38578368,
+                "H012_R_CLONE": 375.2643211200001
+              },
+              {
+                "H012_R": 1236.947205312,
+                "H012_E": 154.618400664,
+                "H012_R_CLONE": 187.63216056000005
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1749.6501048,
+              1468.8748063080002
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1374.38578368,
+                "H012_R_CLONE": 375.2643211200001
+              },
+              {
+                "H012_R": 1236.947205312,
+                "H012_E": 231.92760099600002
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1699.4565226080001,
+              1749.6501048
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1511.824362048,
+                "H012_R_CLONE": 187.63216056000005
+              },
+              {
+                "H012_R": 1374.38578368,
+                "H012_R_CLONE": 375.2643211200001
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1749.6501048,
+              1699.4565226080001
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1374.38578368,
+                "H012_R_CLONE": 375.2643211200001
+              },
+              {
+                "H012_R": 1511.824362048,
+                "H012_R_CLONE": 187.63216056000005
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1639.3271445720002,
+              1689.5207267640003
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1374.38578368,
+                "H012_R_CLONE": 187.63216056000005,
+                "H012_E": 77.309200332
+              },
+              {
+                "H012_R": 1236.947205312,
+                "H012_E": 77.309200332,
+                "H012_R_CLONE": 375.2643211200001
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1529.0041843440001,
+              1579.1977665360002
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1374.38578368,
+                "H012_E": 154.618400664
+              },
+              {
+                "H012_R": 1236.947205312,
+                "H012_E": 154.618400664,
+                "H012_R_CLONE": 187.63216056000005
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1529.0041843440001,
+              1529.0041843440001
+            ],
+            "dealtBy": [
+              {
+                "H012_R": 1374.38578368,
+                "H012_E": 154.618400664
+              },
+              {
+                "H012_R": 1374.38578368,
+                "H012_E": 154.618400664
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.2833333333333333,
+              0.2833333333333333
+            ]
+          }
+        ]
+      },
+      {
+        "form": "reaper",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              10323.727315200002,
+              10323.727315200002
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 1889.7804525600004,
+                "H012_R": 8246.31470208,
+                "H012_R_CLONE": 187.63216056000005
+              },
+              {
+                "H012_E": 1889.7804525600004,
+                "H012_R": 8246.31470208,
+                "H012_R_CLONE": 187.63216056000005
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              7950.220068960001,
+              7950.220068960001
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 1889.7804525600004,
+                "H012_R": 5497.543134720001,
+                "H012_R_CLONE": 562.8964816800001
+              },
+              {
+                "H012_E": 1889.7804525600004,
+                "H012_R": 5497.543134720001,
+                "H012_R_CLONE": 562.8964816800001
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              7485.018982272001,
+              7485.018982272001
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 5600.622068496001,
+                "H012_R_CLONE": 750.5286422400002
+              },
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 5600.622068496001,
+                "H012_R_CLONE": 750.5286422400002
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              7485.018982272001,
+              7485.018982272001
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 5600.622068496001,
+                "H012_R_CLONE": 750.5286422400002
+              },
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 5600.622068496001,
+                "H012_R_CLONE": 750.5286422400002
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4942.405282464002,
+              4942.405282464002
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 3058.008368688001,
+                "H012_R_CLONE": 750.5286422400002
+              },
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 3058.008368688001,
+                "H012_R_CLONE": 750.5286422400002
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              4942.405282464002,
+              5026.958509248001
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 3058.008368688001,
+                "H012_R_CLONE": 750.5286422400002
+              },
+              {
+                "H012_E": 1133.868271536,
+                "H012_R": 2954.929434912001,
+                "H012_R_CLONE": 938.1608028000003
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              7104.371122368001,
+              7104.371122368001
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 377.95609051200006,
+                "H012_R": 5600.622068496001,
+                "H012_R_CLONE": 1125.7929633600004
+              },
+              {
+                "H012_E": 377.95609051200006,
+                "H012_R": 5600.622068496001,
+                "H012_R_CLONE": 1125.7929633600004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              7188.924349152001,
+              7188.924349152001
+            ],
+            "dealtBy": [
+              {
+                "H012_E": 377.95609051200006,
+                "H012_R": 5497.543134720001,
+                "H012_R_CLONE": 1313.4251239200005
+              },
+              {
+                "H012_E": 377.95609051200006,
+                "H012_R": 5497.543134720001,
+                "H012_R_CLONE": 1313.4251239200005
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "form": "beastlord",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1801.2687413760004,
+              1801.2687413760004
+            ],
+            "dealtBy": [
+              {
+                "H012_CLONE": 1801.2687413760004
+              },
+              {
+                "H012_CLONE": 1801.2687413760004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1801.2687413760004,
+              1801.2687413760004
+            ],
+            "dealtBy": [
+              {
+                "H012_CLONE": 1801.2687413760004
+              },
+              {
+                "H012_CLONE": 1801.2687413760004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1801.2687413760004,
+              1801.2687413760004
+            ],
+            "dealtBy": [
+              {
+                "H012_CLONE": 1801.2687413760004
+              },
+              {
+                "H012_CLONE": 1801.2687413760004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1876.3216056000006,
+              1801.2687413760004
+            ],
+            "dealtBy": [
+              {
+                "H012_CLONE": 1501.0572844800004,
+                "H012_R_CLONE": 375.2643211200001
+              },
+              {
+                "H012_CLONE": 1801.2687413760004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1876.3216056000006,
+              1876.3216056000006
+            ],
+            "dealtBy": [
+              {
+                "H012_CLONE": 1501.0572844800004,
+                "H012_R_CLONE": 375.2643211200001
+              },
+              {
+                "H012_CLONE": 1501.0572844800004,
+                "H012_R_CLONE": 375.2643211200001
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.23333333333333334,
+              0.23333333333333334
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1876.3216056000006,
+              1838.7951734880005
+            ],
+            "dealtBy": [
+              {
+                "H012_R_CLONE": 375.2643211200001,
+                "H012_CLONE": 1501.0572844800004
+              },
+              {
+                "H012_R_CLONE": 187.63216056000005,
+                "H012_CLONE": 1651.1630129280004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.35,
+              0.35
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1876.3216056000006,
+              1876.3216056000006
+            ],
+            "dealtBy": [
+              {
+                "H012_R_CLONE": 375.2643211200001,
+                "H012_CLONE": 1501.0572844800004
+              },
+              {
+                "H012_R_CLONE": 375.2643211200001,
+                "H012_CLONE": 1501.0572844800004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.4,
+              0.4
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1913.8480377120004,
+              1913.8480377120004
+            ],
+            "dealtBy": [
+              {
+                "H012_R_CLONE": 562.8964816800001,
+                "H012_CLONE": 1350.9515560320003
+              },
+              {
+                "H012_R_CLONE": 562.8964816800001,
+                "H012_CLONE": 1350.9515560320003
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0.43333333333333335,
+              0.43333333333333335
+            ]
+          }
+        ]
+      },
+      {
+        "form": "windwarden",
+        "radii": [
+          {
+            "radius": 120,
+            "clean": true,
+            "blind": true,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1319.7586989600002,
+              1319.7586989600002
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 1132.1265384,
+                "H012_R_CLONE": 187.63216056000005
+              },
+              {
+                "G4_WIND_R": 1132.1265384,
+                "H012_R_CLONE": 187.63216056000005
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 150,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1413.218515644,
+              1319.7586989600002
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 926.2853496000001,
+                "H012_R_CLONE": 375.2643211200001,
+                "H012_BASIC": 111.66884492400001
+              },
+              {
+                "G4_WIND_R": 1132.1265384,
+                "H012_R_CLONE": 187.63216056000005
+              }
+            ],
+            "basicDealt": [
+              111.66884492400001,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 180,
+            "clean": false,
+            "blind": false,
+            "hpMin": [
+              0.9637781031506553,
+              0.9643189389298494
+            ],
+            "taken": [
+              18.68108108108106,
+              18.68108108108106
+            ],
+            "kitDealt": [
+              1421.966766168,
+              1404.47026512
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 823.3647552000001,
+                "H012_R_CLONE": 375.2643211200001,
+                "H012_BASIC": 223.33768984800002
+              },
+              {
+                "G4_WIND_R": 1029.205944,
+                "H012_R_CLONE": 375.2643211200001
+              }
+            ],
+            "basicDealt": [
+              223.33768984800002,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 210,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1667.3532141240003,
+              1591.3898984880002
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 617.5235664,
+                "H012_R_CLONE": 938.1608028000003,
+                "H012_BASIC": 111.66884492400001
+              },
+              {
+                "G4_WIND_R": 617.5235664,
+                "H012_R_CLONE": 750.5286422400002,
+                "H012_BASIC": 223.33768984800002
+              }
+            ],
+            "basicDealt": [
+              111.66884492400001,
+              223.33768984800002
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 240,
+            "clean": false,
+            "blind": false,
+            "hpMin": [
+              0.9818890515753276,
+              1
+            ],
+            "taken": [
+              9.34054054054053,
+              0
+            ],
+            "kitDealt": [
+              1506.6783323280001,
+              1497.930081804
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 720.4441608000001,
+                "H012_R_CLONE": 562.8964816800001,
+                "H012_BASIC": 223.33768984800002
+              },
+              {
+                "G4_WIND_R": 823.3647552000001,
+                "H012_R_CLONE": 562.8964816800001,
+                "H012_BASIC": 111.66884492400001
+              }
+            ],
+            "basicDealt": [
+              223.33768984800002,
+              111.66884492400001
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 260,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1939.6969408440004,
+              1667.3532141240003
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 514.602972,
+                "H012_R_CLONE": 1313.4251239200005,
+                "H012_BASIC": 111.66884492400001
+              },
+              {
+                "G4_WIND_R": 617.5235664,
+                "H012_BASIC": 111.66884492400001,
+                "H012_R_CLONE": 938.1608028000003
+              }
+            ],
+            "basicDealt": [
+              111.66884492400001,
+              111.66884492400001
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 280,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1743.3165297600003,
+              1591.3898984880002
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 617.5235664,
+                "H012_R_CLONE": 1125.7929633600004
+              },
+              {
+                "G4_WIND_R": 617.5235664,
+                "H012_R_CLONE": 750.5286422400002,
+                "H012_BASIC": 223.33768984800002
+              }
+            ],
+            "basicDealt": [
+              0,
+              223.33768984800002
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          },
+          {
+            "radius": 300,
+            "clean": true,
+            "blind": false,
+            "hpMin": [
+              1,
+              1
+            ],
+            "taken": [
+              0,
+              0
+            ],
+            "kitDealt": [
+              1658.6049636000002,
+              1743.3165297600003
+            ],
+            "dealtBy": [
+              {
+                "G4_WIND_R": 720.4441608000001,
+                "H012_R_CLONE": 938.1608028000003
+              },
+              {
+                "G4_WIND_R": 617.5235664,
+                "H012_R_CLONE": 1125.7929633600004
+              }
+            ],
+            "basicDealt": [
+              0,
+              0
+            ],
+            "killed": [
+              12,
+              12
+            ],
+            "of": 12,
+            "firstHitMin": [
+              0,
+              0
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "note": "Every number here is a measurement. `clean` = hpMin is 1 at both ranks; `blind` = the two ranks report the same damage sources at the same values. The shipped ring is the first candidate; the control arm above asserts it reproduces the report on disk.",
+  "runs": {
+    "scan": 10,
+    "sweep": 100,
+    "radiusSweep": 160
+  }
+}

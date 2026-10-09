@@ -1,0 +1,2350 @@
+{
+  "slice": "R1g-5 (rolling)",
+  "note": "Rolling artifact: rewritten by every run. The numbers are the current tree's.",
+  "base": "R1g-4",
+  "harness": "src/core/growthPacing.test.ts",
+  "seeds": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    15,
+    21,
+    25,
+    33
+  ],
+  "gddTarget": {
+    "evolutionAt": [
+      90,
+      120
+    ],
+    "awakeningAt": [
+      240,
+      300
+    ],
+    "evolutions": [
+      2,
+      3
+    ],
+    "fusions": 1
+  },
+  "chestAt": [
+    90,
+    165,
+    240,
+    300
+  ],
+  "table": {
+    "evolutions": 20,
+    "fusions": 10,
+    "structurallyReachableEvolutions": 9,
+    "structurallyReachableFusions": 4,
+    "deadEvolutions": [
+      "E001:A001+P016",
+      "E005:A005+P018",
+      "E014:A014+P032",
+      "E019:A019+P010",
+      "E022:A022+P027",
+      "E028:A028+P019",
+      "E030:A030+P032",
+      "E041:A041+P027",
+      "E049:A049+P032",
+      "SE003:S003+P027",
+      "SE018:S018+P032"
+    ],
+    "deadFusions": [
+      "F003:E028+E019",
+      "F005:E013+SE003",
+      "F006:E022+E041",
+      "F020:E014+SE018",
+      "F021:E030+E049",
+      "F033:E005+E001"
+    ]
+  },
+  "cells": [
+    {
+      "driver": "first",
+      "viewport": [
+        390,
+        844
+      ],
+      "runs": 11,
+      "endReasons": {
+        "victory": 9,
+        "defeat": 2
+      },
+      "formLevelMedian": 10,
+      "formAtMedian": 98.6,
+      "formAtRange": [
+        92.5,
+        106.4
+      ],
+      "awakenedRuns": 11,
+      "awakenLevelMedian": 19,
+      "awakenAtMedian": 247.2,
+      "awakenAtRange": [
+        243.2,
+        254.3
+      ],
+      "gateRuns": 0,
+      "gateAtRange": null,
+      "gatePairs": [],
+      "evolvedMedian": 2,
+      "fusedMedian": 0,
+      "evolvedIds": [
+        "E003",
+        "E011",
+        "E027",
+        "SE001",
+        "E021",
+        "E054"
+      ],
+      "fusedIds": [
+        "F004"
+      ],
+      "maxActiveMedian": 5,
+      "maxPassiveMedian": 1,
+      "levelAtMedian": {
+        "1": 0,
+        "2": 10.6,
+        "3": 18.9,
+        "4": 29.4,
+        "5": 38.3,
+        "6": 49.1,
+        "7": 60.9,
+        "8": 73.9,
+        "9": 86.7,
+        "10": 98.6,
+        "11": 114.2,
+        "12": 128.5,
+        "13": 147.5,
+        "14": 161.9,
+        "15": 177.1,
+        "16": 192.5,
+        "17": 212.1,
+        "18": 227.4,
+        "19": 247.2,
+        "20": 266.4,
+        "21": 320.4
+      },
+      "chestOfferTypes": {
+        "evo": 38,
+        "gear": 44,
+        "upgrade": 49,
+        "fusion": 1
+      }
+    },
+    {
+      "driver": "unlock",
+      "viewport": [
+        390,
+        844
+      ],
+      "runs": 11,
+      "endReasons": {
+        "timeout": 6,
+        "victory": 5
+      },
+      "formLevelMedian": 10,
+      "formAtMedian": 110,
+      "formAtRange": [
+        98.5,
+        119.6
+      ],
+      "awakenedRuns": 10,
+      "awakenLevelMedian": 19,
+      "awakenAtMedian": 272.8,
+      "awakenAtRange": [
+        260.3,
+        320.7
+      ],
+      "gateRuns": 0,
+      "gateAtRange": null,
+      "gatePairs": [],
+      "evolvedMedian": 1,
+      "fusedMedian": 0,
+      "evolvedIds": [
+        "E011",
+        "E003",
+        "E026",
+        "E015",
+        "SE001",
+        "E027"
+      ],
+      "fusedIds": [],
+      "maxActiveMedian": 5,
+      "maxPassiveMedian": 1,
+      "levelAtMedian": {
+        "1": 0,
+        "2": 10.6,
+        "3": 19.1,
+        "4": 28.7,
+        "5": 39.8,
+        "6": 53,
+        "7": 67.1,
+        "8": 81.6,
+        "9": 93.8,
+        "10": 110,
+        "11": 127,
+        "12": 143.2,
+        "13": 163.4,
+        "14": 177.5,
+        "15": 198.2,
+        "16": 213,
+        "17": 228.2,
+        "18": 250,
+        "19": 272.8,
+        "20": 337.4
+      },
+      "chestOfferTypes": {
+        "upgrade": 79,
+        "gear": 44,
+        "evo": 9
+      }
+    },
+    {
+      "driver": "focus",
+      "viewport": [
+        390,
+        844
+      ],
+      "runs": 11,
+      "endReasons": {
+        "victory": 8,
+        "defeat": 3
+      },
+      "formLevelMedian": 10,
+      "formAtMedian": 98.3,
+      "formAtRange": [
+        95.5,
+        106.4
+      ],
+      "awakenedRuns": 11,
+      "awakenLevelMedian": 19,
+      "awakenAtMedian": 249.8,
+      "awakenAtRange": [
+        239.8,
+        260.6
+      ],
+      "gateRuns": 2,
+      "gateAtRange": [
+        212.1,
+        224.6
+      ],
+      "gatePairs": [
+        "E003(A003+P026)"
+      ],
+      "evolvedMedian": 2,
+      "fusedMedian": 0,
+      "evolvedIds": [
+        "E011",
+        "E003",
+        "E027",
+        "E026",
+        "E054"
+      ],
+      "fusedIds": [
+        "F001"
+      ],
+      "maxActiveMedian": 5,
+      "maxPassiveMedian": 3,
+      "levelAtMedian": {
+        "1": 0,
+        "2": 10.6,
+        "3": 18.9,
+        "4": 29.4,
+        "5": 39.6,
+        "6": 49.1,
+        "7": 61.2,
+        "8": 73.2,
+        "9": 85.6,
+        "10": 98.3,
+        "11": 113.9,
+        "12": 129,
+        "13": 147.5,
+        "14": 162.7,
+        "15": 176.9,
+        "16": 192.5,
+        "17": 212,
+        "18": 228.4,
+        "19": 249.8,
+        "20": 266.2,
+        "21": 320.3
+      },
+      "chestOfferTypes": {
+        "evo": 34,
+        "upgrade": 51,
+        "gear": 43,
+        "fusion": 1
+      }
+    },
+    {
+      "driver": "focus",
+      "viewport": [
+        1280,
+        720
+      ],
+      "runs": 11,
+      "endReasons": {
+        "defeat": 1,
+        "victory": 10
+      },
+      "formLevelMedian": 10,
+      "formAtMedian": 97.9,
+      "formAtRange": [
+        95.5,
+        107.7
+      ],
+      "awakenedRuns": 11,
+      "awakenLevelMedian": 19,
+      "awakenAtMedian": 247.1,
+      "awakenAtRange": [
+        231.2,
+        261
+      ],
+      "gateRuns": 2,
+      "gateAtRange": [
+        158,
+        318.4
+      ],
+      "gatePairs": [
+        "E003(A003+P026)"
+      ],
+      "evolvedMedian": 3,
+      "fusedMedian": 0,
+      "evolvedIds": [
+        "E011",
+        "E003",
+        "E054",
+        "SE001",
+        "E027"
+      ],
+      "fusedIds": [
+        "F004"
+      ],
+      "maxActiveMedian": 5,
+      "maxPassiveMedian": 3,
+      "levelAtMedian": {
+        "1": 0,
+        "2": 10.6,
+        "3": 18.9,
+        "4": 29.4,
+        "5": 39.6,
+        "6": 49.1,
+        "7": 61,
+        "8": 73,
+        "9": 85.5,
+        "10": 97.9,
+        "11": 112,
+        "12": 129.1,
+        "13": 148.3,
+        "14": 162.9,
+        "15": 177.8,
+        "16": 192.7,
+        "17": 209.8,
+        "18": 226.7,
+        "19": 247.1,
+        "20": 269.3,
+        "21": 306.5,
+        "22": 328.6
+      },
+      "chestOfferTypes": {
+        "evo": 35,
+        "upgrade": 50,
+        "gear": 43,
+        "fusion": 1
+      }
+    }
+  ],
+  "overall": {
+    "runs": 44,
+    "endReasons": {
+      "victory": 32,
+      "defeat": 6,
+      "timeout": 6
+    },
+    "formLevelMedian": 10,
+    "formAtMedian": 98.9,
+    "formAtRange": [
+      92.5,
+      119.6
+    ],
+    "awakenedRuns": 43,
+    "awakenLevelMedian": 19,
+    "awakenAtMedian": 250.3,
+    "awakenAtRange": [
+      231.2,
+      320.7
+    ],
+    "gateRuns": 4,
+    "gateAtRange": [
+      158,
+      318.4
+    ],
+    "gatePairs": [
+      "E003(A003+P026)"
+    ],
+    "evolvedMedian": 2,
+    "fusedMedian": 0,
+    "evolvedIds": [
+      "E003",
+      "E011",
+      "E027",
+      "SE001",
+      "E021",
+      "E054",
+      "E026",
+      "E015"
+    ],
+    "fusedIds": [
+      "F004",
+      "F001"
+    ],
+    "maxActiveMedian": 5,
+    "maxPassiveMedian": 2,
+    "levelAtMedian": {
+      "1": 0,
+      "2": 10.6,
+      "3": 18.9,
+      "4": 29.4,
+      "5": 39.6,
+      "6": 49.7,
+      "7": 61.7,
+      "8": 74.7,
+      "9": 87.9,
+      "10": 98.9,
+      "11": 114.9,
+      "12": 129.2,
+      "13": 148.3,
+      "14": 163.9,
+      "15": 178.2,
+      "16": 195.2,
+      "17": 213.4,
+      "18": 233,
+      "19": 250.3,
+      "20": 267.4,
+      "21": 313.8,
+      "22": 328.6
+    },
+    "chestOfferTypes": {
+      "evo": 116,
+      "gear": 174,
+      "upgrade": 229,
+      "fusion": 3
+    }
+  },
+  "trace": [
+    {
+      "seed": 1,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011",
+        "E027"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E027",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011",
+        "E027",
+        "SE001"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E027",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:SE001",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011",
+        "E021"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E021",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "driver": "first",
+      "evolved": [
+        "E011",
+        "E003"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 21,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011",
+        "E054"
+      ],
+      "fused": [
+        "F004"
+      ],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "evo:E054",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E054",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "fusion:F004",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 25,
+      "driver": "first",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 33,
+      "driver": "first",
+      "evolved": [
+        "E011",
+        "E003",
+        "E054"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E054",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "driver": "unlock",
+      "evolved": [],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "driver": "unlock",
+      "evolved": [
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "driver": "unlock",
+      "evolved": [],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "driver": "unlock",
+      "evolved": [
+        "E003"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E003",
+            "evo:E015",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "driver": "unlock",
+      "evolved": [
+        "E026"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E026",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "driver": "unlock",
+      "evolved": [
+        "E015"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E015",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "driver": "unlock",
+      "evolved": [
+        "E003"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "driver": "unlock",
+      "evolved": [],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 21,
+      "driver": "unlock",
+      "evolved": [
+        "SE001"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:SE001",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 25,
+      "driver": "unlock",
+      "evolved": [
+        "E027"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E027",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 33,
+      "driver": "unlock",
+      "evolved": [
+        "E003"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "driver": "focus",
+      "evolved": [
+        "E011",
+        "E003",
+        "E027"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E027",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011",
+        "E026"
+      ],
+      "fused": [
+        "F001"
+      ],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E026",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "fusion:F001",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011",
+        "E054"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E054",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "driver": "focus",
+      "evolved": [
+        "E011",
+        "E003"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 21,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011",
+        "E027"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E027",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 25,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 33,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "driver": "focus",
+      "evolved": [
+        "E011",
+        "E003",
+        "E054"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E054",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011",
+        "SE001"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:SE001",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "driver": "focus",
+      "evolved": [
+        "E011",
+        "E003",
+        "E027"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E027",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 21,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011",
+        "E027"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E027",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 25,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011",
+        "E054"
+      ],
+      "fused": [],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "upgrade",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "evo:E054",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 33,
+      "driver": "focus",
+      "evolved": [
+        "E003",
+        "E011",
+        "E054"
+      ],
+      "fused": [
+        "F004"
+      ],
+      "chests": [
+        {
+          "at": 90,
+          "options": [
+            "evo:E003",
+            "evo:E011",
+            "gear"
+          ]
+        },
+        {
+          "at": 165,
+          "options": [
+            "evo:E011",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 240,
+          "options": [
+            "evo:E054",
+            "upgrade",
+            "gear"
+          ]
+        },
+        {
+          "at": 300,
+          "options": [
+            "fusion:F004",
+            "upgrade",
+            "gear"
+          ]
+        }
+      ]
+    }
+  ],
+  "counterfactual": {
+    "legacy": {
+      "evolutionMedian": 0,
+      "evolutionMax": 2,
+      "fusionMedian": 0,
+      "fusionRuns": 0
+    },
+    "paced": {
+      "evolutionMedian": 2,
+      "evolutionMax": 4,
+      "fusionMedian": 0,
+      "fusionRuns": 3
+    },
+    "pooled": {
+      "evolutionMedian": 0,
+      "evolutionMax": 3,
+      "fusionMedian": 0,
+      "fusionRuns": 0
+    }
+  },
+  "chestGap": {
+    "chestsPerRunMedian": 4,
+    "closedWins": 6,
+    "openedWins": 9,
+    "closedTtkMedian": 81.3,
+    "openedTtkMedian": 61.1,
+    "runs": 11
+  }
+}

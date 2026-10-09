@@ -1,0 +1,41 @@
+{
+  "slice": "R2-F-BOSS-COVERAGE",
+  "kind": "rolling",
+  "frames": 5400,
+  "dt": 0.016666666666666666,
+  "note": "Rewritten on every run of this describe. The ten shipped pressure reports are NOT written here.",
+  "coexistenceByCell": {
+    "horde": {
+      "framesBoth": 0,
+      "maxAdds": 12
+    },
+    "ranged": {
+      "framesBoth": 0,
+      "maxAdds": 6
+    },
+    "elite": {
+      "framesBoth": 0,
+      "maxAdds": 1
+    },
+    "boss": {
+      "framesBoth": 0,
+      "maxAdds": 0
+    }
+  },
+  "knob": {
+    "bossPhaseSpawnInterval": {
+      "classic": 2,
+      "evolution": 3
+    },
+    "site": "CombatSimulation:341-342",
+    "effect": "multiplier on the director interval"
+  },
+  "candidateB": {
+    "id": "EN001",
+    "standoff": 110,
+    "radius": 100,
+    "offset": 3.141592653589793,
+    "verdict": "a single EN001 (98 HP on the field) dies in 1-3s; it stages coexistence for <5% of the window"
+  },
+  "delta": "bossHpLost moves between +16.7% and -14.7% with a durable body present; stable across ranks"
+}

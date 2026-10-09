@@ -1,0 +1,267 @@
+{
+  "threatV2": {
+    "version": "threat-v2",
+    "incoming": 1,
+    "softCap": 60,
+    "contactInterval": 0.85,
+    "bossContactInterval": 1.1,
+    "enemyDamage": {
+      "EN001": 16,
+      "EN002": 14,
+      "EN003": 14,
+      "EN004": 24,
+      "EN005": 18,
+      "EN006": 32,
+      "EN014": 18,
+      "EN015": 20,
+      "EN016": 16,
+      "EN017": 36,
+      "EN018": 16,
+      "EN019": 14,
+      "EN020": 24,
+      "EN021": 18,
+      "EN022": 16,
+      "EN023": 20,
+      "EN024": 22,
+      "EN025": 16,
+      "EN026": 24,
+      "EN027": 10
+    }
+  },
+  "reports": [
+    {
+      "rules": "legacy",
+      "journey": "classic",
+      "strategy": "stationary",
+      "seed": 15,
+      "endReason": "timeout",
+      "seconds": 360,
+      "hp": 672,
+      "maxHp": 762.9100000000001,
+      "minHpRatio": 0.784,
+      "minHpAt": 255,
+      "kills": 657,
+      "level": 11,
+      "skills": {
+        "A011": 3,
+        "A021": 3,
+        "A026": 3,
+        "A054": 3
+      },
+      "passives": {
+        "P026": 1
+      },
+      "bossSpawned": true,
+      "bossDefeated": false,
+      "bossHpRatio": 0.701,
+      "damageTaken": 853.2,
+      "damageTakenBy": {
+        "hostile-projectile": 738.688084398684,
+        "B001-旋风断军": 34.42799999999977,
+        "B001-震地斩": 35.55000000000007,
+        "B001-蛮王冲锋": 44.533999999999764
+      },
+      "incoming": 0.44
+    },
+    {
+      "rules": "legacy",
+      "journey": "classic",
+      "strategy": "active",
+      "seed": 15,
+      "endReason": "victory",
+      "seconds": 326.6,
+      "hp": 733,
+      "maxHp": 762.9100000000001,
+      "minHpRatio": 0.96,
+      "minHpAt": 325.2,
+      "kills": 633,
+      "level": 22,
+      "skills": {
+        "A011": 5,
+        "A021": 4,
+        "A026": 2,
+        "A027": 4,
+        "A003": 4,
+        "A054": 1
+      },
+      "passives": {
+        "P026": 2,
+        "P030": 2
+      },
+      "bossSpawned": true,
+      "bossDefeated": true,
+      "bossHpRatio": 0,
+      "damageTaken": 126.3,
+      "damageTakenBy": {
+        "hostile-projectile": 62.551223733006964,
+        "unknown": 11,
+        "EN001": 1,
+        "B001-contact": 40.59999999999991,
+        "B001-旋风断军": 11.17999999999995
+      },
+      "incoming": 0.44
+    },
+    {
+      "rules": "legacy",
+      "journey": "evolution",
+      "strategy": "stationary",
+      "seed": 15,
+      "endReason": "victory",
+      "seconds": 296.7,
+      "hp": 696,
+      "maxHp": 762.9100000000001,
+      "minHpRatio": 0.838,
+      "minHpAt": 164,
+      "kills": 561,
+      "level": 11,
+      "skills": {
+        "A003": 5,
+        "A011": 5,
+        "A013": 2
+      },
+      "passives": {
+        "P026": 1
+      },
+      "bossSpawned": true,
+      "bossDefeated": true,
+      "bossHpRatio": 0,
+      "damageTaken": 520.3,
+      "damageTakenBy": {
+        "hostile-projectile": 488.88731854529067,
+        "unknown": 15,
+        "B001-震地斩": 16.41999999999996
+      },
+      "incoming": 0.44
+    },
+    {
+      "rules": "threat-v2",
+      "journey": "classic",
+      "strategy": "stationary",
+      "seed": 15,
+      "endReason": "defeat",
+      "seconds": 34.3,
+      "hp": 0,
+      "maxHp": 762.9100000000001,
+      "minHpRatio": 0,
+      "minHpAt": 34.3,
+      "kills": 29,
+      "level": 2,
+      "skills": {
+        "A011": 1,
+        "A021": 1,
+        "A027": 1
+      },
+      "passives": {
+        "P026": 1
+      },
+      "bossSpawned": false,
+      "bossDefeated": false,
+      "bossHpRatio": 0,
+      "damageTaken": 770.1,
+      "damageTakenBy": {
+        "hostile-projectile": 770.113003197792
+      },
+      "incoming": 1
+    },
+    {
+      "rules": "threat-v2",
+      "journey": "classic",
+      "strategy": "active",
+      "seed": 15,
+      "endReason": "timeout",
+      "seconds": 360,
+      "hp": 659,
+      "maxHp": 762.9100000000001,
+      "minHpRatio": 0.709,
+      "minHpAt": 249.2,
+      "kills": 667,
+      "level": 22,
+      "skills": {
+        "A011": 5,
+        "A021": 5,
+        "A026": 3,
+        "A027": 3,
+        "A054": 2,
+        "A003": 1
+      },
+      "passives": {
+        "P026": 2,
+        "P030": 1,
+        "P017": 2
+      },
+      "bossSpawned": true,
+      "bossDefeated": false,
+      "bossHpRatio": 0.203,
+      "damageTaken": 974.5,
+      "damageTakenBy": {
+        "hostile-projectile": 734.8033858914447,
+        "unknown": 161.291044482546,
+        "EN001": 35.48318401010101,
+        "EN003": 10.152057686237299,
+        "B001-contact": 32.72727272727275
+      },
+      "incoming": 1
+    },
+    {
+      "rules": "threat-v2",
+      "journey": "evolution",
+      "strategy": "stationary",
+      "seed": 15,
+      "endReason": "defeat",
+      "seconds": 34,
+      "hp": 0,
+      "maxHp": 762.9100000000001,
+      "minHpRatio": 0,
+      "minHpAt": 34,
+      "kills": 28,
+      "level": 2,
+      "skills": {
+        "A003": 1,
+        "A011": 2
+      },
+      "passives": {
+        "P026": 1
+      },
+      "bossSpawned": false,
+      "bossDefeated": false,
+      "bossHpRatio": 0,
+      "damageTaken": 770.5,
+      "damageTakenBy": {
+        "hostile-projectile": 770.4663719583504
+      },
+      "incoming": 1
+    },
+    {
+      "rules": "threat-v2",
+      "journey": "evolution",
+      "strategy": "active",
+      "seed": 15,
+      "endReason": "victory",
+      "seconds": 279.9,
+      "hp": 743,
+      "maxHp": 762.9100000000001,
+      "minHpRatio": 0.856,
+      "minHpAt": 159.9,
+      "kills": 551,
+      "level": 19,
+      "skills": {
+        "A003": 5,
+        "A011": 5,
+        "A027": 5,
+        "S001": 5
+      },
+      "passives": {
+        "P026": 1
+      },
+      "bossSpawned": true,
+      "bossDefeated": true,
+      "bossHpRatio": 0,
+      "damageTaken": 383.8,
+      "damageTakenBy": {
+        "hostile-projectile": 349.78193092677816,
+        "unknown": 34
+      },
+      "incoming": 1
+    }
+  ]
+}

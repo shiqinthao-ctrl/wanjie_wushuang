@@ -1,0 +1,1272 @@
+{
+  "slice": "R2-F-CADENCE",
+  "base": "R2-F-SUFFIX",
+  "question": "How many dodge decisions should a 90s Boss fight contain, and what does each cadence cost in G2/G3/G4?",
+  "shipped": {
+    "bossCastCooldown": 14.31,
+    "bossSkillDamage": 14.31,
+    "bossDamage": 0.6,
+    "bossContactDamage": 0.8,
+    "bossHp": {
+      "classic": 19.95,
+      "evolution": 54.15
+    }
+  },
+  "schedule": {
+    "spawn": 24.3,
+    "recurringPhase1": 37.5,
+    "recurringPhase3": 26.6,
+    "thirdCastAtPhase1": 99.3,
+    "window": 90
+  },
+  "target": {
+    "skillFraction": 0.15,
+    "floor": 0.25,
+    "window": {
+      "min": 60,
+      "max": 90
+    }
+  },
+  "policies": [
+    "hud",
+    "browser"
+  ],
+  "g4Headroom": {
+    "requiredMultiple": 14.31,
+    "shippedSkillDamage": 14.31,
+    "headroom": 1
+  },
+  "rows": [
+    {
+      "arm": "cadence only",
+      "policy": "hud",
+      "castCdMultiplier": 0.5,
+      "skillScale": 1,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 4,
+          "castsMin": 1,
+          "castsMax": 6,
+          "cuesMedian": 4,
+          "hpMinMedian": 0.432,
+          "ttkMedian": 68.3,
+          "winRate": 0.8788,
+          "avoidRate": 0.9764,
+          "losses": {
+            "defeat": 2,
+            "timeout": 2
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 1,
+              "fractionMedian": 0.1853
+            },
+            {
+              "shape": "cone",
+              "hits": 2,
+              "fractionMedian": 0.234
+            }
+          ],
+          "cheapestMove": 0.1853,
+          "heaviestMove": 0.234,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 2,
+          "castsMax": 5,
+          "cuesMedian": 3,
+          "hpMinMedian": 0.494,
+          "ttkMedian": 62.3,
+          "winRate": 0.9697,
+          "avoidRate": 0.9717,
+          "losses": {
+            "defeat": 1
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 1,
+              "fractionMedian": 0.2398
+            },
+            {
+              "shape": "line",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "cone",
+              "hits": 2,
+              "fractionMedian": 0.234
+            }
+          ],
+          "cheapestMove": 0.234,
+          "heaviestMove": 0.2398,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        }
+      ]
+    },
+    {
+      "arm": "cadence only",
+      "policy": "hud",
+      "castCdMultiplier": 0.75,
+      "skillScale": 1,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 0,
+          "castsMax": 3,
+          "cuesMedian": 3,
+          "hpMinMedian": 0.506,
+          "ttkMedian": 66.1,
+          "winRate": 0.9091,
+          "avoidRate": 1,
+          "losses": {
+            "defeat": 2,
+            "timeout": 1
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "cone",
+              "hits": 0,
+              "fractionMedian": 0
+            }
+          ],
+          "cheapestMove": 0,
+          "heaviestMove": 0,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 1,
+          "castsMax": 3,
+          "cuesMedian": 3,
+          "hpMinMedian": 0.411,
+          "ttkMedian": 62.3,
+          "winRate": 0.9091,
+          "avoidRate": 0.9878,
+          "losses": {
+            "defeat": 3
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "cone",
+              "hits": 1,
+              "fractionMedian": 0.234
+            }
+          ],
+          "cheapestMove": 0.234,
+          "heaviestMove": 0.234,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        }
+      ]
+    },
+    {
+      "arm": "constant aggregate",
+      "policy": "hud",
+      "castCdMultiplier": 0.5,
+      "skillScale": 0.5,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 4,
+          "castsMin": 1,
+          "castsMax": 6,
+          "cuesMedian": 4,
+          "hpMinMedian": 0.432,
+          "ttkMedian": 68.3,
+          "winRate": 0.9091,
+          "avoidRate": 0.9764,
+          "losses": {
+            "timeout": 2,
+            "defeat": 1
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 1,
+              "fractionMedian": 0.0927
+            },
+            {
+              "shape": "cone",
+              "hits": 2,
+              "fractionMedian": 0.117
+            }
+          ],
+          "cheapestMove": 0.0927,
+          "heaviestMove": 0.117,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 2,
+          "castsMax": 5,
+          "cuesMedian": 3,
+          "hpMinMedian": 0.515,
+          "ttkMedian": 62.3,
+          "winRate": 0.9697,
+          "avoidRate": 0.9717,
+          "losses": {
+            "defeat": 1
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 1,
+              "fractionMedian": 0.1199
+            },
+            {
+              "shape": "line",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "cone",
+              "hits": 2,
+              "fractionMedian": 0.117
+            }
+          ],
+          "cheapestMove": 0.117,
+          "heaviestMove": 0.1199,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        }
+      ]
+    },
+    {
+      "arm": "constant aggregate",
+      "policy": "hud",
+      "castCdMultiplier": 0.75,
+      "skillScale": 0.75,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 0,
+          "castsMax": 3,
+          "cuesMedian": 3,
+          "hpMinMedian": 0.506,
+          "ttkMedian": 66.1,
+          "winRate": 0.9091,
+          "avoidRate": 1,
+          "losses": {
+            "defeat": 2,
+            "timeout": 1
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "cone",
+              "hits": 0,
+              "fractionMedian": 0
+            }
+          ],
+          "cheapestMove": 0,
+          "heaviestMove": 0,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 1,
+          "castsMax": 3,
+          "cuesMedian": 3,
+          "hpMinMedian": 0.411,
+          "ttkMedian": 62.3,
+          "winRate": 0.9091,
+          "avoidRate": 0.9878,
+          "losses": {
+            "defeat": 3
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "cone",
+              "hits": 1,
+              "fractionMedian": 0.1755
+            }
+          ],
+          "cheapestMove": 0.1755,
+          "heaviestMove": 0.1755,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        }
+      ]
+    },
+    {
+      "arm": "constant aggregate",
+      "policy": "hud",
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 2,
+          "castsMin": 0,
+          "castsMax": 3,
+          "cuesMedian": 2,
+          "hpMinMedian": 0.455,
+          "ttkMedian": 67.8,
+          "winRate": 0.9091,
+          "avoidRate": 0.9672,
+          "losses": {
+            "defeat": 3
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 2,
+              "fractionMedian": 0.2206
+            },
+            {
+              "shape": "cone",
+              "hits": 0,
+              "fractionMedian": 0
+            }
+          ],
+          "cheapestMove": 0.2206,
+          "heaviestMove": 0.2206,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 2,
+          "castsMin": 0,
+          "castsMax": 2,
+          "cuesMedian": 2,
+          "hpMinMedian": 0.364,
+          "ttkMedian": 61.9,
+          "winRate": 0.8485,
+          "avoidRate": 0.9322,
+          "losses": {
+            "defeat": 5
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 3,
+              "fractionMedian": 0.2206
+            },
+            {
+              "shape": "cone",
+              "hits": 0,
+              "fractionMedian": 0
+            }
+          ],
+          "cheapestMove": 0.2206,
+          "heaviestMove": 0.2206,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": true,
+          "g3": true,
+          "g4": null
+        }
+      ]
+    },
+    {
+      "arm": "cadence only",
+      "policy": "browser",
+      "castCdMultiplier": 0.5,
+      "skillScale": 1,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 1,
+          "castsMax": 5,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.037,
+          "ttkMedian": 62.2,
+          "winRate": 0.5758,
+          "avoidRate": 0.1441,
+          "losses": {
+            "defeat": 14
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 33,
+              "fractionMedian": 0.2014
+            },
+            {
+              "shape": "line",
+              "hits": 44,
+              "fractionMedian": 0.15
+            },
+            {
+              "shape": "cone",
+              "hits": 18,
+              "fractionMedian": 0.234
+            }
+          ],
+          "cheapestMove": 0.15,
+          "heaviestMove": 0.234,
+          "phase1Hits": 33,
+          "phase1Fraction": 0.15,
+          "g2": false,
+          "g3": true,
+          "g4": true
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 1,
+          "castsMax": 4,
+          "cuesMedian": 0,
+          "hpMinMedian": 0,
+          "ttkMedian": 62.3,
+          "winRate": 0.3636,
+          "avoidRate": 0.0652,
+          "losses": {
+            "defeat": 21
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 31,
+              "fractionMedian": 0.2014
+            },
+            {
+              "shape": "line",
+              "hits": 33,
+              "fractionMedian": 0.15
+            },
+            {
+              "shape": "cone",
+              "hits": 22,
+              "fractionMedian": 0.234
+            }
+          ],
+          "cheapestMove": 0.15,
+          "heaviestMove": 0.234,
+          "phase1Hits": 33,
+          "phase1Fraction": 0.15,
+          "g2": false,
+          "g3": true,
+          "g4": true
+        }
+      ]
+    },
+    {
+      "arm": "cadence only",
+      "policy": "browser",
+      "castCdMultiplier": 0.75,
+      "skillScale": 1,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 2,
+          "castsMin": 0,
+          "castsMax": 3,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.143,
+          "ttkMedian": 67.3,
+          "winRate": 0.6364,
+          "avoidRate": 0.1282,
+          "losses": {
+            "defeat": 12
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 14,
+              "fractionMedian": 0.2014
+            },
+            {
+              "shape": "line",
+              "hits": 29,
+              "fractionMedian": 0.15
+            },
+            {
+              "shape": "cone",
+              "hits": 25,
+              "fractionMedian": 0.1966
+            }
+          ],
+          "cheapestMove": 0.15,
+          "heaviestMove": 0.2014,
+          "phase1Hits": 20,
+          "phase1Fraction": 0.15,
+          "g2": false,
+          "g3": true,
+          "g4": true
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 2,
+          "castsMin": 1,
+          "castsMax": 3,
+          "cuesMedian": 0,
+          "hpMinMedian": 0,
+          "ttkMedian": 61.7,
+          "winRate": 0.4848,
+          "avoidRate": 0.1757,
+          "losses": {
+            "defeat": 17
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 12,
+              "fractionMedian": 0.2014
+            },
+            {
+              "shape": "line",
+              "hits": 28,
+              "fractionMedian": 0.15
+            },
+            {
+              "shape": "cone",
+              "hits": 21,
+              "fractionMedian": 0.1966
+            }
+          ],
+          "cheapestMove": 0.15,
+          "heaviestMove": 0.2014,
+          "phase1Hits": 18,
+          "phase1Fraction": 0.15,
+          "g2": false,
+          "g3": true,
+          "g4": true
+        }
+      ]
+    },
+    {
+      "arm": "constant aggregate",
+      "policy": "browser",
+      "castCdMultiplier": 0.5,
+      "skillScale": 0.5,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 1,
+          "castsMax": 5,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.279,
+          "ttkMedian": 62.5,
+          "winRate": 0.7879,
+          "avoidRate": 0.125,
+          "losses": {
+            "defeat": 6,
+            "timeout": 1
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 38,
+              "fractionMedian": 0.1007
+            },
+            {
+              "shape": "line",
+              "hits": 38,
+              "fractionMedian": 0.075
+            },
+            {
+              "shape": "cone",
+              "hits": 22,
+              "fractionMedian": 0.117
+            }
+          ],
+          "cheapestMove": 0.075,
+          "heaviestMove": 0.117,
+          "phase1Hits": 33,
+          "phase1Fraction": 0.075,
+          "g2": true,
+          "g3": true,
+          "g4": false
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 2,
+          "castsMax": 4,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.219,
+          "ttkMedian": 62.3,
+          "winRate": 0.6667,
+          "avoidRate": 0.0612,
+          "losses": {
+            "defeat": 11
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 34,
+              "fractionMedian": 0.1007
+            },
+            {
+              "shape": "line",
+              "hits": 33,
+              "fractionMedian": 0.075
+            },
+            {
+              "shape": "cone",
+              "hits": 25,
+              "fractionMedian": 0.117
+            }
+          ],
+          "cheapestMove": 0.075,
+          "heaviestMove": 0.117,
+          "phase1Hits": 33,
+          "phase1Fraction": 0.075,
+          "g2": false,
+          "g3": true,
+          "g4": false
+        }
+      ]
+    },
+    {
+      "arm": "constant aggregate",
+      "policy": "browser",
+      "castCdMultiplier": 0.75,
+      "skillScale": 0.75,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 3,
+          "castsMin": 0,
+          "castsMax": 3,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.182,
+          "ttkMedian": 63.9,
+          "winRate": 0.7273,
+          "avoidRate": 0.1125,
+          "losses": {
+            "defeat": 9
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 15,
+              "fractionMedian": 0.1511
+            },
+            {
+              "shape": "line",
+              "hits": 29,
+              "fractionMedian": 0.1125
+            },
+            {
+              "shape": "cone",
+              "hits": 27,
+              "fractionMedian": 0.1755
+            }
+          ],
+          "cheapestMove": 0.1125,
+          "heaviestMove": 0.1755,
+          "phase1Hits": 20,
+          "phase1Fraction": 0.1125,
+          "g2": false,
+          "g3": true,
+          "g4": false
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 2,
+          "castsMin": 1,
+          "castsMax": 3,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.109,
+          "ttkMedian": 61.7,
+          "winRate": 0.6061,
+          "avoidRate": 0.1688,
+          "losses": {
+            "defeat": 13
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 12,
+              "fractionMedian": 0.1511
+            },
+            {
+              "shape": "line",
+              "hits": 29,
+              "fractionMedian": 0.1125
+            },
+            {
+              "shape": "cone",
+              "hits": 23,
+              "fractionMedian": 0.1474
+            }
+          ],
+          "cheapestMove": 0.1125,
+          "heaviestMove": 0.1511,
+          "phase1Hits": 18,
+          "phase1Fraction": 0.1125,
+          "g2": false,
+          "g3": true,
+          "g4": false
+        }
+      ]
+    },
+    {
+      "arm": "constant aggregate",
+      "policy": "browser",
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 33,
+          "castsMedian": 2,
+          "castsMin": 0,
+          "castsMax": 3,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.245,
+          "ttkMedian": 66.8,
+          "winRate": 0.7879,
+          "avoidRate": 0.4,
+          "losses": {
+            "defeat": 6,
+            "timeout": 1
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 2,
+              "fractionMedian": 0.2014
+            },
+            {
+              "shape": "line",
+              "hits": 15,
+              "fractionMedian": 0.2206
+            },
+            {
+              "shape": "cone",
+              "hits": 19,
+              "fractionMedian": 0.1966
+            }
+          ],
+          "cheapestMove": 0.1966,
+          "heaviestMove": 0.2206,
+          "phase1Hits": 3,
+          "phase1Fraction": 0.15,
+          "g2": false,
+          "g3": true,
+          "g4": true
+        },
+        {
+          "journey": "evolution",
+          "runs": 33,
+          "castsMedian": 2,
+          "castsMin": 0,
+          "castsMax": 2,
+          "cuesMedian": 0,
+          "hpMinMedian": 0.166,
+          "ttkMedian": 62,
+          "winRate": 0.6364,
+          "avoidRate": 0.3704,
+          "losses": {
+            "defeat": 12
+          },
+          "perShape": [
+            {
+              "shape": "circle",
+              "hits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "shape": "line",
+              "hits": 12,
+              "fractionMedian": 0.2206
+            },
+            {
+              "shape": "cone",
+              "hits": 22,
+              "fractionMedian": 0.1966
+            }
+          ],
+          "cheapestMove": 0.1966,
+          "heaviestMove": 0.2206,
+          "phase1Hits": 0,
+          "phase1Fraction": 0,
+          "g2": false,
+          "g3": true,
+          "g4": null
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "castCdMultiplier": 0.25,
+      "skillScale": 0.25,
+      "seeds": 5,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 5,
+          "casts": 50,
+          "castsMedian": 11,
+          "shapes": {
+            "line": 19,
+            "cone": 18,
+            "circle": 13
+          },
+          "byPhase": [
+            {
+              "phase": 1,
+              "casts": 12,
+              "shapes": {
+                "line": 5,
+                "cone": 5,
+                "circle": 2
+              }
+            },
+            {
+              "phase": 2,
+              "casts": 18,
+              "shapes": {
+                "cone": 7,
+                "circle": 5,
+                "line": 6
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 20,
+              "shapes": {
+                "circle": 6,
+                "line": 8,
+                "cone": 6
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.7942,
+          "hpFracMin": 0.6086,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": 24.85
+        },
+        {
+          "journey": "evolution",
+          "runs": 5,
+          "casts": 38,
+          "castsMedian": 8,
+          "shapes": {
+            "line": 15,
+            "cone": 15,
+            "circle": 8
+          },
+          "byPhase": [
+            {
+              "phase": 1,
+              "casts": 10,
+              "shapes": {
+                "line": 5,
+                "cone": 5
+              }
+            },
+            {
+              "phase": 2,
+              "casts": 14,
+              "shapes": {
+                "line": 5,
+                "cone": 5,
+                "circle": 4
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 14,
+              "shapes": {
+                "cone": 5,
+                "circle": 4,
+                "line": 5
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.8043,
+          "hpFracMin": 0.3994,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": 40.5
+        }
+      ]
+    },
+    {
+      "castCdMultiplier": 0.5,
+      "skillScale": 0.5,
+      "seeds": 5,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 5,
+          "casts": 21,
+          "castsMedian": 4,
+          "shapes": {
+            "line": 9,
+            "circle": 9,
+            "cone": 3
+          },
+          "byPhase": [
+            {
+              "phase": 1,
+              "casts": 5,
+              "shapes": {
+                "line": 5
+              }
+            },
+            {
+              "phase": 2,
+              "casts": 7,
+              "shapes": {
+                "circle": 5,
+                "line": 2
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 9,
+              "shapes": {
+                "cone": 3,
+                "circle": 4,
+                "line": 2
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.6511,
+          "hpFracMin": 0.3694,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": 31.917
+        },
+        {
+          "journey": "evolution",
+          "runs": 5,
+          "casts": 15,
+          "castsMedian": 3,
+          "shapes": {
+            "line": 5,
+            "circle": 5,
+            "cone": 5
+          },
+          "byPhase": [
+            {
+              "phase": 1,
+              "casts": 5,
+              "shapes": {
+                "line": 5
+              }
+            },
+            {
+              "phase": 2,
+              "casts": 5,
+              "shapes": {
+                "circle": 5
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 5,
+              "shapes": {
+                "cone": 5
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.6206,
+          "hpFracMin": 0.2438,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": 28.767
+        }
+      ]
+    },
+    {
+      "castCdMultiplier": 0.75,
+      "skillScale": 0.75,
+      "seeds": 5,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 5,
+          "casts": 14,
+          "castsMedian": 3,
+          "shapes": {
+            "line": 5,
+            "circle": 4,
+            "cone": 5
+          },
+          "byPhase": [
+            {
+              "phase": 1,
+              "casts": 4,
+              "shapes": {
+                "line": 4
+              }
+            },
+            {
+              "phase": 2,
+              "casts": 5,
+              "shapes": {
+                "circle": 4,
+                "cone": 1
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 5,
+              "shapes": {
+                "cone": 4,
+                "line": 1
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.8106,
+          "hpFracMin": 0.2831,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": 38.333
+        },
+        {
+          "journey": "evolution",
+          "runs": 5,
+          "casts": 11,
+          "castsMedian": 2,
+          "shapes": {
+            "cone": 5,
+            "line": 4,
+            "circle": 2
+          },
+          "byPhase": [
+            {
+              "phase": 1,
+              "casts": 2,
+              "shapes": {
+                "line": 2
+              }
+            },
+            {
+              "phase": 2,
+              "casts": 5,
+              "shapes": {
+                "cone": 3,
+                "circle": 2
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 4,
+              "shapes": {
+                "cone": 2,
+                "line": 2
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.5965,
+          "hpFracMin": 0.0469,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": 34.333
+        }
+      ]
+    },
+    {
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "seeds": 5,
+      "perJourney": [
+        {
+          "journey": "classic",
+          "runs": 5,
+          "casts": 10,
+          "castsMedian": 2,
+          "shapes": {
+            "cone": 5,
+            "line": 5
+          },
+          "byPhase": [
+            {
+              "phase": 2,
+              "casts": 5,
+              "shapes": {
+                "cone": 5
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 5,
+              "shapes": {
+                "line": 5
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.7214,
+          "hpFracMin": 0.0948,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": null
+        },
+        {
+          "journey": "evolution",
+          "runs": 5,
+          "casts": 8,
+          "castsMedian": 2,
+          "shapes": {
+            "cone": 4,
+            "line": 4
+          },
+          "byPhase": [
+            {
+              "phase": 2,
+              "casts": 4,
+              "shapes": {
+                "cone": 4
+              }
+            },
+            {
+              "phase": 3,
+              "casts": 4,
+              "shapes": {
+                "line": 4
+              }
+            }
+          ],
+          "actionableShare": 1,
+          "windowsMedian": 1.303,
+          "hpFracMedian": 0.4738,
+          "hpFracMin": 0.2297,
+          "blockedByCooldown": 0,
+          "blockedByOverlap": 0,
+          "firstCircleAt": null
+        }
+      ]
+    }
+  ],
+  "note": "Measurements on the hud arm (the browser suite's twin). No cadence is chosen by this slice.",
+  "runs": {
+    "rows": 660,
+    "timeline": 40
+  }
+}

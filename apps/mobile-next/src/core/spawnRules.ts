@@ -1,5 +1,6 @@
 import stage from '../data/firstStage.json';
 import difficulties from '../data/difficulties.json';
+import type { ThreatRules } from './threatModel';
 
 export interface Point { x: number; y: number }
 export interface Enemy extends Point {
@@ -32,7 +33,7 @@ export function clampPoint<T extends Point>(point: T, world: { width: number; he
   point.y = Math.max(margin, Math.min(world.height - margin, point.y));
   return point;
 }
-export function createEnemy(state: DirectorState, player: Point & { hp: number; maxHp: number; atk: number }, viewport: { width: number; height: number }, world: { width: number; height: number }, difficulty: string, random: () => number, options: { id?: string; elite?: boolean } = {}): Enemy {
+export function createEnemy(state: DirectorState, player: Point & { hp: number; maxHp: number; atk: number }, viewport: { width: number; height: number }, world: { width: number; height: number }, difficulty: string, random: () => number, options: { id?: string; elite?: boolean } = {}, threat?: ThreatRules): Enemy {
   let id = options.id;
   if (!id) {
     const pool = firstStage.storyEncounter.enemies as [string, number][];
@@ -42,14 +43,21 @@ export function createEnemy(state: DirectorState, player: Point & { hp: number; 
   }
   const cfg = stage.enemies[id as keyof typeof stage.enemies];
   if (!cfg) throw new Error(`Unsupported enemy ${id}`);
-  const angle = random() * Math.PI * 2, distance = Math.max(viewport.width, viewport.height) * .55 + 60;
+  // threat-v2 carries its own contact damage table; the legacy reference keeps
+  // reading `firstStage.enemies` and is never edited in place.
+  const baseDamage = threat?.enemyDamage[id] ?? cfg.damage;
+  // The legacy ring is derived from the viewport, which makes it a rendering
+  // constant doing balance work: a 1280x720 screen spawns the horde 764px out
+  // instead of 524px, so the standing horde grows ~40% and the incoming rises
+  // with it. threat-v2 pins the ring to one design distance instead.
+  const angle = random() * Math.PI * 2, distance = threat?.spawnRadius ?? (Math.max(viewport.width, viewport.height) * .55 + 60);
   const m = state.time / 60, diff = difficultyFor(difficulty);
   const elite = options.elite || random() < director(state, player, difficulty).eliteChance;
   const hp = cfg.hp * (1 + .07 * m + .012 * m * m) * diff.hp;
   const enemy: Enemy = clampPoint({ id, name: cfg.name, ai: cfg.ai, x: player.x + Math.cos(angle) * distance, y: player.y + Math.sin(angle) * distance,
     r: 10 + (['brute', 'shield'].includes(cfg.ai) ? 4 : 0), hp, maxHp: hp,
     speed: cfg.speed * (1 + Math.min(.22, .007 * m)) * diff.speed,
-    damage: cfg.damage * (1 + .045 * m + .006 * m * m) * diff.dmg, color: cfg.color,
+    damage: baseDamage * (1 + .045 * m + .006 * m * m) * diff.dmg, color: cfg.color,
     attack: random() * 2, skill: random() * 2, elite: false, affixes: [], flash: 0 }, world, 30);
   if (elite) {
     enemy.elite = true; enemy.r *= 1.25; enemy.hp *= 3.25; enemy.maxHp = enemy.hp; enemy.damage *= 1.38;
@@ -61,7 +69,9 @@ export function createEnemy(state: DirectorState, player: Point & { hp: number; 
     }
     enemy.color = '#d5a254';
   }
-  enemy.hp *= firstStage.hp; enemy.maxHp *= firstStage.hp; enemy.damage *= firstStage.dmg; enemy.speed *= firstStage.speed;
+  // `firstStage.dmg` is the legacy stage-wide -18% scaler. threat-v2 replaces it
+  // with the explicit per-enemy table above, so the scaler must not double-dip.
+  enemy.hp *= firstStage.hp; enemy.maxHp *= firstStage.hp; enemy.damage *= threat ? 1 : firstStage.dmg; enemy.speed *= firstStage.speed;
   return enemy;
 }
 

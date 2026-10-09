@@ -1,0 +1,433 @@
+{
+  "slice": "R2-F-CIRCLE",
+  "base": "R2-F-CADENCE",
+  "question": "Is the ring move reachable at all, and what does the G4 row nobody has observed actually carry?",
+  "rule": {
+    "centre": "player.x/y at cast time (FirstBoss.ts:111)",
+    "radius": {
+      "otherwise": 70,
+      "phase3": 86
+    },
+    "slot": "mechanics.skills[(skillIndex + phase - 1) % 3] (FirstBoss.ts:106)",
+    "circleSlot": "skills[0] = 震地斩",
+    "castCooldown": 14.31,
+    "window": 90
+  },
+  "target": {
+    "skillFraction": 0.15,
+    "floor": 0.25,
+    "window": {
+      "min": 60,
+      "max": 90
+    }
+  },
+  "schedule": {
+    "firstCastSlot": 2,
+    "secondCastSlot": 1,
+    "circleSlot": 0
+  },
+  "reach": [
+    {
+      "arm": "shipped",
+      "castCdMultiplier": 1,
+      "perPolicy": [
+        {
+          "policy": "browser",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 33,
+              "circleHits": 2,
+              "phases": [
+                2
+              ],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0.2014
+            },
+            {
+              "journey": "evolution",
+              "runs": 33,
+              "circleHits": 0,
+              "phases": [],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0
+            }
+          ]
+        },
+        {
+          "policy": "hud",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 33,
+              "circleHits": 0,
+              "phases": [],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "journey": "evolution",
+              "runs": 33,
+              "circleHits": 0,
+              "phases": [],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "cadence .75",
+      "castCdMultiplier": 0.75,
+      "perPolicy": [
+        {
+          "policy": "browser",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 33,
+              "circleHits": 14,
+              "phases": [
+                2
+              ],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0.2014
+            },
+            {
+              "journey": "evolution",
+              "runs": 33,
+              "circleHits": 12,
+              "phases": [
+                2
+              ],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0.2014
+            }
+          ]
+        },
+        {
+          "policy": "hud",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 33,
+              "circleHits": 0,
+              "phases": [],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0
+            },
+            {
+              "journey": "evolution",
+              "runs": 33,
+              "circleHits": 0,
+              "phases": [],
+              "phase1CircleHits": 0,
+              "fractionMedian": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "geometry": [
+    {
+      "arm": "shipped",
+      "castCdMultiplier": 1,
+      "perPolicy": [
+        {
+          "policy": "browser",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 11,
+              "circles": 0,
+              "hits": 0,
+              "rValues": [],
+              "distAtCastMax": null,
+              "standoffMin": null,
+              "standoffMax": null,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": null,
+              "firstCircleAt": null,
+              "byPhase": []
+            },
+            {
+              "journey": "evolution",
+              "runs": 11,
+              "circles": 0,
+              "hits": 0,
+              "rValues": [],
+              "distAtCastMax": null,
+              "standoffMin": null,
+              "standoffMax": null,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": null,
+              "firstCircleAt": null,
+              "byPhase": []
+            }
+          ]
+        },
+        {
+          "policy": "hud",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 11,
+              "circles": 0,
+              "hits": 0,
+              "rValues": [],
+              "distAtCastMax": null,
+              "standoffMin": null,
+              "standoffMax": null,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": null,
+              "firstCircleAt": null,
+              "byPhase": []
+            },
+            {
+              "journey": "evolution",
+              "runs": 11,
+              "circles": 0,
+              "hits": 0,
+              "rValues": [],
+              "distAtCastMax": null,
+              "standoffMin": null,
+              "standoffMax": null,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": null,
+              "firstCircleAt": null,
+              "byPhase": []
+            }
+          ]
+        },
+        {
+          "policy": "dodge",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 11,
+              "circles": 0,
+              "hits": 0,
+              "rValues": [],
+              "distAtCastMax": null,
+              "standoffMin": null,
+              "standoffMax": null,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": null,
+              "firstCircleAt": null,
+              "byPhase": []
+            },
+            {
+              "journey": "evolution",
+              "runs": 11,
+              "circles": 0,
+              "hits": 0,
+              "rValues": [],
+              "distAtCastMax": null,
+              "standoffMin": null,
+              "standoffMax": null,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": null,
+              "firstCircleAt": null,
+              "byPhase": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "cadence .75",
+      "castCdMultiplier": 0.75,
+      "perPolicy": [
+        {
+          "policy": "browser",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 11,
+              "circles": 7,
+              "hits": 5,
+              "rValues": [
+                70
+              ],
+              "distAtCastMax": 0,
+              "standoffMin": 60.1,
+              "standoffMax": 84.4,
+              "travelLandedMedian": 0,
+              "travelEscapedMedian": 121.8,
+              "firstCircleAt": 32.2,
+              "byPhase": [
+                {
+                  "phase": 2,
+                  "casts": 7,
+                  "landed": 5
+                }
+              ]
+            },
+            {
+              "journey": "evolution",
+              "runs": 11,
+              "circles": 6,
+              "hits": 5,
+              "rValues": [
+                70
+              ],
+              "distAtCastMax": 0,
+              "standoffMin": 61.7,
+              "standoffMax": 63.2,
+              "travelLandedMedian": 0,
+              "travelEscapedMedian": 121.8,
+              "firstCircleAt": 32,
+              "byPhase": [
+                {
+                  "phase": 2,
+                  "casts": 6,
+                  "landed": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "policy": "hud",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 11,
+              "circles": 8,
+              "hits": 0,
+              "rValues": [
+                70
+              ],
+              "distAtCastMax": 0,
+              "standoffMin": 60.5,
+              "standoffMax": 65,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": 384.2,
+              "firstCircleAt": 32.6,
+              "byPhase": [
+                {
+                  "phase": 2,
+                  "casts": 8,
+                  "landed": 0
+                }
+              ]
+            },
+            {
+              "journey": "evolution",
+              "runs": 11,
+              "circles": 6,
+              "hits": 0,
+              "rValues": [
+                70
+              ],
+              "distAtCastMax": 0,
+              "standoffMin": 59.4,
+              "standoffMax": 62.8,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": 384.2,
+              "firstCircleAt": 32,
+              "byPhase": [
+                {
+                  "phase": 2,
+                  "casts": 6,
+                  "landed": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "policy": "dodge",
+          "perJourney": [
+            {
+              "journey": "classic",
+              "runs": 11,
+              "circles": 8,
+              "hits": 0,
+              "rValues": [
+                70
+              ],
+              "distAtCastMax": 0,
+              "standoffMin": 59.1,
+              "standoffMax": 67.1,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": 72.9,
+              "firstCircleAt": 32.5,
+              "byPhase": [
+                {
+                  "phase": 2,
+                  "casts": 8,
+                  "landed": 0
+                }
+              ]
+            },
+            {
+              "journey": "evolution",
+              "runs": 11,
+              "circles": 6,
+              "hits": 0,
+              "rValues": [
+                70
+              ],
+              "distAtCastMax": 0,
+              "standoffMin": 61.1,
+              "standoffMax": 63.2,
+              "travelLandedMedian": null,
+              "travelEscapedMedian": 72.9,
+              "firstCircleAt": 32,
+              "byPhase": [
+                {
+                  "phase": 2,
+                  "casts": 6,
+                  "landed": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "g4": {
+    "required": 14.31,
+    "perShape": [
+      {
+        "shape": "circle",
+        "multiple": 13.17,
+        "fraction": 0.0114
+      },
+      {
+        "shape": "line",
+        "multiple": 14.31,
+        "fraction": 0.0105
+      },
+      {
+        "shape": "cone",
+        "multiple": 13.49,
+        "fraction": 0.0111
+      }
+    ],
+    "observedRows": [
+      {
+        "shape": "circle",
+        "hits": 0
+      },
+      {
+        "shape": "line",
+        "hits": 5
+      },
+      {
+        "shape": "cone",
+        "hits": 0
+      }
+    ],
+    "dropFilter": "perShape.filter(shape => shape.hits > 0) (bossThreat.test.ts:1338; R2-F-G4ROWS owns what it drops)"
+  },
+  "note": "Measurements only. The ring needs no new geometry - only a cell where the move arrives.",
+  "runs": {
+    "reach": 132,
+    "geometry": 132
+  }
+}

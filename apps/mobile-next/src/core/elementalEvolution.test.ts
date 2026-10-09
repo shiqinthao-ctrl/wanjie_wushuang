@@ -102,8 +102,10 @@ describe('G2 elemental evolution', () => {
     expect(frost.sim.fields.some(f => f.id === 'G2_FROST_E')).toBe(true);
     expect(thunder.sim.damageBy.G2_LIGHTNING_E).toBeGreaterThan(0);
     expect(beast.sim.renderState().summons.filter(s => s.guard)).toHaveLength(7);
+    // The shared summon pool saturates at the cap. R2-F-CAP raised it from 8 to 10, so repeated
+    // skill casts now hold ten bodies rather than eight.
     for (let i = 0; i < 5; i++) { beast.sim.player.skillCd = 0; beast.sim.action('skill'); }
-    expect(beast.sim.renderState().summons).toHaveLength(8);
+    expect(beast.sim.renderState().summons).toHaveLength(10);
     beast.sim.destroy(); expect(beast.sim.renderState().summons).toHaveLength(0);
     frost.sim.time = 270; frost.sim.bossEncounter.updateObjective(); const boss = frost.sim.boss!;
     boss.x = 1850; boss.y = 1200; boss.shield = 0; const hp = boss.hp;

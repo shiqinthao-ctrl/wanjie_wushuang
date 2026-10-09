@@ -1,0 +1,220 @@
+{
+  "slice": "R1g-2",
+  "base": "R1g-1 / 72a2860",
+  "harness": "src/core/skillCadence.test.ts",
+  "frameHz": 60,
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "sentinel": 0.5,
+  "table": {
+    "S001": 7,
+    "S002": 7,
+    "S003": 7,
+    "S018": 7,
+    "A021": 4
+  },
+  "retired": [
+    "A022",
+    "A030",
+    "A062",
+    "A063",
+    "A068",
+    "A070"
+  ],
+  "traces": [
+    {
+      "seconds": 279.7,
+      "endReason": "victory",
+      "level": 18,
+      "owned": [
+        "A003",
+        "A011",
+        "A013",
+        "A015",
+        "A027",
+        "S001"
+      ],
+      "casts": {
+        "A003": 154,
+        "A011": 215,
+        "A013": 183,
+        "A015": 229,
+        "A027": 60,
+        "S001": 34
+      },
+      "perSecond": {
+        "A003": 0.551,
+        "A011": 0.769,
+        "A013": 0.683,
+        "A015": 0.871,
+        "A027": 0.238,
+        "S001": 0.142
+      },
+      "bossPhaseSeconds": 8.4,
+      "bossDefeated": true,
+      "minHpRatio": 0.962
+    },
+    {
+      "seconds": 293.5,
+      "endReason": "victory",
+      "level": 21,
+      "owned": [
+        "A011",
+        "A021",
+        "A026",
+        "A027",
+        "A003",
+        "A054"
+      ],
+      "casts": {
+        "A011": 237,
+        "A021": 78,
+        "A026": 86,
+        "A027": 63,
+        "A003": 123,
+        "A054": 52
+      },
+      "perSecond": {
+        "A011": 0.807,
+        "A021": 0.266,
+        "A026": 0.313,
+        "A027": 0.257,
+        "A003": 0.591,
+        "A054": 0.349
+      },
+      "bossPhaseSeconds": 22.3,
+      "bossDefeated": true,
+      "minHpRatio": 0.925
+    },
+    {
+      "seconds": 360,
+      "endReason": "timeout",
+      "level": 19,
+      "owned": [
+        "A003",
+        "A011",
+        "A013",
+        "A021",
+        "A026",
+        "A015"
+      ],
+      "casts": {
+        "A003": 213,
+        "A011": 277,
+        "A013": 281,
+        "A021": 97,
+        "A026": 99,
+        "A015": 239
+      },
+      "perSecond": {
+        "A003": 0.592,
+        "A011": 0.769,
+        "A013": 0.807,
+        "A021": 0.29,
+        "A026": 0.338,
+        "A015": 0.869
+      },
+      "bossPhaseSeconds": 90,
+      "bossDefeated": false,
+      "minHpRatio": 0.781
+    },
+    {
+      "seconds": 337.5,
+      "endReason": "victory",
+      "level": 20,
+      "owned": [
+        "A011",
+        "A021",
+        "A003",
+        "A054",
+        "A026",
+        "A027"
+      ],
+      "casts": {
+        "A011": 336,
+        "A021": 88,
+        "A003": 184,
+        "A054": 103,
+        "A026": 93,
+        "A027": 69
+      },
+      "perSecond": {
+        "A011": 0.996,
+        "A021": 0.261,
+        "A003": 0.576,
+        "A054": 0.338,
+        "A026": 0.309,
+        "A027": 0.25
+      },
+      "bossPhaseSeconds": 66.2,
+      "bossDefeated": true,
+      "minHpRatio": 0.103
+    },
+    {
+      "seconds": 280.8,
+      "endReason": "victory",
+      "level": 19,
+      "owned": [
+        "A003",
+        "A011",
+        "A026",
+        "A015",
+        "A021",
+        "S001"
+      ],
+      "casts": {
+        "A003": 155,
+        "A011": 216,
+        "A026": 79,
+        "A015": 228,
+        "A021": 57,
+        "S001": 31
+      },
+      "perSecond": {
+        "A003": 0.552,
+        "A011": 0.769,
+        "A026": 0.294,
+        "A015": 0.87,
+        "A021": 0.249,
+        "S001": 0.146
+      },
+      "bossPhaseSeconds": 9.5,
+      "bossDefeated": true,
+      "minHpRatio": 0.995
+    },
+    {
+      "seconds": 281.3,
+      "endReason": "victory",
+      "level": 19,
+      "owned": [
+        "A003",
+        "A011",
+        "A013",
+        "A021",
+        "S001",
+        "A054"
+      ],
+      "casts": {
+        "A003": 155,
+        "A011": 217,
+        "A013": 186,
+        "A021": 60,
+        "S001": 32,
+        "A054": 68
+      },
+      "perSecond": {
+        "A003": 0.551,
+        "A011": 0.771,
+        "A013": 0.683,
+        "A021": 0.252,
+        "S001": 0.145,
+        "A054": 0.325
+      },
+      "bossPhaseSeconds": 10.1,
+      "bossDefeated": true,
+      "minHpRatio": 0.971
+    }
+  ]
+}

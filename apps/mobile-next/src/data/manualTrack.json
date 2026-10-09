@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "note": "R1g-7 manual track (GDD P2-2's dual track). `boost` multiplies the damage of the cast the manual button releases; `autoScale` multiplies the auto-cast loop's damage for that same skill, so a deliberate release is stronger than the automatic echo by `boost / autoScale`. Calibrated in R1g-7 against G8 (>= 35% pooled manual share) and the win rate together, with threatV2.bossHp paying for the added damage so G3's 60-90s Boss window survives.",
+  "boost": 6,
+  "autoScale": 0.35
+}

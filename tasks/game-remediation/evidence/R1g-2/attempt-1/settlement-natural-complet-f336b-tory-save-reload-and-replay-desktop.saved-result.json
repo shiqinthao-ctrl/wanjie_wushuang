@@ -1,0 +1,744 @@
+{
+  "accountLv": 12,
+  "gold": 6441,
+  "hero": "H001",
+  "heroes": {
+    "H001": {
+      "unlocked": true,
+      "level": 6,
+      "mastery": 99,
+      "star": 1,
+      "awakened": false
+    },
+    "H002": {
+      "unlocked": false,
+      "level": 1,
+      "mastery": 0,
+      "star": 1,
+      "awakened": false
+    },
+    "H007": {
+      "unlocked": false,
+      "level": 1,
+      "mastery": 0,
+      "star": 1,
+      "awakened": false
+    },
+    "H010": {
+      "unlocked": true,
+      "level": 4,
+      "mastery": 20,
+      "star": 1,
+      "awakened": false
+    },
+    "H012": {
+      "unlocked": true,
+      "level": 5,
+      "mastery": 28,
+      "star": 1,
+      "awakened": false
+    },
+    "H019": {
+      "unlocked": false,
+      "level": 1,
+      "mastery": 0,
+      "star": 1,
+      "awakened": false
+    }
+  },
+  "equip": {
+    "weapon": "EQW001",
+    "armor": "EQA001",
+    "accessory": "EQX001"
+  },
+  "runes": [
+    "R031",
+    "R012",
+    "R043"
+  ],
+  "pet": "PET001",
+  "build": {
+    "active": [
+      "A011",
+      "A021",
+      "A026",
+      "A027",
+      "A003",
+      "A054"
+    ],
+    "passive": [
+      "P026",
+      "P017",
+      "P030",
+      "P019",
+      "P016",
+      "P018"
+    ]
+  },
+  "chapters": {
+    "ST001": {
+      "stars": {
+        "ST001-01": 2,
+        "ST001-02": 0,
+        "ST001-03": 0,
+        "ST001-04": 0
+      }
+    },
+    "ST003": {
+      "stars": {
+        "ST003-01": 0,
+        "ST003-02": 0,
+        "ST003-03": 0,
+        "ST003-04": 0
+      }
+    },
+    "ST004": {
+      "stars": {
+        "ST004-01": 0,
+        "ST004-02": 0,
+        "ST004-03": 0,
+        "ST004-04": 0
+      }
+    }
+  },
+  "selectedChapter": "ST001",
+  "selectedStage": "ST001-01",
+  "inventory": {
+    "gear": [
+      "EQW001",
+      "EQW003",
+      "EQW005",
+      "EQA001",
+      "EQA003",
+      "EQA005",
+      "EQX001",
+      "EQX003",
+      "EQX005",
+      "EQX004",
+      "EQW002",
+      "EQW004",
+      "EQA006",
+      "EQA007",
+      "EQX007"
+    ],
+    "runes": [
+      "R031",
+      "R012",
+      "R043",
+      "R001",
+      "R017",
+      "R021",
+      "R002",
+      "R003",
+      "R004",
+      "R006",
+      "R011",
+      "R013",
+      "R015",
+      "R022",
+      "R025",
+      "R032",
+      "R033",
+      "R035",
+      "R041",
+      "R046"
+    ],
+    "pets": [
+      "PET001",
+      "PET002",
+      "PET007",
+      "PET011",
+      "PET015"
+    ],
+    "gearInstances": [
+      {
+        "uid": "LEGACY_EQW001",
+        "templateId": "EQW001",
+        "id": "EQW001",
+        "name": "赤炎刀",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 315,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "kiDmg",
+            "value": 0.085
+          },
+          {
+            "key": "move",
+            "value": 0.04
+          },
+          {
+            "key": "fireDmg",
+            "value": 0.085
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQW003",
+        "templateId": "EQW003",
+        "id": "EQW003",
+        "name": "玄铁神棍",
+        "slot": "weapon",
+        "rarity": "gold",
+        "score": 350,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.060000000000000005
+          },
+          {
+            "key": "shadowDmg",
+            "value": 0.085
+          },
+          {
+            "key": "fireDmg",
+            "value": 0.085
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQW005",
+        "templateId": "EQW005",
+        "id": "EQW005",
+        "name": "万影短刃",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 335,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "bossDmg",
+            "value": 0.08
+          },
+          {
+            "key": "atkPct",
+            "value": 0.060000000000000005
+          },
+          {
+            "key": "area",
+            "value": 0.06
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQA001",
+        "templateId": "EQA001",
+        "id": "EQA001",
+        "name": "炎龙战甲",
+        "slot": "armor",
+        "rarity": "purple",
+        "score": 250,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "crit",
+            "value": 0.0365
+          },
+          {
+            "key": "kiDmg",
+            "value": 0.085
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQA003",
+        "templateId": "EQA003",
+        "id": "EQA003",
+        "name": "斗战金甲",
+        "slot": "armor",
+        "rarity": "gold",
+        "score": 275,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "fireDmg",
+            "value": 0.085
+          },
+          {
+            "key": "kiDmg",
+            "value": 0.085
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07
+          },
+          {
+            "key": "lightningDmg",
+            "value": 0.085
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQA005",
+        "templateId": "EQA005",
+        "id": "EQA005",
+        "name": "万影忍装",
+        "slot": "armor",
+        "rarity": "purple",
+        "score": 265,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "kiDmg",
+            "value": 0.085
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07
+          },
+          {
+            "key": "move",
+            "value": 0.04
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQX001",
+        "templateId": "EQX001",
+        "id": "EQX001",
+        "name": "炎龙核心",
+        "slot": "accessory",
+        "rarity": "purple",
+        "score": 265,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "summonDmg",
+            "value": 0.1
+          },
+          {
+            "key": "lifesteal",
+            "value": 0.012
+          },
+          {
+            "key": "shadowDmg",
+            "value": 0.085
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQX003",
+        "templateId": "EQX003",
+        "id": "EQX003",
+        "name": "斗战战印",
+        "slot": "accessory",
+        "rarity": "gold",
+        "score": 285,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.060000000000000005
+          },
+          {
+            "key": "summonDmg",
+            "value": 0.1
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07
+          },
+          {
+            "key": "lifesteal",
+            "value": 0.012
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "LEGACY_EQX005",
+        "templateId": "EQX005",
+        "id": "EQX005",
+        "name": "影界勾玉",
+        "slot": "accessory",
+        "rarity": "purple",
+        "score": 275,
+        "source": "legacy",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.060000000000000005
+          },
+          {
+            "key": "lifesteal",
+            "value": 0.012
+          },
+          {
+            "key": "hpPct",
+            "value": 0.07
+          }
+        ],
+        "acquiredAt": 1788777399518
+      },
+      {
+        "uid": "Gmuciiz75gr5jep",
+        "templateId": "EQX004",
+        "id": "EQX004",
+        "name": "爆炎卷轴",
+        "slot": "accessory",
+        "rarity": "gold",
+        "score": 435,
+        "source": "gold",
+        "affixes": [
+          {
+            "key": "kiDmg",
+            "value": 0.0478545862309004
+          },
+          {
+            "key": "fireDmg",
+            "value": 0.08197590460085702
+          },
+          {
+            "key": "hpPct",
+            "value": 0.08962873774140989
+          },
+          {
+            "key": "cdr",
+            "value": 0.05800054445452897
+          }
+        ],
+        "acquiredAt": 1790071792817
+      },
+      {
+        "uid": "Gmucilod8b91mao",
+        "templateId": "EQW002",
+        "id": "EQW002",
+        "name": "雷鸣枪",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 466,
+        "source": "elite",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.05310091234030356
+          },
+          {
+            "key": "kiDmg",
+            "value": 0.07914086555074977
+          },
+          {
+            "key": "hpPct",
+            "value": 0.09478674752925703
+          }
+        ],
+        "acquiredAt": 1790071918748
+      },
+      {
+        "uid": "Gmucimccnn364be",
+        "templateId": "EQW001",
+        "id": "EQW001",
+        "name": "赤炎刀",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 446,
+        "source": "elite",
+        "affixes": [
+          {
+            "key": "atkPct",
+            "value": 0.039555861899870835
+          },
+          {
+            "key": "move",
+            "value": 0.04847288207696679
+          },
+          {
+            "key": "shadowDmg",
+            "value": 0.05531666366422132
+          }
+        ],
+        "acquiredAt": 1790071949831
+      },
+      {
+        "uid": "Gmucimruzlvlc1o",
+        "templateId": "EQW004",
+        "id": "EQW004",
+        "name": "炎忍苦无",
+        "slot": "weapon",
+        "rarity": "purple",
+        "score": 415,
+        "source": "elite",
+        "affixes": [
+          {
+            "key": "move",
+            "value": 0.03664892478225758
+          },
+          {
+            "key": "lightningDmg",
+            "value": 0.09672832777137058
+          },
+          {
+            "key": "lifesteal",
+            "value": 0.016399947926010707
+          }
+        ],
+        "acquiredAt": 1790071969931
+      },
+      {
+        "uid": "Gmucinf2noa21wd",
+        "templateId": "EQA006",
+        "id": "EQA006",
+        "name": "星河武衣",
+        "slot": "armor",
+        "rarity": "purple",
+        "score": 410,
+        "source": "elite",
+        "affixes": [
+          {
+            "key": "kiDmg",
+            "value": 0.11371097109995734
+          },
+          {
+            "key": "atkPct",
+            "value": 0.06491082643098464
+          },
+          {
+            "key": "hpPct",
+            "value": 0.054686533569660634
+          }
+        ],
+        "acquiredAt": 1790072000015
+      },
+      {
+        "uid": "Gmucinfw9ykum24",
+        "templateId": "EQX003",
+        "id": "EQX003",
+        "name": "斗战战印",
+        "slot": "accessory",
+        "rarity": "purple",
+        "score": 407,
+        "source": "elite",
+        "affixes": [
+          {
+            "key": "hpPct",
+            "value": 0.0915744443725687
+          },
+          {
+            "key": "atkPct",
+            "value": 0.045638172166208295
+          },
+          {
+            "key": "lightningDmg",
+            "value": 0.06660292025013079
+          }
+        ],
+        "acquiredAt": 1790072001082
+      },
+      {
+        "uid": "Gmuciob13d70n3c",
+        "templateId": "EQA007",
+        "id": "EQA007",
+        "name": "混沌骑甲",
+        "slot": "armor",
+        "rarity": "gold",
+        "score": 553,
+        "source": "boss",
+        "affixes": [
+          {
+            "key": "move",
+            "value": 0.05150933587315437
+          },
+          {
+            "key": "defPct",
+            "value": 0.11083310025865455
+          },
+          {
+            "key": "crit",
+            "value": 0.041579387676187664
+          },
+          {
+            "key": "area",
+            "value": 0.03503945788231214
+          }
+        ],
+        "acquiredAt": 1790072041431
+      },
+      {
+        "uid": "Gmuciob67cxtmh8",
+        "templateId": "EQX007",
+        "id": "EQX007",
+        "name": "妖师法印",
+        "slot": "accessory",
+        "rarity": "gold",
+        "score": 574,
+        "source": "boss",
+        "affixes": [
+          {
+            "key": "kiDmg",
+            "value": 0.07269502894436965
+          },
+          {
+            "key": "crit",
+            "value": 0.053420503006560136
+          },
+          {
+            "key": "defPct",
+            "value": 0.061511688721965545
+          },
+          {
+            "key": "critDmg",
+            "value": 0.10131502487797353
+          }
+        ],
+        "acquiredAt": 1790072041615
+      }
+    ]
+  },
+  "stats": {
+    "runs": 5,
+    "kills": 2348,
+    "bossKills": 10
+  },
+  "settings": {
+    "shake": true,
+    "numbers": true,
+    "particles": true,
+    "vignette": true,
+    "tutorialSeen": false,
+    "performance": "balanced",
+    "audioEnabled": true,
+    "masterVolume": 0.6
+  },
+  "schemaVersion": 30,
+  "storySeen": {
+    "ST001": false,
+    "ST003": false,
+    "ST004": false
+  },
+  "accountXp": 522,
+  "talentPoints": 6,
+  "talents": {
+    "T001": 0,
+    "T002": 0,
+    "T003": 0,
+    "T004": 0,
+    "T005": 0,
+    "T006": 0,
+    "T007": 0,
+    "T008": 0,
+    "T009": 0,
+    "T010": 0,
+    "T011": 0,
+    "T012": 0,
+    "T013": 0,
+    "T014": 0,
+    "T015": 0,
+    "T016": 0,
+    "T017": 0,
+    "T018": 0,
+    "T019": 0,
+    "T020": 0
+  },
+  "customPresets": {
+    "H001": [
+      null,
+      null,
+      null
+    ],
+    "H002": [
+      null,
+      null,
+      null
+    ],
+    "H007": [
+      null,
+      null,
+      null
+    ],
+    "H010": [
+      null,
+      null,
+      null
+    ],
+    "H012": [
+      null,
+      null,
+      null
+    ],
+    "H019": [
+      null,
+      null,
+      null
+    ]
+  },
+  "mode": "story",
+  "modeTokens": 2,
+  "modeStats": {
+    "story": {
+      "runs": 1,
+      "wins": 1,
+      "bestTime": 283.2152106666889,
+      "bestKills": 508,
+      "bestScore": 1828
+    },
+    "clear": {
+      "runs": 0,
+      "wins": 0,
+      "bestTime": 0,
+      "bestKills": 0,
+      "bestScore": 0
+    },
+    "endless": {
+      "runs": 0,
+      "wins": 0,
+      "bestTime": 0,
+      "bestKills": 0,
+      "bestScore": 0
+    },
+    "bossrush": {
+      "runs": 0,
+      "wins": 0,
+      "bestTime": 0,
+      "bestKills": 0,
+      "bestScore": 0,
+      "bestBosses": 0
+    },
+    "tower": {
+      "runs": 0,
+      "wins": 0,
+      "bestTime": 0,
+      "bestKills": 0,
+      "bestScore": 0,
+      "floor": 1,
+      "bestFloor": 1
+    },
+    "daily": {
+      "runs": 0,
+      "wins": 0,
+      "bestTime": 0,
+      "bestKills": 0,
+      "bestScore": 0,
+      "lastDate": ""
+    },
+    "abyss": {
+      "runs": 0,
+      "wins": 0,
+      "bestTime": 0,
+      "bestKills": 0,
+      "bestScore": 0
+    }
+  },
+  "equipInst": {
+    "weapon": "LEGACY_EQW001",
+    "armor": "LEGACY_EQA001",
+    "accessory": "LEGACY_EQX001"
+  }
+}

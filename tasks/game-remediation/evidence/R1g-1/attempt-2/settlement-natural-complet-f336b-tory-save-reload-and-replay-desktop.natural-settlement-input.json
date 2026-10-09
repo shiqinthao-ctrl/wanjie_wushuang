@@ -1,0 +1,2790 @@
+{
+  "profile": "fresh-baseline",
+  "outcome": "victory",
+  "strategy": "victory-chase",
+  "observed": {
+    "title": "本局生命耗尽",
+    "stars": "☆☆☆",
+    "gold": 123,
+    "seconds": 291.288,
+    "text": "乱世荒原 · 边境清剿本局生命耗尽击破 468 · Lv.18 · 275 秒☆☆☆战果已保存金币+123账号经验+316英雄熟练度+44万界徽记+0本关最佳 0 星 · 精英击破 6 · 最高连击 284取得 Boss 战利品0 / 1清理沿途敌群60 / 60使用一次地图互动0 / 1本局装备已入库 · 2 件史诗 · 斗战金甲史诗 · 星河拳环再次挑战本关返回大厅",
+    "persistenceVerified": true,
+    "replayVerified": true,
+    "completedSeconds": 292.066
+  },
+  "sampledMinHp": {
+    "hp": 12,
+    "time": "04:35"
+  },
+  "choices": [
+    {
+      "time": "00:17",
+      "offered": [
+        "主动术式 火球术 Lv.2Lv.1 → Lv.2",
+        "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+        "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      ],
+      "picked": "主动术式 火球术 Lv.2Lv.1 → Lv.2"
+    },
+    {
+      "time": "00:26",
+      "offered": [
+        "主动术式 解锁 陨石雨Lv.0 → Lv.1",
+        "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+        "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      ],
+      "picked": "主动术式 解锁 陨石雨Lv.0 → Lv.1"
+    },
+    {
+      "time": "00:42",
+      "offered": [
+        "主动术式 陨石雨 Lv.2Lv.1 → Lv.2",
+        "被动心法 解锁 持续强化Lv.0 → Lv.1",
+        "主动术式 火球术 Lv.3Lv.2 → Lv.3"
+      ],
+      "picked": "主动术式 陨石雨 Lv.2Lv.1 → Lv.2"
+    },
+    {
+      "time": "00:55",
+      "offered": [
+        "主动术式 陨石雨 Lv.3Lv.2 → Lv.3",
+        "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+        "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      ],
+      "picked": "主动术式 陨石雨 Lv.3Lv.2 → Lv.3"
+    },
+    {
+      "time": "01:08",
+      "offered": [
+        "被动心法 解锁 风神祝福Lv.0 → Lv.1",
+        "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+        "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      ],
+      "picked": "被动心法 解锁 风神祝福Lv.0 → Lv.1"
+    },
+    {
+      "time": "01:16",
+      "offered": [
+        "被动心法 解锁 技能倍率Lv.0 → Lv.1",
+        "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+        "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      ],
+      "picked": "被动心法 解锁 技能倍率Lv.0 → Lv.1"
+    },
+    {
+      "time": "01:25",
+      "offered": [
+        "被动心法 解锁 持续强化Lv.0 → Lv.1",
+        "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+        "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      ],
+      "picked": "被动心法 解锁 持续强化Lv.0 → Lv.1"
+    },
+    {
+      "time": "01:34",
+      "offered": [
+        "主动术式 陨石雨 Lv.4Lv.3 → Lv.4",
+        "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+        "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      ],
+      "picked": "主动术式 陨石雨 Lv.4Lv.3 → Lv.4"
+    },
+    {
+      "time": "01:52",
+      "offered": [
+        "被动心法 技能倍率 Lv.2Lv.1 → Lv.2",
+        "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+        "被动心法 解锁 范围强化Lv.0 → Lv.1"
+      ],
+      "picked": "被动心法 技能倍率 Lv.2Lv.1 → Lv.2"
+    },
+    {
+      "time": "02:06",
+      "offered": [
+        "主动术式 火球术 Lv.3Lv.2 → Lv.3",
+        "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+        "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+      ],
+      "picked": "主动术式 火球术 Lv.3Lv.2 → Lv.3"
+    },
+    {
+      "time": "02:26",
+      "offered": [
+        "主动术式 解锁 烈焰刀Lv.0 → Lv.1",
+        "主动术式 火球术 Lv.4Lv.3 → Lv.4",
+        "主动术式 解锁 龙卷风Lv.0 → Lv.1"
+      ],
+      "picked": "主动术式 解锁 烈焰刀Lv.0 → Lv.1"
+    },
+    {
+      "time": "02:38",
+      "offered": [
+        "被动心法 持续强化 Lv.3Lv.2 → Lv.3",
+        "被动心法 解锁 冷却缩减Lv.0 → Lv.1",
+        "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+      ],
+      "picked": "被动心法 持续强化 Lv.3Lv.2 → Lv.3"
+    },
+    {
+      "time": "02:53",
+      "offered": [
+        "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2",
+        "被动心法 持续强化 Lv.4Lv.3 → Lv.4",
+        "主动术式 火球术 Lv.4Lv.3 → Lv.4"
+      ],
+      "picked": "主动术式 烈焰刀 Lv.2Lv.1 → Lv.2"
+    },
+    {
+      "time": "03:10",
+      "offered": [
+        "被动心法 持续强化 Lv.4Lv.3 → Lv.4",
+        "被动心法 火神祝福 Lv.2Lv.1 → Lv.2",
+        "被动心法 解锁 冷却缩减Lv.0 → Lv.1"
+      ],
+      "picked": "被动心法 持续强化 Lv.4Lv.3 → Lv.4"
+    },
+    {
+      "time": "03:27",
+      "offered": [
+        "主动术式 陨石雨 Lv.5Lv.4 → Lv.5",
+        "主动术式 解锁 龙卷风Lv.0 → Lv.1",
+        "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      ],
+      "picked": "主动术式 陨石雨 Lv.5Lv.4 → Lv.5"
+    },
+    {
+      "time": "03:49",
+      "offered": [
+        "主动术式 火焰领域 Lv.2Lv.1 → Lv.2",
+        "主动术式 火球术 Lv.4Lv.3 → Lv.4",
+        "主动术式 烈焰刀 Lv.3Lv.2 → Lv.3"
+      ],
+      "picked": "主动术式 火焰领域 Lv.2Lv.1 → Lv.2"
+    },
+    {
+      "time": "04:06",
+      "offered": [
+        "主动术式 火球术 Lv.4Lv.3 → Lv.4",
+        "被动心法 解锁 范围强化Lv.0 → Lv.1",
+        "被动心法 火神祝福 Lv.2Lv.1 → Lv.2"
+      ],
+      "picked": "主动术式 火球术 Lv.4Lv.3 → Lv.4"
+    }
+  ],
+  "timeline": [
+    {
+      "seconds": 1.765,
+      "time": "00:00",
+      "hp": "生命 763 / 763Lv.1 · 经验 0 / 26",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 2.9,
+      "time": "00:01",
+      "hp": "生命 763 / 763Lv.1 · 经验 0 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 4.035,
+      "time": "00:02",
+      "hp": "生命 763 / 763Lv.1 · 经验 0 / 26",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 5.169,
+      "time": "00:03",
+      "hp": "生命 763 / 763Lv.1 · 经验 1 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 6.317,
+      "time": "00:04",
+      "hp": "生命 763 / 763Lv.1 · 经验 1 / 26",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 7.454,
+      "time": "00:05",
+      "hp": "生命 763 / 763Lv.1 · 经验 2 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 8.589,
+      "time": "00:06",
+      "hp": "生命 763 / 763Lv.1 · 经验 3 / 26",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 9.721,
+      "time": "00:07",
+      "hp": "生命 763 / 763Lv.1 · 经验 3 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 10.863,
+      "time": "00:09",
+      "hp": "生命 763 / 763Lv.1 · 经验 4 / 26",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 11.996,
+      "time": "00:10",
+      "hp": "生命 763 / 763Lv.1 · 经验 5 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 13.133,
+      "time": "00:11",
+      "hp": "生命 763 / 763Lv.1 · 经验 5 / 26",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 14.271,
+      "time": "00:12",
+      "hp": "生命 752 / 763Lv.1 · 经验 10 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 15.407,
+      "time": "00:13",
+      "hp": "生命 729 / 763Lv.1 · 经验 11 / 26",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 16.546,
+      "time": "00:14",
+      "hp": "生命 730 / 763Lv.1 · 经验 12 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 17.68,
+      "time": "00:15",
+      "hp": "生命 730 / 763Lv.1 · 经验 13 / 26",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 18.819,
+      "time": "00:17",
+      "hp": "生命 719 / 763Lv.1 · 经验 22 / 26",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 20.021,
+      "time": "00:17",
+      "hp": "生命 708 / 763Lv.2 · 经验 1 / 48",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 21.155,
+      "time": "00:18",
+      "hp": "生命 708 / 763Lv.2 · 经验 9 / 48",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 22.293,
+      "time": "00:20",
+      "hp": "生命 708 / 763Lv.2 · 经验 24 / 48",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 23.429,
+      "time": "00:21",
+      "hp": "生命 709 / 763Lv.2 · 经验 38 / 48",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 24.565,
+      "time": "00:22",
+      "hp": "生命 709 / 763Lv.2 · 经验 43 / 48",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 25.7,
+      "time": "00:23",
+      "hp": "生命 698 / 763Lv.2 · 经验 45 / 48",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 26.833,
+      "time": "00:24",
+      "hp": "生命 699 / 763Lv.2 · 经验 46 / 48",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 27.997,
+      "time": "00:25",
+      "hp": "生命 699 / 763Lv.2 · 经验 47 / 48",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 29.181,
+      "time": "00:26",
+      "hp": "生命 698 / 763Lv.3 · 经验 3 / 59",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 30.316,
+      "time": "00:27",
+      "hp": "生命 632 / 763Lv.3 · 经验 8 / 59",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 31.453,
+      "time": "00:28",
+      "hp": "生命 622 / 763Lv.3 · 经验 9 / 59",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 32.578,
+      "time": "00:29",
+      "hp": "生命 622 / 763Lv.3 · 经验 10 / 59",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 33.712,
+      "time": "00:30",
+      "hp": "生命 605 / 763Lv.3 · 经验 15 / 59",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 34.851,
+      "time": "00:31",
+      "hp": "生命 594 / 763Lv.3 · 经验 17 / 59",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 35.982,
+      "time": "00:32",
+      "hp": "生命 594 / 763Lv.3 · 经验 18 / 59",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 37.116,
+      "time": "00:33",
+      "hp": "生命 595 / 763Lv.3 · 经验 19 / 59",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 38.254,
+      "time": "00:35",
+      "hp": "生命 596 / 763Lv.3 · 经验 25 / 59",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 39.394,
+      "time": "00:36",
+      "hp": "生命 584 / 763Lv.3 · 经验 30 / 59",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 40.529,
+      "time": "00:37",
+      "hp": "生命 561 / 763Lv.3 · 经验 31 / 59",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 41.651,
+      "time": "00:38",
+      "hp": "生命 561 / 763Lv.3 · 经验 35 / 59",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 42.789,
+      "time": "00:39",
+      "hp": "生命 550 / 763Lv.3 · 经验 49 / 59",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 43.934,
+      "time": "00:40",
+      "hp": "生命 538 / 763Lv.3 · 经验 49 / 59",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 45.074,
+      "time": "00:41",
+      "hp": "生命 539 / 763Lv.3 · 经验 54 / 59",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 46.257,
+      "time": "00:42",
+      "hp": "生命 539 / 763Lv.4 · 经验 0 / 70",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 47.4,
+      "time": "00:43",
+      "hp": "生命 539 / 763Lv.4 · 经验 0 / 70",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 48.548,
+      "time": "00:44",
+      "hp": "生命 540 / 763Lv.4 · 经验 14 / 70",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 49.764,
+      "time": "00:45",
+      "hp": "生命 763 / 763Lv.4 · 经验 14 / 70",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 50.898,
+      "time": "00:46",
+      "hp": "生命 763 / 763Lv.4 · 经验 24 / 70",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 52.035,
+      "time": "00:47",
+      "hp": "生命 763 / 763Lv.4 · 经验 24 / 70",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 53.165,
+      "time": "00:48",
+      "hp": "生命 763 / 763Lv.4 · 经验 34 / 70",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 54.301,
+      "time": "00:49",
+      "hp": "生命 763 / 763Lv.4 · 经验 39 / 70",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 55.435,
+      "time": "00:50",
+      "hp": "生命 763 / 763Lv.4 · 经验 45 / 70",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 56.572,
+      "time": "00:51",
+      "hp": "生命 763 / 763Lv.4 · 经验 55 / 70",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 57.715,
+      "time": "00:52",
+      "hp": "生命 763 / 763Lv.4 · 经验 55 / 70",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 58.847,
+      "time": "00:54",
+      "hp": "生命 729 / 763Lv.4 · 经验 56 / 70",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 59.98,
+      "time": "00:55",
+      "hp": "生命 718 / 763Lv.4 · 经验 67 / 70",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 61.165,
+      "time": "00:55",
+      "hp": "生命 718 / 763Lv.5 · 经验 1 / 81",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 62.298,
+      "time": "00:56",
+      "hp": "生命 718 / 763Lv.5 · 经验 10 / 81",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 63.422,
+      "time": "00:57",
+      "hp": "生命 719 / 763Lv.5 · 经验 15 / 81",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 64.55,
+      "time": "00:58",
+      "hp": "生命 719 / 763Lv.5 · 经验 16 / 81",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 65.68,
+      "time": "00:59",
+      "hp": "生命 707 / 763Lv.5 · 经验 17 / 81",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 66.805,
+      "time": "01:00",
+      "hp": "生命 672 / 763Lv.5 · 经验 26 / 81",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 67.944,
+      "time": "01:02",
+      "hp": "生命 661 / 763Lv.5 · 经验 31 / 81",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 69.086,
+      "time": "01:03",
+      "hp": "生命 661 / 763Lv.5 · 经验 32 / 81",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 70.22,
+      "time": "01:04",
+      "hp": "生命 626 / 763Lv.5 · 经验 34 / 81",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 71.361,
+      "time": "01:05",
+      "hp": "生命 592 / 763Lv.5 · 经验 44 / 81",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 72.498,
+      "time": "01:06",
+      "hp": "生命 593 / 763Lv.5 · 经验 53 / 81",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 73.632,
+      "time": "01:07",
+      "hp": "生命 569 / 763Lv.5 · 经验 58 / 81",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 74.814,
+      "time": "01:08",
+      "hp": "生命 570 / 763Lv.6 · 经验 0 / 92",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 75.952,
+      "time": "01:09",
+      "hp": "生命 571 / 763Lv.6 · 经验 6 / 92",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 77.088,
+      "time": "01:11",
+      "hp": "生命 571 / 763Lv.6 · 经验 10 / 92",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 78.214,
+      "time": "01:12",
+      "hp": "生命 571 / 763Lv.6 · 经验 15 / 92",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 79.365,
+      "time": "01:13",
+      "hp": "生命 560 / 763Lv.6 · 经验 20 / 92",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 80.506,
+      "time": "01:14",
+      "hp": "生命 565 / 763Lv.6 · 经验 56 / 92",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 81.638,
+      "time": "01:15",
+      "hp": "生命 734 / 763Lv.6 · 经验 64 / 92",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 82.776,
+      "time": "01:16",
+      "hp": "生命 710 / 763Lv.6 · 经验 87 / 92",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 83.948,
+      "time": "01:16",
+      "hp": "生命 711 / 763Lv.7 · 经验 16 / 103",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 85.076,
+      "time": "01:18",
+      "hp": "生命 711 / 763Lv.7 · 经验 26 / 103",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 86.204,
+      "time": "01:19",
+      "hp": "生命 712 / 763Lv.7 · 经验 27 / 103",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 87.336,
+      "time": "01:20",
+      "hp": "生命 704 / 763Lv.7 · 经验 36 / 103",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 88.473,
+      "time": "01:21",
+      "hp": "生命 705 / 763Lv.7 · 经验 39 / 103",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 89.613,
+      "time": "01:22",
+      "hp": "生命 706 / 763Lv.7 · 经验 45 / 103",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 90.768,
+      "time": "01:23",
+      "hp": "生命 694 / 763Lv.7 · 经验 51 / 103",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 91.903,
+      "time": "01:24",
+      "hp": "生命 646 / 763Lv.7 · 经验 76 / 103",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 93.079,
+      "time": "01:25",
+      "hp": "生命 646 / 763Lv.8 · 经验 3 / 114",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 94.215,
+      "time": "01:26",
+      "hp": "生命 648 / 763Lv.8 · 经验 19 / 114",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 95.353,
+      "time": "01:27",
+      "hp": "生命 648 / 763Lv.8 · 经验 24 / 114",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 96.482,
+      "time": "01:28",
+      "hp": "生命 650 / 763Lv.8 · 经验 49 / 114",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 97.607,
+      "time": "01:29",
+      "hp": "生命 609 / 763Lv.8 · 经验 73 / 114",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 98.836,
+      "time": "01:30",
+      "hp": "生命 610 / 763Lv.8 · 经验 79 / 114",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 99.964,
+      "time": "01:31",
+      "hp": "生命 610 / 763Lv.8 · 经验 88 / 114",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 101.096,
+      "time": "01:33",
+      "hp": "生命 611 / 763Lv.8 · 经验 98 / 114",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 102.247,
+      "time": "01:34",
+      "hp": "生命 611 / 763Lv.8 · 经验 103 / 114",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 103.43,
+      "time": "01:34",
+      "hp": "生命 613 / 763Lv.9 · 经验 0 / 125",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 104.563,
+      "time": "01:36",
+      "hp": "生命 601 / 763Lv.9 · 经验 13 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 105.685,
+      "time": "01:37",
+      "hp": "生命 577 / 763Lv.9 · 经验 16 / 125",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 106.828,
+      "time": "01:38",
+      "hp": "生命 578 / 763Lv.9 · 经验 26 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 107.964,
+      "time": "01:39",
+      "hp": "生命 566 / 763Lv.9 · 经验 40 / 125",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 109.097,
+      "time": "01:40",
+      "hp": "生命 567 / 763Lv.9 · 经验 54 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 110.246,
+      "time": "01:41",
+      "hp": "生命 568 / 763Lv.9 · 经验 56 / 125",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 111.381,
+      "time": "01:42",
+      "hp": "生命 558 / 763Lv.9 · 经验 63 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 112.512,
+      "time": "01:43",
+      "hp": "生命 558 / 763Lv.9 · 经验 67 / 125",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 113.65,
+      "time": "01:45",
+      "hp": "生命 533 / 763Lv.9 · 经验 76 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 114.78,
+      "time": "01:46",
+      "hp": "生命 534 / 763Lv.9 · 经验 77 / 125",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 115.931,
+      "time": "01:47",
+      "hp": "生命 522 / 763Lv.9 · 经验 82 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 117.063,
+      "time": "01:48",
+      "hp": "生命 508 / 763Lv.9 · 经验 97 / 125",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 118.199,
+      "time": "01:49",
+      "hp": "生命 496 / 763Lv.9 · 经验 111 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 119.331,
+      "time": "01:50",
+      "hp": "生命 471 / 763Lv.9 · 经验 116 / 125",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 120.467,
+      "time": "01:51",
+      "hp": "生命 460 / 763Lv.9 · 经验 122 / 125",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 121.654,
+      "time": "01:52",
+      "hp": "生命 461 / 763Lv.10 · 经验 3 / 136",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 122.811,
+      "time": "01:53",
+      "hp": "生命 462 / 763Lv.10 · 经验 12 / 136",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 123.935,
+      "time": "01:54",
+      "hp": "生命 449 / 763Lv.10 · 经验 39 / 136",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 125.062,
+      "time": "01:55",
+      "hp": "生命 438 / 763Lv.10 · 经验 54 / 136",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 126.198,
+      "time": "01:56",
+      "hp": "生命 427 / 763Lv.10 · 经验 64 / 136",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 127.352,
+      "time": "01:57",
+      "hp": "生命 428 / 763Lv.10 · 经验 75 / 136",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 128.479,
+      "time": "01:58",
+      "hp": "生命 416 / 763Lv.10 · 经验 84 / 136",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 129.617,
+      "time": "02:00",
+      "hp": "生命 416 / 763Lv.10 · 经验 94 / 136",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 130.755,
+      "time": "02:01",
+      "hp": "生命 417 / 763Lv.10 · 经验 99 / 136",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 131.899,
+      "time": "02:02",
+      "hp": "生命 417 / 763Lv.10 · 经验 104 / 136",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 133.03,
+      "time": "02:03",
+      "hp": "生命 418 / 763Lv.10 · 经验 110 / 136",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 134.167,
+      "time": "02:04",
+      "hp": "生命 418 / 763Lv.10 · 经验 119 / 136",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 135.295,
+      "time": "02:05",
+      "hp": "生命 419 / 763Lv.10 · 经验 129 / 136",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 136.431,
+      "time": "02:06",
+      "hp": "生命 406 / 763Lv.10 · 经验 135 / 136",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 137.627,
+      "time": "02:06",
+      "hp": "生命 406 / 763Lv.11 · 经验 3 / 147",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 138.763,
+      "time": "02:08",
+      "hp": "生命 407 / 763Lv.11 · 经验 35 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 139.898,
+      "time": "02:09",
+      "hp": "生命 409 / 763Lv.11 · 经验 42 / 147",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 141.034,
+      "time": "02:10",
+      "hp": "生命 409 / 763Lv.11 · 经验 43 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 142.168,
+      "time": "02:11",
+      "hp": "生命 397 / 763Lv.11 · 经验 49 / 147",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 143.305,
+      "time": "02:12",
+      "hp": "生命 371 / 763Lv.11 · 经验 53 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 144.438,
+      "time": "02:13",
+      "hp": "生命 372 / 763Lv.11 · 经验 58 / 147",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 145.579,
+      "time": "02:14",
+      "hp": "生命 359 / 763Lv.11 · 经验 59 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 146.712,
+      "time": "02:15",
+      "hp": "生命 347 / 763Lv.11 · 经验 60 / 147",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 147.846,
+      "time": "02:17",
+      "hp": "生命 348 / 763Lv.11 · 经验 70 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 148.98,
+      "time": "02:18",
+      "hp": "生命 336 / 763Lv.11 · 经验 71 / 147",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 150.115,
+      "time": "02:19",
+      "hp": "生命 336 / 763Lv.11 · 经验 81 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 151.255,
+      "time": "02:20",
+      "hp": "生命 336 / 763Lv.11 · 经验 85 / 147",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 152.403,
+      "time": "02:21",
+      "hp": "生命 338 / 763Lv.11 · 经验 99 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 153.546,
+      "time": "02:22",
+      "hp": "生命 339 / 763Lv.11 · 经验 110 / 147",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 154.698,
+      "time": "02:23",
+      "hp": "生命 327 / 763Lv.11 · 经验 116 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 155.827,
+      "time": "02:24",
+      "hp": "生命 305 / 763Lv.11 · 经验 135 / 147",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 156.956,
+      "time": "02:26",
+      "hp": "生命 293 / 763Lv.11 · 经验 146 / 147",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 158.123,
+      "time": "02:26",
+      "hp": "生命 293 / 763Lv.12 · 经验 3 / 158",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 159.265,
+      "time": "02:27",
+      "hp": "生命 293 / 763Lv.12 · 经验 21 / 158",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 160.401,
+      "time": "02:28",
+      "hp": "生命 293 / 763Lv.12 · 经验 29 / 158",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 161.537,
+      "time": "02:29",
+      "hp": "生命 294 / 763Lv.12 · 经验 42 / 158",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 162.761,
+      "time": "02:30",
+      "hp": "生命 600 / 763Lv.12 · 经验 47 / 158",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 163.9,
+      "time": "02:31",
+      "hp": "生命 588 / 763Lv.12 · 经验 62 / 158",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 165.038,
+      "time": "02:32",
+      "hp": "生命 589 / 763Lv.12 · 经验 80 / 158",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 166.179,
+      "time": "02:33",
+      "hp": "生命 577 / 763Lv.12 · 经验 108 / 158",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 167.314,
+      "time": "02:34",
+      "hp": "生命 578 / 763Lv.12 · 经验 123 / 158",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 168.452,
+      "time": "02:35",
+      "hp": "生命 566 / 763Lv.12 · 经验 125 / 158",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 169.573,
+      "time": "02:36",
+      "hp": "生命 567 / 763Lv.12 · 经验 142 / 158",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 170.712,
+      "time": "02:37",
+      "hp": "生命 568 / 763Lv.12 · 经验 148 / 158",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 171.894,
+      "time": "02:38",
+      "hp": "生命 569 / 763Lv.13 · 经验 3 / 169",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 173.034,
+      "time": "02:39",
+      "hp": "生命 569 / 763Lv.13 · 经验 3 / 169",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 174.168,
+      "time": "02:41",
+      "hp": "生命 557 / 763Lv.13 · 经验 27 / 169",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 175.305,
+      "time": "02:42",
+      "hp": "生命 558 / 763Lv.13 · 经验 42 / 169",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 176.472,
+      "time": "02:43",
+      "hp": "生命 535 / 763Lv.13 · 经验 87 / 169",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 177.63,
+      "time": "02:44",
+      "hp": "生命 536 / 763Lv.13 · 经验 93 / 169",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 178.767,
+      "time": "02:45",
+      "hp": "生命 677 / 763Lv.13 · 经验 93 / 169",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 179.914,
+      "time": "02:46",
+      "hp": "生命 678 / 763Lv.13 · 经验 100 / 169",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 181.05,
+      "time": "02:47",
+      "hp": "生命 679 / 763Lv.13 · 经验 113 / 169",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 182.183,
+      "time": "02:49",
+      "hp": "生命 680 / 763Lv.13 · 经验 115 / 169",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 183.312,
+      "time": "02:50",
+      "hp": "生命 681 / 763Lv.13 · 经验 125 / 169",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 184.44,
+      "time": "02:51",
+      "hp": "生命 684 / 763Lv.13 · 经验 156 / 169",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 185.571,
+      "time": "02:52",
+      "hp": "生命 671 / 763Lv.13 · 经验 167 / 169",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 186.747,
+      "time": "02:53",
+      "hp": "生命 673 / 763Lv.14 · 经验 3 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 187.884,
+      "time": "02:54",
+      "hp": "生命 660 / 763Lv.14 · 经验 8 / 180",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 189.023,
+      "time": "02:55",
+      "hp": "生命 661 / 763Lv.14 · 经验 30 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 190.163,
+      "time": "02:56",
+      "hp": "生命 661 / 763Lv.14 · 经验 41 / 180",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 191.298,
+      "time": "02:57",
+      "hp": "生命 649 / 763Lv.14 · 经验 71 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 192.433,
+      "time": "02:58",
+      "hp": "生命 652 / 763Lv.14 · 经验 79 / 180",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 193.58,
+      "time": "02:59",
+      "hp": "生命 652 / 763Lv.14 · 经验 88 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 194.711,
+      "time": "03:01",
+      "hp": "生命 653 / 763Lv.14 · 经验 94 / 180",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 195.848,
+      "time": "03:02",
+      "hp": "生命 639 / 763Lv.14 · 经验 98 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 196.98,
+      "time": "03:03",
+      "hp": "生命 631 / 763Lv.14 · 经验 111 / 180",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 198.114,
+      "time": "03:04",
+      "hp": "生命 632 / 763Lv.14 · 经验 122 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 199.251,
+      "time": "03:05",
+      "hp": "生命 623 / 763Lv.14 · 经验 127 / 180",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 200.381,
+      "time": "03:06",
+      "hp": "生命 584 / 763Lv.14 · 经验 142 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 201.516,
+      "time": "03:07",
+      "hp": "生命 585 / 763Lv.14 · 经验 148 / 180",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 202.647,
+      "time": "03:09",
+      "hp": "生命 585 / 763Lv.14 · 经验 156 / 180",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 203.787,
+      "time": "03:10",
+      "hp": "生命 558 / 763Lv.14 · 经验 179 / 180",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 204.994,
+      "time": "03:10",
+      "hp": "生命 559 / 763Lv.15 · 经验 5 / 191",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 206.141,
+      "time": "03:11",
+      "hp": "生命 533 / 763Lv.15 · 经验 19 / 191",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 207.286,
+      "time": "03:12",
+      "hp": "生命 519 / 763Lv.15 · 经验 19 / 191",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 208.427,
+      "time": "03:13",
+      "hp": "生命 520 / 763Lv.15 · 经验 29 / 191",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 209.565,
+      "time": "03:15",
+      "hp": "生命 521 / 763Lv.15 · 经验 35 / 191",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 210.714,
+      "time": "03:16",
+      "hp": "生命 522 / 763Lv.15 · 经验 55 / 191",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 211.835,
+      "time": "03:17",
+      "hp": "生命 509 / 763Lv.15 · 经验 60 / 191",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 212.979,
+      "time": "03:18",
+      "hp": "生命 482 / 763Lv.15 · 经验 65 / 191",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 214.112,
+      "time": "03:19",
+      "hp": "生命 457 / 763Lv.15 · 经验 81 / 191",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 215.264,
+      "time": "03:20",
+      "hp": "生命 458 / 763Lv.15 · 经验 100 / 191",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 216.404,
+      "time": "03:21",
+      "hp": "生命 445 / 763Lv.15 · 经验 105 / 191",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 217.533,
+      "time": "03:23",
+      "hp": "生命 433 / 763Lv.15 · 经验 122 / 191",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 218.674,
+      "time": "03:24",
+      "hp": "生命 394 / 763Lv.15 · 经验 160 / 191",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 219.812,
+      "time": "03:25",
+      "hp": "生命 380 / 763Lv.15 · 经验 177 / 191",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 220.947,
+      "time": "03:26",
+      "hp": "生命 367 / 763Lv.15 · 经验 178 / 191",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 222.122,
+      "time": "03:27",
+      "hp": "生命 368 / 763Lv.16 · 经验 1 / 202",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 223.25,
+      "time": "03:28",
+      "hp": "生命 320 / 763Lv.16 · 经验 11 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 224.379,
+      "time": "03:29",
+      "hp": "生命 316 / 763Lv.16 · 经验 20 / 202",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 225.614,
+      "time": "03:30",
+      "hp": "生命 316 / 763Lv.16 · 经验 25 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 226.744,
+      "time": "03:32",
+      "hp": "生命 318 / 763Lv.16 · 经验 27 / 202",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 227.879,
+      "time": "03:33",
+      "hp": "生命 318 / 763Lv.16 · 经验 31 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 229.018,
+      "time": "03:34",
+      "hp": "生命 318 / 763Lv.16 · 经验 36 / 202",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 230.154,
+      "time": "03:35",
+      "hp": "生命 319 / 763Lv.16 · 经验 41 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 231.296,
+      "time": "03:36",
+      "hp": "生命 306 / 763Lv.16 · 经验 46 / 202",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 232.432,
+      "time": "03:37",
+      "hp": "生命 292 / 763Lv.16 · 经验 46 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 233.571,
+      "time": "03:38",
+      "hp": "生命 278 / 763Lv.16 · 经验 52 / 202",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 234.715,
+      "time": "03:40",
+      "hp": "生命 265 / 763Lv.16 · 经验 69 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 235.857,
+      "time": "03:41",
+      "hp": "生命 252 / 763Lv.16 · 经验 88 / 202",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 236.99,
+      "time": "03:42",
+      "hp": "生命 239 / 763Lv.16 · 经验 101 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 238.128,
+      "time": "03:43",
+      "hp": "生命 241 / 763Lv.16 · 经验 125 / 202",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 239.258,
+      "time": "03:44",
+      "hp": "生命 229 / 763Lv.16 · 经验 176 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 240.404,
+      "time": "03:45",
+      "hp": "生命 229 / 763Lv.16 · 经验 181 / 202",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 241.537,
+      "time": "03:46",
+      "hp": "生命 215 / 763Lv.16 · 经验 182 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 242.664,
+      "time": "03:47",
+      "hp": "生命 215 / 763Lv.16 · 经验 191 / 202",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 243.802,
+      "time": "03:49",
+      "hp": "生命 216 / 763Lv.16 · 经验 197 / 202",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 244.976,
+      "time": "03:49",
+      "hp": "生命 218 / 763Lv.17 · 经验 2 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 246.107,
+      "time": "03:50",
+      "hp": "生命 205 / 763Lv.17 · 经验 42 / 213",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 247.237,
+      "time": "03:51",
+      "hp": "生命 205 / 763Lv.17 · 经验 52 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 248.379,
+      "time": "03:52",
+      "hp": "生命 191 / 763Lv.17 · 经验 77 / 213",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 249.512,
+      "time": "03:53",
+      "hp": "生命 178 / 763Lv.17 · 经验 79 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 250.663,
+      "time": "03:54",
+      "hp": "生命 170 / 763Lv.17 · 经验 83 / 213",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 251.797,
+      "time": "03:56",
+      "hp": "生命 157 / 763Lv.17 · 经验 85 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 252.944,
+      "time": "03:57",
+      "hp": "生命 134 / 763Lv.17 · 经验 89 / 213",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 254.079,
+      "time": "03:58",
+      "hp": "生命 137 / 763Lv.17 · 经验 101 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 255.213,
+      "time": "03:59",
+      "hp": "生命 123 / 763Lv.17 · 经验 104 / 213",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 256.351,
+      "time": "04:00",
+      "hp": "生命 124 / 763Lv.17 · 经验 113 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 257.499,
+      "time": "04:01",
+      "hp": "生命 113 / 763Lv.17 · 经验 117 / 213",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 258.645,
+      "time": "04:02",
+      "hp": "生命 69 / 763Lv.17 · 经验 134 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 259.773,
+      "time": "04:04",
+      "hp": "生命 78 / 763Lv.17 · 经验 180 / 213",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 260.906,
+      "time": "04:05",
+      "hp": "生命 78 / 763Lv.17 · 经验 185 / 213",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 262.033,
+      "time": "04:06",
+      "hp": "生命 79 / 763Lv.17 · 经验 200 / 213",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 263.238,
+      "time": "04:06",
+      "hp": "生命 65 / 763Lv.18 · 经验 1 / 224",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 264.37,
+      "time": "04:07",
+      "hp": "生命 51 / 763Lv.18 · 经验 2 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 265.502,
+      "time": "04:08",
+      "hp": "生命 52 / 763Lv.18 · 经验 16 / 224",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 266.632,
+      "time": "04:10",
+      "hp": "生命 53 / 763Lv.18 · 经验 17 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 267.765,
+      "time": "04:11",
+      "hp": "生命 39 / 763Lv.18 · 经验 23 / 224",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 268.89,
+      "time": "04:12",
+      "hp": "生命 25 / 763Lv.18 · 经验 33 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 270.037,
+      "time": "04:13",
+      "hp": "生命 26 / 763Lv.18 · 经验 38 / 224",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 271.196,
+      "time": "04:14",
+      "hp": "生命 27 / 763Lv.18 · 经验 40 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 272.334,
+      "time": "04:15",
+      "hp": "生命 196 / 763Lv.18 · 经验 49 / 224",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 273.473,
+      "time": "04:16",
+      "hp": "生命 197 / 763Lv.18 · 经验 59 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 274.615,
+      "time": "04:18",
+      "hp": "生命 168 / 763Lv.18 · 经验 60 / 224",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 275.748,
+      "time": "04:19",
+      "hp": "生命 126 / 763Lv.18 · 经验 80 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 276.886,
+      "time": "04:20",
+      "hp": "生命 127 / 763Lv.18 · 经验 90 / 224",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 278.031,
+      "time": "04:21",
+      "hp": "生命 128 / 763Lv.18 · 经验 93 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 279.164,
+      "time": "04:22",
+      "hp": "生命 120 / 763Lv.18 · 经验 94 / 224",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 280.314,
+      "time": "04:23",
+      "hp": "生命 108 / 763Lv.18 · 经验 111 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 281.445,
+      "time": "04:24",
+      "hp": "生命 109 / 763Lv.18 · 经验 112 / 224",
+      "boss": null,
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 282.589,
+      "time": "04:26",
+      "hp": "生命 110 / 763Lv.18 · 经验 122 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "seconds": 283.719,
+      "time": "04:27",
+      "hp": "生命 110 / 763Lv.18 · 经验 131 / 224",
+      "boss": null,
+      "direction": {
+        "x": -1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 284.854,
+      "time": "04:28",
+      "hp": "生命 110 / 763Lv.18 · 经验 136 / 224",
+      "boss": null,
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    {
+      "seconds": 285.989,
+      "time": "04:29",
+      "hp": "生命 96 / 763Lv.18 · 经验 137 / 224",
+      "boss": "25047.98074178234",
+      "direction": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 286.583,
+      "time": "04:30",
+      "hp": "生命 84 / 763Lv.18 · 经验 168 / 224",
+      "boss": "25047.98074178234",
+      "direction": {
+        "x": 0.8963065005915778,
+        "y": -0.4434350651417634
+      }
+    },
+    {
+      "seconds": 287.015,
+      "time": "04:31",
+      "hp": "生命 85 / 763Lv.18 · 经验 174 / 224",
+      "boss": "24981.641663135382",
+      "direction": {
+        "x": 0.9237008494408472,
+        "y": -0.3831145269266846
+      }
+    },
+    {
+      "seconds": 287.412,
+      "time": "04:31",
+      "hp": "生命 85 / 763Lv.18 · 经验 182 / 224",
+      "boss": "24731.027366024657",
+      "direction": {
+        "x": 0.9741912925279904,
+        "y": -0.22572400307154566
+      }
+    },
+    {
+      "seconds": 287.816,
+      "time": "04:31",
+      "hp": "生命 86 / 763Lv.18 · 经验 199 / 224",
+      "boss": "24054.538696284788",
+      "direction": {
+        "x": 0.9337731062224373,
+        "y": -0.3578655978097092
+      }
+    },
+    {
+      "seconds": 288.217,
+      "time": "04:32",
+      "hp": "生命 76 / 763Lv.18 · 经验 199 / 224",
+      "boss": "22848.4573914394",
+      "direction": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 288.634,
+      "time": "04:32",
+      "hp": "生命 76 / 763Lv.18 · 经验 199 / 224",
+      "boss": "21621.8790756355",
+      "direction": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "seconds": 289.166,
+      "time": "04:33",
+      "hp": "生命 76 / 763Lv.18 · 经验 199 / 224",
+      "boss": "21621.8790756355",
+      "direction": {
+        "x": -0.9337731062224373,
+        "y": 0.3578655978097092
+      }
+    },
+    {
+      "seconds": 289.701,
+      "time": "04:33",
+      "hp": "生命 63 / 763Lv.18 · 经验 199 / 224",
+      "boss": "21621.8790756355",
+      "direction": {
+        "x": -0.9337731062224373,
+        "y": 0.3578655978097092
+      }
+    },
+    {
+      "seconds": 290.232,
+      "time": "04:34",
+      "hp": "生命 63 / 763Lv.18 · 经验 199 / 224",
+      "boss": "21621.8790756355",
+      "direction": {
+        "x": -0.9337731062224373,
+        "y": 0.3578655978097092
+      }
+    },
+    {
+      "seconds": 290.766,
+      "time": "04:34",
+      "hp": "生命 28 / 763Lv.18 · 经验 200 / 224",
+      "boss": "21621.8790756355",
+      "direction": {
+        "x": -0.9337731062224373,
+        "y": 0.3578655978097092
+      }
+    },
+    {
+      "seconds": 291.273,
+      "time": "04:35",
+      "hp": "生命 12 / 763Lv.18 · 经验 200 / 224",
+      "boss": "21621.8790756355",
+      "direction": {
+        "x": -0.9337731062224373,
+        "y": 0.3578655978097092
+      }
+    }
+  ],
+  "errors": [],
+  "lootSeen": false,
+  "eventCost": 360,
+  "trackedFrames": 6
+}

@@ -1,0 +1,53 @@
+﻿key,group,file,current,proposed,unit,note
+incoming_multiplier,threat,src/data/firstStage.json rule.incoming,0.44,1.00,x,"R1g-1 已实现为 opt-in threat-v2（incoming=1 + 敌人伤害表）；firstStage 保持 0.44 不动"
+defense_formula,threat,src/core/combatMath.ts L139,damage - def*0.08,damage*(1-def/(def+90)),formula,"线性减免对低伤害过强、对高伤害无感"
+contact_iframe,threat,src/core/combatMath.ts L138,global inv 0.28,contactInv 0.5 per-source,s,"全局无敌帧使围攻失去意义；上限 3.57 次/秒与人数无关"
+player_incoming_cap,threat,derived,4.6,unbounded,HP/s,"当前承受上限与围攻人数无关"
+enemy_EN001_damage,threat,src/data/firstStage.json enemies.EN001.damage,8,22,point,黄巾步卒；≈2.9% 玩家最大生命
+enemy_EN002_damage,threat,src/data/firstStage.json enemies.EN002.damage,7,18,point,黄巾弓手；远程可躲
+enemy_EN003_damage,threat,src/data/firstStage.json enemies.EN003.damage,7,20,point,黄巾盾兵；慢但硬
+enemy_EN004_damage,threat,src/data/firstStage.json enemies.EN004.damage,12,34,point,黄巾骑兵；惩罚站位
+enemy_EN005_damage,threat,src/data/firstStage.json enemies.EN005.damage,9,26,point,火箭兵；惩罚聚集
+enemy_EN006_damage,threat,src/data/firstStage.json enemies.EN006.damage,16,48,point,黄巾力士；精英级威胁
+boss_skill_circle,boss,src/core/FirstBoss.ts L90,13+phase*4,maxHp*0.18,pct,"震地斩；G4 与 60-90s 长战互斥，R1g-3 反向降到 ×0.6，待回复机制 R3-P03"
+boss_skill_line,boss,src/core/FirstBoss.ts L93,13+phase*4,maxHp*0.22,pct,"蛮王冲锋；冲锋距离 R1g-3 固定为 776（原随屏幕缩放）"
+boss_skill_cone,boss,src/core/FirstBoss.ts L99,13+phase*4,maxHp*0.26,pct,旋风断军
+boss_hp,boss,src/data/threatV2.json bossHp,3,{classic 13.5,evolution 27},x,"R1g-3 已实现，opt-in threat-v2；不动 firstBoss.json（章节共用）。有效 HP 112716/225432；GDD 的 94500 已证不可达"
+boss_target_window,boss,src/core/bossBudget.test.ts,9-17,60-90,s,"R1g-3 已达成：6 组合中位 60.9-75.8s，三阶段各 16.9-28.5s，Boss 本体伤害占比 35%->58-80%"
+evolve_level_gate,growth,src/core/RunEvolution.ts L22,level >= 3,level >= 6,level,"实测 18s 达成，占关卡 5%"
+awaken_level_gate,growth,src/core/RunEvolution.ts L33,level >= 8,level >= 14,level,"实测 70s 达成，占关卡 19%"
+xp_need_curve,growth,src/core/progression.ts L105,26 + level*11,26 + level*16,formula,"压低升级速度，拉长成长分布"
+evolve_passive_gate,growth,src/core/timedChests.ts L24,passives[p] >= 5,passives[p] >= 1,level,"实测不可达：心法最高只到 Lv2"
+auto_cast_S001,growth,src/data/skillForms.json baseCooldowns.S001,0.5,7,s,"R1g-2 已实现：实测 2.18 -> 0.15 次/秒"
+auto_cast_S002,growth,src/data/skillForms.json baseCooldowns.S002,0.5,7,s,R1g-2 已实现
+auto_cast_S003,growth,src/data/skillForms.json baseCooldowns.S003,0.5,7,s,R1g-2 已实现
+auto_cast_S018,growth,src/data/skillForms.json baseCooldowns.S018,0.5,7,s,R1g-2 已实现
+auto_cast_sentinel_guard,growth,src/core/CombatSimulation.ts L454,无,SENTINEL=0.5 跳过,code,R1g-2 已实现
+autocast_damage_scale,control,src/core/CombatSimulation.ts L415,1.0,0.6,x,自动轨道降效
+autocast_cooldown_scale,control,src/core/CombatSimulation.ts L415,1.0,1.4,x,自动轨道降效
+manual_skill_damage_scale,control,src/core/CombatSimulation.ts L225,无,1.0,x,"手动主术式，全效"
+manual_damage_share,control,derived,0,>=0.35,ratio,"目标：手动操作贡献不低于 35% 总伤害"
+perfect_dodge_heal,control,src/core/CombatSimulation.ts L215,无,maxHp*0.08,pct,预警窗口内闪避
+perfect_dodge_cd_refresh,control,src/core/CombatSimulation.ts L215,无,全部主动技 CD 归零,code,配合完美闪避
+combo_tier_30,control,src/core/CombatSimulation.ts L427,+8% 攻速,+8% 攻速 +5% 伤害,pct,"把 R004 逻辑全局化"
+combo_tier_60,control,src/core/CombatSimulation.ts L427,+16% 攻速,+16% 攻速 +10% 伤害,pct,同上
+combo_tier_100,control,src/core/CombatSimulation.ts L427,+24% 攻速,+24% 攻速 +15% 伤害,pct,同上
+rerolls_all_modes,system,src/core/progression.ts L144,2 仅首章,2 全模式,count,"去掉 journey.ruleset 条件"
+banishes_all_modes,system,src/core/progression.ts L144,1 仅首章,1 全模式,count,同上
+chapter_entry,system,src/App.vue L61,未传 :chapter,传 :chapter,code,首章 UI 完全不可达
+chapter_stage_gate,system,src/chapter/prepare.ts L13,仅 CH001-01,CH001-01..03,code,"第 2/3 关数据已声明未实现"
+chapter_hero_gate,system,src/core/GameCore.ts L51,仅 H001,H001+H010+H012,code,"catalog 已含 H010/H012 形态数据"
+chapter_difficulty_gate,system,src/chapter/prepare.ts L15,仅 normal,4 档可选,code,"difficulties.json 已有 4 档"
+chapter_stars,system,src/chapter/settlement.ts L45,victory?1:0,通关1/无伤2/剩余>=55% 3,star,"storyContract.stars 已声明 clear 2 / mastery 3"
+charm_equip,system,src/chapter/prepare.ts L21,throw Error,注入 chapterCombatContext,code,"6 护符解锁已实现，只差生效"
+charm_MC_DODGE,system,src/chapter/catalog.ts chapterCharms,无,dodgeCd*0.8 inv+0.1,code,闪避强化
+charm_MC_ELITE,system,src/chapter/catalog.ts chapterCharms,无,对精英伤害+15%,pct,精英猎手
+charm_MC_PICKUP,system,src/chapter/catalog.ts chapterCharms,无,吸引半径 240->340,px,拾取范围
+charm_MC_SURVIVAL,system,src/chapter/catalog.ts chapterCharms,无,生命<35% 受伤-18%,pct,求生本能
+charm_MC_CYCLE,system,src/chapter/catalog.ts chapterCharms,无,重抽+1 上限 3,count,循环强化
+charm_MC_MOVE,system,src/chapter/catalog.ts chapterCharms,无,移速+8% 闪避距离+12%,pct,疾行
+seal_dwell,newgame,src/chapter/catalog.ts chapterStages[1].seals,未实现,20,s,"90/180/270 解锁，离开不清零"
+elite_check_count,newgame,src/chapter/catalog.ts chapterStages[2].eliteChecks,未实现,2,count,精英检定时刻
+vow_count,newgame,新系统,无,6,vow,"本局誓约：焚身/疾影/贫者/孤军/猎首/逆命"
+threat_budget_period,newgame,src/core/spawnRules.ts L19,无,30,s,威胁预算导演周期
+threat_budget_clamp,newgame,src/core/spawnRules.ts L19,无,0.6-1.8,ratio,按实际 DPS 反向加压

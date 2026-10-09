@@ -1,0 +1,92 @@
+[90mstdout[2m | src/core/shadowProbe.test.ts[2m > [22m[2mR2-F-SHADOW scope 0 probe[2m > [22m[2mA. aim functions: does heroAim() ever differ from nearestFrom() in the four scenarios?
+[22m[39m
+horde      : heroAim=0.000000  nearestFrom=0.000000  dist=120  -> SAME=true
+ranged     : heroAim=1.570796  nearestFrom=1.570796  -> SAME=true
+elite      : heroAim=0.000000  nearestFrom=0.000000  -> SAME=true
+boss only  : heroAim=0.000000  nearestFrom=0.000000  -> SAME=true
+boss+add(x) : heroAim=0.000000 (boss at 90px on the +x ray)  nearestFrom=0.000000 (EN001 @40.0px)  -> SAME=true
+boss+add(90): heroAim=0.000000 (=> the BOSS)  nearestFrom=1.570796 (EN001 @40.0px)  -> SAME=false  DIFF=-1.570796 rad
+
+[90mstdout[2m | src/core/shadowProbe.test.ts[2m > [22m[2mR2-F-SHADOW scope 0 probe[2m > [22m[2mB. the two vortices: same point, containment, resolution order, effective damage
+[22m[39m
+--- rank 1 : atk=152.2494 EN001 hp=63 heroAim=0 ---
+vortices   : [{"id":"G4_WIND_E","x":1920,"y":1200,"r":120,"dmg":53.28729,"life":4,"tick":0,"follow":false,"v":[0,0]},{"id":"G4_WIND_R","x":1920,"y":1200,"r":200,"dmg":98.96211,"life":6,"tick":0,"follow":false,"v":[0,0]}]
+array      : ["G4_WIND_E","G4_WIND_R"]  (updateVortices: i = len-1 .. 0 => G4_WIND_R resolves first)
+same point : dx=0 dy=0; ult r=200 >= skill r=120; contains=true
+eff dmg 1f : {"G4_WIND_R":102.92059,"G4_WIND_E":55.41878}  (base dmg G4_WIND_E=53.28729, G4_WIND_R=98.96211)
+horde 1f   : dealtBy={"G4_WIND_R":720.44}  killed=7/12
+horde 600f : dealtBy={"G4_WIND_R":1132.13,"H012_R_CLONE":1876.32,"H012_BASIC":446.68}  killed=12/12  G4_WIND_E present=false
+
+--- rank 2 : atk=152.2494 EN001 hp=63 heroAim=0 ---
+vortices   : [{"id":"G4_WIND_E","x":1920,"y":1200,"r":160,"dmg":53.28729,"life":6,"tick":0,"follow":false,"v":[0,0]},{"id":"G4_WIND_R","x":1920,"y":1200,"r":200,"dmg":98.96211,"life":6,"tick":0,"follow":false,"v":[0,0]}]
+array      : ["G4_WIND_E","G4_WIND_R"]  (updateVortices: i = len-1 .. 0 => G4_WIND_R resolves first)
+same point : dx=0 dy=0; ult r=200 >= skill r=160; contains=true
+eff dmg 1f : {"G4_WIND_R":102.92059,"G4_WIND_E":55.41878}  (base dmg G4_WIND_E=53.28729, G4_WIND_R=98.96211)
+horde 1f   : dealtBy={"G4_WIND_R":720.44}  killed=7/12
+horde 600f : dealtBy={"G4_WIND_R":1029.21,"H012_R_CLONE":1876.32,"H012_BASIC":670.01}  killed=12/12  G4_WIND_E present=false
+
+
+[90mstdout[2m | src/core/shadowProbe.test.ts[2m > [22m[2mR2-F-SHADOW scope 0 probe[2m > [22m[2mC. A026 ambush: the third caller of fixedVortex
+[22m[39m
+route(A026) = ambush
+ambush vortex: [{"id":"A026","x":1920,"y":1200,"r":137.984,"dmg":24.36,"life":4.86,"follow":false,"v":[0,0]}]
+reach 220, target at 120 => length = min(220,120) = 120; vortex x should be 1920
+
+[90mstdout[2m | src/core/shadowProbe.test.ts[2m > [22m[2mR2-F-SHADOW scope 0 probe[2m > [22m[2mE. the four cells through the production path, both ranks - the value the slice must move
+[22m[39m
+horde  r1: casts=2 ults=1 killed=12/12 kitDealt=1319.76 hpMin=1.0000
+           deathFrames=[0,0,0,0,0,0,0,16,17,17,17,17]
+           firstHitFrames=[0,0,0,0,0,0,0,16,17,17,17,17]
+           {"G4_WIND_R":1132.13,"H012_R_CLONE":187.63}
+horde  r2: casts=2 ults=1 killed=12/12 kitDealt=1319.76 hpMin=1.0000
+           deathFrames=[0,0,0,0,0,0,0,15,17,17,17,17]
+           firstHitFrames=[0,0,0,0,0,0,0,15,17,17,17,17]
+           {"G4_WIND_R":1132.13,"H012_R_CLONE":187.63}
+ranged r1: casts=2 ults=1 killed=6/6 kitDealt=750.53 hpMin=0.8741
+           deathFrames=[69,71,156,222,295,343]
+           firstHitFrames=[69,71,156,222,295,343]
+           {"H012_R_CLONE":750.53,"H012_BASIC":223.34}
+ranged r2: casts=2 ults=1 killed=6/6 kitDealt=938.16 hpMin=0.9055
+           deathFrames=[71,75,133,192,249,304]
+           firstHitFrames=[71,75,133,192,249,304]
+           {"H012_R_CLONE":938.16,"H012_BASIC":111.67}
+elite  r1: casts=2 ults=1 killed=1/1 kitDealt=691.94 hpMin=1.0000
+           deathFrames=[23]
+           firstHitFrames=[0]
+           {"G4_WIND_R":205.84,"G4_WIND_E":110.84,"H012_R_CLONE":375.26}
+elite  r2: casts=2 ults=1 killed=1/1 kitDealt=691.94 hpMin=1.0000
+           deathFrames=[21]
+           firstHitFrames=[0]
+           {"G4_WIND_R":205.84,"G4_WIND_E":110.84,"H012_R_CLONE":375.26}
+boss   r1: casts=15 ults=1 killed=0/0 kitDealt=20269.02 hpMin=0.4562
+           deathFrames=[]
+           firstHitFrames=[]
+           {"G4_WIND_R":2264.25,"G4_WIND_E":11250.01,"H012_R_CLONE":6754.76,"H012_BASIC":32942.31}
+boss   r2: casts=15 ults=1 killed=0/0 kitDealt=27555.01 hpMin=0.4562
+           deathFrames=[]
+           firstHitFrames=[]
+           {"G4_WIND_R":2264.25,"G4_WIND_E":16847.31,"H012_R_CLONE":8443.45,"H012_BASIC":32942.31}
+SWEEP-RECORD {"horde.r1":{"casts":2,"ults":1,"killed":"12/12","kitDealt":1319.76,"dealtBy":{"G4_WIND_R":1132.13,"H012_R_CLONE":187.63}},"horde.r2":{"casts":2,"ults":1,"killed":"12/12","kitDealt":1319.76,"dealtBy":{"G4_WIND_R":1132.13,"H012_R_CLONE":187.63}},"ranged.r1":{"casts":2,"ults":1,"killed":"6/6","kitDealt":750.53,"dealtBy":{"H012_R_CLONE":750.53,"H012_BASIC":223.34}},"ranged.r2":{"casts":2,"ults":1,"killed":"6/6","kitDealt":938.16,"dealtBy":{"H012_R_CLONE":938.16,"H012_BASIC":111.67}},"elite.r1":{"casts":2,"ults":1,"killed":"1/1","kitDealt":691.94,"dealtBy":{"G4_WIND_R":205.84,"G4_WIND_E":110.84,"H012_R_CLONE":375.26}},"elite.r2":{"casts":2,"ults":1,"killed":"1/1","kitDealt":691.94,"dealtBy":{"G4_WIND_R":205.84,"G4_WIND_E":110.84,"H012_R_CLONE":375.26}},"boss.r1":{"casts":15,"ults":1,"killed":"0/0","kitDealt":20269.02,"dealtBy":{"G4_WIND_R":2264.25,"G4_WIND_E":11250.01,"H012_R_CLONE":6754.76,"H012_BASIC":32942.31}},"boss.r2":{"casts":15,"ults":1,"killed":"0/0","kitDealt":27555.01,"dealtBy":{"G4_WIND_R":2264.25,"G4_WIND_E":16847.31,"H012_R_CLONE":8443.45,"H012_BASIC":32942.31}}}
+
+[90mstdout[2m | src/core/shadowProbe.test.ts[2m > [22m[2mR2-F-SHADOW scope 0 probe[2m > [22m[2mD. SINGLE SWITCH: withhold the ultimate and see what the array can do alone
+[22m[39m
+horde r1 skill only : killed=12/12  dealtBy={"G4_WIND_E":1052.96,"H012_BASIC":1675.03}  WIND_E=true
+horde r1 skill+ult  : killed=12/12  dealtBy={"G4_WIND_R":1132.13,"H012_R_CLONE":1876.32,"H012_BASIC":446.68}  WIND_E=false
+horde r1 ult only   : killed=12/12  dealtBy={"G4_WIND_R":1132.13,"H012_R_CLONE":1876.32,"H012_BASIC":446.68}  WIND_E=false
+elite r1 skill only : killed=1/1  dealtBy={"G4_WIND_E":443.35,"H012_BASIC":1675.03}  WIND_E=true
+elite r1 skill+ult  : killed=1/1  dealtBy={"G4_WIND_R":205.84,"G4_WIND_E":110.84,"H012_R_CLONE":1876.32,"H012_BASIC":670.01}  WIND_E=true
+elite r1 ult only   : killed=1/1  dealtBy={"G4_WIND_R":308.76,"H012_R_CLONE":1876.32,"H012_BASIC":670.01}  WIND_E=false
+horde r2 skill only : killed=12/12  dealtBy={"G4_WIND_E":1163.79,"H012_BASIC":1675.03}  WIND_E=true
+horde r2 skill+ult  : killed=12/12  dealtBy={"G4_WIND_R":1029.21,"H012_R_CLONE":1876.32,"H012_BASIC":670.01}  WIND_E=false
+horde r2 ult only   : killed=12/12  dealtBy={"G4_WIND_R":1132.13,"H012_R_CLONE":1688.69,"H012_BASIC":670.01}  WIND_E=false
+elite r2 skill only : killed=1/1  dealtBy={"G4_WIND_E":443.35,"H012_BASIC":1675.03}  WIND_E=true
+elite r2 skill+ult  : killed=1/1  dealtBy={"G4_WIND_R":205.84,"G4_WIND_E":110.84,"H012_R_CLONE":2063.95,"H012_BASIC":335.01}  WIND_E=true
+elite r2 ult only   : killed=1/1  dealtBy={"G4_WIND_R":308.76,"H012_R_CLONE":2063.95,"H012_BASIC":335.01}  WIND_E=false
+
+ [32m✓[39m src/core/shadowProbe.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 142[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m   Start at [22m 14:09:58
+[2m   Duration [22m 717ms[2m (transform 56%, tests 31%, import 12%, worker 1%)[22m
+

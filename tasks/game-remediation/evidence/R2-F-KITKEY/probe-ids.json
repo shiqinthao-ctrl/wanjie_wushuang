@@ -1,0 +1,21 @@
+{
+  "note": "One-off probe output (deleted after the run). Enumerates, for every form in SPECS, the id `progression.manualSkill()` resolves to under each loadout the harness actually uses, plus the two the harness does NOT use. `kitHasIt` is the structural collision: is the form's core-skill release key a key the block reads as kit damage?",
+  "instrument": "formPressure.test.ts, describe('PROBE kitkey'), make(spec, 1, skills) -> sim.progression.manualSkill()",
+  "rows": [
+    { "form": "bulwark", "hero": "H001", "core": "A021", "coreRelease": "A021_E", "kitHasIt": false, "kit_E": ["H001_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "A021" },
+    { "form": "frostlord", "hero": "H001", "core": "G2_FROST", "coreRelease": "G2_FROST_E", "kitHasIt": true, "kit_E": ["G2_FROST_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "G2_FROST" },
+    { "form": "frostflame", "hero": "H001", "core": "G2_FROST", "coreRelease": "G2_FROST_E", "kitHasIt": false, "kit_E": ["G5_FROST_E", "G5_FIRE_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "G2_FROST" },
+    { "form": "phoenix", "hero": "H010", "core": "A054", "coreRelease": "A054_E", "kitHasIt": false, "kit_E": ["H010_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "A054" },
+    { "form": "legion", "hero": "H010", "core": "S001", "coreRelease": "S001_E", "kitHasIt": false, "kit_E": [], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "S001" },
+    { "form": "thunderlord", "hero": "H010", "core": "A013", "coreRelease": "A013_E", "kitHasIt": false, "kit_E": ["G2_LIGHTNING_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "A013" },
+    { "form": "void", "hero": "H012", "core": "A026", "coreRelease": "A026_E", "kitHasIt": false, "kit_E": ["H012_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "A026" },
+    { "form": "reaper", "hero": "H012", "core": "A015", "coreRelease": "A015_E", "kitHasIt": false, "kit_E": ["H012_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "A015" },
+    { "form": "beastlord", "hero": "H012", "core": "S001", "coreRelease": "S001_E", "kitHasIt": false, "kit_E": [], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "S001" },
+    { "form": "windwarden", "hero": "H012", "core": "A026", "coreRelease": "A026_E", "kitHasIt": false, "kit_E": ["G4_WIND_E"], "none": null, "a011": "A011", "both": "A011", "frostOnly": "G2_FROST", "frost3": "G2_FROST", "core3": "A026" }
+  ],
+  "findings": {
+    "collisionForms": ["frostlord"],
+    "note": "`G2_FROST` is in every hero's `build.active` (`evolutionCatalog:43` lists it among `activeSkills` and `evolutionBuild` appends every active not already in the starter set), so `frostOnly` resolves to `G2_FROST` for all ten forms - but only `frostlord` reads `G2_FROST_E` as a kit key, so only it goes blind.",
+    "pressureCellsOwnNothing": "`make(spec, rank)` passes no skills, so `manualSkill()` is `undefined` in all four pressure cells of all ten forms - that, not the filter, is what keeps the cells clean."
+  }
+}

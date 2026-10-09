@@ -1,0 +1,462 @@
+{
+  "slice": "R2-F07",
+  "form": "void",
+  "hero": "H012",
+  "rules": "threat-v2",
+  "profile": "paced",
+  "frames": 600,
+  "dt": 0.016666666666666666,
+  "scenarios": {
+    "horde": {
+      "r1": {
+        "dealt": 1749.6501048,
+        "kitDealt": 1749.6501048,
+        "basicDealt": 0,
+        "dealtBy": {
+          "H012_R": 1374.38578368,
+          "H012_R_CLONE": 375.2643211200001
+        },
+        "taken": 0,
+        "absorbed": 0,
+        "takenBy": {},
+        "absorbedBy": {},
+        "hpMin": 1,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 4,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 12,
+        "of": 12,
+        "firstHitAt": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0.21666666666666667,
+          0.2833333333333333,
+          0.25,
+          0.2833333333333333,
+          0,
+          0,
+          0
+        ],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 0,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      },
+      "r2": {
+        "dealt": 1408.745428272,
+        "kitDealt": 1408.745428272,
+        "basicDealt": 0,
+        "dealtBy": {
+          "H012_R": 1099.508626944,
+          "H012_E": 309.236801328
+        },
+        "taken": 0,
+        "absorbed": 0,
+        "takenBy": {},
+        "absorbedBy": {},
+        "hpMin": 1,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 5,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 12,
+        "of": 12,
+        "firstHitAt": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 0,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      }
+    },
+    "ranged": {
+      "r1": {
+        "dealt": 1125.7929633600004,
+        "kitDealt": 1125.7929633600004,
+        "basicDealt": 0,
+        "dealtBy": {
+          "H012_R_CLONE": 1125.7929633600004
+        },
+        "taken": 65.38378378378366,
+        "absorbed": 0,
+        "takenBy": {
+          "hostile-projectile": 65.38378378378366
+        },
+        "absorbedBy": {},
+        "hpMin": 0.8742711382452965,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 4,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 6,
+        "of": 6,
+        "firstHitAt": [
+          5.75,
+          3.716666666666667,
+          1.15,
+          1.1833333333333333,
+          2.7,
+          4.916666666666667
+        ],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 0,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      },
+      "r2": {
+        "dealt": 1125.7929633600004,
+        "kitDealt": 1125.7929633600004,
+        "basicDealt": 0,
+        "dealtBy": {
+          "H012_R_CLONE": 1125.7929633600004
+        },
+        "taken": 49.03783783783774,
+        "absorbed": 0,
+        "takenBy": {
+          "hostile-projectile": 49.03783783783774
+        },
+        "absorbedBy": {},
+        "hpMin": 0.9056160389158054,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 5,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 6,
+        "of": 6,
+        "firstHitAt": [
+          5.066666666666666,
+          3.2,
+          1.1833333333333333,
+          1.25,
+          2.216666666666667,
+          4.266666666666667
+        ],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 0,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      }
+    },
+    "elite": {
+      "r1": {
+        "dealt": 650.1414778560002,
+        "kitDealt": 650.1414778560002,
+        "basicDealt": 0,
+        "dealtBy": {
+          "H012_R": 274.8771567360001,
+          "H012_R_CLONE": 375.2643211200001
+        },
+        "taken": 0,
+        "absorbed": 0,
+        "takenBy": {},
+        "absorbedBy": {},
+        "hpMin": 1,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 4,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 1,
+        "of": 1,
+        "firstHitAt": [
+          0
+        ],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 0,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      },
+      "r2": {
+        "dealt": 727.4506781880002,
+        "kitDealt": 727.4506781880002,
+        "basicDealt": 0,
+        "dealtBy": {
+          "H012_R": 274.8771567360001,
+          "H012_E": 77.309200332,
+          "H012_R_CLONE": 375.2643211200001
+        },
+        "taken": 0,
+        "absorbed": 0,
+        "takenBy": {},
+        "absorbedBy": {},
+        "hpMin": 1,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 5,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 1,
+        "of": 1,
+        "firstHitAt": [
+          0
+        ],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 0,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      }
+    },
+    "boss": {
+      "r1": {
+        "dealt": 15104.151416015999,
+        "kitDealt": 15104.151416015999,
+        "basicDealt": 3779.560905120002,
+        "dealtBy": {
+          "H012_R": 3023.648724096,
+          "H012_E": 1546.1840066400005,
+          "H012_R_CLONE": 6754.757780159996,
+          "H012_BASIC": 3779.560905120002
+        },
+        "taken": 0,
+        "absorbed": 0,
+        "takenBy": {},
+        "absorbedBy": {},
+        "hpMin": 1,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 4,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 0,
+        "of": 0,
+        "firstHitAt": [],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 15104.15141601453,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      },
+      "r2": {
+        "dealt": 17102.077662383996,
+        "kitDealt": 17102.077662384,
+        "basicDealt": 3779.560905120002,
+        "dealtBy": {
+          "H012_R": 3023.648724096,
+          "H012_E": 1855.4208079680006,
+          "H012_R_CLONE": 8443.447225199994,
+          "H012_BASIC": 3779.560905120002
+        },
+        "taken": 0,
+        "absorbed": 0,
+        "takenBy": {},
+        "absorbedBy": {},
+        "hpMin": 1,
+        "died": false,
+        "shieldPeak": 0,
+        "fieldR": 0,
+        "fieldMax": 0,
+        "summonsPeak": 5,
+        "summonKinds": [
+          "H012_R_CLONE"
+        ],
+        "vortexPeak": 2,
+        "vortexKinds": [
+          "H012_E",
+          "H012_R"
+        ],
+        "killed": 0,
+        "of": 0,
+        "firstHitAt": [],
+        "chilled": 0,
+        "chilledEver": 0,
+        "chilledSeconds": 0,
+        "bossChilled": false,
+        "bossHpLost": 17102.07766238239,
+        "casts": 2,
+        "ults": 1,
+        "bossCasts": 0
+      }
+    }
+  },
+  "control": {
+    "horde": {
+      "dealt": 2061.57867552,
+      "kitDealt": 2061.57867552,
+      "basicDealt": 2061.57867552,
+      "dealtBy": {
+        "H012_BASIC": 2061.57867552
+      },
+      "taken": 196.15135135135114,
+      "absorbed": 0,
+      "takenBy": {
+        "EN001": 196.15135135135114
+      },
+      "absorbedBy": {},
+      "hpMin": 0.6222283689474962,
+      "died": false,
+      "shieldPeak": 0,
+      "fieldR": 0,
+      "fieldMax": 0,
+      "summonsPeak": 0,
+      "summonKinds": [],
+      "vortexPeak": 0,
+      "vortexKinds": [],
+      "killed": 12,
+      "of": 12,
+      "firstHitAt": [
+        1.65,
+        0.9166666666666666,
+        1.65,
+        1.6666666666666667,
+        1.6666666666666667,
+        2.4833333333333334,
+        2.4833333333333334,
+        2.5,
+        2.5,
+        3.3166666666666664,
+        3.3166666666666664,
+        3.3333333333333335
+      ],
+      "chilled": 0,
+      "chilledEver": 0,
+      "chilledSeconds": 0,
+      "bossChilled": false,
+      "bossHpLost": 0,
+      "casts": 0,
+      "ults": 0,
+      "bossCasts": 0
+    },
+    "ranged": {
+      "dealt": 0,
+      "kitDealt": 0,
+      "basicDealt": 0,
+      "dealtBy": {},
+      "taken": 196.15135135135097,
+      "absorbed": 0,
+      "takenBy": {
+        "hostile-projectile": 196.15135135135097
+      },
+      "absorbedBy": {},
+      "hpMin": 0.6196700830818804,
+      "died": false,
+      "shieldPeak": 0,
+      "fieldR": 0,
+      "fieldMax": 0,
+      "summonsPeak": 0,
+      "summonKinds": [],
+      "vortexPeak": 0,
+      "vortexKinds": [],
+      "killed": 0,
+      "of": 6,
+      "firstHitAt": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "chilled": 0,
+      "chilledEver": 0,
+      "chilledSeconds": 0,
+      "bossChilled": false,
+      "bossHpLost": 0,
+      "casts": 0,
+      "ults": 0,
+      "bossCasts": 0
+    }
+  }
+}

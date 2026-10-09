@@ -1,0 +1,26 @@
+{
+  "note": "One-off probe output (deleted after the run). Presses the real skill button on the `frostlord` form under two loadouts that differ ONLY in which owned skill the button releases, then reads `damageBy`. The two arms differ in nothing else, so the field's own damage is the same quantity in both and the difference is the release.",
+  "instrument": "formPressure.test.ts, describe('PROBE kitkey'); make(SPECS.frostlord, 1, skills); place EN006 at +80px, hp=maxHp=1e6, pet off; sim.action('skill'); 40 frames of beginFrame/finishBaseFrame/updateOuter",
+  "filter": "k.endsWith('_E') && !SPECS.frostlord.kit.includes(k)  -- byte-for-byte the shape of formPressure.test.ts:2895",
+  "safe": {
+    "loadout": { "A011": 1, "G2_FROST": 1 },
+    "resolvedManualId": "A011",
+    "keys_E": ["G2_FROST_E", "A011_E"],
+    "filtered": ["A011_E"],
+    "filterVerdict": "sees the release - would go red, correctly",
+    "damageBy": [["G2_FROST", 163.84747392], ["G2_FROST_E", 152.924308992], ["A011", 225.73799277533033], ["A011_E", 3869.7941618628065]]
+  },
+  "hazard": {
+    "loadout": { "G2_FROST": 1 },
+    "resolvedManualId": "G2_FROST",
+    "keys_E": ["G2_FROST_E"],
+    "filtered": [],
+    "filterVerdict": "reports a clean cell while a release DID fire - blind",
+    "damageBy": [["G2_FROST_E", 1136.009152512], ["G2_FROST", 57.346615871999994]]
+  },
+  "findings": {
+    "mergeNotLoss": "The release did not vanish: `G2_FROST_E` reads 152.924308992 in the safe arm and 1136.009152512 in the hazard arm - ratio 7.4286. The extra is the release, whose `boost` (6, `manualTrack.json`) rides on the field's own key because `hit`/`hitBoss` rename the source to `${source}_E` while `manualCast` is set.",
+    "whyTheSafeArmStillReleases": "`action('skill')` on the evolution journey runs `journeyCombat.action('skill')` and then `releaseManual()` unconditionally (`CombatSimulation:270-273`), so the button releases whatever `manualSkill()` names - the loadout, not the filter, is what keeps `A011_E` the landing key.",
+    "isThisLiveToday": "No. All four pressure cells call `make(spec, rank)` with no skills, so `manualSkill()` is `undefined` and nothing can be released. The hazard is latent, and it is exactly one loadout edit away (`{G2_FROST: 1}`, or `{A011: 1, G2_FROST: 3}`)."
+  }
+}

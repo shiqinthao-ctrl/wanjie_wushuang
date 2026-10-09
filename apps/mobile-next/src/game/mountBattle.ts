@@ -17,7 +17,9 @@ import type { ChapterRunOptions } from '../chapter/prepare';
 export interface BattleHandle { core: GameCore; setEffectsEnabled(value: boolean): void; setAudioSettings(value: AudioSettings): void; pauseAudio(): void; resumeAudio(): void; destroy(): Promise<void> }
 
 export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) => void, ready: () => void, fail: (message: string) => void, save: GameSave, journey: Journey = 'classic', chapter?: ChapterRunOptions): BattleHandle {
-  const core = new GameCore(save, Math.random, journey, chapter);
+  // Journey runs opt into the threat-v2 model; chapter runs keep their frozen
+  // first-chapter balance (GameCore reports them as `legacy`).
+  const core = new GameCore(save, Math.random, journey, chapter, 'threat-v2');
   const audio = chapter ? new ChapterAudio() : undefined;
   let silentEvents: ReturnType<GameCore['takeEvents']> = [];
   let removed = false;

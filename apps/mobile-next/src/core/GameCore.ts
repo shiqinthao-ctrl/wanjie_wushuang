@@ -20,6 +20,7 @@ import type { ChapterPreparation, ChapterRunOptions } from '../chapter/prepare';
 import { createChapterProgression, seededRandom } from '../chapter/growth';
 import type { ChapterFinalRun } from '../chapter/settlement';
 import { freeze } from '../chapter/catalog';
+import type { RunRules } from './threatModel';
 
 export type RunStatus = 'idle' | 'running' | 'choosing' | 'encounter' | 'chest' | 'boss-loot' | 'paused' | 'ended' | 'destroyed';
 export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly chests: ReturnType<TimedChests['snapshot']>; readonly boss: ReturnType<FirstBoss['snapshot']>; readonly endReason?: 'defeat' | 'victory' | 'timeout' }
@@ -42,9 +43,12 @@ export class GameCore {
   private modeScore = 0;
   private modeBosses = 0;
   readonly chapter?: ChapterPreparation;
+  /** Effective run rules. Chapter runs keep their own frozen balance, so they report `legacy`. */
+  readonly rules: RunRules;
   private chapterFinal?: ChapterFinalRun;
 
-  constructor(save: GameSave = fresh, random = Math.random, journey: Journey = 'classic', chapterOptions?: ChapterRunOptions) {
+  constructor(save: GameSave = fresh, random = Math.random, journey: Journey = 'classic', chapterOptions?: ChapterRunOptions, rules: RunRules = 'legacy') {
+    this.rules = chapterOptions ? 'legacy' : rules;
     this.preparation = { heroId: save.hero, chapter: String(save.selectedChapter), stageId: String(save.selectedStage), modeId: String(save.mode), difficultyId: String(save.difficulty || 'normal'), build: structuredClone(save.build) };
     if (chapterOptions) {
       this.chapter = prepareChapterRun(save, chapterOptions);
@@ -56,12 +60,16 @@ export class GameCore {
       this.chests = new TimedChests(this.progression, this.combat, this.chapter.heroId, this.drops, random);
       return;
     }
-    const evolution = journey === 'evolution' ? new RunEvolution(save.hero) : undefined;
+    // R1g-4: the evolution journey draws its hero form and awakening far later than the
+    // legacy levels 3/8 did, and its timed-chest evolutions need a reachable gate. Both
+    // ride on the `threat-v2` profile, which is the R1g remediation profile; `legacy` runs
+    // (and every chapter run, which returns above) keep the frozen pacing byte-identical.
+    const evolution = journey === 'evolution' ? new RunEvolution(save.hero, undefined, undefined, this.rules === 'threat-v2' ? 'paced' : 'legacy') : undefined;
     if (evolution && !save.heroes[save.hero]?.unlocked) throw new Error('此初始英雄尚未解锁。');
     const battleSave = evolution ? { ...structuredClone(save), build: evolutionBuild(save.hero) } : save;
     const startup = calculateStartup(battleSave);
     this.progression = new Progression(battleSave.build, startup.skills, startup.passives, random, evolution);
-    this.combat = new CombatSimulation(battleSave, this.progression, random, this.drops);
+    this.combat = new CombatSimulation(battleSave, this.progression, random, this.drops, Date.now, undefined, rules);
     this.encounters = new FirstStageEvents(this.combat.player, this.progression, save.hero, random, Date.now, this.drops);
     this.chests = new TimedChests(this.progression, this.combat, save.hero, this.drops, random);
   }

@@ -1,0 +1,107 @@
+=== A. bucketOf on the four keys ===
+X                    X               X_E             X_R             X_R_E
+A011                 autoSkill       manualSkill     manualUltimate  manualSkill
+A003                 autoSkill       manualSkill     manualUltimate  manualSkill
+A026                 autoSkill       manualSkill     manualUltimate  manualSkill
+A013                 autoSkill       manualSkill     manualUltimate  manualSkill
+A015                 autoSkill       manualSkill     manualUltimate  manualSkill
+A021                 autoSkill       manualSkill     manualUltimate  manualSkill
+A027                 autoSkill       manualSkill     manualUltimate  manualSkill
+A054                 autoSkill       manualSkill     manualUltimate  manualSkill
+S001                 summon          manualSkill     manualUltimate  manualSkill
+G2_FROST             autoSkill       manualSkill     manualUltimate  manualSkill
+H001_E               manualSkill     manualSkill     manualUltimate  manualSkill
+H001_R               manualUltimate  manualSkill     manualUltimate  manualSkill
+H001_BASIC           basic           manualSkill     manualUltimate  manualSkill
+H001_SLASH           basic           manualSkill     manualUltimate  manualSkill
+H010_BOMB            manualSkill     manualSkill     manualUltimate  manualSkill
+G4_WIND_E            manualSkill     manualSkill     manualUltimate  manualSkill
+G4_WIND_R            manualUltimate  manualSkill     manualUltimate  manualSkill
+G5_FROST_E           manualSkill     manualSkill     manualUltimate  manualSkill
+G5_FIRE_E            manualSkill     manualSkill     manualUltimate  manualSkill
+G2_LIGHTNING_E       manualSkill     manualSkill     manualUltimate  manualSkill
+G2_FROST_E           manualSkill     manualSkill     manualUltimate  manualSkill
+H012_CLONE           summon          manualSkill     manualUltimate  manualSkill
+H012_R_CLONE         summon          manualSkill     manualUltimate  manualSkill
+H010_CLONE           summon          manualSkill     manualUltimate  manualSkill
+G4_SHADOW_BOND       autoSkill       manualSkill     manualUltimate  manualSkill
+G2_FROST_CLONE       summon          manualSkill     manualUltimate  manualSkill
+H010_WILDFIRE        autoSkill       manualSkill     manualUltimate  manualSkill
+H010_BOND            manualDodge     manualSkill     manualUltimate  manualSkill
+H012_DODGE           manualDodge     manualSkill     manualUltimate  manualSkill
+PET001               pet             manualSkill     manualUltimate  manualSkill
+F004                 fusion          manualSkill     manualUltimate  manualSkill
+MAP_BARREL           manualMap       manualMap       manualMap       manualMap
+MAP_MECHANISM        manualMap       manualMap       manualMap       manualMap
+
+=== A2. raw suffix chain (which branch wins) ===
+H001_R_E           /_E$/=true /_R$/=false /_CLONE$/=false -> manualSkill
+G4_WIND_E_E        /_E$/=true /_R$/=false /_CLONE$/=false -> manualSkill
+G2_FROST_E         /_E$/=true /_R$/=false /_CLONE$/=false -> manualSkill
+H012_R_CLONE       /_E$/=false /_R$/=false /_CLONE$/=true -> summon
+G2_FROST_CLONE     /_E$/=false /_R$/=false /_CLONE$/=true -> summon
+
+=== B. ground truth: damageBy key x actual `manual` flag (shipped population: 5 cells x 33 seeds) ===
+key                  bucket          manual=true    manual=false   manualSources -> autoSources
+A011                 autoSkill       0              19827176       [] -> [A011]
+A003_E               manualSkill     13447659       0              [A003] -> []
+H001_E               manualSkill     0              9061659        [] -> [H001_E]
+H001_BASIC           basic           0              7336008        [] -> [H001_BASIC]
+A003                 autoSkill       0              7161671        [] -> [A003]
+S001                 summon          0              3046331        [] -> [S001]
+H001_R               manualUltimate  0              3036862        [] -> [H001_R]
+A054                 autoSkill       0              2938322        [] -> [A054]
+H001_SLASH           basic           0              2934317        [] -> [H001_SLASH]
+A011_E               manualSkill     2737870        0              [A011] -> []
+A027                 autoSkill       0              2410051        [] -> [A027]
+A015                 autoSkill       0              2013468        [] -> [A015]
+A026                 autoSkill       0              2007058        [] -> [A026]
+A021                 autoSkill       0              1912844        [] -> [A021]
+S001_E               manualSkill     1640767        0              [S001] -> []
+H010_BOMB            manualSkill     0              1385863        [] -> [H010_BOMB]
+A013                 autoSkill       0              1338045        [] -> [A013]
+A027_E               manualSkill     895776         0              [A027] -> []
+PET001               pet             0              872081         [] -> [PET001]
+G4_SHADOW_BOND       autoSkill       0              821882         [] -> [G4_SHADOW_BOND]
+H010_WILDFIRE        autoSkill       0              400206         [] -> [H010_WILDFIRE]
+A015_E               manualSkill     278592         0              [A015] -> []
+A026_E               manualSkill     244742         0              [A026] -> []
+A054_E               manualSkill     230579         0              [A054] -> []
+G2_FROST             autoSkill       0              192558         [] -> [G2_FROST]
+MAP_MECHANISM        manualMap       0              128748         [] -> [MAP_MECHANISM]
+A013_E               manualSkill     126147         0              [A013] -> []
+H010_BOND            manualDodge     0              90474          [] -> [H010_BOND]
+G2_FROST_E           manualSkill     52713          0              [G2_FROST] -> []
+G2_FROST_CLONE       summon          0              41087          [] -> [G2_FROST_CLONE]
+F004                 fusion          0              16903          [] -> [F004]
+MAP_BARREL           manualMap       0              10923          [] -> [MAP_BARREL]
+
+=== B2. per-bucket contamination ===
+manualSkill     total=30102367     from manual calls=19654845     from auto calls=10447522     auto-leak=34.71%
+manualUltimate  total=3036862      from manual calls=0            from auto calls=3036862      auto-leak=100%
+manualMap       total=139671       from manual calls=0            from auto calls=139671       auto-leak=100%
+manualDodge     total=90474        from manual calls=0            from auto calls=90474        auto-leak=100%
+autoSkill       total=41023281     from manual calls=0            from auto calls=41023281     auto-leak=100%
+summon          total=3087418      from manual calls=0            from auto calls=3087418      auto-leak=100%
+basic           total=10270325     from manual calls=0            from auto calls=10270325     auto-leak=100%
+pet             total=872081       from manual calls=0            from auto calls=872081       auto-leak=100%
+fusion          total=16903        from manual calls=0            from auto calls=16903        auto-leak=100%
+
+=== B3. keys whose SOURCE ends in _E or _R (the collision surface) ===
+H001_E               bucket=manualSkill     manualSources=[] autoSources=[H001_E] manual=0 auto=9061659
+H001_R               bucket=manualUltimate  manualSources=[] autoSources=[H001_R] manual=0 auto=3036862
+
+=== B4. the three shares, per cell ===
+cell                 total        manualShare   manualCoreShare  GDD H001_E+H001_R
+classic/first        11644250     0.3314        0.3282           0.1552
+evolution/first      22880699     0.4085        0.4063           0.1383
+classic/unlock       11375191     0.3007        0.2985           0.1362
+evolution/unlock     19858542     0.3725        0.369            0.1215
+evolution/focus      22880699     0.4085        0.4063           0.1383
+POOLED               88639381     0.3765        0.3738           0.1365
+
+=== B5. forms reached ===
+dragon@r2              97
+(none)@r-              66
+dragon@r1              2
+

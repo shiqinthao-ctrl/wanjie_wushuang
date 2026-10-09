@@ -29,12 +29,16 @@ export class FirstBoss {
   private settlingAt: number | undefined;
   private destroyed = false;
   private sweepRecovery = 0;
-  constructor(private sim: CombatSimulation, private hero: string, private difficulty: string, private random: () => number, private now: () => number) {}
+  constructor(private sim: CombatSimulation, private hero: string, private difficulty: string, private random: () => number, private now: () => number, private journey: 'classic' | 'evolution' = 'classic') {}
   spawn(): boolean {
     if (this.destroyed || this.active || this.defeatedAt !== undefined || this.sim.time < (this.sim.chapter?.stage.boss.spawnAt ?? firstStage.bossAt)) return false;
     const { player, viewport, time } = this.sim, minutes = time / 60;
-    const hp = config.boss.hp * difficultyFor(this.difficulty).hp * (.85 + (1 + .07 * minutes + .012 * minutes * minutes) * .22) * firstStage.bossHp;
-    this.active = { id: 'B001', name: config.boss.name, hp, maxHp: hp, r: 42, x: player.x + viewport.width * .28, y: player.y - viewport.height * .16, phase: 1, castCd: 1.7, castLock: .7, shield: 0, skillIndex: 0, next: '准备攻击' };
+    // threat-v2 sets its own Boss HP budget, per journey. `firstStage.bossHp` (3)
+    // is the frozen reference the legacy path and every chapter run keep using,
+    // byte-identical.
+    const hpScale = this.sim.threat?.bossHp[this.journey] ?? firstStage.bossHp;
+    const hp = config.boss.hp * difficultyFor(this.difficulty).hp * (.85 + (1 + .07 * minutes + .012 * minutes * minutes) * .22) * hpScale;
+    this.active = { id: 'B001', name: config.boss.name, hp, maxHp: hp, r: 42, x: player.x + viewport.width * .28, y: player.y - viewport.height * .16, phase: 1, castCd: 1.7 * this.castCdScale, castLock: .7, shield: 0, skillIndex: 0, next: '准备攻击' };
     clampPoint(this.active, this.sim.world, 45); this.sim.feedback('boss-arrive', 'B001'); return true;
   }
   defeat(): void {
@@ -46,12 +50,34 @@ export class FirstBoss {
     this.defeatedAt = this.sim.time;
   }
   private dropOptions() { return { difficulty: this.difficulty, dropBonus: this.sim.context.runePet.dropPct || 0 }; }
+  /**
+   * threat-v2 scales every point of damage the Boss itself deals. The legacy reference and chapter
+   * runs keep `1`, so their numbers are untouched.
+   */
+  private get damageScale(): number { return this.sim.threat?.bossDamage ?? 1; }
+  /**
+   * R1g-10 splits `damageScale` in two. Both default to `1`, so a `threat` table without the new
+   * keys - and the whole legacy path, where `threat` is undefined - is byte-identical. The split
+   * exists because a move cannot be made legible through `bossDamage`: that knob also multiplies
+   * body contact, which at the multiple G4 needs kills the player before the first cast lands.
+   */
+  private get skillScale(): number { return this.damageScale * (this.sim.threat?.bossSkillDamage ?? 1); }
+  private get contactScale(): number { return this.damageScale * (this.sim.threat?.bossContactDamage ?? 1); }
+  /** R1g-10's cadence knob: multiplies every *fresh* cast cooldown, never the per-frame decrement. */
+  private get castCdScale(): number { return this.sim.threat?.bossCastCooldown ?? 1; }
   updateAI(dt: number): void {
     const boss = this.active; if (!boss || this.destroyed) return;
     const ratio = boss.hp / Math.max(1, boss.maxHp), phase = ratio <= .35 ? 3 : ratio <= .70 ? 2 : 1;
+    // R1g-7 briefly added a 6s minimum dwell here plus a "cannot die inside the dwell" hold
+    // (`holdHp`), to make G3's "three phases, each at least once" a property of the rule. Both were
+    // reverted with the dash clamp, and for the same reason: the **1.7s** phase they were sized
+    // against came from the clamp-on balance, and the hold made the Boss unkillable for up to 6s
+    // after every phase change - an invisible rule that breaks any legitimate one-shot (measured: 9
+    // tests across `bossLifecycle`, `firstBoss` and `settlementFlow`). The phase budget is carried
+    // by `bossHp` alone, which is where R1g-3 put it and where it still works (six cells, 62-80s).
     if (phase > boss.phase) {
       if (this.sim.chapter) { this.telegraphs.length = 0; this.sweepRecovery = 0; boss.sweepPhase = undefined; boss.sweepFacing = undefined; }
-      boss.phase = phase; boss.castCd = 1.2; boss.castLock = 1.05;
+      boss.phase = phase; boss.castCd = 1.2 * this.castCdScale; boss.castLock = 1.05;
       this.sim.feedback('boss-phase', 'B001');
       this.maxPhase = Math.max(this.maxPhase, phase);
       if (phase === 3) for (let i = 0; i < 3; i++) this.sim.spawn({ elite: i === 0 });
@@ -71,7 +97,10 @@ export class FirstBoss {
       const speed = (38 + boss.phase * 7) * diff.speed;
       boss.x += dx / distance * speed * dt; boss.y += dy / distance * speed * dt;
     }
-    if (distance < boss.r + player.r + 4 && player.inv <= 0) this.sim.hurt((11 + boss.phase * 3) * diff.dmg, 'B001-contact');
+    // Boss body contact: legacy is covered by the global i-frame, so the guard
+    // stays byte-identical. threat-v2 grants no global i-frame, so the Boss uses
+    // its own contact timer or a stationary player would take 60 hits per second.
+    if (distance < boss.r + player.r + 4 && player.inv <= 0 && (!this.sim.threat || this.sim.contactReady(boss, this.sim.threat.bossContactInterval))) this.sim.hurt((11 + boss.phase * 3) * diff.dmg * this.contactScale, 'B001-contact');
     if (boss.castCd > 0 || boss.castLock > 0) return;
     boss.skillIndex = (boss.skillIndex + 1) % 3;
     const [type, name] = config.mechanics.skills[(boss.skillIndex + boss.phase - 1) % 3]!;
@@ -81,14 +110,18 @@ export class FirstBoss {
     if (type === 'circle') {
       this.telegraphs.push({ ...base, type, x: player.x, y: player.y, r: boss.phase === 3 ? 86 : 70, damage: damage * 1.25 }); boss.next = `${name} · 离开红圈`;
     } else if (type === 'line') {
-      const length = Math.max(this.sim.viewport.width, this.sim.viewport.height) * .92;
+      // The cone sibling already uses a fixed design range (`230 + phase * 25`);
+      // only the charge still measured itself against the screen, so a 1280px
+      // monitor got a 1177px dash instead of 776px and the Boss spent the extra
+      // distance walking back. threat-v2 pins it to one design distance.
+      const length = this.sim.threat?.chargeRange ?? Math.max(this.sim.viewport.width, this.sim.viewport.height) * .92;
       this.telegraphs.push({ ...base, type, x2: boss.x + Math.cos(angle) * length, y2: boss.y + Math.sin(angle) * length, width: boss.phase === 3 ? 54 : 44, damage: damage * 1.15, moveBoss: true }); boss.next = `${name} · 横向闪避`;
     } else {
       const chapterSweep = !!this.sim.chapter;
       this.telegraphs.push({ ...base, ...(chapterSweep ? { life: 1.1, max: 1.1, chapterSweep } : {}), type: 'cone', range: 230 + boss.phase * 25, arc: Math.PI * (boss.phase === 3 ? .72 : .55), angle, damage: damage * 1.22 }); boss.next = `${name} · 绕至侧后`;
       if (chapterSweep) { boss.sweepPhase = 'windup'; boss.sweepFacing = angle; }
     }
-    boss.castLock = delay + .12; boss.castCd = Math.max(.9, (3 - boss.phase * .38) / diff.speed);
+    boss.castLock = delay + .12; boss.castCd = Math.max(.9, (3 - boss.phase * .38) / diff.speed) * this.castCdScale;
     this.sim.feedback('boss-warning', name!);
   }
   updateTelegraphs(dt: number): void {
@@ -98,9 +131,9 @@ export class FirstBoss {
       if (!warning.resolved) {
         warning.resolved = true;
         if (warning.chapterSweep && warning.type === 'cone') {
-          this.sim.enemyStrike({ x: warning.x, y: warning.y, facing: warning.angle, range: warning.range, arc: warning.arc, source: `B001-${warning.name}` }, warning.damage * difficultyFor(this.difficulty).dmg);
+          this.sim.enemyStrike({ x: warning.x, y: warning.y, facing: warning.angle, range: warning.range, arc: warning.arc, source: `B001-${warning.name}` }, warning.damage * difficultyFor(this.difficulty).dmg * this.skillScale);
           if (this.active) { this.active.sweepPhase = 'strike'; this.active.next = '旋风断军 · 收招，可反击'; this.sweepRecovery = .85; }
-        } else if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg, `B001-${warning.name}`);
+        } else if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg * this.skillScale, `B001-${warning.name}`);
         if (warning.type === 'line' && warning.moveBoss && this.active) { this.active.x = warning.x2; this.active.y = warning.y2; clampPoint(this.active, this.sim.world, 45); }
       }
       if (warning.chapterSweep && warning.life > -.18) continue;

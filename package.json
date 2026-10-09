@@ -12,6 +12,9 @@
     "context": "node scripts/context.mjs",
     "docs:size": "node scripts/doc-budget.mjs",
     "archive:verify": "node scripts/archive-verify.mjs",
+    "ledger:verify": "node tasks/game-remediation/byte-ledger.mjs",
+    "ledger:write": "node tasks/game-remediation/byte-ledger.mjs --write",
+    "ledger:coverage": "node tasks/game-remediation/byte-ledger.mjs --coverage",
     "playtest:validate": "node scripts/playtest-validate.mjs playtest/session-template.json",
     "playtest:require": "node scripts/playtest-validate.mjs playtest/session-template.json --require-acceptance",
     "playtest:self-test": "node scripts/playtest-validate.mjs --self-test"

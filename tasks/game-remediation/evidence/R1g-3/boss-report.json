@@ -1,0 +1,422 @@
+{
+  "slice": "R1g-3",
+  "base": "R1g-2",
+  "harness": "src/core/bossBudget.test.ts",
+  "frameHz": 60,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "window": {
+    "min": 60,
+    "max": 90
+  },
+  "table": {
+    "bossHp": {
+      "classic": 16.5,
+      "evolution": 34.5
+    },
+    "bossPhaseSpawnInterval": {
+      "classic": 2,
+      "evolution": 3
+    },
+    "bossDamage": 0.6,
+    "spawnRadius": 524,
+    "chargeRange": 776,
+    "legacyBossHp": 3
+  },
+  "cells": [
+    {
+      "journey": "classic",
+      "viewport": [
+        390,
+        844
+      ],
+      "driver": "first",
+      "wins": 27,
+      "runs": 33,
+      "lostSeeds": [
+        "4:defeat",
+        "8:timeout",
+        "13:timeout",
+        "22:timeout",
+        "25:defeat",
+        "31:timeout"
+      ],
+      "ttkMedian": 67.9,
+      "ttkRange": [
+        33,
+        86.9
+      ],
+      "hpAtSpawnMedian": 660,
+      "minHpRatioMedian": 0.412,
+      "takenInPhaseMedian": 666,
+      "bossMaxHp": 137764,
+      "phaseSecondsMedian": [
+        21.2,
+        22.400000000000002,
+        25.099999999999994
+      ],
+      "bossShareOfPhaseDamage": 0.708,
+      "topSources": [
+        {
+          "source": "B001-contact",
+          "value": 4997
+        },
+        {
+          "source": "hostile-projectile",
+          "value": 4219
+        },
+        {
+          "source": "B001-旋风断军",
+          "value": 2578
+        },
+        {
+          "source": "B001-蛮王冲锋",
+          "value": 2363
+        },
+        {
+          "source": "B001-震地斩",
+          "value": 1940
+        }
+      ]
+    },
+    {
+      "journey": "evolution",
+      "viewport": [
+        390,
+        844
+      ],
+      "driver": "first",
+      "wins": 32,
+      "runs": 33,
+      "lostSeeds": [
+        "22:defeat"
+      ],
+      "ttkMedian": 63.1,
+      "ttkRange": [
+        55.3,
+        72.7
+      ],
+      "hpAtSpawnMedian": 724,
+      "minHpRatioMedian": 0.455,
+      "takenInPhaseMedian": 600,
+      "bossMaxHp": 288052,
+      "phaseSecondsMedian": [
+        18.4,
+        21.2,
+        22.300000000000004
+      ],
+      "bossShareOfPhaseDamage": 0.652,
+      "topSources": [
+        {
+          "source": "hostile-projectile",
+          "value": 6178
+        },
+        {
+          "source": "B001-contact",
+          "value": 5351
+        },
+        {
+          "source": "B001-旋风断军",
+          "value": 2801
+        },
+        {
+          "source": "B001-蛮王冲锋",
+          "value": 2543
+        },
+        {
+          "source": "B001-震地斩",
+          "value": 1962
+        }
+      ]
+    },
+    {
+      "journey": "classic",
+      "viewport": [
+        1280,
+        720
+      ],
+      "driver": "first",
+      "wins": 26,
+      "runs": 33,
+      "lostSeeds": [
+        "9:defeat",
+        "15:timeout",
+        "18:defeat",
+        "20:timeout",
+        "23:defeat",
+        "25:defeat",
+        "31:defeat"
+      ],
+      "ttkMedian": 71.3,
+      "ttkRange": [
+        42,
+        89.3
+      ],
+      "hpAtSpawnMedian": 648,
+      "minHpRatioMedian": 0.364,
+      "takenInPhaseMedian": 725,
+      "bossMaxHp": 137764,
+      "phaseSecondsMedian": [
+        22.9,
+        23.3,
+        24.299999999999997
+      ],
+      "bossShareOfPhaseDamage": 0.682,
+      "topSources": [
+        {
+          "source": "B001-contact",
+          "value": 4946
+        },
+        {
+          "source": "hostile-projectile",
+          "value": 4342
+        },
+        {
+          "source": "B001-旋风断军",
+          "value": 2626
+        },
+        {
+          "source": "B001-蛮王冲锋",
+          "value": 2347
+        },
+        {
+          "source": "B001-震地斩",
+          "value": 2064
+        }
+      ]
+    },
+    {
+      "journey": "evolution",
+      "viewport": [
+        1280,
+        720
+      ],
+      "driver": "first",
+      "wins": 32,
+      "runs": 33,
+      "lostSeeds": [
+        "18:defeat"
+      ],
+      "ttkMedian": 63.1,
+      "ttkRange": [
+        50.7,
+        75.2
+      ],
+      "hpAtSpawnMedian": 727,
+      "minHpRatioMedian": 0.355,
+      "takenInPhaseMedian": 675,
+      "bossMaxHp": 288052,
+      "phaseSecondsMedian": [
+        20.5,
+        23.4,
+        21.300000000000004
+      ],
+      "bossShareOfPhaseDamage": 0.568,
+      "topSources": [
+        {
+          "source": "hostile-projectile",
+          "value": 7674
+        },
+        {
+          "source": "B001-contact",
+          "value": 4498
+        },
+        {
+          "source": "B001-旋风断军",
+          "value": 3161
+        },
+        {
+          "source": "B001-蛮王冲锋",
+          "value": 2728
+        },
+        {
+          "source": "B001-震地斩",
+          "value": 2133
+        }
+      ]
+    },
+    {
+      "journey": "classic",
+      "viewport": [
+        390,
+        844
+      ],
+      "driver": "unlock",
+      "wins": 33,
+      "runs": 33,
+      "lostSeeds": [],
+      "ttkMedian": 69.2,
+      "ttkRange": [
+        57.3,
+        79.9
+      ],
+      "hpAtSpawnMedian": 693,
+      "minHpRatioMedian": 0.426,
+      "takenInPhaseMedian": 637,
+      "bossMaxHp": 137764,
+      "phaseSecondsMedian": [
+        20.7,
+        24.699999999999996,
+        23.799999999999997
+      ],
+      "bossShareOfPhaseDamage": 0.693,
+      "topSources": [
+        {
+          "source": "B001-contact",
+          "value": 6342
+        },
+        {
+          "source": "hostile-projectile",
+          "value": 5075
+        },
+        {
+          "source": "B001-旋风断军",
+          "value": 3123
+        },
+        {
+          "source": "B001-蛮王冲锋",
+          "value": 2764
+        },
+        {
+          "source": "B001-震地斩",
+          "value": 2455
+        }
+      ]
+    },
+    {
+      "journey": "evolution",
+      "viewport": [
+        390,
+        844
+      ],
+      "driver": "unlock",
+      "wins": 11,
+      "runs": 33,
+      "lostSeeds": [
+        "1:timeout",
+        "4:timeout",
+        "5:timeout",
+        "6:timeout",
+        "7:timeout",
+        "8:timeout",
+        "9:timeout",
+        "10:timeout",
+        "11:timeout",
+        "15:timeout",
+        "16:timeout",
+        "17:timeout",
+        "20:timeout",
+        "21:timeout",
+        "24:timeout",
+        "25:timeout",
+        "26:timeout",
+        "27:timeout",
+        "28:timeout",
+        "30:timeout",
+        "31:timeout",
+        "32:timeout"
+      ],
+      "ttkMedian": 75.3,
+      "ttkRange": [
+        61.6,
+        88.6
+      ],
+      "hpAtSpawnMedian": 741,
+      "minHpRatioMedian": 0.5,
+      "takenInPhaseMedian": 671,
+      "bossMaxHp": 288052,
+      "phaseSecondsMedian": [
+        26.6,
+        33.900000000000006,
+        25.5
+      ],
+      "bossShareOfPhaseDamage": 0.718,
+      "topSources": [
+        {
+          "source": "B001-contact",
+          "value": 2049
+        },
+        {
+          "source": "hostile-projectile",
+          "value": 1525
+        },
+        {
+          "source": "B001-旋风断军",
+          "value": 1300
+        },
+        {
+          "source": "B001-震地斩",
+          "value": 1077
+        },
+        {
+          "source": "B001-蛮王冲锋",
+          "value": 1072
+        }
+      ]
+    }
+  ],
+  "legacyControl": {
+    "journey": "classic",
+    "viewport": [
+      390,
+      844
+    ],
+    "driver": "first",
+    "seed": 1,
+    "endReason": "victory",
+    "seconds": 285,
+    "bossMaxHp": 25048,
+    "hpAtSpawn": 762,
+    "bossSpawnAt": 270,
+    "bossKillAt": 283.7,
+    "ttk": 13.7,
+    "phases": {
+      "1": 0,
+      "2": 2.2,
+      "3": 6.3
+    },
+    "minHpRatio": 0.883,
+    "takenInPhase": 100,
+    "takenBy": {
+      "hostile-projectile": 2,
+      "B001-contact": 67,
+      "B001-蛮王冲锋": 8,
+      "B001-旋风断军": 11,
+      "B001-震地斩": 12
+    }
+  },
+  "totalRuns": 198
+}

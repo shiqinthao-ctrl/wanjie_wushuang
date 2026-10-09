@@ -1,0 +1,164 @@
+{
+  "slice": "R1g-12",
+  "note": "R1g-12 scope 0, frozen: the per-journey floor against a scale on threatV2.enemyDamage, read on the twin (active = tests/settlement.spec.ts, 33 seeds x 2 journeys, 390x844). `scale` multiplies the table; the landed table is scale 0.8 (K = 1.8 * 0.8 = 1.44), so the 0.8 row is the shipped configuration. `p25` is the lower quartile, recorded but not asserted - G2 is a median target and the tail is bossBudget.test.ts's business. The stationary columns are the scale's LOWER bound: the horde must stay lethal inside 120s. Reproduce with the sweep harness described in IMPLEMENTATION.md section 2 (it is deleted from the delivered tree).",
+  "scales": [
+    1,
+    0.9,
+    0.8,
+    0.7,
+    0.6,
+    0.5
+  ],
+  "rows": [
+    {
+      "scale": 1,
+      "classic": {
+        "floor": 0.28,
+        "p25": 0.095,
+        "wins": 28,
+        "hordeMedian": 1129
+      },
+      "evolution": {
+        "floor": 0.147,
+        "p25": 0,
+        "wins": 20,
+        "hordeMedian": 1231
+      },
+      "stationaryClassic": {
+        "seconds": 38.5,
+        "endReason": "defeat",
+        "lethal": true
+      },
+      "stationaryEvolution": {
+        "seconds": 34,
+        "endReason": "defeat",
+        "lethal": true
+      }
+    },
+    {
+      "scale": 0.9,
+      "classic": {
+        "floor": 0.421,
+        "p25": 0.281,
+        "wins": 31,
+        "hordeMedian": 1025
+      },
+      "evolution": {
+        "floor": 0.17,
+        "p25": 0,
+        "wins": 22,
+        "hordeMedian": 1208
+      },
+      "stationaryClassic": {
+        "seconds": 40.7,
+        "endReason": "defeat",
+        "lethal": true
+      },
+      "stationaryEvolution": {
+        "seconds": 36.3,
+        "endReason": "defeat",
+        "lethal": true
+      }
+    },
+    {
+      "scale": 0.8,
+      "classic": {
+        "floor": 0.455,
+        "p25": 0.303,
+        "wins": 30,
+        "hordeMedian": 956
+      },
+      "evolution": {
+        "floor": 0.364,
+        "p25": 0.191,
+        "wins": 28,
+        "hordeMedian": 950
+      },
+      "stationaryClassic": {
+        "seconds": 43.8,
+        "endReason": "defeat",
+        "lethal": true
+      },
+      "stationaryEvolution": {
+        "seconds": 37.9,
+        "endReason": "defeat",
+        "lethal": true
+      }
+    },
+    {
+      "scale": 0.7,
+      "classic": {
+        "floor": 0.582,
+        "p25": 0.464,
+        "wins": 26,
+        "hordeMedian": 823
+      },
+      "evolution": {
+        "floor": 0.478,
+        "p25": 0.285,
+        "wins": 29,
+        "hordeMedian": 753
+      },
+      "stationaryClassic": {
+        "seconds": 48,
+        "endReason": "defeat",
+        "lethal": true
+      },
+      "stationaryEvolution": {
+        "seconds": 40.1,
+        "endReason": "defeat",
+        "lethal": true
+      }
+    },
+    {
+      "scale": 0.6,
+      "classic": {
+        "floor": 0.609,
+        "p25": 0.433,
+        "wins": 30,
+        "hordeMedian": 756
+      },
+      "evolution": {
+        "floor": 0.492,
+        "p25": 0.155,
+        "wins": 27,
+        "hordeMedian": 794
+      },
+      "stationaryClassic": {
+        "seconds": 55.1,
+        "endReason": "defeat",
+        "lethal": true
+      },
+      "stationaryEvolution": {
+        "seconds": 41.9,
+        "endReason": "defeat",
+        "lethal": true
+      }
+    },
+    {
+      "scale": 0.5,
+      "classic": {
+        "floor": 0.637,
+        "p25": 0.517,
+        "wins": 32,
+        "hordeMedian": 707
+      },
+      "evolution": {
+        "floor": 0.599,
+        "p25": 0.413,
+        "wins": 31,
+        "hordeMedian": 664
+      },
+      "stationaryClassic": {
+        "seconds": 74.2,
+        "endReason": "defeat",
+        "lethal": true
+      },
+      "stationaryEvolution": {
+        "seconds": 47.1,
+        "endReason": "defeat",
+        "lethal": true
+      }
+    }
+  ]
+}

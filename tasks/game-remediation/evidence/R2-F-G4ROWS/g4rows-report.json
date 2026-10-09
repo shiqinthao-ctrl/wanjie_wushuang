@@ -1,0 +1,109 @@
+{
+  "slice": "R2-F-G4ROWS",
+  "question": "What is left of G4's measured half after `filter(hits > 0)`, and what can the sibling ternary return?",
+  "arm": {
+    "policy": "hud",
+    "bossDamage": 0.6,
+    "seeds": 33,
+    "cadence": "NO_CADENCE (no overrides = the shipped table)"
+  },
+  "filter": {
+    "site": "bossThreat.test.ts:1338 -> const fractions = perShape.filter(shape => shape.hits > 0).map(shape => shape.fractionMedian);",
+    "asked": [
+      "circle",
+      "line",
+      "cone"
+    ],
+    "rows": [
+      {
+        "journey": "classic",
+        "perShape": [
+          {
+            "shape": "circle",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "line",
+            "hits": 2,
+            "fractionMedian": 0.2206
+          },
+          {
+            "shape": "cone",
+            "hits": 0,
+            "fractionMedian": 0
+          }
+        ],
+        "kept": [
+          0.2206
+        ],
+        "cheapestMove": 0.2206,
+        "heaviestMove": 0.2206,
+        "phase1Hits": 0,
+        "g4": null,
+        "derivedMovePhases": [
+          3
+        ],
+        "derivedContactPhases": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "journey": "evolution",
+        "perShape": [
+          {
+            "shape": "circle",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "line",
+            "hits": 3,
+            "fractionMedian": 0.2206
+          },
+          {
+            "shape": "cone",
+            "hits": 0,
+            "fractionMedian": 0
+          }
+        ],
+        "kept": [
+          0.2206
+        ],
+        "cheapestMove": 0.2206,
+        "heaviestMove": 0.2206,
+        "phase1Hits": 0,
+        "g4": null,
+        "derivedMovePhases": [
+          3
+        ],
+        "derivedContactPhases": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "ternary": {
+    "site": "bossThreat.test.ts:1370 -> g4: phase1.length ? phase1Fraction >= TARGET.skillFraction : null,",
+    "possible": [
+      "null"
+    ],
+    "impossible": [
+      "true",
+      "false"
+    ],
+    "reason": "phaseOfRaw (bossThreat.test.ts:79-82) recovers the phase from the damage, not the encounter; every non-contact hit derives phase 3, so `phase1` is always empty.",
+    "consumers": [
+      "report.g4.required (bossThreat.test.ts:1764) - the measured field `g4` itself has no reader in the suite"
+    ]
+  },
+  "note": "Zero production changes. Instrument only.",
+  "runs": {
+    "journeys": 2,
+    "encountersPerJourney": 33
+  }
+}

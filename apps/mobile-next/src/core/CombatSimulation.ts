@@ -7,6 +7,7 @@ import { cap, caps, clampPoint, createEnemy, difficultyFor, director, earlyEnemy
 import type { Enemy, Point } from './spawnRules';
 import forms from '../data/skillForms.json';
 import pets from '../data/runePets.json';
+import manualTrack from '../data/manualTrack.json';
 import { FirstStageMap } from './FirstStageMap';
 import { FirstBoss } from './FirstBoss';
 import { generateGear } from './gearDrops';
@@ -16,6 +17,8 @@ import type { ChapterPreparation } from '../chapter/prepare';
 import { chapterCombatContext } from '../chapter/combat';
 import type { DragonPose } from '../chapter/DragonCombat';
 import { SoldierCombat, isSoldier } from '../chapter/SoldierCombat';
+import { threatFor } from './threatModel';
+import type { RunRules, ThreatRules } from './threatModel';
 
 export interface EnemyStrike extends Point { facing: number; range: number; arc: number; source: string }
 
@@ -29,10 +32,10 @@ export type CombatEvent = { type: 'ring'; x: number; y: number; radius: number; 
   | { type: 'lightning'; points: readonly Readonly<Point>[]; source: string }
   | { type: 'hit'; x: number; y: number; damage: number; critical: boolean }
   | { type: 'kill'; x: number; y: number; elite: boolean };
-interface Projectile extends Point { id: string; vx: number; vy: number; dmg: number; r: number; life: number; pierce: number; split: number; explode: number; color: string; targets?: Set<object> }
-interface Field extends Point { id: string; r: number; dmg: number; life: number; max: number; tick: number; follow: boolean; color: string; chill?: number }
+interface Projectile extends Point { id: string; vx: number; vy: number; dmg: number; r: number; life: number; pierce: number; split: number; explode: number; color: string; targets?: Set<object>; manual?: boolean }
+interface Field extends Point { id: string; r: number; dmg: number; life: number; max: number; tick: number; follow: boolean; color: string; chill?: number; manual?: boolean }
 interface Vortex extends Field { vx: number; vy: number }
-interface Meteor extends Point { id: string; r: number; dmg: number; life: number; max: number; color: string }
+interface Meteor extends Point { id: string; r: number; dmg: number; life: number; max: number; color: string; manual?: boolean }
 interface Bomb extends Point { r: number; life: number; max: number; dmg: number; color: string }
 interface HostileShot extends Point { vx: number; vy: number; dmg: number; r: number; life: number; color: string }
 const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -101,21 +104,48 @@ export class CombatSimulation {
   private readonly journeyCombat?: EvolutionCombat;
   private readonly heroId: string;
   private readonly soldiers?: SoldierCombat;
+  /** Opt-in threat model. Undefined on the legacy reference path and for chapter runs. */
+  readonly threat?: ThreatRules;
+  /** Which journey this run belongs to. Selects the per-journey Boss budget. */
+  readonly journey: 'classic' | 'evolution';
+  /** Per-source contact timers. Only consulted when `threat` is present. */
+  private readonly contactClock = new Map<object, number>();
+  /**
+   * R1g-7 / GDD P2-2's dual track. `boost` scales the damage of the cast the manual button
+   * releases; `autoScale` scales the auto-cast loop's damage for that same skill. Public and
+   * mutable so `manualDamage.test.ts` can sweep them; the shipped values live in
+   * `data/manualTrack.json` and are recalibrated with `threatV2.bossHp` as one change, because
+   * a net-new manual damage source raises the run's total DPS and would otherwise shorten G3's
+   * Boss window.
+   */
+  manualBoost = manualTrack.boost;
+  manualAutoScale = manualTrack.autoScale;
+  /**
+   * True while `releaseManual` is on the stack. Damage carriers created in that window
+   * (`projectile`, `field`, `vortex`, `meteor`, summons) are stamped so the damage they apply
+   * later is still attributed to the manual track - without it the manual cast would land in
+   * the same `damageBy` key as the auto cast of the same skill and G8 could not see it at all.
+   */
+  manualCast = false;
 
-  constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random, readonly drops: GearInstance[] = [], private now = Date.now, readonly chapter?: ChapterPreparation) {
+  constructor(save: GameSave, readonly progression: Progression, private random: () => number = Math.random, readonly drops: GearInstance[] = [], private now = Date.now, readonly chapter?: ChapterPreparation, rules: RunRules = 'legacy') {
     if (!chapter && ((progression.journey ? !isStarter(save.hero) || progression.journey.hero !== save.hero : save.hero !== 'H001') || save.pet !== 'PET001')) throw new Error('Unsupported combat preparation');
     this.heroId = chapter?.heroId || save.hero;
+    // The first chapter keeps its own frozen balance; threat-v2 is scoped to the
+    // journey path that the natural browser runs exercise.
+    this.threat = chapter ? undefined : threatFor(rules);
+    this.journey = progression.journey ? 'evolution' : 'classic';
     if (chapter) this.soldiers = new SoldierCombat(this);
     const startup = chapter ? undefined : calculateStartup(save);
     const player = chapter?.player ?? startup!.player;
-    this.context = chapter ? chapterCombatContext() : combatContext(save, startup!);
-    this.player = { x: 1800, y: 1200, r: 15, ...player, inv: 0, dodgeCd: 0, skillCd: 0, ult: 0, shield: 0, dodgeBuff: 0, incoming: firstStage.incoming };
+    this.context = chapter ? chapterCombatContext() : combatContext(save, startup!, this.threat);
+    this.player = { x: 1800, y: 1200, r: 15, ...player, inv: 0, dodgeCd: 0, skillCd: 0, ult: 0, shield: 0, dodgeBuff: 0, incoming: this.threat ? this.threat.incoming : firstStage.incoming };
     this.difficulty = chapter?.difficulty || String(save.difficulty || 'normal'); this.runes = chapter ? [] : [...save.runes];
     this.baseAspd = player.aspd;
     const cd = pets.pets.PET001.cd;
     this.pet = { x: 1836, y: 1176, angle: 0, cd: cd * .35, maxCd: cd, enabled: !chapter };
     this.map = new FirstStageMap(this, random, !chapter);
-    this.bossEncounter = new FirstBoss(this, this.heroId, this.difficulty, random, now);
+    this.bossEncounter = new FirstBoss(this, this.heroId, this.difficulty, random, now, this.journey);
     if (progression.journey) this.journeyCombat = new EvolutionCombat(this, progression.journey);
   }
   state(): CombatState { return { ...this.progression.snapshot(), ...this.player, evolved: this.evolved, killBuff: this.killBuff, mode: 'story' }; }
@@ -152,6 +182,22 @@ export class CombatSimulation {
     const lost = Math.max(0, before - Math.max(0, this.player.hp));
     if (lost > 0) { this.damageTakenBy[source] = (this.damageTakenBy[source] || 0) + lost; this.feedback('player-hurt', source); }
   }
+  /**
+   * Per-source contact gate for `threat-v2`. Legacy runs never call this: their
+   * cadence comes from the global 0.28s i-frame inside `incomingHit`. Entries
+   * expire on their own, so a removed attacker leaves nothing behind.
+   */
+  contactReady(key: object, interval: number): boolean {
+    if ((this.contactClock.get(key) ?? 0) > 0) return false;
+    this.contactClock.set(key, interval);
+    return true;
+  }
+  private tickContactClocks(dt: number): void {
+    for (const [key, remaining] of this.contactClock) {
+      const next = remaining - dt;
+      if (next <= 0) this.contactClock.delete(key); else this.contactClock.set(key, next);
+    }
+  }
   enemyStrike(pose: EnemyStrike, damage: number): void {
     const dx = this.player.x - pose.x, dy = this.player.y - pose.y;
     const angle = Math.atan2(Math.sin(Math.atan2(dy, dx) - pose.facing), Math.cos(Math.atan2(dy, dx) - pose.facing));
@@ -160,20 +206,28 @@ export class CombatSimulation {
     if (inside) this.hurt(damage, pose.source);
     this.events.push({ type: 'enemy-strike', x: pose.x, y: pose.y, facing: pose.facing, range: pose.range, arc: pose.arc, source: pose.source, targetX: this.player.x, targetY: this.player.y, outcome: !inside ? 'miss' : this.player.hp < hp ? 'hit' : 'blocked' });
   }
-  hitBoss(base: number, source: string, skill = false): void {
+  /**
+   * `manual` only changes the *telemetry key*, never the damage maths: the source string still
+   * goes to `enemyHit` untouched (it selects the element), and the manual marker rides a `_E`
+   * suffix on the `damageBy` key. That suffix is the classifier's manual-skill marker, so a
+   * released cast and an automatic one of the same skill stay separable in the run report.
+   */
+  hitBoss(base: number, source: string, skill = false, manual = this.manualCast): void {
     const boss = this.boss; if (!boss) return;
     const hit = bossHit(this.context, this.state(), source, base, boss, skill);
+    const key = manual ? `${source}_E` : source;
     boss.hp = hit.hp; boss.shield = hit.shield; this.damage += hit.damage;
-    this.damageBy[source] = (this.damageBy[source] || 0) + hit.damage;
+    this.damageBy[key] = (this.damageBy[key] || 0) + hit.damage;
     this.events.push({ type: 'hit', x: boss.x, y: boss.y, damage: hit.damage, critical: false });
     if (boss.hp <= 0) this.bossEncounter.defeat();
   }
-  hit(enemy: Enemy, base: number, source: string, critical = false, skill = false): void {
+  hit(enemy: Enemy, base: number, source: string, critical = false, skill = false, manual = this.manualCast): void {
     if (!this.enemies.includes(enemy)) return;
     base = this.journeyCombat?.incomingEnemyDamage(enemy, base, source) ?? base;
     const hit = enemyHit(this.context, this.state(), source, base, enemy.elite, critical, skill);
+    const key = manual ? `${source}_E` : source;
     enemy.hp -= hit.damage; this.player.hp = hit.hp; this.damage += hit.damage; enemy.flash = 1;
-    this.damageBy[source] = (this.damageBy[source] || 0) + hit.damage;
+    this.damageBy[key] = (this.damageBy[key] || 0) + hit.damage;
     this.events.push({ type: 'hit', x: enemy.x, y: enemy.y, damage: hit.damage, critical });
     if (enemy.hp > 0) return;
     if (this.soldiers && isSoldier(enemy)) {
@@ -210,7 +264,14 @@ export class CombatSimulation {
     this.heat = Math.min(100, this.heat + 8);
   }
   action(action: Action): boolean {
-    if (this.journeyCombat && action !== 'dodge') return this.journeyCombat.action(action);
+    // The evolution journey delegates the whole button to `EvolutionCombat`, which branches on
+    // the *form* and never on an owned skill - that is G9's root cause. R1g-7's release has to
+    // ride along on both paths, so it is applied here rather than inside either branch.
+    if (this.journeyCombat && action !== 'dodge') {
+      const done = this.journeyCombat.action(action);
+      if (done && action === 'skill') this.releaseManual();
+      return done;
+    }
     const p = this.player;
     if (action === 'dodge') {
       if (p.dodgeCd > 0) return false;
@@ -226,9 +287,11 @@ export class CombatSimulation {
       if (p.skillCd > 0) return false;
       p.skillCd = 6; const angle = this.heroAim();
       for (let i = 0; i < 5; i++) this.bombs.push({ x: p.x + Math.cos(angle) * i * 36, y: p.y + Math.sin(angle) * i * 36, r: 48, life: .18 + i * .05, max: .18 + i * .05, dmg: p.atk * 1.35, color: '#ef7958' });
-      p.x += Math.cos(angle) * 150; p.y += Math.sin(angle) * 150;
+      const step = this.dashLength(150);
+      p.x += Math.cos(angle) * step; p.y += Math.sin(angle) * step;
       this.arc(135, p.atk * 2.2, 'H001_E'); this.heat = Math.min(100, this.heat + 30);
       clampPoint(p, this.world, 18); p.skillCd *= Math.max(.55, 1 - (this.context.gear.cdr || 0));
+      this.releaseManual();
     } else {
       if (p.ult < 100) return false;
       p.ult = 0; this.heat = 100;
@@ -237,7 +300,7 @@ export class CombatSimulation {
     return true;
   }
   spawn(options: { id?: string; elite?: boolean } = {}): void {
-    this.enemies.push(createEnemy(this.directorState(), this.player, this.viewport, this.world, this.difficulty, this.random, options));
+    this.enemies.push(createEnemy(this.directorState(), this.player, this.viewport, this.world, this.difficulty, this.random, options, this.threat));
   }
   private enemyAI(enemy: Enemy, dt: number): void {
     enemy.attack += dt; enemy.skill += dt; enemy.flash = Math.max(0, enemy.flash - dt * 5);
@@ -254,12 +317,15 @@ export class CombatSimulation {
       enemy.attack = 0; const angle = Math.atan2(this.player.y - enemy.y, this.player.x - enemy.x);
       this.enemyShots.push({ x: enemy.x, y: enemy.y, vx: Math.cos(angle) * 235, vy: Math.sin(angle) * 235, dmg: enemy.damage, color: enemy.color, r: 5, life: 5 });
     }
-    // The original contact test uses distance sampled before movement.
-    if (d < enemy.r + this.player.r + 2) { this.hurt(enemy.damage, enemy.id); if (enemy.vamp) enemy.hp = Math.min(enemy.maxHp, enemy.hp + enemy.maxHp * .05); }
+    // The original contact test uses distance sampled before movement. Legacy
+    // leans on the global 0.28s i-frame from incomingHit; threat-v2 grants no
+    // global i-frame, so every attacker carries its own contact timer instead.
+    if (d < enemy.r + this.player.r + 2 && (!this.threat || this.contactReady(enemy, this.threat.contactInterval))) { this.hurt(enemy.damage, enemy.id); if (enemy.vamp) enemy.hp = Math.min(enemy.maxHp, enemy.hp + enemy.maxHp * .05); }
   }
   beginFrame(dt: number): void {
     const p = this.player, slow = this.auraNear ? .82 : 1; this.auraNear = false;
     this.time += dt; p.inv = Math.max(0, p.inv - dt); p.dodgeCd = Math.max(0, p.dodgeCd - dt); p.skillCd = Math.max(0, p.skillCd - dt);
+    if (this.threat) this.tickContactClocks(dt);
     this.comboTimer -= dt; if (this.comboTimer <= 0) this.combo = 0;
     const active = !!(this.input.x || this.input.y), alpha = 1 - Math.exp(-(active ? 56 : 72) * dt);
     this.response.x += (this.input.x - this.response.x) * alpha; this.response.y += (this.input.y - this.response.y) * alpha;
@@ -269,7 +335,10 @@ export class CombatSimulation {
     p.x += this.response.x * p.speed * slow * dt; p.y += this.response.y * p.speed * slow * dt; clampPoint(p, this.world, 18);
     for (const action of this.scheduled) { action.delay -= dt; if (action.delay <= 0) this.arc(210 + action.wave * 18, p.atk * 4, 'H001_R', Math.PI * 2); }
     this.scheduled = this.scheduled.filter(action => action.delay > 0);
-    this.spawnClock += dt; const interval = director(this.directorState(), p, this.difficulty).interval;
+    this.spawnClock += dt; const baseInterval = director(this.directorState(), p, this.difficulty).interval;
+    // threat-v2 thins the horde while the Boss is on the field. Legacy runs and
+    // every chapter run keep the plain `director` interval, byte-identical.
+    const interval = baseInterval * (this.threat && this.bossEncounter.active ? this.threat.bossPhaseSpawnInterval[this.journey] : 1);
     while (this.spawnClock > interval) { this.spawnClock -= interval; this.spawn(); }
     cap(this.enemies, { easy: 190, normal: 250, hard: 320, nightmare: 380 }[this.difficulty] || 250);
     this.attackClock += dt; if (this.attackClock > 1 / Math.max(.6, p.aspd)) { this.attackClock = 0; this.basic(); }
@@ -294,10 +363,10 @@ export class CombatSimulation {
     cap(this.enemies, earlyEnemyCap(this.difficulty));
   }
   projectile(id: string, point: Point, angle: number, speed: number, dmg: number, r: number, opts: Partial<Projectile> = {}): void {
-    this.projectiles.push({ id, x: point.x, y: point.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, dmg, r, life: 2, pierce: 0, split: 0, explode: 0, color: '#ef694e', ...opts, ...(this.journeyCombat ? { targets: new Set<object>() } : {}) }); cap(this.projectiles, 260);
+    this.projectiles.push({ id, x: point.x, y: point.y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed, dmg, r, life: 2, pierce: 0, split: 0, explode: 0, color: '#ef694e', manual: this.manualCast, ...opts, ...(this.journeyCombat ? { targets: new Set<object>() } : {}) }); cap(this.projectiles, 260);
   }
-  field(id: string, point: Point, r: number, dmg: number, life: number, follow = false, options: { color?: string; chill?: number } = {}): void {
-    this.fields.push({ id, x: point.x, y: point.y, r, dmg, life, max: life, tick: 0, follow, color: '#ef694e', ...options }); cap(this.fields, 22);
+  field(id: string, point: Point, r: number, dmg: number, life: number, follow = false, options: { color?: string; chill?: number; manual?: boolean } = {}): void {
+    this.fields.push({ id, x: point.x, y: point.y, r, dmg, life, max: life, tick: 0, follow, color: '#ef694e', manual: this.manualCast, ...options }); cap(this.fields, 22);
   }
   cast(id: string): void {
     if (this.journeyCombat?.cast(id)) return;
@@ -309,19 +378,78 @@ export class CombatSimulation {
     } else if (id === 'A021') { if (!this.fields.some(field => field.id === id)) this.field(id, p, (m.evo ? 155 : 112) * R, D * .18, 999, true); }
     else if (id === 'A026') {
       const life = (m.evo ? 6.5 : 4.5) * m.duration;
-      this.vortices.push({ id, x: p.x, y: p.y, vx: Math.cos(angle) * 85, vy: Math.sin(angle) * 85, dmg: D * .20, r: (m.evo ? 108 : 82) * R, life, max: life, tick: 0, follow: false, color: '#82d6b7' }); cap(this.vortices, 10);
+      this.vortices.push({ id, x: p.x, y: p.y, vx: Math.cos(angle) * 85, vy: Math.sin(angle) * 85, dmg: D * .20, r: (m.evo ? 108 : 82) * R, life, max: life, tick: 0, follow: false, color: '#82d6b7', manual: this.manualCast }); cap(this.vortices, 10);
     } else if (id === 'A027') {
       const point = target || { x: p.x + 100, y: p.y }, n = (m.evo ? 5 : 3) + Math.floor(m.lv / 2);
       for (let i = 0; i < n; i++) {
         const x = point.x + (this.random() - .5) * 160, y = point.y + (this.random() - .5) * 140, life = .65 + this.random() * .55;
-        this.meteors.push({ id, x, y, dmg: D * 1.35, r: (m.evo ? 70 : 52) * R, life, max: life, color: '#ef694e' }); cap(this.meteors, 28);
+        this.meteors.push({ id, x, y, dmg: D * 1.35, r: (m.evo ? 70 : 52) * R, life, max: life, color: '#ef694e', manual: this.manualCast }); cap(this.meteors, 28);
       }
     } else if (id === 'A054') for (let i = 1; i <= 5; i++) this.field(id, { x: p.x + Math.cos(angle) * i * 42, y: p.y + Math.sin(angle) * i * 42 }, 42 * R, D * .22, 2 * m.duration);
   }
-  explosion(id: string, point: Point, radius: number, dmg: number): void {
+  /**
+   * R1g-7 / GDD P2-2's dual track, the half that makes the manual press worth something.
+   *
+   * `R1g-6` measured the manual button at 16.63% of a run's damage against a 35% target and
+   * found the cause was structural: the button was a flat `atk x 2.2` on a 6s cooldown, while
+   * the auto track is ten skills that grow with level, evolution and form rank - and `A011`
+   * alone fires every 1.3s, so one press can never out-produce the passive tick it is competing
+   * with. Re-weighting the two tracks cannot fix that (auto x0.6 -> 18.75% at an 18.18% win
+   * rate), so the manual track has to *add* damage: the press now releases the run's designated
+   * skill on top of whatever the auto track is already doing.
+   *
+   * Scaling `player.atk` around the call is the whole mechanism. Every damage path (`arc`,
+   * `projectile`, `field`, `vortex`, `summon`) snapshots its damage synchronously inside `cast`,
+   * and both `CombatSimulation.cast` and `EvolutionCombat.cast` read `p.atk` inline, so the
+   * boost reaches all of them without touching either body. Clearing the cooldown keeps the
+   * auto track's next cast from being pushed back by the press.
+   *
+   * Opt-in follows the threat model: `threat` is undefined for chapter runs (frozen balance)
+   * and for the `legacy` reference path, so both stay byte-identical.
+   */
+  private releaseManual(): void {
+    const id = this.manualId();
+    if (!id) return;
+    this.cool[id] = 0;
+    this.manualCast = true;
+    try { this.withAttack(this.manualBoost, () => this.cast(id)); } finally { this.manualCast = false; }
+  }
+  /** The skill the manual button owns, or `undefined` when this run has no manual track. */
+  private manualId(): string | undefined { return this.threat ? this.progression.manualSkill() : undefined; }
+  private withAttack(scale: number, run: () => void): void {
+    if (scale === 1) { run(); return; }
+    const atk = this.player.atk;
+    this.player.atk = atk * scale;
+    try { run(); } finally { this.player.atk = atk; }
+  }
+  /**
+   * R1g-7 / D2, **reverted after measurement**. D2 clamped this to `distance - 65` so the 150px
+   * skill dash could not teleport through the Boss at the 65px standoff the driver holds. The
+   * isolation (same seeds, clamp on vs off, one switch) showed the clamp was the most expensive
+   * change in the whole slice:
+   *
+   * | journey   | clamp on            | clamp off           |
+   * | --------- | ------------------- | ------------------- |
+   * | classic   | HP floor .159       | **.408**            |
+   * | evolution | HP floor .185, 22/33 | **.447, 33/33**    |
+   *
+   * At the standoff the clamp evaluates to `min(150, ~0) = ~0`, so it does not shorten the dash -
+   * it *deletes* it, and the dash is a disengage: the i-frames are granted either way
+   * (`EvolutionCombat.dash` sets `inv` independently of the step), so what the player loses is the
+   * 150px of separation, not the invulnerability. R1g-6 §7.2's hypothesis that the dash caused the
+   * HP-floor problem is therefore falsified - removing it is what causes one. G2 (hpMin 25-60%) is
+   * met again by leaving the dash alone, and the TTK it shortens is bought back through `bossHp`.
+   *
+   * Kept as the single funnel both journeys call, so a future clamp is a one-line change here and
+   * `manualDamage.test.ts` can still reproduce D2's version test-locally to price it.
+   */
+  dashLength(length: number): number {
+    return length;
+  }
+  explosion(id: string, point: Point, radius: number, dmg: number, manual = this.manualCast): void {
     this.ring(point, radius, id);
-    for (const enemy of [...this.enemies]) if (distance(enemy, point) <= radius) this.hit(enemy, dmg, id, false, true);
-    if (this.boss && distance(this.boss, point) <= radius + this.boss.r) this.hitBoss(dmg, id, true);
+    for (const enemy of [...this.enemies]) if (distance(enemy, point) <= radius) this.hit(enemy, dmg, id, false, true, manual);
+    if (this.boss && distance(this.boss, point) <= radius + this.boss.r) this.hitBoss(dmg, id, true, manual);
   }
   private updateProjectiles(dt: number): void {
     for (let i = this.projectiles.length - 1; i >= 0; i--) {
@@ -329,15 +457,15 @@ export class CombatSimulation {
       const hit = this.enemies.find(enemy => !shot.targets?.has(enemy) && distance(enemy, shot) < enemy.r + shot.r);
       if (hit) {
         shot.targets?.add(hit);
-        this.hit(hit, shot.dmg, shot.id, false, true);
-        if (shot.explode) this.explosion(shot.id, shot, shot.explode, shot.dmg * .72);
-        if (shot.split > 0) for (const off of [-.36, .36]) this.projectile(shot.id, shot, Math.atan2(shot.vy, shot.vx) + off, Math.hypot(shot.vx, shot.vy) * .9, shot.dmg * .55, shot.r * .8, { color: shot.color, pierce: 1, split: shot.split - 1 });
+        this.hit(hit, shot.dmg, shot.id, false, true, shot.manual);
+        if (shot.explode) this.explosion(shot.id, shot, shot.explode, shot.dmg * .72, shot.manual);
+        if (shot.split > 0) for (const off of [-.36, .36]) this.projectile(shot.id, shot, Math.atan2(shot.vy, shot.vx) + off, Math.hypot(shot.vx, shot.vy) * .9, shot.dmg * .55, shot.r * .8, { color: shot.color, pierce: 1, split: shot.split - 1, manual: shot.manual });
         if (shot.pierce > 0) shot.pierce--; else { this.projectiles.splice(i, 1); continue; }
       }
       if (this.boss && !shot.targets?.has(this.boss) && distance(this.boss, shot) < this.boss.r + shot.r) {
         shot.targets?.add(this.boss);
-        this.hitBoss(shot.dmg, shot.id, true);
-        if (shot.explode) this.explosion(shot.id, shot, shot.explode, shot.dmg * .65);
+        this.hitBoss(shot.dmg, shot.id, true, shot.manual);
+        if (shot.explode) this.explosion(shot.id, shot, shot.explode, shot.dmg * .65, shot.manual);
         if (shot.pierce > 0) shot.pierce--; else { this.projectiles.splice(i, 1); continue; }
       }
       if (shot.life <= 0 || shot.x < -100 || shot.x > this.world.width + 100 || shot.y < -100 || shot.y > this.world.height + 100) this.projectiles.splice(i, 1);
@@ -349,10 +477,10 @@ export class CombatSimulation {
       if (field.follow) { field.x = this.player.x; field.y = this.player.y; }
       if (field.tick <= 0) {
         field.tick = .30; for (const enemy of this.enemies.filter(enemy => distance(enemy, field) <= field.r)) {
-          this.hit(enemy, field.dmg, field.id, false, true);
+          this.hit(enemy, field.dmg, field.id, false, true, field.manual);
           if (this.journeyCombat && field.chill) enemy.chilledUntil = Math.max(enemy.chilledUntil || 0, this.time + field.chill);
         }
-        if (this.boss && distance(this.boss, field) <= field.r + this.boss.r) this.hitBoss(field.dmg * .8, field.id, true);
+        if (this.boss && distance(this.boss, field) <= field.r + this.boss.r) this.hitBoss(field.dmg * .8, field.id, true, field.manual);
       }
       if (field.life <= 0) this.fields.splice(i, 1);
     }
@@ -366,8 +494,8 @@ export class CombatSimulation {
         if (d < vortex.r * 1.5) { enemy.x += dx / d * 85 * dt; enemy.y += dy / d * 85 * dt; }
       }
       if (vortex.tick <= 0) {
-        vortex.tick = .28; for (const enemy of [...this.enemies]) if (distance(enemy, vortex) <= vortex.r) this.hit(enemy, vortex.dmg, vortex.id, false, true);
-        if (this.boss && distance(this.boss, vortex) <= vortex.r + this.boss.r) this.hitBoss(vortex.dmg, vortex.id, true);
+        vortex.tick = .28; for (const enemy of [...this.enemies]) if (distance(enemy, vortex) <= vortex.r) this.hit(enemy, vortex.dmg, vortex.id, false, true, vortex.manual);
+        if (this.boss && distance(this.boss, vortex) <= vortex.r + this.boss.r) this.hitBoss(vortex.dmg, vortex.id, true, vortex.manual);
         if (this.progression.journey?.bond('wildfire', this.state().skills)) this.explosion('H010_WILDFIRE', vortex, vortex.r, vortex.dmg * .55);
         this.journeyCombat?.vortexPulse(vortex);
       }
@@ -379,8 +507,8 @@ export class CombatSimulation {
     for (let i = this.meteors.length - 1; i >= 0; i--) {
       const meteor = this.meteors[i]!; meteor.life -= dt;
       if (meteor.life <= 0) {
-        this.explosion(meteor.id, meteor, meteor.r, meteor.dmg);
-        if (meteor.id === 'A027' && skillModifier(this.context, this.state(), meteor.id).evo) this.field(meteor.id, meteor, meteor.r * .8, meteor.dmg * .12, 1.8);
+        this.explosion(meteor.id, meteor, meteor.r, meteor.dmg, meteor.manual);
+        if (meteor.id === 'A027' && skillModifier(this.context, this.state(), meteor.id).evo) this.field(meteor.id, meteor, meteor.r * .8, meteor.dmg * .12, 1.8, false, { manual: meteor.manual });
         this.meteors.splice(i, 1);
       }
     }
@@ -412,9 +540,23 @@ export class CombatSimulation {
     }
     this.heat = Math.min(this.context.awaken.resourceMax || 100, this.heat + dt * this.context.growth.resourceEff * 2);
     for (const id of Object.keys(this.cool)) this.cool[id]! -= dt;
+    // `0.5` was the legacy marker for "persistent effect, refresh often". In this
+    // auto-cast loop it means "cast twice a second", which is what made S001 a
+    // permanent six-clone wall. The table now says `null` for those entries and a
+    // real cooldown for the summons, but the guard stays so a stale 0.5 cannot
+    // silently reintroduce the double-cast.
+    const PERSISTENT_AURA = .5;
+    const manual = this.manualId();
     for (const [id, level] of Object.entries(this.progression.snapshot().skills)) {
       const base = forms.baseCooldowns[id as keyof typeof forms.baseCooldowns] ?? (this.journeyCombat ? { S001: 7, G2_FROST: 5 }[id] : undefined);
-      if (level && base != null && !(this.cool[id]! > 0)) { this.cool[id] = base * skillModifier(this.context, this.state(), id).cd; this.cast(id); }
+      if (level && base != null && base !== PERSISTENT_AURA && !(this.cool[id]! > 0)) {
+        this.cool[id] = base * skillModifier(this.context, this.state(), id).cd;
+        // R1g-7 / G9: the designated skill's passive tick is worth `manualAutoScale`, so the
+        // deliberate release is stronger than the automatic one by a measured factor rather
+        // than by assertion. Only that one skill is scaled - R1g-6 measured that scaling all
+        // ten (the GDD's global x0.6) collapses the win rate to 18.18%.
+        this.withAttack(id === manual ? this.manualAutoScale : 1, () => this.cast(id));
+      }
     }
     this.journeyCombat?.update(dt);
     this.updateProjectiles(dt); this.updateFields(dt); this.updateVortices(dt); this.updateMeteors(dt);
@@ -441,6 +583,7 @@ export class CombatSimulation {
     this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
     this.journeyCombat?.destroy();
     this.soldiers?.destroy();
+    this.contactClock.clear();
     for (const items of [this.enemies, this.projectiles, this.fields, this.vortices, this.meteors, this.bombs, this.enemyShots]) items.length = 0;
   }
 }

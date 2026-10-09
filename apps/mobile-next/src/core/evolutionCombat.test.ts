@@ -74,7 +74,9 @@ describe('evolution combat mechanics', () => {
       expect(next.x === initial.x).toBe(route === 'guard');
       if (route === 'guard') expect(sim.damageBy.S001).toBeGreaterThan(0);
       else expect(sim.projectiles.some(shot => shot.id === 'S001')).toBe(true);
-      for (let i = 0; i < 20; i++) sim.cast('S001'); expect(sim.renderState().summons).toHaveLength(8);
+      // Twenty casts saturate the shared summon pool. R2-F-CAP raised `cap(this.summons, N)`
+      // (`EvolutionCombat:137`) from 8 to 10, so the pool's bound is ten bodies, not eight.
+      for (let i = 0; i < 20; i++) sim.cast('S001'); expect(sim.renderState().summons).toHaveLength(10);
       sim.updateOuter(10); expect(sim.renderState().summons).toHaveLength(0);
     }
   });

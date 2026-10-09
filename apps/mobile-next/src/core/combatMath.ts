@@ -4,6 +4,7 @@ import heroes from '../data/heroes.json';
 import { bonusValue as value, calculateStartup } from './growth';
 import type { GameSave } from './saveTypes';
 import type { SkillLevels } from './progression';
+import type { ThreatRules } from './threatModel';
 
 export type TargetKind = 'normal' | 'elite' | 'boss';
 type Element = 'physical' | 'fire' | 'lightning' | 'wind' | 'ki' | 'shadow' | 'frost';
@@ -14,10 +15,12 @@ export interface CombatState {
   readonly killBuff: number; readonly mode?: string;
   readonly daily?: { readonly lightning?: number; readonly boss?: number };
 }
-export function combatContext(save: GameSave, startup = calculateStartup(save)) {
+// `threat` is the opt-in run rules switch. Omitting it (the legacy reference
+// path asserted by combat-math-oracle.json) keeps every value below unchanged.
+export function combatContext(save: GameSave, startup = calculateStartup(save), threat?: ThreatRules) {
   return { gear: startup.gear, runePet: startup.runePet, talent: startup.talent,
     growth: startup.growth, awaken: startup.awaken, runes: [...save.runes],
-    baseDef: (heroes as Record<string, { def: number }>)[save.hero]!.def };
+    baseDef: (heroes as Record<string, { def: number }>)[save.hero]!.def, threat };
 }
 export type CombatContext = ReturnType<typeof combatContext>;
 const descriptions: Record<string, string[]> = forms.descriptions;
@@ -136,5 +139,12 @@ export function incomingHit(context: CombatContext, player: { hp: number; maxHp:
   if (player.dodgeBuff > 0) damage *= .72;
   // Shield absorption intentionally happens before the base invulnerability check.
   if (player.inv > 0) return { hp: player.hp, shield, inv: player.inv };
+  if (context.threat) {
+    // threat-v2: soft-capped defence replaces the flat term, and the hit grants
+    // no global i-frame — the per-source contact timers own that cadence.
+    const def = Math.max(0, context.baseDef);
+    const mitigated = damage * (1 - def / (def + context.threat.softCap));
+    return { hp: player.hp - Math.max(1, mitigated), shield, inv: player.inv };
+  }
   return { hp: player.hp - Math.max(1, damage - context.baseDef * .08), shield, inv: .28 };
 }

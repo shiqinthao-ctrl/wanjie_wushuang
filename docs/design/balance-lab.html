@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>万界无双 · 平衡实验室 Balance Lab</title>
+<style>
+:root{
+  --bg:#f6f4ef; --panel:#ffffff; --ink:#1d2430; --ink2:#5b6675; --ink3:#8b95a3;
+  --line:#e2ddd2; --line2:#efeae0; --accent:#c9762a; --accent2:#e0a24a;
+  --ok:#2f8f5b; --warn:#c9962a; --bad:#c8453a; --chip:#f3efe6;
+  --shadow:0 1px 2px rgba(29,36,48,.05),0 8px 24px -12px rgba(29,36,48,.14);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-bottom:18px;border-bottom:2px solid var(--ink);margin-bottom:22px}
+.top h1{margin:0;font-size:26px;letter-spacing:.5px}
+.top h1 small{display:block;font-size:11px;letter-spacing:2.4px;color:var(--accent);
+  font-weight:700;margin-bottom:6px;text-transform:uppercase}
+.top p{margin:6px 0 0;color:var(--ink2);font-size:13px;max-width:640px}
+.top .stamp{font-size:11px;color:var(--ink3);text-align:right;line-height:1.9}
+.top .stamp b{color:var(--ink);font-weight:700}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+nav.tabs button{border:1px solid var(--line);background:var(--panel);color:var(--ink2);
+  padding:8px 15px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:600;
+  font-family:inherit;transition:.15s}
+nav.tabs button:hover{border-color:var(--accent2);color:var(--accent)}
+nav.tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.panel{display:none}
+.panel.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.card h2{margin:0 0 4px;font-size:16px;letter-spacing:.3px}
+.card h2 span{color:var(--ink3);font-weight:500;font-size:12px;margin-left:8px}
+.card > p.lead{margin:0 0 16px;color:var(--ink2);font-size:12.5px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.kpi{background:var(--chip);border:1px solid var(--line2);border-radius:10px;padding:12px 14px}
+.kpi small{display:block;font-size:11px;color:var(--ink3);letter-spacing:.6px;text-transform:uppercase;font-weight:700}
+.kpi b{display:block;font-size:22px;letter-spacing:-.3px;margin-top:2px}
+.kpi em{font-style:normal;font-size:11px;color:var(--ink2)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:8px 9px;border-bottom:1px solid var(--line2)}
+th{font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--ink3);
+  font-weight:700;border-bottom:1px solid var(--line)}
+tbody tr:hover{background:#fbf9f5}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:ui-monospace,"SFMono-Regular",Consolas,monospace}
+td input[type=number]{width:74px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;
+  font:inherit;font-family:ui-monospace,Consolas,monospace;text-align:right;background:#fdfcfa;color:var(--ink)}
+td input[type=number]:focus{outline:2px solid var(--accent2);outline-offset:-1px;border-color:var(--accent2)}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.pill.ok{background:#e3f2e8;color:var(--ok)}
+.pill.warn{background:#faf0d8;color:var(--warn)}
+.pill.bad{background:#fae2df;color:var(--bad)}
+.bar{position:relative;height:9px;background:var(--line2);border-radius:999px;overflow:hidden;min-width:70px}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:999px;background:var(--accent2)}
+.bar i.ok{background:var(--ok)}.bar i.warn{background:var(--warn)}.bar i.bad{background:var(--bad)}
+.row{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid var(--line2)}
+.row:last-child{border-bottom:0}
+.row > label{flex:0 0 190px;font-size:12.5px;color:var(--ink2)}
+.row input[type=range]{flex:1;accent-color:var(--accent)}
+.row output{flex:0 0 82px;text-align:right;font-family:ui-monospace,Consolas,monospace;
+  font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.note{background:#fdf8ee;border-left:3px solid var(--accent2);padding:10px 14px;border-radius:0 8px 8px 0;
+  font-size:12.5px;color:#6b5730;margin-top:14px}
+.note b{color:#4a3a1c}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2);margin-top:10px}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:middle}
+svg{display:block;max-width:100%;height:auto;overflow:visible}
+.chartlab{font-size:10.5px;fill:var(--ink3);font-family:ui-monospace,Consolas,monospace}
+.chartval{font-size:10.5px;fill:var(--ink);font-weight:700;font-family:ui-monospace,Consolas,monospace}
+code{background:var(--chip);padding:1px 6px;border-radius:5px;font-size:12px;
+  font-family:ui-monospace,Consolas,monospace;color:#8a5a1f}
+.hr{height:1px;background:var(--line2);margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <h1><small>WANJIE WUSHUANG · BALANCE LAB</small>万界无双 · 平衡实验室</h1>
+    <p>基于 V3.1.3 代码真实公式构建的可调模型。左侧改动即时反映到右侧指标，用于设计评审与数值收敛。</p>
+  </div>
+  <div class="stamp">
+    <b>6</b> 英雄 &nbsp;·&nbsp; <b>20</b> 进化 &nbsp;·&nbsp; <b>10</b> 融合<br>
+    <b>8</b> 首领 &nbsp;·&nbsp; <b>7</b> 模式 &nbsp;·&nbsp; <b>4</b> 难度<br>
+    数据源：<code>assets/js/**</code>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-p="hero" class="on">英雄平衡</button>
+  <button data-p="progress">升级预算</button>
+  <button data-p="diff">难度收益</button>
+  <button data-p="boss">首领 TTK</button>
+  <button data-p="meta">乘区与减伤</button>
+</nav>
+
+<!-- ================= 英雄平衡 ================= -->
+<section class="panel on" id="p-hero">
+  <div class="card">
+    <h2>英雄平衡指数 HBI <span>STED × CC ÷ 风险系数</span></h2>
+    <p class="lead">STED = 单体等效 DPS（满资源、稳定循环、不含暴击）；CC = 清屏系数（一次循环期望覆盖敌人数）；风险系数：近战 1.30 / 中距 1.00 / 远程 0.80。目标区间 <b>180–220</b>。可直接编辑单元格。</p>
+    <table id="heroTable">
+      <thead><tr>
+        <th>英雄</th><th class="num">STED</th><th class="num">CC</th><th class="num">风险 R</th>
+        <th class="num">HBI</th><th>判定</th><th style="width:150px">相对基准</th><th class="num">建议 STED</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="legend">
+      <span><i style="background:var(--ok)"></i>在区间内</span>
+      <span><i style="background:var(--warn)"></i>偏离 ≤25%</span>
+      <span><i style="background:var(--bad)"></i>偏离 &gt;25%</span>
+    </div>
+    <div class="note" id="heroNote"></div>
+  </div>
+
+  <div class="card">
+    <h2>HBI 分布 <span>现状 vs 建议值</span></h2>
+    <svg id="heroChart" viewBox="0 0 680 260" role="img" aria-label="英雄 HBI 对比图"></svg>
+  </div>
+</section>
+
+<!-- ================= 升级预算 ================= -->
+<section class="panel" id="p-progress">
+  <div class="card">
+    <h2>单局升级预算 <span>核心幻想可达性</span></h2>
+    <p class="lead">进化需 主动 Lv5 + 被动 Lv5 = 10 点；融合需两条进化 = 20 点。调整参数，观察一局能否摸到进化与融合。</p>
+    <div class="grid g3" id="progKpi"></div>
+    <div class="hr"></div>
+    <div class="row"><label>单局时长</label><input type="range" id="s_dur" min="360" max="1200" step="60" value="480"><output id="o_dur"></output></div>
+    <div class="row"><label>击杀数（估算）</label><input type="range" id="s_kills" min="100" max="800" step="10" value="250"><output id="o_kills"></output></div>
+    <div class="row"><label>精英击杀数</label><input type="range" id="s_elite" min="0" max="60" step="1" value="15"><output id="o_elite"></output></div>
+    <div class="row"><label>每次升级给的点数</label><input type="range" id="s_pts" min="1" max="3" step="1" value="2"><output id="o_pts"></output></div>
+    <div class="row"><label>进化门槛（主动+被动 Lv）</label><input type="range" id="s_gate" min="3" max="6" step="1" value="5"><output id="o_gate"></output></div>
+    <div class="row"><label>保底进化触发时点</label><input type="range" id="s_pity" min="0" max="1" step="0.05" value="0.6"><output id="o_pity"></output></div>
+    <div class="note" id="progNote"></div>
+  </div>
+
+  <div class="card">
+    <h2>经验曲线 <span>xpNeed = 26 + level × 11</span></h2>
+    <svg id="xpChart" viewBox="0 0 680 240" role="img" aria-label="经验曲线与单局可达等级"></svg>
+  </div>
+</section>
+
+<!-- ================= 难度收益 ================= -->
+<section class="panel" id="p-diff">
+  <div class="card">
+    <h2>难度风险回报 <span>金币 / 敌HP 必须单调不降</span></h2>
+    <p class="lead">核心判据：单位敌 HP 的收益不应随难度下降。当前版本修罗与万界劫均为负收益，且经验被惩罚 → 硬核玩家没有理由选高难度。</p>
+    <table id="diffTable">
+      <thead><tr>
+        <th>难度</th><th class="num">敌HP</th><th class="num">敌伤</th><th class="num">金币</th>
+        <th class="num">经验</th><th class="num">掉落率</th>
+        <th class="num">金币/敌HP</th><th>判定</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="note" id="diffNote"></div>
+  </div>
+  <div class="card">
+    <h2>单位收益对比 <span>归一化到标准难度 = 1.00</span></h2>
+    <svg id="diffChart" viewBox="0 0 680 250" role="img" aria-label="难度收益对比图"></svg>
+  </div>
+</section>
+
+<!-- ================= 首领 TTK ================= -->
+<section class="panel" id="p-boss">
+  <div class="card">
+    <h2>首领击杀时长 TTK <span>目标 60–90 秒</span></h2>
+    <p class="lead">TTK = 首领 HP ÷ 该关玩家在首领登场时的期望 DPS。Boss HP 应由「时间预算」反推，而不是拍一个倍率（例如首战 bossHp ×3.00 会导致 90 秒窗口内数学上打不完）。</p>
+    <table id="bossTable">
+      <thead><tr>
+        <th>首领</th><th>关卡</th><th class="num">期望 DPS</th>
+        <th class="num">当前 HP</th><th class="num">当前 TTK</th>
+        <th class="num">建议 HP</th><th class="num">建议 TTK</th><th>判定</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="note" id="bossNote"></div>
+  </div>
+  <div class="card">
+    <h2>TTK 条形图 <span>绿色 = 目标区间 60–90s</span></h2>
+    <svg id="bossChart" viewBox="0 0 680 300" role="img" aria-label="首领 TTK 对比图"></svg>
+  </div>
+</section>
+
+<!-- ================= 乘区与减伤 ================= -->
+<section class="panel" id="p-meta">
+  <div class="card">
+    <h2>局外乘区 <span>合并求和 + 硬上限</span></h2>
+    <p class="lead">当前实现中各层分别相乘（装备 × 符文 × 天赋 × 星级 × 觉醒），导致满配账号 5–7× 输出。改为「先求和、再取上限」可把永久成长压回 2.2×，同时让局内构筑成为主要变量。</p>
+    <div class="grid g3" id="metaKpi"></div>
+    <div class="hr"></div>
+    <div id="metaRows"></div>
+    <div class="note" id="metaNote"></div>
+  </div>
+
+  <div class="card">
+    <h2>防御减伤曲线 <span>现：固定减法 · 新：软上限百分比</span></h2>
+    <svg id="defChart" viewBox="0 0 680 240" role="img" aria-label="防御减伤曲线"></svg>
+    <div class="note">当前 <code>dmg − def×0.08</code>：def 28 只减 2.24 点，而 20 分钟时敌人伤害已达 34 → 防御是死属性。改为 <code>dmg × (1 − def/(def+120))</code> 后，def 28 = 18.9%、def 120 = 50%、def 300 = 71.4%，可感知且有软上限。</div>
+  </div>
+</section>
+
+</div>
+
+<script>
+/* ---------- 模型数据 ---------- */
+const HEROES=[
+  {id:'H001',name:'赤焰战神',role:'近战范围压制',sted:108,cc:2.4,r:1.30,prop:108,propCC:2.4},
+  {id:'H002',name:'雷霆猛将',role:'中距连锁爆发',sted:149,cc:1.6,r:1.00,prop:125,propCC:1.6},
+  {id:'H007',name:'灵猴',    role:'召唤协同',    sted:445,cc:1.9,r:1.00,prop:116,propCC:1.6},
+  {id:'H010',name:'炎忍',    role:'布雷控场',    sted:252,cc:1.7,r:1.00,prop:119,propCC:1.7},
+  {id:'H012',name:'影忍',    role:'高频穿透',    sted:290,cc:1.3,r:0.90,prop:140,propCC:1.3},
+  {id:'H019',name:'气功战士',role:'远程重炮',    sted:115,cc:1.1,r:0.80,prop:82, propCC:1.9}
+];
+const DIFFS=[
+  {id:'easy',     name:'休闲',   hp:0.82,dmg:0.78,gold:0.90,xp:1.08,drop:0.90,php:0.85,pgold:0.85,pxp:1.00,pdrop:0.90},
+  {id:'normal',   name:'标准',   hp:1.00,dmg:1.00,gold:1.00,xp:1.00,drop:1.00,php:1.00,pgold:1.00,pxp:1.00,pdrop:1.00},
+  {id:'hard',     name:'修罗',   hp:1.38,dmg:1.28,gold:1.28,xp:0.98,drop:1.18,php:1.25,pgold:1.30,pxp:1.00,pdrop:1.20},
+  {id:'nightmare',name:'万界劫', hp:1.85,dmg:1.58,gold:1.60,xp:0.95,drop:1.40,php:1.55,pgold:1.65,pxp:1.00,pdrop:1.45}
+];
+const BOSSES=[
+  {id:'B001',name:'黄巾巨将',stage:'ST001-01',dps:155,hp:25053,prop:11000},
+  {id:'B002',name:'乱世妖师',stage:'ST001-03',dps:260,hp:16500,prop:19500},
+  {id:'B003',name:'混沌骑将',stage:'ST001-04',dps:340,hp:24480,prop:27000},
+  {id:'B006',name:'牛魔妖王',stage:'ST003-03',dps:430,hp:44000,prop:34000},
+  {id:'B008',name:'混世魔猿',stage:'ST003-04',dps:520,hp:60000,prop:44000},
+  {id:'B009',name:'炎狱忍王',stage:'ST004-03',dps:620,hp:52800,prop:37000},
+  {id:'B010',name:'雷瞬忍王',stage:'ST004-03',dps:620,hp:57200,prop:38000},
+  {id:'B011',name:'万影忍王',stage:'ST004-04',dps:700,hp:79200,prop:63000}
+];
+const META=[
+  {id:'gear',  name:'装备词条 + 套装', cur:0.34, prop:0.30},
+  {id:'rune',  name:'符文 + 共鸣',     cur:0.26, prop:0.20},
+  {id:'pet',   name:'宠物',            cur:0.08, prop:0.08},
+  {id:'talent',name:'账号天赋',        cur:0.10, prop:0.20},
+  {id:'star',  name:'英雄星级 + 熟练', cur:0.45, prop:0.15},
+  {id:'awaken',name:'觉醒',            cur:0.18, prop:0.07}
+];
+const BAND=[180,220], TTK=[60,90];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const fmt=(n,d=0)=>Number(n).toFixed(d);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+
+/* ---------- 通用：状态判定 ---------- */
+function band(v,lo,hi){
+  const mid=(lo+hi)/2, half=(hi-lo)/2;
+  if(v>=lo&&v<=hi) return 'ok';
+  return Math.abs(v-mid)<=half*1.5 ? 'warn' : 'bad';
+}
+const PILL={ok:['ok','达标'],warn:['warn','偏离'],bad:['bad','超标']};
+
+/* ---------- 1. 英雄平衡 ---------- */
+function renderHero(){
+  const tb=$('#heroTable tbody'); tb.innerHTML='';
+  const base=HEROES[0];
+  HEROES.forEach(h=>{
+    const hbi=h.sted*h.cc/h.r, ref=base.sted*base.cc/base.r;
+    const rel=hbi/ref, s=band(hbi,...BAND), p=PILL[s];
+    const tr=el('tr');
+    tr.innerHTML=
+      '<td><b>'+h.id+'</b> '+h.name+'<br><span style="color:var(--ink3);font-size:11px">'+h.role+'</span></td>'+
+      '<td class="num"><input type="number" data-h="'+h.id+'" data-k="sted" value="'+h.sted+'" step="1"></td>'+
+      '<td class="num"><input type="number" data-h="'+h.id+'" data-k="cc" value="'+h.cc+'" step="0.1"></td>'+
+      '<td class="num"><input type="number" data-h="'+h.id+'" data-k="r" value="'+h.r+'" step="0.05"></td>'+
+      '<td class="num"><b style="font-size:14px">'+fmt(hbi)+'</b></td>'+
+      '<td><span class="pill '+p[0]+'">'+p[1]+'</span></td>'+
+      '<td><div class="bar"><i class="'+s+'" style="width:'+Math.min(100,rel*40)+'%"></i></div>'+
+        '<span style="font-size:11px;color:var(--ink3)">'+fmt(rel,2)+'× 基准</span></td>'+
+      '<td class="num" style="color:var(--ok)"><b>'+h.prop+'</b></td>';
+    tb.appendChild(tr);
+  });
+  tb.oninput=e=>{
+    const id=e.target.dataset.h,k=e.target.dataset.k; if(!id)return;
+    const h=HEROES.find(x=>x.id===id); h[k]=parseFloat(e.target.value)||0;
+    renderHero(); drawHero();
+  };
+  const max=Math.max(...HEROES.map(h=>h.sted*h.cc/h.r));
+  const worst=HEROES.map(h=>({h,v:h.sted*h.cc/h.r})).sort((a,b)=>b.v-a.v)[0];
+  const best=HEROES.map(h=>({h,v:h.sted*h.cc/h.r})).sort((a,b)=>a.v-b.v)[0];
+  const spread=max/Math.min(...HEROES.map(h=>h.sted*h.cc/h.r));
+  const pv=HEROES.map(h=>h.prop*h.propCC/h.r);
+  const pSpread=Math.max(...pv)/Math.min(...pv);
+  $('#heroNote').innerHTML='现状极差 <b>'+fmt(spread,2)+'×</b>（'+best.h.id+' '+fmt(best.v)+' → '+worst.h.id+' '+fmt(worst.v)+'）；'+
+    '按建议值收敛后极差 <b style="color:var(--ok)">'+fmt(pSpread,2)+'×</b>（'+fmt(Math.min(...pv))+' – '+fmt(Math.max(...pv))+'），全部落入 180–220 区间。'+
+    'H001 恰好落在目标区间内，因此 <b>以 H001 为基准改其他五个</b>。'+
+    '具体结构改动见 GDD §4.3（分身改协同打击 / 炸弹改存量引爆 / 影印驱动爆发 / 蓄力重炮）。';
+  drawHero();
+}
+function drawHero(){
+  const svg=$('#heroChart'), W=680, H=260, L=52, R=24, T=18, B=44;
+  const pw=W-L-R, ph=H-T-B, max=Math.max(...HEROES.map(h=>Math.max(h.sted*h.cc/h.r, h.prop*h.propCC/h.r)))*1.12;
+  const y=v=>T+ph-v/max*ph, x=i=>L+(i+.5)*(pw/HEROES.length);
+  let s='';
+  /* 目标区间带 */
+  s+='<rect x="'+L+'" y="'+y(BAND[1])+'" width="'+pw+'" height="'+(y(BAND[0])-y(BAND[1]))+'" fill="#e3f2e8"/>';
+  s+='<text class="chartlab" x="'+(L+6)+'" y="'+(y(BAND[1])-4)+'">目标区间 180–220</text>';
+  for(let g=0;g<=4;g++){const v=max/4*g;s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#efeae0"/>'+
+    '<text class="chartlab" x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+fmt(v)+'</text>';}
+  HEROES.forEach((h,i)=>{
+    const cur=h.sted*h.cc/h.r, pro=h.prop*h.propCC/h.r, bw=pw/HEROES.length*.30;
+    const c=band(cur,...BAND);
+    s+='<rect x="'+(x(i)-bw-2)+'" y="'+y(cur)+'" width="'+bw+'" height="'+(T+ph-y(cur))+'" rx="3" fill="'+
+       (c==='ok'?'#2f8f5b':c==='warn'?'#c9962a':'#c8453a')+'" opacity=".85"/>';
+    s+='<text class="chartval" x="'+(x(i)-bw/2-2)+'" y="'+(y(cur)-5)+'" text-anchor="middle">'+fmt(cur)+'</text>';
+    s+='<rect x="'+(x(i)+2)+'" y="'+y(pro)+'" width="'+bw+'" height="'+(T+ph-y(pro))+'" rx="3" fill="#8fb9d8" opacity=".9"/>';
+    s+='<text class="chartval" x="'+(x(i)+bw/2+2)+'" y="'+(y(pro)-5)+'" text-anchor="middle" fill="#3f6b8c">'+fmt(pro)+'</text>';
+    s+='<text class="chartlab" x="'+x(i)+'" y="'+(T+ph+16)+'" text-anchor="middle">'+h.id+'</text>';
+    s+='<text class="chartlab" x="'+x(i)+'" y="'+(T+ph+29)+'" text-anchor="middle">'+h.name+'</text>';
+  });
+  s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+(T+ph)+'" y2="'+(T+ph)+'" stroke="#c9c2b4"/>';
+  svg.innerHTML=s;
+}
+
+/* ---------- 2. 升级预算 ---------- */
+const P={dur:480,kills:250,elite:15,pts:2,gate:5,pity:0.6};
+function xpNeed(l){return 26+l*11}
+function renderProgress(){
+  const xp=P.kills*4+P.elite*14;
+  let lv=1,acc=0;
+  while(acc+xpNeed(lv)<=xp&&lv<80){acc+=xpNeed(lv);lv++}
+  const ups=lv-1, total=ups*P.pts, evoCost=P.gate*2, fusCost=evoCost*2;
+  const evos=Math.floor(total/evoCost), fusions=Math.floor(total/fusCost);
+  const pityEvo=(ups>0)?'是':'否';
+  const kpi=[
+    {k:'单局经验',v:xp.toLocaleString(),e:'XP'},
+    {k:'可达等级',v:'Lv.'+lv,e:ups+' 次升级'},
+    {k:'总升级点数',v:total,e:P.pts+' 点 / 次'},
+    {k:'可完成进化',v:evos,e:'单条 '+evoCost+' 点'},
+    {k:'可完成融合',v:fusions,e:'需 '+fusCost+' 点'},
+    {k:'保底进化',v:P.pity>0?('t='+fmt(P.dur*P.pity)+'s'):'关闭',e:pityEvo+' 触发'}
+  ];
+  $('#progKpi').innerHTML=kpi.map(x=>'<div class="kpi"><small>'+x.k+'</small><b>'+x.v+'</b><em>'+x.e+'</em></div>').join('');
+  const n=[];
+  if(evos<1) n.push('<b style="color:var(--bad)">核心幻想不可达</b>：总点数 '+total+' 不足以完成 1 条进化（需 '+evoCost+'）。');
+  else n.push('可完成 <b>'+evos+'</b> 条进化'+(fusions>=1?'，且融合门槛 '+fusCost+' 点<b style="color:var(--ok)">可达</b>':'，但融合需 '+fusCost+' 点，<b style="color:var(--warn)">单局不可达</b>')+'。');
+  if(P.pts===1&&P.gate>=5) n.push('这正是当前 V3.1.3 的状态：每次 1 点、门槛 Lv5+Lv5 → 20 分钟局也只有 1 条进化，融合数学上不可能。');
+  n.push('推荐配置：<b>每次 2 点 + 门槛 Lv5 + 8 分钟局</b> → 24–28 点，可完成 1 进化 + 1 融合，且弹窗次数从 16 次降到 12 次。');
+  $('#progNote').innerHTML=n.join(' ');
+  drawXp(lv,xp,acc);
+}
+function drawXp(reachLv,xp,acc){
+  const svg=$('#xpChart'), W=680,H=240,L=54,R=24,T=18,B=40;
+  const pw=W-L-R, ph=H-T-B, MAXL=22;
+  const need=[],cum=[]; let c=0;
+  for(let l=1;l<=MAXL;l++){need.push(xpNeed(l));c+=xpNeed(l);cum.push(c)}
+  const maxY=Math.max(cum[MAXL-1],xp)*1.08;
+  const y=v=>T+ph-v/maxY*ph, x=i=>L+(i+1)/MAXL*pw;
+  let s='';
+  for(let g=0;g<=4;g++){const v=maxY/4*g;s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#efeae0"/>'+
+    '<text class="chartlab" x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+fmt(v/1000,1)+'k</text>';}
+  s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+y(xp)+'" y2="'+y(xp)+'" stroke="#2f8f5b" stroke-dasharray="5 4"/>'+
+     '<text class="chartlab" x="'+(L+pw)+'" y="'+(y(xp)-5)+'" text-anchor="end" fill="#2f8f5b">单局经验 '+xp.toLocaleString()+'</text>';
+  let d=''; cum.forEach((v,i)=>{d+=(i?' L ':'M ')+x(i)+' '+y(v)});
+  s+='<path d="'+d+'" fill="none" stroke="#c9762a" stroke-width="2.4"/>';
+  s+='<path d="'+d+' L '+x(MAXL-1)+' '+(T+ph)+' L '+x(0)+' '+(T+ph)+' Z" fill="#c9762a" opacity=".08"/>';
+  s+='<line x1="'+x(reachLv-1)+'" x2="'+x(reachLv-1)+'" y1="'+T+'" y2="'+(T+ph)+'" stroke="#1d2430" stroke-dasharray="3 3"/>';
+  s+='<circle cx="'+x(reachLv-1)+'" cy="'+y(cum[reachLv-2]||0)+'" r="4.5" fill="#1d2430"/>';
+  s+='<text class="chartval" x="'+(x(reachLv-1)+7)+'" y="'+(T+13)+'">可达 Lv.'+reachLv+'</text>';
+  for(let l=2;l<=MAXL;l+=2){s+='<text class="chartlab" x="'+x(l-1)+'" y="'+(T+ph+16)+'" text-anchor="middle">'+l+'</text>'}
+  s+='<text class="chartlab" x="'+(L+pw/2)+'" y="'+(T+ph+32)+'" text-anchor="middle">等级</text>';
+  s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+(T+ph)+'" y2="'+(T+ph)+'" stroke="#c9c2b4"/>';
+  svg.innerHTML=s;
+}
+
+/* ---------- 3. 难度收益 ---------- */
+function renderDiff(){
+  const tb=$('#diffTable tbody'); tb.innerHTML='';
+  const base=DIFFS[1];
+  DIFFS.forEach(d=>{
+    const ratio=d.gold/d.hp, ref=base.gold/base.hp, rel=ratio/ref;
+    const s=rel>=0.995?'ok':rel>=0.95?'warn':'bad', p=PILL[s];
+    const tr=el('tr');
+    tr.innerHTML='<td><b>'+d.name+'</b></td>'+
+      '<td class="num"><input type="number" data-d="'+d.id+'" data-k="hp" value="'+d.hp+'" step="0.05"></td>'+
+      '<td class="num">'+fmt(d.dmg,2)+'</td>'+
+      '<td class="num"><input type="number" data-d="'+d.id+'" data-k="gold" value="'+d.gold+'" step="0.05"></td>'+
+      '<td class="num"><input type="number" data-d="'+d.id+'" data-k="xp" value="'+d.xp+'" step="0.05"></td>'+
+      '<td class="num">'+fmt(d.drop,2)+'</td>'+
+      '<td class="num"><b>'+fmt(rel,3)+'</b></td>'+
+      '<td><span class="pill '+p[0]+'">'+(rel>=1?'正收益':rel>=0.95?'持平':'负收益')+'</span></td>';
+    tb.appendChild(tr);
+  });
+  tb.oninput=e=>{
+    const id=e.target.dataset.d,k=e.target.dataset.k; if(!id)return;
+    DIFFS.find(x=>x.id===id)[k]=parseFloat(e.target.value)||0;
+    renderDiff();
+  };
+  const cur=DIFFS.map(d=>({n:d.name,v:(d.gold/d.hp)/(base.gold/base.hp)}));
+  const monotonic=cur.every((c,i)=>i===0||c.v>=cur[i-1].v-0.0001);
+  const xpFlat=DIFFS.every(d=>Math.abs(d.xp-1)<0.0001);
+  $('#diffNote').innerHTML=
+    '当前金币/敌HP 序列：'+cur.map(c=>c.n+' '+fmt(c.v,2)).join(' → ')+'。'+
+    (monotonic?'<b style="color:var(--ok)">单调不降 ✔</b>':'<b style="color:var(--bad)">存在倒挂 ✘</b>')+'；'+
+    (xpFlat?'经验恒定 ✔':'<b style="color:var(--bad)">经验随难度下降 → 高难度恶性循环 ✘</b>')+'。'+
+    '注意：把「敌HP」和「金币」两列改成建议值即可看到修正效果（修罗 1.38/1.28 → 1.25/1.30；万界劫 1.85/1.60 → 1.55/1.65）。';
+  drawDiff();
+}
+function drawDiff(){
+  const svg=$('#diffChart'),W=680,H=250,L=54,R=24,T=18,B=52;
+  const pw=W-L-R,ph=H-T-B, base=DIFFS[1];
+  const rows=DIFFS.map(d=>({n:d.name,gold:(d.gold/d.hp)/(base.gold/base.hp),drop:d.drop,php:d.php}));
+  const max=Math.max(...rows.map(r=>Math.max(r.gold,1.6)))*1.15;
+  const y=v=>T+ph-v/max*ph, gw=pw/DIFFS.length;
+  let s='';
+  for(let g=0;g<=4;g++){const v=max/4*g;s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#efeae0"/>'+
+    '<text class="chartlab" x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+fmt(v,1)+'×</text>';}
+  s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+y(1)+'" y2="'+y(1)+'" stroke="#8b95a3" stroke-dasharray="5 4"/>'+
+     '<text class="chartlab" x="'+(L+6)+'" y="'+(y(1)-5)+'">标准难度 = 1.00</text>';
+  rows.forEach((r,i)=>{
+    const bw=gw*.30, x0=L+i*gw+gw*.14;
+    const c=r.gold>=1?'#2f8f5b':r.gold>=.95?'#c9962a':'#c8453a';
+    s+='<rect x="'+x0+'" y="'+y(r.gold)+'" width="'+bw+'" height="'+(T+ph-y(r.gold))+'" rx="3" fill="'+c+'"/>';
+    s+='<text class="chartval" x="'+(x0+bw/2)+'" y="'+(y(r.gold)-5)+'" text-anchor="middle">'+fmt(r.gold,2)+'</text>';
+    s+='<rect x="'+(x0+bw+6)+'" y="'+y(r.drop)+'" width="'+bw+'" height="'+(T+ph-y(r.drop))+'" rx="3" fill="#8fb9d8"/>';
+    s+='<text class="chartval" x="'+(x0+bw*1.5+6)+'" y="'+(y(r.drop)-5)+'" text-anchor="middle" fill="#3f6b8c">'+fmt(r.drop,2)+'</text>';
+    s+='<text class="chartlab" x="'+(L+i*gw+gw/2)+'" y="'+(T+ph+17)+'" text-anchor="middle">'+r.n+'</text>';
+  });
+  s+='<rect x="'+(L)+'" y="'+(T+ph+26)+'" width="10" height="10" rx="2" fill="#2f8f5b"/><text class="chartlab" x="'+(L+15)+'" y="'+(T+ph+35)+'">金币/敌HP</text>';
+  s+='<rect x="'+(L+110)+'" y="'+(T+ph+26)+'" width="10" height="10" rx="2" fill="#8fb9d8"/><text class="chartlab" x="'+(L+125)+'" y="'+(T+ph+35)+'">掉落率</text>';
+  s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+(T+ph)+'" y2="'+(T+ph)+'" stroke="#c9c2b4"/>';
+  svg.innerHTML=s;
+}
+
+/* ---------- 4. 首领 TTK ---------- */
+function renderBoss(){
+  const tb=$('#bossTable tbody'); tb.innerHTML='';
+  BOSSES.forEach(b=>{
+    const cur=b.hp/b.dps, pro=b.prop/b.dps;
+    const s=band(pro,...TTK), p=PILL[s];
+    const cs=band(cur,...TTK);
+    const tr=el('tr');
+    tr.innerHTML='<td><b>'+b.id+'</b> '+b.name+'</td><td style="color:var(--ink3)">'+b.stage+'</td>'+
+      '<td class="num"><input type="number" data-b="'+b.id+'" data-k="dps" value="'+b.dps+'" step="10"></td>'+
+      '<td class="num"><input type="number" data-b="'+b.id+'" data-k="hp" value="'+b.hp+'" step="100"></td>'+
+      '<td class="num"><span class="pill '+PILL[cs][0]+'">'+fmt(cur)+'s</span></td>'+
+      '<td class="num"><input type="number" data-b="'+b.id+'" data-k="prop" value="'+b.prop+'" step="100"></td>'+
+      '<td class="num"><b style="color:var(--ok)">'+fmt(pro)+'s</b></td>'+
+      '<td><span class="pill '+p[0]+'">'+p[1]+'</span></td>';
+    tb.appendChild(tr);
+  });
+  tb.oninput=e=>{
+    const id=e.target.dataset.b,k=e.target.dataset.k; if(!id)return;
+    BOSSES.find(x=>x.id===id)[k]=parseFloat(e.target.value)||0;
+    renderBoss();
+  };
+  const bad=BOSSES.filter(b=>band(b.hp/b.dps,...TTK)==='bad');
+  const fix=BOSSES.filter(b=>band(b.prop/b.dps,...TTK)==='ok');
+  $('#bossNote').innerHTML='当前有 <b style="color:var(--bad)">'+bad.length+' / '+BOSSES.length+'</b> 名首领的击杀时长偏离目标区间 60–90 秒'+
+    (bad.length?'（'+bad.map(b=>b.id+' '+fmt(b.hp/b.dps)+'s').join('、')+'）':'')+'。'+
+    '建议值列按「期望 DPS × 目标时长」反推，修正后 <b style="color:var(--ok)">'+fix.length+' / '+BOSSES.length+'</b> 落入区间。'+
+    '其中 B001 从 25,053 砍到 11,000（−56%）是关键——首战只有 90 秒窗口，3.00 倍血量倍率会让新手数学上打不完。';
+  drawBoss();
+}
+function drawBoss(){
+  const svg=$('#bossChart'),W=680,H=300,L=58,R=52,T=16,B=48;
+  const pw=W-L-R,ph=H-T-B, max=Math.max(...BOSSES.map(b=>Math.max(b.hp/b.dps,b.prop/b.dps)))*1.12;
+  const y=v=>T+ph-v/max*ph, gw=pw/BOSSES.length;
+  let s='';
+  s+='<rect x="'+L+'" y="'+y(TTK[1])+'" width="'+pw+'" height="'+(y(TTK[0])-y(TTK[1]))+'" fill="#e3f2e8"/>';
+  s+='<text class="chartlab" x="'+(L+6)+'" y="'+(y(TTK[1])-4)+'">目标 60–90s</text>';
+  for(let g=0;g<=4;g++){const v=max/4*g;s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#efeae0"/>'+
+    '<text class="chartlab" x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+fmt(v)+'s</text>';}
+  BOSSES.forEach((b,i)=>{
+    const cur=b.hp/b.dps, pro=b.prop/b.dps, bw=gw*.30, x0=L+i*gw+gw*.14;
+    s+='<rect x="'+x0+'" y="'+y(cur)+'" width="'+bw+'" height="'+(T+ph-y(cur))+'" rx="3" fill="'+({ok:'#2f8f5b',warn:'#c9962a',bad:'#c8453a'}[band(cur,...TTK)])+'" opacity=".85"/>';
+    s+='<text class="chartval" x="'+(x0+bw/2)+'" y="'+(y(cur)-5)+'" text-anchor="middle">'+fmt(cur)+'</text>';
+    s+='<rect x="'+(x0+bw+6)+'" y="'+y(pro)+'" width="'+bw+'" height="'+(T+ph-y(pro))+'" rx="3" fill="#8fb9d8"/>';
+    s+='<text class="chartval" x="'+(x0+bw*1.5+6)+'" y="'+(y(pro)-5)+'" text-anchor="middle" fill="#3f6b8c">'+fmt(pro)+'</text>';
+    s+='<text class="chartlab" x="'+(L+i*gw+gw/2)+'" y="'+(T+ph+16)+'" text-anchor="middle">'+b.id+'</text>';
+  });
+  s+='<rect x="'+L+'" y="'+(T+ph+24)+'" width="10" height="10" rx="2" fill="#c8453a"/><text class="chartlab" x="'+(L+15)+'" y="'+(T+ph+33)+'">当前</text>';
+  s+='<rect x="'+(L+80)+'" y="'+(T+ph+24)+'" width="10" height="10" rx="2" fill="#8fb9d8"/><text class="chartlab" x="'+(L+95)+'" y="'+(T+ph+33)+'">建议</text>';
+  s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+(T+ph)+'" y2="'+(T+ph)+'" stroke="#c9c2b4"/>';
+  svg.innerHTML=s;
+}
+
+/* ---------- 5. 乘区与减伤 ---------- */
+let MODE='prop';
+function renderMeta(){
+  const kpi=[];
+  const curMul=META.reduce((a,m)=>a*(1+m.cur),1);
+  const proSum=META.reduce((a,m)=>a+m.prop,0), proMul=Math.min(proSum,1.20);
+  kpi.push({k:'当前（各层相乘）',v:fmt(curMul,2)+'×',e:'局外输出倍率'});
+  kpi.push({k:'建议（合并+上限）',v:fmt(1+proMul,2)+'×',e:'硬上限 +120%'});
+  kpi.push({k:'压缩比例',v:fmt(curMul/(1+proMul),2)+'×',e:'削减幅度 '+fmt((1-1/(curMul/(1+proMul)))*100)+'%'});
+  kpi.push({k:'局内构筑倍率',v:'4.00×',e:'一局 24–28 点'});
+  kpi.push({k:'局内 / 局外',v:fmt(4/(1+proMul),2)+'×',e:'目标 ≥ 1.8×'});
+  $('#metaKpi').innerHTML=kpi.map(x=>'<div class="kpi"><small>'+x.k+'</small><b>'+x.v+'</b><em>'+x.e+'</em></div>').join('');
+  const rows=META.map(m=>{
+    const v=MODE==='cur'?m.cur:m.prop;
+    return '<div class="row"><label>'+m.name+'</label>'+
+      '<input type="range" data-m="'+m.id+'" min="0" max="0.5" step="0.01" value="'+v+'">'+
+      '<output>'+fmt(v*100)+'%</output></div>';
+  }).join('')+
+  '<div class="row"><label>切换基准</label>'+
+  '<button class="pill" style="cursor:pointer;border:0;font-family:inherit;padding:5px 14px" id="mToggle">当前：'+(MODE==='cur'?'现状值':'建议值')+'</button>'+
+  '<output></output></div>';
+  $('#metaRows').innerHTML=rows;
+  $('#metaRows').oninput=e=>{
+    const id=e.target.dataset.m; if(!id)return;
+    const m=META.find(x=>x.id===id); m[MODE==='cur'?'cur':'prop']=parseFloat(e.target.value)||0;
+    renderMeta();
+  };
+  $('#mToggle').onclick=()=>{MODE=MODE==='cur'?'prop':'cur';renderMeta()};
+  const sum=META.reduce((a,m)=>a+(MODE==='cur'?m.cur:m.prop),0);
+  const capped=Math.min(sum,1.20);
+  $('#metaNote').innerHTML='六项求和 = <b>'+fmt(sum*100)+'%</b>'+(sum>1.20?' → <b style="color:var(--warn)">已触发 +120% 硬上限</b>，实际 '+fmt(capped*100)+'%':'')+'。'+
+    '当前实现是各层<b>分别相乘</b>（'+fmt(curMul,2)+'×），必须改成<b>先求和再取上限</b>。'+
+    '注意星级+熟练一项现状 45% 是最大来源——建议把星级改为「降低升级成本 / 减少技能 CD」而非提高数值。';
+  drawDef();
+}
+function drawDef(){
+  const svg=$('#defChart'),W=680,H=240,L=56,R=24,T=18,B=40;
+  const pw=W-L-R,ph=H-T-B, MAXD=320;
+  const newR=d=>1-d/(d+120);
+  const oldR=(d,dmg)=>Math.min(1, d*0.08/dmg);
+  const maxY=1;
+  const y=v=>T+ph-v/maxY*ph, x=d=>L+d/MAXD*pw;
+  let s='';
+  for(let g=0;g<=4;g++){const v=g/4;s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#efeae0"/>'+
+    '<text class="chartlab" x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+fmt(v*100)+'%</text>';}
+  let dn='',do_='';
+  for(let d=0;d<=MAXD;d+=4){dn+=(d?' L ':'M ')+x(d)+' '+y(newR(d));}
+  for(let d=0;d<=MAXD;d+=4){do_+=(d?' L ':'M ')+x(d)+' '+y(oldR(d,34));}
+  s+='<path d="'+do_+'" fill="none" stroke="#c8453a" stroke-width="2.2" stroke-dasharray="6 4"/>';
+  s+='<path d="'+dn+'" fill="none" stroke="#2f8f5b" stroke-width="2.6"/>';
+  [[28,'def 28'],[120,'def 120'],[300,'def 300']].forEach(([d,t])=>{
+    if(d>MAXD)return;
+    s+='<circle cx="'+x(d)+'" cy="'+y(newR(d))+'" r="4" fill="#2f8f5b"/>';
+    s+='<text class="chartval" x="'+x(d)+'" y="'+(y(newR(d))-9)+'" text-anchor="middle" fill="#2f8f5b">'+fmt(newR(d)*100)+'%</text>';
+  });
+  s+='<text class="chartlab" x="'+(L+pw)+'" y="'+(y(newR(MAXD))-8)+'" text-anchor="end" fill="#2f8f5b">新：def/(def+120)</text>';
+  s+='<text class="chartlab" x="'+(L+pw)+'" y="'+(y(oldR(MAXD,34))+16)+'" text-anchor="end" fill="#c8453a">现：def×0.08 / 34</text>';
+  for(let d=0;d<=MAXD;d+=80){s+='<text class="chartlab" x="'+x(d)+'" y="'+(T+ph+16)+'" text-anchor="middle">'+d+'</text>'}
+  s+='<text class="chartlab" x="'+(L+pw/2)+'" y="'+(T+ph+32)+'" text-anchor="middle">防御值 def</text>';
+  s+='<line x1="'+L+'" x2="'+(L+pw)+'" y1="'+(T+ph)+'" y2="'+(T+ph)+'" stroke="#c9c2b4"/>';
+  svg.innerHTML=s;
+}
+
+/* ---------- Tabs ---------- */
+$$('#tabs button').forEach(b=>b.onclick=()=>{
+  $$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  $$('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+b.dataset.p));
+});
+
+/* ---------- sliders ---------- */
+const SL=[['s_dur','dur','o_dur',v=>fmt(v)+'s / '+fmt(v/60,1)+'min'],
+          ['s_kills','kills','o_kills',v=>v+' 杀'],
+          ['s_elite','elite','o_elite',v=>v+' 精英'],
+          ['s_pts','pts','o_pts',v=>v+' 点'],
+          ['s_gate','gate','o_gate',v=>'Lv.'+v],
+          ['s_pity','pity','o_pity',v=>v>0?fmt(v*100)+'%':'关闭']];
+SL.forEach(([sid,key,oid,f])=>{
+  const s=$('#'+sid); s.oninput=()=>{P[key]=parseFloat(s.value);$('#'+oid).textContent=f(P[key]);renderProgress()};
+  $('#'+oid).textContent=f(P[key]);
+});
+
+/* ---------- boot ---------- */
+renderHero(); renderProgress(); renderDiff(); renderBoss(); renderMeta();
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@ import { cap, clampPoint } from './spawnRules';
 import { passiveLevel, skillModifier, sourceElement } from './combatMath';
 import { DragonCombat } from '../chapter/DragonCombat';
 
-interface Summon extends Point { id: string; life: number; tick: number; angle: number; guard: boolean; dmg: number; color: string }
+interface Summon extends Point { id: string; life: number; tick: number; angle: number; guard: boolean; dmg: number; color: string; manual?: boolean }
 const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
 
 /** Run-only abilities share the simulation's clock, collisions and damage authority. */
@@ -51,9 +51,9 @@ export class EvolutionCombat {
     s.heat = Math.min(100, s.heat + 8);
   }
   private dash(length: number, source: string, trail = false) {
-    const s = this.sim, p = s.player, angle = s.heroAim();
-    if (trail) for (let i = 0; i < 5; i++) s.field(source, { x: p.x + Math.cos(angle) * length * i / 4, y: p.y + Math.sin(angle) * length * i / 4 }, 48, p.atk * .22, this.view.rank === 2 ? 4 : 2.5);
-    p.x += Math.cos(angle) * length; p.y += Math.sin(angle) * length; clampPoint(p, s.world, 18);
+    const s = this.sim, p = s.player, angle = s.heroAim(), step = s.dashLength(length);
+    if (trail) for (let i = 0; i < 5; i++) s.field(source, { x: p.x + Math.cos(angle) * step * i / 4, y: p.y + Math.sin(angle) * step * i / 4 }, 48, p.atk * .22, this.view.rank === 2 ? 4 : 2.5);
+    p.x += Math.cos(angle) * step; p.y += Math.sin(angle) * step; clampPoint(p, s.world, 18);
     p.inv = Math.max(p.inv, .25);
   }
   action(action: Exclude<Action, 'dodge'>): boolean {
@@ -132,9 +132,9 @@ export class EvolutionCombat {
   private summon(id: string, count: number, life: number, guard: boolean, dmg: number) {
     for (let i = 0; i < count; i++) {
       const angle = i * Math.PI * 2 / count;
-      this.summons.push({ id, x: this.sim.player.x + Math.cos(angle) * 68, y: this.sim.player.y + Math.sin(angle) * 68, life, angle, tick: .12 * i, guard, dmg, color: id.startsWith('H010') ? '#f5ad86' : '#86d6d9' });
+      this.summons.push({ id, x: this.sim.player.x + Math.cos(angle) * 68, y: this.sim.player.y + Math.sin(angle) * 68, life, angle, tick: .12 * i, guard, dmg, color: id.startsWith('H010') ? '#f5ad86' : '#86d6d9', manual: this.sim.manualCast });
     }
-    cap(this.summons, 8);
+    cap(this.summons, 10);
   }
   private frost(id: string, point: Point, radius: number, damage: number, duration: number) {
     const s = this.sim;
@@ -209,10 +209,10 @@ export class EvolutionCombat {
       if (unit.tick <= 0) {
         unit.tick = this.journey.bond('thunderlegion', s.state().skills) ? .6 : .8;
         if (this.journey.bond('winterlegion', s.state().skills)) this.frost('G2_FROST_CLONE', unit, 70, unit.dmg * .25, 1);
-        if (unit.guard) s.explosion(unit.id, unit, 125 * skillModifier(s.context, s.state(), unit.id).range, unit.dmg);
+        if (unit.guard) s.explosion(unit.id, unit, 125 * skillModifier(s.context, s.state(), unit.id).range, unit.dmg, unit.manual);
         else {
           const target = s.boss || s.nearest();
-          if (target) s.projectile(unit.id, unit, Math.atan2(target.y - unit.y, target.x - unit.x), 420, unit.dmg, 6, { pierce: 1, color: unit.color });
+          if (target) s.projectile(unit.id, unit, Math.atan2(target.y - unit.y, target.x - unit.x), 420, unit.dmg, 6, { pierce: 1, color: unit.color, manual: unit.manual });
         }
       }
     }

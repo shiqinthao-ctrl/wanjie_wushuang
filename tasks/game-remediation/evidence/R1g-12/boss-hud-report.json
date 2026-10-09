@@ -1,0 +1,637 @@
+{
+  "slice": "R1g-11",
+  "base": "R1g-10",
+  "harness": "src/core/bossThreat.test.ts",
+  "frameHz": 60,
+  "instrument": {
+    "browser": "the fixed instrument: options[0], one press per step, the f key, a 65px standoff, no warning term and no dodge button",
+    "dodge": "the same player, except it leaves any live telegraph it is inside. Reads geometry; never presses 闪避, so it is a lower bound",
+    "hud": "NEW. Reads `boss.next` (rendered as `aria-label=\"首领招式\"`) and presses 闪避. Never touches `telegraphs` - this is the twin of tests/settlement.spec.ts",
+    "browserCanDodge": false,
+    "hudCanDodge": true,
+    "note": "the 闪避 button ships at aria-label=\"闪避\" / Space: 0.35s i-frame, 4.5s cd, a ~51px dash. The fixed instrument never presses it, which is the instrument gap this slice closes.",
+    "viewport": [
+      390,
+      844
+    ],
+    "rules": "threat-v2"
+  },
+  "target": {
+    "skillFraction": 0.15,
+    "floor": 0.25,
+    "window": {
+      "min": 60,
+      "max": 90
+    }
+  },
+  "multiple": 14.31,
+  "shippedTable": {
+    "bossCastCooldown": 14.31,
+    "bossSkillDamage": 14.31,
+    "bossContactDamage": 0.8,
+    "bossHp": {
+      "classic": 19.95,
+      "evolution": 54.15
+    }
+  },
+  "before": {
+    "browser": {
+      "bossDamage": 0.6,
+      "policy": "browser",
+      "seeds": 33,
+      "runs": 66,
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "hpScale": 1,
+      "contactScale": 1,
+      "wins": 63,
+      "winRate": 0.9545,
+      "hpMinMedian": 0.458,
+      "ttkMedian": 65.1,
+      "losses": {
+        "timeout": 1,
+        "defeat": 2
+      },
+      "castsMedian": 30,
+      "hudCuesMedian": 0,
+      "landedPerRunMedian": 24,
+      "avoidRate": 0.1939,
+      "crossedPhaseHits": 96,
+      "travelEscapedMedian": 121.8,
+      "travelLandedMedian": 0,
+      "lostToBossMedian": 432,
+      "lostToHordeMedian": 690,
+      "bossShareMedian": 0.3899,
+      "contactShareOfBossMedian": 0.4199,
+      "moveLostMedian": 250.5804545454547,
+      "contactLostMedian": 186.5454545454549,
+      "topSources": [
+        [
+          "hostile-projectile",
+          66
+        ]
+      ],
+      "fractionMedian": 0.0141,
+      "perShape": [
+        {
+          "shape": "circle",
+          "hits": 422,
+          "fractionMedian": 0.0141
+        },
+        {
+          "shape": "line",
+          "hits": 557,
+          "fractionMedian": 0.0129
+        },
+        {
+          "shape": "cone",
+          "hits": 608,
+          "fractionMedian": 0.0137
+        },
+        {
+          "shape": "contact",
+          "hits": 1744,
+          "fractionMedian": 0.0091
+        }
+      ]
+    },
+    "dodge": {
+      "bossDamage": 0.6,
+      "policy": "dodge",
+      "seeds": 33,
+      "runs": 66,
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "hpScale": 1,
+      "contactScale": 1,
+      "wins": 57,
+      "winRate": 0.8636,
+      "hpMinMedian": 0.689,
+      "ttkMedian": 70.4,
+      "losses": {
+        "timeout": 9
+      },
+      "castsMedian": 34,
+      "hudCuesMedian": 0,
+      "landedPerRunMedian": 9,
+      "avoidRate": 0.7366,
+      "crossedPhaseHits": 14,
+      "travelEscapedMedian": 72.9,
+      "travelLandedMedian": 230.2,
+      "lostToBossMedian": 238,
+      "lostToHordeMedian": 710,
+      "bossShareMedian": 0.2478,
+      "contactShareOfBossMedian": 0.6044,
+      "moveLostMedian": 96.6313636363638,
+      "contactLostMedian": 139.09090909090895,
+      "topSources": [
+        [
+          "hostile-projectile",
+          63
+        ],
+        [
+          "unknown",
+          3
+        ]
+      ],
+      "fractionMedian": 0.0164,
+      "perShape": [
+        {
+          "shape": "circle",
+          "hits": 111,
+          "fractionMedian": 0.0168
+        },
+        {
+          "shape": "line",
+          "hits": 7,
+          "fractionMedian": 0.0154
+        },
+        {
+          "shape": "cone",
+          "hits": 443,
+          "fractionMedian": 0.0137
+        },
+        {
+          "shape": "contact",
+          "hits": 1334,
+          "fractionMedian": 0.0091
+        }
+      ]
+    },
+    "hud": {
+      "bossDamage": 0.6,
+      "policy": "hud",
+      "seeds": 33,
+      "runs": 66,
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "hpScale": 1,
+      "contactScale": 1,
+      "wins": 1,
+      "winRate": 0.0152,
+      "hpMinMedian": 0.81,
+      "ttkMedian": 87.2,
+      "losses": {
+        "timeout": 65
+      },
+      "castsMedian": 37,
+      "hudCuesMedian": 37,
+      "landedPerRunMedian": 0,
+      "avoidRate": 0.9877,
+      "crossedPhaseHits": 0,
+      "travelEscapedMedian": 319.1,
+      "travelLandedMedian": 124.7,
+      "lostToBossMedian": 41,
+      "lostToHordeMedian": 619,
+      "bossShareMedian": 0.0556,
+      "contactShareOfBossMedian": 1,
+      "moveLostMedian": 0,
+      "contactLostMedian": 36.81818181818187,
+      "topSources": [
+        [
+          "hostile-projectile",
+          66
+        ]
+      ],
+      "fractionMedian": 0.0137,
+      "perShape": [
+        {
+          "shape": "circle",
+          "hits": 0,
+          "fractionMedian": 0
+        },
+        {
+          "shape": "line",
+          "hits": 11,
+          "fractionMedian": 0.0129
+        },
+        {
+          "shape": "cone",
+          "hits": 19,
+          "fractionMedian": 0.0137
+        },
+        {
+          "shape": "contact",
+          "hits": 393,
+          "fractionMedian": 0.0075
+        }
+      ]
+    }
+  },
+  "after": {
+    "browser": {
+      "bossDamage": 0.6,
+      "policy": "browser",
+      "seeds": 33,
+      "runs": 66,
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "hpScale": 1,
+      "contactScale": 0.8,
+      "wins": 47,
+      "winRate": 0.7121,
+      "hpMinMedian": 0.202,
+      "ttkMedian": 62.9,
+      "losses": {
+        "defeat": 18,
+        "timeout": 1
+      },
+      "castsMedian": 2,
+      "hudCuesMedian": 0,
+      "landedPerRunMedian": 1,
+      "avoidRate": 0.386,
+      "crossedPhaseHits": 6,
+      "travelEscapedMedian": 121.8,
+      "travelLandedMedian": 0,
+      "lostToBossMedian": 319,
+      "lostToHordeMedian": 996,
+      "bossShareMedian": 0.2525,
+      "contactShareOfBossMedian": 0.5103,
+      "moveLostMedian": 149.98180909090914,
+      "contactLostMedian": 162.3272727272738,
+      "topSources": [
+        [
+          "hostile-projectile",
+          66
+        ]
+      ],
+      "fractionMedian": 0.1966,
+      "perShape": [
+        {
+          "shape": "circle",
+          "hits": 2,
+          "fractionMedian": 0.2014
+        },
+        {
+          "shape": "line",
+          "hits": 27,
+          "fractionMedian": 0.2206
+        },
+        {
+          "shape": "cone",
+          "hits": 41,
+          "fractionMedian": 0.1966
+        },
+        {
+          "shape": "contact",
+          "hits": 1858,
+          "fractionMedian": 0.0073
+        }
+      ]
+    },
+    "dodge": {
+      "bossDamage": 0.6,
+      "policy": "dodge",
+      "seeds": 33,
+      "runs": 66,
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "hpScale": 1,
+      "contactScale": 0.8,
+      "wins": 57,
+      "winRate": 0.8636,
+      "hpMinMedian": 0.444,
+      "ttkMedian": 62.8,
+      "losses": {
+        "defeat": 8,
+        "timeout": 1
+      },
+      "castsMedian": 2,
+      "hudCuesMedian": 0,
+      "landedPerRunMedian": 0,
+      "avoidRate": 1,
+      "crossedPhaseHits": 0,
+      "travelEscapedMedian": 51.9,
+      "travelLandedMedian": 0,
+      "lostToBossMedian": 162,
+      "lostToHordeMedian": 969,
+      "bossShareMedian": 0.1474,
+      "contactShareOfBossMedian": 1,
+      "moveLostMedian": 0,
+      "contactLostMedian": 162.32727272727334,
+      "topSources": [
+        [
+          "hostile-projectile",
+          66
+        ]
+      ],
+      "fractionMedian": 0,
+      "perShape": [
+        {
+          "shape": "circle",
+          "hits": 0,
+          "fractionMedian": 0
+        },
+        {
+          "shape": "line",
+          "hits": 0,
+          "fractionMedian": 0
+        },
+        {
+          "shape": "cone",
+          "hits": 0,
+          "fractionMedian": 0
+        },
+        {
+          "shape": "contact",
+          "hits": 1879,
+          "fractionMedian": 0.0073
+        }
+      ]
+    },
+    "hud": {
+      "bossDamage": 0.6,
+      "policy": "hud",
+      "seeds": 33,
+      "runs": 66,
+      "castCdMultiplier": 1,
+      "skillScale": 1,
+      "hpScale": 1,
+      "contactScale": 0.8,
+      "wins": 58,
+      "winRate": 0.8788,
+      "hpMinMedian": 0.449,
+      "ttkMedian": 62.6,
+      "losses": {
+        "defeat": 8
+      },
+      "castsMedian": 2,
+      "hudCuesMedian": 2,
+      "landedPerRunMedian": 0,
+      "avoidRate": 0.95,
+      "crossedPhaseHits": 4,
+      "travelEscapedMedian": 148.5,
+      "travelLandedMedian": 29,
+      "lostToBossMedian": 151,
+      "lostToHordeMedian": 956,
+      "bossShareMedian": 0.1462,
+      "contactShareOfBossMedian": 1,
+      "moveLostMedian": 0,
+      "contactLostMedian": 150.21818181818196,
+      "topSources": [
+        [
+          "hostile-projectile",
+          66
+        ]
+      ],
+      "fractionMedian": 0.2206,
+      "perShape": [
+        {
+          "shape": "circle",
+          "hits": 0,
+          "fractionMedian": 0
+        },
+        {
+          "shape": "line",
+          "hits": 5,
+          "fractionMedian": 0.2206
+        },
+        {
+          "shape": "cone",
+          "hits": 0,
+          "fractionMedian": 0
+        },
+        {
+          "shape": "contact",
+          "hits": 1820,
+          "fractionMedian": 0.0073
+        }
+      ]
+    }
+  },
+  "contactSweep": [
+    {
+      "bossContactDamage": 1,
+      "seeds": 33,
+      "hud": {
+        "bossDamage": 0.6,
+        "policy": "hud",
+        "seeds": 33,
+        "runs": 66,
+        "castCdMultiplier": 1,
+        "skillScale": 1,
+        "hpScale": 1,
+        "contactScale": 1,
+        "wins": 56,
+        "winRate": 0.8485,
+        "hpMinMedian": 0.414,
+        "ttkMedian": 62.8,
+        "losses": {
+          "defeat": 10
+        },
+        "castsMedian": 2,
+        "hudCuesMedian": 2,
+        "landedPerRunMedian": 0,
+        "avoidRate": 0.958,
+        "crossedPhaseHits": 4,
+        "travelEscapedMedian": 148.5,
+        "travelLandedMedian": 42.3,
+        "lostToBossMedian": 189,
+        "lostToHordeMedian": 962,
+        "bossShareMedian": 0.1801,
+        "contactShareOfBossMedian": 1,
+        "moveLostMedian": 0,
+        "contactLostMedian": 187.7727272727277,
+        "topSources": [
+          [
+            "hostile-projectile",
+            66
+          ]
+        ],
+        "fractionMedian": 0.2206,
+        "perShape": [
+          {
+            "shape": "circle",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "line",
+            "hits": 4,
+            "fractionMedian": 0.2206
+          },
+          {
+            "shape": "cone",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "contact",
+            "hits": 1790,
+            "fractionMedian": 0.0091
+          }
+        ]
+      }
+    },
+    {
+      "bossContactDamage": 0.9,
+      "seeds": 33,
+      "hud": {
+        "bossDamage": 0.6,
+        "policy": "hud",
+        "seeds": 33,
+        "runs": 66,
+        "castCdMultiplier": 1,
+        "skillScale": 1,
+        "hpScale": 1,
+        "contactScale": 0.9,
+        "wins": 57,
+        "winRate": 0.8636,
+        "hpMinMedian": 0.438,
+        "ttkMedian": 62.6,
+        "losses": {
+          "defeat": 8,
+          "timeout": 1
+        },
+        "castsMedian": 2,
+        "hudCuesMedian": 2,
+        "landedPerRunMedian": 0,
+        "avoidRate": 0.9417,
+        "crossedPhaseHits": 6,
+        "travelEscapedMedian": 148.5,
+        "travelLandedMedian": 34.6,
+        "lostToBossMedian": 170,
+        "lostToHordeMedian": 979,
+        "bossShareMedian": 0.1614,
+        "contactShareOfBossMedian": 1,
+        "moveLostMedian": 0,
+        "contactLostMedian": 168.99545454545432,
+        "topSources": [
+          [
+            "hostile-projectile",
+            66
+          ]
+        ],
+        "fractionMedian": 0.2206,
+        "perShape": [
+          {
+            "shape": "circle",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "line",
+            "hits": 5,
+            "fractionMedian": 0.2206
+          },
+          {
+            "shape": "cone",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "contact",
+            "hits": 1798,
+            "fractionMedian": 0.0082
+          }
+        ]
+      }
+    },
+    {
+      "bossContactDamage": 0.8,
+      "seeds": 33,
+      "hud": {
+        "bossDamage": 0.6,
+        "policy": "hud",
+        "seeds": 33,
+        "runs": 66,
+        "castCdMultiplier": 1,
+        "skillScale": 1,
+        "hpScale": 1,
+        "contactScale": 0.8,
+        "wins": 58,
+        "winRate": 0.8788,
+        "hpMinMedian": 0.449,
+        "ttkMedian": 62.6,
+        "losses": {
+          "defeat": 8
+        },
+        "castsMedian": 2,
+        "hudCuesMedian": 2,
+        "landedPerRunMedian": 0,
+        "avoidRate": 0.95,
+        "crossedPhaseHits": 4,
+        "travelEscapedMedian": 148.5,
+        "travelLandedMedian": 29,
+        "lostToBossMedian": 151,
+        "lostToHordeMedian": 956,
+        "bossShareMedian": 0.1462,
+        "contactShareOfBossMedian": 1,
+        "moveLostMedian": 0,
+        "contactLostMedian": 150.21818181818196,
+        "topSources": [
+          [
+            "hostile-projectile",
+            66
+          ]
+        ],
+        "fractionMedian": 0.2206,
+        "perShape": [
+          {
+            "shape": "circle",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "line",
+            "hits": 5,
+            "fractionMedian": 0.2206
+          },
+          {
+            "shape": "cone",
+            "hits": 0,
+            "fractionMedian": 0
+          },
+          {
+            "shape": "contact",
+            "hits": 1820,
+            "fractionMedian": 0.0073
+          }
+        ]
+      }
+    }
+  ],
+  "breaks": {
+    "browser": [
+      "G2 floor"
+    ],
+    "dodge": [],
+    "hud": []
+  },
+  "conclusion": {
+    "beforeHud": {
+      "winRate": 0.0152,
+      "losses": {
+        "timeout": 65
+      },
+      "hpMin": 0.81,
+      "bossDamage": 41
+    },
+    "afterHud": {
+      "hpMin": 0.449,
+      "ttk": 62.6,
+      "winRate": 0.8788
+    },
+    "contactClearsG2": [
+      {
+        "bossContactDamage": 1,
+        "hpMin": 0.414,
+        "ttk": 62.8,
+        "winRate": 0.8485
+      },
+      {
+        "bossContactDamage": 0.9,
+        "hpMin": 0.438,
+        "ttk": 62.6,
+        "winRate": 0.8636
+      },
+      {
+        "bossContactDamage": 0.8,
+        "hpMin": 0.449,
+        "ttk": 62.6,
+        "winRate": 0.8788
+      }
+    ]
+  },
+  "totalRuns": 616
+}

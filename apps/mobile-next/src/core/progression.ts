@@ -87,6 +87,21 @@ export class Progression {
     // Preserve the legacy comparator and its RNG consumption during rule migration.
     return options.sort(() => this.random() - .5);
   }
+  /**
+   * R1g-7 / GDD P2-2: the skill the manual button owns ("主术式"). Deterministic on purpose -
+   * the highest-level owned active skill, with the run's own `build.active` table order
+   * breaking ties, so the same save and the same picks always designate the same skill and no
+   * UI is needed yet. Returns `undefined` before the run owns any active skill, which is what
+   * keeps the pre-R1g-7 button behaviour available.
+   */
+  manualSkill(): string | undefined {
+    let best: string | undefined, bestLevel = 0;
+    for (const id of this.build.active) {
+      const level = this.skills[id] || 0;
+      if (level > bestLevel) { best = id; bestLevel = level; }
+    }
+    return best;
+  }
   gain(value: number): void { if (Number.isFinite(value) && value > 0) this.xp += value; }
   upgradeOwned(): LevelOption | undefined {
     const option = this.validOptions().find(item => ((item.kind === 'active' ? this.skills : this.passives)[item.id] || 0) > 0);

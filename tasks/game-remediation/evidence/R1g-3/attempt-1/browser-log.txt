@@ -1,0 +1,159 @@
+
+Running 12 tests using 1 worker
+
+  ok  1 [desktop] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay (6.1m)
+  ok  2 [desktop] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay (1.3m)
+  x   3 [desktop] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay (42.0s)
+  ok  4 [desktop] › tests\settlement.spec.ts:213:1 › supplemental imported low-growth save: natural-input HP defeat, reload and replay (34.4s)
+  x   5 [phone] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay (3.9m)
+  ok  6 [phone] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay (1.8m)
+  x   7 [phone] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay (43.3s)
+  ok  8 [phone] › tests\settlement.spec.ts:213:1 › supplemental imported low-growth save: natural-input HP defeat, reload and replay (36.3s)
+  x   9 [narrow] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay (6.3m)
+  ok 10 [narrow] › tests\settlement.spec.ts:210:1 › natural corner-contact defeat, zero stars, save reload and replay (1.3m)
+  x  11 [narrow] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay (41.8s)
+  ok 12 [narrow] › tests\settlement.spec.ts:213:1 › supplemental imported low-growth save: natural-input HP defeat, reload and replay (37.1s)
+
+
+  1) [desktop] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "首战时限已到"
+    Received: "本局生命耗尽"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:211:127
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop\attachments\natural-settlement-input-5c20cd1f17a3bdd7c2af1bace76e88fe23d099bb.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-desktop\error-context.md
+
+  2) [phone] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "黄巾巨将已击败"
+    Received: "本局生命耗尽"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:209:124
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\attachments\natural-settlement-input-e6de8cf977ed1de2eb83f8bc1f710147fa4d188a.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\error-context.md
+
+  3) [phone] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "首战时限已到"
+    Received: "本局生命耗尽"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:211:127
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone\attachments\natural-settlement-input-a47834371a4fafe5d9ba9038a484476ca7f354e2.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-phone\error-context.md
+
+  4) [narrow] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "黄巾巨将已击败"
+    Received: "首战时限已到"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:209:124
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\attachments\natural-settlement-input-c4294f3cd9d3c602f4ce3bc69d1c3c011c4a084a.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\error-context.md
+
+  5) [narrow] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "首战时限已到"
+    Received: "本局生命耗尽"
+
+      199 |     expect(errors).toEqual([]);
+      200 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 201 |     expect(actualTitle).toBe(title);
+          |                         ^
+      202 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      203 |   } finally {
+      204 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:201:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:211:127
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-narrow\attachments\natural-settlement-input-e9cab84534aa42dfc86c4fa0a75005a00365eef9.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-narrow\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3-out\settlement-natural-first-s-90eb1-tars-save-reload-and-replay-narrow\error-context.md
+
+  5 failed
+    [desktop] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay 
+    [phone] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay 
+    [phone] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay 
+    [narrow] › tests\settlement.spec.ts:209:1 › natural complete first-stage victory, save reload and replay 
+    [narrow] › tests\settlement.spec.ts:211:1 › natural first-stage timeout, zero stars, save reload and replay 
+  7 passed (25.0m)

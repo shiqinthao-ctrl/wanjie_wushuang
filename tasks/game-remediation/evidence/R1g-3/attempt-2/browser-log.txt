@@ -1,0 +1,97 @@
+
+Running 3 tests using 1 worker
+
+  x  1 [desktop] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay (6.3m)
+  x  2 [phone] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay (6.1m)
+  x  3 [narrow] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay (6.4m)
+
+
+  1) [desktop] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "黄巾巨将已击败"
+    Received: "首战时限已到"
+
+      205 |     expect(errors).toEqual([]);
+      206 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 207 |     expect(actualTitle).toBe(title);
+          |                         ^
+      208 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      209 |   } finally {
+      210 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:207:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:215:124
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop\attachments\natural-settlement-input-446be3936ea56b2120346e5206f775daae239ac3.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-desktop\error-context.md
+
+  2) [phone] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "黄巾巨将已击败"
+    Received: "本局生命耗尽"
+
+      205 |     expect(errors).toEqual([]);
+      206 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 207 |     expect(actualTitle).toBe(title);
+          |                         ^
+      208 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      209 |   } finally {
+      210 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:207:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:215:124
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\attachments\natural-settlement-input-d12da23995c9ee86abf8637694dff50393ebe36f.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-phone\error-context.md
+
+  3) [narrow] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "黄巾巨将已击败"
+    Received: "首战时限已到"
+
+      205 |     expect(errors).toEqual([]);
+      206 |     // Preserve the requested outcome gate, after collecting the actual saved result.
+    > 207 |     expect(actualTitle).toBe(title);
+          |                         ^
+      208 |     expect(stars).toMatch(win ? /★{2,3}/ : /^☆☆☆$/);
+      209 |   } finally {
+      210 |     const path = info.outputPath('natural-settlement-input.json');
+        at finishNaturally (E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:207:25)
+        at E:\wanjie_wushuang\apps\mobile-next\tests\settlement.spec.ts:215:124
+
+    attachment #1: natural-settlement-input (application/json) ─────────────────────────────────────
+    .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\attachments\natural-settlement-input-2341a37464e471a20bf01b3e63c92f65698b8601.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .pw-r1g3b-out\settlement-natural-complet-f336b-tory-save-reload-and-replay-narrow\error-context.md
+
+  Slow test file: [narrow] › tests\settlement.spec.ts (6.4m)
+  Slow test file: [desktop] › tests\settlement.spec.ts (6.3m)
+  Slow test file: [phone] › tests\settlement.spec.ts (6.1m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  3 failed
+    [desktop] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay 
+    [phone] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay 
+    [narrow] › tests\settlement.spec.ts:215:1 › natural complete first-stage victory, save reload and replay 

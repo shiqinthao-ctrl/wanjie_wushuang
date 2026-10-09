@@ -82,6 +82,22 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
   const touch = info.project.name === 'desktop' ? undefined : await page.context().newCDPSession(page);
   let lootSeen = false, eventCost = 0;
   let lastDirection = { x: 1, y: -1 }, missingBoss = 0, trackedFrames = 0;
+  // R1g-4: input is held across steps. Each step spends 150-400ms on DOM round-trips
+  // (time, HP, four dialogs, the reward button) before it ever reaches the input
+  // block, and the old code released the direction after `duration`. The bot was
+  // therefore moving for 180ms out of a 403-910ms step - a 45%/20% duty cycle
+  // against the rules harness's 100% - which cost it ~17% of its Boss DPS and is
+  // why :209 read as a coin flip. A player does not stop moving to glance at the HUD.
+  let heldKeys: string[] = [], touchHeld = false, lastMoved: { id: number; x: number; y: number } | null = null;
+  // R1g-11 Scope 0, and the instrument gap this bot carried since R1g-4. The shipped HUD names the
+  // Boss's next move - `aria-label="首领招式"` renders e.g. "震地斩 · 离开红圈" / "蛮王冲锋 · 横向闪避" /
+  // "旋风断军 · 绕至侧后" - and the 闪避 button ships at `aria-label="闪避"` (Space on desktop, 0.35s
+  // i-frame, 4.5s cd, a ~51px dash). This bot pressed neither and had no warning term at all, so it
+  // left a telegraph only by walking out of one, and every damage number read on it was read on a
+  // player who was not dodging. `bossThreat.test.ts`'s `hud` arm is the rules-level twin of the rule
+  // below; keep the two in step, and remember consecutive casts never repeat a cue suffix.
+  const BOSS_CUES = ['离开红圈', '横向闪避', '绕至侧后'] as const;
+  let lastCue = '', reactUntil = 0;
   try {
     // Pixel-guided movement uses shorter input intervals. A step count truncated
     // these runs before the six-minute objective; bound real wall time instead.
@@ -111,6 +127,24 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
       const reward = page.getByRole('button', { name: /宝箱 领取$/ }).first();
       if (win && await reward.isVisible() && await reward.isEnabled()) { await reward.click({ timeout: 1500 }); continue; }
       const bossPresent = await page.getByLabel('首领状态').isVisible();
+      // Read the move name off the HUD before deciding where to walk. `?? ''` and the catch keep
+      // this a no-op if the readout is ever absent, so the failure mode is the old bot, not a crash.
+      if (win && bossPresent) {
+        const cue = await page.getByLabel('首领招式').textContent({ timeout: 500 }).catch(() => null) ?? '';
+        if (cue !== lastCue) {
+          lastCue = cue;
+          if (BOSS_CUES.some(hint => cue.includes(hint))) {
+            // The shape the instruction names stays on the ground for ~1.2-1.4s. A player watches
+            // the shape, not a clock, so the reaction is a fixed window.
+            reactUntil = Date.now() + 1500;
+            if (touch) {
+              const dodge = page.getByRole('button', { name: '闪避', exact: true });
+              if (await dodge.isEnabled({ timeout: 200 }).catch(() => false)) await dodge.click({ timeout: 500 }).catch(() => {});
+            } else await page.keyboard.press('Space');
+          }
+        }
+      }
+      const reacting = win && bossPresent && Date.now() < reactUntil;
       let direction = win ? { x: [1, 0, -1, 0][step % 4]!, y: [0, 1, 0, -1][step % 4]! } : outcome === 'timeout' ? { x: 0, y: 0 } : { x: -1, y: -1 };
       let duration = 1000;
       if (insetContact && !bossPresent) {
@@ -121,13 +155,34 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
         const actors = await visibleActors(page);
         duration = 180;
         if (actors.hero && actors.boss) {
-          const dx = actors.boss.x - actors.hero.x, dy = actors.boss.y - actors.hero.y, distance = Math.hypot(dx, dy);
+          const dx = actors.boss.x - actors.hero.x, dy = actors.boss.y - actors.hero.y, distance = Math.hypot(dx, dy) || 1;
           const stopDistance = contactBoss ? 15 : 65;
-          direction = distance < stopDistance ? { x: 0, y: 0 } : { x: dx / distance, y: dy / distance };
-          if (distance >= stopDistance) lastDirection = direction;
+          if (reacting) {
+            // `离开红圈` is centred on the player at cast time, so every bearing leaves it - the Boss
+            // bearing is the one that also breaks body contact. The charge and the sweep are both
+            // centred on the Boss->player ray, so their exit is perpendicular to it; either sign,
+            // because both shapes are symmetric about that ray and the player is standing on it.
+            const ux = dx / distance, uy = dy / distance;
+            direction = lastCue.includes('离开红圈') ? { x: -ux, y: -uy } : { x: -uy, y: ux };
+          } else {
+            direction = distance < stopDistance ? { x: 0, y: 0 } : { x: dx / distance, y: dy / distance };
+          }
+          if (!reacting && distance >= stopDistance) lastDirection = direction;
           trackedFrames++; missingBoss = 0;
         } else {
-          // A charge can leave the viewport on the opposite side of the hero.
+          // R1g-4 step 1b: the Boss really does leave the viewport, so this branch is the
+          // right *detection*. Its charge is a 776px dash (`FirstBoss` L100) launched from
+          // ~65px away, and every tested viewport's half-diagonal is smaller - 734px on
+          // desktop, 452px on narrow - so the Boss is off-screen after most charges. A
+          // diagnostic run lost 72 of 202 boss-phase steps (36%) this way with
+          // `heroMiss = 0`: the colour constants are not at fault (a sprite-fidelity check
+          // locates the Boss at 608px against a threshold of 6, centroid error <=2.7px).
+          // Reversing is a deliberate *commitment* - it holds one bearing for 8 steps, and
+          // travel time is what closes a 776px gap. Replacing it with a per-step bearing
+          // sweep was measured and is worse (118 vs 130 tracked frames, 1,010 vs 1,191
+          // Boss DPS, 73% vs 93% cleared), because a sweep changes bearing every step and
+          // orbits in place. Do not re-tune this without a direction cue to aim at; the
+          // real fix is a game-side off-screen indicator, which the HUD does not have.
           missingBoss++;
           direction = { x: -lastDirection.x, y: -lastDirection.y };
           if (missingBoss > 8) direction = lastDirection;
@@ -139,24 +194,39 @@ async function finishNaturally(page: Page, info: TestInfo, outcome: 'victory' | 
         const box = await page.getByLabel('拖动摇杆移动').boundingBox({ timeout: 500 }).catch(() => null); if (!box) continue;
         const origin = { id: 1, x: box.x + box.width / 2, y: box.y + box.height / 2 };
         const moved = { ...origin, x: origin.x + direction.x * 35, y: origin.y + direction.y * 35 };
-        await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [origin] });
-        await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [moved] });
+        // The stick used to be released at the end of every step (`touchEnd` with an
+        // empty list), so the bot stood still through its own bookkeeping. Hold it and
+        // only re-send the move when the direction actually changes.
+        if (!touchHeld) { await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [origin] }); touchHeld = true; lastMoved = null; }
+        if (!lastMoved || lastMoved.x !== moved.x || lastMoved.y !== moved.y) {
+          await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [moved] });
+          lastMoved = { ...moved };
+        }
         for (const name of win ? ['炎龙斩', '赤龙降世', '地图互动'] : []) {
           const button = page.getByRole('button', { name, exact: true });
           if (!await button.isEnabled({ timeout: 200 }).catch(() => false)) continue;
           const action = await button.boundingBox({ timeout: 500 }).catch(() => null); if (!action) continue;
           await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [moved, { id: 2, x: action.x + action.width / 2, y: action.y + action.height / 2 }] });
           await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [moved] });
+          // That `touchEnd` drops the stick as well, so put it straight back.
+          await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [moved] });
         }
-        await page.waitForTimeout(duration); await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+        await page.waitForTimeout(duration);
       } else {
         const keys = [direction.x > .25 ? 'd' : direction.x < -.25 ? 'a' : '', direction.y > .25 ? 's' : direction.y < -.25 ? 'w' : ''].filter(Boolean);
-        for (const key of keys) await page.keyboard.down(key);
+        if (keys.join() !== heldKeys.join()) {
+          for (const key of heldKeys) await page.keyboard.up(key);
+          for (const key of keys) await page.keyboard.down(key);
+          heldKeys = keys;
+        }
         if (win) { await page.keyboard.press('e'); await page.keyboard.press('r'); await page.keyboard.press('f'); }
-        await page.waitForTimeout(duration); for (const key of keys) await page.keyboard.up(key);
+        await page.waitForTimeout(duration);
       }
       timeline.push({ seconds: (Date.now() - started) / 1000, time, hp, boss: await page.getByLabel('首领生命').getAttribute('value', { timeout: 100 }).catch(() => null), direction });
     }
+    // The loop exits with input still held; release it before touching the result UI.
+    for (const key of heldKeys) await page.keyboard.up(key); heldKeys = [];
+    if (touch && touchHeld) { await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] }); touchHeld = false; }
     const title = win ? '黄巾巨将已击败' : outcome === 'timeout' ? '首战时限已到' : '本局生命耗尽';
     await expect(result).toBeVisible();
     const actualTitle = await result.getByRole('heading', { level: 2 }).textContent();

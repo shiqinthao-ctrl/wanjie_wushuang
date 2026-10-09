@@ -1,0 +1,750 @@
+{
+  "slice": "R1g-7",
+  "base": "R1g-6",
+  "harness": "src/core/manualDamage.test.ts",
+  "frameHz": 60,
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "sensitivitySeeds": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    11,
+    13,
+    15,
+    21,
+    25,
+    33
+  ],
+  "target": {
+    "manualShare": 0.35,
+    "manualStrongSkills": 3,
+    "turningPoints": 6,
+    "floor": 0.25
+  },
+  "partition": {
+    "buckets": [
+      "manualSkill",
+      "manualUltimate",
+      "manualMap",
+      "manualDodge",
+      "autoSkill",
+      "summon",
+      "basic",
+      "pet",
+      "fusion"
+    ],
+    "manual": [
+      "manualSkill",
+      "manualUltimate",
+      "manualMap",
+      "manualDodge"
+    ],
+    "manualCore": [
+      "manualSkill",
+      "manualUltimate"
+    ]
+  },
+  "headline": {
+    "manualShare": 0.3775,
+    "manualShareDistinct": 0.3668,
+    "manualCoreShare": 0.375,
+    "autoSkillShare": 0.4616,
+    "basicShare": 0.1157,
+    "summonShare": 0.0351,
+    "petShare": 0.0098,
+    "fusionShare": 0.0002,
+    "totalDamage": 88730930,
+    "runs": 165
+  },
+  "cells": [
+    {
+      "journey": "classic",
+      "driver": "first",
+      "runs": 33,
+      "totalDamage": 11644256,
+      "endReasons": {
+        "victory": 30,
+        "defeat": 3
+      },
+      "manualShare": 0.3314,
+      "manualCoreShare": 0.3282,
+      "manualShareMedian": 0.3215,
+      "byBucket": {
+        "manualSkill": 0.278,
+        "manualUltimate": 0.0502,
+        "manualMap": 0.0032,
+        "manualDodge": 0,
+        "autoSkill": 0.5385,
+        "summon": 0,
+        "basic": 0.1137,
+        "pet": 0.0164,
+        "fusion": 0
+      },
+      "skillPressesMedian": 53,
+      "ultPressesMedian": 8,
+      "maxActiveLevelMedian": 5,
+      "turningPointsMedian": 0,
+      "evolvedMedian": 0,
+      "runsWithTurningPoints": 1,
+      "turningPointsMax": 1,
+      "fusedRuns": 0,
+      "chestsOpenedMedian": 3,
+      "mapUsedMedian": 1,
+      "mapUsedRuns": 21,
+      "ttkMedian": 67.8,
+      "minHpRatioMedian": 0.455,
+      "wins": 30
+    },
+    {
+      "journey": "evolution",
+      "driver": "first",
+      "runs": 33,
+      "totalDamage": 22880693,
+      "endReasons": {
+        "victory": 28,
+        "defeat": 5
+      },
+      "manualShare": 0.4085,
+      "manualCoreShare": 0.4063,
+      "manualShareMedian": 0.4061,
+      "byBucket": {
+        "manualSkill": 0.3706,
+        "manualUltimate": 0.0357,
+        "manualMap": 0.0013,
+        "manualDodge": 0.0009,
+        "autoSkill": 0.4362,
+        "summon": 0.0331,
+        "basic": 0.1143,
+        "pet": 0.0076,
+        "fusion": 0.0004
+      },
+      "skillPressesMedian": 52,
+      "ultPressesMedian": 8,
+      "maxActiveLevelMedian": 5,
+      "turningPointsMedian": 4,
+      "evolvedMedian": 2,
+      "runsWithTurningPoints": 33,
+      "turningPointsMax": 6,
+      "fusedRuns": 2,
+      "chestsOpenedMedian": 4,
+      "mapUsedMedian": 1,
+      "mapUsedRuns": 21,
+      "ttkMedian": 61.9,
+      "minHpRatioMedian": 0.364,
+      "wins": 28
+    },
+    {
+      "journey": "classic",
+      "driver": "unlock",
+      "runs": 33,
+      "totalDamage": 11375191,
+      "endReasons": {
+        "victory": 33
+      },
+      "manualShare": 0.3007,
+      "manualCoreShare": 0.2985,
+      "manualShareMedian": 0.2951,
+      "byBucket": {
+        "manualSkill": 0.2557,
+        "manualUltimate": 0.0428,
+        "manualMap": 0.0022,
+        "manualDodge": 0,
+        "autoSkill": 0.5792,
+        "summon": 0,
+        "basic": 0.1036,
+        "pet": 0.0166,
+        "fusion": 0
+      },
+      "skillPressesMedian": 53,
+      "ultPressesMedian": 8,
+      "maxActiveLevelMedian": 4,
+      "turningPointsMedian": 0,
+      "evolvedMedian": 0,
+      "runsWithTurningPoints": 0,
+      "turningPointsMax": 0,
+      "fusedRuns": 0,
+      "chestsOpenedMedian": 3,
+      "mapUsedMedian": 0,
+      "mapUsedRuns": 16,
+      "ttkMedian": 64.5,
+      "minHpRatioMedian": 0.552,
+      "wins": 33
+    },
+    {
+      "journey": "evolution",
+      "driver": "unlock",
+      "runs": 33,
+      "totalDamage": 19950097,
+      "endReasons": {
+        "timeout": 14,
+        "victory": 19
+      },
+      "manualShare": 0.3773,
+      "manualCoreShare": 0.374,
+      "manualShareMedian": 0.3752,
+      "byBucket": {
+        "manualSkill": 0.3577,
+        "manualUltimate": 0.0163,
+        "manualMap": 0.001,
+        "manualDodge": 0.0024,
+        "autoSkill": 0.4082,
+        "summon": 0.0801,
+        "basic": 0.1271,
+        "pet": 0.0073,
+        "fusion": 0
+      },
+      "skillPressesMedian": 56,
+      "ultPressesMedian": 8,
+      "maxActiveLevelMedian": 5,
+      "turningPointsMedian": 3,
+      "evolvedMedian": 1,
+      "runsWithTurningPoints": 33,
+      "turningPointsMax": 4,
+      "fusedRuns": 0,
+      "chestsOpenedMedian": 4,
+      "mapUsedMedian": 1,
+      "mapUsedRuns": 22,
+      "ttkMedian": 68.4,
+      "minHpRatioMedian": 0.707,
+      "wins": 19
+    },
+    {
+      "journey": "evolution",
+      "driver": "focus",
+      "runs": 33,
+      "totalDamage": 22880693,
+      "endReasons": {
+        "victory": 28,
+        "defeat": 5
+      },
+      "manualShare": 0.4085,
+      "manualCoreShare": 0.4063,
+      "manualShareMedian": 0.4061,
+      "byBucket": {
+        "manualSkill": 0.3706,
+        "manualUltimate": 0.0357,
+        "manualMap": 0.0013,
+        "manualDodge": 0.0009,
+        "autoSkill": 0.4362,
+        "summon": 0.0331,
+        "basic": 0.1143,
+        "pet": 0.0076,
+        "fusion": 0.0004
+      },
+      "skillPressesMedian": 52,
+      "ultPressesMedian": 8,
+      "maxActiveLevelMedian": 5,
+      "turningPointsMedian": 4,
+      "evolvedMedian": 2,
+      "runsWithTurningPoints": 33,
+      "turningPointsMax": 6,
+      "fusedRuns": 2,
+      "chestsOpenedMedian": 4,
+      "mapUsedMedian": 1,
+      "mapUsedRuns": 21,
+      "ttkMedian": 61.9,
+      "minHpRatioMedian": 0.364,
+      "wins": 28
+    }
+  ],
+  "damageRanking": [
+    {
+      "source": "A011",
+      "bucket": "autoSkill",
+      "value": 19764878,
+      "share": 0.2228
+    },
+    {
+      "source": "A003_E",
+      "bucket": "manualSkill",
+      "value": 13447659,
+      "share": 0.1516
+    },
+    {
+      "source": "H001_E",
+      "bucket": "manualSkill",
+      "value": 9073600,
+      "share": 0.1023
+    },
+    {
+      "source": "H001_BASIC",
+      "bucket": "basic",
+      "value": 7336095,
+      "share": 0.0827
+    },
+    {
+      "source": "A003",
+      "bucket": "autoSkill",
+      "value": 7169152,
+      "share": 0.0808
+    },
+    {
+      "source": "S001",
+      "bucket": "summon",
+      "value": 3069424,
+      "share": 0.0346
+    },
+    {
+      "source": "H001_R",
+      "bucket": "manualUltimate",
+      "value": 3030490,
+      "share": 0.0342
+    },
+    {
+      "source": "A054",
+      "bucket": "autoSkill",
+      "value": 2945334,
+      "share": 0.0332
+    },
+    {
+      "source": "H001_SLASH",
+      "bucket": "basic",
+      "value": 2934319,
+      "share": 0.0331
+    },
+    {
+      "source": "A011_E",
+      "bucket": "manualSkill",
+      "value": 2732981,
+      "share": 0.0308
+    },
+    {
+      "source": "A027",
+      "bucket": "autoSkill",
+      "value": 2412563,
+      "share": 0.0272
+    },
+    {
+      "source": "A015",
+      "bucket": "autoSkill",
+      "value": 2013469,
+      "share": 0.0227
+    },
+    {
+      "source": "A026",
+      "bucket": "autoSkill",
+      "value": 2005236,
+      "share": 0.0226
+    },
+    {
+      "source": "A021",
+      "bucket": "autoSkill",
+      "value": 1903514,
+      "share": 0.0215
+    },
+    {
+      "source": "S001_E",
+      "bucket": "manualSkill",
+      "value": 1744962,
+      "share": 0.0197
+    },
+    {
+      "source": "H010_BOMB",
+      "bucket": "manualSkill",
+      "value": 1385858,
+      "share": 0.0156
+    },
+    {
+      "source": "A013",
+      "bucket": "autoSkill",
+      "value": 1338206,
+      "share": 0.0151
+    },
+    {
+      "source": "A027_E",
+      "bucket": "manualSkill",
+      "value": 895776,
+      "share": 0.0101
+    },
+    {
+      "source": "PET001",
+      "bucket": "pet",
+      "value": 871279,
+      "share": 0.0098
+    },
+    {
+      "source": "G4_SHADOW_BOND",
+      "bucket": "autoSkill",
+      "value": 817589,
+      "share": 0.0092
+    },
+    {
+      "source": "H010_WILDFIRE",
+      "bucket": "autoSkill",
+      "value": 399091,
+      "share": 0.0045
+    },
+    {
+      "source": "A015_E",
+      "bucket": "manualSkill",
+      "value": 278592,
+      "share": 0.0031
+    },
+    {
+      "source": "A054_E",
+      "bucket": "manualSkill",
+      "value": 257356,
+      "share": 0.0029
+    },
+    {
+      "source": "A026_E",
+      "bucket": "manualSkill",
+      "value": 244744,
+      "share": 0.0028
+    },
+    {
+      "source": "G2_FROST",
+      "bucket": "autoSkill",
+      "value": 192560,
+      "share": 0.0022
+    },
+    {
+      "source": "MAP_MECHANISM",
+      "bucket": "manualMap",
+      "value": 127980,
+      "share": 0.0014
+    },
+    {
+      "source": "A013_E",
+      "bucket": "manualSkill",
+      "value": 126146,
+      "share": 0.0014
+    },
+    {
+      "source": "H010_BOND",
+      "bucket": "manualDodge",
+      "value": 90457,
+      "share": 0.001
+    },
+    {
+      "source": "G2_FROST_E",
+      "bucket": "manualSkill",
+      "value": 52713,
+      "share": 0.0006
+    },
+    {
+      "source": "G2_FROST_CLONE",
+      "bucket": "summon",
+      "value": 41085,
+      "share": 0.0005
+    },
+    {
+      "source": "F004",
+      "bucket": "fusion",
+      "value": 16902,
+      "share": 0.0002
+    },
+    {
+      "source": "MAP_BARREL",
+      "bucket": "manualMap",
+      "value": 10920,
+      "share": 0.0001
+    }
+  ],
+  "fidelity": {
+    "note": "press policy and the map-interaction key, one evolution/first cell, 11 seeds",
+    "browser": {
+      "manualShare": 0.4058,
+      "endReasons": {
+        "victory": 9,
+        "defeat": 2
+      },
+      "skillPressesMedian": 52,
+      "note": "this harness",
+      "mapUsedMedian": 1
+    },
+    "step": {
+      "manualShare": 0.4024,
+      "endReasons": {
+        "defeat": 3,
+        "victory": 8
+      },
+      "skillPressesMedian": 52,
+      "note": "bossBudget.test.ts `first`"
+    },
+    "frame": {
+      "manualShare": 0.4219,
+      "endReasons": {
+        "victory": 8,
+        "defeat": 3
+      },
+      "skillPressesMedian": 55,
+      "note": "growthPacing.test.ts `first`"
+    },
+    "noMapInteraction": {
+      "manualShare": 0.4082,
+      "endReasons": {
+        "victory": 10,
+        "defeat": 1
+      },
+      "skillPressesMedian": 52,
+      "note": "every sibling harness today"
+    }
+  },
+  "pressSensitivity": {
+    "note": "classic/`first` win count per policy, 33 seeds; `noMapInteraction` isolates the `f` key",
+    "rows": [
+      {
+        "browser": {
+          "wins": 30,
+          "runs": 33,
+          "minHpRatioMedian": 0.455
+        },
+        "step": {
+          "wins": 30,
+          "runs": 33,
+          "minHpRatioMedian": 0.392
+        },
+        "noMapInteraction": {
+          "wins": 30,
+          "runs": 33,
+          "minHpRatioMedian": 0.395
+        }
+      }
+    ]
+  },
+  "dashIsolation": {
+    "note": "D2 clamp (test-local) vs shipped dash, classic/first + evolution/first, 33 seeds each",
+    "rows": [
+      {
+        "journey": "classic",
+        "clamped": {
+          "minHp": 0.247,
+          "wins": 23,
+          "share": 0.3456
+        },
+        "shipped": {
+          "minHp": 0.455,
+          "wins": 30,
+          "share": 0.3314
+        }
+      },
+      {
+        "journey": "evolution",
+        "clamped": {
+          "minHp": 0,
+          "wins": 12,
+          "share": 0.4122
+        },
+        "shipped": {
+          "minHp": 0.364,
+          "wins": 28,
+          "share": 0.4085
+        }
+      }
+    ]
+  },
+  "counterfactual": {
+    "cells": [
+      "classic/first",
+      "evolution/first"
+    ],
+    "seeds": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      15,
+      21,
+      25,
+      33
+    ],
+    "note": "the shipped knobs (data/manualTrack.json) at each setting, not a test-local counterfactual",
+    "rows": [
+      {
+        "journey": "classic",
+        "boost": 1,
+        "autoScale": 1,
+        "note": "no dual track: the R1g-6 world",
+        "manualShare": 0.2048,
+        "winRate": 0.9091,
+        "ttkMedian": 62.6,
+        "minHpRatioMedian": 0.471
+      },
+      {
+        "journey": "classic",
+        "boost": 6,
+        "autoScale": 0.6,
+        "note": "GDD P2-2 sketch: release x6, echo x0.6",
+        "manualShare": 0.3431,
+        "winRate": 1,
+        "ttkMedian": 67,
+        "minHpRatioMedian": 0.518
+      },
+      {
+        "journey": "classic",
+        "boost": 6,
+        "autoScale": 0.35,
+        "note": "shipped (data/manualTrack.json)",
+        "manualShare": 0.3194,
+        "winRate": 0.8182,
+        "ttkMedian": 68.5,
+        "minHpRatioMedian": 0.379
+      },
+      {
+        "journey": "classic",
+        "boost": 7,
+        "autoScale": 0.6,
+        "note": "stronger release, weaker penalty",
+        "manualShare": 0.3245,
+        "winRate": 0.9091,
+        "ttkMedian": 66.1,
+        "minHpRatioMedian": 0.397
+      },
+      {
+        "journey": "classic",
+        "boost": 1,
+        "autoScale": 0.35,
+        "note": "echo penalty only: release worth the echo",
+        "manualShare": 0.2626,
+        "winRate": 0.8182,
+        "ttkMedian": 73.5,
+        "minHpRatioMedian": 0.417
+      },
+      {
+        "journey": "evolution",
+        "boost": 1,
+        "autoScale": 1,
+        "note": "no dual track: the R1g-6 world",
+        "manualShare": 0.2058,
+        "winRate": 0.6364,
+        "ttkMedian": 71.5,
+        "minHpRatioMedian": 0.248
+      },
+      {
+        "journey": "evolution",
+        "boost": 6,
+        "autoScale": 0.6,
+        "note": "GDD P2-2 sketch: release x6, echo x0.6",
+        "manualShare": 0.3959,
+        "winRate": 0.8182,
+        "ttkMedian": 56.3,
+        "minHpRatioMedian": 0.547
+      },
+      {
+        "journey": "evolution",
+        "boost": 6,
+        "autoScale": 0.35,
+        "note": "shipped (data/manualTrack.json)",
+        "manualShare": 0.4058,
+        "winRate": 0.8182,
+        "ttkMedian": 61.1,
+        "minHpRatioMedian": 0.324
+      },
+      {
+        "journey": "evolution",
+        "boost": 7,
+        "autoScale": 0.6,
+        "note": "stronger release, weaker penalty",
+        "manualShare": 0.429,
+        "winRate": 0.6364,
+        "ttkMedian": 51.5,
+        "minHpRatioMedian": 0.372
+      },
+      {
+        "journey": "evolution",
+        "boost": 1,
+        "autoScale": 0.35,
+        "note": "echo penalty only: release worth the echo",
+        "manualShare": 0.2155,
+        "winRate": 0.8182,
+        "ttkMedian": 83.4,
+        "minHpRatioMedian": 0.36
+      }
+    ]
+  },
+  "structure": {
+    "manualTrack": {
+      "boost": 6,
+      "autoScale": 0.35
+    },
+    "boostRatio": 17.142857142857142,
+    "manualSkillCasts": [
+      "A011",
+      "A021",
+      "A027",
+      "A026",
+      "A003",
+      "A054",
+      "G2_FROST",
+      "S001",
+      "A015",
+      "A013"
+    ],
+    "autoCastIds": [
+      "A003",
+      "A011",
+      "A013",
+      "A015",
+      "A021",
+      "A026",
+      "A027",
+      "A054",
+      "G2_FROST",
+      "S001"
+    ],
+    "ownedSkillIds": [
+      "A003",
+      "A011",
+      "A013",
+      "A015",
+      "A021",
+      "A026",
+      "A027",
+      "A054",
+      "G2_FROST",
+      "S001"
+    ],
+    "charmSourcesOnJourneyPath": 0,
+    "evolutionRows": 20,
+    "fusionRows": 10,
+    "reachableEvolutions": 9,
+    "reachableFusions": 4,
+    "activePool": 10,
+    "passivePool": 11,
+    "focusMatchesFirst": true
+  }
+}

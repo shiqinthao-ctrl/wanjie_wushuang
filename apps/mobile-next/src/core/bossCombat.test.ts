@@ -16,6 +16,9 @@ it('hero targets Boss ahead of a nearer ordinary enemy, without changing nearest
   const sim = simulation(); sim.spawn(); Object.assign(sim.enemies[0]!, { x: 1790, y: 1200, hp: 1e6 });
   const before = sim.boss!.hp; sim.basic();
   expect(sim.boss!.hp).toBeLessThan(before); expect(sim.enemies[0]!.hp).toBe(1e6);
+  // R1g-7 / D2 was reverted: the dash is *not* clamped, so the player at 1800 travelling 150px
+  // toward the Boss at 1900 lands on it. The clamp was measured to cost 25pp of HP floor (G2) and
+  // 11 wins on the evolution journey, so the dash keeps its full length; see `dashLength`.
   sim.action('skill'); expect(sim.player.x).toBe(1950);
   sim.player.x = 1800; sim.cast('A011'); expect(sim.projectiles[0]!.vx).toBeLessThan(0);
 });
