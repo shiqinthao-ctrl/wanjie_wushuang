@@ -85,185 +85,185 @@
     ]
   },
   "headline": {
-    "manualShare": 0.3765,
-    "manualShareDistinct": 0.3653,
-    "manualCoreShare": 0.3739,
-    "gddSnippetShare": 0.1365,
-    "autoSkillShare": 0.4628,
-    "basicShare": 0.1159,
-    "summonShare": 0.0348,
-    "petShare": 0.0098,
-    "fusionShare": 0.0002,
-    "totalDamage": 88639364,
+    "manualShare": 0.3716,
+    "manualShareDistinct": 0.3589,
+    "manualCoreShare": 0.3696,
+    "gddSnippetShare": 0.1393,
+    "autoSkillShare": 0.475,
+    "basicShare": 0.1186,
+    "summonShare": 0.024,
+    "petShare": 0.0104,
+    "fusionShare": 0.0004,
+    "totalDamage": 89483014,
     "runs": 165
   },
   "suffixReading": {
     "note": "the `_E` collision: telemetry key x the `manual` flag `hit`/`hitBoss` actually received",
     "buckets": {
       "manualSkill": {
-        "manual": 19654845.32626725,
-        "auto": 10447522.010779966
+        "manual": 19182764.402633317,
+        "auto": 10621074.146821469
       },
       "manualUltimate": {
         "manual": 0,
-        "auto": 3036861.867156114
+        "auto": 3265083.9464239366
       },
       "manualMap": {
         "manual": 0,
-        "auto": 139670.86887936
+        "auto": 112472.18820864001
       },
       "manualDodge": {
         "manual": 0,
-        "auto": 90473.73012390791
+        "auto": 72012.73637372341
       },
       "autoSkill": {
         "manual": 0,
-        "auto": 41023280.724927254
+        "auto": 42500790.307751164
       },
       "summon": {
         "manual": 0,
-        "auto": 3087417.78649201
+        "auto": 2146901.6381354555
       },
       "basic": {
         "manual": 0,
-        "auto": 10270325.308110775
+        "auto": 10609760.404440524
       },
       "pet": {
         "manual": 0,
-        "auto": 872080.7709139207
+        "auto": 933805.9767707027
       },
       "fusion": {
         "manual": 0,
-        "auto": 16902.886344040897
+        "auto": 38393.22098491145
       }
     },
     "keys": {
       "A011": {
         "manual": 0,
-        "auto": 19827175.517993942
+        "auto": 20802718.82253104
       },
       "PET001": {
         "manual": 0,
-        "auto": 872080.7709139207
+        "auto": 933805.9767707027
       },
       "H001_E": {
         "manual": 0,
-        "auto": 9061659.491345301
+        "auto": 9199550.568767814
       },
       "A021": {
         "manual": 0,
-        "auto": 1912843.922154824
+        "auto": 2005552.3132367933
+      },
+      "A011_E": {
+        "manual": 3349457.3663013815,
+        "auto": 0
       },
       "A026": {
         "manual": 0,
-        "auto": 2007057.8917711286
-      },
-      "H001_SLASH": {
-        "manual": 0,
-        "auto": 2934316.9345768564
-      },
-      "A011_E": {
-        "manual": 2737869.661838144,
-        "auto": 0
-      },
-      "A054": {
-        "manual": 0,
-        "auto": 2938322.1864019386
+        "auto": 2531728.714000271
       },
       "H001_R": {
         "manual": 0,
-        "auto": 3036861.867156114
+        "auto": 3265083.9464239366
       },
-      "A003": {
+      "H001_SLASH": {
         "manual": 0,
-        "auto": 7161671.200607966
-      },
-      "A027": {
-        "manual": 0,
-        "auto": 2410051.2595699653
-      },
-      "H010_BOMB": {
-        "manual": 0,
-        "auto": 1385862.519434649
+        "auto": 3095195.297744682
       },
       "MAP_MECHANISM": {
         "manual": 0,
-        "auto": 128747.70395136003
+        "auto": 98454.12655104004
+      },
+      "A027": {
+        "manual": 0,
+        "auto": 2490708.831948631
+      },
+      "A003": {
+        "manual": 0,
+        "auto": 6840114.502316184
+      },
+      "H010_BOMB": {
+        "manual": 0,
+        "auto": 1421523.578053642
+      },
+      "A054": {
+        "manual": 0,
+        "auto": 2840073.4313958497
       },
       "MAP_BARREL": {
         "manual": 0,
-        "auto": 10923.164927999998
+        "auto": 14018.061657599997
       },
       "A027_E": {
-        "manual": 895776.4864183638,
+        "manual": 1086500.7228530478,
         "auto": 0
       },
       "A026_E": {
-        "manual": 244742.35360616577,
+        "manual": 170139.8810469556,
         "auto": 0
       },
       "A054_E": {
-        "manual": 230578.79661617384,
+        "manual": 322679.2180188298,
         "auto": 0
       },
       "A003_E": {
-        "manual": 13447659.444687203,
+        "manual": 13049609.973534297,
         "auto": 0
       },
       "H001_BASIC": {
         "manual": 0,
-        "auto": 7336008.373533921
-      },
-      "A015": {
-        "manual": 0,
-        "auto": 2013468.2230964168
-      },
-      "H010_BOND": {
-        "manual": 0,
-        "auto": 90473.73012390791
-      },
-      "S001": {
-        "manual": 0,
-        "auto": 3046331.0630509597
-      },
-      "H010_WILDFIRE": {
-        "manual": 0,
-        "auto": 400205.6853401507
-      },
-      "G4_SHADOW_BOND": {
-        "manual": 0,
-        "auto": 821881.6209158434
-      },
-      "A013": {
-        "manual": 0,
-        "auto": 1338045.45812118
+        "auto": 7514565.106695835
       },
       "G2_FROST": {
         "manual": 0,
-        "auto": 192557.75895391402
+        "auto": 226856.7895686543
+      },
+      "H010_WILDFIRE": {
+        "manual": 0,
+        "auto": 488245.06924081396
       },
       "G2_FROST_CLONE": {
         "manual": 0,
-        "auto": 41086.723441050184
+        "auto": 63580.42058322243
       },
-      "F004": {
+      "S001": {
         "manual": 0,
-        "auto": 16902.886344040897
+        "auto": 2083321.217552233
       },
-      "G2_FROST_E": {
-        "manual": 52712.537428817406,
+      "G4_SHADOW_BOND": {
+        "manual": 0,
+        "auto": 945652.3203109481
+      },
+      "A013": {
+        "manual": 0,
+        "auto": 1347680.1832273453
+      },
+      "A015": {
+        "manual": 0,
+        "auto": 1981459.3299746627
+      },
+      "H010_BOND": {
+        "manual": 0,
+        "auto": 72012.73637372341
+      },
+      "F001": {
+        "manual": 0,
+        "auto": 38393.22098491145
+      },
+      "A013_E": {
+        "manual": 120165.37035458637,
         "auto": 0
       },
       "S001_E": {
-        "manual": 1640766.975241455,
+        "manual": 728999.5712602101,
+        "auto": 0
+      },
+      "G2_FROST_E": {
+        "manual": 149023.39337878453,
         "auto": 0
       },
       "A015_E": {
-        "manual": 278592.14000762295,
-        "auto": 0
-      },
-      "A013_E": {
-        "manual": 126146.9304232869,
+        "manual": 206188.90588522342,
         "auto": 0
       }
     }
@@ -273,29 +273,106 @@
       "journey": "classic",
       "driver": "first",
       "runs": 33,
-      "totalDamage": 11644256,
+      "totalDamage": 12137878,
       "endReasons": {
-        "victory": 30,
-        "defeat": 3
+        "victory": 31,
+        "timeout": 2
       },
-      "manualShare": 0.3314,
-      "manualCoreShare": 0.3282,
-      "gddSnippetShare": 0.1552,
-      "manualShareMedian": 0.3215,
+      "manualShare": 0.3282,
+      "manualCoreShare": 0.3249,
+      "gddSnippetShare": 0.1575,
+      "manualShareMedian": 0.3284,
       "byBucket": {
-        "manualSkill": 0.278,
-        "manualUltimate": 0.0502,
-        "manualMap": 0.0032,
+        "manualSkill": 0.2695,
+        "manualUltimate": 0.0553,
+        "manualMap": 0.0033,
         "manualDodge": 0,
-        "autoSkill": 0.5385,
+        "autoSkill": 0.5362,
         "summon": 0,
-        "basic": 0.1137,
-        "pet": 0.0164,
+        "basic": 0.1179,
+        "pet": 0.0177,
+        "fusion": 0
+      },
+      "skillPressesMedian": 54,
+      "ultPressesMedian": 8,
+      "maxActiveLevelMedian": 5,
+      "turningPointsMedian": 0,
+      "evolvedMedian": 0,
+      "runsWithTurningPoints": 4,
+      "turningPointsMax": 1,
+      "fusedRuns": 0,
+      "chestsOpenedMedian": 3,
+      "mapUsedMedian": 1,
+      "mapUsedRuns": 26,
+      "ttkMedian": 66.5,
+      "minHpRatioMedian": 0.465,
+      "wins": 31
+    },
+    {
+      "journey": "evolution",
+      "driver": "first",
+      "runs": 33,
+      "totalDamage": 22709668,
+      "endReasons": {
+        "victory": 25,
+        "defeat": 8
+      },
+      "manualShare": 0.409,
+      "manualCoreShare": 0.4075,
+      "gddSnippetShare": 0.1365,
+      "manualShareMedian": 0.4159,
+      "byBucket": {
+        "manualSkill": 0.3729,
+        "manualUltimate": 0.0347,
+        "manualMap": 0.0008,
+        "manualDodge": 0.0008,
+        "autoSkill": 0.4471,
+        "summon": 0.0202,
+        "basic": 0.1149,
+        "pet": 0.0079,
+        "fusion": 0.0008
+      },
+      "skillPressesMedian": 52,
+      "ultPressesMedian": 8,
+      "maxActiveLevelMedian": 5,
+      "turningPointsMedian": 4,
+      "evolvedMedian": 2,
+      "runsWithTurningPoints": 33,
+      "turningPointsMax": 6,
+      "fusedRuns": 1,
+      "chestsOpenedMedian": 4,
+      "mapUsedMedian": 1,
+      "mapUsedRuns": 22,
+      "ttkMedian": 62.2,
+      "minHpRatioMedian": 0.396,
+      "wins": 25
+    },
+    {
+      "journey": "classic",
+      "driver": "unlock",
+      "runs": 33,
+      "totalDamage": 12109450,
+      "endReasons": {
+        "victory": 33
+      },
+      "manualShare": 0.3254,
+      "manualCoreShare": 0.3233,
+      "gddSnippetShare": 0.1359,
+      "manualShareMedian": 0.3183,
+      "byBucket": {
+        "manualSkill": 0.2779,
+        "manualUltimate": 0.0453,
+        "manualMap": 0.0021,
+        "manualDodge": 0,
+        "autoSkill": 0.5595,
+        "summon": 0,
+        "basic": 0.0997,
+        "pet": 0.0155,
         "fusion": 0
       },
       "skillPressesMedian": 53,
       "ultPressesMedian": 8,
-      "maxActiveLevelMedian": 5,
+      "maxActiveLevelMedian": 4,
       "turningPointsMedian": 0,
       "evolvedMedian": 0,
       "runsWithTurningPoints": 1,
@@ -304,109 +381,33 @@
       "chestsOpenedMedian": 3,
       "mapUsedMedian": 1,
       "mapUsedRuns": 21,
-      "ttkMedian": 67.8,
-      "minHpRatioMedian": 0.455,
-      "wins": 30
-    },
-    {
-      "journey": "evolution",
-      "driver": "first",
-      "runs": 33,
-      "totalDamage": 22880693,
-      "endReasons": {
-        "victory": 28,
-        "defeat": 5
-      },
-      "manualShare": 0.4085,
-      "manualCoreShare": 0.4063,
-      "gddSnippetShare": 0.1383,
-      "manualShareMedian": 0.4061,
-      "byBucket": {
-        "manualSkill": 0.3706,
-        "manualUltimate": 0.0357,
-        "manualMap": 0.0013,
-        "manualDodge": 0.0009,
-        "autoSkill": 0.4362,
-        "summon": 0.0331,
-        "basic": 0.1143,
-        "pet": 0.0076,
-        "fusion": 0.0004
-      },
-      "skillPressesMedian": 52,
-      "ultPressesMedian": 8,
-      "maxActiveLevelMedian": 5,
-      "turningPointsMedian": 4,
-      "evolvedMedian": 2,
-      "runsWithTurningPoints": 33,
-      "turningPointsMax": 6,
-      "fusedRuns": 2,
-      "chestsOpenedMedian": 4,
-      "mapUsedMedian": 1,
-      "mapUsedRuns": 21,
-      "ttkMedian": 61.9,
-      "minHpRatioMedian": 0.364,
-      "wins": 28
-    },
-    {
-      "journey": "classic",
-      "driver": "unlock",
-      "runs": 33,
-      "totalDamage": 11375191,
-      "endReasons": {
-        "victory": 33
-      },
-      "manualShare": 0.3007,
-      "manualCoreShare": 0.2985,
-      "gddSnippetShare": 0.1362,
-      "manualShareMedian": 0.2951,
-      "byBucket": {
-        "manualSkill": 0.2557,
-        "manualUltimate": 0.0428,
-        "manualMap": 0.0022,
-        "manualDodge": 0,
-        "autoSkill": 0.5792,
-        "summon": 0,
-        "basic": 0.1036,
-        "pet": 0.0166,
-        "fusion": 0
-      },
-      "skillPressesMedian": 53,
-      "ultPressesMedian": 8,
-      "maxActiveLevelMedian": 4,
-      "turningPointsMedian": 0,
-      "evolvedMedian": 0,
-      "runsWithTurningPoints": 0,
-      "turningPointsMax": 0,
-      "fusedRuns": 0,
-      "chestsOpenedMedian": 3,
-      "mapUsedMedian": 0,
-      "mapUsedRuns": 16,
-      "ttkMedian": 64.5,
-      "minHpRatioMedian": 0.552,
+      "ttkMedian": 62.8,
+      "minHpRatioMedian": 0.575,
       "wins": 33
     },
     {
       "journey": "evolution",
       "driver": "unlock",
       "runs": 33,
-      "totalDamage": 19858531,
+      "totalDamage": 19816350,
       "endReasons": {
-        "timeout": 14,
-        "victory": 19
+        "victory": 22,
+        "timeout": 9,
+        "defeat": 2
       },
-      "manualShare": 0.3725,
-      "manualCoreShare": 0.369,
-      "gddSnippetShare": 0.1215,
-      "manualShareMedian": 0.3533,
+      "manualShare": 0.3407,
+      "manualCoreShare": 0.3382,
+      "gddSnippetShare": 0.1367,
+      "manualShareMedian": 0.3283,
       "byBucket": {
-        "manualSkill": 0.3524,
-        "manualUltimate": 0.0167,
-        "manualMap": 0.001,
-        "manualDodge": 0.0024,
-        "autoSkill": 0.4132,
-        "summon": 0.0793,
-        "basic": 0.1277,
-        "pet": 0.0073,
+        "manualSkill": 0.3145,
+        "manualUltimate": 0.0237,
+        "manualMap": 0.0006,
+        "manualDodge": 0.0019,
+        "autoSkill": 0.4497,
+        "summon": 0.062,
+        "basic": 0.139,
+        "pet": 0.0086,
         "fusion": 0
       },
       "skillPressesMedian": 56,
@@ -415,38 +416,38 @@
       "turningPointsMedian": 3,
       "evolvedMedian": 1,
       "runsWithTurningPoints": 33,
-      "turningPointsMax": 4,
+      "turningPointsMax": 3,
       "fusedRuns": 0,
       "chestsOpenedMedian": 4,
       "mapUsedMedian": 1,
-      "mapUsedRuns": 22,
-      "ttkMedian": 68.4,
-      "minHpRatioMedian": 0.645,
-      "wins": 19
+      "mapUsedRuns": 19,
+      "ttkMedian": 74.8,
+      "minHpRatioMedian": 0.539,
+      "wins": 22
     },
     {
       "journey": "evolution",
       "driver": "focus",
       "runs": 33,
-      "totalDamage": 22880693,
+      "totalDamage": 22709668,
       "endReasons": {
-        "victory": 28,
-        "defeat": 5
+        "victory": 25,
+        "defeat": 8
       },
-      "manualShare": 0.4085,
-      "manualCoreShare": 0.4063,
-      "gddSnippetShare": 0.1383,
-      "manualShareMedian": 0.4061,
+      "manualShare": 0.409,
+      "manualCoreShare": 0.4075,
+      "gddSnippetShare": 0.1365,
+      "manualShareMedian": 0.4159,
       "byBucket": {
-        "manualSkill": 0.3706,
-        "manualUltimate": 0.0357,
-        "manualMap": 0.0013,
-        "manualDodge": 0.0009,
-        "autoSkill": 0.4362,
-        "summon": 0.0331,
-        "basic": 0.1143,
-        "pet": 0.0076,
-        "fusion": 0.0004
+        "manualSkill": 0.3729,
+        "manualUltimate": 0.0347,
+        "manualMap": 0.0008,
+        "manualDodge": 0.0008,
+        "autoSkill": 0.4471,
+        "summon": 0.0202,
+        "basic": 0.1149,
+        "pet": 0.0079,
+        "fusion": 0.0008
       },
       "skillPressesMedian": 52,
       "ultPressesMedian": 8,
@@ -455,213 +456,213 @@
       "evolvedMedian": 2,
       "runsWithTurningPoints": 33,
       "turningPointsMax": 6,
-      "fusedRuns": 2,
+      "fusedRuns": 1,
       "chestsOpenedMedian": 4,
       "mapUsedMedian": 1,
-      "mapUsedRuns": 21,
-      "ttkMedian": 61.9,
-      "minHpRatioMedian": 0.364,
-      "wins": 28
+      "mapUsedRuns": 22,
+      "ttkMedian": 62.2,
+      "minHpRatioMedian": 0.396,
+      "wins": 25
     }
   ],
   "damageRanking": [
     {
       "source": "A011",
       "bucket": "autoSkill",
-      "value": 19827171,
-      "share": 0.2237
+      "value": 20802716,
+      "share": 0.2325
     },
     {
       "source": "A003_E",
       "bucket": "manualSkill",
-      "value": 13447659,
-      "share": 0.1517
+      "value": 13049608,
+      "share": 0.1458
     },
     {
       "source": "H001_E",
       "bucket": "manualSkill",
-      "value": 9061662,
-      "share": 0.1022
+      "value": 9199547,
+      "share": 0.1028
     },
     {
       "source": "H001_BASIC",
       "bucket": "basic",
-      "value": 7336002,
-      "share": 0.0828
+      "value": 7514561,
+      "share": 0.084
     },
     {
       "source": "A003",
       "bucket": "autoSkill",
-      "value": 7161666,
-      "share": 0.0808
-    },
-    {
-      "source": "S001",
-      "bucket": "summon",
-      "value": 3046333,
-      "share": 0.0344
-    },
-    {
-      "source": "H001_R",
-      "bucket": "manualUltimate",
-      "value": 3036872,
-      "share": 0.0343
-    },
-    {
-      "source": "A054",
-      "bucket": "autoSkill",
-      "value": 2938322,
-      "share": 0.0331
-    },
-    {
-      "source": "H001_SLASH",
-      "bucket": "basic",
-      "value": 2934319,
-      "share": 0.0331
+      "value": 6840123,
+      "share": 0.0764
     },
     {
       "source": "A011_E",
       "bucket": "manualSkill",
-      "value": 2737871,
-      "share": 0.0309
+      "value": 3349449,
+      "share": 0.0374
     },
     {
-      "source": "A027",
-      "bucket": "autoSkill",
-      "value": 2410054,
-      "share": 0.0272
+      "source": "H001_R",
+      "bucket": "manualUltimate",
+      "value": 3265094,
+      "share": 0.0365
     },
     {
-      "source": "A015",
+      "source": "H001_SLASH",
+      "bucket": "basic",
+      "value": 3095184,
+      "share": 0.0346
+    },
+    {
+      "source": "A054",
       "bucket": "autoSkill",
-      "value": 2013469,
-      "share": 0.0227
+      "value": 2840072,
+      "share": 0.0317
     },
     {
       "source": "A026",
       "bucket": "autoSkill",
-      "value": 2007055,
-      "share": 0.0226
+      "value": 2531729,
+      "share": 0.0283
+    },
+    {
+      "source": "A027",
+      "bucket": "autoSkill",
+      "value": 2490708,
+      "share": 0.0278
+    },
+    {
+      "source": "S001",
+      "bucket": "summon",
+      "value": 2083324,
+      "share": 0.0233
     },
     {
       "source": "A021",
       "bucket": "autoSkill",
-      "value": 1912842,
-      "share": 0.0216
+      "value": 2005551,
+      "share": 0.0224
     },
     {
-      "source": "S001_E",
-      "bucket": "manualSkill",
-      "value": 1640767,
-      "share": 0.0185
+      "source": "A015",
+      "bucket": "autoSkill",
+      "value": 1981457,
+      "share": 0.0221
     },
     {
       "source": "H010_BOMB",
       "bucket": "manualSkill",
-      "value": 1385858,
-      "share": 0.0156
+      "value": 1421516,
+      "share": 0.0159
     },
     {
       "source": "A013",
       "bucket": "autoSkill",
-      "value": 1338046,
+      "value": 1347682,
       "share": 0.0151
     },
     {
       "source": "A027_E",
       "bucket": "manualSkill",
-      "value": 895776,
-      "share": 0.0101
-    },
-    {
-      "source": "PET001",
-      "bucket": "pet",
-      "value": 872083,
-      "share": 0.0098
+      "value": 1086499,
+      "share": 0.0121
     },
     {
       "source": "G4_SHADOW_BOND",
       "bucket": "autoSkill",
-      "value": 821884,
-      "share": 0.0093
+      "value": 945651,
+      "share": 0.0106
+    },
+    {
+      "source": "PET001",
+      "bucket": "pet",
+      "value": 933803,
+      "share": 0.0104
+    },
+    {
+      "source": "S001_E",
+      "bucket": "manualSkill",
+      "value": 728999,
+      "share": 0.0081
     },
     {
       "source": "H010_WILDFIRE",
       "bucket": "autoSkill",
-      "value": 400210,
-      "share": 0.0045
-    },
-    {
-      "source": "A015_E",
-      "bucket": "manualSkill",
-      "value": 278592,
-      "share": 0.0031
-    },
-    {
-      "source": "A026_E",
-      "bucket": "manualSkill",
-      "value": 244744,
-      "share": 0.0028
+      "value": 488247,
+      "share": 0.0055
     },
     {
       "source": "A054_E",
       "bucket": "manualSkill",
-      "value": 230579,
-      "share": 0.0026
+      "value": 322677,
+      "share": 0.0036
     },
     {
       "source": "G2_FROST",
       "bucket": "autoSkill",
-      "value": 192560,
-      "share": 0.0022
+      "value": 226853,
+      "share": 0.0025
     },
     {
-      "source": "MAP_MECHANISM",
-      "bucket": "manualMap",
-      "value": 128745,
-      "share": 0.0015
-    },
-    {
-      "source": "A013_E",
+      "source": "A015_E",
       "bucket": "manualSkill",
-      "value": 126146,
-      "share": 0.0014
+      "value": 206189,
+      "share": 0.0023
     },
     {
-      "source": "H010_BOND",
-      "bucket": "manualDodge",
-      "value": 90457,
-      "share": 0.001
+      "source": "A026_E",
+      "bucket": "manualSkill",
+      "value": 170140,
+      "share": 0.0019
     },
     {
       "source": "G2_FROST_E",
       "bucket": "manualSkill",
-      "value": 52713,
-      "share": 0.0006
+      "value": 149024,
+      "share": 0.0017
+    },
+    {
+      "source": "A013_E",
+      "bucket": "manualSkill",
+      "value": 120165,
+      "share": 0.0013
+    },
+    {
+      "source": "MAP_MECHANISM",
+      "bucket": "manualMap",
+      "value": 98454,
+      "share": 0.0011
+    },
+    {
+      "source": "H010_BOND",
+      "bucket": "manualDodge",
+      "value": 71999,
+      "share": 0.0008
     },
     {
       "source": "G2_FROST_CLONE",
       "bucket": "summon",
-      "value": 41085,
-      "share": 0.0005
+      "value": 63582,
+      "share": 0.0007
     },
     {
-      "source": "F004",
+      "source": "F001",
       "bucket": "fusion",
-      "value": 16902,
-      "share": 0.0002
+      "value": 38394,
+      "share": 0.0004
     },
     {
       "source": "MAP_BARREL",
       "bucket": "manualMap",
-      "value": 10920,
-      "share": 0.0001
+      "value": 14017,
+      "share": 0.0002
     }
   ],
   "fidelity": {
     "note": "press policy and the map-interaction key, one evolution/first cell, 11 seeds",
     "browser": {
-      "manualShare": 0.4058,
+      "manualShare": 0.4087,
       "endReasons": {
         "victory": 9,
         "defeat": 2
@@ -671,28 +672,28 @@
       "mapUsedMedian": 1
     },
     "step": {
-      "manualShare": 0.4024,
+      "manualShare": 0.407,
       "endReasons": {
-        "defeat": 3,
-        "victory": 8
+        "victory": 9,
+        "defeat": 2
       },
       "skillPressesMedian": 52,
       "note": "bossBudget.test.ts `first`"
     },
     "frame": {
-      "manualShare": 0.4219,
+      "manualShare": 0.419,
       "endReasons": {
         "victory": 8,
         "defeat": 3
       },
-      "skillPressesMedian": 55,
+      "skillPressesMedian": 56,
       "note": "growthPacing.test.ts `first`"
     },
     "noMapInteraction": {
-      "manualShare": 0.4082,
+      "manualShare": 0.4116,
       "endReasons": {
-        "victory": 10,
-        "defeat": 1
+        "victory": 8,
+        "defeat": 3
       },
       "skillPressesMedian": 52,
       "note": "every sibling harness today"
@@ -703,19 +704,19 @@
     "rows": [
       {
         "browser": {
-          "wins": 30,
+          "wins": 31,
           "runs": 33,
-          "minHpRatioMedian": 0.455
+          "minHpRatioMedian": 0.465
         },
         "step": {
           "wins": 30,
           "runs": 33,
-          "minHpRatioMedian": 0.392
+          "minHpRatioMedian": 0.521
         },
         "noMapInteraction": {
-          "wins": 30,
+          "wins": 29,
           "runs": 33,
-          "minHpRatioMedian": 0.395
+          "minHpRatioMedian": 0.442
         }
       }
     ]
@@ -726,27 +727,27 @@
       {
         "journey": "classic",
         "clamped": {
-          "minHp": 0.247,
-          "wins": 23,
-          "share": 0.3456
+          "minHp": 0.289,
+          "wins": 27,
+          "share": 0.3631
         },
         "shipped": {
-          "minHp": 0.455,
-          "wins": 30,
-          "share": 0.3314
+          "minHp": 0.465,
+          "wins": 31,
+          "share": 0.3282
         }
       },
       {
         "journey": "evolution",
         "clamped": {
           "minHp": 0,
-          "wins": 12,
-          "share": 0.4122
+          "wins": 13,
+          "share": 0.4045
         },
         "shipped": {
-          "minHp": 0.364,
-          "wins": 28,
-          "share": 0.4085
+          "minHp": 0.396,
+          "wins": 25,
+          "share": 0.409
         }
       }
     ]
@@ -776,100 +777,100 @@
         "boost": 1,
         "autoScale": 1,
         "note": "no dual track: the R1g-6 world",
-        "manualShare": 0.2048,
-        "winRate": 0.9091,
-        "ttkMedian": 62.6,
-        "minHpRatioMedian": 0.471
+        "manualShare": 0.2113,
+        "winRate": 1,
+        "ttkMedian": 69.2,
+        "minHpRatioMedian": 0.401
       },
       {
         "journey": "classic",
         "boost": 6,
         "autoScale": 0.6,
         "note": "GDD P2-2 sketch: release x6, echo x0.6",
-        "manualShare": 0.3431,
-        "winRate": 1,
-        "ttkMedian": 67,
-        "minHpRatioMedian": 0.518
+        "manualShare": 0.2982,
+        "winRate": 0.9091,
+        "ttkMedian": 63.4,
+        "minHpRatioMedian": 0.536
       },
       {
         "journey": "classic",
         "boost": 6,
         "autoScale": 0.35,
         "note": "shipped (data/manualTrack.json)",
-        "manualShare": 0.3194,
-        "winRate": 0.8182,
-        "ttkMedian": 68.5,
-        "minHpRatioMedian": 0.379
+        "manualShare": 0.3227,
+        "winRate": 0.9091,
+        "ttkMedian": 74.6,
+        "minHpRatioMedian": 0.344
       },
       {
         "journey": "classic",
         "boost": 7,
         "autoScale": 0.6,
         "note": "stronger release, weaker penalty",
-        "manualShare": 0.3245,
+        "manualShare": 0.2831,
         "winRate": 0.9091,
-        "ttkMedian": 66.1,
-        "minHpRatioMedian": 0.397
+        "ttkMedian": 62.3,
+        "minHpRatioMedian": 0.508
       },
       {
         "journey": "classic",
         "boost": 1,
         "autoScale": 0.35,
         "note": "echo penalty only: release worth the echo",
-        "manualShare": 0.2626,
+        "manualShare": 0.2669,
         "winRate": 0.8182,
-        "ttkMedian": 73.5,
-        "minHpRatioMedian": 0.417
+        "ttkMedian": 78,
+        "minHpRatioMedian": 0.35
       },
       {
         "journey": "evolution",
         "boost": 1,
         "autoScale": 1,
         "note": "no dual track: the R1g-6 world",
-        "manualShare": 0.2058,
-        "winRate": 0.6364,
-        "ttkMedian": 71.5,
-        "minHpRatioMedian": 0.248
+        "manualShare": 0.2123,
+        "winRate": 0.7273,
+        "ttkMedian": 67.6,
+        "minHpRatioMedian": 0.338
       },
       {
         "journey": "evolution",
         "boost": 6,
         "autoScale": 0.6,
         "note": "GDD P2-2 sketch: release x6, echo x0.6",
-        "manualShare": 0.3959,
-        "winRate": 0.8182,
-        "ttkMedian": 56.3,
-        "minHpRatioMedian": 0.547
+        "manualShare": 0.3966,
+        "winRate": 0.6364,
+        "ttkMedian": 62.3,
+        "minHpRatioMedian": 0.305
       },
       {
         "journey": "evolution",
         "boost": 6,
         "autoScale": 0.35,
         "note": "shipped (data/manualTrack.json)",
-        "manualShare": 0.4058,
+        "manualShare": 0.4087,
         "winRate": 0.8182,
-        "ttkMedian": 61.1,
-        "minHpRatioMedian": 0.324
+        "ttkMedian": 59.5,
+        "minHpRatioMedian": 0.407
       },
       {
         "journey": "evolution",
         "boost": 7,
         "autoScale": 0.6,
         "note": "stronger release, weaker penalty",
-        "manualShare": 0.429,
-        "winRate": 0.6364,
-        "ttkMedian": 51.5,
-        "minHpRatioMedian": 0.372
+        "manualShare": 0.4155,
+        "winRate": 0.9091,
+        "ttkMedian": 57.9,
+        "minHpRatioMedian": 0.463
       },
       {
         "journey": "evolution",
         "boost": 1,
         "autoScale": 0.35,
         "note": "echo penalty only: release worth the echo",
-        "manualShare": 0.2155,
-        "winRate": 0.8182,
-        "ttkMedian": 83.4,
-        "minHpRatioMedian": 0.36
+        "manualShare": 0.2266,
+        "winRate": 0.6364,
+        "ttkMedian": 76.1,
+        "minHpRatioMedian": 0.238
       }
     ]
   },
@@ -884,12 +885,12 @@
       "A021",
       "A027",
       "A026",
-      "A003",
       "A054",
-      "G2_FROST",
+      "A003",
+      "A013",
       "S001",
-      "A015",
-      "A013"
+      "G2_FROST",
+      "A015"
     ],
     "autoCastIds": [
       "A003",

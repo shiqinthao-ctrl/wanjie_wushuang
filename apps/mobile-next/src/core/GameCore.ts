@@ -211,7 +211,7 @@ export class GameCore {
     const { player, time, kills, heat } = this.combat;
     return Object.freeze({ ruleset: this.chapter?.ruleset, journey: this.progression.journey?.snapshot(this.progression.snapshot().skills), status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
   }
-  renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState(), boss: this.combat.bossEncounter.snapshot().boss, telegraphs: this.combat.bossEncounter.telegraphs.map(warning => Object.freeze({ ...warning })) }; }
+  renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState(), boss: this.combat.bossEncounter.snapshot().boss, telegraphs: this.combat.bossEncounter.telegraphs.map(warning => Object.freeze({ ...warning })), warnings: this.combat.warnings.map(warning => Object.freeze({ ...warning })) }; }
   takeEvents(): readonly CoreEvent[] { const events = [...this.events, ...this.combat.takeEvents()]; this.events = []; return events; }
   destroy(): void { this.combat.destroy(); this.events = []; this.status = 'destroyed'; }
 }

@@ -64,44 +64,47 @@
         844
       ],
       "driver": "first",
-      "wins": 30,
+      "wins": 31,
       "runs": 33,
       "lostSeeds": [
-        "2:defeat",
-        "9:defeat",
-        "25:defeat"
+        "10:timeout",
+        "15:timeout"
       ],
-      "ttkMedian": 67.8,
+      "ttkMedian": 66.5,
       "ttkRange": [
-        50,
-        89.7
+        51.1,
+        87.5
       ],
-      "hpAtSpawnMedian": 711,
-      "minHpRatioMedian": 0.455,
-      "takenInPhaseMedian": 567,
+      "hpAtSpawnMedian": 739,
+      "minHpRatioMedian": 0.465,
+      "takenInPhaseMedian": 630,
       "bossMaxHp": 166569,
       "phaseSecondsMedian": [
-        20.1,
-        22.4,
-        24.199999999999996
+        20.2,
+        22.3,
+        24.1
       ],
-      "bossShareOfPhaseDamage": 0.31,
+      "bossShareOfPhaseDamage": 0.291,
       "topSources": [
         {
           "source": "hostile-projectile",
-          "value": 11110
+          "value": 8353
         },
         {
           "source": "B001-contact",
-          "value": 4996
+          "value": 5376
+        },
+        {
+          "source": "EN005",
+          "value": 3808
         },
         {
           "source": "unknown",
-          "value": 766
+          "value": 993
         },
         {
-          "source": "B001-蛮王冲锋",
-          "value": 336
+          "source": "EN004",
+          "value": 399
         }
       ]
     },
@@ -112,46 +115,53 @@
         844
       ],
       "driver": "first",
-      "wins": 28,
+      "wins": 25,
       "runs": 33,
       "lostSeeds": [
+        "4:defeat",
+        "5:defeat",
+        "16:defeat",
         "18:defeat",
-        "20:defeat",
-        "21:defeat",
-        "25:defeat",
-        "28:defeat"
+        "19:defeat",
+        "30:defeat",
+        "32:defeat",
+        "33:defeat"
       ],
-      "ttkMedian": 61.9,
+      "ttkMedian": 62.2,
       "ttkRange": [
-        53.4,
-        69
+        47.6,
+        68.9
       ],
-      "hpAtSpawnMedian": 745,
-      "minHpRatioMedian": 0.364,
-      "takenInPhaseMedian": 663,
+      "hpAtSpawnMedian": 742,
+      "minHpRatioMedian": 0.396,
+      "takenInPhaseMedian": 645,
       "bossMaxHp": 452116,
       "phaseSecondsMedian": [
-        18.6,
-        20.799999999999997,
-        22.200000000000003
+        18.7,
+        20.500000000000004,
+        22.300000000000004
       ],
-      "bossShareOfPhaseDamage": 0.271,
+      "bossShareOfPhaseDamage": 0.255,
       "topSources": [
         {
           "source": "hostile-projectile",
-          "value": 12011
+          "value": 7616
         },
         {
           "source": "B001-contact",
-          "value": 4182
+          "value": 3703
+        },
+        {
+          "source": "EN005",
+          "value": 2558
+        },
+        {
+          "source": "EN004",
+          "value": 369
         },
         {
           "source": "unknown",
-          "value": 580
-        },
-        {
-          "source": "B001-蛮王冲锋",
-          "value": 504
+          "value": 250
         }
       ]
     },
@@ -162,49 +172,51 @@
         720
       ],
       "driver": "first",
-      "wins": 29,
+      "wins": 27,
       "runs": 33,
       "lostSeeds": [
-        "6:timeout",
-        "20:defeat",
-        "28:defeat",
-        "29:timeout"
+        "3:defeat",
+        "8:timeout",
+        "16:timeout",
+        "23:defeat",
+        "26:defeat",
+        "30:defeat"
       ],
-      "ttkMedian": 68.3,
+      "ttkMedian": 65.4,
       "ttkRange": [
-        49.5,
-        85
+        50.3,
+        83.1
       ],
-      "hpAtSpawnMedian": 712,
-      "minHpRatioMedian": 0.424,
-      "takenInPhaseMedian": 607,
+      "hpAtSpawnMedian": 729,
+      "minHpRatioMedian": 0.47,
+      "takenInPhaseMedian": 616,
       "bossMaxHp": 166569,
       "phaseSecondsMedian": [
-        20.7,
-        22.3,
-        23.299999999999997
+        20.4,
+        22.500000000000004,
+        23
       ],
-      "bossShareOfPhaseDamage": 0.281,
+      "bossShareOfPhaseDamage": 0.299,
       "topSources": [
         {
           "source": "hostile-projectile",
-          "value": 11770
+          "value": 7232
         },
         {
           "source": "B001-contact",
-          "value": 4908
+          "value": 4524
+        },
+        {
+          "source": "EN005",
+          "value": 2722
         },
         {
           "source": "unknown",
-          "value": 1550
-        },
-        {
-          "source": "B001-蛮王冲锋",
-          "value": 168
+          "value": 1248
         },
         {
           "source": "B001-旋风断军",
-          "value": 150
+          "value": 358
         }
       ]
     },
@@ -215,49 +227,49 @@
         720
       ],
       "driver": "first",
-      "wins": 25,
+      "wins": 29,
       "runs": 33,
       "lostSeeds": [
-        "1:defeat",
-        "2:defeat",
-        "4:defeat",
-        "5:defeat",
-        "19:defeat",
-        "21:defeat",
-        "26:defeat",
-        "29:defeat"
+        "8:defeat",
+        "10:defeat",
+        "13:defeat",
+        "30:defeat"
       ],
       "ttkMedian": 62.3,
       "ttkRange": [
-        50.3,
-        71.2
+        55.7,
+        69.8
       ],
-      "hpAtSpawnMedian": 744,
-      "minHpRatioMedian": 0.321,
-      "takenInPhaseMedian": 695,
+      "hpAtSpawnMedian": 749,
+      "minHpRatioMedian": 0.315,
+      "takenInPhaseMedian": 723,
       "bossMaxHp": 452116,
       "phaseSecondsMedian": [
         18.7,
-        20.700000000000003,
-        22.300000000000004
+        20.799999999999997,
+        22.099999999999994
       ],
-      "bossShareOfPhaseDamage": 0.253,
+      "bossShareOfPhaseDamage": 0.241,
       "topSources": [
         {
           "source": "hostile-projectile",
-          "value": 11273
+          "value": 9280
         },
         {
           "source": "B001-contact",
-          "value": 4029
+          "value": 4480
+        },
+        {
+          "source": "EN005",
+          "value": 3622
         },
         {
           "source": "unknown",
-          "value": 581
+          "value": 963
         },
         {
-          "source": "EN001",
-          "value": 11
+          "source": "EN004",
+          "value": 234
         }
       ]
     },
@@ -271,41 +283,41 @@
       "wins": 33,
       "runs": 33,
       "lostSeeds": [],
-      "ttkMedian": 67.1,
+      "ttkMedian": 66.6,
       "ttkRange": [
-        52.8,
-        78
+        51.3,
+        78.7
       ],
-      "hpAtSpawnMedian": 726,
-      "minHpRatioMedian": 0.463,
-      "takenInPhaseMedian": 596,
+      "hpAtSpawnMedian": 741,
+      "minHpRatioMedian": 0.452,
+      "takenInPhaseMedian": 595,
       "bossMaxHp": 166569,
       "phaseSecondsMedian": [
         20.2,
-        22.5,
-        25.199999999999996
+        22.4,
+        25.5
       ],
-      "bossShareOfPhaseDamage": 0.313,
+      "bossShareOfPhaseDamage": 0.311,
       "topSources": [
         {
           "source": "hostile-projectile",
-          "value": 12015
+          "value": 8823
         },
         {
           "source": "B001-contact",
-          "value": 5824
+          "value": 5742
+        },
+        {
+          "source": "EN005",
+          "value": 3293
         },
         {
           "source": "unknown",
-          "value": 1107
+          "value": 1033
         },
         {
           "source": "B001-旋风断军",
-          "value": 150
-        },
-        {
-          "source": "EN001",
-          "value": 10
+          "value": 329
         }
       ]
     },
@@ -316,51 +328,56 @@
         844
       ],
       "driver": "unlock",
-      "wins": 19,
+      "wins": 22,
       "runs": 33,
       "lostSeeds": [
-        "1:timeout",
-        "4:timeout",
         "5:timeout",
-        "8:timeout",
-        "11:timeout",
+        "13:timeout",
         "15:timeout",
-        "22:timeout",
-        "25:timeout",
-        "26:timeout",
+        "16:timeout",
+        "18:timeout",
+        "20:defeat",
+        "22:defeat",
+        "24:timeout",
         "29:timeout",
         "30:timeout",
-        "31:timeout",
-        "32:timeout",
-        "33:timeout"
+        "32:timeout"
       ],
-      "ttkMedian": 68.4,
+      "ttkMedian": 74.8,
       "ttkRange": [
-        37.2,
-        86.5
+        41.5,
+        85.2
       ],
-      "hpAtSpawnMedian": 747,
-      "minHpRatioMedian": 0.645,
-      "takenInPhaseMedian": 504,
+      "hpAtSpawnMedian": 742,
+      "minHpRatioMedian": 0.539,
+      "takenInPhaseMedian": 618,
       "bossMaxHp": 452116,
       "phaseSecondsMedian": [
-        29.8,
-        26.300000000000004,
-        24
+        28.1,
+        26,
+        24.699999999999996
       ],
-      "bossShareOfPhaseDamage": 0.37,
+      "bossShareOfPhaseDamage": 0.326,
       "topSources": [
         {
           "source": "hostile-projectile",
-          "value": 4913
+          "value": 5413
         },
         {
           "source": "B001-contact",
-          "value": 3374
+          "value": 3996
+        },
+        {
+          "source": "EN005",
+          "value": 1708
         },
         {
           "source": "unknown",
-          "value": 840
+          "value": 1301
+        },
+        {
+          "source": "EN004",
+          "value": 203
         }
       ]
     }
@@ -374,23 +391,24 @@
     "driver": "first",
     "seed": 1,
     "endReason": "victory",
-    "seconds": 297.7,
+    "seconds": 304.3,
     "bossMaxHp": 25048,
-    "hpAtSpawn": 762,
+    "hpAtSpawn": 763,
     "bossSpawnAt": 270,
-    "bossKillAt": 296.4,
-    "ttk": 26.4,
+    "bossKillAt": 303.1,
+    "ttk": 33.1,
     "phases": {
       "1": 0,
-      "2": 1.6,
-      "3": 3.1
+      "2": 2.5,
+      "3": 9.5
     },
-    "minHpRatio": 0.943,
-    "takenInPhase": 61,
+    "minHpRatio": 0.96,
+    "takenInPhase": 50,
     "takenBy": {
-      "hostile-projectile": 14,
-      "B001-contact": 25,
-      "B001-旋风断军": 22
+      "hostile-projectile": 10,
+      "unknown": 2,
+      "B001-contact": 27,
+      "B001-旋风断军": 11
     }
   },
   "totalRuns": 198,
@@ -401,20 +419,21 @@
       "runs": 132,
       "winRate": 0.848,
       "lossesByKind": {
-        "defeat": 18,
-        "timeout": 2
+        "timeout": 4,
+        "defeat": 16
       },
-      "ttkMedian": 62.9
+      "ttkMedian": 62.7
     },
     {
       "driver": "unlock",
-      "wins": 52,
+      "wins": 55,
       "runs": 66,
-      "winRate": 0.788,
+      "winRate": 0.833,
       "lossesByKind": {
-        "timeout": 14
+        "timeout": 9,
+        "defeat": 2
       },
-      "ttkMedian": 68.3
+      "ttkMedian": 70.9
     }
   ]
 }

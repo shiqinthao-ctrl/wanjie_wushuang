@@ -87,11 +87,20 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       core.resize(this.scale.width, this.scale.height);
       const previousTime = core.snapshot().time;
       core.advance(delta / 1000);
-      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, summons, dragon, journey: evolution } = core.renderState();
+      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, warnings, summons, dragon, journey: evolution } = core.renderState();
       this.positionCamera(world, player);
       this.mapView?.draw(map, player);
       this.bossView?.draw(boss, telegraphs);
       const graphics = this.combatGraphics!; graphics.clear();
+      // Enemy warnings, under every body: `charge` announces a line, `aoe_ranged` a landing
+      // circle. Same `Telegraph` shape as the Boss's, and the same object the assertion reads -
+      // no second copy and no renderer-only field.
+      for (const warning of warnings) {
+        const color = Number.parseInt(warning.color.slice(1), 16);
+        const fade = Math.max(0, Math.min(1, warning.life / Math.max(.001, warning.max)));
+        if (warning.type === 'circle') graphics.fillStyle(color, .12 + .18 * (1 - fade)).lineStyle(3, color, .35 + .5 * (1 - fade)).strokeCircle(warning.x, warning.y, warning.r);
+        else if (warning.type === 'line') graphics.fillStyle(color, .1).lineStyle(3, color, .3 + .5 * (1 - fade)).lineBetween(warning.x, warning.y, warning.x2, warning.y2).strokeCircle(warning.x2, warning.y2, 8);
+      }
       for (const unit of summons) {
         const color = Number.parseInt(unit.color.slice(1), 16);
         graphics.fillStyle(color, .35).fillTriangle(unit.x, unit.y - 36, unit.x - 16, unit.y + 6, unit.x + 16, unit.y + 6).fillCircle(unit.x, unit.y - 38, 8);

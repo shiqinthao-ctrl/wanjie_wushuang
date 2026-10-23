@@ -1,0 +1,165 @@
+{
+  "slice": "R2-B01..08",
+  "tree": "apps/mobile-next",
+  "gating": {
+    "wildfire": {
+      "tags": [
+        "炎",
+        "风"
+      ],
+      "only": [
+        "A003"
+      ],
+      "onlyOther": [
+        "A026"
+      ]
+    },
+    "stormhunt": {
+      "tags": [
+        "雷",
+        "影"
+      ],
+      "only": [
+        "A013"
+      ],
+      "onlyOther": [
+        "A015"
+      ]
+    },
+    "shadowfire": {
+      "tags": [
+        "影",
+        "炎"
+      ],
+      "only": [
+        "A015"
+      ],
+      "onlyOther": [
+        "A003"
+      ]
+    },
+    "superconduct": {
+      "tags": [
+        "冰",
+        "雷"
+      ],
+      "only": [
+        "G2_FROST"
+      ],
+      "onlyOther": [
+        "A013"
+      ]
+    },
+    "winterlegion": {
+      "tags": [
+        "冰",
+        "召"
+      ],
+      "only": [
+        "G2_FROST"
+      ],
+      "onlyOther": [
+        "S001"
+      ]
+    },
+    "thunderlegion": {
+      "tags": [
+        "雷",
+        "召"
+      ],
+      "only": [
+        "A013"
+      ],
+      "onlyOther": [
+        "S001"
+      ]
+    },
+    "galephantom": {
+      "tags": [
+        "风",
+        "影"
+      ],
+      "only": [
+        "A026"
+      ],
+      "onlyOther": [
+        "A015"
+      ]
+    },
+    "thermalshock": {
+      "tags": [
+        "冰",
+        "炎"
+      ],
+      "only": [
+        "G2_FROST"
+      ],
+      "onlyOther": [
+        "A003"
+      ]
+    }
+  },
+  "wildfire": {
+    "pulsesPerSecond": 4,
+    "coefficient": 0.55,
+    "fireElement": true,
+    "onePulse": 33.3990331893504
+  },
+  "stormhunt": {
+    "base": 2,
+    "bonded": 3,
+    "bossJumpWithoutBond": 150.61550400000124
+  },
+  "shadowfire": {
+    "radius": 85,
+    "life": 3,
+    "coefficient": 0.35,
+    "printsPerDodge": 1
+  },
+  "winterlegion": {
+    "radius": 70,
+    "chillSeconds": 1,
+    "chillCoefficient": 0.25,
+    "bossChilled": false
+  },
+  "thunderlegion": {
+    "baseInterval": 0.8,
+    "bondedInterval": 0.6,
+    "attacksPlain": 6,
+    "attacksBonded": 8,
+    "gapFrames": {
+      "plain": 40,
+      "bonded": 30
+    }
+  },
+  "thermalshock": {
+    "multiplier": 1.3,
+    "consumesChill": false,
+    "bossExcludedBy": "hitBoss never calls incomingEnemyDamage"
+  },
+  "visibility": {
+    "renderers": [
+      "ui/RunGuide.vue:17",
+      "ui/BattleView.vue:179,214",
+      "ui/RunResult.vue:37",
+      "ui/ChoiceDetails.vue:17"
+    ],
+    "asserted": [
+      "snapshot().bonds",
+      "bondRequirements",
+      "choiceAdvice"
+    ],
+    "gap": "the Vue templates themselves are not asserted (no Playwright in this environment)"
+  },
+  "premise": "TASK.md says the eight bonds have no acceptance; six of the eight already did (see coverage). The slice adds the missing halves, not a rewrite.",
+  "coverage": {
+    "wildfire": "presence/absence in evolutionCombat.test.ts:57-60; magnitude, cadence and element added here",
+    "stormhunt": "jump count in evolutionCombat.test.ts:54; the ungated boss clause added here",
+    "shadowfire": "field and cd in evolutionCombat.test.ts:55-56; geometry added here",
+    "superconduct": "1.35 and expiry in elementalEvolution.test.ts:71-79; nothing added (the boss half is vacuous - Boss has no chilledUntil field)",
+    "winterlegion": "damage in elementalEvolution.test.ts:80-93; radius, chill length and boss exclusion added here",
+    "thunderlegion": "first tick in elementalEvolution.test.ts:94-95; the constant frame gap added here",
+    "galephantom": "per pulse, .75x, 300 range, expiry, boss in windShadow.test.ts:74-99; nothing added",
+    "thermalshock": "1.3 in formPressure.test.ts:1005-1029, boss exclusion at :1115-1116; the unconsumed chill added here"
+  }
+}

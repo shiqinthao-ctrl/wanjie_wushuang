@@ -9,7 +9,8 @@ import forms from '../data/skillForms.json';
 import pets from '../data/runePets.json';
 import manualTrack from '../data/manualTrack.json';
 import { FirstStageMap } from './FirstStageMap';
-import { FirstBoss } from './FirstBoss';
+import { FirstBoss, insideTelegraph } from './FirstBoss';
+import type { Telegraph } from './FirstBoss';
 import { generateGear } from './gearDrops';
 import { EvolutionCombat } from './EvolutionCombat';
 import { isStarter } from './evolutionCatalog';
@@ -38,6 +39,15 @@ interface Vortex extends Field { vx: number; vy: number }
 interface Meteor extends Point { id: string; r: number; dmg: number; life: number; max: number; color: string; manual?: boolean }
 interface Bomb extends Point { r: number; life: number; max: number; dmg: number; color: string }
 interface HostileShot extends Point { vx: number; vy: number; dmg: number; r: number; life: number; color: string }
+/**
+ * `EN004` (骑兵) charge. `range` is when it commits, `distance` is both how far the dash
+ * travels and how long the announcement is drawn - one number, so the line the player sees
+ * cannot promise a shorter or longer lunge than the body takes. `distance > range` on purpose:
+ * the charge passes through the player and ends beyond, which is the pattern a horse is for.
+ */
+const CHARGE = { range: 300, distance: 330, windup: .55, dash: .32, cooldown: 2.6 } as const;
+/** `EN005` (火箭兵) lob: aimed where the player stands, lands `delay` later inside `radius`. */
+const AOE_LOB = { every: 2.4, delay: .9, radius: 70 } as const;
 const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
 const cloneList = <T extends Point>(items: T[]) => items.map(item => Object.freeze({ ...item }));
 
@@ -76,6 +86,12 @@ export class CombatSimulation {
   readonly meteors: Meteor[] = [];
   readonly bombs: Bomb[] = [];
   readonly enemyShots: HostileShot[] = [];
+  /**
+   * The one enemy warning channel (`threat-v2` only in practice: nothing pushes here
+   * otherwise). `Telegraph` is the Boss's own type, deliberately reused so there is one
+   * definition of "a telegraphed attack" and one `insideTelegraph`.
+   */
+  readonly warnings: Telegraph[] = [];
   readonly cool: Record<string, number> = {};
   readonly pet;
   readonly map: FirstStageMap;
@@ -310,17 +326,82 @@ export class CombatSimulation {
     let move = 1;
     if (enemy.ai === 'ranged') {
       move = d > 300 ? .6 : d < 190 ? -.5 : 0;
+    } else if (enemy.ai === 'aoe_ranged' && this.threat) {
+      // Same kite shape as `ranged`, one band wider: the lob needs the extra room to be
+      // worth walking out of. Only reached under `threat-v2` - legacy runs have no
+      // `aoe_ranged` in their pool, and the branch is inert for them either way.
+      move = d > 320 ? .6 : d < 200 ? -.5 : 0;
     } else if (enemy.ai === 'shield') move = .65;
-    if (this.journeyCombat && (enemy.chilledUntil || 0) > this.time) move *= .55;
-    enemy.x += dx / d * enemy.speed * move * dt; enemy.y += dy / d * enemy.speed * move * dt;
+    const chill = this.journeyCombat && (enemy.chilledUntil || 0) > this.time ? .55 : 1;
+    // The charge replaces the walk with a committed dash, and plants the body during the
+    // wind-up. `undefined` means "no charge this frame" and falls through to the walk.
+    const charge = this.threat && enemy.ai === 'charge' ? this.chargeStep(enemy, dt, d, chill) : undefined;
+    if (charge) { enemy.x += charge.x; enemy.y += charge.y; }
+    else { move *= chill; enemy.x += dx / d * enemy.speed * move * dt; enemy.y += dy / d * enemy.speed * move * dt; }
     if (enemy.ai === 'ranged' && enemy.attack > 1.8) {
       enemy.attack = 0; const angle = Math.atan2(this.player.y - enemy.y, this.player.x - enemy.x);
       this.enemyShots.push({ x: enemy.x, y: enemy.y, vx: Math.cos(angle) * 235, vy: Math.sin(angle) * 235, dmg: enemy.damage, color: enemy.color, r: 5, life: 5 });
+    } else if (this.threat && enemy.ai === 'aoe_ranged' && enemy.attack > AOE_LOB.every) {
+      // A lob is aimed at where the player *is*, not where it will be: the marker is the
+      // contract, and walking out of it is the answer. The blast lands when `life` runs out.
+      enemy.attack = 0;
+      this.warnings.push({ x: this.player.x, y: this.player.y, type: 'circle', r: AOE_LOB.radius, name: enemy.name,
+        life: AOE_LOB.delay, max: AOE_LOB.delay, color: '#e0533a', damage: enemy.damage, resolved: false, source: enemy.id });
     }
     // The original contact test uses distance sampled before movement. Legacy
     // leans on the global 0.28s i-frame from incomingHit; threat-v2 grants no
     // global i-frame, so every attacker carries its own contact timer instead.
     if (d < enemy.r + this.player.r + 2 && (!this.threat || this.contactReady(enemy, this.threat.contactInterval))) { this.hurt(enemy.damage, enemy.id); if (enemy.vamp) enemy.hp = Math.min(enemy.maxHp, enemy.hp + enemy.maxHp * .05); }
+  }
+  /**
+   * `charge` (`EN004`), `threat-v2` only. Three states in one place: planted wind-up,
+   * committed dash, cooldown. Returns the displacement this frame, or `undefined` when
+   * the enemy should just walk - so the caller keeps one movement line for every role.
+   *
+   * The wind-up is announced on `this.warnings` (a `line` from the body to the end of the
+   * dash) and carries `damage: 0`: the announcement is not the attack. The hit is the
+   * body's own contact test above, which the dash drives through the player.
+   */
+  private chargeStep(enemy: Enemy, dt: number, d: number, chill: number): { x: number; y: number } | undefined {
+    enemy.chargeCd = Math.max(0, (enemy.chargeCd ?? 0) - dt);
+    if ((enemy.dash ?? 0) > 0) {
+      const step = CHARGE.distance / CHARGE.dash * Math.min(dt, enemy.dash!) * chill;
+      enemy.dash = enemy.dash! - dt;
+      if (enemy.dash <= 0) { enemy.dash = 0; enemy.chargeCd = CHARGE.cooldown; enemy.attack = 0; }
+      return { x: Math.cos(enemy.aim!) * step, y: Math.sin(enemy.aim!) * step };
+    }
+    if ((enemy.windup ?? 0) > 0) {
+      enemy.windup = enemy.windup! - dt;
+      if (enemy.windup <= 0) { enemy.windup = 0; enemy.dash = CHARGE.dash; }
+      return { x: 0, y: 0 };
+    }
+    if (enemy.chargeCd === 0 && d <= CHARGE.range) {
+      enemy.windup = CHARGE.windup;
+      enemy.aim = Math.atan2(this.player.y - enemy.y, this.player.x - enemy.x);
+      this.warnings.push({ x: enemy.x, y: enemy.y, x2: enemy.x + Math.cos(enemy.aim) * CHARGE.distance, y2: enemy.y + Math.sin(enemy.aim) * CHARGE.distance,
+        width: enemy.r * 2, moveBoss: false, type: 'line', name: enemy.name, life: CHARGE.windup, max: CHARGE.windup,
+        color: '#e0533a', damage: 0, resolved: false, source: enemy.id });
+      return { x: 0, y: 0 };
+    }
+    return undefined;
+  }
+  /**
+   * The one enemy warning channel. Same shape as `FirstBoss.telegraphs` (`Telegraph`), one
+   * list, read by `renderState().warnings` and by `mountBattle` - there is no second copy.
+   * Resolution is shared: a warning with `damage > 0` is an attack and hits once when its
+   * `life` runs out; a `damage: 0` warning is only an announcement.
+   */
+  private updateEnemyWarnings(dt: number): void {
+    for (let i = this.warnings.length - 1; i >= 0; i--) {
+      const warning = this.warnings[i]!;
+      warning.life -= dt;
+      if (warning.life > 0) continue;
+      if (!warning.resolved) {
+        warning.resolved = true;
+        if (warning.damage > 0 && insideTelegraph(this.player, warning)) this.hurt(warning.damage, warning.source ?? warning.name);
+      }
+      this.warnings.splice(i, 1);
+    }
   }
   beginFrame(dt: number): void {
     const p = this.player, slow = this.auraNear ? .82 : 1; this.auraNear = false;
@@ -343,6 +424,7 @@ export class CombatSimulation {
     cap(this.enemies, { easy: 190, normal: 250, hard: 320, nightmare: 380 }[this.difficulty] || 250);
     this.attackClock += dt; if (this.attackClock > 1 / Math.max(.6, p.aspd)) { this.attackClock = 0; this.basic(); }
     for (const enemy of [...this.enemies]) this.enemyAI(enemy, dt);
+    this.updateEnemyWarnings(dt);
     this.bossEncounter.updateAI(dt);
   }
   finishBaseFrame(dt: number): void {
@@ -578,12 +660,12 @@ export class CombatSimulation {
   }
   applyCaps(): void { cap(this.enemies, caps.enemies); cap(this.enemyShots, caps.enemyShots); cap(this.projectiles, caps.v24Projectiles); cap(this.fields, caps.v24Fields); cap(this.meteors, caps.v24Meteors); }
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
-  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]), soldier: this.soldiers?.snapshot(enemy) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
+  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]), soldier: this.soldiers?.snapshot(enemy) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), warnings: cloneList(this.warnings), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
   destroy(): void {
     this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
     this.journeyCombat?.destroy();
     this.soldiers?.destroy();
     this.contactClock.clear();
-    for (const items of [this.enemies, this.projectiles, this.fields, this.vortices, this.meteors, this.bombs, this.enemyShots]) items.length = 0;
+    for (const items of [this.enemies, this.projectiles, this.fields, this.vortices, this.meteors, this.bombs, this.enemyShots, this.warnings]) items.length = 0;
   }
 }

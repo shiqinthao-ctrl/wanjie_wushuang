@@ -16,37 +16,39 @@ Legacy version wrappers remain; migrate incrementally, never rewrite the combat 
 See `../TASK.md`.
 
 ## Last completed
-R2-F-BOSS-COVERAGE - **instrument, zero production change**. The four pressure cells never hold a
-Boss and a soldier at once (measured: `framesBoth = 0` for all 4 cells x 10 forms), while the
-**shipped** Boss phase does so for **~95%** of the encounter (`bossPhaseSpawnInterval` is a
-multiplier, not a switch, `CombatSimulation:341-342`). New finding: the queue's **candidate B** (a
-fifth cell: standoff 110 + one `EN001` @100px reversed) **does not work as specified** - a single
-98.154-HP body in reach of a kit firing 15 casts dies in **0.98-2.88s**, staging coexistence for
-**<5%** of a 90s window; the shape that holds is a **body the kit cannot one-shot** (`hp = maxHp =
-1e6`, whole window). With such a body the reading moves: `bossHpLost` shifts **+16.7% to -14.7%**
-across kits, stable across ranks. **Ruling D18**: pin the gap with a visible instrument, no balance
-change, no `scenarios` key. `formPressure.test.ts` EOF block, 5 `it`, ~1.2s; ten shipped reports
-byte-identical.
+**R3-E01..07a (D23)** - the first slice in more than ten that changes the shipping profile. Three
+dead rows fielded (pool `5/3/1` -> **6 rows**); `charge` and `aoe_ranged` given behaviour under
+`threat-v2` only (windup 35 frames, dash 330.0 = 12.49x walk; a `r70` circle every 2.4 s settling
+after .9 s); enemies got **one** warning channel (reused `Telegraph` -> `renderState()` ->
+`graphics`, not a second `FirstBoss.telegraphs`). `brute` unchanged, asserted. Price: **16 of 83**
+reports moved and **15** assertions re-baselined - G8 cells **3 -> 2**, G7 fusions **2 -> 1**,
+`BOSSPHASE` **61/58 -> 71/63**, `maxAdds` 6 -> **2-3**, D2 dash cost **20% -> 12.9%**. The harder
+horde is inherent: every `EN004..006` stat sits above the old pool's expectation, so any positive
+weight raises the contact budget - only weight 0 is neutral, and that is a switch that is always off.
 
 ## Changed files
-**No production file.** `apps/mobile-next/src/core/formPressure.test.ts` (EOF block, +5 `it`, no
-existing line moved), new `evidence/R2-F-BOSS-COVERAGE/` (report + page), regenerated
-`evidence/R2-F-CAP/cap10-md5.txt` (261->262). `DECISIONS.md` D18. `QUEUE.md` 6w done / 7 next.
+`src/data/firstStage.json` (6-row pool), `src/core/spawnRules.ts` (`windup/dash/aim/chargeCd`),
+`FirstBoss.ts` (`source`), `CombatSimulation.ts` (`CHARGE`, `AOE_LOB`, `chargeStep`,
+`updateEnemyWarnings`, `warnings`), `GameCore.ts`, `src/game/mountBattle.ts` (draws warnings).
+New `src/core/enemyWarnings.test.ts` (10 `it`); `enemyRoles.test.ts` rewritten as the legacy arm.
+`DECISIONS.md` D23; `QUEUE.md` 10a done, 11 next; ledger **266 -> 267** (rolling **31 -> 32**).
 
 ## Tests
-`typecheck` clean; new block **5 pass** (1.21s); whole `formPressure.test.ts` **89 pass** (21.08s).
-`ledger:verify` -> `LEDGER OK` (262/262, rolling writers 27, stale 0 after the full run). Full suite
-**44 files / 1475 tests green** (EXIT=0, 1625.57s, `+5` = this block); `smoke`/`audit`/`archive:verify`
-OK; `context` 7022/8192; `check` cannot run here. **No Playwright.**
+Full suite on the clean tree: **50 files / 1519 tests, all pass (1643.92 s)** = 1509 + 10, 49 + 1.
+`vue-tsc --noEmit` clean. `ledger:verify` -> `LEDGER OK` (267/267, rolling 32, stale 0, moved 0).
+`smoke`/`audit`/`archive:verify` OK; `context` 8169/8192; `check` cannot run here.
+**No Playwright**, so neither the warning geometry nor the Vue templates can be seen locally - the
+tests assert the data those renderers read.
 
 ## Unresolved risk
-candidate B's body type must be fixed before the fifth cell can land; 27pp viewport gap; G10 D3
-unmet; no UI for the main art; G7 1 fusion/run; `S001` shares the summon cap.
+`R2-F-G4ROWS`'s evolution arm now observes **no** G4 row at all (three shapes at `hits: 0`, `kept`
+empty): the arm's reachability collapsed, so the two readings under it are equal for a trivial
+reason. `R3-E01..07c` (the "two elites" definition) still blocks `R3-M03`. 27pp viewport gap; G10 D3
+unmet; main-skill has no UI; `S001` shares the summon cap.
 
 ## Recommended next task
-**R2-S01..12** (`QUEUE.md` #7); brief in `TASK.md`. Twelve skill routes over five base skills; the
-table and the `EvolutionCombat.cast` route branches exist, exclusivity and boundary acceptance do
-not. Count the routes with a command before trusting the number.
+**R3-M01** (`QUEUE.md` #11); brief in `TASK.md`. The map's six objects come from a `const layout`
+with no randomness and there is no collider anywhere, so two of the row's three acceptance items may
+describe an imagination - settle that before building anything.
 
 Replace only the five fields above.
-

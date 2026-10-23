@@ -7,7 +7,7 @@ import { bossGearChoices, generateGear } from './gearDrops';
 import { instanceScore } from './growth';
 
 export interface Boss extends Point { id: string; name: string; hp: number; maxHp: number; r: number; phase: number; castCd: number; castLock: number; shield: number; skillIndex: number; next: string; sweepPhase?: 'windup' | 'strike' | 'recovery'; sweepFacing?: number }
-type WarningBase = Point & { name: string; life: number; max: number; color: string; damage: number; resolved: boolean; chapterSweep?: boolean };
+type WarningBase = Point & { name: string; life: number; max: number; color: string; damage: number; resolved: boolean; chapterSweep?: boolean; source?: string };
 export type Telegraph = WarningBase & ({ type: 'circle'; r: number } | { type: 'line'; x2: number; y2: number; width: number; moveBoss: boolean } | { type: 'cone'; range: number; arc: number; angle: number });
 export function insideTelegraph(point: Point, warning: Telegraph): boolean {
   const dx = point.x - warning.x, dy = point.y - warning.y;

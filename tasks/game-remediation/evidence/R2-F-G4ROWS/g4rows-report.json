@@ -25,20 +25,20 @@
           },
           {
             "shape": "line",
-            "hits": 2,
-            "fractionMedian": 0.2206
+            "hits": 0,
+            "fractionMedian": 0
           },
           {
             "shape": "cone",
-            "hits": 0,
-            "fractionMedian": 0
+            "hits": 1,
+            "fractionMedian": 0.234
           }
         ],
         "kept": [
-          0.2206
+          0.234
         ],
-        "cheapestMove": 0.2206,
-        "heaviestMove": 0.2206,
+        "cheapestMove": 0.234,
+        "heaviestMove": 0.234,
         "phase1Hits": 0,
         "g4": null,
         "derivedMovePhases": [
@@ -60,8 +60,8 @@
           },
           {
             "shape": "line",
-            "hits": 3,
-            "fractionMedian": 0.2206
+            "hits": 0,
+            "fractionMedian": 0
           },
           {
             "shape": "cone",
@@ -69,16 +69,12 @@
             "fractionMedian": 0
           }
         ],
-        "kept": [
-          0.2206
-        ],
-        "cheapestMove": 0.2206,
-        "heaviestMove": 0.2206,
+        "kept": [],
+        "cheapestMove": 0,
+        "heaviestMove": 0,
         "phase1Hits": 0,
         "g4": null,
-        "derivedMovePhases": [
-          3
-        ],
+        "derivedMovePhases": [],
         "derivedContactPhases": [
           1,
           2,

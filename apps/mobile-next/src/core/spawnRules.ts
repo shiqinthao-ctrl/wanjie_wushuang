@@ -9,6 +9,13 @@ export interface Enemy extends Point {
   elite: boolean; affixes: string[]; flash: number;
   volatile?: boolean; vamp?: boolean; aura?: boolean; split?: boolean;
   chilledUntil?: number;
+  /**
+   * `charge` state machine, `threat-v2` only. `windup` counts down while the body is
+   * planted, `dash` counts down while it is committed to `aim`, `chargeCd` is the gap
+   * before it may start again. All three are absent on every other enemy, so a legacy
+   * run never allocates them and `enemyAI` reads `?? 0`.
+   */
+  windup?: number; dash?: number; aim?: number; chargeCd?: number;
 }
 export interface DirectorState { time: number; kills: number; dps: number; level: number; evolved: number; fused: number }
 export const firstStage = stage.rule;

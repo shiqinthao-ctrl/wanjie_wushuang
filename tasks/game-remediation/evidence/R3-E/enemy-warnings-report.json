@@ -1,0 +1,132 @@
+{
+  "slice": "R3-E01..07a",
+  "harness": "src/core/enemyWarnings.test.ts",
+  "instrument": "createEnemy + CombatSimulation(rules=threat-v2), player parked with atk 0, pet off, one enemy, 1/60 s frames",
+  "pool": [
+    {
+      "id": "EN001",
+      "weight": 5,
+      "share": 0.4167
+    },
+    {
+      "id": "EN002",
+      "weight": 3,
+      "share": 0.25
+    },
+    {
+      "id": "EN003",
+      "weight": 1,
+      "share": 0.0833
+    },
+    {
+      "id": "EN004",
+      "weight": 1,
+      "share": 0.0833
+    },
+    {
+      "id": "EN005",
+      "weight": 1,
+      "share": 0.0833
+    },
+    {
+      "id": "EN006",
+      "weight": 1,
+      "share": 0.0833
+    }
+  ],
+  "waves": [
+    {
+      "at": 0,
+      "name": "步卒接战",
+      "type": "normal",
+      "note": "步卒与弓手建立基础走位",
+      "budget": 0.78,
+      "elite": 0.35,
+      "director": {
+        "interval": 0.8069,
+        "eliteChance": 0.0061
+      }
+    },
+    {
+      "at": 60,
+      "name": "弓手压线",
+      "type": "normal",
+      "note": "远程火力开始夹击",
+      "budget": 0.88,
+      "elite": 0.45,
+      "director": {
+        "interval": 0.6939,
+        "eliteChance": 0.008
+      }
+    },
+    {
+      "at": 150,
+      "name": "盾阵试锋",
+      "type": "elite",
+      "note": "首名精英检验构筑",
+      "budget": 0.96,
+      "elite": 0.85,
+      "director": {
+        "interval": 0.6068,
+        "eliteChance": 0.0156
+      }
+    },
+    {
+      "at": 270,
+      "name": "巨将压境",
+      "type": "boss",
+      "note": "黄巾巨将登场",
+      "budget": 0.68,
+      "elite": 0.3,
+      "director": {
+        "interval": 0.8016,
+        "eliteChance": 0.0055
+      }
+    },
+    {
+      "at": 360,
+      "name": "边境决胜",
+      "type": "end",
+      "note": "Boss战利品决定通关",
+      "budget": 0,
+      "elite": 0,
+      "director": {
+        "interval": null,
+        "eliteChance": 0
+      }
+    }
+  ],
+  "charge": {
+    "id": "EN004",
+    "speed": 82.56,
+    "walkStep": 1.376,
+    "plantedFrames": 35,
+    "plantedSeconds": 0.5833,
+    "nominalWindup": 0.55,
+    "dashFrames": 19,
+    "dashSeconds": 0.3167,
+    "nominalDash": 0.32,
+    "dashStep": 17.1875,
+    "dashStepOverWalk": 12.4909,
+    "dashDistance": 330,
+    "hits": 6.7091
+  },
+  "aoe": {
+    "id": "EN005",
+    "speed": 46.08,
+    "radius": 70,
+    "delay": 0.9,
+    "every": 2.4,
+    "straightShots": 0,
+    "damageTaken": 5.0318
+  },
+  "brute": {
+    "id": "EN006",
+    "radius": 14,
+    "behaviour": "unchanged: walks at 1.0, announces nothing"
+  },
+  "legacy": {
+    "warnings": 0,
+    "note": "the same two strings stay inert without a threat model - see enemyRoles.test.ts"
+  }
+}

@@ -373,12 +373,15 @@ describe('Fusion reachability (R1g-8)', () => {
     const noLastChest = misses.filter(run => run.chests.length < CHEST_AT.length);
     expect(misses.length).toBeGreaterThan(0);
     expect(late.length + noLastChest.length).toBe(misses.length);
-    expect(noLastChest.map(run => run.seed)).toEqual([4, 30]);
-    // Seed 30 is the clean case of (b) and the one that makes it a *pacing* claim rather than a
-    // restatement of (a): its gate was ready at 165s, a full chest before the second-to-last one,
-    // and the run still ended without a 300s chest. Seed 4 is the overlap case (gate never ready
-    // *and* no last chest), which is why (a) excludes incomplete runs.
-    expect(noLastChest.find(run => run.seed === 30)!.recipeReadyAt).toBeLessThan(SECOND_TO_LAST_CHEST);
+    // R3-E01..07a: `[4, 30]` -> `[22]`, and seed 4 is no longer an incomplete run at all. The
+    // partition still holds (`late + noLastChest === misses`), which is the claim; which seeds land in
+    // which half is a property of the horde, not of the chest rule.
+    expect(noLastChest.map(run => run.seed)).toEqual([22]);
+    // And the remaining run is now the *overlap* case, not the clean one: its gate was ready after
+    // the second-to-last chest, so it is both defects at once. R1g-12's clean case (seed 30) is no
+    // longer an incomplete run at all. The partition is what the assertion is for - (a) excludes
+    // incomplete runs precisely so the two halves cannot double-count - and that still holds.
+    expect(noLastChest[0]!.recipeReadyAt).toBeGreaterThan(SECOND_TO_LAST_CHEST);
   }, 300_000);
 
   it('writes the evidence report', () => {

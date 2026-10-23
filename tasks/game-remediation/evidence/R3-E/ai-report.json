@@ -1,0 +1,96 @@
+{
+  "slice": "R3-E",
+  "harness": "src/core/enemyRoles.test.ts",
+  "instrument": "createEnemy (production ctor), player parked, no skills, pet off, 20 frames at 1/60 s, updateOuter",
+  "roster": [
+    {
+      "id": "EN001",
+      "name": "黄巾步卒",
+      "ai": "melee",
+      "r": 10,
+      "fielded": true,
+      "weight": 5,
+      "speedPerFrame": 1.088,
+      "movedPerSpeed": 1,
+      "shotsIn5s": 0
+    },
+    {
+      "id": "EN002",
+      "name": "黄巾弓手",
+      "ai": "ranged",
+      "r": 10,
+      "fielded": true,
+      "weight": 3,
+      "speedPerFrame": 0.864,
+      "movedPerSpeed": 0,
+      "shotsIn5s": 3
+    },
+    {
+      "id": "EN003",
+      "name": "黄巾盾兵",
+      "ai": "shield",
+      "r": 14,
+      "fielded": true,
+      "weight": 1,
+      "speedPerFrame": 0.72,
+      "movedPerSpeed": 0.65,
+      "shotsIn5s": 0
+    },
+    {
+      "id": "EN004",
+      "name": "黄巾骑兵",
+      "ai": "charge",
+      "r": 10,
+      "fielded": true,
+      "weight": 1,
+      "speedPerFrame": 1.376,
+      "movedPerSpeed": 1,
+      "shotsIn5s": 0
+    },
+    {
+      "id": "EN005",
+      "name": "火箭兵",
+      "ai": "aoe_ranged",
+      "r": 10,
+      "fielded": true,
+      "weight": 1,
+      "speedPerFrame": 0.768,
+      "movedPerSpeed": 1,
+      "shotsIn5s": 0
+    },
+    {
+      "id": "EN006",
+      "name": "黄巾力士",
+      "ai": "brute",
+      "r": 14,
+      "fielded": true,
+      "weight": 1,
+      "speedPerFrame": 0.608,
+      "movedPerSpeed": 1,
+      "shotsIn5s": 0
+    }
+  ],
+  "jobs": {
+    "fieldedAndImplemented": [
+      "EN001 melee (weight 5; walks at 1.0, renderer reads the string for alpha only)",
+      "EN002 ranged (weight 3; kites .6/0/-.5 at 300/190, fires when attack > 1.8)",
+      "EN003 shield (weight 1; moves at .65, r 14)"
+    ],
+    "declaredButNeverFielded": [
+      "EN004 charge (map ST001, in no wave, and no production branch reads the string)",
+      "EN005 aoe_ranged (map ST001, in no wave, no branch: measured 0 shots in 5 s at 200 px)",
+      "EN006 brute (map ST001, in no wave; the string only buys r 14)"
+    ]
+  },
+  "telegraphs": {
+    "enemyFields": 0,
+    "bossChannel": "sim.bossEncounter.telegraphs (empty with enemies only)"
+  },
+  "elites": {
+    "rows": 0,
+    "flag": true,
+    "affixes": 1,
+    "affixesAfter960s": 2,
+    "color": "#d5a254"
+  }
+}

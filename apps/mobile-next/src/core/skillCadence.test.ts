@@ -159,10 +159,36 @@ describe('skill auto-cast budget (R1g-2)', () => {
     expect(table.G2_FROST).toBeUndefined();
   });
 
+  /**
+   * R3-E01..07a: the `unlock` driver reached the summon at seed 15 before the horde change and does
+   * not any more - the run is harder, so it takes one level-up fewer and never unlocks the summon.
+   * The claim in these two tests is about the *cadence* of an owned summon, not about which seed
+   * reaches it, so the driver walks a fixed seed list and takes the first run that owns `S001`.
+   * If none does, the premise ("a player who wants the summons reaches it") is gone and this throws
+   * rather than letting the assertions pass over an empty set.
+   */
+  const SUMMON_SEEDS = [15, 1, 2, 3, 5, 7, 11, 13, 21, 25, 33] as const;
+  /**
+   * Memoised as well as timed. The scan itself is the new cost: when seed 15 stopped owning `S001`
+   * this function started paying for every seed until one hits, and two `it`s below call it. The
+   * cache in `cadence()` makes the second call cheap, but the *first* call is what has to be paid
+   * for once - and the `it` that pays it needs a timeout that is not the default 5 s, because its
+   * wall clock now depends on how many neighbours are running (7.8 s in the full suite, under 5 s
+   * alone). Both halves of the fix, for the reason `formPressure.test.ts:3294` needed both.
+   */
+  let summon: { seed: number; run: Cadence } | undefined;
+  function summonRun(): { seed: number; run: Cadence } {
+    if (summon) return summon;
+    for (const seed of SUMMON_SEEDS) {
+      const run = cadence({ journey: 'evolution', seed });
+      if (run.owned.includes('S001')) return (summon = { seed, run });
+    }
+    throw new Error(`no seed in ${SUMMON_SEEDS.join(', ')} reaches S001 - the summon premise is gone`);
+  }
+
   it('never casts an owned skill faster than its table cooldown allows', () => {
-    const run = cadence({ journey: 'evolution' });
-    expect(run.owned).toContain('S001');
-    expect(run.seconds).toBeGreaterThan(60);
+    const { seed, run } = summonRun();
+    expect(run.seconds, `seed ${seed}`).toBeGreaterThan(60);
     const offenders = Object.entries(run.perSecond)
       .filter(([id]) => typeof table[id] === 'number')
       .map(([id, rate]) => ({ id, rate, ratio: rate * (table[id] as number) }))
@@ -170,10 +196,10 @@ describe('skill auto-cast budget (R1g-2)', () => {
       // The bug measured 15.3 for S001, so 0.7 separates the two cleanly.
       .filter(entry => entry.ratio < .7);
     expect(offenders).toEqual([]);
-  });
+  }, 120_000);
 
   it('drops the summon recast from twice a second to once per cooldown', () => {
-    const run = cadence({ journey: 'evolution' });
+    const { run } = summonRun();
     expect(run.casts.S001).toBeGreaterThan(0);
     // Measured before the fix: 2.18 casts/s over 220.7s owned (481 casts).
     expect(run.perSecond.S001!).toBeLessThan(.4);

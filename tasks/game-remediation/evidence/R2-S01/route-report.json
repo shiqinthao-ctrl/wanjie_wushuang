@@ -1,0 +1,263 @@
+{
+  "slice": "R2-S01",
+  "routes": {
+    "volley": {
+      "skill": "A011",
+      "hero": "H001",
+      "detail": "三道扇射，单发伤害为原来的 65%。",
+      "n": 3,
+      "totalPerAtk": 1.8524999999999998,
+      "hits": 0,
+      "radius": 0,
+      "speed": 390,
+      "explode": 72.75520000000002
+    },
+    "nova": {
+      "skill": "A011",
+      "hero": "H001",
+      "detail": "单发速度降低，爆炸范围扩大，伤害为原来的 145%。",
+      "n": 1,
+      "totalPerAtk": 1.3774999999999997,
+      "hits": 0,
+      "radius": 0,
+      "speed": 260,
+      "explode": 137.984
+    },
+    "ringfire": {
+      "skill": "A011",
+      "hero": "H001",
+      "detail": "向八个方向同时射出火球，每发伤害为普通的 45%，爆炸范围缩小。适合敌群围绕时清场。",
+      "n": 8,
+      "totalPerAtk": 3.419999999999999,
+      "hits": 0,
+      "radius": 0,
+      "speed": 300,
+      "explode": 35.123200000000004
+    },
+    "roaming": {
+      "skill": "A026",
+      "hero": "H001",
+      "detail": "龙卷向目标游走，持续牵引前方敌人。",
+      "n": 1,
+      "totalPerAtk": 0.2,
+      "hits": 0,
+      "radius": 102.86080000000001,
+      "speed": 85,
+      "explode": 0,
+      "follow": false
+    },
+    "orbit": {
+      "skill": "A026",
+      "hero": "H001",
+      "detail": "龙卷围绕自身旋转，清理近身敌人。",
+      "n": 1,
+      "totalPerAtk": 0.2,
+      "hits": 0,
+      "radius": 102.86080000000001,
+      "speed": 85,
+      "explode": 0,
+      "follow": true,
+      "orbitRadius": 100
+    },
+    "ambush": {
+      "skill": "A026",
+      "hero": "H001",
+      "detail": "在最近目标方向布下固定风阵，最多前置 220 距离。范围扩大，单次伤害为普通龙卷的 80%。",
+      "n": 1,
+      "totalPerAtk": 0.16,
+      "hits": 0,
+      "radius": 137.984,
+      "speed": 0,
+      "explode": 0,
+      "follow": false,
+      "damageVsRoaming": 0.8,
+      "reach": 220
+    },
+    "hunter": {
+      "skill": "S001",
+      "hero": "H012",
+      "detail": "分身跟随移动，向敌人射出影刃。",
+      "n": 2,
+      "totalPerAtk": 1.3,
+      "hits": 0,
+      "radius": 0,
+      "speed": 0,
+      "explode": 0,
+      "guard": false,
+      "bodies": 2
+    },
+    "guard": {
+      "skill": "S001",
+      "hero": "H012",
+      "detail": "分身留守召唤位置，周期释放范围斩击。",
+      "n": 2,
+      "totalPerAtk": 1.3,
+      "hits": 0,
+      "radius": 0,
+      "speed": 0,
+      "explode": 0,
+      "guard": true,
+      "bodies": 2
+    },
+    "glacier": {
+      "skill": "G2_FROST",
+      "hero": "H001",
+      "detail": "霜环变为驻留寒域，持续伤害并减速区域内敌人。",
+      "n": 1,
+      "totalPerAtk": 0.18,
+      "hits": 0,
+      "radius": 194.43200000000002,
+      "speed": 0,
+      "explode": 0,
+      "follow": false,
+      "field": true,
+      "chill": 1.2
+    },
+    "shatter": {
+      "skill": "G2_FROST",
+      "hero": "H001",
+      "detail": "扩大霜环范围，提高瞬间伤害与减速时间。",
+      "n": 3,
+      "totalPerAtk": 0,
+      "hits": 3,
+      "radius": 0,
+      "speed": 0,
+      "explode": 0,
+      "radiusFactor": 1.4814814814814814,
+      "instant": true
+    },
+    "relay": {
+      "skill": "A013",
+      "hero": "H010",
+      "detail": "多跳两个目标，每跳伤害为普通的 72%。",
+      "n": 4,
+      "totalPerAtk": 0,
+      "hits": 4,
+      "radius": 0,
+      "speed": 0,
+      "explode": 0,
+      "extraJumps": 2,
+      "damagePerJump": 0.72
+    },
+    "thunderstrike": {
+      "skill": "A013",
+      "hero": "H010",
+      "detail": "停止跳链，对首目标周围造成 210% 范围雷击。",
+      "n": 2,
+      "totalPerAtk": 0,
+      "hits": 2,
+      "radius": 0,
+      "speed": 0,
+      "explode": 0,
+      "chained": false,
+      "damagePerJump": 2.1
+    }
+  },
+  "coverage": {
+    "volley": "R2-S01..12 #2",
+    "nova": "R2-S01..12 #2",
+    "ringfire": "R2-S01..12 #2 + frostFlame.test.ts",
+    "roaming": "R2-S01..12 #3",
+    "orbit": "R2-S01..12 #3",
+    "ambush": "R2-S01..12 #3 + windShadow.test.ts",
+    "hunter": "R2-S01..12 #4 + evolutionCombat.test.ts",
+    "guard": "R2-S01..12 #4 + evolutionCombat.test.ts",
+    "glacier": "R2-S01..12 #5 + elementalEvolution.test.ts",
+    "shatter": "R2-S01..12 #5 + elementalEvolution.test.ts",
+    "relay": "R2-S01..12 #6 + elementalEvolution.test.ts",
+    "thunderstrike": "R2-S01..12 #6 + elementalEvolution.test.ts",
+    "evolution": "R2-S01..12 #9",
+    "countBonus": "R2-S01..12 #10"
+  },
+  "evolution": {
+    "A011": {
+      "baseline": {
+        "plain": 0.9499999999999998,
+        "evolved": 2.8499999999999996
+      },
+      "volleyVsEvolvedBase": 0.65,
+      "novaVsEvolvedBase": 0.48333333333333334,
+      "ringfireVsEvolvedBase": 1.2
+    },
+    "countBonusReaders": {
+      "S001": "bodies 2 -> 3",
+      "A013": "hits 2 -> 2",
+      "A026": "radius only",
+      "A011": "legacy hand-rolls n = m.evo ? 3 : 1"
+    }
+  },
+  "table": [
+    {
+      "id": "volley",
+      "skill": "A011",
+      "name": "连珠火球",
+      "detail": "三道扇射，单发伤害为原来的 65%。"
+    },
+    {
+      "id": "nova",
+      "skill": "A011",
+      "name": "爆星火球",
+      "detail": "单发速度降低，爆炸范围扩大，伤害为原来的 145%。"
+    },
+    {
+      "id": "ringfire",
+      "skill": "A011",
+      "name": "八方焰轮",
+      "detail": "向八个方向同时射出火球，每发伤害为普通的 45%，爆炸范围缩小。适合敌群围绕时清场。"
+    },
+    {
+      "id": "roaming",
+      "skill": "A026",
+      "name": "游龙风暴",
+      "detail": "龙卷向目标游走，持续牵引前方敌人。"
+    },
+    {
+      "id": "orbit",
+      "skill": "A026",
+      "name": "环身风暴",
+      "detail": "龙卷围绕自身旋转，清理近身敌人。"
+    },
+    {
+      "id": "ambush",
+      "skill": "A026",
+      "name": "伏阵风暴",
+      "detail": "在最近目标方向布下固定风阵，最多前置 220 距离。范围扩大，单次伤害为普通龙卷的 80%。"
+    },
+    {
+      "id": "hunter",
+      "skill": "S001",
+      "name": "游猎影军",
+      "detail": "分身跟随移动，向敌人射出影刃。"
+    },
+    {
+      "id": "guard",
+      "skill": "S001",
+      "name": "守阵影军",
+      "detail": "分身留守召唤位置，周期释放范围斩击。"
+    },
+    {
+      "id": "glacier",
+      "skill": "G2_FROST",
+      "name": "极寒领域",
+      "detail": "霜环变为驻留寒域，持续伤害并减速区域内敌人。"
+    },
+    {
+      "id": "shatter",
+      "skill": "G2_FROST",
+      "name": "碎冰震波",
+      "detail": "扩大霜环范围，提高瞬间伤害与减速时间。"
+    },
+    {
+      "id": "relay",
+      "skill": "A013",
+      "name": "万钧连锁",
+      "detail": "多跳两个目标，每跳伤害为普通的 72%。"
+    },
+    {
+      "id": "thunderstrike",
+      "skill": "A013",
+      "name": "孤雷天罚",
+      "detail": "停止跳链，对首目标周围造成 210% 范围雷击。"
+    }
+  ]
+}

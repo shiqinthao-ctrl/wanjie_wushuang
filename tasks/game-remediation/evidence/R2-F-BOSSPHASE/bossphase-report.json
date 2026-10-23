@@ -31,53 +31,59 @@
   },
   "perJourney": {
     "classic": {
-      "casts": 61,
+      "casts": 71,
       "median": 2,
       "pairs": {
-        "2:cone>3:line": 24,
-        "2:cone": 3,
-        "1:line>2:circle>3:cone": 3,
-        "3:circle": 1,
-        "(none)": 2
+        "2:cone>3:line": 22,
+        "1:line>2:circle>3:cone": 8,
+        "2:cone": 2,
+        "3:circle": 1
       },
       "deviating": [
-        "2:2:cone",
-        "9:2:cone",
+        "4:1:line>2:circle>3:cone",
+        "6:1:line>2:circle>3:cone",
+        "9:1:line>2:circle>3:cone",
+        "10:1:line>2:circle>3:cone",
+        "11:2:cone",
+        "15:1:line>2:circle>3:cone",
         "19:1:line>2:circle>3:cone",
-        "20:3:circle",
-        "25:(none)",
-        "26:2:cone",
-        "27:1:line>2:circle>3:cone",
-        "29:1:line>2:circle>3:cone",
-        "31:(none)"
+        "22:3:circle",
+        "23:1:line>2:circle>3:cone",
+        "24:2:cone",
+        "25:1:line>2:circle>3:cone"
       ]
     },
     "evolution": {
-      "casts": 59,
+      "casts": 53,
       "median": 2,
       "pairs": {
-        "2:cone>3:line": 28,
-        "(none)": 2,
-        "2:cone": 3
+        "2:cone>3:line": 23,
+        "2:cone": 7,
+        "(none)": 3
       },
       "deviating": [
+        "4:2:cone",
+        "5:(none)",
+        "16:2:cone",
         "18:(none)",
-        "20:2:cone",
-        "21:(none)",
+        "19:(none)",
         "25:2:cone",
-        "28:2:cone"
+        "26:2:cone",
+        "30:2:cone",
+        "32:2:cone",
+        "33:2:cone"
       ]
     }
   },
   "counterfactual": {
     "meaning": "Force the phase to 1 for every cast - i.e. read the table as a plain `skillIndex` cycle - and compare the resolved shape.",
     "classic": {
-      "total": 61,
-      "moved": 58
+      "total": 71,
+      "moved": 63
     },
     "evolution": {
-      "total": 59,
-      "moved": 59
+      "total": 53,
+      "moved": 53
     }
   },
   "calibrationAtRisk": {

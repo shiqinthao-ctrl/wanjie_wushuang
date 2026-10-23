@@ -1874,20 +1874,28 @@ describe('R2-F-G4ROWS - the rows G4 never sees, and the verdict that is only eve
       // --- The filter (`:1338`): what is left when it has run. ---
       const zero = row.perShape.filter(entry => entry.hits === 0).map(entry => entry.shape);
       expect(row.perShape, `${journey}: G4 asks about three moves`).toHaveLength(3);
-      expect(zero, `${journey}: and two of them are never observed on this arm`).toEqual(['circle', 'cone']);
-      expect(row.kept, `${journey}: so the filter keeps one row`).toHaveLength(1);
+      // R3-E01..07a: classic still observes exactly one shape (`cone`, 0.234) and never the other
+      // two; the evolution arm now observes **none** of the three. The harder horde ends its runs
+      // before a G4 row lands, so `kept` is empty there and the two readings below are equal for the
+      // trivial reason (both are 0). Both halves are recorded rather than averaged: the empty arm is
+      // a *new* defect in the instrument's reach, and it is in `handoff/STATE.md` as an unresolved risk.
+      const observed = journey === 'classic' ? ['cone'] : [];
+      expect(zero, `${journey}: what this arm never observes`)
+        .toEqual(['circle', 'line', 'cone'].filter(shape => !observed.includes(shape)));
+      expect(row.kept, `${journey}: the filter keeps what was observed`).toHaveLength(observed.length);
       // The whole point: two readings that are supposed to bracket a spread are the same value.
       expect(row.cheapestMove, `${journey}: "cheapest" and "heaviest" are the same number`).toBe(row.heaviestMove);
       // And the survivor is the *heaviest* move in the analytic table (R2-F-CIRCLE's `multiple`
-      // ordering), so the one reading carries G4 through its loosest member.
-      expect(row.kept[0], `${journey}: the survivor is a real fraction`).toBeGreaterThan(TARGET.skillFraction);
+      // ordering), so the one reading carries G4 through its loosest member - when there is one.
+      if (observed.length) expect(row.kept[0], `${journey}: the survivor is a real fraction`).toBeGreaterThan(TARGET.skillFraction);
 
       // --- The ternary (`:1370`): what it can return. ---
       expect(row.phase1, `${journey}: no non-contact hit derives phase 1`).toHaveLength(0);
       expect(row.g4, `${journey}: so the ternary can only produce null`).toBeNull();
       // The mechanism, asserted where it lives: the phase is recovered from the damage, so the
       // encounter's own phase never enters. Every observed move hit derives phase 3.
-      expect(row.derivedMovePhases, `${journey}: a non-contact hit is a phase-3 hit, read off its damage`).toEqual([3]);
+      expect(row.derivedMovePhases, `${journey}: a non-contact hit is a phase-3 hit, read off its damage`)
+        .toEqual(journey === 'classic' ? [3] : []);
       // `contact` hits *do* reach phase 1 - which is why "no phase 1 anywhere" would be the wrong
       // story. The blind spot is specific to the shape rows, not to the encounter.
       expect(row.derivedContactPhases, `${journey}: contact hits do derive phase 1`).toContain(1);
@@ -1895,14 +1903,25 @@ describe('R2-F-G4ROWS - the rows G4 never sees, and the verdict that is only eve
     // Pin the serialised report to what was just verified, so the evidence page cannot drift from
     // the assertions: the shape of the numbers above *is* the row set, and the verdict is `null`.
     for (const row of report.filter.rows) {
-      expect(row.kept, `${row.journey}: the report carries the same one-row set`).toHaveLength(1);
+      // R3-E01..07a: the classic arm still carries one row, the evolution arm carries none (it
+      // observes no G4 row at all now) - so the report is pinned to the same set the loop above
+      // verified, per journey, instead of to a count that only classic can meet.
+      expect(row.kept, `${row.journey}: the report carries the same row set`).toHaveLength(row.journey === 'classic' ? 1 : 0);
       expect(row.cheapestMove, `${row.journey}: the report carries the collapsed reading`).toBe(row.heaviestMove);
       expect(row.g4, `${row.journey}: the report carries the only verdict the line can produce`).toBeNull();
     }
     expect(report.ternary.possible, 'the report names one possible verdict').toEqual(['null']);
     // The survivor is exactly the reading both fields carry - i.e. `kept[0]` *is* `cheapestMove`,
     // which is what makes "spread" a single value rather than a bracket.
-    for (const row of report.filter.rows) expect(row.kept[0], `${row.journey}: survivor === the reading`).toBe(row.cheapestMove);
+    // R3-E01..07a: the evolution arm now has **no** survivor, so that sentence has no subject there.
+    // What it does have is the empty filter's own output, and that is asserted instead: 0, not
+    // `undefined`. The distinction is the point - `undefined === 0` is false, so an unguarded
+    // `kept[0] === cheapestMove` would be the only thing standing between "the filter kept nothing"
+    // and "the reading is missing", and it cannot stand there once the arm is empty.
+    for (const row of report.filter.rows) {
+      if (row.kept.length) expect(row.kept[0], `${row.journey}: survivor === the reading`).toBe(row.cheapestMove);
+      else expect(row.cheapestMove, `${row.journey}: an empty filter reads 0, not undefined`).toBe(0);
+    }
   }, 1_200_000);
 });
 
@@ -2047,11 +2066,13 @@ describe('R2-F-BOSSPHASE - the move index depends on the phase, so it depends on
       mkdirSync(EVIDENCE5, { recursive: true });
       writeFileSync(resolve(EVIDENCE5, 'bossphase-report.json'), `${JSON.stringify(report, null, 2)}\n`);
     } catch { /* evidence is best-effort when the workspace is read-only */ }
-    // Measured, not thresholded: 58 of 61 classic casts and every one of evolution's 59 resolve to a
+    // Measured, not thresholded: 63 of 71 classic casts and every one of evolution's 53 resolve to a
     // different move once the phase term is gone. These are the numbers `evidence/R2-F-BOSSPHASE`
-    // records; if either moves, the table or the phase rule changed.
-    expect([cfClassic.total, cfClassic.moved], 'classic: 58 of 61 casts change shape').toEqual([61, 58]);
-    expect([cfEvolution.total, cfEvolution.moved], 'evolution: all 59 change shape').toEqual([59, 59]);
+    // records; if either moves, the table or the phase rule changed. R3-E01..07a moved them from
+    // 58/61 and 59/59 - the cast count follows the fight length, and the *claim* (removing the phase
+    // term rewrites almost every cast) is unchanged at 88.7% and 100%.
+    expect([cfClassic.total, cfClassic.moved], 'classic: 63 of 71 casts change shape').toEqual([71, 63]);
+    expect([cfEvolution.total, cfEvolution.moved], 'evolution: all 53 change shape').toEqual([53, 53]);
     // The report carries exactly the readings asserted above - so it cannot drift from them.
     expect(report.counterfactual.classic, 'the report carries the classic counterfactual').toEqual(cfClassic);
     expect(report.counterfactual.evolution, 'and the evolution one').toEqual(cfEvolution);
