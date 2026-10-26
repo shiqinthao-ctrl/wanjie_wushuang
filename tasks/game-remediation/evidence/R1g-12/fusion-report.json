@@ -652,8 +652,7 @@
           "evolved": [
             "E003",
             "E011",
-            "E027",
-            "E015"
+            "E027"
           ],
           "ownedActives": 4
         },
@@ -967,7 +966,7 @@
             "E003",
             "E054"
           ],
-          "ownedActives": 3
+          "ownedActives": 4
         },
         {
           "seed": 25,
@@ -2627,8 +2626,7 @@
       "evolved": [
         "E003",
         "E011",
-        "E027",
-        "E015"
+        "E027"
       ],
       "chests": [
         {
@@ -2666,7 +2664,7 @@
           "precondition": false,
           "index": 0,
           "options": [
-            "evo:E015",
+            "upgrade",
             "upgrade",
             "gear"
           ]

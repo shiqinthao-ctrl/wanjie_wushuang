@@ -31,11 +31,12 @@
   },
   "perJourney": {
     "classic": {
-      "casts": 71,
+      "casts": 70,
       "median": 2,
       "pairs": {
         "2:cone>3:line": 22,
-        "1:line>2:circle>3:cone": 8,
+        "1:line>2:circle>3:cone": 7,
+        "1:line>2:circle": 1,
         "2:cone": 2,
         "3:circle": 1
       },
@@ -43,13 +44,13 @@
         "4:1:line>2:circle>3:cone",
         "6:1:line>2:circle>3:cone",
         "9:1:line>2:circle>3:cone",
-        "10:1:line>2:circle>3:cone",
+        "10:1:line>2:circle",
         "11:2:cone",
         "15:1:line>2:circle>3:cone",
         "19:1:line>2:circle>3:cone",
+        "20:2:cone",
         "22:3:circle",
         "23:1:line>2:circle>3:cone",
-        "24:2:cone",
         "25:1:line>2:circle>3:cone"
       ]
     },
@@ -78,8 +79,8 @@
   "counterfactual": {
     "meaning": "Force the phase to 1 for every cast - i.e. read the table as a plain `skillIndex` cycle - and compare the resolved shape.",
     "classic": {
-      "total": 71,
-      "moved": 63
+      "total": 70,
+      "moved": 62
     },
     "evolution": {
       "total": 53,

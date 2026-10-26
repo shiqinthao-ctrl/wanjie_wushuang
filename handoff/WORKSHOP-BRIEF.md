@@ -188,6 +188,24 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 ② **一条恒等式在一侧为空时不是「更难满足」，而是「不成立」**（空 `kept` 上 `kept[0] === cheapestMove`
 拿到 `undefined` vs `0`）。**下一个 = `R3-M01`（第一关地图与「有限随机事件槽」）**。
 
+---
+
+**R3-M01 已完成 —— 两条验收是空真，边界是四条规则，裁定 D24**。**「无隐形阻挡」空真**：全库**零碰撞体**
+（`collider/obstacle/wall` 零命中，`blocked` 六处全是护盾/升级阻塞/注释）⇒ 成立的原因是**没有任何阻挡**。
+已换成强形式：走过六个物件的**每一步步长完全相同**（**744.64 px / 179 帧 / 4.16 px**）。**「危险区层级」
+不存在**（一个对象、`type` 是字面量、一个 push 点）。**「边界」是四条**：玩家 clamp 18、Boss clamp 45、
+**普通敌人只在出生时 clamp 30**、弹道 ±100 **剔除**、敌弹只按 `life` 清。**「有限随机事件槽」半真**：
+六个物件是 `const layout` 且被 `first-map-oracle.json` **钉死**（改成随机 = 作废 oracle），地图上唯一的
+随机量是火线的 `y` ⇒ **一个槽，不是六个**。**两个真缺陷都修了，各一处**：① 敌人移动**没有** clamp，而
+`charge` 是**第一条能把它推出世界的路径**（实测冲刺后 `x = -30`，一个身体在地图外照常发弹、玩家钳在 18
+再也够不到）——缺钳一直**没有可达路径**，因为后退方向是「背离玩家」而玩家永远在内侧，**几何在替 clamp
+干活**；② 火线中心钳在世界内 80 px ⇒ 线宽 36 + 玩家钳 18 ⇒ **沿墙 44 px 是永久免伤区**（201 个 draw
+实测最近距离恒 **62**，修后 **0**）。**「留出明确闪避窗口」成立但方向被误读**：窗口是需求的 **55.5 倍**
+（4 s vs **0.0721 s**）⇒ 火线是**节奏**不是**威胁**（占空比 **15.38%**）。**记录不改**：火线**不伤小怪**、
+`hazardPeak` 是**死字段**、火线 y 是**屏幕空间**（同种子跨设备不可复现）、`charge` 的预警线未 clamp
+（墙角公告比实际长）。**下一个 = `R3-M02`（三镇界阵）** —— 它的 `seals` 数据**零读者**，且它所在的
+`CH001-02` 被 `prepare.ts:11` **硬拒绝**，先核这件事。
+
 ## 1. 工程事实（请先接受，不要重做）
 
 | 项 | 值 |
@@ -208,7 +226,7 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 
 ---
 
-## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a 已完成，R3-M01 待做）
+## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a + R3-M01 已完成，R3-M02 待做）
 
 > 下表的 `#` 是**本简报自己的行号**，与 `QUEUE.md` 的编号不同（本表把十形态铺开成十行）；
 > 引用切片时请用名字，不要用编号。
@@ -700,8 +718,11 @@ apps/mobile-next/src/core/enemyRoles.test.ts      ← **敌人职责仪器（leg
 apps/mobile-next/src/core/enemyWarnings.test.ts   ← **敌人预警仪器**（10 个 `it`、约 40 ms；`drive()` 逐帧 + `plantedRun()`/`burstRun()`/`lungeOf()` + `insideTelegraph`；`charge` 前摇 35 帧 / 冲刺 330.0 / 12.49×，`aoe_ranged` `r70` + `.9s` 结算）
 tasks/game-remediation/evidence/R3-E/IMPLEMENTATION-A.md ← **生产改动（D23，第一次改出货档）**（§2 Scope 0 命令产出、§3 逐波构成与「一个池」的结构限制、§4 两条 `ai` 的实测、§5 一条通道、§6 重基线 16 份报告 + 15 条断言逐条判定、§7 门禁、§8 已知边界）
 tasks/game-remediation/evidence/R3-E/enemy-warnings-report.json ← **滚动**（`charge` / `aoe` / 池六行 / 五波 `director`；每次运行被覆写）
+apps/mobile-next/src/core/mapBounds.test.ts       ← **地图/边界/危险区仪器**（12 个 `it`、0.34 s；`sweep()` 走六个物件读**每步步长**、四角 clamp、`EN002` 后退不越界、`EN004` 冲刺越界、弹道 ±100 剔除、火线 band / 逃逸 / 贴墙 / 视口依赖）
+tasks/game-remediation/evidence/R3-M/IMPLEMENTATION.md ← **生产改动（D24，第二次改出货档）**（§2 三条验收的命令判定、§3 两个缺陷各一行、§4 读数、§5 重基线 12 份报告 + 4 条断言、§7 已知边界与写回）
+tasks/game-remediation/evidence/R3-M/map-report.json ← **滚动**（`colliders` / `edges` 四条 / `hazard` band 与 25 行抽样 / 三个视口；每次运行被覆写）
 apps/mobile-next/src/core/treeHygiene.test.ts      ← **探针守卫**（1 个 `it`、32 ms；扫 `src/` 全树，文件名含 `probe` 或正文含内联标记 ⇒ 红并点名路径；**已植入 `__probe_guardcheck.test.ts` 验证会红**）
-tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 32 份滚动集**；missing/extra/冻结漂移 → 非零退出）
+tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 33 份滚动集**；missing/extra/冻结漂移 → 非零退出）
 apps/mobile-next/src/core/byteLedger.test.ts      ← 账本守门（**5 个 `it`、0.4s**，**独立重算**分类；两条负例已验）
 tasks/game-remediation/evidence/R2-F-CAP/cap10-md5.txt ← **逐字节账基线（267 行，`ledger:write` 重写）**
 tasks/game-remediation/evidence/R2-F-TOUGH-HORDE/IMPLEMENTATION.md §8 ← **#6x 的回填订正**（本片第三个 `it` 无显式超时，收尾时的绿是**负载的函数**）
@@ -1136,3 +1157,17 @@ test reads only these two **keys**」，而代码是**两个桶** —— 注释�
    构成」= 「这次运行让刷怪器活着」。这条推出的名单是 16 份，实测也是 16 份，而**没动的 67 份
    里包含十个压力格** —— 它们逐帧 `cull` 掉刷怪器的产物。**先推后测**，两者对上才敢说「价格
    就是这些」。
+
+### 7p. R3-M01 的三条（**验收空真 / 守卫可达性类切片**）
+
+1. **空真的断言与真断言长得一样。** 「无隐形阻挡」成立，因为**全库没有任何碰撞体** —— 它不是被验证的
+   性质，是**没有防守对象**。判据：把断言换成**强形式**（走过全部六个物件的**每一步步长完全相同**），
+   只有强形式会在有人加进第一个碰撞体时变红。**先问「这句话的防守对象存在吗」，再问它对不对。**
+2. **「缺一个守卫」要先问「有没有可达路径」。** 敌人移动一直没有 `clampPoint`，而它**从来没出过问题** ——
+   因为后退方向永远指向内侧，**几何在替 clamp 干活**。`charge`（瞄**穿过**玩家）是**第一条**给它造出
+   路径的机制，实测冲刺后 `x = -30`：一个身体在地图外、照常发弹、照常结算接触，而玩家钳在 18 ⇒ 再也
+   够不到它。**新机制会点亮旧缺口** ⇒ 加机制时把它经过的每一条既有守卫数一遍。
+3. **clamp 的是「谁」要说清。** 火线原来钳的是**中心**（世界内 80 px），而它要防的是**自己的身体**
+   （36 px 宽）。中心钳 80 + 玩家钳 18 ⇒ 沿墙 **44 px 永久免伤区**，201 个 draw 实测最近距离恒 **62**。
+   **钳制的余量决定玩法**，不只是防越界。另：**混沌序列上的 `max` 要钉上界不要钉值** —— D23 钉 `>= 1`，
+   本片就回到 0；改成 `<= 1` 后两次读数都在内，而它正是 D3 需要的那个量。

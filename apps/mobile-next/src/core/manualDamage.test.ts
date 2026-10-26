@@ -784,12 +784,14 @@ describe('Manual play\'s share of the damage (R1g-7)', () => {
       expect(median(runs.map(sample => sample.turningPoints)), label(cell)).toBe(0);
     }
     // `unlock` used to never reach Lv.5 on anything, so it could not carry an evolution at all.
-    // R3-E01..07a falsified that: the harder horde concentrates levels differently and at least one
-    // `unlock` run now takes a decision point. Recorded as the maximum rather than as "some run",
-    // because the claim that changed is a ceiling, not a tail.
+    // R3-E01..07a read a maximum of 1 here and this assertion pinned it as `>= 1`; R3-M01 moved it
+    // back to 0. Both readings are inside the claim that actually matters - **the ceiling is at most
+    // 1**, against a bar of 3 - so the bound is what is asserted, not the tail. Pinning a maximum
+    // over 33 chaotic runs is the mistake this file warns about twelve lines down: it flips on any
+    // legal balance change and says nothing the median does not.
     const unlockTurns = samples(['classic', 'unlock']).map(sample => sample.turningPoints);
-    expect(Math.max(...unlockTurns), 'classic/unlock now has a non-zero ceiling').toBeGreaterThanOrEqual(1);
-    expect(median(unlockTurns), 'but its median is still zero').toBe(0);
+    expect(Math.max(...unlockTurns), 'classic/unlock cannot carry a decision point twice').toBeLessThanOrEqual(1);
+    expect(median(unlockTurns), 'and its median is zero').toBe(0);
     // The evolution journey's ceiling: form + awakening + evolutions, with a fusion in the tail.
     // R1g-7 first read a median of 4 here, with D2's dash clamp on; reverting the clamp puts it
     // back at **5** (3 evolutions instead of 2), because the clamp was starving the kill count the

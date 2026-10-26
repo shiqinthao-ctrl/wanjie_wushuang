@@ -72,7 +72,12 @@ export class FirstStageMap {
     const { time, player, viewport, world } = this.combat, hazard = firstStage.storyEncounter.hazard;
     this.combat.history.hazardUsed = true;
     if (Math.floor(time / hazard.interval) !== Math.floor((time - dt) / hazard.interval)) {
-      const y = Math.max(80, Math.min(world.height - 80, player.y - viewport.height / 2 + 80 + this.random() * (viewport.height - 160)));
+      // The line's own body is what has to stay inside the world, not its centre: clamping the
+      // centre 80 px in left a 62 px band along each wall where the fireline could never reach -
+      // and the player is clamped to 18, so hugging a wall was a permanent safe zone. R3-M01
+      // measured that (`evidence/R3-M/map-report.json`), this is the fix.
+      const edge = hazard.size / 2;
+      const y = Math.max(edge, Math.min(world.height - edge, player.y - viewport.height / 2 + 80 + this.random() * (viewport.height - 160)));
       this.hazards.push({ type: 'fireline', x: 0, y, w: world.width, h: hazard.size, life: hazard.life, max: hazard.life, damage: hazard.damage });
       this.combat.history.hazardTriggers++;
     }

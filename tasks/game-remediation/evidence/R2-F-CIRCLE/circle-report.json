@@ -87,7 +87,7 @@
             {
               "journey": "classic",
               "runs": 33,
-              "circleHits": 18,
+              "circleHits": 19,
               "phases": [
                 2
               ],
@@ -97,7 +97,7 @@
             {
               "journey": "evolution",
               "runs": 33,
-              "circleHits": 10,
+              "circleHits": 11,
               "phases": [
                 2
               ],

@@ -50,10 +50,10 @@
           "castsMin": 3,
           "castsMax": 6,
           "cuesMedian": 4,
-          "hpMinMedian": 0.507,
-          "ttkMedian": 69.8,
+          "hpMinMedian": 0.539,
+          "ttkMedian": 72.4,
           "winRate": 0.7879,
-          "avoidRate": 0.9854,
+          "avoidRate": 0.9784,
           "losses": {
             "timeout": 7
           },
@@ -65,8 +65,8 @@
             },
             {
               "shape": "line",
-              "hits": 1,
-              "fractionMedian": 0.1853
+              "hits": 2,
+              "fractionMedian": 0.2206
             },
             {
               "shape": "cone",
@@ -74,7 +74,7 @@
               "fractionMedian": 0.234
             }
           ],
-          "cheapestMove": 0.1853,
+          "cheapestMove": 0.2206,
           "heaviestMove": 0.234,
           "phase1Hits": 0,
           "phase1Fraction": 0,
@@ -89,10 +89,10 @@
           "castsMin": 2,
           "castsMax": 5,
           "cuesMedian": 3,
-          "hpMinMedian": 0.341,
+          "hpMinMedian": 0.381,
           "ttkMedian": 62.3,
           "winRate": 0.8485,
-          "avoidRate": 0.981,
+          "avoidRate": 0.9811,
           "losses": {
             "defeat": 5
           },
@@ -136,10 +136,10 @@
           "castsMin": 1,
           "castsMax": 3,
           "cuesMedian": 3,
-          "hpMinMedian": 0.535,
+          "hpMinMedian": 0.542,
           "ttkMedian": 68.4,
           "winRate": 0.8788,
-          "avoidRate": 0.9773,
+          "avoidRate": 0.9775,
           "losses": {
             "timeout": 2,
             "defeat": 2
@@ -176,7 +176,7 @@
           "castsMin": 1,
           "castsMax": 3,
           "cuesMedian": 2,
-          "hpMinMedian": 0.451,
+          "hpMinMedian": 0.45,
           "ttkMedian": 63.2,
           "winRate": 0.7273,
           "avoidRate": 1,
@@ -223,10 +223,10 @@
           "castsMin": 3,
           "castsMax": 6,
           "cuesMedian": 4,
-          "hpMinMedian": 0.507,
-          "ttkMedian": 69.8,
+          "hpMinMedian": 0.539,
+          "ttkMedian": 72.4,
           "winRate": 0.7879,
-          "avoidRate": 0.9854,
+          "avoidRate": 0.9784,
           "losses": {
             "timeout": 7
           },
@@ -238,8 +238,8 @@
             },
             {
               "shape": "line",
-              "hits": 1,
-              "fractionMedian": 0.0927
+              "hits": 2,
+              "fractionMedian": 0.1103
             },
             {
               "shape": "cone",
@@ -247,7 +247,7 @@
               "fractionMedian": 0.117
             }
           ],
-          "cheapestMove": 0.0927,
+          "cheapestMove": 0.1103,
           "heaviestMove": 0.117,
           "phase1Hits": 0,
           "phase1Fraction": 0,
@@ -262,10 +262,10 @@
           "castsMin": 2,
           "castsMax": 5,
           "cuesMedian": 3,
-          "hpMinMedian": 0.341,
+          "hpMinMedian": 0.381,
           "ttkMedian": 62.3,
           "winRate": 0.8485,
-          "avoidRate": 0.981,
+          "avoidRate": 0.9811,
           "losses": {
             "defeat": 5
           },
@@ -309,10 +309,10 @@
           "castsMin": 1,
           "castsMax": 3,
           "cuesMedian": 3,
-          "hpMinMedian": 0.535,
+          "hpMinMedian": 0.542,
           "ttkMedian": 68.4,
           "winRate": 0.8788,
-          "avoidRate": 0.9773,
+          "avoidRate": 0.9775,
           "losses": {
             "timeout": 2,
             "defeat": 2
@@ -349,7 +349,7 @@
           "castsMin": 1,
           "castsMax": 3,
           "cuesMedian": 2,
-          "hpMinMedian": 0.451,
+          "hpMinMedian": 0.45,
           "ttkMedian": 63.2,
           "winRate": 0.7273,
           "avoidRate": 1,
@@ -399,7 +399,7 @@
           "hpMinMedian": 0.465,
           "ttkMedian": 66.5,
           "winRate": 0.9394,
-          "avoidRate": 0.9859,
+          "avoidRate": 0.9857,
           "losses": {
             "timeout": 2
           },
@@ -435,8 +435,8 @@
           "castsMin": 0,
           "castsMax": 2,
           "cuesMedian": 2,
-          "hpMinMedian": 0.396,
-          "ttkMedian": 62.2,
+          "hpMinMedian": 0.336,
+          "ttkMedian": 62.3,
           "winRate": 0.7576,
           "avoidRate": 1,
           "losses": {
@@ -478,14 +478,14 @@
         {
           "journey": "classic",
           "runs": 33,
-          "castsMedian": 4,
+          "castsMedian": 3,
           "castsMin": 1,
           "castsMax": 5,
           "cuesMedian": 0,
           "hpMinMedian": 0,
-          "ttkMedian": 68.4,
+          "ttkMedian": 64.1,
           "winRate": 0.3636,
-          "avoidRate": 0.1441,
+          "avoidRate": 0.1429,
           "losses": {
             "defeat": 20,
             "timeout": 1
@@ -493,7 +493,7 @@
           "perShape": [
             {
               "shape": "circle",
-              "hits": 38,
+              "hits": 37,
               "fractionMedian": 0.2014
             },
             {
@@ -503,7 +503,7 @@
             },
             {
               "shape": "cone",
-              "hits": 14,
+              "hits": 16,
               "fractionMedian": 0.234
             }
           ],
@@ -523,9 +523,9 @@
           "castsMax": 4,
           "cuesMedian": 0,
           "hpMinMedian": 0,
-          "ttkMedian": 60.1,
+          "ttkMedian": 62.3,
           "winRate": 0.4242,
-          "avoidRate": 0.0568,
+          "avoidRate": 0.046,
           "losses": {
             "defeat": 19
           },
@@ -569,17 +569,17 @@
           "castsMin": 1,
           "castsMax": 3,
           "cuesMedian": 0,
-          "hpMinMedian": 0.076,
-          "ttkMedian": 64.2,
-          "winRate": 0.6364,
-          "avoidRate": 0.1325,
+          "hpMinMedian": 0.098,
+          "ttkMedian": 67.7,
+          "winRate": 0.6667,
+          "avoidRate": 0.1205,
           "losses": {
-            "defeat": 12
+            "defeat": 11
           },
           "perShape": [
             {
               "shape": "circle",
-              "hits": 18,
+              "hits": 19,
               "fractionMedian": 0.2014
             },
             {
@@ -610,31 +610,31 @@
           "cuesMedian": 0,
           "hpMinMedian": 0,
           "ttkMedian": 62.3,
-          "winRate": 0.4848,
-          "avoidRate": 0.1493,
+          "winRate": 0.4545,
+          "avoidRate": 0.1343,
           "losses": {
-            "defeat": 17
+            "defeat": 18
           },
           "perShape": [
             {
               "shape": "circle",
-              "hits": 10,
+              "hits": 11,
               "fractionMedian": 0.2014
             },
             {
               "shape": "line",
-              "hits": 24,
+              "hits": 25,
               "fractionMedian": 0.15
             },
             {
               "shape": "cone",
-              "hits": 23,
+              "hits": 22,
               "fractionMedian": 0.1966
             }
           ],
           "cheapestMove": 0.15,
           "heaviestMove": 0.2014,
-          "phase1Hits": 17,
+          "phase1Hits": 18,
           "phase1Fraction": 0.15,
           "g2": false,
           "g3": true,
@@ -655,28 +655,28 @@
           "castsMin": 2,
           "castsMax": 5,
           "cuesMedian": 0,
-          "hpMinMedian": 0.256,
-          "ttkMedian": 69.2,
-          "winRate": 0.7273,
-          "avoidRate": 0.1825,
+          "hpMinMedian": 0.237,
+          "ttkMedian": 70.6,
+          "winRate": 0.8182,
+          "avoidRate": 0.1756,
           "losses": {
-            "defeat": 7,
+            "defeat": 4,
             "timeout": 2
           },
           "perShape": [
             {
               "shape": "circle",
-              "hits": 37,
+              "hits": 39,
               "fractionMedian": 0.1007
             },
             {
               "shape": "line",
-              "hits": 52,
+              "hits": 54,
               "fractionMedian": 0.075
             },
             {
               "shape": "cone",
-              "hits": 14,
+              "hits": 15,
               "fractionMedian": 0.117
             }
           ],
@@ -684,7 +684,7 @@
           "heaviestMove": 0.117,
           "phase1Hits": 33,
           "phase1Fraction": 0.075,
-          "g2": true,
+          "g2": false,
           "g3": true,
           "g4": false
         },
@@ -696,16 +696,16 @@
           "castsMax": 4,
           "cuesMedian": 0,
           "hpMinMedian": 0.129,
-          "ttkMedian": 60.9,
+          "ttkMedian": 62.3,
           "winRate": 0.697,
-          "avoidRate": 0.0842,
+          "avoidRate": 0.0745,
           "losses": {
             "defeat": 10
           },
           "perShape": [
             {
               "shape": "circle",
-              "hits": 31,
+              "hits": 32,
               "fractionMedian": 0.1007
             },
             {
@@ -715,7 +715,7 @@
             },
             {
               "shape": "cone",
-              "hits": 23,
+              "hits": 22,
               "fractionMedian": 0.117
             }
           ],
@@ -743,16 +743,16 @@
           "castsMax": 3,
           "cuesMedian": 0,
           "hpMinMedian": 0.194,
-          "ttkMedian": 68,
-          "winRate": 0.7273,
-          "avoidRate": 0.1429,
+          "ttkMedian": 68.2,
+          "winRate": 0.697,
+          "avoidRate": 0.1279,
           "losses": {
-            "defeat": 9
+            "defeat": 10
           },
           "perShape": [
             {
               "shape": "circle",
-              "hits": 18,
+              "hits": 19,
               "fractionMedian": 0.1511
             },
             {
@@ -762,7 +762,7 @@
             },
             {
               "shape": "cone",
-              "hits": 24,
+              "hits": 26,
               "fractionMedian": 0.1755
             }
           ],
@@ -781,22 +781,22 @@
           "castsMin": 1,
           "castsMax": 3,
           "cuesMedian": 0,
-          "hpMinMedian": 0.007,
-          "ttkMedian": 59.2,
-          "winRate": 0.5152,
-          "avoidRate": 0.1304,
+          "hpMinMedian": 0,
+          "ttkMedian": 62.3,
+          "winRate": 0.4848,
+          "avoidRate": 0.1143,
           "losses": {
-            "defeat": 16
+            "defeat": 17
           },
           "perShape": [
             {
               "shape": "circle",
-              "hits": 10,
+              "hits": 11,
               "fractionMedian": 0.1511
             },
             {
               "shape": "line",
-              "hits": 26,
+              "hits": 27,
               "fractionMedian": 0.1125
             },
             {
@@ -807,10 +807,10 @@
           ],
           "cheapestMove": 0.1125,
           "heaviestMove": 0.1511,
-          "phase1Hits": 17,
+          "phase1Hits": 18,
           "phase1Fraction": 0.1125,
           "g2": false,
-          "g3": false,
+          "g3": true,
           "g4": false
         }
       ]
@@ -828,10 +828,10 @@
           "castsMin": 1,
           "castsMax": 3,
           "cuesMedian": 0,
-          "hpMinMedian": 0.272,
+          "hpMinMedian": 0.271,
           "ttkMedian": 68.4,
           "winRate": 0.8485,
-          "avoidRate": 0.3043,
+          "avoidRate": 0.2941,
           "losses": {
             "timeout": 1,
             "defeat": 4
@@ -844,12 +844,12 @@
             },
             {
               "shape": "line",
-              "hits": 21,
+              "hits": 22,
               "fractionMedian": 0.2206
             },
             {
               "shape": "cone",
-              "hits": 20,
+              "hits": 19,
               "fractionMedian": 0.1966
             }
           ],
@@ -870,10 +870,10 @@
           "cuesMedian": 0,
           "hpMinMedian": 0,
           "ttkMedian": 62.3,
-          "winRate": 0.4848,
-          "avoidRate": 0.2766,
+          "winRate": 0.4545,
+          "avoidRate": 0.2826,
           "losses": {
-            "defeat": 17
+            "defeat": 18
           },
           "perShape": [
             {
@@ -883,7 +883,7 @@
             },
             {
               "shape": "line",
-              "hits": 14,
+              "hits": 13,
               "fractionMedian": 0.2206
             },
             {
@@ -1012,11 +1012,11 @@
         {
           "journey": "classic",
           "runs": 5,
-          "casts": 21,
+          "casts": 20,
           "castsMedian": 4,
           "shapes": {
             "line": 10,
-            "circle": 9,
+            "circle": 8,
             "cone": 2
           },
           "byPhase": [
@@ -1037,9 +1037,9 @@
             },
             {
               "phase": 3,
-              "casts": 8,
+              "casts": 7,
               "shapes": {
-                "circle": 4,
+                "circle": 3,
                 "line": 2,
                 "cone": 2
               }
@@ -1047,11 +1047,11 @@
           ],
           "actionableShare": 1,
           "windowsMedian": 1.303,
-          "hpFracMedian": 0.7555,
-          "hpFracMin": 0.2681,
+          "hpFracMedian": 0.7726,
+          "hpFracMin": 0.5433,
           "blockedByCooldown": 0,
           "blockedByOverlap": 0,
-          "firstCircleAt": 32
+          "firstCircleAt": 32.983
         },
         {
           "journey": "evolution",

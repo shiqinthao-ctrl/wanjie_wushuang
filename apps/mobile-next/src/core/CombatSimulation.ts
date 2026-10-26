@@ -338,6 +338,13 @@ export class CombatSimulation {
     const charge = this.threat && enemy.ai === 'charge' ? this.chargeStep(enemy, dt, d, chill) : undefined;
     if (charge) { enemy.x += charge.x; enemy.y += charge.y; }
     else { move *= chill; enemy.x += dx / d * enemy.speed * move * dt; enemy.y += dy / d * enemy.speed * move * dt; }
+    // One rule for every body that moves here: the player is clamped at 18 (`beginFrame`) and so
+    // is an enemy, at its own radius. Spawning already clamped at 30, but walking did not, and
+    // the retreat direction points *away* from the player - so the invariant that kept bodies
+    // inside was geometric (the player is always inside, so the inner side is always available),
+    // not enforced. `charge` broke it: a 330 px dash past a cornered player ends 30 px outside
+    // the world. R3-M01 measured that, this line is the fix.
+    clampPoint(enemy, this.world, enemy.r);
     if (enemy.ai === 'ranged' && enemy.attack > 1.8) {
       enemy.attack = 0; const angle = Math.atan2(this.player.y - enemy.y, this.player.x - enemy.x);
       this.enemyShots.push({ x: enemy.x, y: enemy.y, vx: Math.cos(angle) * 235, vy: Math.sin(angle) * 235, dmg: enemy.damage, color: enemy.color, r: 5, life: 5 });

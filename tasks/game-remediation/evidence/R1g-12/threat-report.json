@@ -386,7 +386,7 @@
       "runs": 33,
       "wins": 31,
       "hpMinMedian": 0.465,
-      "lostToBossMedian": 168,
+      "lostToBossMedian": 170,
       "hordeOff": {
         "hpMinMedian": 0.858,
         "wins": 33
@@ -396,7 +396,7 @@
       "journey": "evolution",
       "runs": 33,
       "wins": 25,
-      "hpMinMedian": 0.396,
+      "hpMinMedian": 0.336,
       "lostToBossMedian": 139,
       "hordeOff": {
         "hpMinMedian": 0.862,

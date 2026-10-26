@@ -1,0 +1,235 @@
+{
+  "slice": "R3-M01",
+  "instrument": "CombatSimulation(threat-v2) driven by beginFrame; fireline via FirstStageMap.advanceHazards",
+  "colliders": {
+    "count": 0,
+    "walks": 6,
+    "walk": {
+      "speed": 249.6,
+      "step": 4.16,
+      "frames": 179,
+      "travel": 744.64,
+      "constant": true
+    }
+  },
+  "edges": {
+    "player": {
+      "rule": "clamp",
+      "margin": 18,
+      "sites": [
+        "beginFrame",
+        "dodge",
+        "EvolutionCombat:56"
+      ]
+    },
+    "enemy": {
+      "rule": "clamp",
+      "margin": "enemy.r",
+      "site": "enemyAI",
+      "before": "spawn only (spawnRules:64, margin 30)",
+      "foundBy": "a 330 px charge dash from a 260 px standoff ended at x = -30"
+    },
+    "projectile": {
+      "rule": "cull",
+      "margin": -100,
+      "site": "updateOuter"
+    },
+    "enemyShot": {
+      "rule": "life only",
+      "margin": null,
+      "site": "finishBaseFrame"
+    }
+  },
+  "hazard": {
+    "layers": 1,
+    "size": 36,
+    "life": 4,
+    "interval": 26,
+    "damage": 8,
+    "dutyCycle": 0.1538,
+    "worstEscapePx": 18,
+    "worstEscapeSeconds": 0.0721,
+    "windowSeconds": 4,
+    "overshoot": 55.5,
+    "damagesEnemies": false,
+    "clamp": {
+      "before": 80,
+      "after": 18,
+      "wallStripBefore": 44,
+      "wallStripAfter": 0
+    },
+    "wall": [
+      {
+        "playerY": 18,
+        "closest": 0,
+        "draws": 201
+      },
+      {
+        "playerY": 2382,
+        "closest": 0,
+        "draws": 201
+      }
+    ],
+    "rows": [
+      {
+        "playerY": 18,
+        "u": 0,
+        "lineY": 18
+      },
+      {
+        "playerY": 18,
+        "u": 0.25,
+        "lineY": 18
+      },
+      {
+        "playerY": 18,
+        "u": 0.5,
+        "lineY": 18
+      },
+      {
+        "playerY": 18,
+        "u": 0.75,
+        "lineY": 189
+      },
+      {
+        "playerY": 18,
+        "u": 0.999,
+        "lineY": 359.32
+      },
+      {
+        "playerY": 200,
+        "u": 0,
+        "lineY": 18
+      },
+      {
+        "playerY": 200,
+        "u": 0.25,
+        "lineY": 29
+      },
+      {
+        "playerY": 200,
+        "u": 0.5,
+        "lineY": 200
+      },
+      {
+        "playerY": 200,
+        "u": 0.75,
+        "lineY": 371
+      },
+      {
+        "playerY": 200,
+        "u": 0.999,
+        "lineY": 541.32
+      },
+      {
+        "playerY": 1200,
+        "u": 0,
+        "lineY": 858
+      },
+      {
+        "playerY": 1200,
+        "u": 0.25,
+        "lineY": 1029
+      },
+      {
+        "playerY": 1200,
+        "u": 0.5,
+        "lineY": 1200
+      },
+      {
+        "playerY": 1200,
+        "u": 0.75,
+        "lineY": 1371
+      },
+      {
+        "playerY": 1200,
+        "u": 0.999,
+        "lineY": 1541.32
+      },
+      {
+        "playerY": 2200,
+        "u": 0,
+        "lineY": 1858
+      },
+      {
+        "playerY": 2200,
+        "u": 0.25,
+        "lineY": 2029
+      },
+      {
+        "playerY": 2200,
+        "u": 0.5,
+        "lineY": 2200
+      },
+      {
+        "playerY": 2200,
+        "u": 0.75,
+        "lineY": 2371
+      },
+      {
+        "playerY": 2200,
+        "u": 0.999,
+        "lineY": 2382
+      },
+      {
+        "playerY": 2382,
+        "u": 0,
+        "lineY": 2040
+      },
+      {
+        "playerY": 2382,
+        "u": 0.25,
+        "lineY": 2211
+      },
+      {
+        "playerY": 2382,
+        "u": 0.5,
+        "lineY": 2382
+      },
+      {
+        "playerY": 2382,
+        "u": 0.75,
+        "lineY": 2382
+      },
+      {
+        "playerY": 2382,
+        "u": 0.999,
+        "lineY": 2382
+      }
+    ],
+    "viewports": [
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "u": 0.25,
+        "lineY": 1029
+      },
+      {
+        "viewport": {
+          "width": 390,
+          "height": 600
+        },
+        "u": 0.25,
+        "lineY": 1090
+      },
+      {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "u": 0.25,
+        "lineY": 1060
+      }
+    ]
+  },
+  "layout": {
+    "source": "const layout (FirstStageMap:12), oracle-pinned by first-map-oracle.json",
+    "random": false,
+    "objects": 6
+  },
+  "history": {
+    "hazardPeak": "declared at CombatSimulation:77, never written"
+  }
+}

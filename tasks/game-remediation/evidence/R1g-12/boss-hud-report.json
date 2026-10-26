@@ -44,35 +44,35 @@
       "skillScale": 1,
       "hpScale": 1,
       "contactScale": 1,
-      "wins": 60,
-      "winRate": 0.9091,
-      "hpMinMedian": 0.464,
-      "ttkMedian": 64.9,
+      "wins": 58,
+      "winRate": 0.8788,
+      "hpMinMedian": 0.452,
+      "ttkMedian": 64.8,
       "losses": {
-        "timeout": 4,
-        "defeat": 2
+        "defeat": 3,
+        "timeout": 5
       },
       "castsMedian": 30,
       "hudCuesMedian": 0,
       "landedPerRunMedian": 25,
-      "avoidRate": 0.201,
-      "crossedPhaseHits": 87,
+      "avoidRate": 0.2005,
+      "crossedPhaseHits": 90,
       "travelEscapedMedian": 121.8,
       "travelLandedMedian": 0,
       "lostToBossMedian": 435,
-      "lostToHordeMedian": 687,
-      "bossShareMedian": 0.3953,
+      "lostToHordeMedian": 712,
+      "bossShareMedian": 0.3851,
       "contactShareOfBossMedian": 0.4164,
       "moveLostMedian": 258.2427272727274,
       "contactLostMedian": 185.72727272727326,
       "topSources": [
         [
           "hostile-projectile",
-          64
+          62
         ],
         [
           "unknown",
-          1
+          3
         ],
         [
           "EN005",
@@ -83,22 +83,22 @@
       "perShape": [
         {
           "shape": "circle",
-          "hits": 439,
+          "hits": 442,
           "fractionMedian": 0.0141
         },
         {
           "shape": "line",
-          "hits": 542,
+          "hits": 538,
           "fractionMedian": 0.0129
         },
         {
           "shape": "cone",
-          "hits": 614,
+          "hits": 611,
           "fractionMedian": 0.0137
         },
         {
           "shape": "contact",
-          "hits": 1741,
+          "hits": 1727,
           "fractionMedian": 0.0091
         }
       ]
@@ -112,56 +112,56 @@
       "skillScale": 1,
       "hpScale": 1,
       "contactScale": 1,
-      "wins": 57,
-      "winRate": 0.8636,
-      "hpMinMedian": 0.696,
-      "ttkMedian": 74,
+      "wins": 56,
+      "winRate": 0.8485,
+      "hpMinMedian": 0.713,
+      "ttkMedian": 71.3,
       "losses": {
-        "timeout": 9
+        "timeout": 10
       },
-      "castsMedian": 34,
+      "castsMedian": 35,
       "hudCuesMedian": 0,
       "landedPerRunMedian": 9,
-      "avoidRate": 0.732,
-      "crossedPhaseHits": 13,
+      "avoidRate": 0.7349,
+      "crossedPhaseHits": 17,
       "travelEscapedMedian": 72.9,
       "travelLandedMedian": 230.2,
-      "lostToBossMedian": 230,
-      "lostToHordeMedian": 684,
-      "bossShareMedian": 0.2422,
-      "contactShareOfBossMedian": 0.5886,
+      "lostToBossMedian": 227,
+      "lostToHordeMedian": 659,
+      "bossShareMedian": 0.2543,
+      "contactShareOfBossMedian": 0.5931,
       "moveLostMedian": 92.44636363636369,
       "contactLostMedian": 132.13636363636363,
       "topSources": [
         [
           "hostile-projectile",
-          58
+          61
         ],
         [
           "unknown",
-          8
+          5
         ]
       ],
-      "fractionMedian": 0.0153,
+      "fractionMedian": 0.0154,
       "perShape": [
         {
           "shape": "circle",
-          "hits": 105,
+          "hits": 108,
           "fractionMedian": 0.0168
         },
         {
           "shape": "line",
-          "hits": 7,
+          "hits": 8,
           "fractionMedian": 0.0154
         },
         {
           "shape": "cone",
-          "hits": 446,
+          "hits": 441,
           "fractionMedian": 0.0137
         },
         {
           "shape": "contact",
-          "hits": 1292,
+          "hits": 1291,
           "fractionMedian": 0.0091
         }
       ]
@@ -177,8 +177,8 @@
       "contactScale": 1,
       "wins": 3,
       "winRate": 0.0455,
-      "hpMinMedian": 0.828,
-      "ttkMedian": 62.3,
+      "hpMinMedian": 0.829,
+      "ttkMedian": 63.1,
       "losses": {
         "timeout": 63
       },
@@ -188,7 +188,7 @@
       "avoidRate": 0.9855,
       "crossedPhaseHits": 0,
       "travelEscapedMedian": 319.1,
-      "travelLandedMedian": 125.8,
+      "travelLandedMedian": 124.6,
       "lostToBossMedian": 43,
       "lostToHordeMedian": 565,
       "bossShareMedian": 0.0708,
@@ -209,22 +209,22 @@
       "perShape": [
         {
           "shape": "circle",
-          "hits": 0,
-          "fractionMedian": 0
+          "hits": 1,
+          "fractionMedian": 0.0168
         },
         {
           "shape": "line",
-          "hits": 9,
+          "hits": 11,
           "fractionMedian": 0.0129
         },
         {
           "shape": "cone",
-          "hits": 24,
+          "hits": 22,
           "fractionMedian": 0.0137
         },
         {
           "shape": "contact",
-          "hits": 421,
+          "hits": 427,
           "fractionMedian": 0.0075
         }
       ]
@@ -240,27 +240,27 @@
       "skillScale": 1,
       "hpScale": 1,
       "contactScale": 0.8,
-      "wins": 44,
-      "winRate": 0.6667,
-      "hpMinMedian": 0.222,
-      "ttkMedian": 63.9,
+      "wins": 43,
+      "winRate": 0.6515,
+      "hpMinMedian": 0.205,
+      "ttkMedian": 65.5,
       "losses": {
         "timeout": 1,
-        "defeat": 21
+        "defeat": 22
       },
       "castsMedian": 2,
       "hudCuesMedian": 0,
       "landedPerRunMedian": 1,
-      "avoidRate": 0.2931,
+      "avoidRate": 0.2895,
       "crossedPhaseHits": 5,
       "travelEscapedMedian": 121.8,
       "travelLandedMedian": 0,
       "lostToBossMedian": 329,
-      "lostToHordeMedian": 929,
-      "bossShareMedian": 0.2638,
-      "contactShareOfBossMedian": 0.4847,
+      "lostToHordeMedian": 965,
+      "bossShareMedian": 0.2586,
+      "contactShareOfBossMedian": 0.491,
       "moveLostMedian": 168.30511363636364,
-      "contactLostMedian": 155.7818181818191,
+      "contactLostMedian": 155.78181818181906,
       "topSources": [
         [
           "hostile-projectile",
@@ -281,7 +281,7 @@
         },
         {
           "shape": "cone",
-          "hits": 40,
+          "hits": 39,
           "fractionMedian": 0.1966
         },
         {
@@ -302,8 +302,8 @@
       "contactScale": 0.8,
       "wins": 52,
       "winRate": 0.7879,
-      "hpMinMedian": 0.421,
-      "ttkMedian": 63.5,
+      "hpMinMedian": 0.401,
+      "ttkMedian": 63.8,
       "losses": {
         "timeout": 2,
         "defeat": 12
@@ -315,12 +315,12 @@
       "crossedPhaseHits": 0,
       "travelEscapedMedian": 51.9,
       "travelLandedMedian": 69.5,
-      "lostToBossMedian": 163,
-      "lostToHordeMedian": 931,
+      "lostToBossMedian": 169,
+      "lostToHordeMedian": 936,
       "bossShareMedian": 0.1515,
       "contactShareOfBossMedian": 1,
       "moveLostMedian": 0,
-      "contactLostMedian": 163.30909090909185,
+      "contactLostMedian": 168.87272727272781,
       "topSources": [
         [
           "hostile-projectile",
@@ -346,7 +346,7 @@
         },
         {
           "shape": "contact",
-          "hits": 1929,
+          "hits": 1931,
           "fractionMedian": 0.0073
         }
       ]
@@ -362,8 +362,8 @@
       "contactScale": 0.8,
       "wins": 56,
       "winRate": 0.8485,
-      "hpMinMedian": 0.444,
-      "ttkMedian": 62.9,
+      "hpMinMedian": 0.424,
+      "ttkMedian": 63.2,
       "losses": {
         "timeout": 2,
         "defeat": 8
@@ -375,12 +375,12 @@
       "crossedPhaseHits": 1,
       "travelEscapedMedian": 148.5,
       "travelLandedMedian": 47.9,
-      "lostToBossMedian": 147,
+      "lostToBossMedian": 148,
       "lostToHordeMedian": 951,
-      "bossShareMedian": 0.1482,
+      "bossShareMedian": 0.1453,
       "contactShareOfBossMedian": 1,
       "moveLostMedian": 0,
-      "contactLostMedian": 146.61818181818177,
+      "contactLostMedian": 148.25454545454562,
       "topSources": [
         [
           "hostile-projectile",
@@ -406,7 +406,7 @@
         },
         {
           "shape": "contact",
-          "hits": 1863,
+          "hits": 1866,
           "fractionMedian": 0.0073
         }
       ]
@@ -427,8 +427,8 @@
         "contactScale": 1,
         "wins": 52,
         "winRate": 0.7879,
-        "hpMinMedian": 0.428,
-        "ttkMedian": 64.2,
+        "hpMinMedian": 0.42,
+        "ttkMedian": 64.7,
         "losses": {
           "timeout": 2,
           "defeat": 12
@@ -436,16 +436,16 @@
         "castsMedian": 2,
         "hudCuesMedian": 2,
         "landedPerRunMedian": 0,
-        "avoidRate": 0.9917,
+        "avoidRate": 0.9832,
         "crossedPhaseHits": 1,
         "travelEscapedMedian": 148.5,
         "travelLandedMedian": 47.9,
         "lostToBossMedian": 196,
-        "lostToHordeMedian": 918,
+        "lostToHordeMedian": 925,
         "bossShareMedian": 0.1849,
         "contactShareOfBossMedian": 1,
         "moveLostMedian": 0,
-        "contactLostMedian": 195.9545454545456,
+        "contactLostMedian": 195.95454545454567,
         "topSources": [
           [
             "hostile-projectile",
@@ -461,8 +461,8 @@
           },
           {
             "shape": "line",
-            "hits": 0,
-            "fractionMedian": 0
+            "hits": 1,
+            "fractionMedian": 0.2206
           },
           {
             "shape": "cone",
@@ -471,7 +471,7 @@
           },
           {
             "shape": "contact",
-            "hits": 1878,
+            "hits": 1880,
             "fractionMedian": 0.0091
           }
         ]
@@ -491,8 +491,8 @@
         "contactScale": 0.9,
         "wins": 52,
         "winRate": 0.7879,
-        "hpMinMedian": 0.441,
-        "ttkMedian": 62.6,
+        "hpMinMedian": 0.421,
+        "ttkMedian": 62.8,
         "losses": {
           "timeout": 3,
           "defeat": 11
@@ -535,7 +535,7 @@
           },
           {
             "shape": "contact",
-            "hits": 1875,
+            "hits": 1878,
             "fractionMedian": 0.0082
           }
         ]
@@ -555,8 +555,8 @@
         "contactScale": 0.8,
         "wins": 56,
         "winRate": 0.8485,
-        "hpMinMedian": 0.444,
-        "ttkMedian": 62.9,
+        "hpMinMedian": 0.424,
+        "ttkMedian": 63.2,
         "losses": {
           "timeout": 2,
           "defeat": 8
@@ -568,12 +568,12 @@
         "crossedPhaseHits": 1,
         "travelEscapedMedian": 148.5,
         "travelLandedMedian": 47.9,
-        "lostToBossMedian": 147,
+        "lostToBossMedian": 148,
         "lostToHordeMedian": 951,
-        "bossShareMedian": 0.1482,
+        "bossShareMedian": 0.1453,
         "contactShareOfBossMedian": 1,
         "moveLostMedian": 0,
-        "contactLostMedian": 146.61818181818177,
+        "contactLostMedian": 148.25454545454562,
         "topSources": [
           [
             "hostile-projectile",
@@ -599,7 +599,7 @@
           },
           {
             "shape": "contact",
-            "hits": 1863,
+            "hits": 1866,
             "fractionMedian": 0.0073
           }
         ]
@@ -619,31 +619,31 @@
       "losses": {
         "timeout": 63
       },
-      "hpMin": 0.828,
+      "hpMin": 0.829,
       "bossDamage": 43
     },
     "afterHud": {
-      "hpMin": 0.444,
-      "ttk": 62.9,
+      "hpMin": 0.424,
+      "ttk": 63.2,
       "winRate": 0.8485
     },
     "contactClearsG2": [
       {
         "bossContactDamage": 1,
-        "hpMin": 0.428,
-        "ttk": 64.2,
+        "hpMin": 0.42,
+        "ttk": 64.7,
         "winRate": 0.7879
       },
       {
         "bossContactDamage": 0.9,
-        "hpMin": 0.441,
-        "ttk": 62.6,
+        "hpMin": 0.421,
+        "ttk": 62.8,
         "winRate": 0.7879
       },
       {
         "bossContactDamage": 0.8,
-        "hpMin": 0.444,
-        "ttk": 62.9,
+        "hpMin": 0.424,
+        "ttk": 63.2,
         "winRate": 0.8485
       }
     ]

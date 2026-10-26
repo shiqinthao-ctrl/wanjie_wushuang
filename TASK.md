@@ -1,46 +1,44 @@
-# TASK.md - R3-M01: the first stage's map, and the "limited random event slot" it does not have
+# TASK.md - R3-M02: the three seals, and the stage that cannot be entered
 
-Base: R3-E01..07a (D23). Queue `QUEUE.md` #11.
+Base: R3-M01 (D24). Queue `QUEUE.md` #12.
 
 ## Why
 
-`FirstStageMap` is 109 lines and holds the whole map: six interactables, one hazard, five recovery
-ticks. The queue's row asks for "第一关地图与有限随机事件槽" with three acceptance items - no
-invisible blockers, a hazard layer hierarchy, boundaries. Find out which of the three describe the
-code and which describe the row's imagination. Two look wrong already:
+`catalog.ts:12` declares `CH001-02 荒原镇界` with `seals: [{opensAt:90,dwell:20},{180},{270}]`.
+That is the whole of "三镇界阵": **no code reads `seals`** - `grep -rn seals src/` returns the
+catalog line and an unrelated CSS class in `App.vue`. And the stage cannot be started at all:
+`prepare.ts:11` throws 此精品关卡尚未开放 for any `stageId !== 'CH001-01'`, the options type is the
+literal `'CH001-01'`, and `prepareChapterRun` always clones `chapterStages[0]`.
 
-- `layout` (`:12`) is a `const` array of six `[type, x, y]` fractions. Nothing on this map is random
-  except the hazard's `y`. "有限随机事件槽" may name something that does not exist.
-- There are **no obstacles at all**. If nothing can block, "no invisible blocker" holds because
-  there is nothing to hide - a different statement from the row's.
+So the row asks for a mechanic on a stage that refuses to load. Scope 0 decides whether this slice
+opens the stage, implements the seals behind an already-open door, or both.
 
 ## Scope
 
-0. **Verify the premise first, with a command.** For each acceptance item, say whether the thing it
-   guards exists: (a) any collider, wall or blocked region the player or an enemy can hit? (b) how
-   many hazard *layers*, and does the existing one leave an escape that does not depend on the
-   viewport? (c) what clamps whom at the world edge - player, enemies, projectiles? Derive it.
-1. **Make the hazard honest before making it richer.** `fireline` spans `x: 0, w: world.width`
-   every 26 s for 4 s at 8 dmg/s, `size 36`, and its `y` is drawn from a viewport-height band
-   centred on the player. Measure whether that band can place the line where it cannot be escaped
-   (or is never met), and whether 4 s is enough to walk out of 36 px.
-2. **Decide the event slot, and write the decision down.** Either the six objects become a bounded
-   random draw (seeded, so a run is reproducible) or the word "random" leaves the row. A fixed
-   layout is a legitimate design; a fixed layout called random is a lie in the queue.
-3. **Boundaries.** One clamp for player, one for enemies, one for projectiles - or one shared rule.
-   Say which, and assert the corners (`(0,0)` and `(w,h)`).
-4. **Re-baseline, explicitly.** Any report whose run reads the map gets re-run, old numbers beside
-   new. A report not re-run is marked stale in `handoff/STATE.md`'s unresolved risk.
+0. **Verify the premise first, with a command.** (a) Does anything read `seals`? (b) Can
+   `CH001-02` be constructed today - through `prepareChapterRun`, through `new GameCore(...)`, or
+   only by hand? (c) What does the data actually say: `dwell: 20` is *twenty seconds inside*, not
+   a counter that accumulates. Which of the two is "累计驻守，离开不清零", and is the other one
+   expressible in the current shape? (d) Is there any objective/timeout surface for a stage with
+   `boss: null` - what ends a 420 s run that has no Boss?
+1. **Make the seal readable before making it pay.** Whatever the answer to 0(c), the player must be
+   able to see which seal is open, how much dwell is left, and what happens when they leave. A
+   seal that only exists as a number in `snapshot()` is the `hazardPeak` failure again.
+2. **Decide the accumulation rule and write it down.** `dwell: 20` continuous vs cumulative is a
+   design decision, not an implementation detail. Pick one, state what it costs, and assert the
+   boundary (leaving at 19.9 s).
+3. **The timeout.** `duration: 420` with `boss: null` - say what the run ends on and what the
+   player is told before it does. If nothing ends it, that is the finding.
+4. **Re-baseline, explicitly.** Same rule as D23/D24: list what moved, old numbers beside new.
 
 ## Out of scope
 
-Art and audio; the "two elites" definition (`R3-E01..07c`, still open, and it blocks `R3-M03`);
-stages 2-3 (`prepare.ts:11` refuses them until `R3-M03`); release; any new ruleset value.
+Art and audio; `CH001-03`'s two elites (`R3-E01..07c`, still open); the charms (`R3-P03`);
+release. **Do not invent a second seal format** - `catalog.ts` is the only declaration site.
 
 ## Constraints
 
-`AGENTS.md`, plus: **no Playwright here** - a visual claim is an assertion on the field the renderer
-reads, and the delivery says the picture is unverified; every number re-derivable from the command
-that produced it; state the instrument in the same breath as the number. This slice **may** change
-the shipping profile - if it does it owes the explicit re-baseline list D23 owed, and should expect
-the same failure mode: a red assertion hides the ones after it in the same `it`.
+`AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer reads,
+and the delivery says the picture is unverified; every number re-derivable from the command that
+produced it; state the instrument in the same breath as the number. If the stage has to be opened
+for the mechanic to be reachable, that is a shipping change and owes the re-baseline list.

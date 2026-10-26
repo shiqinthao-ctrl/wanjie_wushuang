@@ -2069,9 +2069,9 @@ describe('R2-F-BOSSPHASE - the move index depends on the phase, so it depends on
     // Measured, not thresholded: 63 of 71 classic casts and every one of evolution's 53 resolve to a
     // different move once the phase term is gone. These are the numbers `evidence/R2-F-BOSSPHASE`
     // records; if either moves, the table or the phase rule changed. R3-E01..07a moved them from
-    // 58/61 and 59/59 - the cast count follows the fight length, and the *claim* (removing the phase
-    // term rewrites almost every cast) is unchanged at 88.7% and 100%.
-    expect([cfClassic.total, cfClassic.moved], 'classic: 63 of 71 casts change shape').toEqual([71, 63]);
+    // 58/61 and 59/59, R3-M01 from 63/71 - the cast count follows the fight length, and the *claim*
+    // (removing the phase term rewrites almost every cast) is unchanged at 88.6% and 100%.
+    expect([cfClassic.total, cfClassic.moved], 'classic: 62 of 70 casts change shape').toEqual([70, 62]);
     expect([cfEvolution.total, cfEvolution.moved], 'evolution: all 53 change shape').toEqual([53, 53]);
     // The report carries exactly the readings asserted above - so it cannot drift from them.
     expect(report.counterfactual.classic, 'the report carries the classic counterfactual').toEqual(cfClassic);
