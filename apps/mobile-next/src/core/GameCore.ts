@@ -17,13 +17,16 @@ import type { EvolutionSnapshot } from './RunEvolution';
 import type { Journey } from './evolutionCatalog';
 import { prepareChapterRun } from '../chapter/prepare';
 import type { ChapterPreparation, ChapterRunOptions } from '../chapter/prepare';
+import type { ChapterSeals } from '../chapter/Seals';
 import { createChapterProgression, seededRandom } from '../chapter/growth';
 import type { ChapterFinalRun } from '../chapter/settlement';
 import { freeze } from '../chapter/catalog';
 import type { RunRules } from './threatModel';
 
 export type RunStatus = 'idle' | 'running' | 'choosing' | 'encounter' | 'chest' | 'boss-loot' | 'paused' | 'ended' | 'destroyed';
-export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly chests: ReturnType<TimedChests['snapshot']>; readonly boss: ReturnType<FirstBoss['snapshot']>; readonly endReason?: 'defeat' | 'victory' | 'timeout' }
+/** The stage's own identity, so the HUD does not hardcode "边境破围" and "06:00" for every stage. */
+export interface UiStage { readonly id: string; readonly name: string; readonly duration: number; readonly hasBoss: boolean }
+export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly stage?: UiStage; readonly seals?: ReturnType<ChapterSeals['snapshot']>; readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly chests: ReturnType<TimedChests['snapshot']>; readonly boss: ReturnType<FirstBoss['snapshot']>; readonly endReason?: 'defeat' | 'victory' | 'timeout' }
 export interface UiSnapshot { readonly journey?: EvolutionSnapshot; readonly ruleset?: 'chapter1-v1' }
 export interface Point { x: number; y: number }
 export type CoreEvent = CombatEvent | { type: 'xp-pickup'; value: number; x: number; y: number } | { type: 'level-choice'; level: number };
@@ -78,6 +81,7 @@ export class GameCore {
     if (this.status !== 'idle') throw new Error('A run can only start once');
     this.resize(width, height);
     this.combat.map.placeObjects();
+    this.combat.seals?.place();
     this.combat.player.x = this.combat.world.width / 2;
     this.combat.player.y = this.combat.world.height / 2;
     this.status = 'running';
@@ -175,7 +179,9 @@ export class GameCore {
       }
     }
     if (this.status === 'running') {
-      const outcome = this.combat.bossEncounter.updateObjective();
+      // A seal stage is won by holding the seals; every stage still ends at its duration, which
+      // the Boss encounter owns because it is the one that already reads `stage.duration`.
+      const outcome = this.combat.seals?.updateObjective() ?? this.combat.bossEncounter.updateObjective();
       if (outcome) { this.status = 'ended'; this.endReason = outcome; this.clearInput(); }
       else if (this.combat.bossEncounter.snapshot().offer || this.combat.bossEncounter.snapshot().chapterLoot) { this.status = 'boss-loot'; this.clearInput(); }
       if (this.status === 'running' && !this.combat.bossEncounter.snapshot().lootShown) this.modeScore = Math.round(this.combat.kills + this.combat.eliteKills * 35 + this.modeBosses * 600 + this.combat.maxCombo * 2 + this.combat.time * .15);
@@ -192,7 +198,8 @@ export class GameCore {
         time: Math.min(sim.time, this.chapter.stage.duration), hp: Math.max(0, sim.player.hp), maxHp: sim.player.maxHp, level: growth.level, kills: sim.kills,
         formId: journey.formId || null, awakened: journey.rank === 2, coreSkillLevel: growth.skills[this.progression.journey!.coreSkill() || ''] || 0,
         routes: Object.values(journey.routes).filter(id => id !== undefined), bonds: journey.bonds.filter(bond => bond.active).map(bond => bond.id),
-        damageBy: { ...sim.damageBy }, damageTakenBy: { ...sim.damageTakenBy }, bossDefeated: boss.lootShown, bossLootClaimed: boss.lootClaimed });
+        damageBy: { ...sim.damageBy }, damageTakenBy: { ...sim.damageTakenBy }, bossDefeated: boss.lootShown, bossLootClaimed: boss.lootClaimed,
+        sealsHeld: sim.seals?.snapshot().held ?? 0 });
       return;
     }
     this.final = freezeRun({ ...this.preparation, ...(this.progression.journey ? { journey: this.progression.journey.snapshot(this.progression.snapshot().skills) } : {}), endReason: this.endReason!,
@@ -209,7 +216,8 @@ export class GameCore {
   chapterFinalRun(): ChapterFinalRun | undefined { return this.chapterFinal; }
   snapshot(): UiSnapshot {
     const { player, time, kills, heat } = this.combat;
-    return Object.freeze({ ruleset: this.chapter?.ruleset, journey: this.progression.journey?.snapshot(this.progression.snapshot().skills), status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
+    const stage = this.chapter?.stage;
+    return Object.freeze({ ruleset: this.chapter?.ruleset, stage: stage ? { id: stage.id, name: stage.name, duration: stage.duration, hasBoss: !!stage.boss } : undefined, seals: this.combat.seals?.snapshot(), journey: this.progression.journey?.snapshot(this.progression.snapshot().skills), status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
   }
   renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState(), boss: this.combat.bossEncounter.snapshot().boss, telegraphs: this.combat.bossEncounter.telegraphs.map(warning => Object.freeze({ ...warning })), warnings: this.combat.warnings.map(warning => Object.freeze({ ...warning })) }; }
   takeEvents(): readonly CoreEvent[] { const events = [...this.events, ...this.combat.takeEvents()]; this.events = []; return events; }

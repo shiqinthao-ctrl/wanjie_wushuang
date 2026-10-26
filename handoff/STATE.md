@@ -16,42 +16,44 @@ Legacy version wrappers remain; migrate incrementally, never rewrite the combat 
 See `../TASK.md`.
 
 ## Last completed
-**R3-M01 (D24)** - the map's three acceptance items: two were **vacuous**. **No collider anywhere**
-(so "no invisible blockers" held because nothing can block; replaced by the strong form - a walk
-through all six objects has one constant step, 744.64 px over 179 frames). "Hazard layers" is **one**
-object, not a hierarchy. "Boundaries" is **four** rules: player clamp 18, Boss clamp 45, enemy bodies
-clamped **only at spawn** (30), projectiles **culled** at +-100, enemy shots by `life` only. "Random
-event slot" is half true: the six objects are a `const layout` **pinned by `first-map-oracle.json`**
-(randomising them voids the oracle); the only draw is the fireline's `y`. Two defects, one line each:
-**enemy movement had no clamp**, and `charge` is the first thing that can put a body outside the world
-(`x = -30`, still shooting, and the player clamped at 18 could never reach it - the clamp had no
-reachable path before `charge`; geometry was doing its job). And the fireline's centre was clamped
-80 px inside, leaving a **44 px permanent safe strip along each wall** (closest approach 62 px against
-a 36 px line, now 0). "明确闪避窗口" holds backwards: the window is **55.5x** the requirement (4 s vs
-0.0721 s) - a **rhythm** (15.38% duty), not a threat.
+**R3-M02 (D25)** - the three seals of `CH001-02`. Premise **half false, half blocked**: `seals` had
+**zero production readers**, and the stage could not be built for **three** reasons
+(`prepare.ts:13` refused any other `stageId`; `:26` always cloned `chapterStages[0]`;
+`contracts.test.ts:48` pinned the refusal). A **fourth lock was the type**: `stage` was typed as the
+*first* row, so the compiler claimed `boss` non-null and `seals` an empty tuple. Widening to
+`ChapterStageId` made `vue-tsc` name **exactly two** sites, both `stage.boss.spawnAt` - two
+**first-frame crashes**. The shut door hid them; door and crash were one bug. Victory did not exist
+either (`updateObjective` needed a Boss kill, so a `boss: null` stage could only time out or die),
+and `phase` announced a Boss from t=250 on every stage. Dwell rule: **continuous** - leaving costs
+**40.03 s vs 20.0 s** for cumulative on the same trajectory. **The radius is load-bearing**: 84 px
+never won (best 2/3, dead 243.4 s); 120/140/160/200 swept over 9 samples each; 160 ships because
+120/140 leave the worst sample at 2.6%/5.6% against 30.6%.
 
 ## Changed files
-`src/core/CombatSimulation.ts:347` (`clampPoint(enemy, world, enemy.r)`), `src/core/FirstStageMap.ts:79-80`
-(clamp the line's body, not its centre). New `src/core/mapBounds.test.ts` (12 `it`, 0.34 s); rolling
-`evidence/R3-M/map-report.json`; evidence page `evidence/R3-M/IMPLEMENTATION.md`. Re-baselined
-`bossThreat.test.ts` (70/62) and `manualDamage.test.ts` (ceiling `>= 1` -> `<= 1`). `DECISIONS.md` D24;
-`QUEUE.md` 11 done, 12 next; ledger **267 -> 268** (rolling **32 -> 33**).
+`chapter/catalog.ts` (`ChapterStageId`, `SealRule`), `chapter/prepare.ts` (union, `OPEN_STAGES`, lookup
+by id), new `chapter/Seals.ts`, `chapter/settlement.ts` (`sealsHeld`, objective split, time floor),
+`core/FirstBoss.ts` (`bossAt()`), `core/CombatSimulation.ts`, `core/GameCore.ts` (`stage`/`seals` in
+`UiSnapshot`), `core/FirstStageMap.ts`, `game/MapView.ts`, `game/mountBattle.ts`,
+`ui/BattleView.vue`, `ui/ChapterResult.vue`. New `chapter/seals.test.ts` (13 `it`, 1.8 s); rolling
+`evidence/R3-M/seal-report.json`; page `evidence/R3-M/IMPLEMENTATION-2.md`. D25; `QUEUE.md` 12 done,
+10c next (13 blocked by it); ledger **268 -> 269** (rolling **33 -> 34**).
 
 ## Tests
-**51 files / 1531 tests, all pass (1660.69 s)** = 1519 + 12, 50 + 1 - both increments equal the new
-file's size, so no probe survived. `vue-tsc --noEmit` clean. `ledger:verify` OK (268/268, rolling 33,
-stale 0, moved 0); `smoke`/`audit`/`archive:verify` OK; `context` under 8192; `check` cannot run here.
-**No Playwright**, so `MapView.ts:14` and the Vue templates are asserted through the fields they read.
+**52 files / 1544 tests, all pass (1844.68 s)** = 1531 + 13, 51 + 1 - both increments equal the
+new file's size, so no probe survived. `vue-tsc --noEmit` clean. `ledger:verify` OK (269/269,
+rolling 34, stale 0, moved 0); `smoke`/`audit`/`archive:verify` OK; `context` under 8192; `check`
+cannot run here. **No Playwright**, so the seal's geometry and colours are asserted through the
+fields `MapView` reads, not seen.
 
 ## Unresolved risk
-`R2-F-G4ROWS`'s evolution arm observes **no** G4 row at all. The fireline **does not damage enemies**
-(written back to `R3-M02` as a design question); `hazardPeak` is never written or read; the fireline's
-band is **screen space**, so a seeded run reproduces only at one viewport. `R3-E01..07c` still blocks
-`R3-M03`. 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001` shares the summon cap.
+**The chapter track has no UI entry** - `App.vue:61` never passes `:chapter`, so `CH001-02` is
+constructible, not playable; entry is `R3-U06`. `R2-F-G4ROWS`'s evolution arm observes **no** G4 row.
+The fireline **does not damage enemies** and is absent from chapter runs (`FirstStageMap` disabled
+there). `hazardPeak` never written or read; the fireline's band is **screen space**. `CH001-03`
+stays shut. 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001` shares the summon cap.
 
 ## Recommended next task
-**R3-M02** (`QUEUE.md` #12); brief in `TASK.md`. Its `seals` data has **zero readers** and the stage it
-belongs to (`CH001-02`) is refused outright by `prepare.ts:11`, so the first question is whether this
-slice opens the stage, implements the mechanic behind an already-open door, or both.
+**R3-E01..07c** (`QUEUE.md` #10c); brief in `TASK.md`. `CH001-03`'s `eliteChecks: 2` has **no
+reader** and no row defines "two elites" - and it is the only thing blocking #13.
 
 Replace only the five fields above.

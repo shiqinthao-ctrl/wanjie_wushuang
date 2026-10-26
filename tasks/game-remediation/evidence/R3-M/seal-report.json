@@ -1,0 +1,174 @@
+{
+  "slice": "R3-M02",
+  "instrument": "GameCore(chapter1-v1, seed 15) for the objective; CombatSimulation for the dwell rule",
+  "stage": {
+    "id": "CH001-02",
+    "name": "荒原镇界",
+    "duration": 420,
+    "boss": null,
+    "seals": [
+      {
+        "opensAt": 90,
+        "dwell": 20
+      },
+      {
+        "opensAt": 180,
+        "dwell": 20
+      },
+      {
+        "opensAt": 270,
+        "dwell": 20
+      }
+    ],
+    "eliteChecks": 0
+  },
+  "layout": [
+    {
+      "index": 0,
+      "x": 1800,
+      "y": 552,
+      "r": 160
+    },
+    {
+      "index": 1,
+      "x": 972.0000000000001,
+      "y": 1848,
+      "r": 160
+    },
+    {
+      "index": 2,
+      "x": 2628,
+      "y": 1848,
+      "r": 160
+    }
+  ],
+  "world": {
+    "width": 3600,
+    "height": 2400
+  },
+  "rule": "continuous",
+  "boundary": {
+    "insideBeforeLeaving": 19.9,
+    "outside": 0.0333,
+    "totalToHold": 40.0333,
+    "cumulativeWouldBe": 20
+  },
+  "wins": [
+    {
+      "seed": 15,
+      "endReason": "victory",
+      "at": 289.98,
+      "held": 3,
+      "hp": 283.4,
+      "level": 18,
+      "kills": 514,
+      "dodges": 17,
+      "ultimates": 7,
+      "hpAtHold": [
+        {
+          "held": 0,
+          "at": 0.02,
+          "hp": 620
+        },
+        {
+          "held": 1,
+          "at": 110,
+          "hp": 545.5
+        },
+        {
+          "held": 2,
+          "at": 199.98,
+          "hp": 427.5
+        },
+        {
+          "held": 3,
+          "at": 289.98,
+          "hp": 283.4
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "endReason": "victory",
+      "at": 289.98,
+      "held": 3,
+      "hp": 384.6,
+      "level": 17,
+      "kills": 528,
+      "dodges": 12,
+      "ultimates": 7,
+      "hpAtHold": [
+        {
+          "held": 0,
+          "at": 0.02,
+          "hp": 620
+        },
+        {
+          "held": 1,
+          "at": 110,
+          "hp": 520.2
+        },
+        {
+          "held": 2,
+          "at": 199.98,
+          "hp": 446.4
+        },
+        {
+          "held": 3,
+          "at": 289.98,
+          "hp": 384.6
+        }
+      ]
+    },
+    {
+      "seed": 99,
+      "endReason": "victory",
+      "at": 289.98,
+      "held": 3,
+      "hp": 379.8,
+      "level": 17,
+      "kills": 531,
+      "dodges": 11,
+      "ultimates": 7,
+      "hpAtHold": [
+        {
+          "held": 0,
+          "at": 0.02,
+          "hp": 620
+        },
+        {
+          "held": 1,
+          "at": 110,
+          "hp": 541.4
+        },
+        {
+          "held": 2,
+          "at": 199.98,
+          "hp": 470.9
+        },
+        {
+          "held": 3,
+          "at": 289.98,
+          "hp": 379.8
+        }
+      ]
+    }
+  ],
+  "timeout": {
+    "endReason": "timeout",
+    "time": 420,
+    "sealsHeld": 0
+  },
+  "readability": {
+    "states": [
+      "holding",
+      "locked",
+      "locked"
+    ],
+    "ratios": [
+      0.25,
+      0,
+      0
+    ]
+  }
+}

@@ -13,7 +13,8 @@ const layout: readonly [InteractionType, number, number][] = [
   ['barrel', .19, .28], ['heal', .79, .25], ['altar', .22, .73],
   ['mechanism', .76, .70], ['supply', .51, .82], ['barrel', .55, .25],
 ];
-const direction = (x: number, y: number): string => !x && !y ? '到达' : ['东', '东南', '南', '西南', '西', '西北', '北', '东北'][Math.round(((Math.atan2(y, x) + Math.PI * 2) % (Math.PI * 2)) / (Math.PI / 4)) % 8]!;
+/** Eight-way compass, shared with `chapter/Seals` so the two objectives point the same way. */
+export const direction = (x: number, y: number): string => !x && !y ? '到达' : ['东', '东南', '南', '西南', '西', '西北', '北', '东北'][Math.round(((Math.atan2(y, x) + Math.PI * 2) % (Math.PI * 2)) / (Math.PI / 4)) % 8]!;
 
 /** Map rules share the battle clock; their rewards remain local to this run. */
 export class FirstStageMap {

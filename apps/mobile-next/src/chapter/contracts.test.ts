@@ -12,7 +12,7 @@ const save = () => parseSchema30(JSON.stringify(fresh));
 const final = (change: Partial<ChapterFinalRun> = {}): ChapterFinalRun => ({
   ...options, endReason: 'victory', time: 310, hp: 200, maxHp: 620, level: 8, kills: 150,
   formId: 'dragon', awakened: true, coreSkillLevel: 3, routes: ['volley'], bonds: ['wildfire', 'shadowfire'],
-  damageBy: { A003: 1000 }, damageTakenBy: { EN001: 420 }, bossDefeated: true, bossLootClaimed: true, ...change,
+  damageBy: { A003: 1000 }, damageTakenBy: { EN001: 420 }, bossDefeated: true, bossLootClaimed: true, sealsHeld: 0, ...change,
 });
 const settle = (source = save(), run = final(), id = 'run-1') => settleChapterRun(source, prepareChapterRun(source, options), run, id);
 
@@ -36,16 +36,22 @@ describe('chapter preparation and copy boundary', () => {
     expect(a.slots).toEqual({ auto: 4, passive: 4 }); expect(a.player.hp).toBe(a.player.maxHp);
     expect(Object.isFrozen(a.player)).toBe(true);
   });
-  it('records all three stage objectives but keeps unimplemented stages unavailable', () => {
+  it('records all three stage objectives and opens only the two that can be finished', () => {
     expect(chapterStages.map(stage => stage.duration)).toEqual([360, 420, 480]);
     expect(chapterStages[0]!.boss?.spawnAt).toBe(270); expect(chapterStages[1]!.boss).toBeNull();
     expect(chapterStages[1]!.seals).toEqual([{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }]);
     expect(chapterStages[2]!.boss?.spawnAt).toBe(360);
+    // R3-M02: `CH001-02` is now enterable, and the preparation must hand back *that* row.
+    // Cloning `chapterStages[0]` regardless of `stageId` was the second lock on the door.
+    const seal = prepareChapterRun(save(), { ...options, stageId: 'CH001-02' });
+    expect(seal.stage).toEqual(chapterStages[1]);
+    expect(seal.stage.seals).toHaveLength(3);
+    expect(prepareChapterRun(save(), options).stage).toEqual(chapterStages[0]);
   });
   it.each([
     { ruleset: 'preview-g5' }, { chapterId: 'ST001' }, { stageId: 'ST001-01' },
     { heroId: 'H002' }, { mode: 'endless' }, { difficulty: 'hard' }, { seed: -1 },
-    { seed: 1.5 }, { seed: 2 ** 32 }, { stageId: 'CH001-02' }, { stageId: 'CH001-03' },
+    { seed: 1.5 }, { seed: 2 ** 32 }, { stageId: 'CH001-03' }, { stageId: 'CH001-04' },
   ])('rejects incompatible preparation %j', change => {
     expect(() => prepareChapterRun(save(), { ...options, ...change })).toThrow();
   });

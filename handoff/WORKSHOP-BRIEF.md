@@ -203,8 +203,26 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 实测最近距离恒 **62**，修后 **0**）。**「留出明确闪避窗口」成立但方向被误读**：窗口是需求的 **55.5 倍**
 （4 s vs **0.0721 s**）⇒ 火线是**节奏**不是**威胁**（占空比 **15.38%**）。**记录不改**：火线**不伤小怪**、
 `hazardPeak` 是**死字段**、火线 y 是**屏幕空间**（同种子跨设备不可复现）、`charge` 的预警线未 clamp
-（墙角公告比实际长）。**下一个 = `R3-M02`（三镇界阵）** —— 它的 `seals` 数据**零读者**，且它所在的
-`CH001-02` 被 `prepare.ts:11` **硬拒绝**，先核这件事。
+（墙角公告比实际长）。
+
+---
+
+**R3-M02 已完成 —— 一扇门三道锁，锁上还写了一行假类型，裁定 D25**。**`seals` 零生产读者**（与
+`hazardPeak` 同类）；`CH001-02` **进不去，三道锁**（`prepare.ts:13` 拒绝任何别的 `stageId`、`:26`
+永远克隆 `chapterStages[0]`、`contracts.test.ts:48` 把拒绝**钉成断言**）。**第四道锁在类型里**：
+`stage: structuredClone(chapterStages[0])` 让 `stage` 的类型等于**第一行** ⇒ 编译器声称每个关卡都有
+非空 `boss`、`seals` 是空元组。换成 `ChapterStageId` 联合后 `vue-tsc` 点名**恰好两处**，都是
+`stage.boss.spawnAt` ⇒ **首帧崩溃**（实测 `TypeError: Cannot read properties of null`）——
+**关着的门把这两个崩溃挡住了，门和崩溃是同一个 bug 的两面**。**胜利也不存在**：`updateObjective()`
+只能靠 Boss 阵亡返回 `'victory'` ⇒ `boss: null` 的关卡只能超时或阵亡；`phase` 还在 t=250 起对所有
+关卡宣布「首领即将登场」。**驻守规则选连续**（离开清零）：同一条轨迹上，连续要 **40.03 s**、累计只要
+**20.0 s**。**半径是承重数字**：84 px 下参考玩家**一个样本都赢不了**（最好 2/3，死于 243.4 s）；
+120/140/160/200 各扫九样本，**160 出货**（最差样本剩 **30.6%** 血，而 120/140 只剩 2.6%/5.6%）。
+**290 s 是理论最早胜利时刻**（270 开启 + 20 驻守），三种子实测都打在 **289.98**。**代价：零在册报告
+移动**（章节线 UI 不可达且走 `legacy`），3 条断言重基线、账本 268→269。**最大的一条记录**：
+`App.vue:61` **从不传 `:chapter`** ⇒ 整个章节线在 UI 上不可达 —— 开门让关卡**可构造**，不等于**可玩**；
+入口归 `R3-U06`。**下一个 = `R3-E01..07c`（「两精英」的定义）** —— `CH001-03` 的 `eliteChecks: 2`
+同样**零读者**，而它是 #13 的唯一前置。
 
 ## 1. 工程事实（请先接受，不要重做）
 
@@ -226,7 +244,7 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 
 ---
 
-## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a + R3-M01 已完成，R3-M02 待做）
+## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a + R3-M01 + R3-M02 已完成，R3-E01..07c 待做）
 
 > 下表的 `#` 是**本简报自己的行号**，与 `QUEUE.md` 的编号不同（本表把十形态铺开成十行）；
 > 引用切片时请用名字，不要用编号。
@@ -718,11 +736,14 @@ apps/mobile-next/src/core/enemyRoles.test.ts      ← **敌人职责仪器（leg
 apps/mobile-next/src/core/enemyWarnings.test.ts   ← **敌人预警仪器**（10 个 `it`、约 40 ms；`drive()` 逐帧 + `plantedRun()`/`burstRun()`/`lungeOf()` + `insideTelegraph`；`charge` 前摇 35 帧 / 冲刺 330.0 / 12.49×，`aoe_ranged` `r70` + `.9s` 结算）
 tasks/game-remediation/evidence/R3-E/IMPLEMENTATION-A.md ← **生产改动（D23，第一次改出货档）**（§2 Scope 0 命令产出、§3 逐波构成与「一个池」的结构限制、§4 两条 `ai` 的实测、§5 一条通道、§6 重基线 16 份报告 + 15 条断言逐条判定、§7 门禁、§8 已知边界）
 tasks/game-remediation/evidence/R3-E/enemy-warnings-report.json ← **滚动**（`charge` / `aoe` / 池六行 / 五波 `director`；每次运行被覆写）
+apps/mobile-next/src/chapter/seals.test.ts        ← **界碑仪器**（13 个 `it`、1.8 s；参考玩家 = 绕圈 + 闪避 + 奥义 + 低血优先恢复；`field()` 钉住玩家位置测驻守规则，`playSealStage()` 打整局）
 apps/mobile-next/src/core/mapBounds.test.ts       ← **地图/边界/危险区仪器**（12 个 `it`、0.34 s；`sweep()` 走六个物件读**每步步长**、四角 clamp、`EN002` 后退不越界、`EN004` 冲刺越界、弹道 ±100 剔除、火线 band / 逃逸 / 贴墙 / 视口依赖）
 tasks/game-remediation/evidence/R3-M/IMPLEMENTATION.md ← **生产改动（D24，第二次改出货档）**（§2 三条验收的命令判定、§3 两个缺陷各一行、§4 读数、§5 重基线 12 份报告 + 4 条断言、§7 已知边界与写回）
 tasks/game-remediation/evidence/R3-M/map-report.json ← **滚动**（`colliders` / `edges` 四条 / `hazard` band 与 25 行抽样 / 三个视口；每次运行被覆写）
+tasks/game-remediation/evidence/R3-M/IMPLEMENTATION-2.md ← **生产改动（D25，开门 + 界碑）**（§1 四问四答与三道锁、§3 规则判定与价格、§4 半径扫描五档、§5 读数、§7 重基线、§9 已知边界）
+tasks/game-remediation/evidence/R3-M/seal-report.json ← **滚动**（`layout` 三处 / `boundary` 连续 vs 累计 / 三种子胜局 / `timeout`；每次运行被覆写）
 apps/mobile-next/src/core/treeHygiene.test.ts      ← **探针守卫**（1 个 `it`、32 ms；扫 `src/` 全树，文件名含 `probe` 或正文含内联标记 ⇒ 红并点名路径；**已植入 `__probe_guardcheck.test.ts` 验证会红**）
-tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 33 份滚动集**；missing/extra/冻结漂移 → 非零退出）
+tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 34 份滚动集**；missing/extra/冻结漂移 → 非零退出）
 apps/mobile-next/src/core/byteLedger.test.ts      ← 账本守门（**5 个 `it`、0.4s**，**独立重算**分类；两条负例已验）
 tasks/game-remediation/evidence/R2-F-CAP/cap10-md5.txt ← **逐字节账基线（267 行，`ledger:write` 重写）**
 tasks/game-remediation/evidence/R2-F-TOUGH-HORDE/IMPLEMENTATION.md §8 ← **#6x 的回填订正**（本片第三个 `it` 无显式超时，收尾时的绿是**负载的函数**）
@@ -1171,3 +1192,19 @@ test reads only these two **keys**」，而代码是**两个桶** —— 注释�
    （36 px 宽）。中心钳 80 + 玩家钳 18 ⇒ 沿墙 **44 px 永久免伤区**，201 个 draw 实测最近距离恒 **62**。
    **钳制的余量决定玩法**，不只是防越界。另：**混沌序列上的 `max` 要钉上界不要钉值** —— D23 钉 `>= 1`，
    本片就回到 0；改成 `<= 1` 后两次读数都在内，而它正是 D3 需要的那个量。
+
+### 7q. R3-M02 的三条（**开门 / 类型撒谎类切片**）
+
+1. **类型系统也会替数据撒谎。** `stage: structuredClone(chapterStages[0])` 让 `stage` 的类型**等于第一行**：
+   `boss` 非空、`seals` 空元组、`duration` 字面量 `360`。三个关卡的**联合信息被抹成一行**，而编译器
+   一个字的怨言都没有。换成 `ChapterStageId = (typeof chapterStages)[number]['id']` 后 `vue-tsc` 精确
+   点名**恰好两处** `stage.boss.spawnAt`，探针实测 `TypeError: Cannot read properties of null`。
+   **判据：一个字段的类型来自「第一行」而不是「所有行」，那它就是一条假注释。**
+2. **一扇打不开的门会挡住门后的崩溃 —— 门和崩溃是同一个 bug 的两面。** `CH001-02` 有三道显式锁
+   （`prepare.ts` 的两处 + `contracts.test.ts` 把拒绝钉成断言），第四道锁**在类型里**。开门不是「放开
+   一行校验」，是**同时**修掉三个首帧崩溃 + 让胜利成为可能（`updateObjective()` 只认 `defeatedAt`，
+   `boss: null` 的关卡**只能超时或阵亡**）。**先数「门后有几处会炸」，再决定开不开。**
+3. **扫描必须固定走位策略，否则量的是机器人。** 同一个界碑半径 84 px，站定死于 109.1 s、绕 0.55R 死于
+   136 s、绕到圈边守到 2/3 —— 「能不能守住」由**怎么动**决定。所以半径扫描的每一档都用**同一条轨迹**
+   （绕 0.85R + 闪避 + 奥义 + 低血优先恢复），否则表里的差是策略的差。另：**要机器人活七分钟才能证明的，
+   是战场不是时限** —— 超时臂改成 `sim.time = duration - FRAME` 后一行就够。

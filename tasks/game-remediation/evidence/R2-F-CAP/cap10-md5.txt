@@ -266,3 +266,4 @@ b42c8986b8239f6f75c0184d636ea54b *./R2-F04/phoenix-pressure.json
 eedfba5a9cb1e75ca6cb3acaae6a3cee *./R3-E/ai-report.json
 4c8e7633eb4988da6a9dd8fe7fbb9b7d *./R3-E/enemy-warnings-report.json
 cae56f93882dc99e2928e331b9103866 *./R3-M/map-report.json
+ff80e9704b96eb90032fc8b4bec8dbb7 *./R3-M/seal-report.json

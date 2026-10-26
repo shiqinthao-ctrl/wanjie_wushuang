@@ -18,6 +18,7 @@ import type { ChapterPreparation } from '../chapter/prepare';
 import { chapterCombatContext } from '../chapter/combat';
 import type { DragonPose } from '../chapter/DragonCombat';
 import { SoldierCombat, isSoldier } from '../chapter/SoldierCombat';
+import { ChapterSeals } from '../chapter/Seals';
 import { threatFor } from './threatModel';
 import type { RunRules, ThreatRules } from './threatModel';
 
@@ -122,6 +123,8 @@ export class CombatSimulation {
   private readonly soldiers?: SoldierCombat;
   /** Opt-in threat model. Undefined on the legacy reference path and for chapter runs. */
   readonly threat?: ThreatRules;
+  /** `CH001-02`'s three seals; undefined on every other stage, including the first. */
+  readonly seals?: ChapterSeals;
   /** Which journey this run belongs to. Selects the per-journey Boss budget. */
   readonly journey: 'classic' | 'evolution';
   /** Per-source contact timers. Only consulted when `threat` is present. */
@@ -161,6 +164,9 @@ export class CombatSimulation {
     const cd = pets.pets.PET001.cd;
     this.pet = { x: 1836, y: 1176, angle: 0, cd: cd * .35, maxCd: cd, enabled: !chapter };
     this.map = new FirstStageMap(this, random, !chapter);
+    // Only a stage that declares seals gets them. `seals: []` on CH001-01/03 is data, not a
+    // disabled feature, so this is an absence rather than a switch.
+    this.seals = chapter && chapter.stage.seals.length ? new ChapterSeals(this, chapter.stage.seals) : undefined;
     this.bossEncounter = new FirstBoss(this, this.heroId, this.difficulty, random, now, this.journey);
     if (progression.journey) this.journeyCombat = new EvolutionCombat(this, progression.journey);
   }
@@ -441,6 +447,7 @@ export class CombatSimulation {
       else if (shot.life <= 0) this.enemyShots.splice(i, 1);
     }
     this.map.advanceHazards(dt);
+    this.seals?.advance(dt);
     const wave = waveAt(this.time);
     if (this.lastWave !== wave.at) {
       this.lastWave = wave.at;
@@ -667,7 +674,7 @@ export class CombatSimulation {
   }
   applyCaps(): void { cap(this.enemies, caps.enemies); cap(this.enemyShots, caps.enemyShots); cap(this.projectiles, caps.v24Projectiles); cap(this.fields, caps.v24Fields); cap(this.meteors, caps.v24Meteors); }
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
-  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]), soldier: this.soldiers?.snapshot(enemy) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), warnings: cloneList(this.warnings), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
+  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), seals: this.seals?.renderState() ?? [], crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]), soldier: this.soldiers?.snapshot(enemy) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), warnings: cloneList(this.warnings), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
   destroy(): void {
     this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
     this.journeyCombat?.destroy();

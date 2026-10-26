@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue';
 import type { BattleHandle } from '../game/mountBattle';
 import type { UiSnapshot } from '../core/GameCore';
 import { bindKeyboard } from '../input/controls';
@@ -166,17 +166,42 @@ onMounted(async () => {
 });
 onBeforeUnmount(() => { cancelled = true; controls?.destroy(); void handle?.destroy(); });
 const format = (value: number) => `${String(Math.floor(value / 60)).padStart(2, '0')}:${String(Math.floor(value % 60)).padStart(2, '0')}`;
+const SEAL_NAMES = ['一', '二', '三'];
+/**
+ * The objective line, per stage. It used to be two hardcoded strings - "边境破围" and "06:00" -
+ * for every chapter stage, which on a stage with `boss: null` promised a Boss that never came.
+ */
+const objective = computed(() => {
+  const state = snapshot.value, stage = state.stage;
+  if (state.seals) return `${stage?.name ?? '荒原镇界'} · 在 ${format(stage?.duration ?? 420)} 前镇守三处界碑（${state.seals.held}/${state.seals.total}）`;
+  if (state.boss.phase === 'warning') return '首领即将登场 · 准备迎战';
+  if (state.boss.lootShown) return '首领已击败 · 正在封存战果';
+  if (props.chapter) return `${stage?.name ?? '边境破围'} · 在 ${format(stage?.duration ?? 360)} 前击败首领并领取战利品`;
+  return '边境清剿 · 在 06:00 前击败首领';
+});
+const sealTarget = computed(() => snapshot.value.seals?.next);
 </script>
 
 <template>
-  <section class="battle-view" :class="{ 'chapter-battle': chapter }" :aria-label="chapter ? '首章边境破围战场' : '边境清剿战场'">
+  <section class="battle-view" :class="{ 'chapter-battle': chapter }" :aria-label="chapter ? `首章${snapshot.stage?.name ?? '边境破围'}战场` : '边境清剿战场'">
     <div ref="host" class="canvas-host" tabindex="-1" aria-label="战场，使用方向键或摇杆移动"></div>
     <div class="battle-overview">
-    <header class="battle-hud"><div><small>{{ chapter ? '首章 · 边境破围' : '乱世荒原 · 边境清剿' }}</small><strong>{{ snapshot.journey?.name || '赤焰战神' }}</strong></div><time aria-label="本局时间">{{ format(snapshot.time) }}</time><button :disabled="!ready || leaving" @pointerdown.prevent="pause" @click="event => { if (event.detail === 0) pause(); }">暂停</button></header>
-    <p v-if="!snapshot.boss.boss" class="stage-note">{{ snapshot.boss.phase === 'warning' ? '首领即将登场 · 准备迎战' : snapshot.boss.lootShown ? '首领已击败 · 正在封存战果' : chapter ? '边境破围 · 在 06:00 前击败首领并领取战利品' : '边境清剿 · 在 06:00 前击败首领' }}</p>
+    <header class="battle-hud"><div><small>{{ chapter ? `首章 · ${snapshot.stage?.name ?? '边境破围'}` : '乱世荒原 · 边境清剿' }}</small><strong>{{ snapshot.journey?.name || '赤焰战神' }}</strong></div><time aria-label="本局时间">{{ format(snapshot.time) }}</time><button :disabled="!ready || leaving" @pointerdown.prevent="pause" @click="event => { if (event.detail === 0) pause(); }">暂停</button></header>
+    <p v-if="!snapshot.boss.boss" class="stage-note">{{ objective }}</p>
     <aside v-else class="boss-hud" aria-label="首领状态"><strong>{{ snapshot.boss.boss.name }} <small>{{ snapshot.boss.boss.phaseName }}</small></strong><progress aria-label="首领生命" :value="snapshot.boss.boss.hp" :max="snapshot.boss.boss.maxHp"></progress><span aria-label="首领招式">{{ snapshot.boss.boss.next }}</span></aside>
     <div class="combat-vitals" aria-label="战斗状态"><div><span>生命 {{ Math.ceil(snapshot.hp) }} / {{ Math.ceil(snapshot.maxHp) }}</span><progress aria-label="生命值" :value="snapshot.hp" :max="snapshot.maxHp || 1"></progress></div><div><span>Lv.{{ snapshot.level }} · 经验 {{ Math.floor(snapshot.xp) }} / {{ snapshot.xpNeed }}</span><progress aria-label="经验值" :value="snapshot.xp" :max="snapshot.xpNeed"></progress></div></div>
     <div v-if="!chapter" class="combat-record"><span aria-label="本局击杀">击破 {{ snapshot.kills }}</span><button v-if="snapshot.journey" :disabled="snapshot.status !== 'running'" @click="pause">本局路线 · {{ snapshot.journey.bonds.filter(bond => bond.active).length }} 羁绊</button><span v-else>炎势 {{ Math.round(snapshot.heat) }}%</span></div>
+    <aside v-if="ready && chapter && snapshot.seals" class="map-route seal-route" aria-label="界碑指引" tabindex="0">
+      <small aria-label="界碑进度">界碑 {{ snapshot.seals.held }} / {{ snapshot.seals.total }}</small>
+      <p v-if="sealTarget" aria-label="下一处界碑">
+        <strong>界碑{{ SEAL_NAMES[sealTarget.index] ?? sealTarget.index + 1 }}</strong>
+        <template v-if="sealTarget.state === 'locked'"> · {{ Math.ceil(sealTarget.opensIn) }} 秒后开启</template>
+        <template v-else-if="sealTarget.state === 'holding'"> · 镇守中 · 还需 {{ Math.ceil(sealTarget.dwell - sealTarget.progress) }} 秒</template>
+        <template v-else> · {{ sealTarget.inside ? '进入范围' : sealTarget.direction + ' ' + sealTarget.distance + 'm' }}</template>
+      </p>
+      <small v-if="sealTarget && sealTarget.state !== 'locked' && !sealTarget.inside">离开范围会从头开始镇守</small>
+      <p v-if="snapshot.seals.notice" class="map-notice" role="status" aria-label="界碑反馈">{{ snapshot.seals.notice }}</p>
+    </aside>
     <aside v-if="ready && !chapter" class="map-route" aria-label="地图指引" tabindex="0">
       <small aria-label="地图互动进度">地图互动 {{ Math.min(1, snapshot.map.used) }} / 1<span v-if="snapshot.map.hazardSuppress > 0"> · 压制 {{ Math.ceil(snapshot.map.hazardSuppress) }}s</span></small>
       <p v-if="snapshot.map.target" aria-label="交互目标"><strong>{{ snapshot.map.target.name }}</strong> · {{ snapshot.map.target.canUse ? '可互动' : snapshot.map.target.direction + ' ' + snapshot.map.target.distance + 'm' }}</p>

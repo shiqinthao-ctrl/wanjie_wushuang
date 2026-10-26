@@ -1281,3 +1281,83 @@ H001 的 4 个形态指向 `A003`/`A021`/`G2_FROST`/`G2_FROST`，其中三个不
 **本片自己踩的坑**：`clearInput()` 会**同时清零平滑输入 `response`**，所以「先跑 30 帧让斜坡稳定，再另起一次
 sweep 测量」会让第二段的**第一帧**是斜坡起点（实测 3.5167 vs 4.16，差 15%）⇒ 看起来像「有一个隐形阻挡」。
 **夹具里的两次调用共享状态时，先问它清的是哪个字段。** 修法：settle 与 measure 放进同一个循环。
+
+---
+
+## D25 —— R3-M02：一扇门三道锁，锁上还写了一行假类型；界碑的半径是承重数字
+
+**前提核实（Scope 0，命令产出见 `evidence/R3-M/IMPLEMENTATION-2.md` §1）**。队列 #12 要「三镇界阵、
+累计驻守、超时目标提示」。四问四答：
+
+1. **`seals` 零生产读者**。`grep -rn seals src/` 只有 `catalog.ts` 三行数据 + `contracts.test.ts:42`
+   一条断言 —— 断言读的是**数据本身**，不是行为。与 `hazardPeak` 同类。
+2. **`CH001-02` 进不去，三道锁**：`prepare.ts:13` 的 `stageId !== 'CH001-01'` 直接抛错；
+   `prepare.ts:26` 永远 `structuredClone(chapterStages[0])`；`contracts.test.ts:48` 把
+   `{stageId:'CH001-02'}` 列进**必须抛错**的表。
+3. **第四道锁在类型里，而它替数据撒了谎**。`stage: structuredClone(chapterStages[0])` 让 `stage`
+   的类型等于**第一行**的类型 ⇒ 类型系统声称每个关卡都有非空 `boss`、`seals` 是**空元组**、
+   `duration` 是字面量 360。把 `stageId` 换成 `ChapterStageId = (typeof chapterStages)[number]['id']`
+   之后，`vue-tsc` 立刻点名**恰好两处**（`settlement.ts:32`、`FirstBoss.ts:34`），两处都是
+   `stage.boss.spawnAt` ⇒ **首帧崩溃**（探针实测 `TypeError: Cannot read properties of null
+   (reading 'spawnAt')`）。**「打不开的门」把这两个崩溃挡住了 —— 门和崩溃是同一个 bug 的两面。**
+4. **超时存在，胜利不存在**。`FirstBoss:170` 读 `chapter.stage.duration`；但 `updateObjective()`
+   只在 `defeatedAt` 有值时返回 `'victory'`，而它只能由 `defeat()` 写 ⇒ **没有 Boss 的关卡只能超时
+   或阵亡**。`settlement.ts:33` 同样把 `completed` 钉成 `bossDefeated && bossLootClaimed`。
+   外加 `snapshot().phase` 在 `t >= 250` 一律 `'warning'`（HUD 会宣布一个永不到来的 Boss），
+   以及 `BattleView` 把 `边境破围`/`06:00` 写死给所有章节关卡。
+
+**第五个发现，不在队列里，但比队列那一行更重要**：`App.vue:61` **从不传 `:chapter`** ⇒
+整个 `chapter1-v1` 章节线在 UI 上**不可达**。开门让 `CH001-02` **可构造**，不等于**可玩**。
+关卡选择页是 `R3-U`（队列 #18–19，页面排在机制之后）。本片交付机制与可读字段，把入口写进证据页。
+
+**规则判定：连续，不是累计。** 队列写「累计驻守，离开不清零」，数据 `{opensAt, dwell}` 读作
+「连续 20 秒」。选连续的三个理由：① 它是字段的字面读法（选累计要换名或加字段，而 TASK 禁止
+第二份界碑格式）；② 「镇界」的动词是驻守；③ 它让「离开」成为**可断言的边界**而不是无人测的分支。
+**价格（同一轨迹实测）**：站 19.9 s → 出圈 2 帧（0.0333 s）→ 回来，连续规则需 **40.0333 s**，
+累计只要 **20.0 s**。累计不是第二段代码，是从同一串位置**重算的反事实** ——
+一个只可能停在一边的开关是没人能测的开关。
+
+**半径是这条机制的承重数字，不是手感。** 第一版 84 px，参考玩家（绕圈 + 闪避 + 奥义 + 低血优先
+恢复）**一个样本都赢不了**（最好 2/3，死于 243.4 s；站定不动则死于 109.1 s —— 差 0.9 秒没守满
+第一个 20 秒）。扫描五档 × 九样本后定 **160 px**：120/140 也全胜但最差样本只剩 **2.6% / 5.6%** 血
+（完美反应的机器才守得住的余量），160 的最差样本剩 **30.6%**（190/620），200 则宽到圈占满屏、
+界碑退化成「待在场上」。**84 那一行最有价值**：同一支机器人、同一个种子，只改这一个常量，
+就从「必死」变成「稳赢」—— 它证明这个数是结构，不是手感。
+
+**胜利与超时**：三处界碑全守满 ⇒ `'victory'`（`GameCore` 里 `seals.updateObjective() ?? boss`）；
+`duration` 到点仍是 `'timeout'`（既有路径，未改）。**290 s 是理论最早胜利时刻**（270 开启 + 20 驻守），
+三个种子实测都打在 **289.98**，离 420 还有 130 s。`settlement` 新增两条守卫：界碑关卡的
+`completed = sealsHeld === seals.length`；且**胜利时刻不得早于最后一处界碑的可能完成时刻**
+（`max(opensAt + dwell)`），这是一条从数据推出的反作弊断言，不是阈值。
+
+**可读性**（TASK 要求「先能读，再谈收益」）：`snapshot().seals`（HUD）、`renderState().seals`
+（`MapView` 画圈与进度弧）、`snapshot().stage`（关卡名与时限，替掉写死的 `边境破围`/`06:00`）。
+`seals.test.ts` 逐项比对 `renderState().seals[i].state` 与 `snapshot().seals.rows[i].state`、
+`ratio === progress / dwell` —— **渲染器读的字段就是被断言的字段**。无 Playwright ⇒ 几何/颜色/
+淡出**没有被看见**，只保证字段一致。
+
+**价格**：**零在册报告移动**（`git diff --numstat evidence/` 对既有报告零输出）。界碑只从
+`chapter.stage.seals` 来，章节线是 `legacy` 规则且 UI 不可达 ⇒ 出货档 `threat-v2` 与 `legacy`
+都没有界碑。**3 条断言重基线**，全部是合同变化：`contracts.test.ts` 的拒绝表（`CH001-02` 从
+「必须拒绝」变成「必须接受且拿回第二行」）、`CH001-03` 保留关闭、两处 `ChapterFinalRun` 字面量补
+`sealsHeld: 0`。账本 **268 → 269**（滚动 33 → 34）。
+
+**交付**：`chapter/catalog.ts`（`ChapterStageId`/`SealRule`）、`chapter/prepare.ts`（联合类型 +
+`OPEN_STAGES` 一行策略 + 按 id 取行）、`chapter/Seals.ts`（新）、`chapter/settlement.ts`
+（`sealsHeld` + 目标分流 + 时间下界 + `boss` 守卫）、`core/FirstBoss.ts`（`bossAt()`，无 Boss 的关卡
+不刷也不预告）、`core/CombatSimulation.ts`、`core/GameCore.ts`、`core/FirstStageMap.ts`
+（`direction` 导出）、`game/MapView.ts`、`game/mountBattle.ts`、`ui/BattleView.vue`、
+`ui/ChapterResult.vue`；新 `chapter/seals.test.ts`（**13 个 `it`、1.8 s**）+ 滚动
+`evidence/R3-M/seal-report.json` + 证据页 `evidence/R3-M/IMPLEMENTATION-2.md`。
+
+**记录不改**：章节线无 UI 入口（`R3-U`）；`CH001-03` 仍关（两精英未定义，`R3-E01..07c`）；
+`ChapterReport` 不记 `sealsHeld`（持久化 schema 不在这片扩，旧存档会缺字段）；章节线里
+`FirstStageMap` 是关的 ⇒ 本关卡没有火线、没有六个交互物、没有中途恢复；界碑位置是常量
+（世界比例），与 `first-map-oracle.json` 无关。
+
+**本片自己踩的坑**：第一版把 `opensAt` 的断言写成「89 s 锁定 + 再跑 1.5 s ⇒ 进度 1.5」，
+实测是 **0.5** —— **闸门是界碑的，不是玩家的**：89 秒站在关着的界碑上什么都不买。
+断言改成 0.5 比改成 1.5 好，因为前者顺带证明了这条闸门。第二条：机器人**站定**在第一处界碑
+死于 109.1 s，而**绕圈**（半径 0.55R）死于 136 s、绕到圈边（0.9R）能守到 2/3 ——
+**「能不能守住」在同一个半径下由「怎么动」决定**，所以半径扫描必须固定一个走位策略，
+否则量的是机器人不是机制。

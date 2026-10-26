@@ -1,6 +1,7 @@
 import type { GameSave } from '../core/saveTypes';
 import { parseSchema30 } from '../storage/schema30';
 import { CHAPTER_ID, chapterBonds, chapterCharms, chapterError, chapterHeroes, chapterRouteGroups, freeze, number, strings, text } from './catalog';
+import type { SealRule } from './catalog';
 import { validateChapterOptions } from './prepare';
 import type { ChapterPreparation, ChapterRunOptions } from './prepare';
 import { readChapterProgress, validateDamage } from './progress';
@@ -11,6 +12,8 @@ export interface ChapterFinalRun extends ChapterRunOptions {
   formId: string | null; awakened: boolean; coreSkillLevel: number; routes: string[]; bonds: string[];
   damageBy: Record<string, number>; damageTakenBy: Record<string, number>;
   bossDefeated: boolean; bossLootClaimed: boolean;
+  /** How many of this stage's seals were held when the run ended. 0 on a stage with no seals. */
+  sealsHeld: number;
 }
 export function validateChapterFinal(preparation: ChapterPreparation, run: ChapterFinalRun): void {
   validateChapterOptions(run);
@@ -28,10 +31,21 @@ export function validateChapterFinal(preparation: ChapterPreparation, run: Chapt
     chapterRouteGroups.some(group => run.routes.filter(id => (group as readonly string[]).includes(id)).length > 1)) chapterError('互斥路线');
   if (run.bonds.some(id => !(chapterBonds as readonly string[]).includes(id))) chapterError('羁绊');
   validateDamage(run.damageBy, '输出'); validateDamage(run.damageTakenBy, '受伤');
+  const stage = preparation.stage, seals = stage.seals as readonly SealRule[];
   if (typeof run.bossDefeated !== 'boolean' || typeof run.bossLootClaimed !== 'boolean' ||
-    (run.bossLootClaimed && !run.bossDefeated) || (run.bossDefeated && run.time < preparation.stage.boss.spawnAt)) chapterError('首领/战利品');
-  const completed = run.bossDefeated && run.bossLootClaimed;
-  if (run.endReason === 'victory') { if (run.hp <= 0 || !completed) chapterError('胜利目标'); }
+    (run.bossLootClaimed && !run.bossDefeated) ||
+    // A stage with no Boss can neither field one nor beat one - and reading `.spawnAt` off `null`
+    // is what made `CH001-02` unconstructible rather than merely unopenable.
+    (run.bossDefeated && (!stage.boss || run.time < stage.boss.spawnAt))) chapterError('首领/战利品');
+  number(run.sealsHeld, '界碑', seals.length, true);
+  // The objective belongs to the stage, not to the run: a seal stage is won by holding seals and
+  // a Boss stage by beating the Boss. One field each, no third way to win.
+  const completed = seals.length ? run.sealsHeld === seals.length : run.bossDefeated && run.bossLootClaimed;
+  if (run.endReason === 'victory') {
+    if (run.hp <= 0 || !completed) chapterError('胜利目标');
+    // The last seal cannot be held before it has opened and been held for its dwell.
+    if (seals.length && run.time < Math.max(...seals.map(seal => seal.opensAt + seal.dwell))) chapterError('界碑时限');
+  }
   else if (run.endReason === 'defeat') { if (run.hp !== 0) chapterError('生命耗尽'); }
   else if (run.endReason === 'timeout') {
     if (run.hp <= 0 || run.time !== preparation.stage.duration || run.bossDefeated) chapterError('超时目标/战利品优先');

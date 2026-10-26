@@ -12,6 +12,15 @@ export const chapterStages = [
   { id: 'CH001-02', name: '荒原镇界', duration: 420, boss: null, seals: [{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }], eliteChecks: 0 },
   { id: 'CH001-03', name: '祭坛决战', duration: 480, boss: { id: 'CH001_ALTAR', spawnAt: 360 }, seals: [], eliteChecks: 2 },
 ] as const;
+/**
+ * The id union the *data* admits, not the subset that is open. `prepare.ts` owns the policy
+ * (`OPEN_STAGES`); typing this as the literal `'CH001-01'` is what let `stage` below be typed as
+ * `typeof chapterStages[0]` - i.e. it let the compiler claim every stage has a non-null boss and
+ * an empty `seals` tuple, which is false for two of the three rows.
+ */
+export type ChapterStageId = (typeof chapterStages)[number]['id'];
+/** One seal: it opens at `opensAt` seconds and needs `dwell` seconds of standing inside. */
+export interface SealRule { readonly opensAt: number; readonly dwell: number }
 export const chapterRouteGroups = [ ['volley', 'nova', 'ringfire'], ['roaming', 'orbit', 'ambush'], ['hunter', 'guard'], ['glacier', 'shatter'], ['relay', 'thunderstrike'] ] as const;
 export const chapterBonds = ['wildfire', 'stormhunt', 'shadowfire', 'superconduct', 'winterlegion', 'thunderlegion', 'galephantom', 'thermalshock'] as const;
 export const chapterCharms = ['MC_DODGE', 'MC_ELITE', 'MC_PICKUP', 'MC_SURVIVAL', 'MC_CYCLE', 'MC_MOVE'] as const;

@@ -87,9 +87,9 @@ export function mountBattle(parent: HTMLElement, publish: (value: UiSnapshot) =>
       core.resize(this.scale.width, this.scale.height);
       const previousTime = core.snapshot().time;
       core.advance(delta / 1000);
-      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, warnings, summons, dragon, journey: evolution } = core.renderState();
+      const { player, world, crystals, enemies, projectiles, fields, vortices, meteors, bombs, enemyShots, pet, map, boss, telegraphs, warnings, summons, dragon, journey: evolution, seals } = core.renderState();
       this.positionCamera(world, player);
-      this.mapView?.draw(map, player);
+      this.mapView?.draw(map, player, seals);
       this.bossView?.draw(boss, telegraphs);
       const graphics = this.combatGraphics!; graphics.clear();
       // Enemy warnings, under every body: `charge` announces a line, `aoe_ranged` a landing

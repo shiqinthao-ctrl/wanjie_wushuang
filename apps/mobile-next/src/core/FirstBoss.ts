@@ -30,8 +30,22 @@ export class FirstBoss {
   private destroyed = false;
   private sweepRecovery = 0;
   constructor(private sim: CombatSimulation, private hero: string, private difficulty: string, private random: () => number, private now: () => number, private journey: 'classic' | 'evolution' = 'classic') {}
+  /**
+   * When the Boss is due, or `undefined` when this stage has none. `CH001-02` declares
+   * `boss: null`, and the old line read `.spawnAt` off it - `TypeError: Cannot read properties of
+   * null` on the run's first frame, before anything could be drawn. The type only admitted it
+   * because `stage` was typed as `typeof chapterStages[0]`; `ChapterStageId` is what made the
+   * compiler point at this line.
+   */
+  private bossAt(): number | undefined {
+    const stage = this.sim.chapter?.stage;
+    if (!stage) return firstStage.bossAt;
+    if (!stage.boss) return undefined;
+    return stage.boss.spawnAt;
+  }
   spawn(): boolean {
-    if (this.destroyed || this.active || this.defeatedAt !== undefined || this.sim.time < (this.sim.chapter?.stage.boss.spawnAt ?? firstStage.bossAt)) return false;
+    const at = this.bossAt();
+    if (at === undefined || this.destroyed || this.active || this.defeatedAt !== undefined || this.sim.time < at) return false;
     const { player, viewport, time } = this.sim, minutes = time / 60;
     // threat-v2 sets its own Boss HP budget, per journey. `firstStage.bossHp` (3)
     // is the frozen reference the legacy path and every chapter run keep using,
@@ -165,11 +179,12 @@ export class FirstBoss {
     this.picked = true; return true;
   }
   snapshot() {
+    const at = this.bossAt();
     return Object.freeze({ boss: this.active ? Object.freeze({ ...this.active, phaseName: config.mechanics.phase[this.active.phase - 1]! }) : undefined,
       chapterLoot: !!this.sim.chapter && !this.destroyed && this.defeatedAt !== undefined && !this.picked && this.sim.time - this.defeatedAt >= .18,
       lootClaimed: this.picked,
       lootShown: this.defeatedAt !== undefined, offer: this.offer ? Object.freeze(this.offer.map(item => Object.freeze({ ...item, name: String(item.name), affixes: Object.freeze(item.affixes?.map(affix => Object.freeze({ ...affix })) || []) }))) : undefined,
-      phase: this.settlingAt !== undefined ? 'settling' : this.resolvedAt !== undefined || this.picked ? 'confirmed' : this.offer ? 'choice' : this.defeatedAt !== undefined ? 'opening' : this.active ? 'fight' : this.sim.time >= 250 ? 'warning' : 'advance' });
+      phase: this.settlingAt !== undefined ? 'settling' : this.resolvedAt !== undefined || this.picked ? 'confirmed' : this.offer ? 'choice' : this.defeatedAt !== undefined ? 'opening' : this.active ? 'fight' : at === undefined || this.sim.time < at - 20 ? 'advance' : 'warning' });
   }
   destroy(): void { this.destroyed = true; this.active = undefined; this.telegraphs.length = 0; this.offer = undefined; this.sweepRecovery = 0; }
 }
