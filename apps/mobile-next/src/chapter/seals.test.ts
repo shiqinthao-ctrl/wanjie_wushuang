@@ -164,7 +164,7 @@ describe('the objective: three seals is a victory, the duration is a timeout', (
       ...SEAL, endReason: 'victory', time: 300, hp: 200, maxHp: 620, level: 8, kills: 150,
       formId: 'dragon', awakened: true, coreSkillLevel: 3, routes: ['volley'], bonds: ['wildfire'],
       damageBy: { A003: 1000 }, damageTakenBy: { EN001: 420 }, bossDefeated: false, bossLootClaimed: false,
-      sealsHeld: 3, ...change,
+      sealsHeld: 3, elitesChecked: 0, ...change,
     });
     expect(() => validateChapterFinal(preparation, final({}))).not.toThrow();
     // 289 s is one second before the third seal could possibly be held.

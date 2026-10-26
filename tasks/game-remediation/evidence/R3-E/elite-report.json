@@ -1,0 +1,72 @@
+{
+  "slice": "R3-E01..07c",
+  "decision": "two scripted two-affix elites at eliteAt, counted by checkedElites",
+  "stage": {
+    "id": "CH001-03",
+    "duration": 480,
+    "eliteChecks": 2,
+    "eliteAt": [
+      120,
+      300
+    ],
+    "bossSpawnAt": 360
+  },
+  "measured": {
+    "firstCheck": {
+      "at": 120,
+      "affixes": [
+        "swift",
+        "tank"
+      ],
+      "hp": 657,
+      "radius": 12.5
+    },
+    "jump": {
+      "spawned": 2,
+      "defeated": 0
+    },
+    "afterBoth": {
+      "checkedElites": 2,
+      "eliteKills": 2
+    },
+    "waveElite": {
+      "eliteKills": 1,
+      "checkedElites": 0,
+      "waveAffixes": [
+        1
+      ]
+    },
+    "readability": {
+      "before": {
+        "required": 2,
+        "defeated": 0,
+        "at": [
+          120,
+          300
+        ]
+      },
+      "after": {
+        "required": 2,
+        "defeated": 1,
+        "at": [
+          120,
+          300
+        ]
+      }
+    },
+    "gate": {
+      "spawnAt": 360,
+      "spawnBefore": false,
+      "spawnAfter": true,
+      "bossAfter": "B001"
+    },
+    "settlement": {
+      "ceilingOnFirstStage": 0,
+      "claimedOne": "rejected"
+    },
+    "shut": {
+      "stage": "CH001-03",
+      "reason": "OPEN_STAGES + CH001_ALTAR has no Boss config"
+    }
+  }
+}

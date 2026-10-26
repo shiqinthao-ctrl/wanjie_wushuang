@@ -12,7 +12,7 @@ const save = () => parseSchema30(JSON.stringify(fresh));
 const final = (change: Partial<ChapterFinalRun> = {}): ChapterFinalRun => ({
   ...options, endReason: 'victory', time: 310, hp: 200, maxHp: 620, level: 8, kills: 150,
   formId: 'dragon', awakened: true, coreSkillLevel: 3, routes: ['volley'], bonds: ['wildfire', 'shadowfire'],
-  damageBy: { A003: 1000 }, damageTakenBy: { EN001: 420 }, bossDefeated: true, bossLootClaimed: true, sealsHeld: 0, ...change,
+  damageBy: { A003: 1000 }, damageTakenBy: { EN001: 420 }, bossDefeated: true, bossLootClaimed: true, sealsHeld: 0, elitesChecked: 0, ...change,
 });
 const settle = (source = save(), run = final(), id = 'run-1') => settleChapterRun(source, prepareChapterRun(source, options), run, id);
 

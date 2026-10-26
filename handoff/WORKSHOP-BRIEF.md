@@ -224,6 +224,23 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 入口归 `R3-U06`。**下一个 = `R3-E01..07c`（「两精英」的定义）** —— `CH001-03` 的 `eliteChecks: 2`
 同样**零读者**，而它是 #13 的唯一前置。
 
+**R3-E01..07c 已完成 —— 「两精英」定成两个双词缀精英，裁定 D26**。**四问全部有命令答案**：
+① `elite` **不是一行数据**，是 `spawnRules.ts:69-78` 的一串倍率（`r×1.25`/`hp×3.25`/`dmg×1.38`/1 条词缀），
+读者八处；② 「带 elite 的行」这个问法**不成立** —— 出生池六行都可能被 roll 成精英，而且**章节线继承第一关
+的波次表**（`finishBaseFrame` 无条件读 `waveAt`）⇒ `CH001-03` 在 150 s 必吃一个；③ `eliteChecks`
+**零读者零断言**（队列说的「one assertion」是「`CH001-03` 保持关闭」那条，断言的是**拒绝**不是字段）；
+④ **时钟第二词缀的 `time > 960` 在三关（360/420/480）里全部到不了** —— 这一条单独就否掉了「两个普通精英」。
+**第五个发现**：`CH001_ALTAR` 不只是没配置 —— **`stage.boss.id` 全库零读者**，`FirstBoss.spawn()` 写死
+`B001`，实测 `CH001-03` 刷出的 `active.id` 就是 `'B001'`。**决定**：`eliteAt: [120, 300]` 各刷一名
+**双词缀**精英，`checkedElites` 计数，`eliteChecks === eliteAt.length` 由测试钉住；**首领被这两道检验门住**
+（`bossAt()` 在清完前返回 `undefined`）⇒ 「没检验就胜利」不是结算要拒绝的状态，是**不可能发生**的状态。
+**150 s 那波的精英照样来，但它是 `eliteKills` 不是 `checkedElites`** —— 两个计数器不是同一个数（实测
+`eliteKills 1 / checkedElites 0`）。**代价：零在册报告移动**（`threat-v2`/`legacy` 不带 `eliteAt`），
+3 条机械重基线，账本 269→270。**`CH001-03` 仍然关着** —— 开门要先把 `FirstBoss` 改成按 `stage.boss.id`
+查表，那是 **#13 的第一件事**；因此 `settlement` 里「胜利需要两道检验」这一半**今天不可达**，
+可执行的那半是**上限**（开着的关卡 `eliteChecks: 0`，声称 1 会被拒）—— **空真的一半明说，不假装测过**。
+**下一个 = `R3-M03`（祭坛术主三阶段）**。
+
 ## 1. 工程事实（请先接受，不要重做）
 
 | 项 | 值 |
@@ -244,7 +261,7 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 
 ---
 
-## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a + R3-M01 + R3-M02 已完成，R3-E01..07c 待做）
+## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a + R3-M01 + R3-M02 + R3-E01..07c 已完成，R3-M03 待做）
 
 > 下表的 `#` 是**本简报自己的行号**，与 `QUEUE.md` 的编号不同（本表把十形态铺开成十行）；
 > 引用切片时请用名字，不要用编号。
@@ -286,7 +303,7 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 | 9 | `R2-D` 200 种子构筑报告（**分布与可达性**） | ✅ **已完成（零生产改动，D21）** —— 3 英雄 × 种子 `1..200` = **600 局**。**结构可达是池的性质**（20 行 / 9 行 / 4 融合，三英雄同成员），**实达按英雄切开**：`F001`+`F004` 只在 H001/H010（17、12 局），`F026` 只在 H012（5 局），**没有一个英雄能拿到 4 个里的 3 个**；路线每英雄被强制一条（`volley`/`hunter` **200/200**）；**六槽上限 0 局触发**（拥有主动中位 4）；`coreSkillLevel` 中位 0（战报上的真实读数）；**无效候选 0 条**（10841 次升级 / 2253 次宝箱）。G7 裁定：**B 归 R3-P01，A 定价存档**（缺口是信息不是供给：会看候选 60.6%、取前排 5.7%）。 |
 | 10 | `R3-E01..07` 敌人职责与预警 | ✅ **已完成（零生产改动，D22）** —— 前提**半假**：出生池只有 `EN001..EN003`，`EN004..EN006` **声明 ST001 却不在任何波次**（死数据）；`charge`/`aoe_ranged` **生产里零读者**、与 `melee` 逐帧相同；**敌人没有任何预警字段**（预警只属 Boss）；「两精英」无对应行（`elite` 是开关，1 条词缀 / 960s 后 2 条）。拆成 10a/10b/10c。 |
 | 10a | `R3-E01..07a` 接池 + 两个空 `ai` + 敌人预警通道 | ✅ **已完成（生产改动，D23）** —— 十余片来**第一次改变出货档**。Scope 0 用命令钉住「只有一个 `new GameCore`（显式 `threat-v2`）」+「`createEnemy` 是唯一读池处」⇒ 推出的 16 份移动报告与实测完全对上（**16 移动 / 67 不变 / 1 新增**）。`charge` 前摇钉住 35 帧、冲刺 330.0（12.49×）、冲过头要掉头；`aoe_ranged` 每 2.4s 落 `r70` 圈、`.9s` 结算；`brute` 不动且写成断言。**一条通道** `warnings` → `renderState()` → `graphics`。**价格 15 条红 / 7 文件**：G8 3→2、G7 融合 2→1、`61/58→71/63`、`maxAdds` 6→2–3、D2 20%→12.9% |
-| 10b–10c | `R3-E01..07b` 外观（美术，**排除**）· `R3-E01..07c` 「两精英」定义（设计决策） | 待办 |
+| 10b–10c | `R3-E01..07b` 外观（美术，**排除**）· `R3-E01..07c` 「两精英」定义（设计决策） | 10c **已完成**（D26）；10b 排除 |
 | 11–13 | `R3-M01..03` 地图与关卡 | ▶ **下一个 = `R3-M01`** |
 | 14–17 | `R3-P01..04` 图鉴 / 战报 / 护符 / 挑战 | 待办 |
 | 18–19 | `R3-U01..06` 大厅 / 章节 / 战备 / 结算 / 设置 | 待办 |
@@ -737,13 +754,15 @@ apps/mobile-next/src/core/enemyWarnings.test.ts   ← **敌人预警仪器**（1
 tasks/game-remediation/evidence/R3-E/IMPLEMENTATION-A.md ← **生产改动（D23，第一次改出货档）**（§2 Scope 0 命令产出、§3 逐波构成与「一个池」的结构限制、§4 两条 `ai` 的实测、§5 一条通道、§6 重基线 16 份报告 + 15 条断言逐条判定、§7 门禁、§8 已知边界）
 tasks/game-remediation/evidence/R3-E/enemy-warnings-report.json ← **滚动**（`charge` / `aoe` / 池六行 / 五波 `director`；每次运行被覆写）
 apps/mobile-next/src/chapter/seals.test.ts        ← **界碑仪器**（13 个 `it`、1.8 s；参考玩家 = 绕圈 + 闪避 + 奥义 + 低血优先恢复；`field()` 钉住玩家位置测驻守规则，`playSealStage()` 打整局）
+apps/mobile-next/src/chapter/eliteChecks.test.ts   ← **精英检验仪器**（13 个 `it`、20 ms；`simOfAltar()` 绕过 `OPEN_STAGES` 直接建 `CombatSimulation`；`step()` = `beginFrame` + `finishBaseFrame`；`sweep()` 走生产的 `arc` 路径）
 apps/mobile-next/src/core/mapBounds.test.ts       ← **地图/边界/危险区仪器**（12 个 `it`、0.34 s；`sweep()` 走六个物件读**每步步长**、四角 clamp、`EN002` 后退不越界、`EN004` 冲刺越界、弹道 ±100 剔除、火线 band / 逃逸 / 贴墙 / 视口依赖）
 tasks/game-remediation/evidence/R3-M/IMPLEMENTATION.md ← **生产改动（D24，第二次改出货档）**（§2 三条验收的命令判定、§3 两个缺陷各一行、§4 读数、§5 重基线 12 份报告 + 4 条断言、§7 已知边界与写回）
 tasks/game-remediation/evidence/R3-M/map-report.json ← **滚动**（`colliders` / `edges` 四条 / `hazard` band 与 25 行抽样 / 三个视口；每次运行被覆写）
 tasks/game-remediation/evidence/R3-M/IMPLEMENTATION-2.md ← **生产改动（D25，开门 + 界碑）**（§1 四问四答与三道锁、§3 规则判定与价格、§4 半径扫描五档、§5 读数、§7 重基线、§9 已知边界）
+tasks/game-remediation/evidence/R3-E/IMPLEMENTATION-c.md ← **生产改动（D26，两精英）**（§1 四问四答与第五个发现、§2 三选项成本表、§4 读数、§6 记录不改、§8 三个坑）
 tasks/game-remediation/evidence/R3-M/seal-report.json ← **滚动**（`layout` 三处 / `boundary` 连续 vs 累计 / 三种子胜局 / `timeout`；每次运行被覆写）
 apps/mobile-next/src/core/treeHygiene.test.ts      ← **探针守卫**（1 个 `it`、32 ms；扫 `src/` 全树，文件名含 `probe` 或正文含内联标记 ⇒ 红并点名路径；**已植入 `__probe_guardcheck.test.ts` 验证会红**）
-tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 34 份滚动集**；missing/extra/冻结漂移 → 非零退出）
+tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 35 份滚动集**；missing/extra/冻结漂移 → 非零退出）
 apps/mobile-next/src/core/byteLedger.test.ts      ← 账本守门（**5 个 `it`、0.4s**，**独立重算**分类；两条负例已验）
 tasks/game-remediation/evidence/R2-F-CAP/cap10-md5.txt ← **逐字节账基线（267 行，`ledger:write` 重写）**
 tasks/game-remediation/evidence/R2-F-TOUGH-HORDE/IMPLEMENTATION.md §8 ← **#6x 的回填订正**（本片第三个 `it` 无显式超时，收尾时的绿是**负载的函数**）
@@ -1208,3 +1227,19 @@ test reads only these two **keys**」，而代码是**两个桶** —— 注释�
    136 s、绕到圈边守到 2/3 —— 「能不能守住」由**怎么动**决定。所以半径扫描的每一档都用**同一条轨迹**
    （绕 0.85R + 闪避 + 奥义 + 低血优先恢复），否则表里的差是策略的差。另：**要机器人活七分钟才能证明的，
    是战场不是时限** —— 超时臂改成 `sim.time = duration - FRAME` 后一行就够。
+
+### 7r. R3-E01..07c 的三条（**定义类切片 / 夹具选层**）
+
+1. **「带 X 的行」这个问法可能不成立。** `elite` 不是一行数据，是 `spawnRules.ts` 的一串倍率 ——
+   出生池六行**每一行**都可能被 roll 成精英。所以「多少行带 elite」的答案是**零行**，而正确的问题是
+   「谁在运行时把 `elite` 置真」。**先问「这个字段存在哪一层」，再数行。** 同一个字段在两个层
+   （数据行 / 运行时布尔）里叫同一个名字时，数出来的数会差一个量级。
+2. **一个「不可达」的数可以单独否掉一个方案。** 时钟第二词缀要 `time > 960`，而三关时长
+   360/420/480 —— **全部到不了**。这不是「少一个档位」，是**这个机制在有名字的关卡里不存在**。
+   所以「两个普通精英」这个选项在写第一行代码之前就该被否掉。**扫一遍候选方案里每个依赖的
+   阈值，先问它在目标场景里能不能满足。**
+3. **夹具选错层，量到的是夹具。** 三条红全是驱动错：① 用 `GameCore` 构造关着的关卡会被
+   `OPEN_STAGES` 拒（`CombatSimulation` 才是不看策略的那层）；② 把 `sim.time` 跳到 150 s 会让
+   120 s 的检查**补刷**，于是「波精英不计」的断言被自己的检查污染（换到 `eliteAt: []` 的关卡才干净）；
+   ③ `spawn()` 在 `updateObjective()` 里调、不在 `updateAI` 里，用 `beginFrame` 驱动永远等不到首领。
+   **红的时候先问「我的驱动有没有把这个机制跑起来」，再问「读数对不对」。**

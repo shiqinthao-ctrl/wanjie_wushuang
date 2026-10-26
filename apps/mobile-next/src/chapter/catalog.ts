@@ -8,9 +8,9 @@ export const chapterHeroes = {
 } as const;
 export type ChapterHeroId = keyof typeof chapterHeroes;
 export const chapterStages = [
-  { id: 'CH001-01', name: '边境破围', duration: 360, boss: { id: 'B001', spawnAt: 270 }, seals: [], eliteChecks: 0 },
-  { id: 'CH001-02', name: '荒原镇界', duration: 420, boss: null, seals: [{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }], eliteChecks: 0 },
-  { id: 'CH001-03', name: '祭坛决战', duration: 480, boss: { id: 'CH001_ALTAR', spawnAt: 360 }, seals: [], eliteChecks: 2 },
+  { id: 'CH001-01', name: '边境破围', duration: 360, boss: { id: 'B001', spawnAt: 270 }, seals: [], eliteChecks: 0, eliteAt: [] },
+  { id: 'CH001-02', name: '荒原镇界', duration: 420, boss: null, seals: [{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }], eliteChecks: 0, eliteAt: [] },
+  { id: 'CH001-03', name: '祭坛决战', duration: 480, boss: { id: 'CH001_ALTAR', spawnAt: 360 }, seals: [], eliteChecks: 2, eliteAt: [120, 300] },
 ] as const;
 /**
  * The id union the *data* admits, not the subset that is open. `prepare.ts` owns the policy
@@ -21,6 +21,13 @@ export const chapterStages = [
 export type ChapterStageId = (typeof chapterStages)[number]['id'];
 /** One seal: it opens at `opensAt` seconds and needs `dwell` seconds of standing inside. */
 export interface SealRule { readonly opensAt: number; readonly dwell: number }
+/**
+ * `eliteChecks` is how many elites a stage demands; `eliteAt` is *when* they arrive. Two fields
+ * because they answer different questions, but they are not independent: the number is the
+ * length, and `eliteChecks.test.ts` pins that so neither can drift alone. `eliteAt` is a
+ * schedule, not a second elite format - the body still comes from `createEnemy`, which is the
+ * only place `elite` means anything.
+ */
 export const chapterRouteGroups = [ ['volley', 'nova', 'ringfire'], ['roaming', 'orbit', 'ambush'], ['hunter', 'guard'], ['glacier', 'shatter'], ['relay', 'thunderstrike'] ] as const;
 export const chapterBonds = ['wildfire', 'stormhunt', 'shadowfire', 'superconduct', 'winterlegion', 'thunderlegion', 'galephantom', 'thermalshock'] as const;
 export const chapterCharms = ['MC_DODGE', 'MC_ELITE', 'MC_PICKUP', 'MC_SURVIVAL', 'MC_CYCLE', 'MC_MOVE'] as const;

@@ -16,44 +16,47 @@ Legacy version wrappers remain; migrate incrementally, never rewrite the combat 
 See `../TASK.md`.
 
 ## Last completed
-**R3-M02 (D25)** - the three seals of `CH001-02`. Premise **half false, half blocked**: `seals` had
-**zero production readers**, and the stage could not be built for **three** reasons
-(`prepare.ts:13` refused any other `stageId`; `:26` always cloned `chapterStages[0]`;
-`contracts.test.ts:48` pinned the refusal). A **fourth lock was the type**: `stage` was typed as the
-*first* row, so the compiler claimed `boss` non-null and `seals` an empty tuple. Widening to
-`ChapterStageId` made `vue-tsc` name **exactly two** sites, both `stage.boss.spawnAt` - two
-**first-frame crashes**. The shut door hid them; door and crash were one bug. Victory did not exist
-either (`updateObjective` needed a Boss kill, so a `boss: null` stage could only time out or die),
-and `phase` announced a Boss from t=250 on every stage. Dwell rule: **continuous** - leaving costs
-**40.03 s vs 20.0 s** for cumulative on the same trajectory. **The radius is load-bearing**: 84 px
-never won (best 2/3, dead 243.4 s); 120/140/160/200 swept over 9 samples each; 160 ships because
-120/140 leave the worst sample at 2.6%/5.6% against 30.6%.
+**R3-E01..07c (D26)** - "two elites", which no row defined. Four answers, all measured. `elite` is
+**not a row**: it is a multiplier block in `spawnRules.ts:69-78` (r x1.25, hp x3.25, dmg x1.38,
+1 affix) with eight readers. "Rows that carry elite" does not parse - all six pool rows can roll
+elite - and **chapter runs inherit the first stage's wave table** (`waveAt`, read unconditionally),
+so `CH001-03` gets an elite at 150 s regardless.
+`eliteChecks` had **zero readers and zero assertions** (the "one assertion" in the queue is the
+`CH001-03 stays shut` test, which asserts the *refusal*, not the field). And the clock-based second
+affix needs `time > 960`, which **no chapter stage reaches** (360/420/480) - that alone killed the
+"two ordinary elites" option. Decision: **two scripted two-affix elites at `eliteAt: [120, 300]`**,
+counted by `checkedElites`, with `eliteChecks === eliteAt.length` pinned by a test. The Boss is
+**gated** on them (`bossAt()` returns undefined until both die), so "victory without the checks"
+cannot occur rather than having to be rejected.
 
 ## Changed files
-`chapter/catalog.ts` (`ChapterStageId`, `SealRule`), `chapter/prepare.ts` (union, `OPEN_STAGES`, lookup
-by id), new `chapter/Seals.ts`, `chapter/settlement.ts` (`sealsHeld`, objective split, time floor),
-`core/FirstBoss.ts` (`bossAt()`), `core/CombatSimulation.ts`, `core/GameCore.ts` (`stage`/`seals` in
-`UiSnapshot`), `core/FirstStageMap.ts`, `game/MapView.ts`, `game/mountBattle.ts`,
-`ui/BattleView.vue`, `ui/ChapterResult.vue`. New `chapter/seals.test.ts` (13 `it`, 1.8 s); rolling
-`evidence/R3-M/seal-report.json`; page `evidence/R3-M/IMPLEMENTATION-2.md`. D25; `QUEUE.md` 12 done,
-10c next (13 blocked by it); ledger **268 -> 269** (rolling **33 -> 34**).
+`chapter/catalog.ts` (`eliteAt` + rationale), `core/spawnRules.ts` (`Enemy.checked`, options
+`affixes?`/`checked?`), `core/CombatSimulation.ts` (`checkedElites`, `eliteCursor`,
+`spawnScriptedElites`, `eliteCheckState`), `core/FirstBoss.ts` (the gate), `core/GameCore.ts`
+(`UiSnapshot.eliteChecks`, `captureFinal`), `chapter/settlement.ts` (`elitesChecked` + ceiling),
+`ui/BattleView.vue` (`elite-route`). New `chapter/eliteChecks.test.ts` (13 `it`, 20 ms); rolling
+`evidence/R3-E/elite-report.json`; page `evidence/R3-E/IMPLEMENTATION-c.md`. D26; `QUEUE.md` 10c
+done, **13 next**; ledger **269 -> 270** (rolling **34 -> 35**).
 
 ## Tests
-**52 files / 1544 tests, all pass (1844.68 s)** = 1531 + 13, 51 + 1 - both increments equal the
-new file's size, so no probe survived. `vue-tsc --noEmit` clean. `ledger:verify` OK (269/269,
-rolling 34, stale 0, moved 0); `smoke`/`audit`/`archive:verify` OK; `context` under 8192; `check`
-cannot run here. **No Playwright**, so the seal's geometry and colours are asserted through the
-fields `MapView` reads, not seen.
+**53 files / 1557 tests (1676.81 s)** = 1544 + 13, 52 + 1 - both increments equal the new file, so no
+probe survived. First pass had **2 red**, both `byteLedger` coverage (new report not booked); after
+`ledger:write` that file re-ran **5/5 green**, and only `byteLedger` reads the ledger, so green is
+derived, not re-run. `vue-tsc` clean; subset 16 files / 458 tests / 2.83 s; `ledger:verify` OK
+(270/270, rolling 35); `smoke`/`audit`/`archive:verify` OK; `check` cannot run here. **No Playwright**
+- `elite-route` is asserted through the fields it reads, not seen.
 
 ## Unresolved risk
-**The chapter track has no UI entry** - `App.vue:61` never passes `:chapter`, so `CH001-02` is
-constructible, not playable; entry is `R3-U06`. `R2-F-G4ROWS`'s evolution arm observes **no** G4 row.
-The fireline **does not damage enemies** and is absent from chapter runs (`FirstStageMap` disabled
-there). `hazardPeak` never written or read; the fireline's band is **screen space**. `CH001-03`
-stays shut. 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001` shares the summon cap.
+**`stage.boss.id` has no reader** - `FirstBoss.spawn()` hardcodes `B001`, and `CH001-03` measurably
+spawns `B001`. Opening the stage therefore starts with a lookup, not a data file; that is #13's
+first job, and it is why `CH001-03` is **still shut** and why `settlement`'s "victory needs both
+checks" half is **unreachable from a test** (only the ceiling on open stages is asserted). The
+chapter track has no UI entry (`App.vue:61`); `R2-F-G4ROWS`'s evolution arm sees no G4 row; the
+fireline does not damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet; main-skill
+has no UI; `S001` shares the summon cap.
 
 ## Recommended next task
-**R3-E01..07c** (`QUEUE.md` #10c); brief in `TASK.md`. `CH001-03`'s `eliteChecks: 2` has **no
-reader** and no row defines "two elites" - and it is the only thing blocking #13.
+**R3-M03** (`QUEUE.md` #13); brief in `TASK.md`. Start with the id lookup, then the three phases
+as data, then open the stage only if a real run can finish it.
 
 Replace only the five fields above.

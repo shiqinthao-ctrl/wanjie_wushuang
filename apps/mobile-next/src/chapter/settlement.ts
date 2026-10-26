@@ -14,6 +14,12 @@ export interface ChapterFinalRun extends ChapterRunOptions {
   bossDefeated: boolean; bossLootClaimed: boolean;
   /** How many of this stage's seals were held when the run ended. 0 on a stage with no seals. */
   sealsHeld: number;
+  /**
+   * How many of this stage's *scripted* elites (`stage.eliteAt`) were killed. 0 on a stage with
+   * no checks. Not `eliteKills`: the 150 s wave and the director's random rolls are elites too,
+   * and the stage's requirement is about the two it scheduled.
+   */
+  elitesChecked: number;
 }
 export function validateChapterFinal(preparation: ChapterPreparation, run: ChapterFinalRun): void {
   validateChapterOptions(run);
@@ -38,9 +44,13 @@ export function validateChapterFinal(preparation: ChapterPreparation, run: Chapt
     // is what made `CH001-02` unconstructible rather than merely unopenable.
     (run.bossDefeated && (!stage.boss || run.time < stage.boss.spawnAt))) chapterError('首领/战利品');
   number(run.sealsHeld, '界碑', seals.length, true);
+  // The ceiling is the requirement itself: a stage with no checks admits only 0, so a forged
+  // report cannot claim to have cleared elites the stage never scheduled.
+  number(run.elitesChecked, '精英检验', stage.eliteChecks, true);
   // The objective belongs to the stage, not to the run: a seal stage is won by holding seals and
   // a Boss stage by beating the Boss. One field each, no third way to win.
-  const completed = seals.length ? run.sealsHeld === seals.length : run.bossDefeated && run.bossLootClaimed;
+  const completed = (seals.length ? run.sealsHeld === seals.length : run.bossDefeated && run.bossLootClaimed) &&
+    run.elitesChecked >= stage.eliteChecks;
   if (run.endReason === 'victory') {
     if (run.hp <= 0 || !completed) chapterError('胜利目标');
     // The last seal cannot be held before it has opened and been held for its dwell.

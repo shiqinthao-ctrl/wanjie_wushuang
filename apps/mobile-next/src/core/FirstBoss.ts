@@ -41,6 +41,12 @@ export class FirstBoss {
     const stage = this.sim.chapter?.stage;
     if (!stage) return firstStage.bossAt;
     if (!stage.boss) return undefined;
+    // The stage's elite checks gate the Boss rather than merely annotating it. Returning
+    // `undefined` means "not due yet", which `spawn()` and `phase` both already handle, so a run
+    // that has not cleared the checks cannot reach the Boss and "victory without the checks" is
+    // not a state the settlement has to reject - it cannot occur. The checks are scheduled before
+    // `spawnAt` and never despawn, so the wait is bounded by the player's own damage.
+    if (stage.eliteChecks > 0 && this.sim.checkedElites < stage.eliteChecks) return undefined;
     return stage.boss.spawnAt;
   }
   spawn(): boolean {

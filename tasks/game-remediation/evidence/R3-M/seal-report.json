@@ -20,7 +20,8 @@
         "dwell": 20
       }
     ],
-    "eliteChecks": 0
+    "eliteChecks": 0,
+    "eliteAt": []
   },
   "layout": [
     {

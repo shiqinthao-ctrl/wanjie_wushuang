@@ -7,6 +7,13 @@ export interface Enemy extends Point {
   id: string; name: string; ai: string; r: number; hp: number; maxHp: number;
   speed: number; damage: number; color: string; attack: number; skill: number;
   elite: boolean; affixes: string[]; flash: number;
+  /**
+   * Present only on a stage's scripted elite checks (`chapter.stage.eliteAt`). It is an explicit
+   * label rather than something inferred from `affixes.length`: a run must be able to say "this
+   * one counted" without re-deriving the definition of "counted" from a number that the balance
+   * pass may change. Absent on every other enemy, so legacy runs are byte-identical.
+   */
+  checked?: boolean;
   volatile?: boolean; vamp?: boolean; aura?: boolean; split?: boolean;
   chilledUntil?: number;
   /**
@@ -40,7 +47,7 @@ export function clampPoint<T extends Point>(point: T, world: { width: number; he
   point.y = Math.max(margin, Math.min(world.height - margin, point.y));
   return point;
 }
-export function createEnemy(state: DirectorState, player: Point & { hp: number; maxHp: number; atk: number }, viewport: { width: number; height: number }, world: { width: number; height: number }, difficulty: string, random: () => number, options: { id?: string; elite?: boolean } = {}, threat?: ThreatRules): Enemy {
+export function createEnemy(state: DirectorState, player: Point & { hp: number; maxHp: number; atk: number }, viewport: { width: number; height: number }, world: { width: number; height: number }, difficulty: string, random: () => number, options: { id?: string; elite?: boolean; affixes?: number; checked?: boolean } = {}, threat?: ThreatRules): Enemy {
   let id = options.id;
   if (!id) {
     const pool = firstStage.storyEncounter.enemies as [string, number][];
@@ -68,7 +75,11 @@ export function createEnemy(state: DirectorState, player: Point & { hp: number; 
     attack: random() * 2, skill: random() * 2, elite: false, affixes: [], flash: 0 }, world, 30);
   if (elite) {
     enemy.elite = true; enemy.r *= 1.25; enemy.hp *= 3.25; enemy.maxHp = enemy.hp; enemy.damage *= 1.38;
-    enemy.affixes = [...stage.affixes].sort(() => random() - .5).slice(0, state.time > 960 || difficulty === 'nightmare' ? 2 : 1);
+    // `options.affixes` is the stage's scripted check and overrides the clock: the 960 s second
+    // affix is unreachable in every chapter stage (360/420/480 s), so a stage that wants a
+    // two-affix elite has to say so rather than wait. Absent -> the original rule, unchanged.
+    enemy.affixes = [...stage.affixes].sort(() => random() - .5).slice(0, options.affixes ?? (state.time > 960 || difficulty === 'nightmare' ? 2 : 1));
+    if (options.checked) enemy.checked = true;
     for (const affix of enemy.affixes) {
       if (affix === 'swift') enemy.speed *= 1.35;
       else if (affix === 'tank') { enemy.hp *= 1.8; enemy.maxHp *= 1.8; }

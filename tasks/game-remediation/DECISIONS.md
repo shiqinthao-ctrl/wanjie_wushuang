@@ -1361,3 +1361,77 @@ sweep 测量」会让第二段的**第一帧**是斜坡起点（实测 3.5167 vs
 死于 109.1 s，而**绕圈**（半径 0.55R）死于 136 s、绕到圈边（0.9R）能守到 2/3 ——
 **「能不能守住」在同一个半径下由「怎么动」决定**，所以半径扫描必须固定一个走位策略，
 否则量的是机器人不是机制。
+
+## D26 —— R3-E01..07c：「两精英」定成两个双词缀精英，由关卡调度、由关卡计数；`CH001-03` 仍然关着
+
+**Scope 0 四问，逐条命令产出。**
+
+(a) **`elite` 今天做什么**：它不是一行数据，是 `spawnRules.ts:69-78` 的一串倍率 ——
+`r × 1.25`、`hp × 3.25`、`damage × 1.38`、`affixes = 六条里 slice(0, time > 960 || nightmare ? 2 : 1)`、
+`color = '#d5a254'`。读者八处：`combatMath` 的 `eliteDmg`（装备/符文/天赋三乘）、`enemyHit` 的
+target kind、`effectiveXp` **18 vs 4**、大招充能 **8 vs 1.4**、`eliteKills++`、章节线**不掉**精英装备
+（`!this.chapter`）、R043/R041、`isSoldier` 判 `!elite`。
+
+(b) **多少行带 `elite`**：**零行**。「带 elite 的行」这个问法本身不成立 —— `elite` 是运行时布尔，
+出生池 6 行（EN001×5 / EN002×3 / EN003–EN006 各 1）都可能被 roll 成精英。可达性没问题：
+`finishBaseFrame` 里 `waveAt(this.time)` **无条件**读第一关的波次表，**章节线也继承它** ⇒
+`CH001-03` 在 150 s 必吃一次 `type:'elite'` 刷 1 个。
+
+(c) **`eliteChecks` 是计数还是注记**：**注记，而且连断言都没有**。`grep -rn eliteChecks src/ tests/`
+只有 catalog 三行 —— 队列说的「one assertion」实为 `seals.test.ts` 里那条「`CH001-03` 保持关闭」，
+它断言的是**拒绝**，不是这个字段。
+
+(d) **960 s 的第二词缀在 480 s 关卡里存在吗**：**不存在**。判据是 `state.time > 960`，而三关时长
+是 360/420/480 —— **三关全部到不了**。第二词缀今天只有 nightmare 能拿到。这一条直接否掉了
+「两个普通精英」这个选项。
+
+**第五个发现（TASK 没问，但它决定 scope 3）**：`CH001_ALTAR` 不只是「没有配置」——
+**`stage.boss.id` 全库零读者**。`FirstBoss.spawn()` 把 `id: 'B001'` 写死（`FirstBoss.ts:55`），
+只读 `firstBoss.json` 的 `config.boss`。实测：`CH001-03` 的 `spawn()` 返回 `true` 且
+`active.id === 'B001'`。**配一份 `CH001_ALTAR` 数据也不会被用**。
+
+**三个选项的成本，先写后选。**
+
+| 选项 | 成本 | 判定 |
+|---|---|---|
+| A 两个**双词缀**精英，由关卡调度 | `createEnemy` 一个 opt-in 参数（缺省不变）+ 一个调度字段 + 一个计数器 + 一行 `renderState` + 一个 `ChapterFinalRun` 字段 | **选它** |
+| B 两个新敌人行 | 要动 `storyEncounter.enemies` 出生池，否则新行永不出现 —— **等于第二次改出货档**，而 D23 刚改过 | 否 |
+| C 两个普通精英在两个时间点 | 最便宜，但 150 s 那波已经刷 1 个，再加两个 = **三个**；且单条词缀在 480 s 内不构成「检验」 | 否 |
+
+**选 A 的理由**是 (d)：单条词缀的精英在这个时长里不构成「检验」，双词缀是乘法压力；而「两个新行」
+会把 `threat-v2` 再抬一次，那不是本片能付的价。`eliteAt` 是**调度**，不是第二种精英格式 ——
+身体仍然只从 `createEnemy` 来，`spawnRules.ts` 仍是 `elite` 唯一有意义的地方。
+
+**实现**：`catalog.ts` 三行加 `eliteAt`（`[]` / `[]` / `[120, 300]`），`eliteChecks === eliteAt.length`
+由测试钉住（两个会漂的数换成一个关系）；`spawnRules.createEnemy` 的 options 加 `affixes?: number`
+（覆盖时钟规则）与 `checked?: boolean`（**显式标签**，不是从 `affixes.length` 反解）；
+`CombatSimulation` 加 `checkedElites`、`eliteCursor`、`spawnScriptedElites()`、`eliteCheckState()`，
+`renderState()` 发布它；`FirstBoss.bossAt()` 在 `checkedElites < eliteChecks` 时返回 `undefined` ——
+**门是关卡的门**：没清完精英，首领不出场，所以「没检验就胜利」不是结算要拒绝的状态，是**不可能发生**的
+状态；`settlement` 加 `elitesChecked` 与上限校验；`BattleView` 加 `elite-route` 面板与目标行。
+
+**读数**（`evidence/R3-E/elite-report.json`，每次运行重算）：首名检验精英 `at=120`、
+词缀 `['swift','tank']`、`hp=657`、`r=12.5`；跳到 300 s 时**一次补刷两个**（游标单调 ⇒
+走过去也没用）；两个都杀后 `checkedElites=2`；**150 s 波精英**：`eliteKills=1`、`checkedElites=0`、
+`affixes.length=1` —— **两个计数器确实不是同一个数**；门的读数 `spawnBefore=false`、`spawnAfter=true`、
+`bossAfter='B001'`（最后这个正是 `CH001_ALTAR` 零读者的硬证据）。
+
+**价格：零读数移动。** `numstat` 两行，**都不是读数**：`cap10-md5.txt` 的 `+1` 是 md5 清单多一个文件
+（269 → 270 == 账本），`R3-M/seal-report.json` 的 `+2/-1` 是 **schema 增长** —— `seals.test.ts` 把整个
+`stage` 写进滚动报告，`catalog` 加 `eliteAt` 就改了它，而 `held`/`hp`/`time`/`kills` **一个都没动**。
+`threat-v2` 与 `legacy` 都不带 `eliteAt` ⇒ 出货档逐字节不变。3 条机械重基线：三处
+`ChapterFinalRun` 字面量补 `elitesChecked: 0`（`contracts.test.ts`、`chapterHarness.ts`、`seals.test.ts`）。
+**判据**：滚动报告的 diff 里如果只有键在变、数没变，那是 schema 增长，不是读数漂移。
+
+**记录不改（本片最重要的一条）**：`CH001-03` **仍然关着**。不是因为两精英没定义（本片定义了），
+是因为 `CH001_ALTAR` 没有 Boss 配置**且 `stage.boss.id` 没有读者**。开门要先把 `FirstBoss` 从写死
+`B001` 改成按 `stage.boss.id` 查表 —— 那是 `R3-M03` 的第一件事，不是本片的。因此
+`settlement` 里「胜利需要 `elitesChecked >= eliteChecks`」这一半**今天不可达**（`validateChapterFinal`
+第一行就是 `validateChapterOptions`，它拒绝 `CH001-03`）；可执行的那半是**上限**：开着的关卡
+`eliteChecks: 0`，一份声称 `elitesChecked: 1` 的战报会被拒。**空真的一半明说，不假装测过。**
+
+**本片自己踩的坑**：三条红全是**驱动错**，不是读数错 —— ① 用 `GameCore` 构造 `CH001-03` 会被
+`OPEN_STAGES` 拒（`CombatSimulation` 才是不看策略的那一层）；② 把 `sim.time` 直接跳到 150 s 会
+**补刷** 120 s 的检查（游标单调），于是「150 s 波精英不计」的断言被自己的检查污染 —— 换成
+`CH001-01`（`eliteAt: []`）才干净；③ `spawn()` 在 `updateObjective()` 里调，不在 `updateAI` 里，
+用 `beginFrame` 驱动永远等不到首领。**夹具选错层，量到的是夹具。**

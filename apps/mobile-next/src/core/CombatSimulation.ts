@@ -62,6 +62,13 @@ export class CombatSimulation {
   time = 0;
   kills = 0;
   eliteKills = 0;
+  /**
+   * How many of this stage's *scripted* elites have died (`chapter.stage.eliteAt`). Separate from
+   * `eliteKills`, which counts every elite including the 150 s wave and the director's random
+   * rolls - the stage's requirement is about the ones it scheduled, so it must not be satisfiable
+   * by luck. Stays 0 on every stage with no `eliteAt`, including all non-chapter runs.
+   */
+  checkedElites = 0;
   combo = 0;
   maxCombo = 0;
   heat = 0;
@@ -112,6 +119,7 @@ export class CombatSimulation {
   private dps = 0;
   private dpsClock = 0;
   private lastWave = 0;
+  private eliteCursor = 0;
   private auraNear = false;
   private shieldClock = 1;
   private difficulty: string;
@@ -261,6 +269,7 @@ export class CombatSimulation {
     this.crystals.spawn(enemy, effectiveXp(enemy.elite, difficultyFor(this.difficulty).xp));
     this.player.ult = Math.min(100, this.player.ult + (enemy.elite ? 8 : 1.4));
     if (enemy.elite) this.eliteKills++;
+    if (enemy.checked) this.checkedElites++;
     if (enemy.volatile) { this.ring(enemy, 58, 'volatile'); if (distance(this.player, enemy) < 58 && this.player.inv <= 0) this.hurt(enemy.damage * 1.2); }
     if (enemy.split) { this.spawn({ id: enemy.id }); this.spawn({ id: enemy.id }); }
     if (!this.chapter && enemy.elite && this.random() < .45) this.drops.push(generateGear(this.heroId, 'elite', this.random, this.now));
@@ -321,7 +330,7 @@ export class CombatSimulation {
     }
     return true;
   }
-  spawn(options: { id?: string; elite?: boolean } = {}): void {
+  spawn(options: { id?: string; elite?: boolean; affixes?: number; checked?: boolean } = {}): void {
     this.enemies.push(createEnemy(this.directorState(), this.player, this.viewport, this.world, this.difficulty, this.random, options, this.threat));
   }
   private enemyAI(enemy: Enemy, dt: number): void {
@@ -454,6 +463,7 @@ export class CombatSimulation {
       this.history.waves.push({ at: Math.floor(this.time), name: wave.name, type: wave.type });
       if (wave.type === 'elite') for (let i = 0; i < (this.difficulty === 'nightmare' ? 2 : 1); i++) this.spawn({ elite: true });
     }
+    this.spawnScriptedElites();
     this.dpsClock += dt;
     if (this.dpsClock >= 1) { this.dps = Math.round(this.damage - this.lastDamage); this.lastDamage = this.damage; this.dpsClock = 0; }
     cap(this.enemies, earlyEnemyCap(this.difficulty));
@@ -674,7 +684,26 @@ export class CombatSimulation {
   }
   applyCaps(): void { cap(this.enemies, caps.enemies); cap(this.enemyShots, caps.enemyShots); cap(this.projectiles, caps.v24Projectiles); cap(this.fields, caps.v24Fields); cap(this.meteors, caps.v24Meteors); }
   takeEvents(): CombatEvent[] { const events = this.events; this.events = []; return events; }
-  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), seals: this.seals?.renderState() ?? [], crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]), soldier: this.soldiers?.snapshot(enemy) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), warnings: cloneList(this.warnings), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
+  /**
+   * The stage's two scripted checks, one per `eliteAt` entry, each a two-affix elite. `affixes: 2`
+   * is passed explicitly because the clock-based second affix needs `time > 960` and no chapter
+   * stage is longer than 480 s. The cursor is monotonic: a check missed because the player was
+   * elsewhere still spawns, so the requirement cannot be dodged by walking away.
+   */
+  private spawnScriptedElites(): void {
+    const at = this.chapter?.stage.eliteAt as readonly number[] | undefined;
+    if (!at?.length) return;
+    while (this.eliteCursor < at.length && this.time >= at[this.eliteCursor]!) {
+      this.spawn({ elite: true, affixes: 2, checked: true });
+      this.eliteCursor++;
+    }
+  }
+  /** The stage's elite requirement and how much of it is met. Zero/zero on every other stage. */
+  eliteCheckState(): { required: number; defeated: number; at: readonly number[] } {
+    const stage = this.chapter?.stage;
+    return { required: stage?.eliteChecks ?? 0, defeated: this.checkedElites, at: stage?.eliteAt ?? [] };
+  }
+  renderState() { return { player: Object.freeze({ ...this.player }), world: Object.freeze({ ...this.world }), seals: this.seals?.renderState() ?? [], eliteChecks: this.eliteCheckState(), crystals: this.crystals.snapshot(), enemies: this.enemies.map(enemy => Object.freeze({ ...enemy, affixes: Object.freeze([...enemy.affixes]), soldier: this.soldiers?.snapshot(enemy) })), projectiles: this.projectiles.map(({ targets: _targets, ...shot }) => Object.freeze(shot)), fields: cloneList(this.fields), vortices: cloneList(this.vortices), meteors: cloneList(this.meteors), bombs: cloneList(this.bombs), enemyShots: cloneList(this.enemyShots), warnings: cloneList(this.warnings), pet: Object.freeze({ ...this.pet }), summons: cloneList(this.journeyCombat?.summons || []), journey: this.progression.journey?.snapshot(this.state().skills), dragon: this.journeyCombat?.dragonSnapshot() }; }
   destroy(): void {
     this.clearInput(); this.scheduled = []; this.events = []; this.crystals.clear(); this.map.destroy(); this.bossEncounter.destroy();
     this.journeyCombat?.destroy();
