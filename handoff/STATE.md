@@ -13,24 +13,24 @@ V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` 
 Legacy version wrappers remain; migrate incrementally, never rewrite the combat loop in one pass.
 
 ## Current task
-See `../TASK.md`.
+`R3-P01` codex (`../TASK.md`). **Scope 0 is done (D28), no production change yet**: 10 fusion rows,
+only **4 assemble-able** (`F001 F002 F004 F026`) and the same four for all three heroes; 6 rows name
+a part whose skill is outside `activeSkills`/`passiveSkills`. `discoveries` is keyed by **form** and
+stores absence as `undefined`. No router - `page` is a hand-written union in `App.vue`.
 
 ## Last completed
 **R3-M03 (D27)** - the altar lord, and the id that had no reader. `CH001-03` named `CH001_ALTAR`
 while `spawn()` hardcoded `B001`. Four answers: (a) `firstBoss.json` held **one** Boss with **no id
-field at all** (its `pool` is loot, read by `gearDrops`), so the lookup table did not exist; (b)
-`mechanics.phase` has 3 entries and **one** reader (`phaseName`) - names were data, behaviour was
-nine literals; (c) `maxPhase` comes from the **hp ratio** `.35/.70`, not from data; (d) `'B001'` is
-load-bearing outside `FirstBoss` - the `damageTakenBy` key prefix, the feedback source, the
-`B001-BODY` asset row, a legacy-tree audit gate, and `bossThreat.test.ts` partitions with
-`slice(5)`, which **hardcodes the id's length**. Fifth finding: `firstStage.rule.bossId === 'B001'`
-had **zero readers**, so the default was data all along. Rows are now `bosses[id]`, resolved at
-construction (a missing id throws once, not per frame), and the damage prefix follows the id. The
-three phases moved into the row as `thresholds`, six affine `curve` pairs, per-phase
-`radius/width/arc` and `adds` - affine because `.95 - .08` is not the double `0.87`. `CH001-03`
-opened only after a **calibrated** bot won it: the same policy wins `CH001-01` 3/3 and `CH001-03`
-3/3 (410.25/402.32/401.50 s); a corner-holding policy wins 1/3, so the first "unfinishable" reading
-was the instrument, not the stage.
+field at all** (its `pool` is loot), so the lookup table did not exist; (b) `mechanics.phase` had 3
+entries and **one** reader (`phaseName`); (c) `maxPhase` came from the **hp ratio** `.35/.70`; (d)
+`'B001'` is load-bearing outside `FirstBoss` - `damageTakenBy` key prefix, feedback source,
+`B001-BODY`, an audit gate, and `bossThreat.test.ts`'s `slice(5)`, which **hardcodes the id's
+length**. Fifth finding: `firstStage.rule.bossId === 'B001'` had **zero readers**. Rows are now
+`bosses[id]`, resolved at construction. The three phases moved into the row as `thresholds`, six
+affine `curve` pairs, per-phase `radius/width/arc` and `adds` - affine because `.95 - .08` is not
+the double `0.87`. `CH001-03` opened only after a **calibrated** bot won it: the same policy wins
+`CH001-01` 3/3 and `CH001-03` 3/3 (410.25/402.32/401.50 s); corner-holding wins 1/3, so the first
+"unfinishable" reading was the instrument.
 
 ## Changed files
 `data/firstBoss.json` (rows + curves), `core/FirstBoss.ts` (lookup, `this.id`, row-driven phases),
@@ -57,7 +57,9 @@ G4 row; the fireline does not damage enemies; `hazardPeak` is dead; 27pp viewpor
 unmet; main-skill has no UI; `S001` shares the summon cap.
 
 ## Recommended next task
-**R3-P01** (`QUEUE.md` #14); brief in `TASK.md`. Start by counting what `progress.discoveries` can
-hold, then decide whether the codex needs a save field at all.
+Implement `R3-P01` from `TASK.md` + **D28**: a pure `codexRows(save)` (forms = three truths, fusions
+= two columns that each name their source), a `CodexPanel.vue`, a `'codex'` member in `App.vue`'s
+`page` union plus one lobby button, and an assertion that **the union member and that button exist
+in the source** - that is the only "route is reachable" available without Playwright.
 
 Replace only the five fields above.
