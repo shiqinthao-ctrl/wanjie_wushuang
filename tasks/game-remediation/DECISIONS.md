@@ -1435,3 +1435,71 @@ target kind、`effectiveXp` **18 vs 4**、大招充能 **8 vs 1.4**、`eliteKill
 **补刷** 120 s 的检查（游标单调），于是「150 s 波精英不计」的断言被自己的检查污染 —— 换成
 `CH001-01`（`eliteAt: []`）才干净；③ `spawn()` 在 `updateObjective()` 里调，不在 `updateAI` 里，
 用 `beginFrame` 驱动永远等不到首领。**夹具选错层，量到的是夹具。**
+
+## D27 —— R3-M03：`stage.boss.id` 变成查表；三阶段进数据；`CH001-03` 打开
+
+**Scope 0 四问 + 一个额外发现，逐条命令产出。**
+
+(a) **`firstBoss.json` 只有一个 Boss，而且它连 `id` 字段都没有**（`boss keys: name/map/style/hp/color/skills`）。
+`pool` 是战利品池（读者 `gearDrops.ts:10,24`），不是首领池 ⇒ 「按 id 查表」这张**表本身不存在**。
+
+(b) **`mechanics.phase` 三个条目，一个读者**：`snapshot()` 的 `phaseName`。阶段**名字**是数据，
+阶段**行为**是 `updateAI` 里的九个字面量。
+
+(c) **`maxPhase` 来自血量比，不是数据也不是配置**：`ratio <= .35 ? 3 : ratio <= .70 ? 2 : 1`。
+唯一读者是 `GameCore.captureFinal` 的 `bossPhaseMax`，且只在非章节路径写。
+
+(d) **`'B001'` 是承重的，最贵的一处在测试里**：它是 `damageTakenBy` 的键前缀
+（`B001-contact` / `B001-<招式>`），是 `feedback` 的事件源（4 处），是 `chapterAssets` 的
+`B001-BODY`，是**遗留树**的审计门禁（`asset-pipeline.mjs:116` 要求 `boss?.id==='B001'`），
+而且 `bossThreat.test.ts` 用 `source.startsWith('B001')` + **`slice(5)`** 拆招式名 ——
+**`slice(5)` 把 id 的长度写死了**，id 一变长，伤害会被静默归进 `lostToHorde`。
+⇒ 结论：`B001` 不能改名，只能加行；新 id 的伤害前缀必须跟着 id 走。
+
+**第五个发现（决定 Scope 1 怎么写）**：`firstStage.rule.bossId === 'B001'` **全库零读者**。
+「默认用出货的那个」不需要魔法常量兜底 —— **数据里早就写着，只是代码不看**。
+
+**实现。** `firstBoss.json` 归一成 `{ bosses: { B001, CH001_ALTAR }, pool }`，一行一个 id，形状相同
+（不是第二种格式：`FirstBoss` 仍是首领唯一有意义的地方）。`FirstBoss` 在**构造时**解析
+`sim.chapter?.stage.boss?.id ?? firstStage.bossId`，缺行 `throw` —— 放在构造函数而不是 `spawn()`，
+是因为 `spawn()` 每帧被轮询，每帧抛错是噪声，抛在建局那一刻才是诊断。伤害源、`feedback` 源、
+`clampPoint` 的余量、`r`、`hp`、招式表、阶段名全部改读 `this.row`。
+
+**三阶段进数据**，四类：`thresholds`、`curve`（六条 `base + phase × perPhase`）、
+`radius/width/arc`（每阶段一格）、`adds`（每阶段刷几个身体）。**必须是仿射形式，不能预算成数**：
+`.95 - phase * .08` 的浮点结果不等于字面量 `0.87`，而 `combat-math-oracle.json` 与
+`firstBoss.test.ts` 逐字节钉着出货路径。存系数、留算式。
+
+**读数**（`evidence/R3-E/altar-report.json`，每次运行重算）：祭坛阈值 `[.66,.33]`、巨将 `[.70,.35]`，
+**在 .67 血量上祭坛是第 1 阶段而巨将是第 2 阶段**（阈值真的从行里来）；三阶段招式伤害
+**20/25/30**、红圈预警 **25/31.25/37.5**、半径 **64/64/80**、名 **血祭初式/焚坛再式/术主终式**；
+终式直线宽 **50**、锥形射程 **306**、张角 **0.68π**；阶段三刷 **2** 个（巨将 3 个）；
+祭坛到场 hp **26406.2**（360 s）、巨将 **25048.0**（270 s）—— 同一行 hp 7000，差在到场分钟。
+
+**能不能打完：先标定仪器。** 第一版仪器报「打不完」（141.4 / 222.8 / 372.5 s 阵亡），
+但**同一台机器人在出货关卡 `CH001-01` 上也死**（226.7 / 229.9 / 303.3 s）——
+一个连出货关卡都打不过的机器人没有资格判定新关卡太难。修好走位（真·单位向量绕行 + 读预警）后：
+
+| 臂 | `CH001-01` | `CH001-03` |
+|---|---|---|
+| hunt（参考玩家） | **3/3 胜**（357.67 / 322.22 / 328.83 s） | **3/3 胜**（410.25 / 402.32 / 401.50 s） |
+| corner（守一角） | —— | **1/3 胜**（395.07 死 / 423.18 胜 / 397.95 死） |
+
+祭坛三胜：等级 19/20/20、击杀 620/617/622、**两道精英检验都清完**、首领击杀于
+409.02 / 401.08 / 400.27 s，`validateChapterFinal` **全部接受**。超时臂 `time = 480`、
+`elitesChecked 0` 同样被接受。**`hunt 3/3` 与 `corner 1/3` 的差是走位的差，不是关卡的差** ——
+断言写成关系（`hunt > corner`），不钉 `corner` 的具体胜场，那会随任何合法平衡改动翻转。
+
+**于是 `CH001-03` 打开**（`OPEN_STAGES` 加一行），且这是**最后一步**：D26 记的
+「`settlement` 的『胜利需两道检验』这半不可达」现在**可达并被断言**（一检被拒、二检通过、三检超上限）。
+
+**价格：出货路径逐字节不变**（`firstBoss.test.ts` 首跑即绿；`bossThreat.test.ts` 的 `rawOf`
+现在是「`B001` 这一行仍等于出货算式」的独立重算）。重基线 9 处：数据形状、`FirstBoss` 读行、
+`OPEN_STAGES`、`chapterStages` 加 `clear`/`timeout`、`UiStage` 6 字段、`seals.test.ts` 的关门断言、
+`contracts.test.ts` 的拒绝项、`eliteChecks.test.ts` 的「不可达」改成三条断言、`bossThreat.test.ts`
+的读取路径。账本 **270 → 271**（滚动 **35 → 36**）。
+
+**记录不改**：章节线在 UI 上**仍不可达**（`App.vue:61` 不传 `:chapter`，入口归 `R3-U06`）；
+`boss.skills` / `mechanics.shield` / `mechanics.shrink` / `mechanics.name` 仍是死字段；
+`bossThreat.test.ts` 的 `slice(5)` 仍写死 id 长度（只在 `B001` 上跑，今天不会错，
+但下一个改 `firstStage.bossId` 的人会被它静默误导）。

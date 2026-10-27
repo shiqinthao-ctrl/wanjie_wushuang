@@ -21,7 +21,9 @@
       }
     ],
     "eliteChecks": 0,
-    "eliteAt": []
+    "eliteAt": [],
+    "clear": "镇界完成",
+    "timeout": "镇界超时"
   },
   "layout": [
     {

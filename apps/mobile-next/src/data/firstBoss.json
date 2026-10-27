@@ -1,39 +1,187 @@
 {
-  "boss": {
-    "name": "黄巾巨将",
-    "map": "ST001",
-    "style": "巨斧冲击",
-    "hp": 7000,
-    "color": "#8f3539",
-    "skills": [
-      "震地斩",
-      "狂暴冲锋",
-      "旋风斧"
-    ]
-  },
-  "mechanics": {
-    "name": "黄巾巨将",
-    "phase": [
-      "巨斧压境",
-      "蛮王狂怒",
-      "震岳绝境"
-    ],
-    "shield": 0,
-    "shrink": false,
-    "skills": [
-      [
-        "circle",
-        "震地斩"
-      ],
-      [
-        "line",
-        "蛮王冲锋"
-      ],
-      [
-        "cone",
-        "旋风断军"
-      ]
-    ]
+  "bosses": {
+    "B001": {
+      "boss": {
+        "name": "黄巾巨将",
+        "map": "ST001",
+        "style": "巨斧冲击",
+        "hp": 7000,
+        "r": 42,
+        "color": "#8f3539",
+        "skills": [
+          "震地斩",
+          "狂暴冲锋",
+          "旋风斧"
+        ]
+      },
+      "mechanics": {
+        "name": "黄巾巨将",
+        "phase": [
+          "巨斧压境",
+          "蛮王狂怒",
+          "震岳绝境"
+        ],
+        "thresholds": [
+          0.7,
+          0.35
+        ],
+        "shield": 0,
+        "shrink": false,
+        "skills": [
+          [
+            "circle",
+            "震地斩"
+          ],
+          [
+            "line",
+            "蛮王冲锋"
+          ],
+          [
+            "cone",
+            "旋风断军"
+          ]
+        ],
+        "curve": {
+          "contact": {
+            "base": 11,
+            "perPhase": 3
+          },
+          "skill": {
+            "base": 13,
+            "perPhase": 4
+          },
+          "delay": {
+            "base": 0.95,
+            "perPhase": 0.08,
+            "floor": 0.55
+          },
+          "castCd": {
+            "base": 3,
+            "perPhase": 0.38,
+            "floor": 0.9
+          },
+          "speed": {
+            "base": 38,
+            "perPhase": 7
+          },
+          "cone": {
+            "base": 230,
+            "perPhase": 25
+          }
+        },
+        "radius": [
+          70,
+          70,
+          86
+        ],
+        "width": [
+          44,
+          44,
+          54
+        ],
+        "arc": [
+          0.55,
+          0.55,
+          0.72
+        ],
+        "adds": [
+          0,
+          0,
+          3
+        ]
+      }
+    },
+    "CH001_ALTAR": {
+      "boss": {
+        "name": "祭坛术主",
+        "map": "ST001",
+        "style": "血祭三变",
+        "hp": 7000,
+        "r": 36,
+        "color": "#6d4a9c",
+        "skills": [
+          "血雨",
+          "祭火",
+          "断魂"
+        ]
+      },
+      "mechanics": {
+        "name": "祭坛术主",
+        "phase": [
+          "血祭初式",
+          "焚坛再式",
+          "术主终式"
+        ],
+        "thresholds": [
+          0.66,
+          0.33
+        ],
+        "shield": 0,
+        "shrink": false,
+        "skills": [
+          [
+            "circle",
+            "血雨"
+          ],
+          [
+            "line",
+            "祭火"
+          ],
+          [
+            "cone",
+            "断魂"
+          ]
+        ],
+        "curve": {
+          "contact": {
+            "base": 12,
+            "perPhase": 3
+          },
+          "skill": {
+            "base": 15,
+            "perPhase": 5
+          },
+          "delay": {
+            "base": 0.9,
+            "perPhase": 0.07,
+            "floor": 0.5
+          },
+          "castCd": {
+            "base": 2.7,
+            "perPhase": 0.35,
+            "floor": 0.8
+          },
+          "speed": {
+            "base": 34,
+            "perPhase": 6
+          },
+          "cone": {
+            "base": 240,
+            "perPhase": 22
+          }
+        },
+        "radius": [
+          64,
+          64,
+          80
+        ],
+        "width": [
+          40,
+          40,
+          50
+        ],
+        "arc": [
+          0.5,
+          0.5,
+          0.68
+        ],
+        "adds": [
+          0,
+          0,
+          2
+        ]
+      }
+    }
   },
   "pool": [
     "EQW007",

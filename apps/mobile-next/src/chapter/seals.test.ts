@@ -54,7 +54,9 @@ describe('the door: CH001-02 is enterable and has no Boss', () => {
   it('prepares the seal row itself, not the first stage, and reports it to the HUD', () => {
     const core = new GameCore(fresh, () => .8, 'classic', SEAL); core.start();
     expect(core.chapter!.stage.id).toBe('CH001-02');
-    expect(core.snapshot().stage).toEqual({ id: 'CH001-02', name: '荒原镇界', duration: 420, hasBoss: false });
+    // D27 added the result screen's two words to the stage identity, so the row is compared field
+    // by field against the catalog instead of against a literal that would drift with it.
+    expect(core.snapshot().stage).toEqual({ id: 'CH001-02', name: '荒原镇界', duration: 420, hasBoss: false, clear: '镇界完成', timeout: '镇界超时' });
     expect(core.snapshot().seals).toMatchObject({ rule: 'continuous', held: 0, total: 3 });
     expect(core.snapshot().seals!.rows.map(row => row.state)).toEqual(['locked', 'locked', 'locked']);
     core.destroy();
@@ -73,8 +75,12 @@ describe('the door: CH001-02 is enterable and has no Boss', () => {
     expect(sim.bossEncounter.active).toBeUndefined();
     core.destroy();
   });
-  it('leaves CH001-03 shut, because its two elites are still undefined', () => {
-    expect(() => prepareChapterRun(fresh, { ...SEAL, stageId: 'CH001-03' })).toThrow('尚未开放');
+  it('opens CH001-03 too, and it is not this stage: it has a Boss and no seals', () => {
+    // D27 opened it. The assertion stays in this file because it is what makes the seal rule the
+    // stage's: the stage next door declares `seals: []` and a Boss, and gets no seal panel.
+    const altar = prepareChapterRun(fresh, { ...SEAL, stageId: 'CH001-03' });
+    expect(altar.stage.seals).toEqual([]);
+    expect(altar.stage.boss).toEqual({ id: 'CH001_ALTAR', spawnAt: 360 });
   });
 });
 

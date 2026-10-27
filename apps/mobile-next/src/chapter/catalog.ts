@@ -7,10 +7,15 @@ export const chapterHeroes = {
   H012: { hp: 430, atk: 106, speed: 280, aspd: 1.2, crit: .12, skill: 'A015', forms: ['void', 'reaper', 'beastlord', 'windwarden'] },
 } as const;
 export type ChapterHeroId = keyof typeof chapterHeroes;
+/**
+ * `clear` / `timeout` are the result screen's two words. They live here because they are the
+ * stage's, not the chapter's: "破围成功" is right for a stage called 边境破围 and wrong for one
+ * called 祭坛决战, and a template branch on `seals` could not tell those apart.
+ */
 export const chapterStages = [
-  { id: 'CH001-01', name: '边境破围', duration: 360, boss: { id: 'B001', spawnAt: 270 }, seals: [], eliteChecks: 0, eliteAt: [] },
-  { id: 'CH001-02', name: '荒原镇界', duration: 420, boss: null, seals: [{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }], eliteChecks: 0, eliteAt: [] },
-  { id: 'CH001-03', name: '祭坛决战', duration: 480, boss: { id: 'CH001_ALTAR', spawnAt: 360 }, seals: [], eliteChecks: 2, eliteAt: [120, 300] },
+  { id: 'CH001-01', name: '边境破围', duration: 360, boss: { id: 'B001', spawnAt: 270 }, seals: [], eliteChecks: 0, eliteAt: [], clear: '破围成功', timeout: '破围超时' },
+  { id: 'CH001-02', name: '荒原镇界', duration: 420, boss: null, seals: [{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }], eliteChecks: 0, eliteAt: [], clear: '镇界完成', timeout: '镇界超时' },
+  { id: 'CH001-03', name: '祭坛决战', duration: 480, boss: { id: 'CH001_ALTAR', spawnAt: 360 }, seals: [], eliteChecks: 2, eliteAt: [120, 300], clear: '祭坛告破', timeout: '决战超时' },
 ] as const;
 /**
  * The id union the *data* admits, not the subset that is open. `prepare.ts` owns the policy

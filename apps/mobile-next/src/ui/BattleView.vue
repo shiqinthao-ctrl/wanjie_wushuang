@@ -173,7 +173,7 @@ const SEAL_NAMES = ['一', '二', '三'];
  */
 const objective = computed(() => {
   const state = snapshot.value, stage = state.stage, check = state.eliteChecks;
-  if (state.seals) return `${stage?.name ?? '荒原镇界'} · 在 ${format(stage?.duration ?? 420)} 前镇守三处界碑（${state.seals.held}/${state.seals.total}）`;
+  if (state.seals) return `${stage?.name ?? '荒原镇界'} · 在 ${format(stage?.duration ?? 420)} 前镇守 ${state.seals.total} 处界碑（${state.seals.held}/${state.seals.total}）`;
   // A stage whose Boss is gated behind its elite checks has no Boss on the field yet, so the
   // line has to say why - otherwise the player reads "wait for the Boss" for four minutes.
   if (check && check.required > 0 && check.defeated < check.required)
@@ -211,7 +211,7 @@ const nextElite = computed(() => snapshot.value.eliteChecks?.at.find(at => at > 
     <aside v-if="ready && chapter && snapshot.eliteChecks && snapshot.eliteChecks.required > 0" class="map-route elite-route" aria-label="精英检验" tabindex="0">
       <small aria-label="精英检验进度">精英检验 {{ snapshot.eliteChecks.defeated }} / {{ snapshot.eliteChecks.required }}</small>
       <p v-if="nextElite !== undefined" aria-label="下一名精英">{{ Math.ceil(nextElite - snapshot.time) }} 秒后登场</p>
-      <p v-else aria-label="精英已全部登场">两名精英均已登场</p>
+      <p v-else aria-label="精英已全部登场">{{ snapshot.eliteChecks.required }} 名精英均已登场</p>
       <small>各带两条词缀 · 未清完首领不出场</small>
     </aside>
     <aside v-if="ready && !chapter" class="map-route" aria-label="地图指引" tabindex="0">

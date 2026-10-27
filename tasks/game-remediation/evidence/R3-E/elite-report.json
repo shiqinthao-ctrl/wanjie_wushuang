@@ -58,15 +58,17 @@
       "spawnAt": 360,
       "spawnBefore": false,
       "spawnAfter": true,
-      "bossAfter": "B001"
+      "bossAfter": "CH001_ALTAR"
     },
     "settlement": {
       "ceilingOnFirstStage": 0,
       "claimedOne": "rejected"
     },
-    "shut": {
+    "requirement": {
       "stage": "CH001-03",
-      "reason": "OPEN_STAGES + CH001_ALTAR has no Boss config"
+      "at": 2,
+      "one": "rejected",
+      "three": "rejected as a ceiling"
     }
   }
 }

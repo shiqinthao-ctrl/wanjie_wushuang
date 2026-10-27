@@ -57,8 +57,12 @@ type Shape = 'circle' | 'line' | 'cone' | 'contact';
 const SHAPES: readonly Shape[] = ['circle', 'line', 'cone', 'contact'];
 /** `FirstBoss.updateAI`'s per-shape multipliers on `13 + phase * 4`. */
 const SHAPE_FACTOR = { circle: 1.25, line: 1.15, cone: 1.22 } as const;
-/** `firstBoss.json` `mechanics.skills`: shape name -> skill name. The rules read it the same way. */
-const SKILL_SHAPE = Object.fromEntries((firstBoss.mechanics.skills as unknown as readonly (readonly [string, string])[])
+/**
+ * `firstBoss.json` `bosses.B001.mechanics.skills`: shape name -> skill name. The rules read it the
+ * same way. Addressed by id since D27 - the file holds a row per Boss, and `rawOf` below is now a
+ * check that B001's row still equals the shipped chain it was measured against.
+ */
+const SKILL_SHAPE = Object.fromEntries((firstBoss.bosses.B001.mechanics.skills as unknown as readonly (readonly [string, string])[])
   .map(([type, name]) => [name, type as 'circle' | 'line' | 'cone'])) as Readonly<Record<string, 'circle' | 'line' | 'cone'>>;
 
 /** Pre-mitigation damage `FirstBoss` hands to `sim.hurt`, per the shipped chain. */

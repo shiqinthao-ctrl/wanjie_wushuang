@@ -25,7 +25,7 @@ import type { RunRules } from './threatModel';
 
 export type RunStatus = 'idle' | 'running' | 'choosing' | 'encounter' | 'chest' | 'boss-loot' | 'paused' | 'ended' | 'destroyed';
 /** The stage's own identity, so the HUD does not hardcode "边境破围" and "06:00" for every stage. */
-export interface UiStage { readonly id: string; readonly name: string; readonly duration: number; readonly hasBoss: boolean }
+export interface UiStage { readonly id: string; readonly name: string; readonly duration: number; readonly hasBoss: boolean; readonly clear: string; readonly timeout: string }
 export interface UiSnapshot extends ReturnType<Progression['snapshot']> { readonly stage?: UiStage; readonly seals?: ReturnType<ChapterSeals['snapshot']>; readonly eliteChecks?: ReturnType<CombatSimulation['eliteCheckState']>; readonly status: RunStatus; readonly time: number; readonly hp: number; readonly maxHp: number; readonly kills: number; readonly heat: number; readonly dodgeCd: number; readonly skillCd: number; readonly ult: number; readonly map: ReturnType<FirstStageMap['snapshot']>; readonly encounter: ReturnType<FirstStageEvents['snapshot']>; readonly chests: ReturnType<TimedChests['snapshot']>; readonly boss: ReturnType<FirstBoss['snapshot']>; readonly endReason?: 'defeat' | 'victory' | 'timeout' }
 export interface UiSnapshot { readonly journey?: EvolutionSnapshot; readonly ruleset?: 'chapter1-v1' }
 export interface Point { x: number; y: number }
@@ -217,7 +217,7 @@ export class GameCore {
   snapshot(): UiSnapshot {
     const { player, time, kills, heat } = this.combat;
     const stage = this.chapter?.stage;
-    return Object.freeze({ ruleset: this.chapter?.ruleset, stage: stage ? { id: stage.id, name: stage.name, duration: stage.duration, hasBoss: !!stage.boss } : undefined, seals: this.combat.seals?.snapshot(), eliteChecks: this.combat.eliteCheckState(), journey: this.progression.journey?.snapshot(this.progression.snapshot().skills), status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
+    return Object.freeze({ ruleset: this.chapter?.ruleset, stage: stage ? { id: stage.id, name: stage.name, duration: stage.duration, hasBoss: !!stage.boss, clear: stage.clear, timeout: stage.timeout } : undefined, seals: this.combat.seals?.snapshot(), eliteChecks: this.combat.eliteCheckState(), journey: this.progression.journey?.snapshot(this.progression.snapshot().skills), status: this.status, time, hp: Math.max(0, player.hp), maxHp: player.maxHp, kills, heat, dodgeCd: player.dodgeCd, skillCd: player.skillCd, ult: player.ult, map: this.combat.map.snapshot(), encounter: this.encounters.snapshot(), chests: this.chests.snapshot(time), boss: this.combat.bossEncounter.snapshot(), endReason: this.endReason, ...this.progression.snapshot() });
   }
   renderState() { return { ...this.combat.renderState(), map: this.combat.map.renderState(), boss: this.combat.bossEncounter.snapshot().boss, telegraphs: this.combat.bossEncounter.telegraphs.map(warning => Object.freeze({ ...warning })), warnings: this.combat.warnings.map(warning => Object.freeze({ ...warning })) }; }
   takeEvents(): readonly CoreEvent[] { const events = [...this.events, ...this.combat.takeEvents()]; this.events = []; return events; }

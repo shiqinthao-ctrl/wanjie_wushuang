@@ -264,7 +264,8 @@ b42c8986b8239f6f75c0184d636ea54b *./R2-F04/phoenix-pressure.json
 885f1a52184b952a3a814741d349e460 *./R2-F10/windwarden-pressure.json
 09c3c2ff7189dbf1cca2fbf6f6bd375b *./R2-S01/route-report.json
 eedfba5a9cb1e75ca6cb3acaae6a3cee *./R3-E/ai-report.json
-78d8510502439340664a7896c185c8a6 *./R3-E/elite-report.json
+80b6e73ab12d0439102eefbc8ce7976b *./R3-E/altar-report.json
+b3fee16525e3d5e90ac37c9d598dd326 *./R3-E/elite-report.json
 4c8e7633eb4988da6a9dd8fe7fbb9b7d *./R3-E/enemy-warnings-report.json
 cae56f93882dc99e2928e331b9103866 *./R3-M/map-report.json
-84ae077f65b9320a3e563443d987beee *./R3-M/seal-report.json
+093c88c14793cc368dcbc8a942ab7940 *./R3-M/seal-report.json

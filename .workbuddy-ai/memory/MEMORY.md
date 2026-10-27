@@ -1,13 +1,14 @@
 # 项目长期记忆 — wanjie_wushuang（万界无双）
 
 > 细则见技能 `headless-harness-fidelity/SKILL.md`、`memory/YYYY-MM-DD.md`、`evidence/*/IMPLEMENTATION*.md`。
-> 本文件只留**规则**与**当前状态**；单片裁定全文在 `tasks/game-remediation/DECISIONS.md`（**D1–D26**）。
+> 本文件只留**规则**与**当前状态**；单片裁定全文在 `tasks/game-remediation/DECISIONS.md`（**D1–D27**）。
 
 ## 当前状态
 
 - 分支 **`main`**（已合并并推 GitHub；Render watch `main`）。生产主力 = `apps/mobile-next/`。
 - **已完成**：R1g-1…13、R2-F01…F10 与全部 `R2-F-*` 子片、R2-S01..12（D19）、R2-B01..08（D20）、R2-D（D21）、
-  R3-E01..07（D22）、R3-E01..07a（D23）、R3-M01（D24）、R3-M02（D25）、**R3-E01..07c（D26）**。
+  R3-E01..07（D22）、R3-E01..07a（D23）、R3-M01（D24）、R3-M02（D25）、R3-E01..07c（D26）、
+  **R3-M03（D27）**。
 - **D23 = 十余片来第一次改变出货档 `threat-v2`**：出生池 `5/3/1` → **6 行**，`charge`/`aoe_ranged` 从
   「与 `melee` 逐帧相同」变成真行为，敌人有**一条**预警通道（复用 `Telegraph`，**不是**第二份）。
   价格 15 条断言 / 7 文件，G8 过线格 **3→2**、G7 融合局数 **2→1**。**难度上升是固有的**：新行每项属性
@@ -26,12 +27,21 @@
   （是运行时倍率）；`eliteChecks` **零读者零断言**；**`time > 960` 的第二词缀在三关里全部到不了**
   （单独否掉「两个普通精英」）；**`stage.boss.id` 全库零读者**（`spawn()` 写死 `B001`，实测刷出 `B001`）。
   **零在册报告移动**，账本 269→270。`CH001-03` **仍关着**。
-- **当前 = #13 `R3-M03`**（祭坛术主三阶段；`TASK.md` 已换片）。第一件事是**把 `FirstBoss` 从写死
-  `B001` 改成按 `stage.boss.id` 查表**，否则配 `CH001_ALTAR` 也不会被用。
-- **未决**：`stage.boss.id` 零读者（`CH001-03` 开门的真正前提）；`settlement` 的「胜利需两道检验」
-  这半**不可达**（`OPEN_STAGES` 拒 `CH001-03`，只有上限可测）；`R2-F-G4ROWS` 的 **evolution 臂可达性塌了**；
+- **D27 = 查表片**：`CH001-03` 写着 `boss.id: 'CH001_ALTAR'` 而 `spawn()` 写死 `B001`。数据归一成
+  `bosses[id]`（原来**只有一个 Boss 且没有 id 字段**，`pool` 是战利品池），构造期查表、缺行即抛；
+  三阶段进数据（`thresholds` + 六条**仿射** `curve` + `radius·width·arc` + `adds`）——**必须仿射**，
+  `.95 - phase*.08` 的浮点结果不等于字面量 `0.87`，预言机逐字节钉着。**`'B001'` 是承重的**：
+  `damageTakenBy` 键前缀 + `bossThreat.test.ts` 的 **`slice(5)` 写死 id 长度**。
+  `firstStage.bossId` **零读者**（默认值早在数据里）。**`CH001-03` 打开**，前提是**先标定仪器**：
+  第一版机器人报「打不完」，但**它在出货关卡 `CH001-01` 上也死** ⇒ 是仪器错。
+  hunt 臂 `CH001-01` 3/3、`CH001-03` 3/3；corner 臂 1/3 ⇒ 差是**走位**的差。
+  全量 **54 files / 1569 tests 全绿（1716.81 s）**、账本 **270 → 271**（滚动 36）。
+- **当前 = #14 `R3-P01`**（图鉴；`TASK.md` 已换片）。起点：`progress.discoveries` 有
+  `discovered/awakened/cleared` 且 `settlement` 在写，**没人读回来**；D21 的 G7 裁定要求图鉴标出融合配方。
+- **未决**：`R2-F-G4ROWS` 的 **evolution 臂可达性塌了**；
   **章节线在 UI 上不可达**（`App.vue:61` 从不传 `:chapter` ⇒ 「可构造 ≠ 可玩」，入口归 `R3-U06`）；
   **章节线继承第一关波次表**（`waveAt` 无条件读）；火线**不伤小怪**；`hazardPeak` 死字段；
+  死数据 `boss.skills`/`mechanics.shield`/`mechanics.shrink`/`mechanics.name`；
   火线 band 是**屏幕空间**；27pp 视口差未归因；G10 的 D3 门槛未达；主术式无 UI；
   `S001` 与形态**共用召唤上限**。参数见 `handoff/STATE.md`。
 
@@ -59,6 +69,10 @@
 - **`Edit` 的 `old_string` 在含 `▶`/`−`/未转义 `|` 时易失配** ⇒ 改用 Python heredoc
   （`s.replace()` + `assert s.count(old)==1`）。并发多个 `Edit` 可能静默丢一个 ⇒ 改完 `grep` 复核。
 - **Python `glob()` 返回 `\` 分隔路径** ⇒ 用 `os.path.relpath` + `os.sep`；`/e/...` 在 node 里变 `E:\e\...` ⇒ 先 `cd`。
+- **`ledger:write` / `ledger:verify` / `ledger:coverage` 在仓库根**，不在 `apps/mobile-next`（子包里跑得到
+  `Missing script`）。生成器 `tasks/game-remediation/byte-ledger.mjs`，账本
+  `evidence/R2-F-CAP/cap10-md5.txt`，行格式 `md5 *./<相对 evidence 的路径>`。**全量跑完会重写滚动报告
+  ⇒ 账本要在全量之后再刷一次**（`numstat` 上表现为净 +1 行 + 两处滚动哈希）。
 
 ## 前提核实（「它没做」类结论）
 
@@ -108,6 +122,10 @@
 - **调 `validOptions()` 会扰动它正在测的那一局**（用本局 RNG 洗牌）⇒ 可选数由快照重算再交叉验证。
 - **保真度驱动**；红可以是设计信号；**改仪器作废早期标定 ⇒ 显式入队**；会写文件的 harness 赋值在断言前。
 - **首轮报出的红是下限，不是全量**：同一个 `it` 里前一条红了，后面的根本不会跑（D23 首轮 13 条，复跑又露 2 条）。
+- **「首轮全绿」也可能是过期绿**：全量 28 分钟，**采集在启动那一刻**，期间改测试文件不会被重读。
+  D27 首轮全量报 `altar.test.ts (12 tests)`、单跑报 13 —— 根因是那次全量 `01:00:19` 启动而文件
+  mtime `01:00:33`（对照臂是采集之后写进去的），两条算术互证（`1568+1=1569`、describe `(3)`→`(4)`）。
+  **判据不是「它绿了」，而是「mtime 早于采集时刻」** ⇒ 跑全量前 `ls -l --time-style=full-iso` 本片改过的文件。
 
 ## 读数与统计
 

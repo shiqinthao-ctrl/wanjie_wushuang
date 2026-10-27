@@ -1,42 +1,39 @@
-# TASK.md - R3-M03: the altar lord's three phases, and the Boss id that nobody reads
+# TASK.md - R3-P01: the codex, and what it is allowed to know
 
-Base: R3-E01..07c (D26). Queue `QUEUE.md` #13. Unblocked by #10c.
+Base: R3-M03 (D27). Queue `QUEUE.md` #14. Unblocked by R2-D (D21).
 
 ## Why
 
-`CH001-03` declares `boss: { id: 'CH001_ALTAR', spawnAt: 360 }`, but **`stage.boss.id` has no
-reader**: `FirstBoss.spawn()` hardcodes `id: 'B001'` and reads everything from `firstBoss.json`'s
-`config.boss`. D26 measured it - the stage spawns `active.id === 'B001'`. So "the altar lord" is
-not a missing data file; it is a missing lookup. The two elites are defined (D26) and gated.
+D21 priced the "players cannot see the fusion recipes" gap as **information, not supply**: the pool is
+the same for everyone, so the fix is a page that shows what exists and what it needs. That page is
+this slice. `progress.discoveries` already records `discovered / awakened / cleared` per form, and
+`settlement` already writes it - nothing reads it back yet.
 
 ## Scope
 
-0. **Verify the premise first, with a command.** (a) How many Boss rows does `firstBoss.json`
-   hold - one, or a pool? (b) Who reads `mechanics.phase`, and how many entries does it have?
-   (c) Is `maxPhase` set from data or from the config? (d) Does anything else key off `'B001'`
-   (log prefixes, `damageBy` source names, oracle rows)? A hardcoded id may be load-bearing in
-   places that are not `FirstBoss`.
-1. **Make the id real, defaulting to the shipped one.** `spawn()` must look up `stage.boss.id`
-   when there is a chapter stage, and fall back to `B001` when there is not - the legacy path and
-   `threat-v2` must stay byte-identical. A missing id is an error, not a silent `B001`.
-2. **Three phases, from data.** Whatever the altar lord's phases are (damage, cadence, skill
-   rotation), they belong in a data row, not in a branch. State what each phase costs in the
-   currency the existing Boss uses (contact, skill damage, telegraph count).
-3. **Open `CH001-03` only if it can be finished.** `OPEN_STAGES` gains the row only when the
-   Boss spawns, is defeatable, drops loot and the elite gate from D26 is satisfied in a real run.
-   If any of those is not true, that is the finding and the stage stays shut.
-4. **Re-baseline, explicitly.** Same rule as D23-D26: list what moved, old numbers beside new.
+0. **Verify the premise first, with a command.**
+   (a) What does `progress.discoveries` hold today, and is every form ever written to it?
+   (b) Where is the form catalog, and does a form have a name/description, or only an id?
+   (c) What do the fusion rows actually say - two parts and a result, or something weaker?
+   (d) Is there a page to hang this on, and what does the shell route look like?
+   (e) Does the codex need a save field that does not exist? Say so before adding one.
+1. **One page, three truths per row**: exists in the catalog, seen by this save, and what it needs.
+   A row that the save has never touched must read as "not found", not as "locked by a rule".
+2. **Fusions are shown as pairs**, with the two parts and whether this save holds both. D21's
+   decision is that the page marks the recipe - it does not weight the pool.
+3. **Read-only.** The codex must not write the save. If it needs progress, it reads
+   `readChapterProgress` and nothing else.
+4. **Re-baseline, explicitly.** Same rule as D23-D27: list what moved, old numbers beside new.
 
 ## Out of scope
 
-Art and audio; the charms (`R3-P03`); the chapter UI entry (`R3-U06`); release. **Do not add a
-second Boss format** - `FirstBoss` is the only place a Boss means anything, and `eliteAt` is a
-schedule, not a format.
+Art and audio; the charm effects (`R3-P03`); the chapter UI entry (`R3-U06`); release. **Do not add a
+second catalog** - `chapterHeroes[...].forms` and `evolutionCatalog` are the only form lists, and
+`fusions.json` is the only fusion list.
 
 ## Constraints
 
-`AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer
-reads, and the delivery says the picture is unverified; every number re-derivable from the
-command that produced it; state the instrument in the same breath as the number. Opening a
-stage is a shipping change and owes the re-baseline list. `bossThreat.test.ts` is 27 minutes -
-run it alone, in the background, and never as part of a foreground command.
+`AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer reads,
+and the delivery says the picture is unverified; every number re-derivable from the command that
+produced it; state the instrument in the same breath as the number. A page that only exists in a
+template is not shipped: it owes a route from the lobby and an assertion that the route is reachable.

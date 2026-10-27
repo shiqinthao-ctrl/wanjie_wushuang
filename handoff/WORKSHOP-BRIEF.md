@@ -241,6 +241,23 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 可执行的那半是**上限**（开着的关卡 `eliteChecks: 0`，声称 1 会被拒）—— **空真的一半明说，不假装测过**。
 **下一个 = `R3-M03`（祭坛术主三阶段）**。
 
+**R3-M03 已完成 —— `stage.boss.id` 变成查表，三阶段进数据，`CH001-03` 打开（D27）**。
+**四问**：① `firstBoss.json` **只有一个 Boss，连 `id` 字段都没有**（`pool` 是战利品池）⇒ 查表所需的
+**表本身不存在**；② `mechanics.phase` 三条目、**一个读者**（`phaseName`）—— 名字是数据、行为是九个
+字面量；③ `maxPhase` 来自**血量比** `.35/.70`，不是数据也不是配置；④ **`'B001'` 是承重的** ——
+`damageTakenBy` 键前缀、`feedback` 源（4 处）、`chapterAssets` 的 `B001-BODY`、遗留树审计门禁，
+而且 `bossThreat.test.ts` 用 **`slice(5)` 把 id 长度写死**（id 变长 ⇒ 伤害静默归进 `lostToHorde`）。
+**第五个发现**：`firstStage.rule.bossId === 'B001'` **零读者** —— 默认值早就在数据里，只是代码不看。
+**实现**：`bosses[id]` 一行一 id（`B001` 逐字节不变）、构造期查表（缺行即抛，不是每帧抛）、
+伤害前缀跟着 id；三阶段四类数据（`thresholds`、六条**仿射** `curve`、`radius·width·arc`、`adds`）——
+**必须仿射**：`.95 - phase*.08` 的浮点结果不等于字面量 `0.87`，而预言机逐字节钉着出货路径。
+**能不能打完：先标定仪器**。第一版机器人报「打不完」（141/223/372 s 阵亡），但**它在出货关卡
+`CH001-01` 上也死**（227/230/303 s）⇒ 仪器错，不是关卡错。修好后 **hunt 臂 `CH001-01` 3/3、
+`CH001-03` 3/3**（410.25/402.32/401.50 s，hp 234/194/82），**corner 臂 1/3** ⇒ 差是**走位**的差。
+`CH001-03` 打开是**最后一步**：D26 记的「胜利需两道检验」那半现在**可达并被断言**。
+**价格**：出货路径逐字节不变（`firstBoss.test.ts` 首跑即绿），重基线 9 处，账本 **270→271**
+（滚动 **35→36**）。**下一个 = `R3-P01`（图鉴）**。
+
 ## 1. 工程事实（请先接受，不要重做）
 
 | 项 | 值 |
@@ -261,7 +278,7 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 
 ---
 
-## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a + R3-M01 + R3-M02 + R3-E01..07c 已完成，R3-M03 待做）
+## 2. 切片进度（R1g-7…R1g-13 + R2-F01…F10 + R2-F-INST + R2-F-CAP + R2-F-SHADOW + R2-F-SUFFIX + R2-F-CADENCE + R2-F-CIRCLE + R2-F-TOUGH-HORDE + R2-F-BOSS-ADDS + R2-F-GDD-G8 + R2-F-KITKEY + R2-F-G4ROWS + R2-F-BOSSPHASE + R2-F-HORDE-BAND + R2-F-HORDE-LEDGER + R2-F-BOSS-COVERAGE + R2-S01..12 + R2-B01..08 + R2-D + R3-E01..07 + R3-E01..07a + R3-M01 + R3-M02 + R3-E01..07c + R3-M03 已完成，R3-P01 待做）
 
 > 下表的 `#` 是**本简报自己的行号**，与 `QUEUE.md` 的编号不同（本表把十形态铺开成十行）；
 > 引用切片时请用名字，不要用编号。
@@ -304,6 +321,7 @@ Boss 照样可跳链**（实测 150.62），羁绊全部价值只是 `count` 2�
 | 10 | `R3-E01..07` 敌人职责与预警 | ✅ **已完成（零生产改动，D22）** —— 前提**半假**：出生池只有 `EN001..EN003`，`EN004..EN006` **声明 ST001 却不在任何波次**（死数据）；`charge`/`aoe_ranged` **生产里零读者**、与 `melee` 逐帧相同；**敌人没有任何预警字段**（预警只属 Boss）；「两精英」无对应行（`elite` 是开关，1 条词缀 / 960s 后 2 条）。拆成 10a/10b/10c。 |
 | 10a | `R3-E01..07a` 接池 + 两个空 `ai` + 敌人预警通道 | ✅ **已完成（生产改动，D23）** —— 十余片来**第一次改变出货档**。Scope 0 用命令钉住「只有一个 `new GameCore`（显式 `threat-v2`）」+「`createEnemy` 是唯一读池处」⇒ 推出的 16 份移动报告与实测完全对上（**16 移动 / 67 不变 / 1 新增**）。`charge` 前摇钉住 35 帧、冲刺 330.0（12.49×）、冲过头要掉头；`aoe_ranged` 每 2.4s 落 `r70` 圈、`.9s` 结算；`brute` 不动且写成断言。**一条通道** `warnings` → `renderState()` → `graphics`。**价格 15 条红 / 7 文件**：G8 3→2、G7 融合 2→1、`61/58→71/63`、`maxAdds` 6→2–3、D2 20%→12.9% |
 | 10b–10c | `R3-E01..07b` 外观（美术，**排除**）· `R3-E01..07c` 「两精英」定义（设计决策） | 10c **已完成**（D26）；10b 排除 |
+| 13 | `R3-M03` 祭坛术主三阶段 + Boss id 查表 | **已完成**（D27）：`CH001-03` 打开 |
 | 11–13 | `R3-M01..03` 地图与关卡 | ▶ **下一个 = `R3-M01`** |
 | 14–17 | `R3-P01..04` 图鉴 / 战报 / 护符 / 挑战 | 待办 |
 | 18–19 | `R3-U01..06` 大厅 / 章节 / 战备 / 结算 / 设置 | 待办 |
@@ -755,14 +773,16 @@ tasks/game-remediation/evidence/R3-E/IMPLEMENTATION-A.md ← **生产改动（D2
 tasks/game-remediation/evidence/R3-E/enemy-warnings-report.json ← **滚动**（`charge` / `aoe` / 池六行 / 五波 `director`；每次运行被覆写）
 apps/mobile-next/src/chapter/seals.test.ts        ← **界碑仪器**（13 个 `it`、1.8 s；参考玩家 = 绕圈 + 闪避 + 奥义 + 低血优先恢复；`field()` 钉住玩家位置测驻守规则，`playSealStage()` 打整局）
 apps/mobile-next/src/chapter/eliteChecks.test.ts   ← **精英检验仪器**（13 个 `it`、20 ms；`simOfAltar()` 绕过 `OPEN_STAGES` 直接建 `CombatSimulation`；`step()` = `beginFrame` + `finishBaseFrame`；`sweep()` 走生产的 `arc` 路径）
+apps/mobile-next/src/chapter/altar.test.ts        ← **祭坛仪器**（13 个 `it`、5.4 s；`bossSim()` 直接建 Boss 并清掉精英门；`castAt(phase, slot)` 强制指定阶段与招式槽；`play(stage, seed, anchor)` 是**已标定**的参考玩家 —— 它先通关 `CH001-01`）
 apps/mobile-next/src/core/mapBounds.test.ts       ← **地图/边界/危险区仪器**（12 个 `it`、0.34 s；`sweep()` 走六个物件读**每步步长**、四角 clamp、`EN002` 后退不越界、`EN004` 冲刺越界、弹道 ±100 剔除、火线 band / 逃逸 / 贴墙 / 视口依赖）
 tasks/game-remediation/evidence/R3-M/IMPLEMENTATION.md ← **生产改动（D24，第二次改出货档）**（§2 三条验收的命令判定、§3 两个缺陷各一行、§4 读数、§5 重基线 12 份报告 + 4 条断言、§7 已知边界与写回）
 tasks/game-remediation/evidence/R3-M/map-report.json ← **滚动**（`colliders` / `edges` 四条 / `hazard` band 与 25 行抽样 / 三个视口；每次运行被覆写）
 tasks/game-remediation/evidence/R3-M/IMPLEMENTATION-2.md ← **生产改动（D25，开门 + 界碑）**（§1 四问四答与三道锁、§3 规则判定与价格、§4 半径扫描五档、§5 读数、§7 重基线、§9 已知边界）
 tasks/game-remediation/evidence/R3-E/IMPLEMENTATION-c.md ← **生产改动（D26，两精英）**（§1 四问四答与第五个发现、§2 三选项成本表、§4 读数、§6 记录不改、§8 三个坑）
+tasks/game-remediation/evidence/R3-E/IMPLEMENTATION-d.md ← **生产改动（D27，祭坛三阶段）**（§1 四问四答与第五个发现、§3 仿射 vs 预算、§4 标定表、§5 重基线 9 处、§6 未验证）
 tasks/game-remediation/evidence/R3-M/seal-report.json ← **滚动**（`layout` 三处 / `boundary` 连续 vs 累计 / 三种子胜局 / `timeout`；每次运行被覆写）
 apps/mobile-next/src/core/treeHygiene.test.ts      ← **探针守卫**（1 个 `it`、32 ms；扫 `src/` 全树，文件名含 `probe` 或正文含内联标记 ⇒ 红并点名路径；**已植入 `__probe_guardcheck.test.ts` 验证会红**）
-tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 35 份滚动集**；missing/extra/冻结漂移 → 非零退出）
+tasks/game-remediation/byte-ledger.mjs            ← 账本生成器/校验器（**走树产出路径表** + **从源码派生 36 份滚动集**；missing/extra/冻结漂移 → 非零退出）
 apps/mobile-next/src/core/byteLedger.test.ts      ← 账本守门（**5 个 `it`、0.4s**，**独立重算**分类；两条负例已验）
 tasks/game-remediation/evidence/R2-F-CAP/cap10-md5.txt ← **逐字节账基线（267 行，`ledger:write` 重写）**
 tasks/game-remediation/evidence/R2-F-TOUGH-HORDE/IMPLEMENTATION.md §8 ← **#6x 的回填订正**（本片第三个 `it` 无显式超时，收尾时的绿是**负载的函数**）
@@ -1243,3 +1263,29 @@ test reads only these two **keys**」，而代码是**两个桶** —— 注释�
    120 s 的检查**补刷**，于是「波精英不计」的断言被自己的检查污染（换到 `eliteAt: []` 的关卡才干净）；
    ③ `spawn()` 在 `updateObjective()` 里调、不在 `updateAI` 里，用 `beginFrame` 驱动永远等不到首领。
    **红的时候先问「我的驱动有没有把这个机制跑起来」，再问「读数对不对」。**
+
+### 7s. R3-M03 的五条（**标定 / 浮点 / 写死的长度 / 过期绿 / 命令在哪**）
+
+1. **「太难」这个读数必须先过一道控制臂：仪器能不能通关出货关卡。** 第一版机器人报 `CH001-03`
+   打不完（141/223/372 s 阵亡），但**同一台机器人在出货的 `CH001-01` 上也死**（227/230/303 s）。
+   一个连出货关卡都打不过的机器人，没有资格判定新关卡太难 —— 那次读数是**仪器**的读数。
+   修好走位后同一关卡 **3/3 胜**，而换一种走位（守一角）**1/3 胜**。**判据**：任何「这个关卡不行」
+   的结论，都要附一句「同一台仪器在同一批种子上通关了哪个已经上线的关卡」。
+2. **搬进数据的数，要么是系数，要么就等着浮点翻脸。** `.95 - phase * .08` 的结果**不等于**字面量
+   `0.87`。把三档「预算好」存进 JSON，等于把每一发预警的 `life` 改到最后一位，而
+   `combat-math-oracle.json` 是逐字节的。**存 `base`/`perPhase`，保留算式**，出货路径才真的不变。
+3. **一个 id 可能被仪器写死它的长度。** `'B001'` 不只是标签：它是 `damageTakenBy` 的键前缀，
+   而 `bossThreat.test.ts` 用 `source.startsWith('B001')` + **`slice(5)`** 拆招式名 ——
+   id 一变长，伤害就被静默归进 `lostToHorde`，而**分区看起来仍然完备**。改任何被当作键的常量前，
+   先 `grep` 它的**切片**与**前缀**用法，不只 `grep` 它的值。
+   附带一条：`firstStage.rule.bossId === 'B001'` **零读者** —— 「默认值」早就写在数据里，
+   代码只是不看。**要加一个兜底常量之前，先找有没有一个没人读的字段已经是它。**
+4. **「首轮全绿」也可能是过期绿。** 全量要 28 分钟，**采集发生在启动那一刻**，期间改测试文件不会被
+   重新读。本片首轮全量报 `altar.test.ts (12 tests)`，而单跑报 13 —— 根因不是 vitest 吞了一个 `it`，
+   而是那次全量 `01:00:19` 启动、文件 mtime `01:00:33`（守一角的对照臂是采集之后写进去的）。
+   判据不是「它绿了」，而是**「它的 mtime 早于采集时刻」**：跑全量前对这片改过的文件跑一次
+   `ls -l --time-style=full-iso`。**首轮报出的红是下限，绿也可能是下限。**
+5. **「跑一下那个命令」之前先确认命令在哪。** `ledger:write` 不在 `apps/mobile-next/package.json`，
+   它在**仓库根**（`node tasks/game-remediation/byte-ledger.mjs --write`），在子包里跑得到的是
+   `Missing script`。手写脚本算出的 271 行与官方脚本逐项一致（新增 1、删除 0、漂移 2 且两份都是
+   滚动），**但手写脚本能算对，不代表它就是那条命令** —— 证据页上写的命令必须是真能跑的那条。

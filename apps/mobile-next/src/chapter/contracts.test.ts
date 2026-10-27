@@ -36,7 +36,7 @@ describe('chapter preparation and copy boundary', () => {
     expect(a.slots).toEqual({ auto: 4, passive: 4 }); expect(a.player.hp).toBe(a.player.maxHp);
     expect(Object.isFrozen(a.player)).toBe(true);
   });
-  it('records all three stage objectives and opens only the two that can be finished', () => {
+  it('records all three stage objectives and opens all three that can be finished', () => {
     expect(chapterStages.map(stage => stage.duration)).toEqual([360, 420, 480]);
     expect(chapterStages[0]!.boss?.spawnAt).toBe(270); expect(chapterStages[1]!.boss).toBeNull();
     expect(chapterStages[1]!.seals).toEqual([{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }]);
@@ -46,12 +46,16 @@ describe('chapter preparation and copy boundary', () => {
     const seal = prepareChapterRun(save(), { ...options, stageId: 'CH001-02' });
     expect(seal.stage).toEqual(chapterStages[1]);
     expect(seal.stage.seals).toHaveLength(3);
+    // D27: the third row is enterable as well, and preparation hands back *that* row too.
+    const altar = prepareChapterRun(save(), { ...options, stageId: 'CH001-03' });
+    expect(altar.stage).toEqual(chapterStages[2]);
+    expect(altar.stage.boss).toEqual({ id: 'CH001_ALTAR', spawnAt: 360 });
     expect(prepareChapterRun(save(), options).stage).toEqual(chapterStages[0]);
   });
   it.each([
     { ruleset: 'preview-g5' }, { chapterId: 'ST001' }, { stageId: 'ST001-01' },
     { heroId: 'H002' }, { mode: 'endless' }, { difficulty: 'hard' }, { seed: -1 },
-    { seed: 1.5 }, { seed: 2 ** 32 }, { stageId: 'CH001-03' }, { stageId: 'CH001-04' },
+    { seed: 1.5 }, { seed: 2 ** 32 }, { stageId: 'CH001-04' },
   ])('rejects incompatible preparation %j', change => {
     expect(() => prepareChapterRun(save(), { ...options, ...change })).toThrow();
   });

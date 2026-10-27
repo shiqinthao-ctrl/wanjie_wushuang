@@ -11,8 +11,8 @@ watchEffect(() => { if (props.snapshot.status === 'ended' && !dialog.value?.open
 
 <template>
   <dialog ref="dialog" class="pause-dialog" aria-labelledby="chapter-end-title" @cancel.prevent @pointerdown.capture="activation.press" @pointercancel.capture="activation.cancel" @click.capture="activation.click">
-    <small>首章 · 边境破围</small>
-    <h2 id="chapter-end-title">{{ snapshot.endReason === 'victory' ? (snapshot.seals ? '镇界完成' : '破围成功') : snapshot.endReason === 'defeat' ? '本局生命耗尽' : (snapshot.seals ? '镇界超时' : '破围超时') }}</h2>
+    <small>首章 · {{ snapshot.stage?.name ?? '边境破围' }}</small>
+    <h2 id="chapter-end-title">{{ snapshot.endReason === 'victory' ? (snapshot.stage?.clear ?? '破围成功') : snapshot.endReason === 'defeat' ? '本局生命耗尽' : (snapshot.stage?.timeout ?? '破围超时') }}</h2>
     <p>{{ snapshot.journey?.name }} · Lv.{{ snapshot.level }} · 击破 {{ snapshot.kills }}</p>
     <p v-if="busy" role="status">正在保存本局战报…</p>
     <div v-if="error" role="alert"><p>{{ error }}</p><button :disabled="busy || leaving" @click="emit('retry')">重试保存战报</button></div>

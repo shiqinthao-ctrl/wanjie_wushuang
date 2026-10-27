@@ -6,6 +6,29 @@ import type { GearInstance } from './saveTypes';
 import { bossGearChoices, generateGear } from './gearDrops';
 import { instanceScore } from './growth';
 
+/**
+ * One Boss row. `firstBoss.json` used to be a *single* unnamed Boss - the id was a literal in
+ * `spawn()` and `firstStage.rule.bossId` said `B001` with nobody reading it. A stage that names a
+ * different Boss therefore spawned the same one. Rows are keyed by the id the stage writes, so
+ * the key and the identity cannot drift.
+ */
+interface Curve { readonly base: number; readonly perPhase: number; readonly floor?: number }
+export interface BossRow {
+  readonly boss: { readonly name: string; readonly map: string; readonly style: string; readonly hp: number; readonly r: number; readonly color: string; readonly skills: readonly string[] };
+  readonly mechanics: {
+    readonly name: string; readonly phase: readonly string[]; readonly thresholds: readonly number[];
+    readonly shield: number; readonly shrink: boolean; readonly skills: readonly (readonly [string, string])[];
+    readonly curve: { readonly contact: Curve; readonly skill: Curve; readonly delay: Curve; readonly castCd: Curve; readonly speed: Curve; readonly cone: Curve };
+    readonly radius: readonly number[]; readonly width: readonly number[]; readonly arc: readonly number[]; readonly adds: readonly number[];
+  };
+}
+const rows = config.bosses as unknown as Readonly<Record<string, BossRow>>;
+/** Throws rather than falling back: a stage that names a Boss nobody wrote must not field another. */
+export function bossRow(id: string): BossRow {
+  const row = rows[id];
+  if (!row) throw new Error(`未知首领：${id}。firstBoss.json 的 bosses 里没有这一行。`);
+  return row;
+}
 export interface Boss extends Point { id: string; name: string; hp: number; maxHp: number; r: number; phase: number; castCd: number; castLock: number; shield: number; skillIndex: number; next: string; sweepPhase?: 'windup' | 'strike' | 'recovery'; sweepFacing?: number }
 type WarningBase = Point & { name: string; life: number; max: number; color: string; damage: number; resolved: boolean; chapterSweep?: boolean; source?: string };
 export type Telegraph = WarningBase & ({ type: 'circle'; r: number } | { type: 'line'; x2: number; y2: number; width: number; moveBoss: boolean } | { type: 'cone'; range: number; arc: number; angle: number });
@@ -29,7 +52,18 @@ export class FirstBoss {
   private settlingAt: number | undefined;
   private destroyed = false;
   private sweepRecovery = 0;
-  constructor(private sim: CombatSimulation, private hero: string, private difficulty: string, private random: () => number, private now: () => number, private journey: 'classic' | 'evolution' = 'classic') {}
+  /**
+   * The id the run actually uses. A chapter stage names its own Boss; every other run reads
+   * `firstStage.rule.bossId`, which is data that already said `B001` while the code hardcoded it.
+   * Resolved once, in the constructor, so a missing row fails when the run is built instead of on
+   * every frame `spawn()` is polled.
+   */
+  readonly id: string;
+  private readonly row: BossRow;
+  constructor(private sim: CombatSimulation, private hero: string, private difficulty: string, private random: () => number, private now: () => number, private journey: 'classic' | 'evolution' = 'classic') {
+    this.id = sim.chapter?.stage.boss?.id ?? firstStage.bossId;
+    this.row = bossRow(this.id);
+  }
   /**
    * When the Boss is due, or `undefined` when this stage has none. `CH001-02` declares
    * `boss: null`, and the old line read `.spawnAt` off it - `TypeError: Cannot read properties of
@@ -57,14 +91,14 @@ export class FirstBoss {
     // is the frozen reference the legacy path and every chapter run keep using,
     // byte-identical.
     const hpScale = this.sim.threat?.bossHp[this.journey] ?? firstStage.bossHp;
-    const hp = config.boss.hp * difficultyFor(this.difficulty).hp * (.85 + (1 + .07 * minutes + .012 * minutes * minutes) * .22) * hpScale;
-    this.active = { id: 'B001', name: config.boss.name, hp, maxHp: hp, r: 42, x: player.x + viewport.width * .28, y: player.y - viewport.height * .16, phase: 1, castCd: 1.7 * this.castCdScale, castLock: .7, shield: 0, skillIndex: 0, next: '准备攻击' };
-    clampPoint(this.active, this.sim.world, 45); this.sim.feedback('boss-arrive', 'B001'); return true;
+    const hp = this.row.boss.hp * difficultyFor(this.difficulty).hp * (.85 + (1 + .07 * minutes + .012 * minutes * minutes) * .22) * hpScale;
+    this.active = { id: this.id, name: this.row.boss.name, hp, maxHp: hp, r: this.row.boss.r, x: player.x + viewport.width * .28, y: player.y - viewport.height * .16, phase: 1, castCd: 1.7 * this.castCdScale, castLock: .7, shield: 0, skillIndex: 0, next: '准备攻击' };
+    clampPoint(this.active, this.sim.world, this.row.boss.r + 3); this.sim.feedback('boss-arrive', this.id); return true;
   }
   defeat(): void {
     if (!this.active || this.defeatedAt !== undefined || this.destroyed) return;
     this.active = undefined;
-    this.sim.feedback('boss-defeat', 'B001');
+    this.sim.feedback('boss-defeat', this.id);
     if (this.sim.chapter) { this.telegraphs.length = 0; this.sweepRecovery = 0; }
     if (!this.sim.chapter) this.sim.drops.push(generateGear(this.hero, 'boss', this.random, this.now, this.dropOptions()));
     this.defeatedAt = this.sim.time;
@@ -87,7 +121,10 @@ export class FirstBoss {
   private get castCdScale(): number { return this.sim.threat?.bossCastCooldown ?? 1; }
   updateAI(dt: number): void {
     const boss = this.active; if (!boss || this.destroyed) return;
-    const ratio = boss.hp / Math.max(1, boss.maxHp), phase = ratio <= .35 ? 3 : ratio <= .70 ? 2 : 1;
+    // Thresholds are the row's, not the code's: the altar lord holds each phase longer. The
+    // comparison order (3 first, then 2) is what makes `[.70, .35]` mean "2 below .70, 3 below .35".
+    const m = this.row.mechanics, ratio = boss.hp / Math.max(1, boss.maxHp);
+    const phase = ratio <= m.thresholds[1]! ? 3 : ratio <= m.thresholds[0]! ? 2 : 1;
     // R1g-7 briefly added a 6s minimum dwell here plus a "cannot die inside the dwell" hold
     // (`holdHp`), to make G3's "three phases, each at least once" a property of the rule. Both were
     // reverted with the dash clamp, and for the same reason: the **1.7s** phase they were sized
@@ -98,9 +135,11 @@ export class FirstBoss {
     if (phase > boss.phase) {
       if (this.sim.chapter) { this.telegraphs.length = 0; this.sweepRecovery = 0; boss.sweepPhase = undefined; boss.sweepFacing = undefined; }
       boss.phase = phase; boss.castCd = 1.2 * this.castCdScale; boss.castLock = 1.05;
-      this.sim.feedback('boss-phase', 'B001');
+      this.sim.feedback('boss-phase', this.id);
       this.maxPhase = Math.max(this.maxPhase, phase);
-      if (phase === 3) for (let i = 0; i < 3; i++) this.sim.spawn({ elite: i === 0 });
+      // What a phase *costs* in bodies is a row, not a branch: `[0, 0, 3]` is the brute's three
+      // adds, and a caster that summons two is the same rule with a different number.
+      for (let i = 0; i < m.adds[phase - 1]!; i++) this.sim.spawn({ elite: i === 0 });
     }
     if (boss.sweepPhase) {
       if (boss.sweepPhase === 'windup') return;
@@ -114,34 +153,37 @@ export class FirstBoss {
     boss.castLock = Math.max(0, boss.castLock - dt); boss.castCd -= dt;
     const player = this.sim.player, dx = player.x - boss.x, dy = player.y - boss.y, distance = Math.hypot(dx, dy) || 1, diff = difficultyFor(this.difficulty);
     if (boss.castLock <= 0 && distance > 155) {
-      const speed = (38 + boss.phase * 7) * diff.speed;
+      const speed = (m.curve.speed.base + boss.phase * m.curve.speed.perPhase) * diff.speed;
       boss.x += dx / distance * speed * dt; boss.y += dy / distance * speed * dt;
     }
     // Boss body contact: legacy is covered by the global i-frame, so the guard
     // stays byte-identical. threat-v2 grants no global i-frame, so the Boss uses
     // its own contact timer or a stationary player would take 60 hits per second.
-    if (distance < boss.r + player.r + 4 && player.inv <= 0 && (!this.sim.threat || this.sim.contactReady(boss, this.sim.threat.bossContactInterval))) this.sim.hurt((11 + boss.phase * 3) * diff.dmg * this.contactScale, 'B001-contact');
+    if (distance < boss.r + player.r + 4 && player.inv <= 0 && (!this.sim.threat || this.sim.contactReady(boss, this.sim.threat.bossContactInterval))) this.sim.hurt((m.curve.contact.base + boss.phase * m.curve.contact.perPhase) * diff.dmg * this.contactScale, `${this.id}-contact`);
     if (boss.castCd > 0 || boss.castLock > 0) return;
     boss.skillIndex = (boss.skillIndex + 1) % 3;
-    const [type, name] = config.mechanics.skills[(boss.skillIndex + boss.phase - 1) % 3]!;
-    const damage = 13 + boss.phase * 4, delay = Math.max(.55, .95 - boss.phase * .08) * firstStage.telegraphScale;
+    const [type, name] = m.skills[(boss.skillIndex + boss.phase - 1) % 3]!;
+    // Affine, not baked: `base + phase * perPhase` reproduces `.95 - .08` to the last bit, while
+    // storing `0.87` as a literal would not (`.95 - .08` is not the double `0.87`).
+    const damage = m.curve.skill.base + boss.phase * m.curve.skill.perPhase;
+    const delay = Math.max(m.curve.delay.floor!, m.curve.delay.base - boss.phase * m.curve.delay.perPhase) * firstStage.telegraphScale;
     const base: WarningBase = { name: name!, x: boss.x, y: boss.y, damage, life: delay, max: delay, color: '#ef5d58', resolved: false };
     const angle = Math.atan2(player.y - boss.y, player.x - boss.x);
     if (type === 'circle') {
-      this.telegraphs.push({ ...base, type, x: player.x, y: player.y, r: boss.phase === 3 ? 86 : 70, damage: damage * 1.25 }); boss.next = `${name} · 离开红圈`;
+      this.telegraphs.push({ ...base, type, x: player.x, y: player.y, r: m.radius[boss.phase - 1]!, damage: damage * 1.25 }); boss.next = `${name} · 离开红圈`;
     } else if (type === 'line') {
       // The cone sibling already uses a fixed design range (`230 + phase * 25`);
       // only the charge still measured itself against the screen, so a 1280px
       // monitor got a 1177px dash instead of 776px and the Boss spent the extra
       // distance walking back. threat-v2 pins it to one design distance.
       const length = this.sim.threat?.chargeRange ?? Math.max(this.sim.viewport.width, this.sim.viewport.height) * .92;
-      this.telegraphs.push({ ...base, type, x2: boss.x + Math.cos(angle) * length, y2: boss.y + Math.sin(angle) * length, width: boss.phase === 3 ? 54 : 44, damage: damage * 1.15, moveBoss: true }); boss.next = `${name} · 横向闪避`;
+      this.telegraphs.push({ ...base, type, x2: boss.x + Math.cos(angle) * length, y2: boss.y + Math.sin(angle) * length, width: m.width[boss.phase - 1]!, damage: damage * 1.15, moveBoss: true }); boss.next = `${name} · 横向闪避`;
     } else {
       const chapterSweep = !!this.sim.chapter;
-      this.telegraphs.push({ ...base, ...(chapterSweep ? { life: 1.1, max: 1.1, chapterSweep } : {}), type: 'cone', range: 230 + boss.phase * 25, arc: Math.PI * (boss.phase === 3 ? .72 : .55), angle, damage: damage * 1.22 }); boss.next = `${name} · 绕至侧后`;
+      this.telegraphs.push({ ...base, ...(chapterSweep ? { life: 1.1, max: 1.1, chapterSweep } : {}), type: 'cone', range: m.curve.cone.base + boss.phase * m.curve.cone.perPhase, arc: Math.PI * m.arc[boss.phase - 1]!, angle, damage: damage * 1.22 }); boss.next = `${name} · 绕至侧后`;
       if (chapterSweep) { boss.sweepPhase = 'windup'; boss.sweepFacing = angle; }
     }
-    boss.castLock = delay + .12; boss.castCd = Math.max(.9, (3 - boss.phase * .38) / diff.speed) * this.castCdScale;
+    boss.castLock = delay + .12; boss.castCd = Math.max(m.curve.castCd.floor!, (m.curve.castCd.base - boss.phase * m.curve.castCd.perPhase) / diff.speed) * this.castCdScale;
     this.sim.feedback('boss-warning', name!);
   }
   updateTelegraphs(dt: number): void {
@@ -151,10 +193,10 @@ export class FirstBoss {
       if (!warning.resolved) {
         warning.resolved = true;
         if (warning.chapterSweep && warning.type === 'cone') {
-          this.sim.enemyStrike({ x: warning.x, y: warning.y, facing: warning.angle, range: warning.range, arc: warning.arc, source: `B001-${warning.name}` }, warning.damage * difficultyFor(this.difficulty).dmg * this.skillScale);
+          this.sim.enemyStrike({ x: warning.x, y: warning.y, facing: warning.angle, range: warning.range, arc: warning.arc, source: `${this.id}-${warning.name}` }, warning.damage * difficultyFor(this.difficulty).dmg * this.skillScale);
           if (this.active) { this.active.sweepPhase = 'strike'; this.active.next = '旋风断军 · 收招，可反击'; this.sweepRecovery = .85; }
-        } else if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg * this.skillScale, `B001-${warning.name}`);
-        if (warning.type === 'line' && warning.moveBoss && this.active) { this.active.x = warning.x2; this.active.y = warning.y2; clampPoint(this.active, this.sim.world, 45); }
+        } else if (insideTelegraph(this.sim.player, warning)) this.sim.hurt(warning.damage * difficultyFor(this.difficulty).dmg * this.skillScale, `${this.id}-${warning.name}`);
+        if (warning.type === 'line' && warning.moveBoss && this.active) { this.active.x = warning.x2; this.active.y = warning.y2; clampPoint(this.active, this.sim.world, this.row.boss.r + 3); }
       }
       if (warning.chapterSweep && warning.life > -.18) continue;
       this.telegraphs.splice(i, 1);
@@ -186,7 +228,7 @@ export class FirstBoss {
   }
   snapshot() {
     const at = this.bossAt();
-    return Object.freeze({ boss: this.active ? Object.freeze({ ...this.active, phaseName: config.mechanics.phase[this.active.phase - 1]! }) : undefined,
+    return Object.freeze({ boss: this.active ? Object.freeze({ ...this.active, phaseName: this.row.mechanics.phase[this.active.phase - 1]! }) : undefined,
       chapterLoot: !!this.sim.chapter && !this.destroyed && this.defeatedAt !== undefined && !this.picked && this.sim.time - this.defeatedAt >= .18,
       lootClaimed: this.picked,
       lootShown: this.defeatedAt !== undefined, offer: this.offer ? Object.freeze(this.offer.map(item => Object.freeze({ ...item, name: String(item.name), affixes: Object.freeze(item.affixes?.map(affix => Object.freeze({ ...affix })) || []) }))) : undefined,

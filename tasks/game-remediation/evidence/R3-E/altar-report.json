@@ -1,0 +1,245 @@
+{
+  "slice": "R3-M03",
+  "instrument": "GameCore(chapter1-v1) driven by the same reference player that wins CH001-01; CombatSimulation for the phase table",
+  "stage": {
+    "id": "CH001-03",
+    "name": "祭坛决战",
+    "duration": 480,
+    "boss": {
+      "id": "CH001_ALTAR",
+      "spawnAt": 360
+    },
+    "seals": [],
+    "eliteChecks": 2,
+    "eliteAt": [
+      120,
+      300
+    ],
+    "clear": "祭坛告破",
+    "timeout": "决战超时"
+  },
+  "rows": [
+    "B001",
+    "CH001_ALTAR"
+  ],
+  "spawn": {
+    "altar": {
+      "id": "CH001_ALTAR",
+      "name": "祭坛术主",
+      "r": 36,
+      "hp": 26406.2
+    },
+    "first": {
+      "id": "B001",
+      "name": "黄巾巨将",
+      "r": 42,
+      "hp": 25048
+    }
+  },
+  "thresholds": {
+    "altar": [
+      0.66,
+      0.33
+    ],
+    "brute": [
+      0.7,
+      0.35
+    ],
+    "at067": {
+      "altar": 1,
+      "brute": 2
+    }
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "skill": 20,
+      "telegraph": 25,
+      "radius": 64,
+      "name": "血祭初式"
+    },
+    {
+      "phase": 2,
+      "skill": 25,
+      "telegraph": 31.25,
+      "radius": 64,
+      "name": "焚坛再式"
+    },
+    {
+      "phase": 3,
+      "skill": 30,
+      "telegraph": 37.5,
+      "radius": 80,
+      "name": "术主终式"
+    }
+  ],
+  "shapes": {
+    "lineWidth": 50,
+    "coneRange": 306,
+    "coneArc": 0.68
+  },
+  "adds": {
+    "altar": 2,
+    "brute": 3
+  },
+  "calibration": [
+    {
+      "stageId": "CH001-01",
+      "seed": 15,
+      "endReason": "victory",
+      "at": 357.67,
+      "hp": 264.7,
+      "level": 19,
+      "kills": 586,
+      "dodges": 7,
+      "ultimates": 8,
+      "spawnedAt": 270,
+      "hpAtSpawn": 25048,
+      "killedAt": 356.43,
+      "checked": 0,
+      "bossId": "B001"
+    },
+    {
+      "stageId": "CH001-01",
+      "seed": 7,
+      "endReason": "victory",
+      "at": 322.22,
+      "hp": 59,
+      "level": 17,
+      "kills": 521,
+      "dodges": 23,
+      "ultimates": 7,
+      "spawnedAt": 270,
+      "hpAtSpawn": 25048,
+      "killedAt": 320.98,
+      "checked": 0,
+      "bossId": "B001"
+    },
+    {
+      "stageId": "CH001-01",
+      "seed": 99,
+      "endReason": "victory",
+      "at": 328.83,
+      "hp": 16.6,
+      "level": 18,
+      "kills": 550,
+      "dodges": 20,
+      "ultimates": 7,
+      "spawnedAt": 270,
+      "hpAtSpawn": 25048,
+      "killedAt": 327.6,
+      "checked": 0,
+      "bossId": "B001"
+    }
+  ],
+  "wins": [
+    {
+      "stageId": "CH001-03",
+      "seed": 15,
+      "endReason": "victory",
+      "at": 410.25,
+      "hp": 234.2,
+      "level": 19,
+      "kills": 620,
+      "dodges": 8,
+      "ultimates": 8,
+      "spawnedAt": 360,
+      "hpAtSpawn": 26406,
+      "killedAt": 409.02,
+      "checked": 2,
+      "bossId": "CH001_ALTAR"
+    },
+    {
+      "stageId": "CH001-03",
+      "seed": 7,
+      "endReason": "victory",
+      "at": 402.32,
+      "hp": 193.8,
+      "level": 20,
+      "kills": 617,
+      "dodges": 15,
+      "ultimates": 8,
+      "spawnedAt": 360,
+      "hpAtSpawn": 26406,
+      "killedAt": 401.08,
+      "checked": 2,
+      "bossId": "CH001_ALTAR"
+    },
+    {
+      "stageId": "CH001-03",
+      "seed": 99,
+      "endReason": "victory",
+      "at": 401.5,
+      "hp": 82.3,
+      "level": 20,
+      "kills": 622,
+      "dodges": 15,
+      "ultimates": 8,
+      "spawnedAt": 360,
+      "hpAtSpawn": 26406,
+      "killedAt": 400.27,
+      "checked": 2,
+      "bossId": "CH001_ALTAR"
+    }
+  ],
+  "corner": [
+    {
+      "stageId": "CH001-03",
+      "seed": 15,
+      "endReason": "defeat",
+      "at": 395.07,
+      "hp": -1.3,
+      "level": 19,
+      "kills": 624,
+      "dodges": 25,
+      "ultimates": 8,
+      "spawnedAt": 360,
+      "hpAtSpawn": 26406,
+      "killedAt": -1,
+      "checked": 2,
+      "bossId": "CH001_ALTAR"
+    },
+    {
+      "stageId": "CH001-03",
+      "seed": 7,
+      "endReason": "victory",
+      "at": 423.18,
+      "hp": 103.9,
+      "level": 20,
+      "kills": 605,
+      "dodges": 28,
+      "ultimates": 8,
+      "spawnedAt": 360,
+      "hpAtSpawn": 26406,
+      "killedAt": 421.95,
+      "checked": 2,
+      "bossId": "CH001_ALTAR"
+    },
+    {
+      "stageId": "CH001-03",
+      "seed": 99,
+      "endReason": "defeat",
+      "at": 397.95,
+      "hp": -2,
+      "level": 19,
+      "kills": 597,
+      "dodges": 36,
+      "ultimates": 8,
+      "spawnedAt": 360,
+      "hpAtSpawn": 26406,
+      "killedAt": -1,
+      "checked": 2,
+      "bossId": "CH001_ALTAR"
+    }
+  ],
+  "policy": {
+    "hunt": 3,
+    "corner": 1,
+    "seeds": 3
+  },
+  "timeout": {
+    "endReason": "timeout",
+    "time": 480,
+    "elitesChecked": 0
+  }
+}

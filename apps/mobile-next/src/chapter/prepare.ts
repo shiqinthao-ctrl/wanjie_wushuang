@@ -5,11 +5,13 @@ import { readChapterProgress } from './progress';
 
 /**
  * Which stages may be entered. The type `ChapterStageId` describes the data (three rows); this
- * list is the *policy*, and it is one visible line instead of a narrowed literal type. `CH001-03`
- * stays shut because its two elites are still undefined (`R3-E01..07c`) and `CH001_ALTAR` has no
- * Boss config - opening it would trade a clear error for a stage that cannot be finished.
+ * list is the *policy*, and it is one visible line instead of a narrowed literal type.
+ *
+ * `CH001-03` is here because it can be finished: D27 made `stage.boss.id` a lookup (`CH001_ALTAR`
+ * is a real row), and `altar.test.ts` plays the stage from the first frame to a settled victory.
+ * Opening it was the last step of the slice, not the first - the row had to be playable first.
  */
-const OPEN_STAGES: readonly ChapterStageId[] = ['CH001-01', 'CH001-02'];
+const OPEN_STAGES: readonly ChapterStageId[] = ['CH001-01', 'CH001-02', 'CH001-03'];
 
 export interface ChapterRunOptions {
   ruleset: typeof CHAPTER_RULESET; chapterId: typeof CHAPTER_ID; stageId: ChapterStageId;

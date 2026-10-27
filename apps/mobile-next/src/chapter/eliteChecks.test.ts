@@ -23,11 +23,10 @@ import type { ChapterFinalRun } from './settlement';
  *   - countable  - `checkedElites` moves only for scripted elites; the 150 s wave and the
  *                  director's random rolls move `eliteKills` and must not move this one.
  *
- * `CH001-03` cannot go through `GameCore`'s constructor, because that calls `prepareChapterRun`
- * and the stage is shut by `OPEN_STAGES`. `CombatSimulation` only reads `chapter.stage`, so the
- * run is built directly - which is exactly the layer the mechanic lives in. The stage stays shut
- * because `CH001_ALTAR` has no Boss config and `stage.boss.id` has **no reader at all**
- * (`FirstBoss.spawn()` hardcodes `B001`); that is a finding of this slice, not an oversight.
+ * The run is built through `CombatSimulation` rather than `GameCore` because the mechanic lives
+ * one layer below the objective: `GameCore` would also advance the arena, and the schedule is not
+ * a question about survival. (`CH001-03` was shut when this file was written - D27 opened it once
+ * `stage.boss.id` became a lookup - so the layer choice is also the one that did not change.)
  */
 const FRAME = 1 / 60;
 const SEAL = { ruleset: 'chapter1-v1', chapterId: 'CH001', stageId: 'CH001-02', heroId: 'H001', mode: 'story', difficulty: 'normal', seed: 15 } as const;
@@ -219,13 +218,22 @@ describe('settlement: the half that is reachable today', () => {
     expect(() => validateChapterFinal(first, final({ elitesChecked: 1 }))).toThrow();
     MEASURED.settlement = { ceilingOnFirstStage: 0, claimedOne: 'rejected' };
   });
-  it('cannot assert the CH001-03 requirement, because the stage is shut', () => {
-    // `validateChapterFinal` begins with `validateChapterOptions`, which is the `OPEN_STAGES`
-    // policy. While `CH001-03` is closed there is no legal preparation for it, so the
-    // "victory needs both checks" branch is **unreachable from a test** - the honest statement is
-    // that it ships untested until `R3-M03` opens the stage. Recorded, not papered over.
-    expect(() => prepareChapterRun(fresh, { ...SEAL, stageId: 'CH001-03' })).toThrow();
-    MEASURED.shut = { stage: 'CH001-03', reason: 'OPEN_STAGES + CH001_ALTAR has no Boss config' };
+  it('requires both checks for a victory on the stage that has them', () => {
+    // D26 recorded this half as **unreachable**: `validateChapterFinal` begins with
+    // `validateChapterOptions`, which is the `OPEN_STAGES` policy, and `CH001-03` was closed. D27
+    // opened it, so the branch that was shipped untested is asserted here - the same report is
+    // refused at one check and accepted at two.
+    const altar = prepareChapterRun(fresh, { ...SEAL, stageId: 'CH001-03' });
+    const report = (change: Partial<ChapterFinalRun> = {}): ChapterFinalRun => ({
+      ...SEAL, stageId: 'CH001-03', endReason: 'victory', time: 400, hp: 200, maxHp: 620, level: 20, kills: 600,
+      formId: 'dragon', awakened: true, coreSkillLevel: 3, routes: ['volley'], bonds: ['wildfire'],
+      damageBy: { A003: 1000 }, damageTakenBy: { CH001_ALTAR: 420 }, bossDefeated: true, bossLootClaimed: true,
+      sealsHeld: 0, elitesChecked: 2, ...change,
+    });
+    expect(() => validateChapterFinal(altar, report())).not.toThrow();
+    expect(() => validateChapterFinal(altar, report({ elitesChecked: 1 }))).toThrow('胜利目标');
+    expect(() => validateChapterFinal(altar, report({ elitesChecked: 3 }))).toThrow('精英检验');
+    MEASURED.requirement = { stage: 'CH001-03', at: 2, one: 'rejected', three: 'rejected as a ceiling' };
   });
 });
 
