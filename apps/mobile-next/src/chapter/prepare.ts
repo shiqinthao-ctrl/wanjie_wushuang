@@ -2,6 +2,8 @@ import type { GameSave } from '../core/saveTypes';
 import { CHAPTER_ID, CHAPTER_RULESET, chapterError, chapterHeroes, chapterStages, freeze, number, object } from './catalog';
 import type { ChapterHeroId, ChapterStageId } from './catalog';
 import { readChapterProgress } from './progress';
+import { equippedCharm } from './charms';
+import type { EquippedCharm } from './charms';
 
 /**
  * Which stages may be entered. The type `ChapterStageId` describes the data (three rows); this
@@ -28,7 +30,10 @@ export function validateChapterOptions(value: unknown): asserts value is Chapter
 export function prepareChapterRun(save: GameSave, options: unknown) {
   validateChapterOptions(options);
   const progress = readChapterProgress(save);
-  if (progress.charms.equipped !== null) throw new Error('战备护符效果尚未接入，请保留存档，等待对应版本。');
+  // D30: the charm rides on the preparation instead of being baked into `player`. `CombatSimulation`
+  // reads it at each lever's single read site and multiplies by 1 when it is absent, so a run with
+  // nothing equipped is byte-identical to a run from before this feature existed.
+  const charm: EquippedCharm | null = equippedCharm(progress);
   const hero = chapterHeroes[options.heroId];
   // Never call legacy calculateStartup: even an empty rune list has a legacy bonus.
   return freeze({ ruleset: options.ruleset, chapterId: options.chapterId, stageId: options.stageId,
@@ -36,6 +41,7 @@ export function prepareChapterRun(save: GameSave, options: unknown) {
     // Indexed by id, not by position: cloning `chapterStages[0]` was the second lock on the door.
     stage: structuredClone(chapterStages.find(stage => stage.id === options.stageId)!),
     player: { hp: hero.hp, maxHp: hero.hp, atk: hero.atk, speed: hero.speed, aspd: hero.aspd, crit: hero.crit },
+    charm,
     skills: { [hero.skill]: 1 }, passives: {} as Record<string, number>, slots: { auto: 4, passive: 4 },
   });
 }

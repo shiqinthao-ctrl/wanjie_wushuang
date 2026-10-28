@@ -19,6 +19,7 @@ import { chapterCombatContext } from '../chapter/combat';
 import type { DragonPose } from '../chapter/DragonCombat';
 import { SoldierCombat, isSoldier } from '../chapter/SoldierCombat';
 import { ChapterSeals } from '../chapter/Seals';
+import type { CharmLever } from '../chapter/charms';
 import { threatFor } from './threatModel';
 import type { RunRules, ThreatRules } from './threatModel';
 
@@ -166,7 +167,7 @@ export class CombatSimulation {
     const startup = chapter ? undefined : calculateStartup(save);
     const player = chapter?.player ?? startup!.player;
     this.context = chapter ? chapterCombatContext() : combatContext(save, startup!, this.threat);
-    this.player = { x: 1800, y: 1200, r: 15, ...player, inv: 0, dodgeCd: 0, skillCd: 0, ult: 0, shield: 0, dodgeBuff: 0, incoming: this.threat ? this.threat.incoming : firstStage.incoming };
+    this.player = { x: 1800, y: 1200, r: 15, ...player, inv: 0, dodgeCd: 0, skillCd: 0, ult: 0, shield: 0, dodgeBuff: 0, incoming: this.threat ? this.threat.incoming : firstStage.incoming * this.charmScale('incoming') };
     this.difficulty = chapter?.difficulty || String(save.difficulty || 'normal'); this.runes = chapter ? [] : [...save.runes];
     this.baseAspd = player.aspd;
     const cd = pets.pets.PET001.cd;
@@ -179,6 +180,21 @@ export class CombatSimulation {
     if (progression.journey) this.journeyCombat = new EvolutionCombat(this, progression.journey);
   }
   state(): CombatState { return { ...this.progression.snapshot(), ...this.player, evolved: this.evolved, killBuff: this.killBuff, mode: 'story' }; }
+  /**
+   * One charm lever, or exactly `1` when nothing is equipped (D30). A multiplier rather than a
+   * pre-resolved value, because `x * 1` is exact in IEEE 754: a run with no charm is byte-identical
+   * to a run from before charms existed, which is what the combat oracle requires.
+   */
+  charmScale(lever: CharmLever): number {
+    const charm = this.chapter?.charm;
+    return charm && charm.lever === lever ? charm.factor : 1;
+  }
+  /**
+   * The skill cooldown, computed once. Three classes used to write `6 * Math.max(.55, 1 - cdr)`
+   * themselves - this class, `DragonCombat` and `EvolutionCombat` - so a charm applied at one of
+   * them would have been a no-op for two of the three heroes. One function, three callers.
+   */
+  skillCooldown(): number { return 6 * this.charmScale('skillCd'); }
   directorState() { return { time: this.time, kills: this.kills, dps: this.dps, level: this.progression.snapshot().level, evolved: Object.keys(this.evolved).length, fused: Object.keys(this.fused).length }; }
   resize(width: number, height: number): void {
     if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) return;
@@ -254,6 +270,9 @@ export class CombatSimulation {
   hit(enemy: Enemy, base: number, source: string, critical = false, skill = false, manual = this.manualCast): void {
     if (!this.enemies.includes(enemy)) return;
     base = this.journeyCombat?.incomingEnemyDamage(enemy, base, source) ?? base;
+    // Every player-damage path funnels through here (arcs, fields, vortices, bombs), so one line
+    // covers the whole lever - and it is gated on the target being an elite, not on the source.
+    if (enemy.elite) base *= this.charmScale('eliteDamage');
     const hit = enemyHit(this.context, this.state(), source, base, enemy.elite, critical, skill);
     const key = manual ? `${source}_E` : source;
     enemy.hp -= hit.damage; this.player.hp = hit.hp; this.damage += hit.damage; enemy.flash = 1;
@@ -311,12 +330,12 @@ export class CombatSimulation {
       const step = Math.min(90, p.speed * .34, Math.min(this.viewport.width, this.viewport.height) * .16);
       this.ring(p, 70, 'dodge'); this.dodgeDirection = direction;
       p.x += direction.x * step; p.y += direction.y * step; clampPoint(p, this.world, 18);
-      p.dodgeCd = 4.5; p.inv = .35;
+      p.dodgeCd = 4.5 * this.charmScale('dodgeCd'); p.inv = .35;
       if (this.runes.includes('R025')) { p.dodgeCd *= .88; p.dodgeBuff = 2; }
       this.journeyCombat?.afterDodge(origin);
     } else if (action === 'skill') {
       if (p.skillCd > 0) return false;
-      p.skillCd = 6; const angle = this.heroAim();
+      p.skillCd = this.skillCooldown(); const angle = this.heroAim();
       for (let i = 0; i < 5; i++) this.bombs.push({ x: p.x + Math.cos(angle) * i * 36, y: p.y + Math.sin(angle) * i * 36, r: 48, life: .18 + i * .05, max: .18 + i * .05, dmg: p.atk * 1.35, color: '#ef7958' });
       const step = this.dashLength(150);
       p.x += Math.cos(angle) * step; p.y += Math.sin(angle) * step;
@@ -435,7 +454,9 @@ export class CombatSimulation {
     const length = Math.hypot(this.response.x, this.response.y);
     if (!active && length < .015) this.response = { x: 0, y: 0 };
     else if (length) this.dodgeDirection = { x: this.response.x / length, y: this.response.y / length };
-    p.x += this.response.x * p.speed * slow * dt; p.y += this.response.y * p.speed * slow * dt; clampPoint(p, this.world, 18);
+    // `MC_MOVE` scales *this* line, not `player.speed`: the dodge step above also reads `p.speed`,
+    // and a charm that silently lengthens the dodge would be doing two things.
+    p.x += this.response.x * p.speed * slow * this.charmScale('speed') * dt; p.y += this.response.y * p.speed * slow * this.charmScale('speed') * dt; clampPoint(p, this.world, 18);
     for (const action of this.scheduled) { action.delay -= dt; if (action.delay <= 0) this.arc(210 + action.wave * 18, p.atk * 4, 'H001_R', Math.PI * 2); }
     this.scheduled = this.scheduled.filter(action => action.delay > 0);
     this.spawnClock += dt; const baseInterval = director(this.directorState(), p, this.difficulty).interval;

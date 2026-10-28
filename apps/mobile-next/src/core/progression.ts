@@ -21,14 +21,15 @@ export class XpField {
       target.value += overflow.value; target.elite ||= overflow.elite;
     }
   }
-  advance(player: { x: number; y: number }, elapsed: number) {
+  /** `radiusScale` is the charm lever (D30): 1 is the shipped 26 px, and `26 * 1 === 26`. */
+  advance(player: { x: number; y: number }, elapsed: number, radiusScale = 1) {
     const dt = Math.max(0, Number.isFinite(elapsed) ? elapsed : 0);
     let value = 0, x = player.x, y = player.y;
     for (let i = this.crystals.length - 1; i >= 0; i--) {
       const crystal = this.crystals[i]!;
       const dx = player.x - crystal.x, dy = player.y - crystal.y, distance = Math.hypot(dx, dy);
       // Collection precedes attraction, including when attraction reaches the player this frame.
-      if (distance <= 26) {
+      if (distance <= 26 * radiusScale) {
         value += crystal.value; x = crystal.x; y = crystal.y;
         this.crystals.splice(i, 1); continue;
       }

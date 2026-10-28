@@ -1618,3 +1618,75 @@ TASK 第 1 条要的九项（stage / hero / form / result / time / level / kills
 **一条必须写在这里的边界**：`App.vue` 的 `<BattleView>` 仍不传 `:chapter`（`BattleView.vue:28` 有这个 prop，
 `App.vue:63` 不用）⇒ 章节线从界面进不去 ⇒ **`progress.reports` 不会增长**，所以这一页对真实玩家
 **大概率是空的**。**空列表是诚实的**，入口归 `R3-U06`；本片不把它报成「已完成的可玩内容」。
+
+---
+
+## D30 — R3-P03 Scope 0：五问五答，其中一答是「这一片没法按 TASK 的原话交付」
+
+**(a) 六个 id 是什么，有任何一个被实现过吗？—— 数读者，不数提及。**
+`chapterCharms = ['MC_DODGE','MC_ELITE','MC_PICKUP','MC_SURVIVAL','MC_CYCLE','MC_MOVE']`。
+**非测试代码里提到其中任何一个字面量的行只有一行**：`catalog.ts:38` 那个定义本身。
+其余提及都是**位置下标**（`settlement.ts:79` 用 `chapterCharms[3..5]` 发奖、`progress.ts:24` 用
+`slice(0,3)` 开局解锁）—— 下标不认识名字，所以六个 id 里**任何一个被改名，发奖和解锁都不会察觉**。
+⇒ 「已实现」= **0/6**。
+
+**(b) 装备在哪里失败，谁捕获，玩家看到什么？**
+`prepare.ts:31`：`if (progress.charms.equipped !== null) throw new Error('战备护符效果尚未接入…')`。
+捕获者是 `BattleView.vue` 的 `onMounted` 那个 **catch-all**（`catch { error.value = '当前浏览器无法启动
+战场，请确认已启用图形加速后重试。' }`）⇒ **玩家看到的是一句关于显卡的话**，与护符毫无关系。
+而且 `App.vue` 根本不传 `:chapter`，所以**今天连这条路都走不到**。
+⇒ 这不是「功能关着」，是**一条没人走的路上的一个错误的错误消息**。
+
+**(c) 效果能合法挂在哪？—— `chapter` 这条构造路径上，缺省乘 1。**
+预言机的保护不是「小心」，是**结构**：`GameCore.test.ts:9` 的 `incoming:.44` 走 `new GameCore()`，
+`firstBoss.test.ts:11` 走 `new CombatSimulation(save, progression, …)` 五参重载 —— **两者 `chapter` 都是
+`undefined`**，而护符只能从 `ChapterPreparation` 上读。`CombatSimulation` 里 `chapter` 已经是三个分支的
+总闸（`this.threat = chapter ? undefined : …`、`chapterCombatContext()`、`pet.enabled = !chapter`），
+护符接在同一个闸上。
+**取景方式是「乘数缺省 1」而不是「在 prepare 里预先算好」**：`x * 1` 对任何有限双精度**逐字节相等**，
+所以「没装备」与「这段代码不存在」在读数上不可区分 —— 这正是预言机要的。
+六个杠杆各自**只有一个读点**（见 (c')），因此「一个护符只做一件事」是结构保证，不是纪律。
+
+**(c') 六个杠杆与它们的读点（每行一个，逐个点名）**
+
+| 护符 | 杠杆 | 唯一读点 | 出厂值 → 装备后 |
+|---|---|---|---|
+| `MC_DODGE` | `dodgeCd` | `CombatSimulation.ts:314` | 4.5 → **3.6** s |
+| `MC_ELITE` | `eliteDamage` | `hit()` 里 `enemy.elite` 分支 | ×1 → **×1.15** |
+| `MC_PICKUP` | `pickup` | `XpField.advance` 的 26 px | 26 → **52** px |
+| `MC_SURVIVAL` | `incoming` | 构造器 `player.incoming` | 0.44 → **0.374** |
+| `MC_CYCLE` | `skillCd` | `CombatSimulation.ts:319` | 6 → **5.1** s |
+| `MC_MOVE` | `speed` | 移动那一行 `p.speed` | ×1 → **×1.12** |
+
+`MC_MOVE` 特意**不**乘在 `player.speed` 上：那样会连闪避位移（`p.speed * .34`，上限 90）一起放大，
+**同一个护符就悄悄做了两件事**。挂在移动行上，闪避距离逐像素不变。
+
+**(d) 三个靠打出来的护符，在真跑局里拿得到吗？—— 拿得到，但第三个最紧。**
+仪器：`CH001-01`（**出货关卡**）+ 一个「优先进化/觉醒」的机器人，三种子 `15/7/99`，
+跑法与 D27 的参考玩家同一条（绕行 136 px、读预警、闪避、奥义）：
+
+| 护符 | 门槛 | 实测 |
+|---|---|---|
+| `MC_SURVIVAL` | 任意胜利 | **3/3** |
+| `MC_CYCLE` | 觉醒（`rank === 2`） | **3/3**（形态 bulwark/dragon/dragon，核心术式 Lv.5） |
+| `MC_MOVE` | 两条羁绊 | **1/3**（种子 99 三条，另两局各一条） |
+
+**开局是 0 条羁绊**（三英雄起手技能表都只有一个技能 `{A003:1}` / `{A011:1}` / `{A015:1}`，凑不出两条
+tag）⇒ 这不是常数，是**真的要打的**。
+**但 `MC_CYCLE` 的 3/3 是「策略」给的，不是「运气」给的**：D27 那个只挑 `active` 的机器人觉醒 **0/3**
+（`formId` 恒 `null`）。**同一个门槛，换一种点法就从 0 变 3** ⇒ 页面必须说「觉醒解锁」，而不是
+「打通就送」。
+
+**(e) 需要新存档字段吗？—— 不需要，但 `charms.equipped` 的校验只做了一半。**
+`progress.ts:67` 要求 `equipped ∈ unlocked`（不在就 `chapterError('未解锁护符')`），这条够用。
+**但它不检查 id 是否属于 `chapterCharms`**：`strings(charms.unlocked, …)` 只校验「是非空字符串数组、
+无重复、长度 ≤ 100」⇒ **一个不存在的护符 id 可以合法地躺在 `unlocked` 里，甚至被 `equipped` 指向**。
+修法放在**准备期**而不是校验期：`progress.ts` 是 schema 层，加成员检查会让「未来版本存档」整份拒收
+（D28 已经决定那种存档要能打开、只是空进度）；`prepareChapterRun` 抛一条**说人话**的错，
+让玩家知道是护符而不是显卡。
+
+**TASK 第 2 条的一半今天无法按原话交付**：它要求「装备后必须活到玩家接着开的那一局」，
+但**章节线从 UI 进不去**（`App.vue` 不传 `:chapter`，入口归 `R3-U06`）。
+本片交付的是**这条路的全部可测部分**：大厅装备 → `transactOnce` 写存档 → `prepareChapterRun` 读回
+→ `preparation.charm` 就是那一枚。**缺的那一步（点「开战」）不是护符的缺口，是入口的缺口**，
+本片不假装它存在。

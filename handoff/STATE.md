@@ -13,47 +13,52 @@ V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` 
 Legacy version wrappers remain; migrate incrementally, never rewrite the combat loop in one pass.
 
 ## Current task
-`R3-P03` six charms (`../TASK.md`); `R3-P02` shipped.
+`R3-P04` chapter challenges (`../TASK.md`); `R3-P03` shipped. The queue's whole spec is "no permanent
+numeric crushing", so the slice starts by *defining* the thing.
 
 ## Last completed
-**R3-P02 (D29)** - the run record. Five answers: a `ChapterReport` has **17 fields** and exactly
-**one reader** in the app (a `runId` de-dup) - nothing had ever rendered it; the twenty-run cap is
-enforced **twice with different meanings** (the writer truncates silently, the validator refuses the
-whole save, so `<= 20` is safe and `=== 20` is not); no field is declared-but-unwritten (**17 == 17** -
-my first regex said three were missing because it ignored shorthand); `stars` is written as
-`victory ? 1 : 0` while the validator admits `0..3`, so the page draws a count, not three slots; and
-**7 fields stop at the report boundary**, including `sealsHeld`/`elitesChecked` - D25's and D26's
-readings are not in the record. No new save field was needed. The page refuses three things: a rate
-under five runs, a median dragged by timeouts (victories only, with its own denominator), and
-"cannot read" rendered as "never played".
+**R3-P03 (D30)** - six charms, six levers, one worn at a time. Five answers: the six ids were
+**0/6 implemented** (the only non-test line naming any of them was the definition; every other
+mention is a positional subscript, so a rename would go unnoticed); equipping threw at
+`prepare.ts:31` and the catch-all in `BattleView` turned it into **"check your graphics driver"**;
+an effect can only hang off the `chapter` path, where both oracle tests pass `chapter: undefined`;
+the three earned charms are reachable on a shipped stage (victory **3/3**, awakening **3/3**, two
+bonds **1/3**, **0 bonds at the first frame**); no new save field is needed, though
+`charms.unlocked` never checks membership, so preparation has to. The expensive mistake was mine: I
+wrote "each lever has one read site" and `p.skillCd` has **three** - `H001`'s skill goes through
+`DragonCombat`, so the line I changed was not on its path. Fixed by collapsing it into
+`skillCooldown()`, called from all three. Data carries `lever` + `factor` only.
 
 ## Changed files
-New `chapter/reports.ts` (`reportRows(save)`, `RATE_MIN_RUNS`, `REPORT_CAP`), `ui/ReportsPanel.vue`,
-`chapter/reports.test.ts` (17 `it`); `App.vue` (`page` union +1, lobby button, `v-else-if`);
-`codex.test.ts`'s union assertion loosened; page `evidence/R3-P/IMPLEMENTATION-b.md`. D29; `QUEUE.md`
-15 done, **16 next**; ledger unchanged at **271**.
+New `chapter/charms.ts`, `ui/CharmsPanel.vue` (the only page that writes progress),
+`chapter/charms.test.ts` (21 `it`); `chapter/prepare.ts` (the throw becomes `preparation.charm`),
+`core/CombatSimulation.ts` (`charmScale`, `skillCooldown`, five read sites), `core/progression.ts`
+(`radiusScale`), `core/GameCore.ts` (pickup call), `chapter/DragonCombat.ts` +
+`core/EvolutionCombat.ts`; `App.vue` (`page` +1, lobby button, `v-else-if`); page
+`evidence/R3-P/IMPLEMENTATION-c.md`. D30; `QUEUE.md` 16 done, **17 next**; ledger **271**.
 
 ## Tests
-**GATE_FULL**: **56 files / 1602 tests (1674.23 s), all green**; increment 1585 -> 1602 is +17 = the
-new file's 17 `it`, files +1, no probe. `vue-tsc --noEmit` clean, `vite build` OK. `ledger:verify` OK
-(271/271, rolling 36; `numstat` empty). `smoke`/`audit`/`archive:verify` OK; `context` under 8192;
-`check` cannot run here. **No Playwright**: the list is asserted through `reportRows`'s return value
-and four source-level connection points, not seen.
+**GATE_FULL**: **57 files / 1623 tests (1766.93 s), all green**; increment 1602 -> 1623 is +21 = the
+new file's 21 `it`, files +1, no probe. Subset first: 18 files / 533 tests. `vue-tsc --noEmit` clean,
+`vite build` OK. `ledger:verify` OK (271/271, rolling 36; `numstat` on the ledger empty). `smoke` /
+`audit` / `archive:verify` OK; `context` under 8192; `check` cannot run here. **No Playwright**: the
+page is asserted through `charmViews`'s return value, the four source-level connection points in
+`App.vue` and the write pattern in the panel - not seen.
 
 ## Unresolved risk
-`App.vue:61` still never passes `:chapter`, so the chapter track is constructible and winnable but
-**not clickable** - entry is `R3-U06`. `bossThreat.test.ts` still slices sources with `slice(5)`, so
-the next person to change `firstStage.bossId` will be silently misled. Dead data remains
+`App.vue` still never passes `:chapter`, so the chapter track is constructible and winnable but
+**not clickable** - entry is `R3-U06`. Second consequence: a charm can be equipped and persisted, and
+there is no run to wear it in. `bossThreat.test.ts` still slices with `slice(5)`. Dead data remains
 (`boss.skills`, `mechanics.shield`, `mechanics.shrink`, `mechanics.name`). The 480 s deadline is
-asserted by driving the clock, not by playing it; the earliest real win is 401.50 s. The reference
-player is thin on the shipped stage too (16.6 hp on seed 99). `R2-F-G4ROWS`'s evolution arm sees no
-G4 row; the fireline does not damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3
-unmet; main-skill has no UI; `S001` shares the summon cap. **`progress.reports` never grows from the UI**
-(`App.vue` passes no `:chapter`), so the new page is honestly empty - entry is `R3-U06`.
+asserted by driving the clock; the earliest real win is 401.50 s, and the reference player is thin on
+the shipped stage (16.6 hp on seed 99). The six charm effects move their lever - **not** proven to
+change win rates (that needs >= 33 seeds). `R2-F-G4ROWS`'s evolution arm sees no G4 row; the fireline
+does not damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet; main-skill has no UI;
+`S001` shares the summon cap; `progress.reports` never grows from the UI.
 
 ## Recommended next task
-`R3-P03` (six charms, brief in `TASK.md`). Start by counting readers of the six ids - the throw at
-`prepare.ts:34` is the only thing that knows charms exist. Then find the legal hook for an effect:/nthe shipped oracle must stay byte-identical with nothing equipped, and that constraint decides where
-the code goes.
+`R3-P04` (chapter challenges, brief in `TASK.md`). The queue gives one line - "no permanent numeric
+crushing" - so Scope 0 defines the thing before building it: what `chapters.stars`/`clears` record,
+who reads them, whether any can be farmed into a permanent stat, and only then what a row is.
 
 Replace only the five fields above.

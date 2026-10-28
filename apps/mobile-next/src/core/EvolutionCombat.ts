@@ -61,7 +61,7 @@ export class EvolutionCombat {
     const s = this.sim, p = s.player, v = this.view, id = `${v.heroId}_${action === 'skill' ? 'E' : 'R'}`;
     if (action === 'skill') {
       if (p.skillCd > 0) return false;
-      p.skillCd = 6 * Math.max(.55, 1 - (s.context.gear.cdr || 0));
+      p.skillCd = s.skillCooldown() * Math.max(.55, 1 - (s.context.gear.cdr || 0));
       if (v.formId === 'frostflame') {
         this.frost('G5_FROST_E', p, v.rank === 2 ? 220 : 180, p.atk * .6, 2);
         s.field('G5_FIRE_E', p, v.rank === 2 ? 180 : 130, p.atk * .3, v.rank === 2 ? 5 : 3);

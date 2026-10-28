@@ -153,7 +153,7 @@ export class GameCore {
     // death, hero identity, skill forms, Boss warnings, pet, map, events, objective.
     const dt = Math.min(.034, elapsed);
     this.combat.beginFrame(dt);
-    const pickup = this.combat.crystals.advance(this.combat.player, dt);
+    const pickup = this.combat.crystals.advance(this.combat.player, dt, this.combat.charmScale('pickup'));
     if (pickup.value > 0) {
       this.progression.gain(pickup.value); this.progression.checkLevel();
       this.events.push({ type: 'xp-pickup', ...pickup });

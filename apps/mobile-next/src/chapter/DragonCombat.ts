@@ -63,7 +63,7 @@ export class DragonCombat {
     if (this.destroyed || (this.hero && this.hero.kind !== 'basic')) return false;
     if (kind === 'skill') {
       if (p.skillCd > 0) return false;
-      p.skillCd = 6 * Math.max(.55, 1 - (this.sim.context.gear.cdr || 0));
+      p.skillCd = this.sim.skillCooldown() * Math.max(.55, 1 - (this.sim.context.gear.cdr || 0));
     } else { if (p.ult < 100) return false; p.ult = 0; }
     // Manual actions may replace a basic attack, but cannot queue over each other.
     this.hero = this.begin(kind, kind === 'skill' ? this.awakened() ? 2 : 1 : this.awakened() ? 5 : 3);
