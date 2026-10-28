@@ -171,7 +171,9 @@ describe('read-only, and reachable from the lobby', () => {
     // No Playwright here, so "reachable" is asserted where it is decided: the union member, the
     // import, the button that sets it, and the branch that renders the panel.
     const app = readFileSync(resolve(process.cwd(), 'src/App.vue'), 'utf8');
-    expect(app).toMatch(/page = ref<'home' \| 'battle' \| 'settings' \| 'saves' \| 'codex'>/);
+    // Matched loosely on purpose: the union grows as pages are added (R3-P02 added `'reports'`), and
+    // a test that pins the whole literal makes every new page edit an unrelated file.
+    expect(app).toMatch(/page = ref<[^>]*'codex'[^>]*>/);
     expect(app).toMatch(/import CodexPanel from '\.\/ui\/CodexPanel\.vue';/);
     expect(app).toMatch(/@click="page = 'codex'"/);
     expect(app).toMatch(/<CodexPanel v-else-if="page === 'codex'/);

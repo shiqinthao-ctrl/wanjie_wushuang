@@ -1560,3 +1560,61 @@ TASK 要求「先用命令核实前提」。五条都有答案，第 (e) 条推�
 「两列、各标来源：`可组装`（数据层，三英雄同值）与 `本档构筑持有`（`save.build`）」。
 其余四条不变。**实现见 `evidence/R3-P/IMPLEMENTATION.md`**：`chapter/codex.ts`（纯数据层，
 16 条断言）、`ui/CodexPanel.vue`（两列各标来源 + 闸门切换）、`App.vue` 的联合成员与大厅按钮。
+
+---
+
+## D29 — R3-P02 Scope 0：五问五答，其中一答是「我第一次读错了」
+
+**(a) 一份 `ChapterReport` 有什么，其中哪些已经显示过一次？**
+**17 个字段**：`runId / ruleset / chapterId / stageId / heroId / seed / endReason / stars / time / level /
+kills / formId / awakened / routes / bonds / damageBy / damageTakenBy`（`progress.ts:6-12`，第 18 项是
+索引签名）。**只有一个读者**：`settlement.ts:68` 用 `runId` 去重。**全库没有任何渲染器。**
+
+已经显示过一次的只有 **4 个**，且都在 `ChapterResult.vue`：`stars`（渲染成「本关目标已完成」）、
+`awakened`（渲染成下一目标提示）、`routes.length`、`bonds.length` —— **两个是计数，不是内容**。
+而结算页上的 `Lv.` 与「击破」读的是 **`snapshot.level` / `snapshot.kills`（活值）**，不是战报里的
+那两个字段 ⇒ **战报里的 `level`/`kills` 至今零渲染**。`seed / time / heroId / formId / damageBy /
+damageTakenBy` 从未出现过。
+
+**(b) 上限真的存在吗，在写入处还是校验处？—— 两处都有，而且语义不同。**
+写入：`progress.reports.unshift(report); progress.reports = progress.reports.slice(0, 20)`（`settlement.ts:85`）
+⇒ **静默截断**，新的在最前（`unshift`），所以 `[0]` 是最新一局、末尾是最旧 —— 与 TASK 的
+「oldest last」一致。
+校验：`progress.reports.length > 20 → chapterError('战报上限')`（`progress.ts:68`）⇒ **不是截断，是拒收整份存档**。
+**两个 20 是同一个数字的两种态度**：写入处丢最旧的，校验处认为 21 条根本不该存在。页面因此可以假设
+`length <= 20`，但**不能**假设它一定等于 20。
+
+**(c) 有「看着像记了、其实没写」的字段吗？—— 没有，但有两处相邻的坑，且我第一遍读错了。**
+我第一遍用 `re.findall(r"(\w+): …")` 解析写入字面量，得到「声明 18 个、只写 15 个，缺 `runId`/`stars`」。
+**那是正则的错**：这两个是 **shorthand**（`{ runId, ruleset: … , stars, … }`）。按逗号切分、裸标识符也算写入后
+是 **17 == 17**，一个不缺。**「字段没写」这个结论必须先把 shorthand 算进去再说。**
+真正存在的两个坑是：
+1. **`stars` 是布尔值穿着三星的外套**。写入处 `victory ? 1 : 0`（`settlement.ts:67`），校验处允许
+   `0..3`（`progress.ts:36`）。**画三格星会显示「1/3」**，看着像玩家没打好 —— 页面画的是**计数**，
+   并在页脚说明为什么只有一格。
+2. **7 个字段写进了 `ChapterFinalRun`、在战报边界上被丢掉**：`hp / maxHp / coreSkillLevel /
+   bossDefeated / bossLootClaimed / sealsHeld / elitesChecked`。其中 **`sealsHeld` / `elitesChecked`
+   正是 D25/D26 那两道门的读数** ⇒ 「这局守住了几处界碑」「清掉几个精英检验」**在记录里不存在**。
+   **不补**：补它要动存档 schema，而 TASK 第 3 条要求只读、不加字段。**记进账，不当场扩表。**
+
+**(d) 页面挂在哪？—— 与图鉴同一处，没有新东西。**
+`App.vue:23` 的 `page` 是手写联合，现在 5 个成员；页面 = 一个组件 + 一条 `v-else-if` + 大厅一个按钮。
+**没有 `vue-router`**，所以「路由可达」只能断言**源码里的联合成员、import、按钮、分支**四处。
+
+**(e) 需要不存在的存档字段吗？—— 不需要。**
+TASK 第 1 条要的九项（stage / hero / form / result / time / level / kills / stars / seed）**全在 17 个
+字段里**，而且 `stageId`/`heroId`/`formId` 都已被校验器钉在目录内（`progress.ts:32-42`）⇒ 名字可以安全查表。
+
+**一条与 TASK 第 2 条有关的决定**：不给「胜率」这个词配一个 3 局的分母。
+`summary` 里 `winRate` 在 `runs < 5` 时是 **`null`**，页面写「样本不足 5 局，不给胜率」，而不是印一个
+「33%」。中位用时只算**胜利局**（超时局的 480 s 会把中位数拖到时限上），且**连同分母一起写**。
+
+**实现见 `evidence/R3-P/IMPLEMENTATION-b.md`**：`chapter/reports.ts`（`reportRows(save)`、
+`RATE_MIN_RUNS = 5`、`REPORT_CAP = 20`、`clock()` 用 `Math.floor`）、`ui/ReportsPanel.vue`、
+`App.vue` 的联合成员与大厅按钮、`chapter/reports.test.ts`（**17 `it`**）。
+**顺带改掉一处摩擦**：`codex.test.ts` 曾逐字钉死整个 `page` 联合，导致「加一个页面」要改一个无关文件；
+改成 `page = ref<[^>]*'codex'[^>]*>` —— **断言的范围应等于它声称的事实的范围**。
+
+**一条必须写在这里的边界**：`App.vue` 的 `<BattleView>` 仍不传 `:chapter`（`BattleView.vue:28` 有这个 prop，
+`App.vue:63` 不用）⇒ 章节线从界面进不去 ⇒ **`progress.reports` 不会增长**，所以这一页对真实玩家
+**大概率是空的**。**空列表是诚实的**，入口归 `R3-U06`；本片不把它报成「已完成的可玩内容」。
