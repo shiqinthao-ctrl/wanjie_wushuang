@@ -14,47 +14,45 @@ V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` 
 Legacy version wrappers remain; migrate incrementally, never rewrite the combat loop in one pass.
 
 ## Current task
-`R3-U06` the chapter entry (`../TASK.md`); `R3-U01..05` shipped.
+`R3-M04` three stages, one wave table? (`../TASK.md`); `R3-U06` shipped; the queue is empty.
 
 ## Last completed
-**R3-U01..05 (D32)** - eight pages, six states, and two lies I shipped last slice. (a) The queue says
-"four pages"; there are eight. The "章节" page it names **does not exist** - the lobby shows one
-hardcoded stage line, and that entry is the next slice. (b) The six-state matrix has 5 real holes:
-two are **false sentences** - `ReportsPanel` still said "a win is 1 star" after D31, and
-`ChapterResult` still said charm effects were "coming later" after D30; both shipped in the same
-commit as the change that falsified them, and no assertion read them. Fixed by reading the data
-(`chapterStars`) instead of restating the rule. (c) `transactOnce` fails two ways: a receipt hit
-(retry is safe) and a revision mismatch (retry can never succeed); only `BattleView` told them apart,
-so `CharmsPanel` now does too. (d) Five pages had zero `@media`; all five got one.
+**R3-U06 (D33)** - the door. Six slices (D27-D32) wrote code on a path no player could reach, and the
+cause was one line: `App.vue`'s `<BattleView>` never passed `:chapter`. Everything behind it already
+existed and was tested. This slice adds `ui/ChapterPanel.vue` (three stages, each with its derived
+objective and best-star row), the route member, the binding, and the reset. Two decisions matter.
+(a) The gate is **a real call** - `prepareChapterRun` - not `previewBlocker`, whose eight conditions
+check seven fields this path never reads (`contracts.test.ts:27-38` measured that); reusing it would
+have refused a save whose `mode` is `endless`. (b) The star row is three slots, which is only correct
+because D31 filled 0..3; D29 refused the same layout for the same reason in reverse. `chapters.stars`
+gains its first reader.
 
 ## Changed files
-`ui/ReportsPanel.vue` (star tiers from `chapterStars`, breakpoint), `ui/ChapterResult.vue` (charm
-sentence, breakpoint), `ui/CodexPanel.vue` / `ui/CharmsPanel.vue` / `ui/ChallengesPanel.vue`
-(breakpoints; charms also splits the two failures and gained a retry), `ui/SavePanel.vue` (retry holds
-the failed closure), `style.css` (settings breakpoint); new `ui/pages.test.ts` (23 `it`); page
-`evidence/R3-U/IMPLEMENTATION.md`. D32; `QUEUE.md` 18 done, **19 next**.
+New `ui/ChapterPanel.vue`, `ui/chapter-entry.test.ts` (14 `it`); `chapter/prepare.ts` (exports
+`OPEN_STAGES`, adds `stageObjective`); `App.vue` (`page` +1, `chapterOptions`, `:chapter`, reset on
+home, new seed on replay, `previewBlocker` bypass for chapter replays); `ui/pages.test.ts` (two
+assertions flipped: 8 -> 9 routes, "no chapter page" -> "has one"); page
+`evidence/R3-U/IMPLEMENTATION-b.md`. D33; `QUEUE.md` 19 done - **queue empty**.
 
 ## Tests
-**GATE_FULL**: **59 files / 1669 tests (1633.89 s), all green**. Increment 1646 -> 1669 is +23 = the
-new file's 23 `it`; files 58 -> 59; no probe. Subset `src/ui` + `src/chapter`: 15 files / 465 tests
-(8.05 s). `vue-tsc --noEmit` clean; `check` / `smoke` / `audit` / `archive:verify` OK; ledger 271
-unchanged. **No Playwright**: "narrow screen" here means a breakpoint exists in the component's own
-scoped style, not that the page looks right; no retry has been clicked.
+**GATE_FULL**: **60 files / 1684 tests (1722.14 s), all green**. Increment 1669 -> 1684 is +15 =
+the new file's 14 `it` plus one more row in `pages.test.ts`'s route list; files 59 -> 60; no probe.
+Subset `src/ui` + `src/chapter`: 16 files / 480 tests (7.98 s). `vue-tsc --noEmit` clean;
+`check` / `smoke` / `audit` / `archive:verify` OK; ledger 271 unchanged. **No Playwright**: the
+chapter page has never been rendered, and no run has been started from it.
 
 ## Unresolved risk
-`App.vue` still never passes `:chapter` - the chapter track, and therefore the codex, the run record,
-the charms and the challenges, are **unclickable**; `R3-U06` fixes that. Two failures are told apart
-by **message text** (`includes('存档已更新')`) in three places - a string contract, so changing that
-sentence silently disables all three. No retry button has ever been clicked. No Playwright, so
-"narrow screen" means "a breakpoint exists", not "it looks right". `chapters.stars` is 0..3 and still
-write-only. `bossThreat.test.ts` slices with `slice(5)`. Dead data remains (`boss.skills`,
-`mechanics.shield`, `mechanics.shrink`, `mechanics.name`). The six charm effects move their lever -
-not proven to change win rates. `R2-F-G4ROWS`'s evolution arm sees no G4 row; the fireline does not
-damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001`
-shares the summon cap.
+The chapter page has **never been clicked**: `:chapter` is bound and `prepareChapterRun` is probed for
+all three stages, but no run has been started from it and `mountBattle` taking a chapter option is
+unverified. `best()` reads `chapters.CH001.stars[id]` with the chapter id as a literal. Two failures
+are still told apart by message text in three places. No Playwright. `bossThreat.test.ts` slices with
+`slice(5)`. Dead data remains (`boss.skills`, `mechanics.shield`, `mechanics.shrink`, `mechanics.name`).
+The six charm effects move their lever - not proven to change win rates. `R2-F-G4ROWS`'s evolution arm
+sees no G4 row; the fireline does not damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3
+unmet; main-skill has no UI; `S001` shares the summon cap. All three stages may share one wave table.
 
 ## Recommended next task
-`R3-U06` (brief in `TASK.md`). Start by naming the three lines where `chapter` would have to enter,
-then count what is missing between a click and a running chapter run.
+`R3-M04` (brief in `TASK.md`). The queue is empty; this is the first item on the unresolved list that
+changes what the player feels between the three now-clickable stages.
 
 Replace only the five fields above.

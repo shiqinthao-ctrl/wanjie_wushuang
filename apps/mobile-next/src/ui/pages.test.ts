@@ -23,8 +23,8 @@ const read = (path: string): string => readFileSync(resolve(process.cwd(), path)
 const app = read('src/App.vue');
 const style = read('src/style.css');
 
-describe('eight routes, and the one page the queue names that does not exist', () => {
-  it.each(['home', 'battle', 'settings', 'saves', 'codex', 'reports', 'charms', 'challenges'])('routes %s', page => {
+describe('nine routes, and the one page that did not exist until R3-U06', () => {
+  it.each(['home', 'battle', 'settings', 'saves', 'codex', 'reports', 'charms', 'challenges', 'chapter'])('routes %s', page => {
     // `settings` is the fallback branch rather than a `page === 'settings'` test - see below.
     const branch = page === 'settings' ? /<section v-else class="settings">/ : new RegExp(`page === '${page}'`);
     expect(app).toMatch(branch);
@@ -35,12 +35,13 @@ describe('eight routes, and the one page the queue names that does not exist', (
     expect(app).toMatch(/<section v-else class="settings">/);
     expect(app).not.toMatch(/page === 'settings'/);
   });
-  it('has no chapter page, which is why the chapter track has no lobby entry yet', () => {
-    // The queue's `R3-U02` says "章节". There is no such route: the lobby shows one hardcoded
-    // stage line (`下一站 · ST001-01`) and the entry is `R3-U06`. Asserted so that adding a chapter
-    // page is a visible decision, not an accident.
+  it('now has the chapter page D32 recorded as missing', () => {
+    // D32 asserted the opposite - `not.toMatch(/page === 'chapter'/)` - because the queue's
+    // "章节" page did not exist then. R3-U06 added it, so the assertion flips, the same way D31
+    // flipped the star count. The lobby's hardcoded journey line stays: the chapter page is a
+    // separate door, not a replacement for the journey track.
+    expect(app).toMatch(/page === 'chapter'/);
     expect(app).toMatch(/下一站 · ST001-01/);
-    expect(app).not.toMatch(/page === 'chapter'/);
   });
 });
 

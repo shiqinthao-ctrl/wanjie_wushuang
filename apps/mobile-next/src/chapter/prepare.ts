@@ -1,6 +1,6 @@
 import type { GameSave } from '../core/saveTypes';
 import { CHAPTER_ID, CHAPTER_RULESET, chapterError, chapterHeroes, chapterStages, freeze, number, object } from './catalog';
-import type { ChapterHeroId, ChapterStageId } from './catalog';
+import type { ChapterHeroId, ChapterStageId, SealRule } from './catalog';
 import { readChapterProgress } from './progress';
 import { equippedCharm } from './charms';
 import type { EquippedCharm } from './charms';
@@ -13,7 +13,21 @@ import type { EquippedCharm } from './charms';
  * is a real row), and `altar.test.ts` plays the stage from the first frame to a settled victory.
  * Opening it was the last step of the slice, not the first - the row had to be playable first.
  */
-const OPEN_STAGES: readonly ChapterStageId[] = ['CH001-01', 'CH001-02', 'CH001-03'];
+export const OPEN_STAGES: readonly ChapterStageId[] = ['CH001-01', 'CH001-02', 'CH001-03'];
+/**
+ * What a stage asks for, in one line, derived from its own data.
+ *
+ * The objective is not a second field: a stage with seals is won by holding them, one with elite
+ * checks by clearing them first, and one with a Boss by beating it. Reading it off the same three
+ * fields `validateChapterFinal` reads means the lobby cannot promise an objective the settlement
+ * would reject.
+ */
+export function stageObjective(stage: (typeof chapterStages)[number]): string {
+  const seals = stage.seals as readonly SealRule[];
+  if (seals.length) return `镇守 ${seals.length} 处界碑`;
+  if (stage.eliteChecks > 0) return `先破 ${stage.eliteChecks} 名精英，再击败首领`;
+  return '击败首领并领取战利品';
+}
 
 export interface ChapterRunOptions {
   ruleset: typeof CHAPTER_RULESET; chapterId: typeof CHAPTER_ID; stageId: ChapterStageId;

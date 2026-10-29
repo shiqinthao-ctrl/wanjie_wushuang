@@ -1,43 +1,39 @@
-# TASK.md - R3-U06: the chapter entry, and the four pages that are empty without it
+# TASK.md - R3-M04: three stages, one wave table?
 
-Base: R3-U01..05 (D32). Queue `QUEUE.md` #19. The queue's whole spec is "close GDD finding 7".
+Base: R3-U06 (D33). **No queue entry** - the queue ends at #19 and is now empty. This slice comes
+from `handoff/STATE.md`'s unresolved list, which has carried "章节线继承第一关波次表" since D25
+without anyone measuring it.
 
 ## Why
 
-`App.vue` never passes `:chapter` to `BattleView`, so the chapter track is constructible, winnable
-and settleable - and **unclickable**. Everything built on it since D27 is therefore invisible to a
-player: the codex, the run record, the six charms and the three challenges all read progress that
-no reachable run can produce. D32 counted the page side of that: the queue's "章节" page does not
-exist. This slice is that page.
+Three stages are clickable for the first time. If all three spawn from the same table, then "three
+stages" is one stage with three objectives - and what the player feels between them is a rule change,
+not a fight. That is worth knowing before anything is built on top of it, and it is exactly the kind
+of claim this project has learned not to accept from a note.
 
 ## Scope
 
 0. **Verify the premise first, with a command.**
-   (a) Where exactly does `BattleView` take `chapter`, what shape does it need, and what does
-       `ChapterRunSession` read from it? Name the three lines.
-   (b) What already exists that a chapter entry would reuse - the hero table, `prepareChapterRun`,
-       `OPEN_STAGES`, the charm list? Count what is missing between "click" and "run starts".
-   (c) Which of the four empty pages start producing content the first time a chapter run settles,
-       and which stay empty for a different reason? Name the writer for each.
-   (d) What does the lobby do today when the chapter track is unavailable - and what does the
-       existing `launchBlocker` already refuse? Do not invent a second gate.
-1. **One entry, three stages, one write.** The lobby gains a chapter entry that names the stage and
-   the worn charm, and hands `BattleView` a `ChapterRunOptions`. Stage selection is `OPEN_STAGES`,
-   not a new list.
-2. **No second gate.** Reuse `launchBlocker` / `previewBlocker` for anything that already blocks a
-   run; a new check is only justified where the chapter track differs from the legacy one.
-3. **The four pages get a first real row.** A chapter run settled from the UI must appear in the run
-   record and pay a challenge. Assert it through the same reducer the page reads.
-4. **Re-baseline, explicitly.** Same rule as D23-D32: what moved, old numbers beside new.
+   (a) Which stage does the spawner read its waves from? Name the line, and count the readers of
+       `stage.*` that are not `duration` / `seals` / `eliteChecks` / `boss`.
+   (b) If all three share one table, is that a decision or an inheritance? Find the commit or the
+       comment that says so - an inheritance with no owner is a coincidence, not a rule.
+   (c) What does the GDD promise per stage, and does any of it already exist in data?
+   (d) What would a second table cost? Count the assertions that pin the first one.
+1. **If the stages already differ**, say so and stop: zero production change, the delivery is the
+   measurement plus the attribution.
+2. **If they do not**, give each stage its own row, derived from what the stage asks for (a seal
+   stage should not be paced like a Boss stage), and keep `CH001-01` byte-identical.
+3. **Re-baseline, explicitly.** Same rule as D23-D33: what moved, old numbers beside new.
 
 ## Out of scope
 
-Art and audio; a stage-select screen with per-stage art; difficulty and mode selectors; the six
-charm effects' balance; any change to a settlement number.
+Art and audio; a fourth stage; difficulty tiers; re-tuning the six charm effects; anything that
+changes a shipped run's numbers on `CH001-01`.
 
 ## Constraints
 
 `AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer reads,
 and the delivery says the picture is unverified; every number re-derivable from its command; state
-the instrument with the number. A page that only exists in a template is not shipped: it owes a
-route from the lobby and an assertion that the route is reachable.
+the instrument with the number. Balance numbers need >= 33 seeds; a win rate without its instrument
+declared is not a measurement.

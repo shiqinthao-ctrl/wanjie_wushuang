@@ -1816,3 +1816,64 @@ GDD 那句话记为错 —— 这与 D29 记 `stars` 的「声明范围比实际
 `SavePanel` / `CharmsPanel` 补重试路径，并让后者**逐字区分**「可以再试一次」与「必须回大厅」。
 `ui/pages.test.ts` 钉住：八页六态的矩阵里每一个「有」都指向一行真实代码，两句话不再出现，
 五个页面各自有一段 `@media`。
+
+## D33 — R3-U06 Scope 0：三行、四个空页面，以及一道**不该复用**的既有门禁
+
+**(a) `chapter` 从哪进、要什么形状、`ChapterRunSession` 读它什么？—— 三行。**
+1. `BattleView.vue:28`：`withDefaults(defineProps<{ …; chapter?: ChapterRunOptions }>(), …)` —— 类型就是
+   `prepare.ts` 的 `ChapterRunOptions`（`ruleset/chapterId/stageId/heroId/mode/difficulty/seed` 七个字段）。
+2. `BattleView.vue:161-163`：`chapterSession = new ChapterRunSession(repository, slot, props.chapter)`、
+   `mountBattle(…, props.journey, props.chapter)`、`if (!props.chapter) runSession = …`。
+   **这三行是分叉点**：有 `chapter` 走章节会话，没有走征途会话，两条不会同时存在。
+3. `App.vue:65`：`<BattleView v-if="page === 'battle' && active && repository" :slot :repository :journey … />`
+   —— **没有 `:chapter`**。这就是「可构造 ≠ 可玩」的全部原因，一行。
+`ChapterRunSession.ts:18-19` 读两样：`slot.id` / `slot.revision`（写回要用）与
+`prepareChapterRun(slot.save, options)`（准备期）。**它不读 `save.mode`、不读 `selectedStage`、不读 `pet`。**
+
+**(b) 从「点击」到「开局」缺什么？—— 复用五样，缺四样。**
+复用的：`chapterHeroes`（3 行，H001/H010/H012）、`prepareChapterRun`、`OPEN_STAGES`（3 行）、
+`chapterStages`（3 行）、`equippedCharm` + `chapterCharmRows`（6 行）。
+缺的：**一个页面**（章节面板）、**一次 `:chapter` 绑定**、**一个 `page` 联合成员**、**一次退出清空**。
+最后一条是最容易漏的：`BattleView` 是 `v-if`，退出即销毁；如果 `chapterOptions` 不清，
+**下一次从大厅进战场会静默走章节线**，而玩家以为在打征途。这条必须有一条断言。
+
+**(c) 四个空页面，第一次章节局结算后有内容吗？—— 三个有，一个看运气。**
+`settleChapterRun`（`settlement.ts:65-88`）一次写五处：`chapters.stars`/`clears`、`discoveries`、
+`charms.unlocked`、`reports`。对应：
+
+| 页面 | 读什么 | 第一次结算后 |
+|---|---|---|
+| 战报 `ReportsPanel` | `progress.reports` | **有**（每局必写一条） |
+| 挑战 `ChallengesPanel` | `charms.unlocked` | **有**（`clear` 那条只要赢就达成） |
+| 护符 `CharmsPanel` | `charms.unlocked` | **有**（同上，且三枚可一次发齐） |
+| 图鉴 `CodexPanel` | `progress.discoveries` | **不一定** —— 写入在 `if (run.formId)` 里（`:75`）。不进化的一局 `formId === null`，图鉴仍然空 |
+
+**这条差别是结构性的，不是运气**：图鉴记录的是「形态见过没有」，而形态是 Lv.3 之后的**可选**分支。
+把它写成「打完就有内容」是错的；页面上的「未见」是诚实的。
+
+**(d) 大厅的既有门禁能复用吗？—— 不能；`previewBlocker` 的八条里七条对章节线无意义。**
+`previewBlocker`（`schema30.ts:88-104`）依次检查：英雄 ∈ 已解锁初始英雄、`mode==='story'`、
+`selectedChapter==='ST001'`、`selectedStage==='ST001-01'`、`difficulty==='normal'`、`pet==='PET001'`、
+`build` 只含已迁移技能、`runes`/`talents` 都有定义、`equipInst` 合法、`calculateStartup` 属性有限。
+**后七组字段章节线一个都不读** —— `contracts.test.ts:27-38` 已经测过：把 `mode` 改成 `'endless'`、
+`selectedChapter` 改成 `'ST012'`、`hero` 改成 `'H019'`、`gold` 改成 999999、`talents` 改成 999、
+`runes` 加 `'FUTURE'`、`pet` 改成 `'FUTURE'`、装备评分改成 999999 之后，
+`prepareChapterRun(low)` 与 `prepareChapterRun(high)` **`toEqual` 相等**。
+唯一有意义的那条（英雄必须在这三个里）由 `prepareChapterRun` 自己保证：
+`Object.hasOwn(chapterHeroes, options.heroId)`（`prepare.ts:26`）。
+
+**所以本片不复用 `previewBlocker`，而是用一个真实调用代替一张条件表**：
+
+```ts
+try { prepareChapterRun(save, options); return ''; }
+catch (cause) { return message(cause); }
+```
+
+**判据不是「有没有第二道门」，是「这道门拦的东西，这条路径读不读」。** 复用会造出一个
+「`mode: 'endless'` 的存档打不了章节关」的假限制，而那个字段章节线根本不读。
+反过来，试跑一次 `prepareChapterRun` 是**不会漂的**：它执行的就是开战那一刻要执行的那一行。
+
+**交付形状。** 新页 `ui/ChapterPanel.vue`：三关（`OPEN_STAGES` 过滤 `chapterStages`）、每关的目标与
+**当前最好星级**、当前英雄与当前护符、一个「出战」按钮；`App.vue` 加 `page` 成员、一个 `chapterOptions`
+ref、`:chapter` 绑定、以及 `home()` 里的**清空**。`chapters.stars` 因此拿到它的**第一个渲染器**
+（D31 记过它「仍然只写」）。
