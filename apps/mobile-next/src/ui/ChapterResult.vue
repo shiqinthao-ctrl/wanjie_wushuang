@@ -19,10 +19,19 @@ watchEffect(() => { if (props.snapshot.status === 'ended' && !dialog.value?.open
     <template v-if="result">
       <p role="status">首章战报已保存</p>
       <p>{{ result.stars ? `本关 ${result.stars} 星` : '本局未获得章节星级' }} · {{ result.report.routes.length }} 条路线 · {{ result.report.bonds.length }} 个羁绊</p>
-      <p v-if="result.unlockedCharms.length">新解锁 {{ result.unlockedCharms.length }} 件战备护符，效果将在战备版本开放。</p>
+      <p v-if="result.unlockedCharms.length">新解锁 {{ result.unlockedCharms.length }} 件战备护符，可在战备页装备（一次一枚，下一局生效）。</p>
       <p>{{ result.report.awakened ? '下一局：尝试另一条进化路线。' : '下一目标：Lv.8 且核心术式 Lv.3，完成觉醒。' }}</p>
       <button class="primary" :disabled="busy || leaving" @click="emit('replay')">再次挑战本关</button>
     </template>
     <button :disabled="busy || leaving" @click="emit('exit')">返回大厅</button>
   </dialog>
 </template>
+
+<style scoped>
+/* The result dialog is the one screen every run ends on, so it gets the same narrow-screen
+   treatment as the pages: the two action buttons stack instead of shrinking below a thumb. */
+@media (max-width: 640px) {
+  .pause-dialog h2 { font-size: 22px; }
+  .pause-dialog > button { min-height: 48px; }
+}
+</style>

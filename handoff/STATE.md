@@ -14,46 +14,47 @@ V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` 
 Legacy version wrappers remain; migrate incrementally, never rewrite the combat loop in one pass.
 
 ## Current task
-`R3-U01..05` the five pages and their six states (`../TASK.md`); `R3-P04` shipped.
+`R3-U06` the chapter entry (`../TASK.md`); `R3-U01..05` shipped.
 
 ## Last completed
-**R3-P04 (D31)** - three challenges, three charms, and a star that is a record. (a) `chapters.stars`
-and `clears` had **zero** production readers. (b) Replay granted no permanent numeric gain; the owning
-line is `prepare.ts:43` - stats come from `chapterHeroes`, and settlement assigns only `mobileChapter`.
-The legacy path (`core/settlement.ts:50-56`) does add gold/mastery/XP; that is the shape the queue
-forbids, and none of it was copied. (c) No new field: the three earnable charms were already in
-`charms.unlocked`, and `stars` already admitted `0..3` in both validators - the writer used a third of
-it. (d) The GDD promises three stars, but its prose ("win 1 / unhurt 2 / >=55% 3") **cannot be built**:
-unhurt implies >=55%, so under `Math.max` the two upper tiers collapse and the middle is unreachable.
-The data (`clear: 2`) is self-consistent, so the data won and the prose is recorded as wrong.
+**R3-U01..05 (D32)** - eight pages, six states, and two lies I shipped last slice. (a) The queue says
+"four pages"; there are eight. The "章节" page it names **does not exist** - the lobby shows one
+hardcoded stage line, and that entry is the next slice. (b) The six-state matrix has 5 real holes:
+two are **false sentences** - `ReportsPanel` still said "a win is 1 star" after D31, and
+`ChapterResult` still said charm effects were "coming later" after D30; both shipped in the same
+commit as the change that falsified them, and no assertion read them. Fixed by reading the data
+(`chapterStars`) instead of restating the rule. (c) `transactOnce` fails two ways: a receipt hit
+(retry is safe) and a revision mismatch (retry can never succeed); only `BattleView` told them apart,
+so `CharmsPanel` now does too. (d) Five pages had zero `@media`; all five got one.
 
 ## Changed files
-New `chapter/challenges.ts` (three rows: `asks` + `reward` + a predicate over three fields only),
-`ui/ChallengesPanel.vue`, `chapter/challenges.test.ts` (23 `it`); `chapter/catalog.ts` (`chapterStars`),
-`chapter/settlement.ts` (`starsFor`; three magic indexes become `earnedCharms`), `chapter/reports.ts`
-(comment), `ui/ChapterResult.vue` (says N stars), `App.vue` (+1 page); page
-`evidence/R3-P/IMPLEMENTATION-d.md`. D31; `QUEUE.md` 17 done, **18 next**; ledger 271.
+`ui/ReportsPanel.vue` (star tiers from `chapterStars`, breakpoint), `ui/ChapterResult.vue` (charm
+sentence, breakpoint), `ui/CodexPanel.vue` / `ui/CharmsPanel.vue` / `ui/ChallengesPanel.vue`
+(breakpoints; charms also splits the two failures and gained a retry), `ui/SavePanel.vue` (retry holds
+the failed closure), `style.css` (settings breakpoint); new `ui/pages.test.ts` (23 `it`); page
+`evidence/R3-U/IMPLEMENTATION.md`. D32; `QUEUE.md` 18 done, **19 next**.
 
 ## Tests
-**GATE_FULL**: **58 files / 1646 tests (1659.07 s), all green**. Increment 1623 -> 1646 is +23 = the new
-file's 23 `it`; files 57 -> 58; no probe (`+N` matches, and `treeHygiene` is green). Subset `src/chapter`:
-13 files / 435 tests / 8.40 s. `vue-tsc --noEmit` clean; `check` OK (26 JS, 1 CSS); `smoke` / `audit` /
-`archive:verify` OK; `context` 7709/8192; ledger 271 unchanged. **No Playwright**: the page is asserted
-through `challengeViews`'s return value, the four source-level connection points in `App.vue`, and the
-predicate's property trace - the picture is unseen.
+**GATE_FULL**: **59 files / 1669 tests (1633.89 s), all green**. Increment 1646 -> 1669 is +23 = the
+new file's 23 `it`; files 58 -> 59; no probe. Subset `src/ui` + `src/chapter`: 15 files / 465 tests
+(8.05 s). `vue-tsc --noEmit` clean; `check` / `smoke` / `audit` / `archive:verify` OK; ledger 271
+unchanged. **No Playwright**: "narrow screen" here means a breakpoint exists in the component's own
+scoped style, not that the page looks right; no retry has been clicked.
 
 ## Unresolved risk
-`App.vue` still never passes `:chapter`, so the chapter track is constructible and winnable but **not
-clickable** - entry is `R3-U06`; consequences: the challenge and report pages have nothing to grow
-from, and a charm can be equipped with no run to wear it. `stars` is now 0..3 but nothing renders
-`chapters.stars` - the best score is still write-only. `bossThreat.test.ts` still slices with
-`slice(5)`. Dead data remains (`boss.skills`, `mechanics.shield`, `mechanics.shrink`, `mechanics.name`).
-The six charm effects move their lever - **not** proven to change win rates (needs >= 33 seeds).
-`R2-F-G4ROWS`'s evolution arm sees no G4 row; the fireline does not damage enemies; `hazardPeak` is
-dead; 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001` shares the summon cap.
+`App.vue` still never passes `:chapter` - the chapter track, and therefore the codex, the run record,
+the charms and the challenges, are **unclickable**; `R3-U06` fixes that. Two failures are told apart
+by **message text** (`includes('存档已更新')`) in three places - a string contract, so changing that
+sentence silently disables all three. No retry button has ever been clicked. No Playwright, so
+"narrow screen" means "a breakpoint exists", not "it looks right". `chapters.stars` is 0..3 and still
+write-only. `bossThreat.test.ts` slices with `slice(5)`. Dead data remains (`boss.skills`,
+`mechanics.shield`, `mechanics.shrink`, `mechanics.name`). The six charm effects move their lever -
+not proven to change win rates. `R2-F-G4ROWS`'s evolution arm sees no G4 row; the fireline does not
+damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001`
+shares the summon cap.
 
 ## Recommended next task
-`R3-U01..05` (brief in `TASK.md`). Start by counting: which pages exist, which of the six states each
-one handles, and whether `transactOnce`'s retry is reachable by a player or only by a test.
+`R3-U06` (brief in `TASK.md`). Start by naming the three lines where `chapter` would have to enter,
+then count what is missing between a click and a running chapter run.
 
 Replace only the five fields above.

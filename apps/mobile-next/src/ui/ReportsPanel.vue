@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { REPORT_CAP, reportRows } from '../chapter/reports';
+import { chapterStars } from '../chapter/catalog';
 import type { GameSave } from '../core/saveTypes';
 /**
  * The run record. Read-only: it renders `progress.reports` through `reportRows` and writes nothing.
@@ -77,9 +78,10 @@ const percent = (value: number) => `${Math.round(value * 1000) / 10}%`;
       </ol>
 
       <p class="note">
-        「星」是数字不是三格：写入处是「胜利记 1 星、其余记 0」，校验却允许 0–3 ——
-        画三格会显示成 1/3，像是没打好。另外，守住的界碑数与清掉的精英检验数在结算时没有被写进战报，
-        所以这里没有这两列。
+        「星」是数字不是三格：通关记 {{ chapterStars.clear }} 星，剩余生命高于
+        {{ Math.round(chapterStars.masteryHp * 100) }}% 记 {{ chapterStars.mastery }} 星，失败记 0 星 ——
+        这三档与结算用的是同一个来源，改一处两边一起变。另外，守住的界碑数与清掉的精英检验数在结算时
+        没有被写进战报，所以这里没有这两列。
       </p>
     </template>
 
@@ -112,4 +114,11 @@ const percent = (value: number) => `${Math.round(value * 1000) / 10}%`;
 .extra { margin-top: 4px; font-size: 11px; color: #7f8f96; }
 .note { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 11px; line-height: 1.9; color: #7f8f96; }
 .reports > button { margin-top: 26px; width: 100%; }
+@media (max-width: 640px) {
+  .reports { margin: 22px auto 56px; }
+  .reports h1 { font-size: 26px; margin: 10px 0 12px; }
+  .head { flex-wrap: wrap; }
+  .head small { margin-left: 0; }
+  .summary, .summary.small { font-size: 12px; }
+}
 </style>

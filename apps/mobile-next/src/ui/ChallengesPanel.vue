@@ -85,4 +85,10 @@ const paidCount = computed(() => rows.value.filter(row => row.paid).length);
 .pays { font-size: 12px; line-height: 1.8; color: #7eefce; margin-top: 4px; }
 .boundary { margin-top: 24px; font-size: 12px; line-height: 1.9; color: #8fa79b; }
 .challenges > button { margin-top: 22px; width: 100%; }
+@media (max-width: 640px) {
+  .challenges { margin: 22px auto 56px; }
+  .challenges h1 { font-size: 26px; }
+  .challenges h2 { font-size: 15px; }
+  .head { flex-wrap: wrap; }
+}
 </style>

@@ -117,4 +117,12 @@ const lineName = computed(() => track.value === 'chapter' ? '章节线' : '进�
 .parts small { font-size: 11px; color: var(--muted); margin-top: 4px; }
 .why { color: #c8a48f !important; }
 .codex > button { margin-top: 30px; width: 100%; }
+@media (max-width: 640px) {
+  .codex { margin: 22px auto 56px; }
+  .codex h1 { font-size: 26px; }
+  .codex h2 { font-size: 15px; }
+  .head { flex-wrap: wrap; }
+  /* Two parts side by side stop being readable under ~360px, so they stack. */
+  .parts { flex-direction: column; }
+}
 </style>

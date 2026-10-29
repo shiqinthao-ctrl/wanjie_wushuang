@@ -6,11 +6,20 @@ const props = defineProps<{ repository: SaveRepository; active: SaveSlot }>();
 const emit = defineEmits<{ selected: [slot: SaveSlot]; back: []; busy: [value: boolean] }>();
 const slots = shallowRef<SaveSlot[]>([]);
 const busy = ref(false), error = ref(''), notice = ref('');
+/**
+ * The action that failed, so the error can offer a retry instead of a sentence.
+ *
+ * Every write here goes through `transactOnce`-free repository methods (create / select / import /
+ * export), so a retry re-runs the same closure - and `importFile` captured its `File`, which means
+ * the player does not have to pick it again. Holding the closure rather than a button label is what
+ * makes "retry" mean the same operation and not "click something similar".
+ */
+const failed = shallowRef<(() => Promise<void>) | undefined>();
 async function perform(action: () => Promise<void>) {
   if (busy.value) return;
-  busy.value = true; emit('busy', true); error.value = ''; notice.value = '';
+  busy.value = true; emit('busy', true); error.value = ''; notice.value = ''; failed.value = undefined;
   try { await action(); slots.value = await props.repository.list(); }
-  catch (cause) { error.value = cause instanceof DOMException ? '本地存档写入失败，请检查存储空间与权限后重试。已有存档未被覆盖。' : cause instanceof Error ? cause.message : '存档操作失败，请重试。'; }
+  catch (cause) { error.value = cause instanceof DOMException ? '本地存档写入失败，请检查存储空间与权限后重试。已有存档未被覆盖。' : cause instanceof Error ? cause.message : '存档操作失败，请重试。'; failed.value = action; }
   finally { busy.value = false; emit('busy', false); }
 }
 function create() { void perform(async () => { emit('selected', await props.repository.createFresh()); notice.value = '已创建独立的新存档。'; }); }
@@ -46,6 +55,7 @@ onMounted(() => { void perform(async () => {}); });
     <small class="eyebrow">保存每一段征途</small><h1>本地存档</h1>
     <p>存档保存在当前浏览器。导入会建立独立副本；请定期导出备份，跨设备或端口使用文件转移。</p>
     <p v-if="error" class="save-error" role="alert">{{ error }}</p>
+    <button v-if="error && failed" class="save-retry" :disabled="busy" @click="failed && perform(failed)">重试上一步</button>
     <p v-if="notice" class="save-notice" role="status">{{ notice }}</p>
     <ul class="save-list" aria-label="存档列表">
       <li v-for="slot in slots" :key="slot.id" :class="{ selected: slot.id === active.id }">

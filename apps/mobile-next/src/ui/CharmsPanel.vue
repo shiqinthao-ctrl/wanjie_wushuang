@@ -15,6 +15,19 @@ import type { SaveRepository, SaveSlot } from '../storage/SaveRepository';
 const props = defineProps<{ repository: SaveRepository; active: SaveSlot }>();
 const emit = defineEmits<{ selected: [slot: SaveSlot]; back: []; busy: [value: boolean] }>();
 const busy = ref(false), error = ref(''), notice = ref('');
+/**
+ * `transactOnce` fails in two ways that look identical to the player and are not alike at all:
+ *
+ * - a **receipt hit** - the write already happened, so calling again with the same operation id
+ *   returns the old result and changes nothing. A retry is the right button.
+ * - a **revision mismatch** - the slot moved on since this page read it, so every retry with this
+ *   revision fails forever. The right button is "go back to the lobby", and saying "please retry"
+ *   here is telling the player to press a button that cannot work.
+ *
+ * `BattleView` already splits these two by message (`存档已更新`); this page did not, which is what
+ * D32 fixed. `lastId` is kept so the retry re-issues the *same* equip, not "whichever row is first".
+ */
+const conflict = ref(false), lastId = ref<string | null>(null);
 /** Reading can fail on a save from a newer build; that is a message, not a blank page. */
 const read = computed<{ progress: ChapterProgress | null; error: string }>(() => {
   try { return { progress: readChapterProgress(props.active.save), error: '' }; }
@@ -24,7 +37,7 @@ const rows = computed(() => read.value.progress ? charmViews(read.value.progress
 const equippedName = computed(() => rows.value.find(row => row.equipped)?.name ?? '未装备');
 async function equip(id: string | null) {
   if (busy.value || !read.value.progress) return;
-  busy.value = true; emit('busy', true); error.value = ''; notice.value = '';
+  busy.value = true; emit('busy', true); error.value = ''; notice.value = ''; lastId.value = id; conflict.value = false;
   try {
     const saved = await props.repository.transactOnce(props.active.id, `chapter1-v1:charm:${props.active.revision}:${id ?? 'none'}`, props.active.revision, save => {
       const next = readChapterProgress(save);
@@ -35,7 +48,13 @@ async function equip(id: string | null) {
     emit('selected', saved.slot);
     notice.value = id ? `已装备 ${rows.value.find(row => row.id === id)?.name ?? id}，下一局生效。` : '已卸下护符，下一局按原样开打。';
   }
-  catch (cause) { error.value = cause instanceof Error ? cause.message : '护符尚未确认保存，请重试。'; }
+  catch (cause) {
+    const message = cause instanceof Error ? cause.message : '';
+    conflict.value = message.includes('存档已更新');
+    error.value = conflict.value
+      ? `${message}装备没有写入 —— 再点一次装备也不会成功，请先返回大厅重新载入。`
+      : `护符尚未确认保存，请重试。${message}`;
+  }
   finally { busy.value = false; emit('busy', false); }
 }
 </script>
@@ -51,7 +70,11 @@ async function equip(id: string | null) {
     <p class="now">当前：<strong>{{ equippedName }}</strong></p>
 
     <p v-if="read.error" class="warn" role="alert">{{ read.error }}</p>
-    <p v-if="error" class="warn" role="alert">{{ error }}</p>
+    <div v-if="error" class="warn" role="alert">
+      <p>{{ error }}</p>
+      <button v-if="!conflict" :disabled="busy" @click="equip(lastId)">重试装备</button>
+      <button v-else :disabled="busy" @click="$emit('back')">返回大厅重新载入</button>
+    </div>
     <p v-if="notice" class="notice" role="status">{{ notice }}</p>
 
     <ul class="list">
@@ -84,6 +107,7 @@ async function equip(id: string | null) {
 .lede { font-size: 13px; line-height: 1.9; color: var(--muted); }
 .now { margin-top: 14px; font-size: 12px; letter-spacing: .08em; color: var(--gold); }
 .warn { margin-top: 14px; padding: 10px 12px; border-left: 2px solid #e08a6a; background: #2a1b16; font-size: 12px; line-height: 1.8; }
+.warn button { margin-top: 8px; font-size: 12px; padding: 6px 14px; }
 .notice { margin-top: 14px; font-size: 12px; color: #7eefce; }
 .list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
 .list li { border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; background: #0f1f1c; }
@@ -98,4 +122,9 @@ async function equip(id: string | null) {
 .act button { font-size: 12px; padding: 6px 16px; }
 .boundary { margin-top: 24px; font-size: 12px; line-height: 1.9; color: #8fa79b; }
 .charms > button { margin-top: 22px; width: 100%; }
+@media (max-width: 640px) {
+  .charms { margin: 22px auto 56px; }
+  .charms h1 { font-size: 26px; }
+  .head { flex-wrap: wrap; }
+}
 </style>

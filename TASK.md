@@ -1,38 +1,43 @@
-# TASK.md - R3-U01..05: five pages, six states, and the ones handled only next door
+# TASK.md - R3-U06: the chapter entry, and the four pages that are empty without it
 
-Base: R3-P04 (D31). Queue `QUEUE.md` #18. The queue's whole spec is "empty / busy / error / retry /
-save / narrow-screen, complete states".
+Base: R3-U01..05 (D32). Queue `QUEUE.md` #19. The queue's whole spec is "close GDD finding 7".
 
 ## Why
 
-Five pages are named and none has been audited for the six states. The failure modes already exist in
-the code - `progressError`, `storageError`, `transactOnce` receipts, the catch-all in `BattleView` -
-and they are handled unevenly: one page says "the save cannot be read", its neighbour draws an empty
-list that looks like "you have never played". A page that renders only its happy path is a screenshot
-of one state, not a page.
+`App.vue` never passes `:chapter` to `BattleView`, so the chapter track is constructible, winnable
+and settleable - and **unclickable**. Everything built on it since D27 is therefore invisible to a
+player: the codex, the run record, the six charms and the three challenges all read progress that
+no reachable run can produce. D32 counted the page side of that: the queue's "章节" page does not
+exist. This slice is that page.
 
 ## Scope
 
 0. **Verify the premise first, with a command.**
-   (a) Which of the five pages exist today, and where is each routed from? Count them against
-       `App.vue`'s `page` union - and against the queue's own claim about how many there are.
-   (b) For each of the six states, name the page and the line that handles it. Count the holes per
-       page, not in total: a state handled on one page and not its neighbour is the finding.
-   (c) Is `transactOnce`'s retry reachable from the UI or only from a test? Read every call site and
-       say which ones the player can retry.
-   (d) What does the narrow layout do today - reflow, clip, or scroll? Cite the CSS, not the intent.
-1. **One state per row, in data** - `page x state` with the line that handles it, so a hole is a
-   missing row rather than a missing `v-if`.
-2. **Fill the holes, or name them out of scope with the reason.** No silent half-states.
-3. **Re-baseline, explicitly.** Same rule as D23-D31: what moved, old numbers beside new.
+   (a) Where exactly does `BattleView` take `chapter`, what shape does it need, and what does
+       `ChapterRunSession` read from it? Name the three lines.
+   (b) What already exists that a chapter entry would reuse - the hero table, `prepareChapterRun`,
+       `OPEN_STAGES`, the charm list? Count what is missing between "click" and "run starts".
+   (c) Which of the four empty pages start producing content the first time a chapter run settles,
+       and which stay empty for a different reason? Name the writer for each.
+   (d) What does the lobby do today when the chapter track is unavailable - and what does the
+       existing `launchBlocker` already refuse? Do not invent a second gate.
+1. **One entry, three stages, one write.** The lobby gains a chapter entry that names the stage and
+   the worn charm, and hands `BattleView` a `ChapterRunOptions`. Stage selection is `OPEN_STAGES`,
+   not a new list.
+2. **No second gate.** Reuse `launchBlocker` / `previewBlocker` for anything that already blocks a
+   run; a new check is only justified where the chapter track differs from the legacy one.
+3. **The four pages get a first real row.** A chapter run settled from the UI must appear in the run
+   record and pay a challenge. Assert it through the same reducer the page reads.
+4. **Re-baseline, explicitly.** Same rule as D23-D32: what moved, old numbers beside new.
 
 ## Out of scope
 
-Art and audio; the chapter battle entry (`R3-U06`, #19); any change to a settlement number; a new page;
-re-tuning the six charm effects.
+Art and audio; a stage-select screen with per-stage art; difficulty and mode selectors; the six
+charm effects' balance; any change to a settlement number.
 
 ## Constraints
 
-`AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer reads, and
-the delivery says the picture is unverified; every number re-derivable from its command; state the
-instrument with the number.
+`AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer reads,
+and the delivery says the picture is unverified; every number re-derivable from its command; state
+the instrument with the number. A page that only exists in a template is not shipped: it owes a
+route from the lobby and an assertion that the route is reachable.
