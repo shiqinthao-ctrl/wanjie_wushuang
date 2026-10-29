@@ -1,9 +1,10 @@
 import type { GameSave } from '../core/saveTypes';
 import { parseSchema30 } from '../storage/schema30';
-import { CHAPTER_ID, chapterBonds, chapterCharms, chapterError, chapterHeroes, chapterRouteGroups, freeze, number, strings, text } from './catalog';
+import { CHAPTER_ID, chapterBonds, chapterError, chapterHeroes, chapterRouteGroups, chapterStars, freeze, number, strings, text } from './catalog';
 import type { SealRule } from './catalog';
 import { validateChapterOptions } from './prepare';
 import type { ChapterPreparation, ChapterRunOptions } from './prepare';
+import { earnedCharms } from './challenges';
 import { readChapterProgress, validateDamage } from './progress';
 import type { ChapterReport } from './progress';
 
@@ -61,12 +62,32 @@ export function validateChapterFinal(preparation: ChapterPreparation, run: Chapt
     if (run.hp <= 0 || run.time !== preparation.stage.duration || run.bossDefeated) chapterError('超时目标/战利品优先');
   } else chapterError('结束原因');
 }
+/**
+ * D31: how many stars a settled run is worth, 0..3.
+ *
+ * The same arithmetic the legacy path has used since before the chapter existed
+ * (`core/settlement.ts:40`: `victory ? hp/maxHp > masteryHp ? 3 : 2 : 0`), read off
+ * `chapterStars` instead of a literal. Chapter-line settlement used to write `victory ? 1 : 0`,
+ * which left the `stars` slot at one third of the range the validator and `schema30` both admit
+ * (`number(..., 3, true)` / `integer(star, ..., 0, 3)`) - a three-star field that could only ever
+ * hold a boolean.
+ *
+ * What this deliberately does **not** do: it pays nothing. The legacy path also adds gold,
+ * mastery and account XP on the same line (`stars * 100` among them); that is the shape of the
+ * "permanent numeric crushing" the queue forbids, and none of it is copied here. A star is a
+ * record of a run, not a claim on the next one - `challenges.test.ts` asserts that by replaying a
+ * save with `stars` at 0 and at 3 through `prepareChapterRun` and requiring identical bytes.
+ */
+export function starsFor(run: { endReason: 'victory' | 'defeat' | 'timeout'; hp: number; maxHp: number }): number {
+  if (run.endReason !== 'victory') return 0;
+  return run.hp / run.maxHp > chapterStars.masteryHp ? chapterStars.mastery : chapterStars.clear;
+}
 /** Pure reducer. Persist this result and its receipt through the repository adapter. */
 export function settleChapterRun(source: GameSave, preparation: ChapterPreparation, run: ChapterFinalRun, runId: string) {
   text(runId, '本局编号'); validateChapterFinal(preparation, run);
   const save = parseSchema30(JSON.stringify(source)), progress = readChapterProgress(save);
   if (progress.reports.some(report => report.runId === runId)) chapterError('本局已有战报，请读取结算凭证');
-  const victory = run.endReason === 'victory', stars = victory ? 1 : 0;
+  const victory = run.endReason === 'victory', stars = starsFor(run);
   const chapter = progress.chapters[CHAPTER_ID]!;
   if (victory) {
     chapter.stars[run.stageId] = Math.max(chapter.stars[run.stageId]!, stars);
@@ -76,8 +97,8 @@ export function settleChapterRun(source: GameSave, preparation: ChapterPreparati
     const previous = progress.discoveries[run.formId];
     progress.discoveries[run.formId] = { ...previous, discovered: true, awakened: !!previous?.awakened || run.awakened, cleared: !!previous?.cleared || victory };
   }
-  const earned = [victory ? chapterCharms[3] : null, run.awakened ? chapterCharms[4] : null, run.bonds.length >= 2 ? chapterCharms[5] : null].filter((id): id is NonNullable<typeof id> => id !== null);
-  const unlockedCharms = earned.filter(id => !progress.charms.unlocked.includes(id));
+  // D31: the three earnable charms come from the challenge table, not from three magic indexes.
+  const unlockedCharms = earnedCharms(progress, run);
   progress.charms.unlocked.push(...unlockedCharms);
   const report: ChapterReport = { runId, ruleset: run.ruleset, chapterId: run.chapterId, stageId: run.stageId, heroId: run.heroId, seed: run.seed,
     endReason: run.endReason, stars, time: run.time, level: run.level, kills: run.kills, formId: run.formId, awakened: run.awakened,

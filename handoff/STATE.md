@@ -4,7 +4,8 @@
 V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` | 22 JS files | no runtime deps
 
 ## Critical invariants
-- Fresh ST001 stages start at 0 stars. Defeat grants 0 chapter stars. Non-story modes do not alter chapter stars.
+- Fresh stages start at 0 stars. Defeat grants 0. A win is `chapterStars.clear` (2), 3 above 55% hp.
+  Non-story modes do not alter chapter stars.
 - One run settles at most once. Endless ignores legacy 20-minute completion.
 - Boss respawn regression, permanent aura slow, and rift cumulative-kill bug must remain fixed.
 - Q/E skill, Space dodge, R ult, F interaction.
@@ -13,52 +14,46 @@ V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` 
 Legacy version wrappers remain; migrate incrementally, never rewrite the combat loop in one pass.
 
 ## Current task
-`R3-P04` chapter challenges (`../TASK.md`); `R3-P03` shipped. The queue's whole spec is "no permanent
-numeric crushing", so the slice starts by *defining* the thing.
+`R3-U01..05` the five pages and their six states (`../TASK.md`); `R3-P04` shipped.
 
 ## Last completed
-**R3-P03 (D30)** - six charms, six levers, one worn at a time. Five answers: the six ids were
-**0/6 implemented** (the only non-test line naming any of them was the definition; every other
-mention is a positional subscript, so a rename would go unnoticed); equipping threw at
-`prepare.ts:31` and the catch-all in `BattleView` turned it into **"check your graphics driver"**;
-an effect can only hang off the `chapter` path, where both oracle tests pass `chapter: undefined`;
-the three earned charms are reachable on a shipped stage (victory **3/3**, awakening **3/3**, two
-bonds **1/3**, **0 bonds at the first frame**); no new save field is needed, though
-`charms.unlocked` never checks membership, so preparation has to. The expensive mistake was mine: I
-wrote "each lever has one read site" and `p.skillCd` has **three** - `H001`'s skill goes through
-`DragonCombat`, so the line I changed was not on its path. Fixed by collapsing it into
-`skillCooldown()`, called from all three. Data carries `lever` + `factor` only.
+**R3-P04 (D31)** - three challenges, three charms, and a star that is a record. (a) `chapters.stars`
+and `clears` had **zero** production readers. (b) Replay granted no permanent numeric gain; the owning
+line is `prepare.ts:43` - stats come from `chapterHeroes`, and settlement assigns only `mobileChapter`.
+The legacy path (`core/settlement.ts:50-56`) does add gold/mastery/XP; that is the shape the queue
+forbids, and none of it was copied. (c) No new field: the three earnable charms were already in
+`charms.unlocked`, and `stars` already admitted `0..3` in both validators - the writer used a third of
+it. (d) The GDD promises three stars, but its prose ("win 1 / unhurt 2 / >=55% 3") **cannot be built**:
+unhurt implies >=55%, so under `Math.max` the two upper tiers collapse and the middle is unreachable.
+The data (`clear: 2`) is self-consistent, so the data won and the prose is recorded as wrong.
 
 ## Changed files
-New `chapter/charms.ts`, `ui/CharmsPanel.vue` (the only page that writes progress),
-`chapter/charms.test.ts` (21 `it`); `chapter/prepare.ts` (the throw becomes `preparation.charm`),
-`core/CombatSimulation.ts` (`charmScale`, `skillCooldown`, five read sites), `core/progression.ts`
-(`radiusScale`), `core/GameCore.ts` (pickup call), `chapter/DragonCombat.ts` +
-`core/EvolutionCombat.ts`; `App.vue` (`page` +1, lobby button, `v-else-if`); page
-`evidence/R3-P/IMPLEMENTATION-c.md`. D30; `QUEUE.md` 16 done, **17 next**; ledger **271**.
+New `chapter/challenges.ts` (three rows: `asks` + `reward` + a predicate over three fields only),
+`ui/ChallengesPanel.vue`, `chapter/challenges.test.ts` (23 `it`); `chapter/catalog.ts` (`chapterStars`),
+`chapter/settlement.ts` (`starsFor`; three magic indexes become `earnedCharms`), `chapter/reports.ts`
+(comment), `ui/ChapterResult.vue` (says N stars), `App.vue` (+1 page); page
+`evidence/R3-P/IMPLEMENTATION-d.md`. D31; `QUEUE.md` 17 done, **18 next**; ledger 271.
 
 ## Tests
-**GATE_FULL**: **57 files / 1623 tests (1766.93 s), all green**; increment 1602 -> 1623 is +21 = the
-new file's 21 `it`, files +1, no probe. Subset first: 18 files / 533 tests. `vue-tsc --noEmit` clean,
-`vite build` OK. `ledger:verify` OK (271/271, rolling 36; `numstat` on the ledger empty). `smoke` /
-`audit` / `archive:verify` OK; `context` under 8192; `check` cannot run here. **No Playwright**: the
-page is asserted through `charmViews`'s return value, the four source-level connection points in
-`App.vue` and the write pattern in the panel - not seen.
+**GATE_FULL**: **58 files / 1646 tests (1659.07 s), all green**. Increment 1623 -> 1646 is +23 = the new
+file's 23 `it`; files 57 -> 58; no probe (`+N` matches, and `treeHygiene` is green). Subset `src/chapter`:
+13 files / 435 tests / 8.40 s. `vue-tsc --noEmit` clean; `check` OK (26 JS, 1 CSS); `smoke` / `audit` /
+`archive:verify` OK; `context` 7709/8192; ledger 271 unchanged. **No Playwright**: the page is asserted
+through `challengeViews`'s return value, the four source-level connection points in `App.vue`, and the
+predicate's property trace - the picture is unseen.
 
 ## Unresolved risk
-`App.vue` still never passes `:chapter`, so the chapter track is constructible and winnable but
-**not clickable** - entry is `R3-U06`. Second consequence: a charm can be equipped and persisted, and
-there is no run to wear it in. `bossThreat.test.ts` still slices with `slice(5)`. Dead data remains
-(`boss.skills`, `mechanics.shield`, `mechanics.shrink`, `mechanics.name`). The 480 s deadline is
-asserted by driving the clock; the earliest real win is 401.50 s, and the reference player is thin on
-the shipped stage (16.6 hp on seed 99). The six charm effects move their lever - **not** proven to
-change win rates (that needs >= 33 seeds). `R2-F-G4ROWS`'s evolution arm sees no G4 row; the fireline
-does not damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet; main-skill has no UI;
-`S001` shares the summon cap; `progress.reports` never grows from the UI.
+`App.vue` still never passes `:chapter`, so the chapter track is constructible and winnable but **not
+clickable** - entry is `R3-U06`; consequences: the challenge and report pages have nothing to grow
+from, and a charm can be equipped with no run to wear it. `stars` is now 0..3 but nothing renders
+`chapters.stars` - the best score is still write-only. `bossThreat.test.ts` still slices with
+`slice(5)`. Dead data remains (`boss.skills`, `mechanics.shield`, `mechanics.shrink`, `mechanics.name`).
+The six charm effects move their lever - **not** proven to change win rates (needs >= 33 seeds).
+`R2-F-G4ROWS`'s evolution arm sees no G4 row; the fireline does not damage enemies; `hazardPeak` is
+dead; 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001` shares the summon cap.
 
 ## Recommended next task
-`R3-P04` (chapter challenges, brief in `TASK.md`). The queue gives one line - "no permanent numeric
-crushing" - so Scope 0 defines the thing before building it: what `chapters.stars`/`clears` record,
-who reads them, whether any can be farmed into a permanent stat, and only then what a row is.
+`R3-U01..05` (brief in `TASK.md`). Start by counting: which pages exist, which of the six states each
+one handles, and whether `transactOnce`'s retry is reachable by a player or only by a test.
 
 Replace only the five fields above.

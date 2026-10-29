@@ -15,8 +15,9 @@ import { REPORT_CAP, RATE_MIN_RUNS, clock, reportRows } from './reports';
  * - `progress.reports` had exactly one reader (a `runId` de-dupe) and no renderer at all;
  * - the twenty-run cap is enforced **twice** with different semantics - the writer truncates
  *   silently, the validator refuses the whole save - so `<= 20` is safe and `=== 20` is not;
- * - `stars` is written as `victory ? 1 : 0` while the validator admits `0..3`, so the page shows a
- *   count and this file pins it to `{0, 1}`;
+ * - `stars` was written as `victory ? 1 : 0` while the validator admits `0..3`. D31 filled the range
+ *   (2 for a win, 3 above 55% hp), so this file now pins `{0, 2, 3}` - and still pins that the row
+ *   carries a *count*, because a three-slot layout assumes a value is reachable;
  * - `sealsHeld` / `elitesChecked` reach the final run and are **dropped** at the report boundary,
  *   which is asserted here so that widening the report later is a deliberate act.
  */
@@ -68,7 +69,7 @@ describe('one row per run, newest first, and a loss reads like a win', () => {
     expect(row.outcome).toBe('victory');
     expect(row.time).toBe(310); expect(row.clock).toBe('05:10');
     expect(row.level).toBe(8); expect(row.kills).toBe(150);
-    expect(row.stars).toBe(1); expect(row.seed).toBe(42);
+    expect(row.stars).toBe(2); expect(row.seed).toBe(42);
   });
   it('uses the stage own clear word, so the altar does not claim 破围成功', () => {
     // D27 gave each stage its own two words precisely so a shared template branch could not
@@ -142,12 +143,16 @@ describe('no percentage without a denominator', () => {
 });
 
 describe('the fields that are narrower than their declared range', () => {
-  it('never emits more than one star, although the validator admits three', () => {
-    const reports = reportRows(settled([final(), defeat, timeout]));
+  it('now spans the whole three-star range, and still reports a count rather than three slots', () => {
+    // Before D31 the writer emitted `victory ? 1 : 0` into a field the validator admits `0..3`, so
+    // the observed set was `{0, 1}` and three slots would have read "1/3" on every win. Both halves
+    // are pinned: the range is reachable now, and the row is still a number.
+    const full = final({ hp: 620 });
+    const reports = reportRows(settled([full, final(), defeat]));
     const stars = reports.rows.map(row => row.stars);
-    expect(stars).toEqual([0, 0, 1]);
-    // Written as `victory ? 1 : 0`; the 0..3 range in the validator is not a rating scale yet.
-    expect(new Set(stars)).toEqual(new Set([0, 1]));
+    expect(stars).toEqual([0, 2, 3]);
+    expect(new Set(stars)).toEqual(new Set([0, 2, 3]));
+    expect(typeof reports.rows[0]!.stars).toBe('number');
   });
   it('carries no seal count and no elite count, because the report does not hold them', () => {
     // `sealsHeld` / `elitesChecked` exist on the final run and stop at the storage boundary (D29).

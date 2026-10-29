@@ -1690,3 +1690,58 @@ tag）⇒ 这不是常数，是**真的要打的**。
 本片交付的是**这条路的全部可测部分**：大厅装备 → `transactOnce` 写存档 → `prepareChapterRun` 读回
 → `preparation.charm` 就是那一枚。**缺的那一步（点「开战」）不是护符的缺口，是入口的缺口**，
 本片不假装它存在。
+
+## D31 — R3-P04 Scope 0：五问五答，其中一答把队列的四个字变成一张能跑的表
+
+TASK 给的规格只有「**无永久数值碾压**」四个字。四问（外加一问）用命令回答。
+
+**(a) `chapters.stars` / `clears` 今天记什么，谁读？—— 记两个数，零个生产读者。**
+`chapter/settlement.ts:72-73` 是唯一写入点：`stars = Math.max(old, victory ? 1 : 0)`、
+`clears += 1`（只在胜利分支里）。`chapter/progress.ts:58-59` 是唯一的其它读点，而它读是为了**校验**，
+不是为了用。`contracts.test.ts` 三处读，全是断言。
+**生产读者 = 0**：`ChapterResult.vue:21` 读的 `result.stars` 是结算**返回值**，`ReportsPanel.vue:70`
+读的 `report.stars` 是战报**副本**，两者都不是 `chapters.stars`。
+一个从来没人读的字段，「它有没有被滥用」这个问题本身没有意义 —— 所以 (b) 要换个问法。
+
+**(b) 重打一关有永久数值收益吗？—— 没有；让它成立的那一行是 `prepare.ts:43`。**
+`prepareChapterRun` 从 progress 只取一样东西：`equippedCharm(progress)`（D30）。
+`player` 的五个数逐字来自 `chapterHeroes[heroId]`，**不读 `chapters`、不读 `clears`、不读 `stars`**。
+写入面同样窄：`settleChapterRun` 只赋一个键 `save.mobileChapter`，`contracts.test.ts:107` 用
+`const { mobileChapter, ...legacy } = after; expect(legacy).toEqual(source)` 钉着它。
+**对照才让这条结论有意义**：遗留线 `core/settlement.ts:50-56` 在同一件事上写了三行 ——
+`save.gold += gold`（其中含 `stars * 100`）、`hero.mastery += …`、`save.accountXp += …`。
+**那才是「永久数值碾压」的形状，章节线没有复制它。**
+唯一的永久收益是护符解锁，而它**不是重打的函数**（`earnedCharms` 过滤掉已拥有的）、
+且一次只戴一枚（D30）⇒ 重复打一关的产出恒为「最好成绩没变」。
+
+**(c) 挑战要新存档字段吗？—— 不要；`stars` 的 `0/1` vs `0..3` 缺口不挡路，它正是本片要填的东西。**
+三枚非初始护符本来就存在 `charms.unlocked` 里（`freshChapterProgress` 只发 `slice(0, 3)`），
+缺的不是存储，是**一张说「什么换来它」的表**。而 `stars` 的槽在两层校验里都已经是 `0..3`
+（`progress.ts:58` 的 `number(…, 3, true)`、`storage/schema30.ts:82` 的 `integer(star, …, 0, 3)`）
+⇒ **写入端只用了三分之一**。缺口不挡任何路，它只是没人填。
+
+**(d) GDD 承诺了什么，哪部分已建？—— 承诺 3 星；已建的是「槽」，缺的是「公式」和「档位定义」。**
+GDD v2 §P1-3 与 §8 的表写「通关 1 / 无伤 2 / 剩余≥55% 3」。数据
+`storyContract.stars = { clear: 2, mastery: 3, masteryHp: .55 }` 与遗留代码
+`core/settlement.ts:40` 逐字一致：`victory ? hp / maxHp > masteryHp ? 3 : 2 : 0`。
+**GDD 的三档与数据的两档不能同时成立**：「无伤」（`hp === maxHp`）严格强于「≥55%」，
+在 `Math.max` 最好成绩下两档会塌成一档，中间那一档永远拿不到。**裁定按数据**（`clear: 2`），
+GDD 那句话记为错 —— 这与 D29 记 `stars` 的「声明范围比实际宽」是同一类错误，只是这次宽的是文档。
+
+**(e)「无永久数值碾压」怎么变成断言，而不是注释？—— 用「同一个量、只让进度变」的强形式。**
+`challenges.test.ts` 里三条，逐条对应上面一个答案：
+1. 一份 `stars` 全 3、`clears` 全 999 的存档，与一份空进度存档，**三关的 `prepareChapterRun` 输出
+   逐字段相等**。这不是空真 —— 它会在任何人把 `clears` 接进属性时变红。
+2. 结算一局（三枚护符全发）之后，`gold` / `accountXp` / `accountLv` / `mastery` / `level` **一个都没动**。
+3. 存档里**没有** `challenges` 键 —— 状态就是 `charms.unlocked`，TASK out-of-scope 那条
+   「a second progress field」被钉住。
+
+**交付形状。** 三行数据在 `chapter/challenges.ts`，每行 = 问什么（`asks`）+ 给哪一枚护符（`reward`）+
+一个**只读三个字段**的谓词（`met`）。谓词只读 `endReason` / `awakened` / `bonds`，用 `Proxy` 陷阱
+数它碰过哪些属性，多读一个就红 —— 所以「挑战不会因为关卡被重调而改变含义」是结构保证，不是承诺。
+星级从 `victory ? 1 : 0` 换成 `starsFor()`（沿用遗留公式，`>` 而不是 `>=`）。
+新页 `ui/ChallengesPanel.vue` + 大厅按钮 + `page` 联合成员。
+
+**这一片最贵的发现是「三档不能同时存在」**：如果照 GDD 的原话写 `hp === maxHp ? 2 : hp/maxHp > .55 ? 3 : 1`，
+那么无伤的局拿到 2 星、掉了一点血的局拿到 3 星 —— **打得更好反而显示得更差**，而且没有任何测试会红，
+因为每个分支单独看都对。

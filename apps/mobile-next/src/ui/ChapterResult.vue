@@ -18,7 +18,7 @@ watchEffect(() => { if (props.snapshot.status === 'ended' && !dialog.value?.open
     <div v-if="error" role="alert"><p>{{ error }}</p><button :disabled="busy || leaving" @click="emit('retry')">重试保存战报</button></div>
     <template v-if="result">
       <p role="status">首章战报已保存</p>
-      <p>{{ result.stars ? '本关目标已完成' : '本局未获得章节星级' }} · {{ result.report.routes.length }} 条路线 · {{ result.report.bonds.length }} 个羁绊</p>
+      <p>{{ result.stars ? `本关 ${result.stars} 星` : '本局未获得章节星级' }} · {{ result.report.routes.length }} 条路线 · {{ result.report.bonds.length }} 个羁绊</p>
       <p v-if="result.unlockedCharms.length">新解锁 {{ result.unlockedCharms.length }} 件战备护符，效果将在战备版本开放。</p>
       <p>{{ result.report.awakened ? '下一局：尝试另一条进化路线。' : '下一目标：Lv.8 且核心术式 Lv.3，完成觉醒。' }}</p>
       <button class="primary" :disabled="busy || leaving" @click="emit('replay')">再次挑战本关</button>

@@ -14,9 +14,11 @@ import type { GameSave } from '../core/saveTypes';
  * 2. The cap is enforced twice, with different semantics: the writer silently truncates with
  *    `unshift(...).slice(0, 20)` and the validator *rejects* a save holding 21. So `length <= 20`
  *    is safe to assume; `length === 20` is not.
- * 3. `stars` is a boolean in a three-star costume - the writer emits `victory ? 1 : 0` while the
- *    validator admits `0..3`. Drawing three slots would show "1/3" on every win, which reads as a
- *    rating the player failed. The row therefore carries the **count**, and the page says why.
+ * 3. `stars` used to be a boolean in a three-star costume - the writer emitted `victory ? 1 : 0`
+ *    while the validator admitted `0..3`, so drawing three slots would have shown "1/3" on every
+ *    win. D31 closed the gap (`settlement.ts`'s `starsFor`, 2 for a win and 3 above 55% hp), but the
+ *    row still carries the **count** rather than three slots: the range is a fact about the field,
+ *    and a slot layout that assumes a value is reachable is a layout that lies when it is not.
  *
  * Two things this module refuses to do:
  *
@@ -46,7 +48,7 @@ export interface ReportRow {
   outcome: Outcome;
   /** The stage's own word - `破围成功` / `破围超时` - so the list and the result screen agree. */
   outcomeLabel: string;
-  /** 0 or 1 in practice; the declared range is 0..3. Rendered as a count, never as three slots. */
+  /** 0..3. A count, never three slots - see the module note on why the layout does not assume 3. */
   stars: number;
   /** Seconds. Raw, because the page formats and the tests assert numbers. */
   time: number;

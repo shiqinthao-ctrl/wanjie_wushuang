@@ -36,6 +36,19 @@ export interface SealRule { readonly opensAt: number; readonly dwell: number }
 export const chapterRouteGroups = [ ['volley', 'nova', 'ringfire'], ['roaming', 'orbit', 'ambush'], ['hunter', 'guard'], ['glacier', 'shatter'], ['relay', 'thunderstrike'] ] as const;
 export const chapterBonds = ['wildfire', 'stormhunt', 'shadowfire', 'superconduct', 'winterlegion', 'thunderlegion', 'galephantom', 'thermalshock'] as const;
 export const chapterCharms = ['MC_DODGE', 'MC_ELITE', 'MC_PICKUP', 'MC_SURVIVAL', 'MC_CYCLE', 'MC_MOVE'] as const;
+/**
+ * D31: the three-star contract, taken from the legacy stage's `storyContract.stars` verbatim
+ * (`clear: 2`, `mastery: 3`, `masteryHp: .55`) and from `core/settlement.ts`'s arithmetic.
+ *
+ * The GDD's prose says "通关 1 / 无伤 2 / 剩余≥55% 3" and that cannot be built as written: "无伤"
+ * (hp == maxHp) is strictly stronger than "剩余≥55%", so under a `Math.max` best-score the two
+ * upper tiers collapse into one and the middle tier is unreachable. The *data* never said that -
+ * `clear: 2` says a win is two stars - so this follows the data and records the prose as wrong.
+ *
+ * Chapter-level, not per-stage: all three stages are graded by the same contract, and three copies
+ * of `0.55` would drift the moment one was tuned.
+ */
+export const chapterStars = { clear: 2, mastery: 3, masteryHp: .55 } as const;
 export const chapterError = (field: string): never => { throw new Error(`精品首章数据无效：${field}。原存档未被覆盖。`); };
 export function object(value: unknown, field: string): Record<string, unknown> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return chapterError(field);
@@ -55,5 +68,5 @@ export function freeze<T>(value: T): T {
   if (value && typeof value === 'object') { for (const item of Object.values(value)) freeze(item); Object.freeze(value); }
   return value;
 }
-freeze(chapterHeroes); freeze(chapterStages); freeze(chapterRouteGroups); freeze(chapterBonds); freeze(chapterCharms);
+freeze(chapterHeroes); freeze(chapterStages); freeze(chapterRouteGroups); freeze(chapterBonds); freeze(chapterCharms); freeze(chapterStars);
 export const chapterCoreSkills = Object.freeze({ dragon: 'A003', bulwark: 'A021', frostlord: 'G2_FROST', frostflame: 'G2_FROST', phoenix: 'A054', legion: 'S001', thunderlord: 'A013', void: 'A026', reaper: 'A015', beastlord: 'S001', windwarden: 'A026' } as const);

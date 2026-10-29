@@ -105,7 +105,8 @@ describe('independent first chapter settlement', () => {
     const source = save(), before = structuredClone(source), { save: after, result } = settle(source);
     const { mobileChapter: _chapter, ...legacy } = after;
     expect(legacy).toEqual(source); expect(source).toEqual(before);
-    expect(result.stars).toBe(1); expect(result.unlockedCharms).toHaveLength(3);
+    // D31: a win is worth `chapterStars.clear` (2), not 1 - hp 200/620 is under the mastery line.
+    expect(result.stars).toBe(2); expect(result.unlockedCharms).toHaveLength(3);
     const progress = readChapterProgress(after);
     expect(progress.chapters.CH001!.clears['CH001-01']).toBe(1);
     expect(progress.discoveries.dragon).toEqual({ discovered: true, awakened: true, cleared: true });
@@ -118,7 +119,7 @@ describe('independent first chapter settlement', () => {
       const run = final({ endReason, hp: endReason === 'defeat' ? 0 : 1, time: 360, bossDefeated: false, bossLootClaimed: false, formId: null, awakened: false, coreSkillLevel: 0, routes: [], bonds: [] });
       expect(settle(save(), run).result.stars).toBe(0);
       const again = settle(won, run, endReason); expect(again.result.stars).toBe(0);
-      expect(readChapterProgress(again.save).chapters.CH001!.stars['CH001-01']).toBe(1);
+      expect(readChapterProgress(again.save).chapters.CH001!.stars['CH001-01']).toBe(2);
     }
   });
   it.each([
