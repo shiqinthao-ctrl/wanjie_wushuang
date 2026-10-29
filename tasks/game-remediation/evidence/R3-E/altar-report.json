@@ -16,7 +16,8 @@
       300
     ],
     "clear": "祭坛告破",
-    "timeout": "决战超时"
+    "timeout": "决战超时",
+    "waves": null
   },
   "rows": [
     "B001",

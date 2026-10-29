@@ -28,11 +28,25 @@ export interface DirectorState { time: number; kills: number; dps: number; level
 export const firstStage = stage.rule;
 export const caps = stage.caps;
 export const difficultyFor = (id: string) => difficulties[id as keyof typeof difficulties] || difficulties.normal;
-export function waveAt(time: number) {
-  return firstStage.storyEncounter.waves.filter(wave => time >= wave.at).at(-1) || firstStage.storyEncounter.waves[0]!;
+/** The five numbers a wave contributes. Structural, so a chapter table and `firstStage` both fit. */
+export interface WaveRow {
+  readonly at: number; readonly name: string; readonly type: string;
+  readonly budget: number; readonly elite: number; readonly note?: string;
 }
-export function director(state: DirectorState, player: { hp: number; maxHp: number; atk: number }, difficulty = 'normal') {
-  const diff = difficultyFor(difficulty), wave = waveAt(state.time);
+/**
+ * The wave in force at `time`, from `waves` - or from the first stage's table when none is given.
+ *
+ * D34: this used to take no stage at all, which is why all three chapter stages spawned from
+ * `firstStage.storyEncounter.waves` and why `CH001-02` (420 s) and `CH001-03` (480 s) had 60 s and
+ * 120 s of **empty field** at the end - the table's last row is `budget: 0` at 360 s, and a zero
+ * budget makes `director`'s interval `Infinity`. The default keeps every legacy and `CH001-01` run
+ * byte-identical.
+ */
+export function waveAt(time: number, waves: readonly WaveRow[] = firstStage.storyEncounter.waves): WaveRow {
+  return waves.filter(wave => time >= wave.at).at(-1) || waves[0]!;
+}
+export function director(state: DirectorState, player: { hp: number; maxHp: number; atk: number }, difficulty = 'normal', waves?: readonly WaveRow[]) {
+  const diff = difficultyFor(difficulty), wave = waveAt(state.time, waves);
   const hpStress = 1 - Math.max(0, player.hp / Math.max(1, player.maxHp));
   const killPerf = Math.min(1.5, state.kills / Math.max(1, state.time * .78));
   const dpsPerf = Math.min(1.5, state.dps / Math.max(90, player.atk * 1.35));

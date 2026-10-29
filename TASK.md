@@ -1,39 +1,45 @@
-# TASK.md - R3-M04: three stages, one wave table?
+# TASK.md - R3-M05: the stage I re-paced and never played
 
-Base: R3-U06 (D33). **No queue entry** - the queue ends at #19 and is now empty. This slice comes
-from `handoff/STATE.md`'s unresolved list, which has carried "章节线继承第一关波次表" since D25
-without anyone measuring it.
+Base: R3-M04 (D34). **No queue entry** - the queue ends at #19. This slice exists because D34 changed
+what `CH001-02` spawns and then measured only one thing about it: that `director(...).interval` is
+finite at 400 s. That proves "it spawns", not "it can be won".
 
 ## Why
 
-Three stages are clickable for the first time. If all three spawn from the same table, then "three
-stages" is one stage with three objectives - and what the player feels between them is a rule change,
-not a fight. That is worth knowing before anything is built on top of it, and it is exactly the kind
-of claim this project has learned not to accept from a note.
+D34 gave `CH001-02` its own six-row table because the inherited one stopped at 360 s while the stage
+runs to 420 - sixty seconds of nothing. The new table is a design claim (flat, continuous pressure;
+two elite rows just before the seals they gate) with **no play evidence behind it**. `seals.test.ts`
+is green, but it jumps the clock to 90 s and tests the seal rule, never the first ninety seconds of
+spawning. This is the one gap the last slice wrote down about itself; closing it is cheaper now than
+after anything is built on top.
 
 ## Scope
 
 0. **Verify the premise first, with a command.**
-   (a) Which stage does the spawner read its waves from? Name the line, and count the readers of
-       `stage.*` that are not `duration` / `seals` / `eliteChecks` / `boss`.
-   (b) If all three share one table, is that a decision or an inheritance? Find the commit or the
-       comment that says so - an inheritance with no owner is a coincidence, not a rule.
-   (c) What does the GDD promise per stage, and does any of it already exist in data?
-   (d) What would a second table cost? Count the assertions that pin the first one.
-1. **If the stages already differ**, say so and stop: zero production change, the delivery is the
-   measurement plus the attribution.
-2. **If they do not**, give each stage its own row, derived from what the stage asks for (a seal
-   stage should not be paced like a Boss stage), and keep `CH001-01` byte-identical.
-3. **Re-baseline, explicitly.** Same rule as D23-D33: what moved, old numbers beside new.
+   (a) What does `seals.test.ts` actually drive - does any of it run the spawner for a full stage?
+       Quote the line that skips the clock.
+   (b) Is there a reusable player? `altar.test.ts` has one that wins `CH001-03`; name the function,
+       the policy it encodes, and what it would need to hold a seal (it is built to keep moving).
+   (c) How long does one seeded run of `CH001-02` take? Measure three before committing to 33.
+   (d) What is the win condition on this stage, and can the bot satisfy it at all - three seals, each
+       needing twenty seconds of standing still?
+1. **Measure, with the instrument declared.** >= 33 seeds per policy, at least two policies (one that
+   holds the point, one that keeps moving), and report the rate with its denominator and its policy.
+2. **Compare against the two stages that did not change.** The same bot on `CH001-01` and `CH001-03`
+   is the control: a rate is meaningless without one.
+3. **If the stage cannot be won, say so and retune once** - record both versions and both rates.
+   Do not tune until green.
+4. **Re-baseline, explicitly.** Same rule as D23-D34: what moved, old numbers beside new.
 
 ## Out of scope
 
-Art and audio; a fourth stage; difficulty tiers; re-tuning the six charm effects; anything that
-changes a shipped run's numbers on `CH001-01`.
+Art and audio; a fourth stage; difficulty tiers; the enemy pool (D34 left it shared on purpose);
+anything that changes `CH001-01` or `CH001-03`.
 
 ## Constraints
 
 `AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer reads,
 and the delivery says the picture is unverified; every number re-derivable from its command; state
 the instrument with the number. Balance numbers need >= 33 seeds; a win rate without its instrument
-declared is not a measurement.
+declared is not a measurement. If the bot is the limit rather than the stage, say that instead of
+retuning.

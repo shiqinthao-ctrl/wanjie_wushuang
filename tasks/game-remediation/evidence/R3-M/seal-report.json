@@ -23,7 +23,57 @@
     "eliteChecks": 0,
     "eliteAt": [],
     "clear": "镇界完成",
-    "timeout": "镇界超时"
+    "timeout": "镇界超时",
+    "waves": [
+      {
+        "at": 0,
+        "name": "界外步卒",
+        "type": "normal",
+        "budget": 0.78,
+        "elite": 0.3,
+        "note": "建立走位；前 90 秒没有界碑"
+      },
+      {
+        "at": 70,
+        "name": "弓手压线",
+        "type": "normal",
+        "budget": 0.88,
+        "elite": 0.4,
+        "note": "远程开始夹击第一处界碑"
+      },
+      {
+        "at": 150,
+        "name": "镇界试锋",
+        "type": "elite",
+        "budget": 0.92,
+        "elite": 0.7,
+        "note": "一名精英挡在第二处界碑前"
+      },
+      {
+        "at": 240,
+        "name": "荒原合围",
+        "type": "normal",
+        "budget": 1,
+        "elite": 0.55,
+        "note": "第三处界碑开启后的持续压力"
+      },
+      {
+        "at": 255,
+        "name": "界碑守望",
+        "type": "elite",
+        "budget": 1.02,
+        "elite": 0.75,
+        "note": "第三处界碑开启前 15 秒"
+      },
+      {
+        "at": 400,
+        "name": "终局清剿",
+        "type": "normal",
+        "budget": 0.9,
+        "elite": 0.4,
+        "note": "覆盖到 420 秒，不留空场"
+      }
+    ]
   },
   "layout": [
     {
@@ -62,10 +112,10 @@
       "endReason": "victory",
       "at": 289.98,
       "held": 3,
-      "hp": 283.4,
-      "level": 18,
-      "kills": 514,
-      "dodges": 17,
+      "hp": 302.9,
+      "level": 17,
+      "kills": 518,
+      "dodges": 20,
       "ultimates": 7,
       "hpAtHold": [
         {
@@ -76,17 +126,17 @@
         {
           "held": 1,
           "at": 110,
-          "hp": 545.5
+          "hp": 524.9
         },
         {
           "held": 2,
           "at": 199.98,
-          "hp": 427.5
+          "hp": 371.6
         },
         {
           "held": 3,
           "at": 289.98,
-          "hp": 283.4
+          "hp": 302.9
         }
       ]
     },
@@ -95,10 +145,10 @@
       "endReason": "victory",
       "at": 289.98,
       "held": 3,
-      "hp": 384.6,
+      "hp": 274.5,
       "level": 17,
-      "kills": 528,
-      "dodges": 12,
+      "kills": 524,
+      "dodges": 16,
       "ultimates": 7,
       "hpAtHold": [
         {
@@ -109,17 +159,17 @@
         {
           "held": 1,
           "at": 110,
-          "hp": 520.2
+          "hp": 506.6
         },
         {
           "held": 2,
           "at": 199.98,
-          "hp": 446.4
+          "hp": 417.2
         },
         {
           "held": 3,
           "at": 289.98,
-          "hp": 384.6
+          "hp": 274.5
         }
       ]
     },
@@ -128,10 +178,10 @@
       "endReason": "victory",
       "at": 289.98,
       "held": 3,
-      "hp": 379.8,
+      "hp": 390,
       "level": 17,
-      "kills": 531,
-      "dodges": 11,
+      "kills": 529,
+      "dodges": 15,
       "ultimates": 7,
       "hpAtHold": [
         {
@@ -142,17 +192,17 @@
         {
           "held": 1,
           "at": 110,
-          "hp": 541.4
+          "hp": 545.6
         },
         {
           "held": 2,
           "at": 199.98,
-          "hp": 470.9
+          "hp": 467.6
         },
         {
           "held": 3,
           "at": 289.98,
-          "hp": 379.8
+          "hp": 390
         }
       ]
     }

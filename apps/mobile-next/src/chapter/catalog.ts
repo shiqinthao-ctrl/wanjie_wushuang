@@ -12,10 +12,43 @@ export type ChapterHeroId = keyof typeof chapterHeroes;
  * stage's, not the chapter's: "破围成功" is right for a stage called 边境破围 and wrong for one
  * called 祭坛决战, and a template branch on `seals` could not tell those apart.
  */
+/**
+ * One wave. The same five numbers `director()` reads, so a stage table is not a second dialect.
+ *
+ * `budget` is the spawn-rate divisor: `interval` divides by it, so **`budget: 0` stops spawning
+ * entirely** (`interval` becomes `Infinity`). That is what an `end` row means, and it is why the
+ * last row has to sit at or after `duration` - see `stageWaves.test.ts` (D34).
+ */
+export interface ChapterWave {
+  readonly at: number;
+  readonly name: string;
+  readonly type: 'normal' | 'elite' | 'boss' | 'end';
+  readonly budget: number;
+  readonly elite: number;
+  readonly note: string;
+}
 export const chapterStages = [
-  { id: 'CH001-01', name: '边境破围', duration: 360, boss: { id: 'B001', spawnAt: 270 }, seals: [], eliteChecks: 0, eliteAt: [], clear: '破围成功', timeout: '破围超时' },
-  { id: 'CH001-02', name: '荒原镇界', duration: 420, boss: null, seals: [{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }], eliteChecks: 0, eliteAt: [], clear: '镇界完成', timeout: '镇界超时' },
-  { id: 'CH001-03', name: '祭坛决战', duration: 480, boss: { id: 'CH001_ALTAR', spawnAt: 360 }, seals: [], eliteChecks: 2, eliteAt: [120, 300], clear: '祭坛告破', timeout: '决战超时' },
+  // `null` means "inherit `firstStage.storyEncounter.waves`". The first stage *is* that table, so
+  // copying it here would create two sources for one fact and the shipped stage would drift the
+  // first time someone tuned it. D34: every other stage carries its own rows.
+  { id: 'CH001-01', name: '边境破围', duration: 360, boss: { id: 'B001', spawnAt: 270 }, seals: [], eliteChecks: 0, eliteAt: [], clear: '破围成功', timeout: '破围超时', waves: null },
+  { id: 'CH001-02', name: '荒原镇界', duration: 420, boss: null, seals: [{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }], eliteChecks: 0, eliteAt: [], clear: '镇界完成', timeout: '镇界超时', waves: [
+    // A seal stage is won by *standing still* for twenty seconds, three times. So the pressure is
+    // flat and continuous rather than spiky: no `boss` row (there is no Boss), and the two elite
+    // rows sit before the second and third seal so the player has to clear a body off the point.
+    { at: 0, name: '界外步卒', type: 'normal', budget: .78, elite: .30, note: '建立走位；前 90 秒没有界碑' },
+    { at: 70, name: '弓手压线', type: 'normal', budget: .88, elite: .40, note: '远程开始夹击第一处界碑' },
+    { at: 150, name: '镇界试锋', type: 'elite', budget: .92, elite: .70, note: '一名精英挡在第二处界碑前' },
+    { at: 240, name: '荒原合围', type: 'normal', budget: 1, elite: .55, note: '第三处界碑开启后的持续压力' },
+    { at: 255, name: '界碑守望', type: 'elite', budget: 1.02, elite: .75, note: '第三处界碑开启前 15 秒' },
+    { at: 400, name: '终局清剿', type: 'normal', budget: .90, elite: .40, note: '覆盖到 420 秒，不留空场' },
+  ] },
+  // `CH001-03` keeps `null` on purpose. D34's first pass called its last 120 s "empty field", but
+  // that was wrong: the Boss spawns at 360 and is on the field for every one of those seconds, so
+  // the player has something to do. The inherited table's 270 s `budget: .68` row lands right before
+  // the second scripted elite at 300, which is a thinning, not a gap. `CH001-02` is the stage that
+  // really ran dry - 60 s with no Boss and no horde - and it is the one that gets its own rows.
+  { id: 'CH001-03', name: '祭坛决战', duration: 480, boss: { id: 'CH001_ALTAR', spawnAt: 360 }, seals: [], eliteChecks: 2, eliteAt: [120, 300], clear: '祭坛告破', timeout: '决战超时', waves: null },
 ] as const;
 /**
  * The id union the *data* admits, not the subset that is open. `prepare.ts` owns the policy

@@ -4,6 +4,7 @@ import type { CombatState } from './combatMath';
 import type { GameSave, GearInstance } from './saveTypes';
 import { Progression, XpField, effectiveXp } from './progression';
 import { cap, caps, clampPoint, createEnemy, difficultyFor, director, earlyEnemyCap, firstStage, waveAt } from './spawnRules';
+import type { WaveRow } from './spawnRules';
 import type { Enemy, Point } from './spawnRules';
 import forms from '../data/skillForms.json';
 import pets from '../data/runePets.json';
@@ -185,6 +186,16 @@ export class CombatSimulation {
    * pre-resolved value, because `x * 1` is exact in IEEE 754: a run with no charm is byte-identical
    * to a run from before charms existed, which is what the combat oracle requires.
    */
+  /**
+   * The wave table this run spawns from.
+   *
+   * D34: `CH001-01` carries `waves: null` on purpose - it *is* `firstStage.storyEncounter.waves`,
+   * and a copy would be a second source for one fact. `CH001-02` / `CH001-03` carry their own rows
+   * because the inherited table ended at 360 s while those stages run to 420 and 480.
+   */
+  private stageWaves(): readonly WaveRow[] | undefined {
+    return this.chapter?.stage.waves ?? undefined;
+  }
   charmScale(lever: CharmLever): number {
     const charm = this.chapter?.charm;
     return charm && charm.lever === lever ? charm.factor : 1;
@@ -459,7 +470,7 @@ export class CombatSimulation {
     p.x += this.response.x * p.speed * slow * this.charmScale('speed') * dt; p.y += this.response.y * p.speed * slow * this.charmScale('speed') * dt; clampPoint(p, this.world, 18);
     for (const action of this.scheduled) { action.delay -= dt; if (action.delay <= 0) this.arc(210 + action.wave * 18, p.atk * 4, 'H001_R', Math.PI * 2); }
     this.scheduled = this.scheduled.filter(action => action.delay > 0);
-    this.spawnClock += dt; const baseInterval = director(this.directorState(), p, this.difficulty).interval;
+    this.spawnClock += dt; const baseInterval = director(this.directorState(), p, this.difficulty, this.stageWaves()).interval;
     // threat-v2 thins the horde while the Boss is on the field. Legacy runs and
     // every chapter run keep the plain `director` interval, byte-identical.
     const interval = baseInterval * (this.threat && this.bossEncounter.active ? this.threat.bossPhaseSpawnInterval[this.journey] : 1);
@@ -478,7 +489,7 @@ export class CombatSimulation {
     }
     this.map.advanceHazards(dt);
     this.seals?.advance(dt);
-    const wave = waveAt(this.time);
+    const wave = waveAt(this.time, this.stageWaves());
     if (this.lastWave !== wave.at) {
       this.lastWave = wave.at;
       this.history.waves.push({ at: Math.floor(this.time), name: wave.name, type: wave.type });

@@ -1877,3 +1877,75 @@ catch (cause) { return message(cause); }
 **当前最好星级**、当前英雄与当前护符、一个「出战」按钮；`App.vue` 加 `page` 成员、一个 `chapterOptions`
 ref、`:chapter` 绑定、以及 `home()` 里的**清空**。`chapters.stars` 因此拿到它的**第一个渲染器**
 （D31 记过它「仍然只写」）。
+
+## D34 — R3-M04 Scope 0：一个没有 stage 参数的函数，和一段没人测过的空场
+
+**(a) 刷怪器从哪读波次？—— 一个全局常量；函数签名里根本没有 stage。**
+`spawnRules.ts:31-33`：
+
+```ts
+export function waveAt(time: number) {
+  return firstStage.storyEncounter.waves.filter(wave => time >= wave.at).at(-1) || …;
+}
+```
+
+没有第二个参数。`director()`（`:36-44`）同样只读 `firstStage`；`createEnemy` 的出生池（`:53`）
+也是 `firstStage.storyEncounter.enemies`。**所以「三关共用」不是传错了值，是这个函数从来就不认识关卡。**
+`stage.*` 在战斗核心里的读者（除 `duration` / `seals` / `eliteChecks` / `boss`）：**零**。
+
+**(b) 是决定还是继承？—— 继承，而且已经被一条测试的注释记录过。**
+`eliteChecks.test.ts:132-135`：「`finishBaseFrame` reads `waveAt(this.time)` for every run, chapter or
+not, so every chapter stage inherits the first stage's 150 s `type: 'elite'` wave.」
+D26 写这条注释时**利用了**这个事实（那条测试断言「150 秒那个精英是精英但不是脚本检验」）。
+**所以它不是待查的猜测，是已知事实** —— STATE 把它列在「未决」里是**过期的措辞**，本片把它改成
+「已确认 + 本片修掉」。
+
+**(c) GDD 承诺了什么？—— 对三关的波次零承诺。**
+GDD 只在第一步的入口文案里提过「首章 · 边境破围」一次。三关的名字与目标来自 `catalog.ts`（D25/D26），
+**波次从来没有被设计过**。所以本片不是「实现 GDD 的承诺」，是「补一个从来没被做过的决定」。
+
+**(d) 第二张表的成本？—— 一处签名、两处调用、一个数据字段。**
+钉住第一张表的断言只有两条：`enemyWarnings.test.ts:231-232`（`waveAt(0).note` 的具体文案 +
+`waves` 恰好 5 条）。它们**只对 `CH001-01` 有意义**，所以 `CH001-01` 保持 `waves: null`（走默认）
+时两条都不动。
+
+### 最重要的发现：`CH001-02` 有 60 秒真空，而 `CH001-03` **不是**
+
+`firstStage` 的表到 **360 秒**结束，最后一条 `type: 'end'`、`budget: 0`。而 `director()` 的
+`interval` 分母含 `wave.budget`：
+
+```
+interval = max(.07, max(.11, .36 - time/5600) / (budget * diff.budget * max(.65, pressure))) / max(.12, spawn)
+```
+
+`budget = 0` ⇒ **`interval = Infinity`** ⇒ `while (spawnClock > interval)` 恒假 ⇒ **完全不刷怪**。
+
+| 关卡 | 时长 | 表覆盖到 | 360 之后 |
+|---|---|---|---|
+| `CH001-01` | 360 | 360 | 正好结束 |
+| `CH001-02` | 420 | 360 | **60 秒真空**：无小怪、无 Boss（它 `boss: null`） |
+| `CH001-03` | 480 | 360 | **不空** —— Boss 在 360 登场，之后 120 秒都是 Boss 战 |
+
+**我的第一遍把 `CH001-03` 也判成「120 秒空场」，那是错的。** 判据不是「刷不刷怪」，是
+**「玩家有没有事做」**：Boss 在场时，玩家在打 Boss，那 120 秒不是空的。
+`CH001-02` 才是真空 —— 它没有 Boss，小怪又在 360 停下，最后 60 秒只能站着等计时。
+
+**这条订正改掉了本片的交付范围**：只有 `CH001-02` 需要自己的表。
+
+**试过给 `CH001-03` 加表，两次都更糟**（这也是为什么它最终保持继承）：
+第一版在 Boss 登场后给 `budget: 1.0` 的小怪 ⇒ `altar.test.ts` 报 `hunt 2/3 vs corner 3/3`；
+第二版降到 `.55` ⇒ 更糟，`hunt 1/3 vs corner 3/3`。**「站在角落不动」比「主动游走」更容易赢**，
+因为游走会同时吃到 Boss 与接触伤害。这不是「难度上升」，是**惩罚了正确的玩法**。
+裁定：Boss 战期间不给小怪，`CH001-03` 保持 `waves: null`。
+
+`CH001-02` 还有第二个问题：它 `boss: null`，却继承了 `270` 秒那条 `type: 'boss'` 的波
+（`budget` 掉到 `.68`），一整关的节奏是按「有 Boss」设计的。
+
+### 交付形状
+
+`CH001-02` 拿一张自己的表（6 行，覆盖到 420，无 `boss` 行，两条精英行各自落在界碑开启前 15–30 秒）；
+`CH001-01` 与 `CH001-03` 都是 `waves: null`（继承，逐字节不变），理由各自写在数据旁边。
+`waveAt` / `director` 各加一个可选参数，`CombatSimulation` 传 `this.chapter?.stage.waves ?? undefined`。
+新增断言把**表与时长**放在一起看，并且写成**规则**而不是个案：
+**没有 Boss 的关卡不许有任何 `budget: 0` 的行**（有 Boss 的关卡允许，Boss 就是内容）。
+这条如果早存在，`CH001-02` 在 D25 就会红。
