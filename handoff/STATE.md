@@ -14,43 +14,42 @@ V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` 
 Legacy version wrappers remain; migrate incrementally, never rewrite the combat loop in one pass.
 
 ## Current task
-`R3-M05` the stage I re-paced and never played (`../TASK.md`); `R3-M04` shipped; queue still empty.
+`R3-M06` a 420-second stage you win at 290 (`../TASK.md`); `R3-M05` shipped; queue still empty.
 
 ## Last completed
-**R3-M04 (D34)** - one stage needed its own table, and it was not the one I first thought.
-`waveAt(time)` took **no stage at all**, so all three chapter stages spawned from `firstStage`'s
-table, whose last row is `budget: 0` at 360 s - and a zero budget makes `director`'s interval
-`Infinity`. `CH001-02` (420 s, `boss: null`) therefore had **60 s with nothing on the field**.
-`CH001-03` looked the same by arithmetic and is not: its Boss arrives at 360 and fills those 120 s.
-Two attempts at giving the altar rows both made `altar.test.ts` report that standing in a corner beat
-hunting (2/3 then 1/3 vs 3/3), so it keeps inheriting. `CH001-02` gets six rows; `CH001-01` and
-`CH001-03` stay `waves: null`, byte-identical.
+**R3-M05 (D35)** - `CH001-02` is not "cannot be won", it is "cannot be lost". 33 seeds x 2 policies x
+3 stages, one reference player: `CH001-01` **22/33**, `CH001-02` **33/33**, `CH001-03` **17/33**. The
+idle control (same bot, never stands on a seal) is **0/33** with `held: 0` - the wins come from the
+objective, not from killing. All 33 wins ended at **289.98 s** (the third seal's dwell completing)
+while the stage clock runs to 420: **the last 130 s are only seen by a player who is losing**. That
+also undercuts half of D34 - the 400 s row it added for `CH001-02` cannot affect a winner. Zero
+production change: the gap is between the clock and the victory condition (D25's data), not in D34's
+table. D34's own note "no bot has played this stage through" was **wrong** - `seal-report.json` had
+two wins in it all along.
 
 ## Changed files
-`chapter/catalog.ts` (`ChapterWave`, three `waves` fields), `core/spawnRules.ts` (`WaveRow`, optional
-table on `waveAt` / `director`), `core/CombatSimulation.ts` (`stageWaves()`, two call sites); new
-`chapter/stageWaves.test.ts` (9 `it`); page `evidence/R3-M/IMPLEMENTATION-3.md`. D34.
+No production code. New `chapter/sealCalibration.test.ts` (6 `it`, 73.44 s - all in module load),
+`evidence/R3-M/calibration-report.json` (132 runs), page `evidence/R3-M/IMPLEMENTATION-4.md`. D35.
 
 ## Tests
-**GATE_FULL**: **61 files / 1695 tests (1718.32 s), all green**. Increment 1684 -> 1695 is +11 = the
-new file's 11 `it`; files 60 -> 61; no probe. Subset `src/chapter`: 14 files / 446 tests (8.09 s);
-the four `src/core` files that read waves: 70 tests. `vue-tsc --noEmit` clean; `check` / `smoke` /
-`audit` / `archive:verify` OK; ledger 271 unchanged.
+**GATE_FULL**: **62 files / 1701 tests (1632.24 s), all green**. Increment 1695 -> 1701 is +6 = the new
+file's 6 `it`; files 61 -> 62; no probe. `vue-tsc --noEmit` clean; `check` / `smoke` / `audit` /
+`archive:verify` OK. **The first run was 2 red** - both in `byteLedger.test.ts`, because the new
+`calibration-report.json` was not in the ledger yet (271 vs 272). Refreshed, re-ran, green.
 
 ## Unresolved risk
-`CH001-02`'s new table is **uncalibrated**: the only thing measured is that `director` returns a
-finite interval at 400 s, which proves "it spawns", not "it can be won". The enemy pool is still
-shared by all three stages (D34 split pacing, not composition). `history.waves`'s first row is wrong
-for chapter runs (field initialiser uses the default table); nothing reads it. `eliteChecks.test.ts`'s
-comment says every chapter stage inherits the 150 s elite wave - no longer true for `CH001-02`. Two
-failures are still told apart by message text in three places. No Playwright: the chapter page has
-never been rendered and no run has been started from it. Dead data remains (4 fields). The six charm
-effects move their lever - not proven to change win rates. `R2-F-G4ROWS`'s evolution arm sees no G4
-row; the fireline does not damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet;
-main-skill has no UI; `S001` shares the summon cap.
+`CH001-02` wins 100% on this bot - an upper bound, not an estimate: a human does not orbit as cleanly.
+`CH001-01` lost **6 of 33 to timeout at 360 s with positive hp** - it cannot finish the Boss, the same
+shape (a clock shorter than the fight), not fixed here. `CH001-03`'s 16 losses are not split by
+`endReason`. The seal policy is a **copy** of `seals.test.ts:224`, not an import - a drift risk with
+one guard (seed 15 matches). Two failures are still told apart by message text in three places. No
+Playwright. Dead data remains (4 fields). The six charm effects move their lever - not proven to
+change win rates. `R2-F-G4ROWS`'s evolution arm sees no G4 row; the fireline does not damage enemies;
+`hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet; main-skill has no UI; `S001` shares the summon
+cap.
 
 ## Recommended next task
-`R3-M05` (brief in `TASK.md`). The queue is empty; this is the gap the last slice wrote down about
-itself, and it is cheaper to close before anything is built on the new table.
+`R3-M06` (brief in `TASK.md`). Same shape as D34 and D35: two numbers in different files that were
+never put next to each other.
 
 Replace only the five fields above.
