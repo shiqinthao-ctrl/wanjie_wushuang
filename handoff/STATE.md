@@ -8,47 +8,41 @@ V3.1.2 Context-Lite | ordered global browser JS | save schema 30 | `index.html` 
   Non-story modes do not alter chapter stars.
 - One run settles at most once. Endless ignores legacy 20-minute completion.
 - Boss respawn regression, permanent aura slow, and rift cumulative-kill bug must remain fixed.
-- Q/E skill, Space dodge, R ult, F interaction.
+- Q/E skill, Space dodge, R ult, F interaction. The four difficulty ids come from `difficulties.json`;
+  `normal`'s eight numbers are all 1, so a normal run is byte-identical to a pre-D38 one.
 
 ## Current architecture debt
 Legacy version wrappers remain; migrate incrementally, never rewrite the combat loop in one pass.
 
 ## Current task
-`R3-U07` one difficulty, and it is the one nobody chose (`../TASK.md`); `R3-M07` shipped.
+`R3-M08` ninety seconds, and six runs that never got there (`../TASK.md`); `R3-U07` shipped.
 
 ## Last completed
-**R3-M07 (D37)** - D36's suspicion, measured. Four arms x 33 seeds on `CH001-02` plus the two Boss
-stages as controls: `seal` (circle inside the radius) **33/33**, `clear` (same bot, walks at bodies
-within 70 px) **29/33**, `idle` (never stands on a seal) **0/33**; `CH001-01` 22/33, `CH001-03` 17/33.
-`clear` also takes **more** damage (median 411 vs 366), because ~70% of the damage is
-`hostile-projectile` and walking at an enemy walks into the next shot. Per second: seal **1.017**,
-clear 1.142, first 1.380, altar 1.439 - the seal stage's pace is 71-74% of the Boss stages'. So the
-100% is not the window (D36 falsified that) but the objective and the pace. Zero production change:
-"the seal stage is calmer" may be right - it tests endurance, the Boss stages test movement.
+**R3-U07 (D38)** - four difficulty rows, one comparison refusing three. `difficulty` appears at 14
+sites; the door was **two lines** and the other 12 are downstream, which already knew four tiers. Of
+the **eight** numeric coefficients (TASK said nine), **six are live** here and two are dead: `gold`
+only by the legacy settlement, `drop` by nothing - so `hard`'s own "high density, high yield" is half
+false here, and the selector lists six. Widening the type does **not** reach the save schema, and that
+was the finding: the report had no difficulty field and `chapters.stars` is keyed by stage alone, so
+two tiers wrote one record. The answer was a column on the report (whose reader exists), not an axis
+on the star cell (whose reader does not).
 
 ## Changed files
-No production code. `chapter/sealCalibration.test.ts` gains a `clear` arm and two assertions (6 -> 8
-`it`); the report gains `takenTotal` for four arms and three stages; page
-`evidence/R3-M/IMPLEMENTATION-6.md`. D37.
+`core/spawnRules.ts` (`DifficultyId`/`difficultyIds`), `chapter/prepare.ts` (door), `chapter/progress.ts`
+(optional report field), `chapter/settlement.ts`, `chapter/reports.ts` (tier + `tiers`), `ui/ChapterPanel.vue`,
+`ui/ReportsPanel.vue`, `App.vue` (owns the tier), `chapter/contracts.test.ts` (the `hard` row moved),
+new `chapter/difficulty.test.ts` (17 `it`); page `evidence/R3-U/IMPLEMENTATION-c.md`. D38.
 
 ## Tests
-**GATE_FULL**: **62 files / 1703 tests (1682.57 s), all green**. Increment 1701 -> 1703 is +2 = the two
-new assertions; files unchanged. Subset `src/chapter`: 15 files / 454 tests (98.06 s).
-`vue-tsc --noEmit` clean; `check` / `smoke` / `audit` / `archive:verify` OK; ledger 272 unchanged.
+**GATE_FULL**: **63 files / 1720 tests (1676.49 s), all green**. Increment 1703 -> 1720 is +17 = the new
+file's 17 `it`; files 62 -> 63; no probe. Subset `src/chapter` + `src/ui`: 19 files / 516 tests
+(101.16 s). `vue-tsc --noEmit` clean; `check` / `smoke` / `audit` / `archive:verify` OK; ledger 272.
 
 ## Unresolved risk
-`CH001-02` is **still 33/33**; two attempts (window, engagement) have not touched it. "Per second"
-is median-damage over median-duration, not a per-run ratio - an approximation. `clear`'s 4 losses are
-not split by `endReason`. Only one bot: 29 vs 33 is this bot's gap, not a player's. `CH001-01`'s 6
-timeouts are counted, not explained. The three victory windows are still uneven (52.55 / 60 / 79.93).
-The seal policy is a copy of `seals.test.ts:224`, not an import. Two failures are told apart by
-message text in three places. No Playwright. Dead data remains (4 fields). The six charm effects move
-their lever - not proven to change win rates. `R2-F-G4ROWS`'s evolution arm sees no G4 row; the
-fireline does not damage enemies; `hazardPeak` is dead; 27pp viewport gap; G10 D3 unmet; main-skill
-has no UI; `S001` shares the summon cap.
-
-## Recommended next task
-`R3-U07` (brief in `TASK.md`). Three stages ship at exactly one difficulty while `difficulties.json`
-already has four rows, every coefficient of which is read on this path.
-
-Replace only the five fields above.
+`CH001-01` loses 6 of 33 seeds to the clock with positive hp (40-279) - the Boss spawns at 270 and
+the stage ends at 360, so the fight has 90 seconds; the fastest win kills it in 37. That is `R3-M08`.
+`CH001-02` is **still 33/33**; two attempts have not touched it. `xp` is the one live coefficient with
+no assertion (read inside `onKill`). The chapter page has never been rendered; no difficulty's win rate
+was measured (Scope 3: pin coefficients, not outcome). The tier is `App.vue` session state: it
+survives navigation (two assertions) and is not in the save, so a restart returns to `normal` -
+untested. The star cell is difficulty-agnostic by decision, not omission.

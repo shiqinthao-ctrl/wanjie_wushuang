@@ -1,5 +1,7 @@
 import type { GameSave } from '../core/saveTypes';
 import { CHAPTER_ID, CHAPTER_RULESET, chapterError, chapterHeroes, chapterStages, freeze, number, object } from './catalog';
+import { difficultyIds } from '../core/spawnRules';
+import type { DifficultyId } from '../core/spawnRules';
 import type { ChapterHeroId, ChapterStageId, SealRule } from './catalog';
 import { readChapterProgress } from './progress';
 import { equippedCharm } from './charms';
@@ -31,14 +33,20 @@ export function stageObjective(stage: (typeof chapterStages)[number]): string {
 
 export interface ChapterRunOptions {
   ruleset: typeof CHAPTER_RULESET; chapterId: typeof CHAPTER_ID; stageId: ChapterStageId;
-  heroId: ChapterHeroId; mode: 'story'; difficulty: 'normal'; seed: number;
+  heroId: ChapterHeroId; mode: 'story'; difficulty: DifficultyId; seed: number;
 }
 export function validateChapterOptions(value: unknown): asserts value is ChapterRunOptions {
   const options = object(value, '出战配置');
   if (options.ruleset !== CHAPTER_RULESET || options.chapterId !== CHAPTER_ID) chapterError('规则版本/章节');
   if (typeof options.stageId !== 'string' || !OPEN_STAGES.includes(options.stageId as ChapterStageId)) throw new Error('此精品关卡尚未开放。');
   if (typeof options.heroId !== 'string' || !Object.hasOwn(chapterHeroes, options.heroId)) chapterError('初始英雄');
-  if (options.mode !== 'story' || options.difficulty !== 'normal') chapterError('模式/难度');
+  // D38: the door. Two lines used to stand here - the type literal above and a `!== 'normal'`
+  // comparison - and together they refused three quarters of a table whose coefficients were
+  // already being read on this path. The check is now "is this one of the ids the data declares",
+  // not "is this the one we ship": an unknown string would otherwise fall through
+  // `difficultyFor`'s `|| difficulties.normal` and silently play as normal.
+  if (options.mode !== 'story') chapterError('模式');
+  if (typeof options.difficulty !== 'string' || !(difficultyIds as readonly string[]).includes(options.difficulty)) chapterError('难度');
   number(options.seed, '随机种子', 0xffffffff, true);
 }
 export function prepareChapterRun(save: GameSave, options: unknown) {

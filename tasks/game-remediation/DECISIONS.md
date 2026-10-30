@@ -2112,3 +2112,104 @@ Boss 关测的是走位与输出窗口。**本片不改**，理由：
 **这是本片最贵的一条**：`clear` 臂**赢了 29/33**，也就是说「主动清场」不是死路，只是**更差**。
 如果它是 0/33，我会得到「这条路走不通」；29/33 才说明它是**一个真实的选择，只是更贵的那个** ——
 而玩家会自然地选更贵的那个。
+
+## D38 — R3-U07：一扇门、八个系数里的两个死值，和一张记不下难度的战报
+
+队列对这一片没有条目。Scope 0 的四问用命令回答。
+
+**(a) `difficulty` 出现在十四个站点，而门只有两行。**
+`prepare.ts:34` 的类型字面量 `difficulty: 'normal'`，和 `:41` 的
+`if (options.mode !== 'story' || options.difficulty !== 'normal')`。其余十二处都是**下游**：
+`prepare.ts:54`（抄进 preparation）、`settlement.ts:27`（七键比对）、
+`CombatSimulation.ts:172`（唯一读取点）、`:180`（传给 `FirstBoss`）、`:299`（晶体经验）、
+`:364`（`createEnemy`）、`:473`（`director`）、`:478`（敌人数上限表）、`:496`（nightmare 双精英）、
+`ChapterPanel.vue:52`（硬编码）、`schema30.ts:53/91`（征途线的存档字段与 `previewBlocker`）。
+**下游早就写好了四档** —— `:478` 的 `{easy:190, normal:250, hard:320, nightmare:380}` 与
+`spawnRules.ts:95` 的 `difficulty === 'nightmare' ? 2 : 1` 都在等一个不会来的值。
+
+**(b) TASK 说「九个系数」—— 实际是八个数值 + 两个字符串，这条路径上六个活、两个死。**
+`easy` 行的键是 `name/hp/dmg/speed/budget/elite/gold/drop/xp/desc`。
+
+| 系数 | 这条路径上的读者 |
+|---|---|
+| `hp` | `spawnRules.ts:84`、`FirstBoss.ts:94` |
+| `dmg` | `spawnRules.ts:88`、`FirstBoss.ts:162/196/198` |
+| `speed` | `spawnRules.ts:87`、`FirstBoss.ts:156/186` |
+| `budget` | `spawnRules.ts:54/55`（`director` 的 interval 分母） |
+| `elite` | `spawnRules.ts:56` |
+| `xp` | `CombatSimulation.ts:299` |
+| **`gold`** | **死** —— 只有 `core/settlement.ts:43`，那是**遗留线**的结算。章节结算一分钱不发（D31 定的，`challenges.test.ts` 断言 `gold` 不变） |
+| **`drop`** | **死** —— `gearDrops.ts` 按难度**名字**查神话概率，从不读 `diff.drop` |
+| `name` | 只有 `core/settlement.ts:72`（遗留战报）。**本片之后有了第二个读者**：选择器与战报行 |
+| `desc` | **零读者**。本片之后是选择器 |
+
+**这两个死值决定了页面长什么样。** `hard` 的 `desc` 写着「高密度高收益」——
+在章节线上「收益」**不存在**。照抄 `desc` 就是把一句假话印在按钮上。所以选择器只列六个活的，
+并把「本模式不结算金币与掉落」写在自己那句里（`ChapterPanel` 的注释点名了 `gold` 与 `drop`，
+`difficulty.test.ts` 断言这两个键**不在** `LEVERS` 里，且注释提到它们 —— 省略是**声明**，不是遗漏）。
+
+**(c) 放宽类型**不会**碰到存档 schema —— 而那正是问题。**
+`ChapterReport`（`progress.ts:6-12`）**没有难度字段**；`chapters.stars` 只按 `stageId` 索引，
+**没有难度维度**。所以门一开，一次 `nightmare` 通关与一次 `normal` 通关写进**同一个星级格**
+（`settlement.ts:79` 的 `Math.max`），战报页会把一次噩梦失败显示成一次普通失败 —— 它描述的是
+玩家没打过的那个游戏。
+
+两条路：给星级加难度维度（改存档形状，`schema30` 的 `integer(star, …, 0, 3)` 逐值循环会塌），
+或者**给战报加一列、把星级那格的语义写在页面上**。选后者，理由：
+1. **星是「我打过了这一关」的记录，不是「我在第几档打过了」**。挑战表（D31）与护符挂在 `clears` 上，
+   没有一个读者需要按难度分层的星；
+2. 加维度要动 `schema30` 的校验循环与 `ChapterPanel.best()`，换来的信息没有任何消费者；
+3. 战报**是**逐局的，它天然能承载难度 —— 那里加一列是零风险的。
+
+`ChapterReport.difficulty` **在读取时可选**，缺席按 `normal`。这个默认是**证明不是猜测**：
+D27 到 D38 之间 `prepareChapterRun` 只接受 `normal`，所以任何缺这个字段的战报**必然是**普通局。
+门要是曾经开过，同一个默认就是假话。这句话写在字段上，`difficulty.test.ts` 把「删掉字段后读回
+`normal`」钉住。
+
+**(d) 十五处测试硬编码 `difficulty: 'normal'`，只有一处的含义会变。**
+`contracts.test.ts:58` 的 `{ difficulty: 'hard' }` 在「rejects incompatible preparation」列表里 ——
+本片之后它**必须被接受**。这是唯一一处记录着这把锁的断言，所以它**移动**而不是删除：
+从拒绝列表里拿掉，换成一条单独命名的 `it`，把「四个 id 都通过、`future` 仍然被拒」写在一起。
+其余十四处是夹具，含义不变。`core.test.ts:13` 的 `rich.difficulty = 'nightmare'` 写的是**征途线的
+存档字段**，断言「章节线不读它」—— 仍然成立，而且本片之后更重要（它证明两个难度是两个东西）。
+
+### 交付
+
+- `spawnRules.ts` 导出 `DifficultyId` 与 `difficultyIds`（**从 JSON 取，不重打一份**）；
+- `prepare.ts` 的门从 `!== 'normal'` 换成「是不是表里的 id」。**必须换**：`difficultyFor` 对未知值
+  回落 `normal`，那个回落对**查表**是对的、对**门**是错的 —— 它会让 `'nightmare '`（多个空格）
+  跑一局普通难度，而玩家以为自己选了最难的；
+- `progress.ts` 的战报字段 + 校验；`settlement.ts` 从 **preparation** 取（不是从这里补默认值：
+  `validateChapterFinal` 已经要求两者相等，所以它们不可能不一致）；
+- `reports.ts` 的行带 `difficulty` + `difficultyName`（读 `difficulties.json` 的 `name`），
+  汇总带 `tiers`；
+- `ChapterPanel.vue` 四档选择器 + 六项系数 + 两句边界；`ReportsPanel.vue` 每行显示档位。
+
+**`normal` 逐字节不变，是一条断言不是一句承诺**：`normal` 行的八个数值**全等于 1**，
+而它们全都是乘数 ⇒ 1 是恒等。`difficulty.test.ts` 把「八个全 1」与「其余三档不是恒等」一起钉住 ——
+前者守现有战局，后者守门开得有内容。
+
+### 档位必须活得比页面久（第一版写错了）
+
+第一版把 `difficulty` 写成 `ChapterPanel` 里的 `ref`。它是 `v-else-if` 分支，**每次换页都销毁** ——
+玩家选了「万界劫」，去图鉴看一眼再回来，下一局是「标准」，**而他从没选过标准**。
+静默回默认与 D33 的 `chapterOptions` 不清是同一个形状：**玩家的选择被代码替换了**。
+
+改成 `App.vue` 持有 `chapterDifficulty`（`shallowRef`），`ChapterPanel` 只有 prop + `@difficulty` 事件。
+`home()` **清 `chapterOptions` 但不清档位** —— 一个是「这一局」，一个是「这个会话」。
+这条写成**缺席断言**（`home()` 那段里不出现 `chapterDifficulty`），因为「忘了清」与「故意留着」
+在 diff 里长得一模一样。
+
+### 一个同类的第三次拒绝：混档的胜率
+
+D29 拒绝「不足 5 局的胜率」，也拒绝「跨结局的中位数」。门开了第三种让**分母不再只有一个含义**的
+方式：一个窗口里既有 `normal` 又有 `nightmare`。`summarize` 因此多一条 `tiers.length <= 1`，
+页面区分两种 `null`（「样本不足」/「窗口内混有两个难度」）。
+**这不是新规矩，是同一句规矩用在新轴上。**
+
+### 边界
+
+`xp` 是六个活系数里**唯一没有断言**的一个：它在 `CombatSimulation.ts:299` 被读，但那一行在
+`onKill` 内部，钉它要么跑一局要么写源码断言（后者等于没测）。**记在这里，不当成已测。**
+页面没有被渲染过；四档的胜率没有测（TASK Scope 3 明确要求钉系数不钉结果）。
+**档位不写存档**：换页不丢（两条断言钉着），但**重启应用回到 `normal`**。「重启就忘」没有测试。

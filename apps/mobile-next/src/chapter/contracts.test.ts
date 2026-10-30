@@ -3,6 +3,7 @@ import fresh from '../data/freshSave.json';
 import { parseSchema30 } from '../storage/schema30';
 import { chapterStages } from './catalog';
 import { prepareChapterRun } from './prepare';
+import { difficultyIds } from '../core/spawnRules';
 import { freshChapterProgress, readChapterProgress } from './progress';
 import { settleChapterRun } from './settlement';
 import type { ChapterFinalRun } from './settlement';
@@ -55,10 +56,17 @@ describe('chapter preparation and copy boundary', () => {
   });
   it.each([
     { ruleset: 'preview-g5' }, { chapterId: 'ST001' }, { stageId: 'ST001-01' },
-    { heroId: 'H002' }, { mode: 'endless' }, { difficulty: 'hard' }, { seed: -1 },
+    { heroId: 'H002' }, { mode: 'endless' }, { seed: -1 },
     { seed: 1.5 }, { seed: 2 ** 32 }, { stageId: 'CH001-04' },
   ])('rejects incompatible preparation %j', change => {
     expect(() => prepareChapterRun(save(), { ...options, ...change })).toThrow();
+  });
+  it('used to reject `difficulty: \'hard\'` and now accepts it - the assertion moved, it was not deleted', () => {
+    // D38. This row sat in the reject list above until the door opened, which is why it is written
+    // down here instead of being quietly removed: the list is a record of what the door refuses,
+    // and a row that left it is a decision. The four ids are the data's; anything else is still out.
+    for (const difficulty of difficultyIds) expect(() => prepareChapterRun(save(), { ...options, difficulty }), difficulty).not.toThrow();
+    expect(() => prepareChapterRun(save(), { ...options, difficulty: 'future' })).toThrow('难度');
   });
   it('preserves unknown fields at every extension level across parsing and settlement', () => {
     const source = save(), progress = freshChapterProgress();

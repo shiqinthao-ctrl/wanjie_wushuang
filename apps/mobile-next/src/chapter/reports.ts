@@ -2,6 +2,8 @@ import { chapterStages } from './catalog';
 import { freshChapterProgress, readChapterProgress } from './progress';
 import type { ChapterProgress, ChapterReport } from './progress';
 import { heroForms, starter } from '../core/evolutionCatalog';
+import { difficultyFor, difficultyIds } from '../core/spawnRules';
+import type { DifficultyId } from '../core/spawnRules';
 import type { GameSave } from '../core/saveTypes';
 
 /**
@@ -48,6 +50,13 @@ export interface ReportRow {
   outcome: Outcome;
   /** The stage's own word - `破围成功` / `破围超时` - so the list and the result screen agree. */
   outcomeLabel: string;
+  /**
+   * D38. Absent in a report written before the door opened means `normal`, and that is a proof
+   * rather than a guess - see `progress.ts`'s note on `ChapterReport.difficulty`.
+   */
+  difficulty: DifficultyId;
+  /** `difficulties.json`'s own word (`标准` / `修罗`). Read from the table, not retyped here. */
+  difficultyName: string;
   /** 0..3. A count, never three slots - see the module note on why the layout does not assume 3. */
   stars: number;
   /** Seconds. Raw, because the page formats and the tests assert numbers. */
@@ -72,6 +81,15 @@ export interface ReportSummary {
   rateNeeds: number;
   /** Median seconds over **victories only**, one decimal. `null` when there are none. */
   victoryMedian: number | null;
+  /**
+   * Which tiers the window contains, in table order.
+   *
+   * D38. This is why {@link ReportSummary.winRate} can be `null` for a second reason: a rate over a
+   * window that mixes `normal` and `nightmare` runs is an average of two different games. D29
+   * already refused a rate below five runs and a median across outcomes; this is the same refusal
+   * applied to the axis the door just opened.
+   */
+  tiers: readonly DifficultyId[];
   /** Denominator of the median - not the same number as `runs`. */
   victoryCount: number;
 }
@@ -123,6 +141,8 @@ function row(report: ChapterReport): ReportRow {
     formName: report.formId ? formById.get(report.formId)?.name ?? report.formId : null,
     outcome: report.endReason,
     outcomeLabel: outcomeLabel(report),
+    difficulty: report.difficulty ?? 'normal',
+    difficultyName: difficultyFor(report.difficulty ?? 'normal').name,
     stars: report.stars,
     time: report.time, clock: clock(report.time),
     level: report.level, kills: report.kills, seed: report.seed,
@@ -136,13 +156,20 @@ function summarize(reports: readonly ChapterReport[]): ReportSummary {
   const count = (reason: Outcome) => reports.filter(report => report.endReason === reason).length;
   const victory = count('victory');
   const victoryTimes = reports.filter(report => report.endReason === 'victory').map(report => report.time);
+  // D38: table order, so the page's sentence reads the same way every time. Derived from the rows
+  // rather than stored - a save written before the field existed has no tier to store.
+  const present = new Set(reports.map(report => report.difficulty ?? 'normal'));
+  const tiers = difficultyIds.filter(id => present.has(id));
   return {
     runs,
     victory, defeat: count('defeat'), timeout: count('timeout'),
-    winRate: runs >= RATE_MIN_RUNS ? Math.round((victory / runs) * 10000) / 10000 : null,
+    // Two reasons to withhold the rate, and they are the same reason: the denominator does not mean
+    // one thing. Too few runs, or a window that mixes tiers.
+    winRate: runs >= RATE_MIN_RUNS && tiers.length <= 1 ? Math.round((victory / runs) * 10000) / 10000 : null,
     rateNeeds: RATE_MIN_RUNS,
     victoryMedian: median(victoryTimes),
     victoryCount: victoryTimes.length,
+    tiers,
   };
 }
 

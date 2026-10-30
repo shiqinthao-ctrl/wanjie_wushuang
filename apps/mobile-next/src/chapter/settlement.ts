@@ -100,7 +100,12 @@ export function settleChapterRun(source: GameSave, preparation: ChapterPreparati
   // D31: the three earnable charms come from the challenge table, not from three magic indexes.
   const unlockedCharms = earnedCharms(progress, run);
   progress.charms.unlocked.push(...unlockedCharms);
+  // D38: the run record carries the tier. Without it a `nightmare` loss and a `normal` loss are the
+  // same row, and the report page (D29) would be describing a game the player did not play. The
+  // tier comes from the *preparation*, not from a default here - `validateChapterFinal` has already
+  // required `run.difficulty === preparation.difficulty`, so the two cannot disagree.
   const report: ChapterReport = { runId, ruleset: run.ruleset, chapterId: run.chapterId, stageId: run.stageId, heroId: run.heroId, seed: run.seed,
+    difficulty: preparation.difficulty,
     endReason: run.endReason, stars, time: run.time, level: run.level, kills: run.kills, formId: run.formId, awakened: run.awakened,
     routes: [...run.routes], bonds: [...run.bonds], damageBy: { ...run.damageBy }, damageTakenBy: { ...run.damageTakenBy } };
   progress.reports.unshift(report); progress.reports = progress.reports.slice(0, 20);

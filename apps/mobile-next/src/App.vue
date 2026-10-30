@@ -12,6 +12,7 @@ import CharmsPanel from './ui/CharmsPanel.vue';
 import ChallengesPanel from './ui/ChallengesPanel.vue';
 import ChapterPanel from './ui/ChapterPanel.vue';
 import type { ChapterRunOptions } from './chapter/prepare';
+import type { DifficultyId } from './core/spawnRules';
 import './ui/saves.css';
 import { starters, starter, isStarter, heroForms } from './core/evolutionCatalog';
 import type { Journey } from './core/evolutionCatalog';
@@ -33,6 +34,13 @@ const page = ref<'home' | 'battle' | 'settings' | 'saves' | 'codex' | 'reports' 
  * the player returns to the lobby, or the next battle would silently start a chapter run.
  */
 const chapterOptions = shallowRef<ChapterRunOptions>();
+/**
+ * D38: the tier the chapter page will start the next run on. It lives here rather than in the page
+ * because the page unmounts on every route change - a local `ref` would silently fall back to
+ * `normal` the first time the player looked at the codex. Cleared with `chapterOptions`? No: it is
+ * a preference for the session, not part of one run.
+ */
+const chapterDifficulty = shallowRef<DifficultyId>('normal');
 const startButton = ref<HTMLButtonElement>();
 const base = import.meta.env.BASE_URL;
 let disposed = false;
@@ -105,7 +113,7 @@ onBeforeUnmount(() => { disposed = true; repository.value?.close(); });
     <ReportsPanel v-else-if="page === 'reports' && active" :save="active.save" @back="home" />
     <CharmsPanel v-else-if="page === 'charms' && repository && active" :repository="repository" :active="active" @selected="slot => active = slot" @busy="value => saveBusy = value" @back="home" />
     <ChallengesPanel v-else-if="page === 'challenges' && active" :save="active.save" @back="home" />
-    <ChapterPanel v-else-if="page === 'chapter' && active" :save="active.save" :hero-id="hero.id" @start="startChapter" @back="home" />
+    <ChapterPanel v-else-if="page === 'chapter' && active" :save="active.save" :hero-id="hero.id" :difficulty="chapterDifficulty" @difficulty="id => chapterDifficulty = id" @start="startChapter" @back="home" />
     <section v-else class="settings"><small class="eyebrow">行前须知</small><h1>设置与帮助</h1><dl><dt>移动操作</dt><dd>手机拖动左下方摇杆；电脑使用 WASD 或方向键。</dd><dt>战斗操作</dt><dd>普通攻击自动释放。点击右下方按钮使用闪避、当前英雄技能和奥义；电脑对应 Space、E / Q、R。跟随地图指引靠近互动点，点击互动或按 F 使用。</dd><dt>暂停与恢复</dt><dd>点击暂停，或按 Esc。离开页面会暂停，返回后手动继续。</dd><dt>当前版本</dt><dd>移动版首关可玩预览，支持胜败结算、奖励入库和再次挑战。请在战果保存后关闭页面；刷新会返回大厅，未结束战斗不恢复。</dd></dl><button class="primary" @click="home">返回大厅</button></section>
     <footer>万界无双 <span>移动版 · 开发预览</span></footer>
   </main>

@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { REPORT_CAP, reportRows } from '../chapter/reports';
 import { chapterStars } from '../chapter/catalog';
+import { difficultyFor } from '../core/spawnRules';
 import type { GameSave } from '../core/saveTypes';
 /**
  * The run record. Read-only: it renders `progress.reports` through `reportRows` and writes nothing.
@@ -17,6 +18,8 @@ const props = defineProps<{ save: GameSave }>();
 defineEmits<{ back: [] }>();
 const reports = computed(() => reportRows(props.save));
 const percent = (value: number) => `${Math.round(value * 1000) / 10}%`;
+/** The tier's own word from `difficulties.json`; the summary sentence must not invent a label. */
+const name = (id: string) => difficultyFor(id).name;
 </script>
 
 <template>
@@ -44,7 +47,11 @@ const percent = (value: number) => `${Math.round(value * 1000) / 10}%`;
         超时 <strong>{{ reports.summary.timeout }}</strong>
       </p>
       <p class="summary small">
-        <template v-if="reports.summary.winRate === null">
+        <template v-if="reports.summary.winRate === null && reports.summary.tiers.length > 1">
+          窗口内混有 {{ reports.summary.tiers.length }} 个难度（{{ reports.summary.tiers.map(id => name(id)).join(' / ') }}），
+          不给合并胜率 —— 那是两个不同的游戏，平均起来没有意义。
+        </template>
+        <template v-else-if="reports.summary.winRate === null">
           样本不足 {{ reports.summary.rateNeeds }} 局，不给胜率 —— {{ reports.summary.runs }} 局里的百分比不是胜率。
         </template>
         <template v-else>
@@ -69,6 +76,7 @@ const percent = (value: number) => `${Math.round(value * 1000) / 10}%`;
             <span>Lv.{{ run.level }}</span>
             <span>击破 {{ run.kills }}</span>
             <span>星 {{ run.stars }}</span>
+            <span>{{ run.difficultyName }}</span>
             <span>种子 {{ run.seed }}</span>
           </p>
           <p class="extra">
@@ -78,6 +86,7 @@ const percent = (value: number) => `${Math.round(value * 1000) / 10}%`;
       </ol>
 
       <p class="note">
+        难度是每局各自的记录，不是存档上的一个开关 —— 换难度不会改上一局的成绩。
         「星」是数字不是三格：通关记 {{ chapterStars.clear }} 星，剩余生命高于
         {{ Math.round(chapterStars.masteryHp * 100) }}% 记 {{ chapterStars.mastery }} 星，失败记 0 星 ——
         这三档与结算用的是同一个来源，改一处两边一起变。另外，守住的界碑数与清掉的精英检验数在结算时

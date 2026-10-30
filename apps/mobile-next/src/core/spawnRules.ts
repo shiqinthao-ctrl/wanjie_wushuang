@@ -27,7 +27,17 @@ export interface Enemy extends Point {
 export interface DirectorState { time: number; kills: number; dps: number; level: number; evolved: number; fused: number }
 export const firstStage = stage.rule;
 export const caps = stage.caps;
-export const difficultyFor = (id: string) => difficulties[id as keyof typeof difficulties] || difficulties.normal;
+/**
+ * The four ids `difficulties.json` declares, in the order it declares them.
+ *
+ * D38: the chapter track used to accept exactly one of them (`prepare.ts`'s
+ * `options.difficulty !== 'normal'`). Opening that door is a type widening plus one validation,
+ * but the *list* must not be retyped anywhere: a fifth row added to the JSON appears in the
+ * selector without anyone editing a `.vue` file.
+ */
+export type DifficultyId = keyof typeof difficulties;
+export const difficultyIds: readonly DifficultyId[] = Object.freeze(Object.keys(difficulties) as DifficultyId[]);
+export const difficultyFor = (id: string) => difficulties[id as DifficultyId] || difficulties.normal;
 /** The five numbers a wave contributes. Structural, so a chapter table and `firstStage` both fit. */
 export interface WaveRow {
   readonly at: number; readonly name: string; readonly type: string;

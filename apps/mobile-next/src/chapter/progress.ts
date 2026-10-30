@@ -1,10 +1,21 @@
 import type { GameSave } from '../core/saveTypes';
 import { CHAPTER_ID, CHAPTER_RULESET, chapterBonds, chapterCharms, chapterError, chapterHeroes, chapterRouteGroups, chapterStages, number, object, strings, text } from './catalog';
 import type { ChapterHeroId } from './catalog';
+import { difficultyIds } from '../core/spawnRules';
+import type { DifficultyId } from '../core/spawnRules';
 
 interface Discovery { discovered: boolean; awakened: boolean; cleared: boolean; [key: string]: unknown }
 export interface ChapterReport {
   runId: string; ruleset: typeof CHAPTER_RULESET; chapterId: string; stageId: string; heroId: string; seed: number;
+  /**
+   * D38. Optional on read, always written by `settleChapterRun` from now on.
+   *
+   * Absent means `normal`, and that default is a **proof**, not a guess: from D27 until D38 the
+   * only preparation `prepare.ts` would accept was `difficulty: 'normal'`, so every report that
+   * could possibly exist without this field was written by a normal run. If the door had ever
+   * been open, the same default would be a lie.
+   */
+  difficulty?: DifficultyId;
   endReason: 'victory' | 'defeat' | 'timeout'; stars: number; time: number; level: number; kills: number;
   formId: string | null; awakened: boolean; routes: string[]; bonds: string[];
   damageBy: Record<string, number>; damageTakenBy: Record<string, number>;
@@ -34,6 +45,7 @@ function validateReport(value: unknown): void {
     !Object.hasOwn(chapterHeroes, String(report.heroId))) return chapterError('战报规则/章节/英雄');
   if (!['victory', 'defeat', 'timeout'].includes(String(report.endReason))) chapterError('战报结果');
   number(report.stars, '战报星级', 3, true); number(report.seed, '战报种子', 0xffffffff, true);
+  if (report.difficulty !== undefined && !(difficultyIds as readonly string[]).includes(String(report.difficulty))) chapterError('战报难度');
   number(report.time, '战报时间', stage.duration); number(report.level, '战报等级', 1000, true, 1); number(report.kills, '战报击杀', undefined, true);
   if (report.endReason !== 'victory' && report.stars !== 0) chapterError('失败星级');
   if (report.formId !== null) {
