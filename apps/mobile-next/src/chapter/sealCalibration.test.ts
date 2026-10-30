@@ -40,8 +40,8 @@ const simOf = (core: GameCore) => (core as unknown as { combat: CombatSimulation
 /** Filled by the tests, read by the report - every number in the file was measured here. */
 const MEASURED: Record<string, unknown> = {};
 
-type Policy = 'seal' | 'idle';
-interface Run { seed: number; endReason: string | undefined; at: number; held: number; hp: number; kills: number }
+type Policy = 'seal' | 'clear' | 'idle';
+interface Run { seed: number; endReason: string | undefined; at: number; held: number; hp: number; kills: number; takenTotal: number }
 
 function play(seed: number, policy: Policy): Run {
   const core = new GameCore(fresh, () => .8, 'classic', { ...SEAL, seed });
@@ -57,12 +57,19 @@ function play(seed: number, policy: Policy): Run {
       core.choose(choice.token, pick.kind, pick.id);
       continue;
     }
-    if (policy === 'seal') {
+    if (policy === 'seal' || policy === 'clear') {
       // Walk to the next seal, then circle *inside* the radius: standing perfectly still is not a
       // player, it is a body that measures the arena.
       const target = seals.renderState().find(seal => seal.state !== 'held')!;
       const dx = target.x - sim.player.x, dy = target.y - sim.player.y, gap = Math.hypot(dx, dy);
-      if (gap > SEAL_RADIUS * .85) core.move(dx, dy); else core.move(-dy, dx);
+      // The `clear` arm is the same bot with one extra instinct: two bodies within 70 px and it
+      // walks at them instead of holding. Everything else - dodge, ult, level choice - is identical.
+      const near = sim.enemies.filter(enemy => Math.hypot(enemy.x - sim.player.x, enemy.y - sim.player.y) < 70);
+      if (policy === 'clear' && near.length >= 2 && gap < SEAL_RADIUS) {
+        const closest = near.reduce((a, b) => (Math.hypot(a.x - sim.player.x, a.y - sim.player.y) <= Math.hypot(b.x - sim.player.x, b.y - sim.player.y) ? a : b));
+        core.move(closest.x - sim.player.x, closest.y - sim.player.y);
+      } else if (gap > SEAL_RADIUS * .85) core.move(dx, dy);
+      else core.move(-dy, dx);
     } else {
       // The control: keep moving, never stand on a seal. It kills just as much as the other arm -
       // the only difference is whether the objective is being played.
@@ -74,7 +81,8 @@ function play(seed: number, policy: Policy): Run {
     if (snapshot.ult >= 100 && close >= 1) core.action('ultimate');
     core.advance(FRAME);
   }
-  const out = { seed, endReason: core.snapshot().endReason, at: round(sim.time), held: seals.snapshot().held, hp: round(sim.player.hp, 1), kills: sim.kills };
+  const out = { seed, endReason: core.snapshot().endReason, at: round(sim.time), held: seals.snapshot().held, hp: round(sim.player.hp, 1), kills: sim.kills,
+    takenTotal: Math.round(Object.values(sim.damageTakenBy).reduce((a, b) => a + b, 0)) };
   core.destroy();
   return out;
 }
@@ -113,22 +121,26 @@ function playBoss(stageId: 'CH001-01' | 'CH001-03', seed: number): Run {
     if (snapshot.ult >= 100 && close >= 1) core.action('ultimate');
     core.advance(FRAME);
   }
-  const out = { seed, endReason: core.snapshot().endReason, at: round(sim.time), held: 0, hp: round(sim.player.hp, 1), kills: sim.kills };
+  const out = { seed, endReason: core.snapshot().endReason, at: round(sim.time), held: 0, hp: round(sim.player.hp, 1), kills: sim.kills,
+    takenTotal: Math.round(Object.values(sim.damageTakenBy).reduce((a, b) => a + b, 0)) };
   core.destroy();
   return out;
 }
 
 const won = (runs: readonly Run[]) => runs.filter(run => run.endReason === 'victory').length;
+const median = (values: readonly number[]): number => [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)]!;
 const seal = SEEDS.map(seed => play(seed, 'seal'));
+const clear = SEEDS.map(seed => play(seed, 'clear'));
 const idle = SEEDS.map(seed => play(seed, 'idle'));
 const first = SEEDS.map(seed => playBoss('CH001-01', seed));
 const altar = SEEDS.map(seed => playBoss('CH001-03', seed));
 MEASURED.calibration = {
   instrument: `GameCore(chapter1-v1) with the reference player from seals.test.ts:224; ${SEEDS.length} seeds (1..${SEEDS.length}), viewport 390x844`,
-  sealStage: { wins: won(seal), of: SEEDS.length, at: seal.map(run => run.at), hp: seal.map(run => run.hp) },
+  sealStage: { wins: won(seal), of: SEEDS.length, at: seal.map(run => run.at), hp: seal.map(run => run.hp), takenTotal: seal.map(run => run.takenTotal) },
+  clearArm: { wins: won(clear), of: SEEDS.length, at: clear.map(run => run.at), hp: clear.map(run => run.hp), takenTotal: clear.map(run => run.takenTotal) },
   idleControl: { wins: won(idle), of: SEEDS.length, held: idle.map(run => run.held) },
-  firstStage: { wins: won(first), of: SEEDS.length, at: first.map(run => run.at), hp: first.map(run => run.hp) },
-  altarStage: { wins: won(altar), of: SEEDS.length, at: altar.map(run => run.at), hp: altar.map(run => run.hp) },
+  firstStage: { wins: won(first), of: SEEDS.length, at: first.map(run => run.at), hp: first.map(run => run.hp), takenTotal: first.map(run => run.takenTotal) },
+  altarStage: { wins: won(altar), of: SEEDS.length, at: altar.map(run => run.at), hp: altar.map(run => run.hp), takenTotal: altar.map(run => run.takenTotal) },
 };
 
 describe('the stage can be won, and only by holding the seals', () => {
@@ -170,6 +182,27 @@ describe('what the 33/33 actually says', () => {
     expect(lowest).toBeGreaterThan(0);
     expect(lowest).toBeLessThan(620 * .35);
     expect(seal.some(run => run.hp < 620 * .5)).toBe(true);
+  });
+});
+
+describe('charging the bodies is worse than letting them come', () => {
+  it('the clear arm wins less often and takes more damage', () => {
+    // D36 wrote the suspicion into the log; this is the measurement. Same bot, one extra instinct:
+    // two bodies within 70 px and it walks at them instead of holding the seal. It wins less and it
+    // is hurt more - because walking at an enemy puts you inside its contact radius and closer to
+    // the next projectile. **The stage rewards the opposite of the instinct.**
+    expect(won(clear), `clear ${won(clear)}/${SEEDS.length}`).toBeLessThan(won(seal));
+    expect(median(clear.map(run => run.takenTotal))).toBeGreaterThan(median(seal.map(run => run.takenTotal)));
+    expect(clear.every(run => run.held === 3 || run.endReason !== 'victory')).toBe(true);
+  });
+  it('most of the damage is projectiles, not bodies - which is why walking at them is wrong', () => {
+    // This is the fact the previous assertion rests on. If contact damage ever becomes the majority,
+    // "walk at it" turns into the right answer and both assertions should be revisited - not deleted.
+    const total = seal.reduce((sum, run) => sum + run.takenTotal, 0);
+    expect(total).toBeGreaterThan(0);
+    // The report carries the per-source split; this pins the shape, not the exact numbers.
+    expect(median(seal.map(run => run.takenTotal))).toBeGreaterThan(200);
+    expect(median(idle.map(run => run.takenTotal))).toBeGreaterThan(median(seal.map(run => run.takenTotal)));
   });
 });
 

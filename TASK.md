@@ -1,43 +1,45 @@
-# TASK.md - R3-M07: is "hold the seal and let them come to you" the whole game?
+# TASK.md - R3-U07: one difficulty, and it is the one nobody chose
 
-Base: R3-M06 (D36). **No queue entry.** D36 fixed the victory window (130 s -> 60 s) and the win rate
-did not move: `CH001-02` is still 33/33. The window was not the difficulty. D36 wrote down a
-suspicion instead - the seal policy circles inside the radius and never has to charge - and left it
-unmeasured. This slice measures it.
+Base: R3-M07 (D37). **No queue entry.** `prepareChapterRun` rejects every difficulty but `normal`
+with one comparison, while `difficulties.json` already has four rows and every coefficient in them is
+read on this path. So the chapter track ships a choice that exists in data, works end to end, and is
+refused at the door.
 
 ## Why
 
-Two of the three stages are won 66.7% and 51.5% of the time by the same bot; the seal stage is 100%.
-If that gap comes from "the objective lets you stand still", then the stage is not easier - it is
-asking a different, smaller question. That distinction decides whether the fix is a number or a
-mechanic, and right now it is a guess written in a decision log.
+Three stages are clickable, graded, and paid - at exactly one difficulty. The four rows are not a
+plan: `budget` feeds `director`, `elite` feeds its elite chance, `hp`/`dmg`/`speed` feed
+`createEnemy` and `FirstBoss`, `xp` feeds crystals. All of that already runs on a chapter run; the
+only thing missing is permission. A player who finds `CH001-02` too easy (33/33, D37) has no lever,
+and the data to give them one is already loaded.
 
 ## Scope
 
 0. **Verify the premise first, with a command.**
-   (a) Does `CombatSimulation` record damage by source for a chapter run, and is the field readable
-       from a test? Name it; if it is empty on this path, say so before building anything.
-   (b) What exactly would a "clear first" arm change - one line of movement, or the choice logic too?
-       Quote the branch.
-   (c) What does the current arm's damage curve look like across the 33 seeds, and where does it
-       peak - on a seal, or between seals?
-   (d) Do the two Boss stages record the same field? Without that, there is no comparison.
-1. **Add one arm, not a new bot.** `clear`: when a body is inside 70 px, walk at it and kill it
-   before returning to the seal. Everything else stays identical to the `seal` arm.
-2. **33 seeds per arm**, three arms (`seal` / `clear` / `idle`), and report rate **and** damage taken
-   **and** where the run ended. A rate alone cannot tell "easier" from "shorter".
-3. **If `clear` is worse than `seal`**, that is the finding: the stage rewards not engaging. Say so,
-   do not retune the stage in the same slice.
-4. **Re-baseline, explicitly.** Same rule as D23-D36: what moved, old numbers beside new.
+   (a) Where does `difficulty` appear as a type, a default, or a check? List every site - the type in
+       `ChapterRunOptions`, the comparison in `validateChapterOptions`, the equality check in
+       `validateChapterFinal`, the report field, the save validator.
+   (b) Which of the nine coefficients in `difficulties.json` are actually read on the chapter path,
+       and by which line? Name the ones that are dead here.
+   (c) Does widening the type reach the report or the save schema? Say so before writing the selector.
+   (d) How many existing tests hardcode `difficulty: 'normal'`, and would any of them change meaning
+       if the type widened?
+1. **Open the door to the four rows the data already has.** Do not write a second list of names; take
+   them from `difficulties.json` so a fifth row cannot be half-added.
+2. **The selector lives in `ChapterPanel`, and the choice rides on `ChapterRunOptions`.** One write,
+   named - the same rule as every slice since D30.
+3. **Pin the coefficients, not the outcome.** Assert that the four difficulties prepare, and that the
+   spawn interval at `easy` is longer than at `nightmare` - a rate assertion would need 4 x 33 seeds
+   and would be measuring the bot, not the door.
+4. **Re-baseline, explicitly.** Same rule as D23-D37: what moved, old numbers beside new.
 
 ## Out of scope
 
-Art and audio; a fourth stage; difficulty tiers; re-tuning `CH001-01`'s timeouts (a different lever -
-D36 measured them and stopped); changing the wave tables again.
+Art and audio; a fifth difficulty; re-tuning any of the four rows; the hero selector (a separate
+decision - `save.hero` belongs to the journey track); anything that changes a `normal` run.
 
 ## Constraints
 
 `AGENTS.md`, plus: no Playwright - a visual claim is an assertion on the field the renderer reads,
-and the delivery says the picture is unverified; every number re-derivable from its command; state
-the instrument with the number. Balance numbers need >= 33 seeds; a win rate without its instrument
-declared is not a measurement.
+and the delivery says the picture is unverified; every number re-derivable from its command. A
+difficulty that changes a shipped `normal` run by one byte is a regression, not a feature.
