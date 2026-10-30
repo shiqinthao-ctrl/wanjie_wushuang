@@ -157,7 +157,7 @@ describe('the fields that are narrower than their declared range', () => {
   it('carries no seal count and no elite count, because the report does not hold them', () => {
     // `sealsHeld` / `elitesChecked` exist on the final run and stop at the storage boundary (D29).
     // Asserted so that adding them later is a visible change, not a silent one.
-    const seals = final({ stageId: 'CH001-02', endReason: 'victory', time: 300, hp: 200, level: 5,
+    const seals = final({ stageId: 'CH001-02', endReason: 'victory', time: 360, hp: 200, level: 5,
       formId: null, awakened: false, coreSkillLevel: 0, bossDefeated: false, bossLootClaimed: false, sealsHeld: 3 });
     const row = reportRows(settled([seals])).rows[0]!;
     expect(row).not.toHaveProperty('sealsHeld');

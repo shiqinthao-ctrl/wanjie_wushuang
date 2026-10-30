@@ -87,18 +87,18 @@ describe('the door: CH001-02 is enterable and has no Boss', () => {
 describe('the seal: when it opens, and what leaving costs', () => {
   it('a seal is shut until its opensAt, whatever the player does', () => {
     const sim = field(), seal = sealAt(sim, 0);
-    sim.time = 0; tick(sim, 89, { x: seal.x, y: seal.y });
+    sim.time = 0; tick(sim, 99, { x: seal.x, y: seal.y });
     expect(sim.seals!.snapshot().rows[0]).toMatchObject({ state: 'locked', progress: 0 });
     expect(sim.seals!.snapshot().rows[0]!.opensIn).toBeCloseTo(1, 6);
     tick(sim, 1.5, { x: seal.x, y: seal.y });
     expect(sim.seals!.snapshot().rows[0]!.state).toBe('holding');
-    // 89 + 1.5 = 90.5, so only half a second of it was inside an open seal. The gate is the
-    // seal's, not the player's: 89 s of standing on a shut seal buys nothing.
+    // 99 + 1.5 = 100.5, so only half a second of it was inside an open seal. The gate is the
+    // seal's, not the player's: 99 s of standing on a shut seal buys nothing.
     expect(sim.seals!.snapshot().rows[0]!.progress).toBeCloseTo(.5, 3);
   });
   it('twenty seconds inside holds it - and 19.9 s then out is worth nothing', () => {
     const sim = field(), seal = sealAt(sim, 0);
-    sim.time = 90;
+    sim.time = 100;
     tick(sim, 19.9, { x: seal.x, y: seal.y });
     expect(sim.seals!.snapshot().rows[0]!.progress).toBeCloseTo(19.9, 3);
     expect(sim.seals!.snapshot().rows[0]!.state).toBe('holding');
@@ -116,7 +116,7 @@ describe('the seal: when it opens, and what leaving costs', () => {
   });
   it('the radius is the boundary, not the centre: 84 px is inside and 85 is not', () => {
     const sim = field(), seal = sealAt(sim, 0);
-    sim.time = 90;
+    sim.time = 100;
     tick(sim, .5, { x: seal.x + SEAL_RADIUS - .5, y: seal.y });
     expect(sim.seals!.snapshot().rows[0]!.progress).toBeGreaterThan(0);
     const before = sim.seals!.snapshot().rows[0]!.progress;
@@ -126,7 +126,7 @@ describe('the seal: when it opens, and what leaving costs', () => {
   });
   it('the three seals open in order and each holds only itself', () => {
     const sim = field(), seals = sim.seals!.renderState();
-    sim.time = 180;
+    sim.time = 220;
     tick(sim, 20.2, { x: seals[1]!.x, y: seals[1]!.y });
     const rows = sim.seals!.snapshot().rows;
     expect(rows.map(row => row.state)).toEqual(['open', 'held', 'locked']);
@@ -142,8 +142,8 @@ describe('the objective: three seals is a victory, the duration is a timeout', (
     MEASURED.wins = wins;
     for (const win of wins) {
       expect(win.endReason, `seed ${win.seed}: the bot walks to each seal and holds`).toBe('victory');
-      // The last seal opens at 270 and needs 20 s, so 290 is the earliest any run can win.
-      expect(win.at, `seed ${win.seed}`).toBeCloseTo(290, 1);
+      // The last seal opens at 340 and needs 20 s, so 360 is the earliest any run can win.
+      expect(win.at, `seed ${win.seed}`).toBeCloseTo(360, 1);
       expect(win.held, `seed ${win.seed}`).toBe(3);
       // A win has to leave a body behind: if this ever reads 0, the victory was not earned.
       expect(win.hp, `seed ${win.seed}: finished standing`).toBeGreaterThan(0);
@@ -167,14 +167,14 @@ describe('the objective: three seals is a victory, the duration is a timeout', (
   it('settlement refuses a seal victory that has not had time to happen', () => {
     const preparation = prepareChapterRun(fresh, SEAL);
     const final = (change: Partial<ChapterFinalRun>): ChapterFinalRun => ({
-      ...SEAL, endReason: 'victory', time: 300, hp: 200, maxHp: 620, level: 8, kills: 150,
+      ...SEAL, endReason: 'victory', time: 360, hp: 200, maxHp: 620, level: 8, kills: 150,
       formId: 'dragon', awakened: true, coreSkillLevel: 3, routes: ['volley'], bonds: ['wildfire'],
       damageBy: { A003: 1000 }, damageTakenBy: { EN001: 420 }, bossDefeated: false, bossLootClaimed: false,
       sealsHeld: 3, elitesChecked: 0, ...change,
     });
     expect(() => validateChapterFinal(preparation, final({}))).not.toThrow();
-    // 289 s is one second before the third seal could possibly be held.
-    expect(() => validateChapterFinal(preparation, final({ time: 289 }))).toThrow('界碑时限');
+    // 359 s is one second before the third seal could possibly be held.
+    expect(() => validateChapterFinal(preparation, final({ time: 359 }))).toThrow('界碑时限');
     // Two seals is not the objective, however long the run lasted.
     expect(() => validateChapterFinal(preparation, final({ sealsHeld: 2 }))).toThrow('胜利目标');
     // And a bossless stage cannot claim a Boss kill.
@@ -188,7 +188,7 @@ describe('the objective: three seals is a victory, the duration is a timeout', (
 describe('readability: the renderer reads the fields the snapshot reports', () => {
   it('every drawn seal carries the state and ratio the HUD prints', () => {
     const sim = field(), seals = sim.seals!.renderState();
-    sim.time = 90;
+    sim.time = 100;
     tick(sim, 5, { x: seals[0]!.x, y: seals[0]!.y });
     const drawn = sim.seals!.renderState(), rows = sim.seals!.snapshot().rows;
     expect(drawn).toHaveLength(3);
@@ -209,7 +209,7 @@ describe('readability: the renderer reads the fields the snapshot reports', () =
     expect(seals.next!.index).toBe(0);
     expect(seals.rows[0]!.distance).toBeGreaterThan(0);
     expect(['东', '东南', '南', '西南', '西', '西北', '北', '东北']).toContain(seals.rows[0]!.direction);
-    expect(seals.rows[0]!.opensIn).toBeCloseTo(90, 6);
+    expect(seals.rows[0]!.opensIn).toBeCloseTo(100, 6);
     core.destroy();
   });
 });

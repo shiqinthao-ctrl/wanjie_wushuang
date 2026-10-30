@@ -267,6 +267,6 @@ eedfba5a9cb1e75ca6cb3acaae6a3cee *./R3-E/ai-report.json
 9b5d74c4cb2070fab5c7fa4c2d365185 *./R3-E/altar-report.json
 b3fee16525e3d5e90ac37c9d598dd326 *./R3-E/elite-report.json
 4c8e7633eb4988da6a9dd8fe7fbb9b7d *./R3-E/enemy-warnings-report.json
-e9310608e565e1f58411a76fe3a7ca6e *./R3-M/calibration-report.json
+3be3e1b043df63b70a5f3ce903cd6b1c *./R3-M/calibration-report.json
 cae56f93882dc99e2928e331b9103866 *./R3-M/map-report.json
-2f055ba5f3821150495e5c1c9693dca7 *./R3-M/seal-report.json
+3cc5bc697ad3bf474b4cab03ff55bdce *./R3-M/seal-report.json

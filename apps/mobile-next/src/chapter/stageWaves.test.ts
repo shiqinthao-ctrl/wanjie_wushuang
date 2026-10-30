@@ -96,7 +96,9 @@ describe('the tables that were not written, and why', () => {
     // row is a body the player has to clear *before* committing to a twenty-second hold, so each one
     // has to sit shortly before a seal opens - not after the window has already started.
     const eliteRows = rows(SEAL).filter(row => row.type === 'elite').map(row => row.at);
-    expect(eliteRows).toEqual([150, 255]);
+    // D36 moved the seals to 100 / 220 / 340, and these rows moved with them: an elite that lands
+    // 70 s before the seal it is supposed to gate is just a random elite.
+    expect(eliteRows).toEqual([190, 310]);
     for (const at of eliteRows) {
       const next = SEAL.seals.find(seal => seal.opensAt >= at);
       expect(next, `${at}s has no seal after it`).toBeDefined();

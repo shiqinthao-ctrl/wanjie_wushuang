@@ -39,7 +39,8 @@ describe('chapter preparation and copy boundary', () => {
   it('records all three stage objectives and opens all three that can be finished', () => {
     expect(chapterStages.map(stage => stage.duration)).toEqual([360, 420, 480]);
     expect(chapterStages[0]!.boss?.spawnAt).toBe(270); expect(chapterStages[1]!.boss).toBeNull();
-    expect(chapterStages[1]!.seals).toEqual([{ opensAt: 90, dwell: 20 }, { opensAt: 180, dwell: 20 }, { opensAt: 270, dwell: 20 }]);
+    // D36: the third seal moved 270 -> 340 so the stage's last minute is spent fighting, not waiting.
+    expect(chapterStages[1]!.seals).toEqual([{ opensAt: 100, dwell: 20 }, { opensAt: 220, dwell: 20 }, { opensAt: 340, dwell: 20 }]);
     expect(chapterStages[2]!.boss?.spawnAt).toBe(360);
     // R3-M02: `CH001-02` is now enterable, and the preparation must hand back *that* row.
     // Cloning `chapterStages[0]` regardless of `stageId` was the second lock on the door.

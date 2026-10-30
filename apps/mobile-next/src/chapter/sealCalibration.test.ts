@@ -156,12 +156,13 @@ describe('the bot is not the limit', () => {
 });
 
 describe('what the 33/33 actually says', () => {
-  it('ends the moment the third seal lands, 130 s before the stage clock', () => {
-    // The third seal opens at 270 and needs 20 s of holding, so the earliest possible victory is
-    // 290. The stage runs 420. **The last 130 seconds are only ever seen by a player who is losing.**
-    // That is why D34's new rows - which do cover 400-420 - change nothing for a player who wins.
-    for (const run of seal) expect(run.at, `seed ${run.seed}`).toBeLessThanOrEqual(290.5);
-    expect(STAGE.duration - 290).toBe(130);
+  it('ends the moment the third seal lands, 60 s before the stage clock', () => {
+    // D35 measured 290 / 420 - a 130-second window that only a losing player ever sees. D36 moved
+    // the third seal from 270 to 340, so the earliest victory is 360 and the window is 60 seconds,
+    // which is what `CH001-01` has (307.45 / 360 = 52.55). The assertion is the same shape; the
+    // number it guards is now the fixed one.
+    for (const run of seal) expect(run.at, `seed ${run.seed}`).toBeLessThanOrEqual(360.5);
+    expect(STAGE.duration - 360).toBe(60);
   });
   it('leaves the winner with real damage taken, so the win is not free', () => {
     // 33/33 is not "nothing happened": the lowest finishing hp across the seeds is well under half.

@@ -1,39 +1,39 @@
-# TASK.md - R3-M06: a 420-second stage you win at 290
+# TASK.md - R3-M07: is "hold the seal and let them come to you" the whole game?
 
-Base: R3-M05 (D35). **No queue entry.** D35 measured `CH001-02` at 33/33 and then noticed the number
-underneath it: every win ended at 289.98 s, the third seal's dwell completing, while the stage clock
-runs to 420. The last 130 seconds are only ever seen by a player who is losing.
+Base: R3-M06 (D36). **No queue entry.** D36 fixed the victory window (130 s -> 60 s) and the win rate
+did not move: `CH001-02` is still 33/33. The window was not the difficulty. D36 wrote down a
+suspicion instead - the seal policy circles inside the radius and never has to charge - and left it
+unmeasured. This slice measures it.
 
 ## Why
 
-`CH001-02`'s victory condition is "hold all three seals". The seals open at 90 / 180 / 270 and each
-needs twenty seconds, so the earliest win is 290. The stage is 420. That gap is not a tuning choice -
-it is two numbers in different files that were never put next to each other, and it is the same shape
-as D34's finding (a table that ended at 360 while the stage ran to 420). D34 fixed the loser's half;
-this is the winner's.
+Two of the three stages are won 66.7% and 51.5% of the time by the same bot; the seal stage is 100%.
+If that gap comes from "the objective lets you stand still", then the stage is not easier - it is
+asking a different, smaller question. That distinction decides whether the fix is a number or a
+mechanic, and right now it is a guess written in a decision log.
 
 ## Scope
 
 0. **Verify the premise first, with a command.**
-   (a) For each of the three stages, compute the earliest possible victory from its own data
-       (seals + dwell, or boss spawn + kill) and put it beside `duration`. Which stages have a gap?
-   (b) `CH001-01` lost 6 of 33 seeds to **timeout at 360 s with positive hp** - not death. Read
-       `calibration-report.json` and say how many of each `endReason` per stage. Is that the same
-       shape (a clock shorter than the fight) or a different one?
-   (c) Who reads `duration`? Count the readers and name what each would do if it changed - the
-       timeout verdict, the HUD clock, `UiStage`, the objective line.
-   (d) Who reads `seals[].opensAt`? Count the assertions that would move.
-1. **Close the gap on `CH001-02`.** Either the clock comes down or the seals move later - pick one,
-   say why, and record the other. Do not do both.
-2. **Re-measure 33 seeds on both versions** and report both rates, even if the second one is worse.
-3. **`CH001-01`'s timeouts: measure, do not fix.** Say how many and what they are; fixing it is a
-   different slice with a different lever.
-4. **Re-baseline, explicitly.** Same rule as D23-D35: what moved, old numbers beside new.
+   (a) Does `CombatSimulation` record damage by source for a chapter run, and is the field readable
+       from a test? Name it; if it is empty on this path, say so before building anything.
+   (b) What exactly would a "clear first" arm change - one line of movement, or the choice logic too?
+       Quote the branch.
+   (c) What does the current arm's damage curve look like across the 33 seeds, and where does it
+       peak - on a seal, or between seals?
+   (d) Do the two Boss stages record the same field? Without that, there is no comparison.
+1. **Add one arm, not a new bot.** `clear`: when a body is inside 70 px, walk at it and kill it
+   before returning to the seal. Everything else stays identical to the `seal` arm.
+2. **33 seeds per arm**, three arms (`seal` / `clear` / `idle`), and report rate **and** damage taken
+   **and** where the run ended. A rate alone cannot tell "easier" from "shorter".
+3. **If `clear` is worse than `seal`**, that is the finding: the stage rewards not engaging. Say so,
+   do not retune the stage in the same slice.
+4. **Re-baseline, explicitly.** Same rule as D23-D36: what moved, old numbers beside new.
 
 ## Out of scope
 
-Art and audio; a fourth stage; the enemy pool; difficulty tiers; re-tuning the wave tables (D34's
-rows stay as they are).
+Art and audio; a fourth stage; difficulty tiers; re-tuning `CH001-01`'s timeouts (a different lever -
+D36 measured them and stopped); changing the wave tables again.
 
 ## Constraints
 
